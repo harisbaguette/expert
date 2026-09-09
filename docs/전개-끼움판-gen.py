@@ -207,7 +207,7 @@ for i in range(2):
 out.append(f'<rect x="{MARGIN}" y="{TRAY_TOP}" width="{W - MARGIN * 2}" height="{TRAY_H}" rx="14" '
            f'fill="#fafbfc" stroke="{DIM}" stroke-width="2.4" stroke-dasharray="12 8"/>')
 out.append(f'<text x="{MARGIN + 26}" y="{TRAY_TOP + 50}" font-size="34" font-weight="700" fill="{INK}">'
-           '끼움 부품 — 그 직무의 세상에 있을 때만 채우는 재료 8개</text>')
+           '끼움 부품 — 그 직무에 필요한 경우에만 채우는 재료 8개</text>')
 out.append(f'<text x="{MARGIN + 26}" y="{TRAY_TOP + 86}" font-size="24" fill="{SUB}">'
            '위 본체의 같은 번호 빈칸에 들어간다. 없는 직무는 빈칸으로 두고 "이 직무에 없음" 이라 적는다. '
            '있어야 하는데 빠지면 필수와 똑같이 그 항이 0이다</text>')
@@ -234,3 +234,91 @@ path = "docs/전개-끼움판.svg"
 with open(path, "w", encoding="utf-8") as f:
     f.write("\n".join(svg))
 print(f"{path}  {W}x{H}")
+
+
+# ── the same 51 materials as plain text, for readers that cannot see a picture (AI, search,
+#    screen readers).  Written straight into the document between the markers, so the picture
+#    and the words are generated from this one table and can never drift apart.
+WHEN = {no: when for no, _, when, _ in TRAY}
+ONE_MATERIAL = {"실무"}          # 실무 counts as one material (업무 처리 흐름); its 9 걸음 are steps
+DOC = "전문가 에이전트 정의 2.md"
+BEGIN = "<!-- 전개-글 시작 — docs/전개-끼움판-gen.py 가 채운다. 손으로 고치지 말 것 -->"
+END = "<!-- 전개-글 끝 -->"
+ANCHOR = "![전개 — 본체 43개와 끼움 부품 8개](docs/전개-끼움판.svg)"
+
+
+def flat(chips):
+    return chips if isinstance(chips, list) else chips["chain"] + chips["side"]
+
+
+def counts(name):
+    if name in ONE_MATERIAL:
+        return 1, 1, 0
+    all_c = [c for _, chips in TERMS[name] for c in flat(chips)]
+    req = sum(1 for c in all_c if isinstance(c, str))
+    return len(all_c), req, len(all_c) - req
+
+
+def build_text():
+    n_all = sum(counts(t)[0] for t in TERMS)
+    n_req = sum(counts(t)[1] for t in TERMS)
+    L = ["전문 AI 에이전트 = 환경 × 지식 × 규칙 × 실무 × 검증 × 학습",
+         f"재료 {n_all}개 = 필수 {n_req}개 + 필요한 경우 {n_all - n_req}개",
+         "× 는 곱셈이다. 항이 하나라도 0이면 전체가 0이 된다.",
+         ""]
+    for name in TERMS:
+        n, req, cond = counts(name)
+        L.append(f"{name} (재료 {n}개)" if cond == 0
+                 else f"{name} (재료 {n}개 = 필수 {req}개 + 필요한 경우 {cond}개)")
+        for sysname, chips in TERMS[name]:
+            ind = "  "
+            if sysname:
+                L.append(f"  {sysname}")
+                ind = "    "
+            if name in ONE_MATERIAL:
+                L.append(ind + "차례: " + " → ".join(flat(chips)))
+                continue
+            if isinstance(chips, dict):
+                chain = " > ".join(c if isinstance(c, str) else f"{c[0]} [필요한 경우]"
+                                   for c in chips["chain"])
+                L.append(ind + "우선순위 (위가 아래를 이긴다): " + chain)
+                L.append(ind + "그 밖의 필수: " + " + ".join(chips["side"]))
+                conds = [c for c in chips["chain"] if not isinstance(c, str)]
+            else:
+                L.append(ind + "필수: " + " + ".join(c for c in chips if isinstance(c, str)))
+                conds = [c for c in chips if not isinstance(c, str)]
+            if conds:
+                L.append(ind + "필요한 경우:")
+                for nm, no in conds:
+                    L.append(ind + f"  {nm} — {WHEN[no]}")
+        L.append("")
+    L += ["짝지어 다니는 것 — 계약·플랫폼 규칙과 회사 규칙은 둘 다 빌 수 없다 "
+          "(나를 묶는 것이 회사든 계약이든 하나는 있다). 플랫폼·기관 규정이 있으면 계약·플랫폼 규칙도 있다.",
+          "필요한 경우 재료가 그 직무에 없으면 빈칸으로 두고 \"이 직무에 없음\" 이라 적는다. "
+          "있어야 하는데 빠지면 필수와 똑같이 그 항이 0이 된다."]
+    return "\n".join(L)
+
+
+block = "\n".join([
+    BEGIN,
+    "<details>",
+    "<summary><b>전개 — 글로 읽기</b> (위 두 그림과 같은 내용이다. 그림을 못 보는 화면·검색·AI 용)</summary>",
+    "",
+    "```text",
+    build_text(),
+    "```",
+    "",
+    "</details>",
+    END,
+])
+
+doc = open(DOC, encoding="utf-8").read()
+if BEGIN in doc and END in doc:
+    head, rest = doc.split(BEGIN, 1)
+    doc = head + block + rest.split(END, 1)[1]
+elif ANCHOR in doc:
+    doc = doc.replace(ANCHOR, ANCHOR + "\n\n" + block, 1)
+else:
+    raise SystemExit(f"{DOC}: 붙일 자리를 못 찾음")
+open(DOC, "w", encoding="utf-8").write(doc)
+print(f"{DOC}  전개-글 갱신")

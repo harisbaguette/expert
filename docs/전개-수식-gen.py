@@ -154,7 +154,7 @@ def draw_row(x0, y0, row):
     only_cond = bool(mats) and all(not t[2] for t in mats)
     if only_cond:
         out.append(f'<text x="{X_BODY - 22}" y="{cy + 7}" text-anchor="end" font-size="20" '
-                   f'fill="#94a3b1">있을 때만</text>')
+                   f'fill="#94a3b1">필요한 경우</text>')
     for t in row:
         if t[0] == "m":
             _, nm, req = t
@@ -218,7 +218,7 @@ out.append(f'<text x="{X_TERM + 80}" y="{ly + 25}" font-size="24" fill="{INK}">'
 out.append(f'<rect x="{X_TERM}" y="{ly + 48}" width="64" height="34" rx="7" fill="#ffffff" stroke="{LINE}" '
            'stroke-width="2.2" stroke-dasharray="8 6"/>')
 out.append(f'<text x="{X_TERM + 80}" y="{ly + 73}" font-size="24" fill="{INK}">'
-           '점선 빈칸 = 그 직무의 세상에 있을 때만 채우는 재료 (8개). 없는 직무는 빈칸으로 두고 없다고 적는다</text>')
+           '점선 빈칸 = 그 직무에 필요한 경우에만 채우는 재료 (8개). 없는 직무는 빈칸으로 두고 없다고 적는다</text>')
 
 out.append("</svg>")
 path = "docs/전개-수식.svg"

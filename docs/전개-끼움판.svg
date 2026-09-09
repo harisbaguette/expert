@@ -155,7 +155,7 @@
 <text x="550.0" y="310.0" text-anchor="middle" font-size="52" font-weight="700" fill="#46586b">×</text>
 <text x="1082.0" y="310.0" text-anchor="middle" font-size="52" font-weight="700" fill="#46586b">×</text>
 <rect x="30" y="1148" width="1572" height="506" rx="14" fill="#fafbfc" stroke="#7b8b9c" stroke-width="2.4" stroke-dasharray="12 8"/>
-<text x="56" y="1198" font-size="34" font-weight="700" fill="#1d2b38">끼움 부품 — 그 직무의 세상에 있을 때만 채우는 재료 8개</text>
+<text x="56" y="1198" font-size="34" font-weight="700" fill="#1d2b38">끼움 부품 — 그 직무에 필요한 경우에만 채우는 재료 8개</text>
 <text x="56" y="1234" font-size="24" fill="#46586b">위 본체의 같은 번호 빈칸에 들어간다. 없는 직무는 빈칸으로 두고 "이 직무에 없음" 이라 적는다. 있어야 하는데 빠지면 필수와 똑같이 그 항이 0이다</text>
 <circle cx="76.0" cy="1288" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
 <text x="76.0" y="1296" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">1</text>

@@ -31,7 +31,7 @@
 <text x="1102.2" y="217.0" text-anchor="middle" font-size="26" fill="#46586b">+</text>
 <rect x="1129.2" y="184" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
 <text x="1195.2" y="216.5" text-anchor="middle" font-size="23" fill="#1d2b38">시험 환경</text>
-<text x="406" y="281.0" text-anchor="end" font-size="20" fill="#94a3b1">있을 때만</text>
+<text x="406" y="281.0" text-anchor="end" font-size="20" fill="#94a3b1">필요한 경우</text>
 <text x="443.0" y="283.0" text-anchor="middle" font-size="26" fill="#94a3b1">+</text>
 <rect x="470" y="250" width="155.1" height="48" rx="9" fill="#ffffff" stroke="#46586b" stroke-width="2.2" stroke-dasharray="8 6"/>
 <text x="547.5" y="282.5" text-anchor="middle" font-size="23" fill="#1d2b38">실시간 통로</text>
@@ -64,7 +64,7 @@
 <text x="822.0" y="469.0" text-anchor="middle" font-size="26" fill="#46586b">+</text>
 <rect x="849.0" y="436" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
 <text x="915.0" y="468.5" text-anchor="middle" font-size="23" fill="#1d2b38">자동 갱신</text>
-<text x="406" y="533.0" text-anchor="end" font-size="20" fill="#94a3b1">있을 때만</text>
+<text x="406" y="533.0" text-anchor="end" font-size="20" fill="#94a3b1">필요한 경우</text>
 <text x="443.0" y="535.0" text-anchor="middle" font-size="26" fill="#94a3b1">+</text>
 <rect x="470" y="502" width="212.6" height="48" rx="9" fill="#ffffff" stroke="#46586b" stroke-width="2.2" stroke-dasharray="8 6"/>
 <text x="576.3" y="534.5" text-anchor="middle" font-size="23" fill="#1d2b38">플랫폼·기관 규정</text>
@@ -76,7 +76,7 @@
 <text x="587.1" y="609.0" text-anchor="middle" font-size="26" fill="#46586b">+</text>
 <rect x="614.1" y="576" width="216.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
 <text x="722.1" y="608.5" text-anchor="middle" font-size="23" fill="#1d2b38">감각·사례·암묵지</text>
-<text x="406" y="673.0" text-anchor="end" font-size="20" fill="#94a3b1">있을 때만</text>
+<text x="406" y="673.0" text-anchor="end" font-size="20" fill="#94a3b1">필요한 경우</text>
 <text x="443.0" y="675.0" text-anchor="middle" font-size="26" fill="#94a3b1">+</text>
 <rect x="470" y="642" width="158.5" height="48" rx="9" fill="#ffffff" stroke="#46586b" stroke-width="2.2" stroke-dasharray="8 6"/>
 <text x="549.2" y="674.5" text-anchor="middle" font-size="23" fill="#1d2b38">정체성·작풍</text>
@@ -132,7 +132,7 @@
 <text x="698.1" y="1075.0" text-anchor="middle" font-size="26" fill="#46586b">+</text>
 <rect x="725.1" y="1042" width="158.5" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
 <text x="804.4" y="1074.5" text-anchor="middle" font-size="23" fill="#1d2b38">보고·결과물</text>
-<text x="406" y="1139.0" text-anchor="end" font-size="20" fill="#94a3b1">있을 때만</text>
+<text x="406" y="1139.0" text-anchor="end" font-size="20" fill="#94a3b1">필요한 경우</text>
 <text x="443.0" y="1141.0" text-anchor="middle" font-size="26" fill="#94a3b1">+</text>
 <rect x="470" y="1108" width="132.1" height="48" rx="9" fill="#ffffff" stroke="#46586b" stroke-width="2.2" stroke-dasharray="8 6"/>
 <text x="536.0" y="1140.5" text-anchor="middle" font-size="23" fill="#1d2b38">상대 응대</text>
@@ -207,5 +207,5 @@
 <rect x="46" y="1742" width="64" height="34" rx="7" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
 <text x="126" y="1767" font-size="24" fill="#1d2b38">실선 벽돌 = 어느 직무든 반드시 있어야 하는 재료 (43개). 하나만 비어도 그 항이 0이 된다</text>
 <rect x="46" y="1790" width="64" height="34" rx="7" fill="#ffffff" stroke="#46586b" stroke-width="2.2" stroke-dasharray="8 6"/>
-<text x="126" y="1815" font-size="24" fill="#1d2b38">점선 빈칸 = 그 직무의 세상에 있을 때만 채우는 재료 (8개). 없는 직무는 빈칸으로 두고 없다고 적는다</text>
+<text x="126" y="1815" font-size="24" fill="#1d2b38">점선 빈칸 = 그 직무에 필요한 경우에만 채우는 재료 (8개). 없는 직무는 빈칸으로 두고 없다고 적는다</text>
 </svg>
