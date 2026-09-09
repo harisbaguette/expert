@@ -225,3 +225,77 @@ path = "docs/전개-수식.svg"
 with open(path, "w", encoding="utf-8") as f:
     f.write("\n".join(out))
 print(f"{path}  {W}x{H}")
+
+
+# ── 같은 데이터로 글자판도 뽑는다 ───────────────────────────────────────────
+# 그림을 못 보는 화면과 AI 가 읽는 판. SVG 와 한 데이터에서 나오므로 어긋날 수 없다.
+DOC = "전문가 에이전트 정의 2.md"
+BEGIN = "<!-- 전개-글자판 시작 — docs/전개-수식-gen.py 가 채운다. 손으로 고치지 말 것 -->"
+END = "<!-- 전개-글자판 끝 -->"
+
+W_TERM = 6       # 항 이름 칸
+W_SYSN = 15      # 계통 이름 칸
+INDENT = W_TERM + 3 + 2 + W_SYSN   # 본문이 시작하는 칸
+
+
+def dw(s):
+    """고정폭 화면에서의 글자 폭 — 한글·중점은 2칸, 나머지 1칸."""
+    return sum(2 if ord(ch) > 0x2000 else 1 for ch in s)
+
+
+def pad(s, w):
+    return s + " " * max(0, w - dw(s))
+
+
+def chip(tok):
+    return f"[{tok[1]}]" if tok[2] else f"<{tok[1]}>"
+
+
+def render_row(row):
+    parts = []
+    for t in row:
+        if t[0] == "m":
+            parts.append(chip(t))
+        elif t[0] == "o":
+            parts.append(t[1])
+        else:
+            parts.append(t[0])
+    return " ".join(parts)
+
+
+def text_lines():
+    out = ["전개 — 재료 51개 = 실선 벽돌 43개 + 점선 빈칸 8개",
+           "[재료] 실선 벽돌 = 어느 직무든 반드시 있어야 하는 재료 (43개). 하나만 비어도 그 항이 0이 된다",
+           "<재료> 점선 빈칸 = 그 직무에 필요한 경우에만 채우는 재료 (8개). 없는 직무는 빈칸으로 두고 없다고 적는다",
+           ""]
+    for ti, (term, systems) in enumerate(TERMS):
+        if ti:
+            out.append(pad("", W_TERM) + " ×")
+        braced = len(systems) > 1
+        body = []
+        for sysname, rows in systems:
+            for ri, row in enumerate(rows):
+                only_cond = all(t[2] is False for t in row if t[0] == "m") and any(t[0] == "m" for t in row)
+                label = "필요한 경우" if only_cond else (sysname if ri == 0 and sysname else "")
+                body.append((label, render_row(row)))
+        n = len(body)
+        mid = (n - 1) // 2
+        for bi, (label, text) in enumerate(body):
+            head = pad(term, W_TERM) + " = " if bi == 0 else pad("", W_TERM) + "   "
+            if braced:
+                brace = "⎧ " if bi == 0 else "⎩ " if bi == n - 1 else "⎨ " if bi == mid else "⎪ "
+            else:
+                brace = ""
+            out.append((head + brace + pad(label, W_SYSN) + text).rstrip())
+    return out
+
+
+block = "\n".join([BEGIN, "", "```text"] + text_lines() + ["```", "", END])
+doc = open(DOC, encoding="utf-8").read()
+if BEGIN in doc and END in doc:
+    head, rest = doc.split(BEGIN, 1)
+    doc = head + block + rest.split(END, 1)[1]
+    open(DOC, "w", encoding="utf-8").write(doc)
+    print(f"{DOC}  전개 글자판 갱신")
+else:
+    print("\n".join(text_lines()))
