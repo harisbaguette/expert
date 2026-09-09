@@ -1,5 +1,7 @@
 # Generates work-flow.svg — the one-glance overview of the work flow (straight spine + return arcs).
 # Run: python3 docs/work-flow-gen.py  (then check the render before committing)
+import os
+
 NS = "http://" + "www.w3.org/2000/svg"
 W = 1440
 H = 485
@@ -104,6 +106,5 @@ o.append(f'<line x1="{cx(1) - 40}" y1="{ey + eh + 2}" x2="{cx(1) - 40}" y2="{top
 lab(cx(1) - 40 - 50, top - 30, "피해가 멎으면", "#7f1d1d")
 
 o.append('</svg>')
-import os
 open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'work-flow.svg'), 'w', encoding='utf-8').write('\n'.join(o))
 print('written')
