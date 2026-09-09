@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1632 1684" width="1632" height="1684" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+<rect width="1632" height="1684" fill="#ffffff"/>
+<text x="30" y="56" font-size="34" font-weight="700" fill="#1d2b38">본체 — 어느 직무든 있어야 하는 재료 43개</text>
+<text x="30" y="92" font-size="24" fill="#46586b">실선 벽돌은 직무를 갈아 끼워도 그대로 남는다. 하나만 비어도 그 항이 0이 되어 에이전트가 서지 않는다</text>
+<line x1="30" y1="110" x2="1602" y2="110" stroke="#1d2b38" stroke-width="2.6"/>
+<rect x="30" y="132" width="508" height="320" rx="12" fill="#ffffff" stroke="#a8b4bf" stroke-width="2.2"/>
+<text x="52" y="178" font-size="36" font-weight="700" fill="#1d2b38">환경</text>
+<line x1="52" y1="190" x2="516" y2="190" stroke="#a8b4bf" stroke-width="1.6"/>
+<rect x="76.2" y="194" width="78.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="115.2" y="226.5" text-anchor="middle" font-size="23" fill="#1d2b38">모델</text>
+<rect x="166.2" y="194" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="232.2" y="226.5" text-anchor="middle" font-size="23" fill="#1d2b38">실행 순환</text>
+<rect x="310.3" y="194" width="181.5" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="401.0" y="226.5" text-anchor="middle" font-size="23" fill="#1d2b38">저장·이어받기</text>
+<rect x="77.9" y="254" width="155.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="155.4" y="286.5" text-anchor="middle" font-size="23" fill="#1d2b38">나눠 맡기기</text>
+<rect x="245.0" y="254" width="101.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="295.5" y="286.5" text-anchor="middle" font-size="23" fill="#1d2b38">작업창</text>
+<rect x="358.0" y="254" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="424.1" y="286.5" text-anchor="middle" font-size="23" fill="#1d2b38">시작 신호</text>
+<rect x="100.9" y="314" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="166.9" y="346.5" text-anchor="middle" font-size="23" fill="#1d2b38">자료 읽기</text>
+<rect x="245.0" y="314" width="78.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="284.0" y="346.5" text-anchor="middle" font-size="23" fill="#1d2b38">도구</text>
+<rect x="335.0" y="314" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="401.1" y="346.5" text-anchor="middle" font-size="23" fill="#1d2b38">시험 환경</text>
+<rect x="74.7" y="374" width="186.1" height="48" rx="9" fill="#ffffff" stroke="#7b8b9c" stroke-width="2.2" stroke-dasharray="8 6"/>
+<text x="167.7" y="406.5" text-anchor="middle" font-size="23" fill="#7b8b9c">① 실시간 통로</text>
+<rect x="272.8" y="374" width="220.6" height="48" rx="9" fill="#ffffff" stroke="#7b8b9c" stroke-width="2.2" stroke-dasharray="8 6"/>
+<text x="383.1" y="406.5" text-anchor="middle" font-size="23" fill="#7b8b9c">② 그림·영상 생성</text>
+<rect x="30" y="482" width="508" height="354" rx="12" fill="#ffffff" stroke="#a8b4bf" stroke-width="2.2"/>
+<text x="52" y="528" font-size="36" font-weight="700" fill="#1d2b38">실무</text>
+<line x1="52" y1="540" x2="516" y2="540" stroke="#a8b4bf" stroke-width="1.6"/>
+<text x="52" y="570" font-size="24" font-weight="700" fill="#46586b">업무 처리 흐름</text>
+<rect x="123.5" y="578" width="156.2" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="201.6" y="610.5" text-anchor="middle" font-size="23" fill="#1d2b38">0 감지·접수</text>
+<rect x="291.7" y="578" width="152.8" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="368.1" y="610.5" text-anchor="middle" font-size="23" fill="#1d2b38">1 의도 파악</text>
+<rect x="125.2" y="638" width="152.8" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="201.6" y="670.5" text-anchor="middle" font-size="23" fill="#1d2b38">2 문제 정의</text>
+<rect x="290.0" y="638" width="152.8" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="366.4" y="670.5" text-anchor="middle" font-size="23" fill="#1d2b38">3 자료 확인</text>
+<rect x="95.2" y="698" width="156.2" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="173.3" y="730.5" text-anchor="middle" font-size="23" fill="#1d2b38">4 판단·계획</text>
+<rect x="263.4" y="698" width="98.7" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="312.8" y="730.5" text-anchor="middle" font-size="23" fill="#1d2b38">5 처리</text>
+<rect x="374.1" y="698" width="98.7" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="423.4" y="730.5" text-anchor="middle" font-size="23" fill="#1d2b38">6 검증</text>
+<rect x="139.1" y="758" width="156.2" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="217.2" y="790.5" text-anchor="middle" font-size="23" fill="#1d2b38">7 완료·보고</text>
+<rect x="307.2" y="758" width="121.7" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="368.1" y="790.5" text-anchor="middle" font-size="23" fill="#1d2b38">8 남기기</text>
+<rect x="562" y="132" width="508" height="622" rx="12" fill="#ffffff" stroke="#a8b4bf" stroke-width="2.2"/>
+<text x="584" y="178" font-size="36" font-weight="700" fill="#1d2b38">지식</text>
+<line x1="584" y1="190" x2="1048" y2="190" stroke="#a8b4bf" stroke-width="1.6"/>
+<text x="584" y="220" font-size="24" font-weight="700" fill="#46586b">자료·검색</text>
+<rect x="604.1" y="228" width="135.5" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="671.9" y="260.5" text-anchor="middle" font-size="23" fill="#1d2b38">법규·기준</text>
+<rect x="751.6" y="228" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="817.7" y="260.5" text-anchor="middle" font-size="23" fill="#1d2b38">해석 자료</text>
+<rect x="895.8" y="228" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="961.8" y="260.5" text-anchor="middle" font-size="23" fill="#1d2b38">일반 자료</text>
+<rect x="618.7" y="288" width="189.6" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="713.5" y="320.5" text-anchor="middle" font-size="23" fill="#1d2b38">고객·회사 정보</text>
+<rect x="820.3" y="288" width="193.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="916.8" y="320.5" text-anchor="middle" font-size="23" fill="#1d2b38">출처·시점·판본</text>
+<rect x="705.0" y="348" width="78.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="744.0" y="380.5" text-anchor="middle" font-size="23" fill="#1d2b38">검색</text>
+<rect x="795.0" y="348" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="861.0" y="380.5" text-anchor="middle" font-size="23" fill="#1d2b38">자동 갱신</text>
+<rect x="606.6" y="408" width="243.6" height="48" rx="9" fill="#ffffff" stroke="#7b8b9c" stroke-width="2.2" stroke-dasharray="8 6"/>
+<text x="728.4" y="440.5" text-anchor="middle" font-size="23" fill="#7b8b9c">③ 플랫폼·기관 규정</text>
+<rect x="862.2" y="408" width="163.1" height="48" rx="9" fill="#ffffff" stroke="#7b8b9c" stroke-width="2.2" stroke-dasharray="8 6"/>
+<text x="943.8" y="440.5" text-anchor="middle" font-size="23" fill="#7b8b9c">④ 현황 자료</text>
+<text x="584" y="504" font-size="24" font-weight="700" fill="#46586b">지식·경험</text>
+<rect x="636.0" y="512" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="702.0" y="544.5" text-anchor="middle" font-size="23" fill="#1d2b38">업무 지식</text>
+<rect x="780.1" y="512" width="216.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="888.1" y="544.5" text-anchor="middle" font-size="23" fill="#1d2b38">감각·사례·암묵지</text>
+<rect x="721.2" y="572" width="189.6" height="48" rx="9" fill="#ffffff" stroke="#7b8b9c" stroke-width="2.2" stroke-dasharray="8 6"/>
+<text x="816.0" y="604.5" text-anchor="middle" font-size="23" fill="#7b8b9c">⑤ 정체성·작풍</text>
+<text x="584" y="668" font-size="24" font-weight="700" fill="#46586b">기억·상태</text>
+<rect x="677.9" y="676" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="743.9" y="708.5" text-anchor="middle" font-size="23" fill="#1d2b38">장기 기억</text>
+<rect x="822.0" y="676" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="888.0" y="708.5" text-anchor="middle" font-size="23" fill="#1d2b38">작업 기억</text>
+<rect x="562" y="784" width="508" height="294" rx="12" fill="#ffffff" stroke="#a8b4bf" stroke-width="2.2"/>
+<text x="584" y="830" font-size="36" font-weight="700" fill="#1d2b38">검증</text>
+<line x1="584" y1="842" x2="1048" y2="842" stroke="#a8b4bf" stroke-width="1.6"/>
+<text x="584" y="872" font-size="24" font-weight="700" fill="#46586b">검증·평가</text>
+<rect x="620.4" y="880" width="189.6" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="715.2" y="912.5" text-anchor="middle" font-size="23" fill="#1d2b38">결과 검증·수정</text>
+<rect x="822.0" y="880" width="189.6" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="916.8" y="912.5" text-anchor="middle" font-size="23" fill="#1d2b38">반증·교차 검증</text>
+<rect x="650.9" y="940" width="186.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="743.9" y="972.5" text-anchor="middle" font-size="23" fill="#1d2b38">위험 누락 검사</text>
+<rect x="849.0" y="940" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="915.0" y="972.5" text-anchor="middle" font-size="23" fill="#1d2b38">과정 평가</text>
+<rect x="637.6" y="1000" width="155.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="715.2" y="1032.5" text-anchor="middle" font-size="23" fill="#1d2b38">결과물 평가</text>
+<rect x="804.8" y="1000" width="189.6" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="899.5" y="1032.5" text-anchor="middle" font-size="23" fill="#1d2b38">근거 추적·재현</text>
+<rect x="1094" y="132" width="508" height="698" rx="12" fill="#ffffff" stroke="#a8b4bf" stroke-width="2.2"/>
+<text x="1116" y="178" font-size="36" font-weight="700" fill="#1d2b38">규칙</text>
+<line x1="1116" y1="190" x2="1580" y2="190" stroke="#a8b4bf" stroke-width="1.6"/>
+<text x="1116" y="220" font-size="24" font-weight="700" fill="#46586b">규칙·권한</text>
+<rect x="1177.5" y="228" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1243.5" y="260.5" text-anchor="middle" font-size="23" fill="#1d2b38">절대 원칙</text>
+<text x="1243.5" y="290" text-anchor="middle" font-size="20" fill="#46586b">∨</text>
+<rect x="1177.5" y="288" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1243.5" y="320.5" text-anchor="middle" font-size="23" fill="#1d2b38">직업 규칙</text>
+<text x="1243.5" y="350" text-anchor="middle" font-size="20" fill="#46586b">∨</text>
+<rect x="1121.7" y="348" width="243.6" height="48" rx="9" fill="#ffffff" stroke="#7b8b9c" stroke-width="2.2" stroke-dasharray="8 6"/>
+<text x="1243.5" y="380.5" text-anchor="middle" font-size="23" fill="#7b8b9c">⑥ 계약·플랫폼 규칙</text>
+<text x="1243.5" y="410" text-anchor="middle" font-size="20" fill="#46586b">∨</text>
+<rect x="1162.0" y="408" width="163.1" height="48" rx="9" fill="#ffffff" stroke="#7b8b9c" stroke-width="2.2" stroke-dasharray="8 6"/>
+<text x="1243.5" y="440.5" text-anchor="middle" font-size="23" fill="#7b8b9c">⑦ 회사 규칙</text>
+<text x="1243.5" y="470" text-anchor="middle" font-size="20" fill="#46586b">∨</text>
+<rect x="1177.5" y="468" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1243.5" y="500.5" text-anchor="middle" font-size="23" fill="#1d2b38">개인 취향</text>
+<rect x="1381.3" y="228" width="193.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1477.8" y="260.5" text-anchor="middle" font-size="23" fill="#1d2b38">권한·명의·위임</text>
+<rect x="1415.8" y="288" width="124.0" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1477.8" y="320.5" text-anchor="middle" font-size="23" fill="#1d2b38">안전장치</text>
+<rect x="1383.0" y="348" width="189.6" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1477.8" y="380.5" text-anchor="middle" font-size="23" fill="#1d2b38">책임·손실 한도</text>
+<text x="1250" y="220" font-size="20" fill="#7b8b9c">왼쪽 줄 위아래 = 부딪힐 때 이기는 순서</text>
+<text x="1116" y="564" font-size="24" font-weight="700" fill="#46586b">행동 체계</text>
+<rect x="1169.7" y="572" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1235.7" y="604.5" text-anchor="middle" font-size="23" fill="#1d2b38">판단 규칙</text>
+<rect x="1313.8" y="572" width="212.6" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1420.0" y="604.5" text-anchor="middle" font-size="23" fill="#1d2b38">업무 절차·노하우</text>
+<rect x="1186.9" y="632" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1253.0" y="664.5" text-anchor="middle" font-size="23" fill="#1d2b38">완료 조건</text>
+<rect x="1331.0" y="632" width="178.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1420.0" y="664.5" text-anchor="middle" font-size="23" fill="#1d2b38">먼저 감지하기</text>
+<rect x="1162.2" y="692" width="201.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1262.8" y="724.5" text-anchor="middle" font-size="23" fill="#1d2b38">사람에게 넘기기</text>
+<rect x="1375.3" y="692" width="158.5" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1454.5" y="724.5" text-anchor="middle" font-size="23" fill="#1d2b38">보고·결과물</text>
+<rect x="1266.5" y="752" width="163.1" height="48" rx="9" fill="#ffffff" stroke="#7b8b9c" stroke-width="2.2" stroke-dasharray="8 6"/>
+<text x="1348.0" y="784.5" text-anchor="middle" font-size="23" fill="#7b8b9c">⑧ 상대 응대</text>
+<rect x="1094" y="860" width="508" height="234" rx="12" fill="#ffffff" stroke="#a8b4bf" stroke-width="2.2"/>
+<text x="1116" y="906" font-size="36" font-weight="700" fill="#1d2b38">학습</text>
+<line x1="1116" y1="918" x2="1580" y2="918" stroke="#a8b4bf" stroke-width="1.6"/>
+<text x="1116" y="948" font-size="24" font-weight="700" fill="#46586b">학습·개선</text>
+<rect x="1182.9" y="956" width="186.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1276.0" y="988.5" text-anchor="middle" font-size="23" fill="#1d2b38">실패 원인 분석</text>
+<rect x="1381.0" y="956" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1447.0" y="988.5" text-anchor="middle" font-size="23" fill="#1d2b38">고정 시험</text>
+<rect x="1209.9" y="1016" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1276.0" y="1048.5" text-anchor="middle" font-size="23" fill="#1d2b38">자동 학습</text>
+<rect x="1354.0" y="1016" width="132.1" height="48" rx="9" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="1420.0" y="1048.5" text-anchor="middle" font-size="23" fill="#1d2b38">성과 추적</text>
+<text x="550.0" y="310.0" text-anchor="middle" font-size="52" font-weight="700" fill="#46586b">×</text>
+<text x="1082.0" y="310.0" text-anchor="middle" font-size="52" font-weight="700" fill="#46586b">×</text>
+<rect x="30" y="1148" width="1572" height="506" rx="14" fill="#fafbfc" stroke="#7b8b9c" stroke-width="2.4" stroke-dasharray="12 8"/>
+<text x="56" y="1198" font-size="34" font-weight="700" fill="#1d2b38">끼움 부품 — 그 직무의 세상에 있을 때만 채우는 재료 8개</text>
+<text x="56" y="1234" font-size="24" fill="#46586b">위 본체의 같은 번호 빈칸에 들어간다. 없는 직무는 빈칸으로 두고 "이 직무에 없음" 이라 적는다. 있어야 하는데 빠지면 필수와 똑같이 그 항이 0이다</text>
+<circle cx="76.0" cy="1288" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="76.0" y="1296" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">1</text>
+<text x="108.0" y="1284" font-size="25" font-weight="700" fill="#1d2b38">실시간 통로</text>
+<text x="108.0" y="1314" font-size="22" fill="#46586b">음성·화상·채팅·방송처럼 초 단위로 주고받는 일일 때</text>
+<text x="802.0" y="1284" text-anchor="end" font-size="21" fill="#7b8b9c">환경</text>
+<circle cx="840.0" cy="1288" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="840.0" y="1296" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">2</text>
+<text x="872.0" y="1284" font-size="25" font-weight="700" fill="#1d2b38">그림·영상 생성</text>
+<text x="872.0" y="1314" font-size="22" fill="#46586b">결과물이 글이 아닐 때 (그림·영상·음성·도면)</text>
+<text x="1566.0" y="1284" text-anchor="end" font-size="21" fill="#7b8b9c">환경</text>
+<circle cx="76.0" cy="1372" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="76.0" y="1380" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">3</text>
+<text x="108.0" y="1368" font-size="25" font-weight="700" fill="#1d2b38">플랫폼·기관 규정</text>
+<text x="108.0" y="1398" font-size="22" fill="#46586b">올리거나 납품하거나 승인받는 곳이 있을 때</text>
+<text x="802.0" y="1368" text-anchor="end" font-size="21" fill="#7b8b9c">지식 · 자료·검색</text>
+<circle cx="840.0" cy="1372" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="840.0" y="1380" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">4</text>
+<text x="872.0" y="1368" font-size="25" font-weight="700" fill="#1d2b38">현황 자료</text>
+<text x="872.0" y="1398" font-size="22" fill="#46586b">날마다 바뀌는 바깥 값이 판단에 들어갈 때</text>
+<text x="1566.0" y="1368" text-anchor="end" font-size="21" fill="#7b8b9c">지식 · 자료·검색</text>
+<circle cx="76.0" cy="1456" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="76.0" y="1464" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">5</text>
+<text x="108.0" y="1452" font-size="25" font-weight="700" fill="#1d2b38">정체성·작풍</text>
+<text x="108.0" y="1482" font-size="22" fill="#46586b">채널·작가·브랜드의 고유한 목소리가 있는 일일 때</text>
+<text x="802.0" y="1452" text-anchor="end" font-size="21" fill="#7b8b9c">지식 · 지식·경험</text>
+<circle cx="840.0" cy="1456" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="840.0" y="1464" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">6</text>
+<text x="872.0" y="1452" font-size="25" font-weight="700" fill="#1d2b38">계약·플랫폼 규칙</text>
+<text x="872.0" y="1482" font-size="22" fill="#46586b">계약·플랫폼이 회사 밖에서 나를 묶을 때</text>
+<text x="1566.0" y="1452" text-anchor="end" font-size="21" fill="#7b8b9c">규칙 · 규칙·권한</text>
+<circle cx="76.0" cy="1540" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="76.0" y="1548" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">7</text>
+<text x="108.0" y="1536" font-size="25" font-weight="700" fill="#1d2b38">회사 규칙</text>
+<text x="108.0" y="1566" font-size="22" fill="#46586b">회사 정책·전결권·승인 조건에 매인 일일 때</text>
+<text x="802.0" y="1536" text-anchor="end" font-size="21" fill="#7b8b9c">규칙 · 규칙·권한</text>
+<circle cx="840.0" cy="1540" r="20" fill="#dde7ef" stroke="#46586b" stroke-width="2.2"/>
+<text x="840.0" y="1548" text-anchor="middle" font-size="22" font-weight="700" fill="#1d2b38">8</text>
+<text x="872.0" y="1536" font-size="25" font-weight="700" fill="#1d2b38">상대 응대</text>
+<text x="872.0" y="1566" font-size="22" fill="#46586b">상대가 사람이고 그 자리에서 성과가 갈릴 때</text>
+<text x="1566.0" y="1536" text-anchor="end" font-size="21" fill="#7b8b9c">규칙 · 행동 체계</text>
+<text x="56" y="1622" font-size="22" fill="#46586b">짝지어 다니는 것 — ⑥ 계약·플랫폼 규칙과 ⑦ 회사 규칙은 둘 다 빌 수 없다 (나를 묶는 것이 회사든 계약이든 하나는 있다) · ③ 플랫폼·기관 규정이 있으면 ⑥ 도 있다</text>
+</svg>
