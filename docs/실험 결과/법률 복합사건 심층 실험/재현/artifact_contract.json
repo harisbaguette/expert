@@ -1,0 +1,77 @@
+{
+  "scope": "metadata only, not legal prose validation",
+  "valid": {
+    "path": "산출물/03_영장심문_의견서_초안_v2.md",
+    "evidence": [
+      "E02",
+      "E03",
+      "E04",
+      "E06",
+      "E11",
+      "E12",
+      "E14",
+      "E15",
+      "E19",
+      "E21"
+    ],
+    "basis": {
+      "delivered": 22,
+      "personal_paid": 3,
+      "approval": "disputed"
+    },
+    "phases": [
+      "pre_arrest"
+    ],
+    "recipients": [
+      "personal_counsel"
+    ],
+    "claims": [
+      {
+        "source_purpose": "principal_reconciliation",
+        "use_as": "principal_reconciliation"
+      }
+    ]
+  },
+  "negative_controls": [
+    {
+      "injected_metadata_defect": "future_evidence",
+      "expected": "future_evidence",
+      "observed": [
+        "future_evidence"
+      ],
+      "blocked": true
+    },
+    {
+      "injected_metadata_defect": "old_amount",
+      "expected": "stale_basis",
+      "observed": [
+        "stale_basis"
+      ],
+      "blocked": true
+    },
+    {
+      "injected_metadata_defect": "old_phase",
+      "expected": "wrong_procedural_phase",
+      "observed": [
+        "wrong_procedural_phase"
+      ],
+      "blocked": true
+    },
+    {
+      "injected_metadata_defect": "company_recipient",
+      "expected": "unauthorized_recipient",
+      "observed": [
+        "unauthorized_recipient"
+      ],
+      "blocked": true
+    },
+    {
+      "injected_metadata_defect": "amount_purpose",
+      "expected": "amount_meaning_mismatch",
+      "observed": [
+        "amount_meaning_mismatch"
+      ],
+      "blocked": true
+    }
+  ]
+}

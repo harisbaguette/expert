@@ -1,0 +1,877 @@
+{
+  "kind": "authored synthetic case; staged contract execution, not blind LLM or lawyer benchmark",
+  "checks": [
+    {
+      "check": "C01 원금 대사 단계별 재계산",
+      "passed": true,
+      "observed": [
+        24,
+        30,
+        30,
+        27
+      ]
+    },
+    {
+      "check": "C02 미래 증거 접근 거부와 공개 후 허용",
+      "passed": true,
+      "observed": {
+        "before": false,
+        "after": true
+      }
+    },
+    {
+      "check": "C03 납품 정정 뒤 구판 합격 무효화",
+      "passed": true,
+      "observed": {
+        "depends": [
+          "delivered",
+          "returned"
+        ],
+        "stale": true,
+        "external_copy": false
+      }
+    },
+    {
+      "check": "C04 이미 전달된 사본의 이력 보존",
+      "passed": true,
+      "observed": "synthetic copy preserved, correction review required; no real filing occurred"
+    },
+    {
+      "check": "C05 같은 원천 금액의 중복 합산 반례",
+      "passed": true,
+      "observed": {
+        "union": 30,
+        "naive_addition": 42,
+        "subset_relation": true
+      }
+    },
+    {
+      "check": "C06 대사값을 형사 이득액으로 전용 거부",
+      "passed": true,
+      "observed": {
+        "candidate": {
+          "amount": 27,
+          "purpose": "principal_reconciliation",
+          "unit": "KRW_100M"
+        },
+        "requested_purpose": "criminal_gain",
+        "allowed": false
+      }
+    },
+    {
+      "check": "C07 개인정보 공유의 수신자 경계",
+      "passed": true,
+      "observed": {
+        "personal_internal": true,
+        "company_automatic_share": false
+      }
+    },
+    {
+      "check": "C08 회사 접근권을 개인 위임으로 대체하지 않음",
+      "passed": true,
+      "observed": {
+        "client": "강도윤 개인",
+        "company_access": false
+      }
+    },
+    {
+      "check": "C09 결과 불명에서 재송금 대신 조회",
+      "passed": true,
+      "observed": {
+        "stage7": "query_only",
+        "stage8": "reuse_receipt"
+      }
+    },
+    {
+      "check": "C10 모의 은행 입금 1회 유지",
+      "passed": true,
+      "observed": {
+        "ledger": {
+          "P01": 3
+        },
+        "retries": 0,
+        "naive_retry_total": 6
+      }
+    },
+    {
+      "check": "C11 수령 확인과 합의 미성립의 공존",
+      "passed": true,
+      "observed": {
+        "receipt": 3,
+        "settlement": "rejected"
+      }
+    },
+    {
+      "check": "C12 철회 전후 안건별 판정",
+      "passed": true,
+      "observed": {
+        "before": {
+          "ordinary": true,
+          "special": true
+        },
+        "after": {
+          "ordinary": true,
+          "special": false
+        }
+      }
+    },
+    {
+      "check": "C13 찬성 확보 방식에 따른 분모 변화",
+      "passed": true,
+      "observed": {
+        "existing_attendee_switch": 1000,
+        "new_attendee": 3000,
+        "naive_new_1000_passes": false
+      }
+    },
+    {
+      "check": "C14 보통결의 수치 충족과 선임 선행조건 분리",
+      "passed": true,
+      "observed": {
+        "branch": "no vacant seat and expansion not passed",
+        "appointment_confirmed": false
+      }
+    },
+    {
+      "check": "C15 회사 자금 전략의 여유 제약",
+      "passed": true,
+      "observed": {
+        "remaining": 10,
+        "minimum": 16,
+        "personal_authority": false
+      }
+    },
+    {
+      "check": "C16 미래 매각액을 당일 확정재원으로 사용 거부",
+      "passed": true,
+      "observed": {
+        "initial_available": 3,
+        "final_available": 0,
+        "unconfirmed_sale_day14": 10,
+        "promise_12_today_supported": false
+      }
+    },
+    {
+      "check": "C17 총량 여유가 있어도 기한 내 배치 실패",
+      "passed": true,
+      "observed": {
+        "total_work": 28,
+        "aggregate_capacity": 30,
+        "minimum_schedule": {
+          "hours": 18,
+          "assignments": [
+            {
+              "task": "funds",
+              "reviewer": 1,
+              "start_hour": 0,
+              "end_hour": 8
+            },
+            {
+              "task": "forensic",
+              "reviewer": 1,
+              "start_hour": 8,
+              "end_hour": 16
+            },
+            {
+              "task": "legal",
+              "reviewer": 2,
+              "start_hour": 0,
+              "end_hour": 10
+            },
+            {
+              "task": "merge",
+              "reviewer": 1,
+              "start_hour": 16,
+              "end_hour": 18
+            }
+          ]
+        }
+      }
+    },
+    {
+      "check": "C18 세 번째 적격 검토자 투입 일정",
+      "passed": true,
+      "observed": {
+        "hours": 12,
+        "assignments": [
+          {
+            "task": "funds",
+            "reviewer": 1,
+            "start_hour": 0,
+            "end_hour": 8
+          },
+          {
+            "task": "forensic",
+            "reviewer": 2,
+            "start_hour": 0,
+            "end_hour": 8
+          },
+          {
+            "task": "legal",
+            "reviewer": 3,
+            "start_hour": 0,
+            "end_hour": 10
+          },
+          {
+            "task": "merge",
+            "reviewer": 1,
+            "start_hour": 10,
+            "end_hour": 12
+          }
+        ]
+      }
+    },
+    {
+      "check": "C19 영장 발부 뒤 과거 절차 문안 재사용 거부",
+      "passed": true,
+      "observed": {
+        "document_phase": "pre_arrest",
+        "current_phase": "detained_preindictment",
+        "allowed": false
+      }
+    },
+    {
+      "check": "C20 법령 적용시점 검사",
+      "passed": true,
+      "observed": {
+        "reference_label": "2027-12-31",
+        "as_of": "2026-09-10",
+        "automatically_applicable": false,
+        "note": "date gate only; transition provisions need legal review"
+      }
+    },
+    {
+      "check": "C21 의결 경계값",
+      "passed": true,
+      "observed": {
+        "ordinary_half": false,
+        "ordinary_half_plus_one": true,
+        "special_exact_two_thirds": true,
+        "special_one_short": false
+      }
+    },
+    {
+      "check": "C22 증거 파일 무결성",
+      "passed": true,
+      "observed": {
+        "files": 24,
+        "meaning": "file integrity only, not factual truth"
+      }
+    },
+    {
+      "check": "C23 작성한 초안의 시점·수신자 메타데이터 검사",
+      "passed": true,
+      "observed": {
+        "path": "산출물/03_영장심문_의견서_초안_v2.md",
+        "evidence": [
+          "E02",
+          "E03",
+          "E04",
+          "E06",
+          "E11",
+          "E12",
+          "E14",
+          "E15",
+          "E19",
+          "E21"
+        ],
+        "basis": {
+          "delivered": 22,
+          "personal_paid": 3,
+          "approval": "disputed"
+        },
+        "phases": [
+          "pre_arrest"
+        ],
+        "recipients": [
+          "personal_counsel"
+        ],
+        "claims": [
+          {
+            "source_purpose": "principal_reconciliation",
+            "use_as": "principal_reconciliation"
+          }
+        ]
+      }
+    },
+    {
+      "check": "C24 결함을 주입한 산출 메타데이터 5종 차단",
+      "passed": true,
+      "observed": [
+        {
+          "injected_metadata_defect": "future_evidence",
+          "expected": "future_evidence",
+          "observed": [
+            "future_evidence"
+          ],
+          "blocked": true
+        },
+        {
+          "injected_metadata_defect": "old_amount",
+          "expected": "stale_basis",
+          "observed": [
+            "stale_basis"
+          ],
+          "blocked": true
+        },
+        {
+          "injected_metadata_defect": "old_phase",
+          "expected": "wrong_procedural_phase",
+          "observed": [
+            "wrong_procedural_phase"
+          ],
+          "blocked": true
+        },
+        {
+          "injected_metadata_defect": "company_recipient",
+          "expected": "unauthorized_recipient",
+          "observed": [
+            "unauthorized_recipient"
+          ],
+          "blocked": true
+        },
+        {
+          "injected_metadata_defect": "amount_purpose",
+          "expected": "amount_meaning_mismatch",
+          "observed": [
+            "amount_meaning_mismatch"
+          ],
+          "blocked": true
+        }
+      ]
+    }
+  ],
+  "snapshots": [
+    {
+      "stage": 0,
+      "new_evidence": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09",
+        "E10"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 28,
+        "returned": 8,
+        "personal_paid": 0,
+        "personal_available": 3,
+        "personal_route": null,
+        "approval": "unverified",
+        "company_access": false,
+        "votes_yes": 48000,
+        "votes_present": 72000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "not_started",
+        "reviewers": 2,
+        "unreconciled_principal": 24,
+        "votes": {
+          "ordinary": true,
+          "special": true
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": false,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": false,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 1,
+      "new_evidence": [
+        "E11"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 0,
+        "personal_available": 3,
+        "personal_route": null,
+        "approval": "unverified",
+        "company_access": false,
+        "votes_yes": 48000,
+        "votes_present": 72000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "not_started",
+        "reviewers": 2,
+        "unreconciled_principal": 30,
+        "votes": {
+          "ordinary": true,
+          "special": true
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 2,
+      "new_evidence": [
+        "E12"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 0,
+        "personal_available": 3,
+        "personal_route": 12,
+        "approval": "unverified",
+        "company_access": false,
+        "votes_yes": 48000,
+        "votes_present": 72000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "not_started",
+        "reviewers": 2,
+        "unreconciled_principal": 30,
+        "votes": {
+          "ordinary": true,
+          "special": true
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 3,
+      "new_evidence": [
+        "E13"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 0,
+        "personal_available": 3,
+        "personal_route": 12,
+        "approval": "unverified",
+        "company_access": false,
+        "votes_yes": 48000,
+        "votes_present": 72000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "not_started",
+        "reviewers": 2,
+        "personal_denial": "contradicted",
+        "unreconciled_principal": 30,
+        "votes": {
+          "ordinary": true,
+          "special": true
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 4,
+      "new_evidence": [
+        "E14",
+        "E15"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 0,
+        "personal_available": 3,
+        "personal_route": 12,
+        "approval": "disputed",
+        "company_access": false,
+        "votes_yes": 48000,
+        "votes_present": 72000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "not_started",
+        "reviewers": 2,
+        "personal_denial": "contradicted",
+        "related_party": "spouse_60_percent",
+        "unreconciled_principal": 30,
+        "votes": {
+          "ordinary": true,
+          "special": true
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 5,
+      "new_evidence": [
+        "E16"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 0,
+        "personal_available": 3,
+        "personal_route": 12,
+        "approval": "disputed",
+        "company_access": false,
+        "votes_yes": 48000,
+        "votes_present": 72000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "not_started",
+        "reviewers": 2,
+        "personal_denial": "contradicted",
+        "related_party": "spouse_60_percent",
+        "civil_claim": 30,
+        "unreconciled_principal": 30,
+        "votes": {
+          "ordinary": true,
+          "special": true
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 6,
+      "new_evidence": [
+        "E17"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 0,
+        "personal_available": 3,
+        "personal_route": 12,
+        "approval": "disputed",
+        "company_access": false,
+        "votes_yes": 45000,
+        "votes_present": 69000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "not_started",
+        "reviewers": 2,
+        "personal_denial": "contradicted",
+        "related_party": "spouse_60_percent",
+        "civil_claim": 30,
+        "unreconciled_principal": 30,
+        "votes": {
+          "ordinary": true,
+          "special": false
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 7,
+      "new_evidence": [
+        "E18"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 0,
+        "personal_available": 3,
+        "personal_route": 12,
+        "approval": "disputed",
+        "company_access": false,
+        "votes_yes": 45000,
+        "votes_present": 69000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "unknown",
+        "reviewers": 2,
+        "personal_denial": "contradicted",
+        "related_party": "spouse_60_percent",
+        "civil_claim": 30,
+        "unreconciled_principal": 30,
+        "votes": {
+          "ordinary": true,
+          "special": false
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 8,
+      "new_evidence": [
+        "E19",
+        "E20"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 3,
+        "personal_available": 0,
+        "personal_route": 12,
+        "approval": "disputed",
+        "company_access": false,
+        "votes_yes": 45000,
+        "votes_present": 69000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "confirmed",
+        "reviewers": 2,
+        "personal_denial": "contradicted",
+        "related_party": "spouse_60_percent",
+        "civil_claim": 27,
+        "settlement": "rejected",
+        "unreconciled_principal": 27,
+        "votes": {
+          "ordinary": true,
+          "special": false
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 9,
+      "new_evidence": [
+        "E21",
+        "E22"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 3,
+        "personal_available": 0,
+        "personal_route": 12,
+        "approval": "disputed",
+        "company_access": false,
+        "votes_yes": 45000,
+        "votes_present": 69000,
+        "issued": 100000,
+        "phase": "pre_arrest",
+        "payment_status": "confirmed",
+        "reviewers": 3,
+        "personal_denial": "contradicted",
+        "related_party": "spouse_60_percent",
+        "civil_claim": 27,
+        "settlement": "rejected",
+        "witness_risk": "new_contact",
+        "unreconciled_principal": 27,
+        "votes": {
+          "ordinary": true,
+          "special": false
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    },
+    {
+      "stage": 10,
+      "new_evidence": [
+        "E23",
+        "E24"
+      ],
+      "state": {
+        "paid": 60,
+        "delivered": 22,
+        "returned": 8,
+        "personal_paid": 3,
+        "personal_available": 0,
+        "personal_route": 12,
+        "approval": "disputed",
+        "company_access": false,
+        "votes_yes": 45000,
+        "votes_present": 69000,
+        "issued": 100000,
+        "phase": "detained_preindictment",
+        "payment_status": "confirmed",
+        "reviewers": 3,
+        "personal_denial": "contradicted",
+        "related_party": "spouse_60_percent",
+        "civil_claim": 27,
+        "settlement": "rejected",
+        "witness_risk": "new_contact",
+        "unreconciled_principal": 27,
+        "votes": {
+          "ordinary": true,
+          "special": false
+        }
+      },
+      "artifact_states": {
+        "v1_note": {
+          "depends": [
+            "delivered",
+            "returned"
+          ],
+          "stale": true,
+          "external_copy": false
+        },
+        "historic_external_copy": {
+          "depends": [
+            "delivered"
+          ],
+          "stale": true,
+          "external_copy": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "checks": 24,
+    "passed": 24,
+    "stages": 11,
+    "evidence_files": 24,
+    "external_goal": "arrest avoidance failed in injected adverse branch",
+    "legal_merits": "not independently graded"
+  }
+}

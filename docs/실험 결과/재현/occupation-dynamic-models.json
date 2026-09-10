@@ -1,0 +1,576 @@
+{
+  "kind": "bounded synthetic contract simulation; not agent performance",
+  "models": [
+    {
+      "model": "은행 응답 유실",
+      "role_ids": [
+        "067",
+        "074",
+        "104",
+        "164"
+      ],
+      "assumptions": "조회가 성공하면 외부 실행 여부를 확정한다. 조회 불가를 실패 확정으로 간주하지 않는다.",
+      "worlds": [
+        {
+          "initially_committed": false,
+          "query_available": false,
+          "action": "query pending; do not resend",
+          "state": "unresolved",
+          "payments": 0
+        },
+        {
+          "initially_committed": false,
+          "query_available": true,
+          "action": "execute after confirmed nonexecution",
+          "state": "confirmed",
+          "payments": 1
+        },
+        {
+          "initially_committed": true,
+          "query_available": false,
+          "action": "query pending; do not resend",
+          "state": "unresolved",
+          "payments": 1
+        },
+        {
+          "initially_committed": true,
+          "query_available": true,
+          "action": "reuse confirmed receipt",
+          "state": "confirmed",
+          "payments": 1
+        }
+      ],
+      "omitted_contract": "결과 불명과 확정 실패를 합쳐 재전송",
+      "omission_counterexamples": 2,
+      "contract_checks": "passed in enumerated synthetic worlds"
+    },
+    {
+      "model": "새 증거·설계 변경의 전파",
+      "role_ids": [
+        "002",
+        "031",
+        "065",
+        "122",
+        "138"
+      ],
+      "assumptions": "의존 그래프는 명시된 여섯 객체이며 제출된 외부 사본은 소급 삭제할 수 없다.",
+      "worlds": [
+        {
+          "changed": "fact",
+          "invalidated": [
+            "brief",
+            "calc",
+            "drawing",
+            "fact",
+            "model",
+            "pdf"
+          ],
+          "submitted_artifact": {
+            "version": 1,
+            "external_copy_preserved": true,
+            "correction_required": true
+          }
+        },
+        {
+          "changed": "calc",
+          "invalidated": [
+            "brief",
+            "calc",
+            "pdf"
+          ],
+          "submitted_artifact": {
+            "version": 1,
+            "external_copy_preserved": true,
+            "correction_required": true
+          }
+        },
+        {
+          "changed": "model",
+          "invalidated": [
+            "drawing",
+            "model"
+          ],
+          "submitted_artifact": {
+            "version": 1,
+            "external_copy_preserved": true,
+            "correction_required": false
+          }
+        },
+        {
+          "changed": "none",
+          "invalidated": [],
+          "submitted_artifact": {
+            "version": 1,
+            "external_copy_preserved": true,
+            "correction_required": false
+          }
+        }
+      ],
+      "omitted_contract": "바뀐 원본만 수정하고 파생 판단·파일의 합격을 유지",
+      "omission_counterexamples": 3,
+      "contract_checks": "passed in enumerated synthetic worlds"
+    },
+    {
+      "model": "공동 전문가·설비 일정",
+      "role_ids": [
+        "032",
+        "059",
+        "096",
+        "128"
+      ],
+      "assumptions": "두 작업자, 각 8·8·10시간의 분할 불가 작업 세 개. 중단·분할·외주 불허.",
+      "worlds": [
+        {
+          "capacity_per_person": 8,
+          "total_work": 26,
+          "feasible": false,
+          "witness": [],
+          "aggregate_only_says_feasible": false
+        },
+        {
+          "capacity_per_person": 13,
+          "total_work": 26,
+          "feasible": false,
+          "witness": [],
+          "aggregate_only_says_feasible": true
+        },
+        {
+          "capacity_per_person": 16,
+          "total_work": 26,
+          "feasible": true,
+          "witness": [
+            {
+              "assignment": [
+                0,
+                0,
+                1
+              ],
+              "loads": [
+                16,
+                10
+              ]
+            }
+          ],
+          "aggregate_only_says_feasible": true
+        }
+      ],
+      "omitted_contract": "전체 시간 합계만 비교하고 작업별 배치를 생략",
+      "omission_counterexamples": 1,
+      "contract_checks": "passed in enumerated synthetic worlds"
+    },
+    {
+      "model": "법무·세무·현금 통합 전략",
+      "role_ids": [
+        "002",
+        "006",
+        "017",
+        "066",
+        "069"
+      ],
+      "assumptions": "임의 금액 단위. 현금 10·최소 운영 여유 4. 두 해석은 가정이며 D는 동일 사실의 양립 불가 단정으로 정의했다. 적법한 예비적 주장은 오류로 세지 않는다.",
+      "worlds": [
+        {
+          "name": "A",
+          "tax_base": 1,
+          "tax_adverse": 6,
+          "other_cash": 5,
+          "facts_consistent": true,
+          "cash_under_two_interpretations": [
+            4,
+            -1
+          ],
+          "all_constraints_met": false
+        },
+        {
+          "name": "B",
+          "tax_base": 3,
+          "tax_adverse": 3,
+          "other_cash": 2,
+          "facts_consistent": true,
+          "cash_under_two_interpretations": [
+            5,
+            5
+          ],
+          "all_constraints_met": true
+        },
+        {
+          "name": "C",
+          "tax_base": 2,
+          "tax_adverse": 4,
+          "other_cash": 3,
+          "facts_consistent": true,
+          "cash_under_two_interpretations": [
+            5,
+            3
+          ],
+          "all_constraints_met": false
+        },
+        {
+          "name": "D",
+          "tax_base": 1,
+          "tax_adverse": 1,
+          "other_cash": 1,
+          "facts_consistent": false,
+          "cash_under_two_interpretations": [
+            8,
+            8
+          ],
+          "all_constraints_met": false
+        }
+      ],
+      "omitted_contract": "기준 해석의 세액 하나만 최소화",
+      "omission_counterexamples": 1,
+      "contract_checks": "passed in enumerated synthetic worlds"
+    },
+    {
+      "model": "공통 담보·유동성 손실",
+      "role_ids": [
+        "070",
+        "072",
+        "077",
+        "153",
+        "166"
+      ],
+      "assumptions": "공동 충격에서는 직접 손실 6에 추가 현금 필요 4가 동시에 발생한다. 확률은 부여하지 않는다.",
+      "worlds": [
+        {
+          "shock": "none",
+          "direct_loss": 0,
+          "linked_liquidity_need": 0,
+          "total_need": 0,
+          "limit": 8,
+          "within_limit": true
+        },
+        {
+          "shock": "one_position",
+          "direct_loss": 3,
+          "linked_liquidity_need": 0,
+          "total_need": 3,
+          "limit": 8,
+          "within_limit": true
+        },
+        {
+          "shock": "shared_collateral",
+          "direct_loss": 6,
+          "linked_liquidity_need": 4,
+          "total_need": 10,
+          "limit": 8,
+          "within_limit": false
+        }
+      ],
+      "omitted_contract": "직접 손실만 더하고 연쇄 현금 필요를 생략",
+      "omission_counterexamples": 1,
+      "contract_checks": "passed in enumerated synthetic worlds"
+    },
+    {
+      "model": "삭제 후 지연 이벤트·재처리",
+      "role_ids": [
+        "086",
+        "109",
+        "112",
+        "114"
+      ],
+      "assumptions": "삭제 범위는 고객 A의 이 두 과거 기록이며 재수집 동의·보존 예외가 없다. B는 삭제 대상 밖이다.",
+      "worlds": [
+        {
+          "arrival_order": [
+            "event_1",
+            "delete_A",
+            "late_replay"
+          ],
+          "final_customers": [
+            "B"
+          ],
+          "naive_resurrected_deleted_customer": true
+        },
+        {
+          "arrival_order": [
+            "event_1",
+            "late_replay",
+            "delete_A"
+          ],
+          "final_customers": [
+            "B"
+          ],
+          "naive_resurrected_deleted_customer": false
+        },
+        {
+          "arrival_order": [
+            "delete_A",
+            "event_1",
+            "late_replay"
+          ],
+          "final_customers": [
+            "B"
+          ],
+          "naive_resurrected_deleted_customer": true
+        },
+        {
+          "arrival_order": [
+            "delete_A",
+            "late_replay",
+            "event_1"
+          ],
+          "final_customers": [
+            "B"
+          ],
+          "naive_resurrected_deleted_customer": true
+        },
+        {
+          "arrival_order": [
+            "late_replay",
+            "event_1",
+            "delete_A"
+          ],
+          "final_customers": [
+            "B"
+          ],
+          "naive_resurrected_deleted_customer": false
+        },
+        {
+          "arrival_order": [
+            "late_replay",
+            "delete_A",
+            "event_1"
+          ],
+          "final_customers": [
+            "B"
+          ],
+          "naive_resurrected_deleted_customer": true
+        }
+      ],
+      "omitted_contract": "삭제 시점 데이터만 지우고 후속 재처리를 통제하지 않음",
+      "omission_counterexamples": 4,
+      "contract_checks": "passed in enumerated synthetic worlds"
+    },
+    {
+      "model": "형식·작업·판본별 도구 지원",
+      "role_ids": [
+        "050",
+        "058",
+        "090",
+        "123",
+        "157"
+      ],
+      "assumptions": "가상 도구 대장이다. 어떤 상용 프로그램이나 API의 실제 지원을 주장하지 않는다.",
+      "worlds": [
+        {
+          "request": [
+            "pptx",
+            "create",
+            "v1"
+          ],
+          "supported": true,
+          "next": "execute"
+        },
+        {
+          "request": [
+            "pdf",
+            "export",
+            "v1"
+          ],
+          "supported": true,
+          "next": "execute"
+        },
+        {
+          "request": [
+            "pptx",
+            "edit_notes",
+            "v1"
+          ],
+          "supported": false,
+          "next": "configure and verify missing capability"
+        },
+        {
+          "request": [
+            "ppt",
+            "preserve_edit",
+            "v1"
+          ],
+          "supported": false,
+          "next": "configure and verify missing capability"
+        },
+        {
+          "request": [
+            "cad",
+            "edit_assembly",
+            "v1"
+          ],
+          "supported": false,
+          "next": "configure and verify missing capability"
+        },
+        {
+          "request": [
+            "pptx",
+            "create",
+            "v2"
+          ],
+          "supported": false,
+          "next": "configure and verify missing capability"
+        }
+      ],
+      "omitted_contract": "같은 형식이 한 번 됐으면 모든 작업·판본도 된다고 가정",
+      "omission_counterexamples": 3,
+      "contract_checks": "passed in enumerated synthetic worlds"
+    },
+    {
+      "model": "조건 판정과 진단의 순환 대기",
+      "role_ids": [
+        "034",
+        "097",
+        "112",
+        "129",
+        "135"
+      ],
+      "assumptions": "진단 관측과 본 실행의 권한은 독립. 허용한 관측도 불명 결과를 낼 수 있다. 대상 조건은 처음에 미확인이다.",
+      "worlds": [
+        {
+          "observation": true,
+          "observation_allowed": false,
+          "execution_allowed": false,
+          "final_condition": "unknown",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": true,
+          "observation_allowed": false,
+          "execution_allowed": true,
+          "final_condition": "unknown",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": true,
+          "observation_allowed": true,
+          "execution_allowed": false,
+          "final_condition": "active",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "authorized diagnostic observation",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": true,
+          "observation_allowed": true,
+          "execution_allowed": true,
+          "final_condition": "active",
+          "execute": true,
+          "trace": [
+            "condition unknown",
+            "authorized diagnostic observation",
+            "target execution allowed"
+          ]
+        },
+        {
+          "observation": false,
+          "observation_allowed": false,
+          "execution_allowed": false,
+          "final_condition": "unknown",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": false,
+          "observation_allowed": false,
+          "execution_allowed": true,
+          "final_condition": "unknown",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": false,
+          "observation_allowed": true,
+          "execution_allowed": false,
+          "final_condition": "inactive",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "authorized diagnostic observation",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": false,
+          "observation_allowed": true,
+          "execution_allowed": true,
+          "final_condition": "inactive",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "authorized diagnostic observation",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": null,
+          "observation_allowed": false,
+          "execution_allowed": false,
+          "final_condition": "unknown",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": null,
+          "observation_allowed": false,
+          "execution_allowed": true,
+          "final_condition": "unknown",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": null,
+          "observation_allowed": true,
+          "execution_allowed": false,
+          "final_condition": "unknown",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "authorized diagnostic observation",
+            "no target execution"
+          ]
+        },
+        {
+          "observation": null,
+          "observation_allowed": true,
+          "execution_allowed": true,
+          "final_condition": "unknown",
+          "execute": false,
+          "trace": [
+            "condition unknown",
+            "authorized diagnostic observation",
+            "no target execution"
+          ]
+        }
+      ],
+      "omitted_contract": "불명 조건을 무조건 대기시켜 그 조건을 판별할 진단도 시작하지 않음",
+      "omission_counterexamples": 4,
+      "contract_checks": "passed in enumerated synthetic worlds"
+    }
+  ],
+  "summary": {
+    "model_count": 8,
+    "enumerated_configurations": 42,
+    "omission_counterexamples": 19
+  }
+}

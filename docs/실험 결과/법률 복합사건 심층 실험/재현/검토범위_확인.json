@@ -1,0 +1,18 @@
+{
+  "before": {
+    "docs/materials.md": "2f77da640784f2ecb4118d108e6cf306470a6b6251c52178d8f5fe4e1f79ec6d",
+    "docs/runtime.md": "ed55284ad6f88aa9c6365f89898161da3b63d9bfb6300bacbacca7309f7167c6",
+    "docs/evaluation.md": "8e3c51bb3915c83348b2363bf624eac84781a0d8ae303d5d128c537d1a244cc4",
+    "전문가 에이전트 정의 2.md": "fd74e9d46fa8aa7008c62ba2082ae8ce1b7cc2ae03569872980fb55630b1703c"
+  },
+  "after": {
+    "docs/materials.md": "2f77da640784f2ecb4118d108e6cf306470a6b6251c52178d8f5fe4e1f79ec6d",
+    "docs/runtime.md": "ed55284ad6f88aa9c6365f89898161da3b63d9bfb6300bacbacca7309f7167c6",
+    "docs/evaluation.md": "8e3c51bb3915c83348b2363bf624eac84781a0d8ae303d5d128c537d1a244cc4",
+    "전문가 에이전트 정의 2.md": "6ed32176b7e6694ee2012fbf956ca6b821ac7f216302a18a3729bc8936ceaca8"
+  },
+  "changed_during_work": [
+    "전문가 에이전트 정의 2.md"
+  ],
+  "scope": "책임 대조의 정본인 materials/runtime/evaluation은 시작·종료 판본이 같으며 검토정의 폴더에 보관했다. 본문 파일은 작업 중 다른 변경이 감지되어 최신 본문 전체 검증을 주장하지 않는다. 이 실험 작업은 본문·수식·재료·이미지를 수정하지 않았다."
+}
