@@ -36,8 +36,7 @@ SMALL = 17               # 그림 안 최소 글자
 
 MARGIN = 40
 TITLE_H = 64             # 맨 위 수식 띠
-COMPOSE_H = 184          # 사건별 연결과 상태
-LOOP_H = 262             # 실제 실행의 피드백 순환
+LOOP_H = 190             # 실제 실행의 피드백 순환
 TITLE_FS = 34
 BANDGAP = 62             # 항과 항 사이 (× 자리)
 TPAD = 20                # 항 상자 안 여백
@@ -291,7 +290,7 @@ def plan_term(name, body_w):
 
 # ── 자리 잡기 ────────────────────────────────────────────────────────────
 cards = {}
-y = MARGIN + TITLE_H + COMPOSE_H + BANDGAP
+y = MARGIN + TITLE_H + BANDGAP
 for name in ORDER:
     p = plan_term(name, FULL_W - 2 * TPAD)
     p["y"] = y
@@ -472,20 +471,6 @@ for a, b in zip(ORDER, ORDER[1:]):
                'stroke-width="2"/>')
     op_circle(cx, (y0 + y1) / 2, "×", True)
 
-# ── 조립 계약: 재료가 채워진 것과 업무 능력이 검증된 것을 구별 ───────────
-panel_y = MARGIN + TITLE_H + 18
-out.append(f'<rect x="{MARGIN}" y="{panel_y}" width="{FULL_W}" height="{COMPOSE_H - 14}" '
-           f'rx="12" fill="{TITLE_BG}" stroke="{SYS_EDGE}"/>')
-intro_lines = [
-    ("실행 전개  A = Compose(필요한 재료, 사건의 연결 관계, 위임·목표·환경·제약)", 23, INK),
-    ("공동 상태  사건·당사자·사실과 주장·찬반 증거·미확인 사항·전략·약속", 20, SUB),
-    ("연결 관계  선후 조건·교차 영향·공유 자원·팀별 정보 경계·관측별 전환", 20, SUB),
-    ("55개는 책임 목록  ·  ×와 +는 구성 표현  ·  구현과 실제 전문성은 별도로 검증", 18, SUB),
-]
-for index, (label, size, color) in enumerate(intro_lines):
-    out.append(f'<text x="{MARGIN + 24}" y="{panel_y + 34 + index * 36}" '
-               f'font-size="{size}" fill="{color}">{esc(label)}</text>')
-
 # ── 실제 업무 순환: 아홉 단계의 기본 흐름에 걸리는 재계획·완료 계약 ─────
 out.append(f'<rect x="{MARGIN}" y="{LOOP_Y}" width="{FULL_W}" height="{LOOP_H}" '
            f'rx="12" fill="{TITLE_BG}" stroke="{SYS_EDGE}"/>')
@@ -510,10 +495,6 @@ out.append(f'<path d="M{right},{node_y + 48} V{base_y} H{left} V{node_y + 48} '
            f'm-6,8 l6,-8 l6,8" fill="none" stroke="{CHIP_EDGE}" stroke-width="2"/>')
 out.append(f'<text x="{W / 2}" y="{base_y + 28}" text-anchor="middle" font-size="19" '
            f'fill="{SUB}">새 증거·상대 반응·이견·결합 손실 → 영향받는 판단과 작업 재검토</text>')
-out.append(f'<text x="{MARGIN + 24}" y="{LOOP_Y + 214}" font-size="19" fill="{INK}">'
-           '완료  요구·기한·필수 검증·외부 증거를 확인  /  미확인·미완료·전문 개입을 따로 기록</text>')
-out.append(f'<text x="{MARGIN + 24}" y="{LOOP_Y + 243}" font-size="17" fill="{SUB}">'
-           '조건부 재료도 필요한 업무에서는 필수  ·  실제 파일·행동·인수를 직무와 난도에 맞는 전문 팀과 비교</text>')
 out.append("</svg>")
 path = Path(__file__).with_name("전개-수식.svg")
 with path.open("w", encoding="utf-8") as f:
