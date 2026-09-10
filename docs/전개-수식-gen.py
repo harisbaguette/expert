@@ -1,6 +1,7 @@
 # Generates 전개-수식.svg — 수식을 그림 한 장으로. 문서에는 이 그림만 두고 범례도 해설도 붙이지
 # 않으므로, 그림만 보고 다 읽혀야 한다.
-#   항 6개는 × 로, 항 안의 계통과 재료는 + 로 이어진다. 네 밴드로 눕혀 × 다섯 개가 한 축에 선다.
+#   항 6개는 × 로, 항 안의 계통과 재료는 + 로 이어진다. 항을 한 줄로 쌓아 × 다섯 개가 한 축에 선다.
+#   재료 줄은 남는 폭을 칩이 나눠 가져 상자 좌우에 꽉 맞춘다.
 #   필수 재료는 채운 칩, 필요한 경우에만 쓰는 재료는 흰 바탕 점선 칩으로 따로 담는다.
 #   규칙·권한의 우선순위는 계단으로, 실무의 순서는 화살표꼴 칩으로 그려 기호 설명이 필요 없게 했다.
 # Run: python3 "docs/전개-수식-gen.py"  (then check the render before committing)
@@ -27,15 +28,14 @@ BH = 38                  # 재료 칩 높이
 GAP = 9                  # 재료 사이
 OP_W = 22                # + 기호 칸
 LINEH = 46               # 재료 줄 간격
-STEP = 75                # 우선순위 계단 한 칸
+STEP = 200               # 우선순위 계단 한 칸
 NOTCH = 11               # 흐름 칩 화살촉 깊이
 SMALL = 17               # 그림 안 최소 글자
 
 MARGIN = 40
 TITLE_H = 64             # 맨 위 수식 띠
 TITLE_FS = 34
-COLGAP = 46              # 밴드 안 두 카드 사이 (× 자리)
-BANDGAP = 62             # 밴드와 밴드 사이 (× 자리)
+BANDGAP = 62             # 항과 항 사이 (× 자리)
 TPAD = 20                # 항 상자 안 여백
 HDR = 54                 # 항 머리띠 높이
 SPAD = 20                # 계통 상자 안 여백
@@ -46,8 +46,7 @@ CLBL = 26                # 필요한 경우 이름 줄
 CBOT = 12
 
 W = 1446
-FULL_W = W - 2 * MARGIN              # 전폭 카드
-HALF_W = (FULL_W - COLGAP) // 2      # 두 장 나란한 밴드의 카드
+FULL_W = W - 2 * MARGIN              # 항 카드 폭
 
 
 def tw(s, fs=FS):
@@ -89,8 +88,9 @@ GT = ("o", ">")
 TERMS = {
     "환경": [("", [
         [M("모델"), PLUS, M("실행 순환"), PLUS, M("저장·이어받기"), PLUS, M("나눠 맡기기"), PLUS, M("작업창"),
-         PLUS, M("시작 신호"), PLUS, M("자료 읽기"), PLUS, M("도구"), PLUS, M("시험 환경")],
-        [PLUS, C("실시간 통로"), PLUS, C("문서·그림 만들기")],
+         PLUS, M("시작 신호"), PLUS, M("자료 읽기"), PLUS, M("파일로 찍어 내기"), PLUS, M("도구"),
+         PLUS, M("시험 환경")],
+        [PLUS, C("실시간 통로")],
     ])],
     "지식": [
         ("자료·검색", [
@@ -131,9 +131,7 @@ TERMS = {
     ])],
 }
 
-# 네 밴드. 한 밴드에 두 장이면 반폭으로 나란히 놓고 그 사이가 × 자리다.
-BANDS = [["환경"], ["지식", "규칙"], ["실무"], ["검증", "학습"]]
-ORDER = [n for band in BANDS for n in band]
+ORDER = ["환경", "지식", "규칙", "실무", "검증", "학습"]
 
 out = []
 
@@ -227,8 +225,6 @@ def stack_h(n):
     return n * BH + (n - 1) * (LINEH - BH) if n else 0
 
 
-def cond_w(lines):
-    return max(sum(bw(t[1]) + GAP if t[0] == "m" else OP_W + GAP for t in ln) for ln in lines) + 28
 
 
 def plan_sys(sysname, rows, body_w):
@@ -257,18 +253,13 @@ def plan_term(name, body_w):
 
 
 # ── 자리 잡기 ────────────────────────────────────────────────────────────
-cards, bands = {}, []
+cards = {}
 y = MARGIN + TITLE_H + BANDGAP
-for band in BANDS:
-    tw_ = FULL_W if len(band) == 1 else HALF_W
-    ps = [plan_term(n, tw_ - 2 * TPAD) for n in band]
-    bh = max(p["h"] for p in ps)
-    for i, p in enumerate(ps):
-        p["x"] = MARGIN + i * (HALF_W + COLGAP)
-        p["y"], p["w"], p["bh"] = y, tw_, bh
-        cards[p["name"]] = p
-    bands.append({"y": y, "h": bh, "n": len(ps)})
-    y += bh + BANDGAP
+for name in ORDER:
+    p = plan_term(name, FULL_W - 2 * TPAD)
+    p["y"] = y
+    cards[name] = p
+    y += p["h"] + BANDGAP
 H = y - BANDGAP + MARGIN
 
 out.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
@@ -315,8 +306,8 @@ for i, n in enumerate(names):
     tx += tw(n, tfs)
 
 
-def chip(x, y, name, req, dash=True):
-    w = bw(name)
+def chip(x, y, name, req, dash=True, ext=0.0):
+    w = bw(name) + ext
     if req:
         out.append(f'<rect x="{round(x,1)}" y="{round(y,1)}" width="{w}" height="{BH}" rx="8" '
                    f'fill="{CHIP_BG}" stroke="{CHIP_EDGE}" stroke-width="1.5"/>')
@@ -348,10 +339,18 @@ def draw_flow_line(x, y, chips, last, first=True, extra=0.0):
         x += w - NOTCH
 
 
-def draw_line(x, y, toks):
+def justify(toks, width):
+    """남는 폭을 칩이 고루 나눠 가져 줄이 좌우에 꽉 찬다."""
+    chips = [t for t in toks if t[0] == "m"]
+    base = sum(bw(t[1]) for t in chips) + OP_W * (len(toks) - len(chips)) + GAP * (len(toks) - 1)
+    return max(0.0, width - base) / len(chips) if chips else 0.0
+
+
+def draw_line(x, y, toks, width=None):
+    ext = justify(toks, width) if width else 0.0
     for t in toks:
         if t[0] == "m":
-            x += chip(x, y, t[1], t[2]) + GAP
+            x += chip(x, y, t[1], t[2], ext=ext) + GAP
         else:
             out.append(f'<text x="{round(x + OP_W / 2,1)}" y="{round(y + BH / 2 + 7,1)}" '
                        f'text-anchor="middle" font-size="21" fill="{SUB}">{esc(t[1])}</text>')
@@ -382,8 +381,8 @@ def draw_stairs(cx, y, chain):
         w = chip(xs[i], y + i * (BH + 7), c[1], c[2])
         right = max(right, xs[i] + w)
         pts.append(xs[i])
-    # 계단 오른쪽 빈자리에 뜻을 적는다 — 그림 밖 범례를 두지 않으므로 여기서 밝힌다
-    out.append(f'<text x="{round(xs[0] + bw(chain[0][1]) + 20,1)}" y="{round(y + BH / 2 + 6,1)}" '
+    # 계단이 비워 둔 오른쪽 위에 뜻을 적는다 — 그림 밖 범례를 두지 않으므로 여기서 밝힌다
+    out.append(f'<text x="{round(right + 40,1)}" y="{round(y + BH / 2 + 6,1)}" '
                f'font-size="{SMALL}" font-weight="700" fill="{SUB}">위 규칙이 아래를 이긴다</text>')
     return ch, right
 
@@ -414,19 +413,19 @@ def draw_sys(p, x, y, body_w):
         y += -LINEH + BH + (14 if p["plus"] else 0)
     if p["plus"]:
         for ln in p["plus"]:
-            draw_line(cx, y, ln)
+            draw_line(cx, y, ln, inner)
             y += LINEH
         y += -LINEH + BH
     if p["cond"]:
         y += CTOP
         bh = CLBL + stack_h(len(p["cond"])) + CBOT
-        out.append(f'<rect x="{cx}" y="{round(y,1)}" width="{round(cond_w(p["cond"]),1)}" '
+        out.append(f'<rect x="{cx}" y="{round(y,1)}" width="{inner}" '
                    f'height="{round(bh,1)}" rx="9" fill="{COND_BG}"/>')
         out.append(f'<text x="{round(cx + 14,1)}" y="{round(y + 19,1)}" font-size="{SMALL}" '
                    f'font-weight="700" fill="{COND_TXT}">+ 필요한 경우에만</text>')
         y += CLBL
         for ln in p["cond"]:
-            draw_line(cx + 14, y, ln)
+            draw_line(cx + 14, y, ln, inner - 28)
             y += LINEH
     return top + p["h"]
 
@@ -434,14 +433,14 @@ def draw_sys(p, x, y, body_w):
 # ── 항 카드 ──────────────────────────────────────────────────────────────
 for i, name in enumerate(ORDER):
     p = cards[name]
-    x, y0, tw_, bh = p["x"], p["y"], p["w"], p["bh"]
+    x, y0, tw_, bh = MARGIN, p["y"], FULL_W, p["h"]
     out.append(f'<rect x="{x}" y="{y0}" width="{tw_}" height="{round(bh,1)}" rx="14" '
                f'fill="{TERM_BG}" stroke="{TERM_EDGE}" stroke-width="2"/>')
     out.append(f'<path d="M{x},{y0 + HDR} L{x},{y0 + 14} q0,-14 14,-14 L{x + tw_ - 14},{y0} '
                f'q14,0 14,14 L{x + tw_},{y0 + HDR} Z" fill="{HEAD_BG}"/>')
     out.append(f'<text x="{x + TPAD}" y="{round(y0 + HDR / 2 + 10,1)}" font-size="26" '
                f'font-weight="700" fill="#ffffff">{CIRC[i]}  {name}</text>')
-    sy = y0 + HDR + TPAD + (bh - p["h"]) / 2
+    sy = y0 + HDR + TPAD
     for si, sp in enumerate(p["sys"]):
         if si:
             ox, oy = x + tw_ / 2, sy + SYS_GAP / 2
@@ -451,31 +450,14 @@ for i, name in enumerate(ORDER):
             sy += SYS_GAP
         sy = draw_sys(sp, x + TPAD, sy, p["body_w"])
 
-# ── 항과 항을 잇는 × 다섯 개 — 밴드 사이는 세로, 밴드 안은 가로. 한 축에 세운다
-for bi, b in enumerate(bands):
-    if b["n"] == 2:
-        cx, cy = W / 2, b["y"] + b["h"] / 2
-        out.append(f'<path d="M{round(MARGIN + HALF_W,1)},{round(cy,1)} '
-                   f'L{round(MARGIN + HALF_W + COLGAP,1)},{round(cy,1)}" stroke="{TERM_EDGE}" '
-                   'stroke-width="2"/>')
-        op_circle(cx, cy, "×", True)
-    if bi:
-        cx = W / 2
-        prev = bands[bi - 1]
-        y0 = prev["y"] + prev["h"]
-        cy = (y0 + b["y"]) / 2
-        seg = []
-        for yy, yend, n in ((y0, cy, prev["n"]), (b["y"], cy, b["n"])):
-            if n == 1:
-                seg.append(f'M{round(cx,1)},{round(yy,1)} L{round(cx,1)},{round(yend,1)}')
-            else:
-                ym = (yy + yend) / 2
-                for hx in (MARGIN + HALF_W / 2, MARGIN + HALF_W + COLGAP + HALF_W / 2):
-                    seg.append(f'M{round(hx,1)},{round(yy,1)} L{round(hx,1)},{round(ym,1)} '
-                               f'L{round(cx,1)},{round(ym,1)} L{round(cx,1)},{round(yend,1)}')
-        out.append(f'<path d="{" ".join(seg)}" fill="none" stroke="{TERM_EDGE}" stroke-width="2" '
-                   'stroke-linejoin="round"/>')
-        op_circle(cx, cy, "×", True)
+# ── 항과 항을 잇는 × 다섯 개 — 한 세로축에 세운다
+cx = W / 2
+for a, b in zip(ORDER, ORDER[1:]):
+    y0 = cards[a]["y"] + cards[a]["h"]
+    y1 = cards[b]["y"]
+    out.append(f'<path d="M{cx},{round(y0,1)} L{cx},{round(y1,1)}" stroke="{TERM_EDGE}" '
+               'stroke-width="2"/>')
+    op_circle(cx, (y0 + y1) / 2, "×", True)
 
 out.append("</svg>")
 path = "docs/전개-수식.svg"
