@@ -264,6 +264,68 @@ Google "Gemini Enterprise for Legal" 은 법무 전용 페이지가 없음(4개 
 | 한도 초과 | 반쯤 | Ironclad 3단계·플러그인 RED 가 "등급" 은 있는데 숫자 임계값은 0개 공개 |
 | 자격자 전속 | 있음 | Jenny 자문 회피, Garfield 인가 변호사, 일본 변호사법 72조 선 |
 
+## 5-1. 재료 55개 하나씩 대조 — 업계 부품이 우리 재료 밖으로 나가나
+
+정의 문서 계통별 재료 55개(환경 14 · 자료·검색 10 · 지식·경험 3 · 기억·상태 2 · 규칙·권한 8 · 행동 체계 7 · 실무 1 · 검증·평가 6 · 학습·개선 4)를 한 줄씩 업계 구현과 맞춰 봄. 결론: **업계 부품 중 55개 재료 어디에도 안 들어가는 것은 0개, 새로 넣거나 고칠 재료는 0개.** 반대로 업계에 구현 사례가 없는 재료는 2개(시험 환경·실험·시뮬레이션)인데, 되돌릴 수 없는 행동 앞에 필요한 것이라 빼지 않음. materials.md 충족 조건이 이미 여러 모델 비교·고객 교차 차단·협상까지 적고 있어 문구 손질도 필요 없음.
+
+| 계통 | 재료 | 업계 구현 예 | 비고 |
+|---|---|---|---|
+| 환경 | 모델 | 일 종류별 멀티모델 배분(Harvey·Lexis·EvenUp), 덧학습(Tenet·앨리비) | materials.md M01 "후보 비교·대체 모델 조건" 이 이미 덮음 |
+| 환경 | 실행 순환 | OpenAI Agent SDK·Claude Agent SDK 도구 호출 루프, stop_reason 이어 쓰기(Eve) | — |
+| 환경 | 저장·이어받기 | Legora 결정 기록(되돌리기 가능), Harvey 모든 단계 기록 | — |
+| 환경 | 나눠 맡기기 | 규칙 1개 = 하위 에이전트 1개 후 병합(Harvey), 8개 분담(Crosby), 지휘자 + 3에이전트(Lexis) | — |
+| 환경 | 작업창 | "계약서 자체가 작업창"(Legora), Harvey 검색 잣대 "고정 토큰 예산 안 재현율" | — |
+| 환경 | 시작 신호 | 기록 도착 즉시 발동(Eve Atlas), Slack·이메일 트리거(Crosby) | — |
+| 환경 | 자료·구조 읽기 | 손글씨·체크박스 추출(EvenUp), 사실/의견 구분(Supio), Legal OCR(BHSN) | — |
+| 환경 | 실시간 통로 | Jenny 음성 24시간, 깊은 판단은 사람에게 넘김(Eve) | — |
+| 환경 | 산출물 제작·편집 | 추적변경 병합, 3-way 병합 특허(Ironclad), 결정론 .docx 내보내기(Eve) | — |
+| 환경 | 도구·전문 작업 환경 | iManage·NetDocuments·CMS(Litify·SmartAdvocate)·Companies House·Xero 를 MCP·API 로 | — |
+| 환경 | 시험 환경 | **사례 없음** — Legora BAR 격리 샌드박스는 평가용, 실행 전 연습용은 0개 | 되돌릴 수 없는 행동 앞에 필요, 유지 |
+| 환경 | 데이터 처리 | 추출 → 임베딩 → 색인, 타입 있는 중간 형식(Harvey UDF), 청킹(Eve) | — |
+| 환경 | 계산·분석·최적화 | 의료비·손해 계산(EvenUp·Eve 연표 → 비용 목록) | 약함 |
+| 환경 | 실험·시뮬레이션 | **사례 없음** — Crosby 협상 시뮬레이션은 연구 단계 | 유지 |
+| 자료·검색 | 법규·기준 | Wolters Kluwer 법령·EUR-Lex(Legora), 법령·주석(LBOX) | — |
+| 자료·검색 | 플랫폼·기관 규정 | 법원 절차·Companies House(Garfield) | — |
+| 자료·검색 | 해석 자료 | 판례 DB 빌림(Harvey↔LexisNexis), 4백만 판례(LBOX), 합의 저장소(EvenUp) | — |
+| 자료·검색 | 일반 자료 | Practical Guidance(Lexis), Practical Law(TR) | — |
+| 자료·검색 | 현황 자료 | EDGAR, 시장 데이터(Crosby) | — |
+| 자료·검색 | 고객·회사 정보 | Vault·Workspaces·Workrooms 사건 창고 | — |
+| 자료·검색 | 출처·시점·판본 | 검증된 판례 DB 만(Eve), 권위 순 정렬·관할 인식(Legora), 최신성 필터(Lexis) | — |
+| 자료·검색 | 검색 | 법률 임베딩 + 문단 메타데이터 + LLM 관련도(Harvey), 혼합 색인 + 재정렬(TR 특허), 5단계 ReAct | — |
+| 자료·검색 | 자동 갱신 | Shepard's At Risk·KeyCite 로 판례 생사 확인 | — |
+| 자료·검색 | 업무 자산 | 조항 라이브러리(Spellbook·Ironclad 약 200유형), 템플릿·선례(Harvey Builder) | — |
+| 지식·경험 | 업무 지식 | 사건 유형 112개 렌즈(Supio), 요건사실 그래프(로폼), 로펌 감수 플레이북(MNTSQ) | — |
+| 지식·경험 | 감각·사례·암묵지 | 플레이북 규칙(선호 입장·대안·에스컬레이션), 유사 과거 안건(MNTSQ) | "정석·모르는 것" 명시는 0개 |
+| 지식·경험 | 정체성·작풍 | Preference Learning 팀 문체(Spellbook), 의뢰인별 Custom Memory(Crosby) | — |
+| 기억·상태 | 장기 기억 | 기관 기억 "누가 왜 합의했나"(Luminance), Memory 개발 중(Harvey) | — |
+| 기억·상태 | 작업 기억·의존관계 | Vault 상태(uploaded→processing→ready), 치료 끝나면 초안 시작(Eve) | — |
+| 규칙·권한 | 절대 원칙 | 법률 자문 안 함(Jenny), 전 산출물 "변호사 검토 필수"(Anthropic 플러그인) | — |
+| 규칙·권한 | 직업 규칙 | 이해충돌 벽(Intapp Walls·Legal Context Graph), 변호사법 72조 선(일본), SRA 인가(Garfield) | — |
+| 규칙·권한 | 계약·플랫폼 규칙 | 고객 데이터 학습 금지·Zero Data Retention·BYOK | — |
+| 규칙·권한 | 회사 규칙 | 플레이북 = 회사 협상 기준 + 승인선 | — |
+| 규칙·권한 | 개인 취향 | 수락 문구 1년 보관(Spellbook) | — |
+| 규칙·권한 | 권한·명의·위임 | 자원 단위 권한 + 양쪽 관리자 승인(Spaces), Zanzibar(Legora), 역할 4단계(Spellbook) | M31 "고객 교차 차단" 이 이미 덮음 |
+| 규칙·권한 | 안전장치 | 도구 목록 밖 도구 없음 + PreToolUse deny(Agent SDK), 결정론 코드가 LLM 출력 검증(Eve) | — |
+| 규칙·권한 | 책임·손실 한도 | 위험도 3단계(Ironclad), 5×5 위험 행렬(플러그인), 배상 보험·PLLC(Crosby) | **숫자 임계값은 0개 공개** |
+| 행동 체계 | 판단 규칙 | 플레이북 GREEN/YELLOW/RED, 허용·차단 목록(Ironclad 특허) | — |
+| 행동 체계 | 업무 절차·설계 명세 | Workflow Builder(Harvey), 단계만 사람이 정하고 전략은 에이전트(Legora), 4단계 계약 도구(TR) | — |
+| 행동 체계 | 완료 조건 | 목표 대비 평가 후 미달이면 반복(Legora), 충분성 확인(Harvey ReAct) | — |
+| 행동 체계 | 먼저 감지하기 | Auditor 야간 순찰 6종(Eve), 놓친 청구서 표시(EvenUp Express) | — |
+| 행동 체계 | 상대 응대 | 상대 AI 와 4라운드 협상(Luminance), Jenny 이의 처리·따뜻한 넘김 | M38 협상 조항이 덮음 |
+| 행동 체계 | 사람에게 넘기기 | 결정 지점 멈춤(Brief Builder), 계획 승인(Harvey), 매 단계 승인(Garfield), 신뢰 점수 낮은 곳(Crosby) | **"판단 안 섬" 자각은 0개** |
+| 행동 체계 | 보고·납품·인수 | review-ready 산출물, Portal 로 의뢰인에게(Legora), CMS 에 다시 씀(Eve) | — |
+| 실무 | 업무 처리 흐름 | 청구서 → 독촉장 → 소장 → 3갈래 → 집행(Garfield), Atlas→Agents→Auditor→Analyst(Eve) | 사람 없이 끝까지는 0개 |
+| 검증·평가 | 결과 검증·수정 | 주장 분해 → 출처 대조(Harvey), 인용 도구 조회(CourtListener MCP) | — |
+| 검증·평가 | 반증·교차 검증 | Deep Research Verify 별도 패스(TR), 3회 실행(Legora BAR) | — |
+| 검증·평가 | 위험 누락 검사 | Auditor(Eve), 5×5 행렬(플러그인), 놓친 조항 식별(Jurist Review) | — |
+| 검증·평가 | 과정 평가 | 추론 과정 채점(LBOX), 모든 단계 기록(Harvey) | — |
+| 검증·평가 | 결과물 평가 | 변호사 채점표 + LLM 심판(BigLaw Bench·BAR·LBOX), 선호 시험 Likert 1~7 | — |
+| 검증·평가 | 근거 추적·재현 | 문장 포인터 인용(Harvey), 모든 숫자 → 원본 페이지(Eve), 데이터·프롬프트까지 추적(Legora) | — |
+| 학습·개선 | 실패 원인 분석 | 베타 피드백 군집화(TR), 도구 과호출 수정(LBOX) | — |
+| 학습·개선 | 고정 시험 | 야간 카나리·버전 붙인 평가 데이터·leave-one-out 게이트(Harvey), CoCoBench 회귀 | — |
+| 학습·개선 | 자동 학습·능력 확장 | 덧학습(Tenet·앨리비·Piai), RL 미세조정(Crosby), 수락 문구 비교(Spellbook) | 사용자 편집 → 모델 학습 증거 0개 |
+| 학습·개선 | 성과 추적 | 생산 모니터링(Harvey), NPS + 피드백 채널(LBOX), 가드레일 99~99.99% 목표(Crosby) | — |
+
 ## 6. 못 찾은 것 (재조사 후보)
 - 위험도 게이트의 **숫자 임계값** — 18개 전부.
 - "판단 안 섬" 을 스스로 알아채는 장치 — 18개 전부.
