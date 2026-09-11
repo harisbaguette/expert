@@ -494,7 +494,7 @@ base_y = node_y + 77
 out.append(f'<path d="M{right},{node_y + 48} V{base_y} H{left} V{node_y + 48} '
            f'm-6,8 l6,-8 l6,8" fill="none" stroke="{CHIP_EDGE}" stroke-width="2"/>')
 out.append(f'<text x="{W / 2}" y="{base_y + 28}" text-anchor="middle" font-size="19" '
-           f'fill="{SUB}">새 증거·상대 반응·이견·결합 손실 → 영향받는 판단과 작업 재검토</text>')
+           f'fill="{SUB}">새 증거·상대 반응·이견·다른 건으로 번지는 손해 → 영향받는 판단과 작업 재검토</text>')
 out.append("</svg>")
 path = Path(__file__).with_name("전개-수식.svg")
 with path.open("w", encoding="utf-8") as f:
