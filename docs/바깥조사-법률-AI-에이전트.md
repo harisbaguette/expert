@@ -134,3 +134,5 @@
 | 영국 규제 | sra.org.uk/…/misuse-ai · sra.org.uk/news/news/releases/responsible-use-ai |
 | 범용 모델사 | claude.com/solutions/legal · cloud.google.com/blog/…/introducing-gemini-enterprise-for-legal · wiki.free.law (CourtListener MCP) · imanage.com …mcp |
 | 설계 재료 | harvey.ai/blog/enterprise-grade-rag-systems · lexisnexis.com …shepard-s-citation-validation · legal.thomsonreuters.com/blog/behind-the-build-of-the-next-generation-of-cocounsel-legal |
+
+안이 어떻게 돌아가는지는 [바깥조사-법률-AI-에이전트-내부구조.md](바깥조사-법률-AI-에이전트-내부구조.md) 에 따로 뜯어 둠.
