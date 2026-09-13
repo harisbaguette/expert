@@ -7,6 +7,7 @@
 | 재료 목록 | [materials.md](materials.md) | 에이전트를 만들 때 쓰는 재료를 모아둔 표임 |
 | 돌아가는 규칙 | [runtime.md](runtime.md) | 에이전트가 실제로 일할 때 지키는 약속임 |
 | 채점 기준 | [evaluation.md](evaluation.md) | 잘했는지 못했는지 따지는 잣대임 |
+| 계통 배치 검토 | [material-system-placement-review.md](reviews/material-system-placement-review.md) | 재료 55개의 배치 근거와 재배치 반영 결과임 |
 | 검토 자료 | [reviews/](reviews/) | 직무별 업무 검토, 어려운 사건 시험 결과가 들어 있음 |
 | 실험 결과 | [실험 결과/](<실험 결과/>) | 166개 직무를 돌려본 결과와 다시 돌려볼 코드임 |
 | 그림 설계 메모 | [도식-설계.md](도식-설계.md) | 전개 그림을 왜 그렇게 그렸는지 적어둔 메모임 |

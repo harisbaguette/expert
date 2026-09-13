@@ -72,6 +72,8 @@
 
 ### 5-2. 9계통 재료 중 남들이 가진 것
 
+이 계통별 요약은 조사 당시의 분류로 남긴다. 2026-09-11 재배치 후 현재 소속과 책임 경계는 [재료 정본](materials.md)과 [배치 검토](reviews/material-system-placement-review.md)를 따른다.
+
 | 계통 | 남들이 이미 가진 것 | 비어 있는 것 |
 |---|---|---|
 | 환경 | Word·이메일·계약관리·판례 DB 연결. MCP 표준화 (Harvey 커넥터, CourtListener MCP, iManage MCP) | 법원 전자소송 직접 제출은 없음 |

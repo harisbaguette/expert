@@ -101,6 +101,8 @@
 
 ### 5-2. 9계통 재료 중 남들이 가진 것
 
+이 계통별 요약은 조사 당시의 분류로 남긴다. 2026-09-11 재배치 후 현재 소속과 책임 경계는 [재료 정본](materials.md)과 [배치 검토](reviews/material-system-placement-review.md)를 따른다.
+
 | 계통 | 남들이 이미 가진 것 | 비어 있는 것 |
 |---|---|---|
 | 환경 | 번역 관리 판(Smartling·Phrase·Lokalise·Crowdin)이 파일 넣기·쪼개기·배포까지 이음. Crowdin 은 MCP 서버까지 붙임 (2026-08). 음성 실시간 통로(Wordly·Meet·Teams) 는 지연 2초 안 | 법원 전자소송·공증 사무소·출입국 창구에 직접 제출하는 통로 없음 |

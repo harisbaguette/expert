@@ -91,6 +91,8 @@
 
 ### 5-2. 9계통 재료 중 남들이 가진 것
 
+이 계통별 요약은 조사 당시의 분류로 남긴다. 2026-09-11 재배치 후 현재 소속과 책임 경계는 [재료 정본](materials.md)과 [배치 검토](reviews/material-system-placement-review.md)를 따른다.
+
 | 계통 | 남들이 이미 가진 것 | 비어 있는 것 |
 |---|---|---|
 | 환경 | 헬프데스크·CRM·광고 플랫폼·메일·전화·왓츠앱 전 채널 연결. Fin 은 Zendesk·Salesforce·HubSpot·Freshdesk 위에 얹혀 돌아감. Muck Rack 은 MCP 로 연결 | 결제·환불을 **금액 한도와 함께** 다루는 공개 규격이 없음 |

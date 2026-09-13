@@ -79,6 +79,8 @@
 
 ### 5-2. 9계통 재료 중 남들이 가진 것
 
+이 계통별 요약은 조사 당시의 분류로 남긴다. 2026-09-11 재배치 후 현재 소속과 책임 경계는 [재료 정본](materials.md)과 [배치 검토](reviews/material-system-placement-review.md)를 따른다.
+
 | 계통 | 남들이 이미 가진 것 | 비어 있는 것 |
 |---|---|---|
 | 환경 | Word 안 초안 작성(DeepIP·Rowan), 특허청 DB 연동(cotobox·AI Samurai), **MCP 표준화** — Clarivate CompuMark Trademark MCP(2026-05-29) 로 상표 자료가 Copilot·ChatGPT·Claude 안으로 들어감, 윕스 WIPS MCP | 특허청 전자출원(특허로·EFS-Web)에 직접 제출하는 연결은 없음. 법으로 막혀서 만들 수도 없음 |

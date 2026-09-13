@@ -2,8 +2,8 @@
 # 않으므로, 그림만 보고 다 읽혀야 한다.
 #   항 6개는 × 로, 항 안의 계통과 재료는 + 로 이어진다. 항을 한 줄로 쌓아 × 다섯 개가 한 축에 선다.
 #   재료 줄은 남는 폭을 칩이 나눠 가져 상자 좌우에 꽉 맞춘다.
-#   필수 재료는 채운 칩, 필요한 경우에만 쓰는 재료는 흰 바탕 점선 칩으로 따로 담는다.
-#   사건 관계에 따른 조립과 반복 실행을 함께 보인다. 규칙은 적용 의무의 동시 충족으로 표현한다.
+#   상시·단계별·조건부를 이름·채움·테두리로 구별한다. 분류는 materials.md에서 읽는다.
+#   재료 구성과 반복 실행을 함께 보인다. 규칙은 적용 의무의 동시 충족으로 표현한다.
 # Run: python3 "docs/전개-수식-gen.py"  (then check the render before committing)
 
 import re
@@ -18,11 +18,10 @@ TERM_BG = "#dde6ee"      # 항 몸통 — 계통 카드(흰색)와 명도를 벌
 TERM_EDGE = "#a7b9c8"
 SYS_BG = "#ffffff"       # 계통 상자
 SYS_EDGE = "#c3d0db"
-CHIP_BG = "#d5e2ec"      # 필수 재료
+CHIP_BG = "#d5e2ec"      # 상시 재료
 CHIP_EDGE = "#6d8194"
 COND_BG = "#dde7ef"      # 필요한 경우 칸 바닥
-COND_EDGE = "#8fa0b0"    # 필요한 경우 재료 (점선 = 빈칸으로 둘 수 있다는 뜻)
-COND_TXT = "#5b6c7c"
+COND_EDGE = "#8fa0b0"    # 조건부 재료 (해당 조건이 참이면 필수)
 TITLE_BG = "#eef3f8"
 
 FS = 19                  # 재료 글자
@@ -44,9 +43,8 @@ HDR = 54                 # 항 머리띠 높이
 SPAD = 20                # 계통 상자 안 여백
 SLBL = 32                # 계통 이름 줄
 SYS_GAP = 42             # 계통과 계통 사이 (+ 자리)
-CTOP = 12                # 필요한 경우 칸 위
-CLBL = 26                # 필요한 경우 이름 줄
-CBOT = 12
+CTOP = 14                # 적용 구분 사이 간격
+CLBL = 28                # 적용 구분 이름 줄
 
 W = 1446
 FULL_W = W - 2 * MARGIN              # 항 카드 폭
@@ -75,121 +73,97 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-# ── 전개 내용.  ("m", 이름, 필수?) 재료 · ("o", 기호) 연산자 · ("[", None)/("]", None) 우선순위 괄호
-def M(n):
-    return ("m", n, True)
-
-
-def C(n):
-    return ("m", n, False)
-
-
-PLUS = ("o", "+")
-ARROW = ("o", "→")
-
-TERMS = {
-    "환경": [("", [
-        [M("모델"), PLUS, M("실행 순환"), PLUS, M("저장·이어받기"), PLUS, M("나눠 맡기기"), PLUS, M("작업창"),
-         PLUS, M("시작 신호"), PLUS, M("자료·구조 읽기"), PLUS, M("도구·전문 작업 환경"), PLUS, M("시험 환경")],
-        [PLUS, C("실시간 통로"), PLUS, C("산출물 제작·편집"), PLUS, C("데이터 처리"),
-         PLUS, C("계산·분석·최적화"), PLUS, C("실험·시뮬레이션")],
-    ])],
-    "지식": [
-        ("자료·검색", [
-            [M("법규·기준"), PLUS, M("해석 자료"), PLUS, M("일반 자료"), PLUS, M("고객·회사 정보"),
-             PLUS, M("출처·시점·판본"), PLUS, M("검색"), PLUS, M("자동 갱신")],
-            [PLUS, C("플랫폼·기관 규정"), PLUS, C("현황 자료"), PLUS, C("업무 자산")],
-        ]),
-        ("지식·경험", [
-            [M("업무 지식"), PLUS, M("감각·사례·암묵지")],
-            [PLUS, C("정체성·작풍")],
-        ]),
-        ("기억·상태", [
-            [M("장기 기억"), PLUS, M("작업 기억·의존관계")],
-        ]),
-    ],
-    "규칙": [
-        ("규칙·권한", [
-            [M("절대 원칙"), PLUS, M("직업 규칙"), PLUS, M("개인 취향")],
-            [PLUS, M("권한·명의·위임"), PLUS, M("안전장치"), PLUS, M("책임·손실 한도")],
-            [PLUS, C("계약·플랫폼 규칙"), PLUS, C("회사 규칙")],
-        ]),
-        ("행동 체계", [
-            [M("판단 규칙"), PLUS, M("업무 절차·설계 명세"), PLUS, M("완료 조건"), PLUS, M("먼저 감지하기"),
-             PLUS, M("사람에게 넘기기"), PLUS, M("보고·납품·인수")],
-            [PLUS, C("상대 응대")],
-        ]),
-    ],
-    "실무": [("업무 처리 흐름", [
-        [M("감지·접수"), ARROW, M("의도 파악"), ARROW, M("문제 정의"), ARROW, M("자료 확인"),
-         ARROW, M("판단·계획"), ARROW, M("처리"), ARROW, M("검증"), ARROW, M("완료·보고"), ARROW, M("남기기")],
-    ])],
-    "검증": [("검증·평가", [
-        [M("결과 검증·수정"), PLUS, M("반증·교차 검증"), PLUS, M("위험 누락 검사"),
-         PLUS, M("과정 평가"), PLUS, M("결과물 평가"), PLUS, M("근거 추적·재현")],
-    ])],
-    "학습": [("학습·개선", [
-        [M("실패 원인 분석"), PLUS, M("고정 시험"), PLUS, M("자동 학습·능력 확장"), PLUS, M("성과 추적")],
-    ])],
+# ── 재료 구성과 적용 구분 — 이름·계통·분류의 정본은 materials.md ─────────
+USAGE_LABELS = {
+    "상시": "상시 · 업무 내내 적용",
+    "단계별": "단계별 · 해당 단계마다 적용",
+    "조건부": "조건부 · 필요하면 필수",
 }
+TERM_SYSTEMS = {
+    "환경": ["환경"],
+    "지식": ["자료·검색", "지식·경험", "기억·상태"],
+    "규칙": ["규칙·권한", "행동 체계"],
+    "실무": ["실무"],
+    "검증": ["검증·평가"],
+    "학습": ["학습·개선"],
+}
+FLOW_STEPS = ["감지·접수", "의도 파악", "문제 정의", "자료 확인", "판단·계획",
+              "처리", "검증", "완료·보고", "남기기"]
+PLUS = ("o", "+")
 
-ORDER = ["환경", "지식", "규칙", "실무", "검증", "학습"]
 
-
-def validate_materials():
-    """Refuse to render a diagram that drifts from the material registry."""
+def load_materials():
     registry = Path(__file__).with_name("materials.md").read_text(encoding="utf-8")
-    expected = re.findall(r"^\| (M\d+) ([^|]+?) \|", registry, re.MULTILINE)
-    ids = [mid for mid, _ in expected]
-    if len(ids) != 55 or set(ids) != {f"M{i:02d}" for i in range(1, 56)}:
-        raise ValueError("재료 목록의 ID가 M01–M55와 일치하지 않습니다.")
-    expected_groups = {}
-    group = ""
+    records, group = [], ""
     for line in registry.splitlines():
         if line.startswith("## "):
             group = line[3:].split(" — ")[0]
-        match = re.match(r"^\| M\d+ ([^|]+?) \|", line)
-        if match:
-            expected_groups[match[1]] = group
-    actual = []
-    actual_groups = {}
-    for term, systems in TERMS.items():
-        for system, rows in systems:
-            group = term if term in {"환경", "실무"} else system
-            if term == "실무":
-                labels = [system]
-            else:
-                labels = [t[1] for row in rows for t in row if t[0] == "m"]
-            actual.extend(labels)
-            actual_groups.update({label: group for label in labels})
-    names = {name for _, name in expected}
-    if len(actual) != len(names) or set(actual) != names:
-        raise ValueError(f"수식 재료 불일치: 누락={names - set(actual)}, 초과={set(actual) - names}")
-    if actual_groups != expected_groups:
-        raise ValueError("수식과 재료 목록의 계통 배치가 일치하지 않습니다.")
+        if not re.match(r"^\| M\d+ ", line):
+            continue
+        cells = [cell.strip() for cell in line.strip("|").split("|")]
+        if len(cells) != 5:
+            raise ValueError("재료 표는 적용 구분·시점을 포함한 5열이어야 합니다.")
+        mid, name = cells[0].split(" ", 1)
+        usage = re.fullmatch(r"\*\*([^*]+)\*\*<br>(.+)", cells[-1])
+        if not usage or usage[1] not in USAGE_LABELS:
+            raise ValueError(f"적용 구분·시점 누락 또는 오류: {mid} {name}")
+        records.append({"id": mid, "name": name, "group": group,
+                        "usage": usage[1], "note": cells[-1]})
+    ids = [r["id"] for r in records]
+    if len(ids) != 55 or set(ids) != {f"M{i:02d}" for i in range(1, 56)}:
+        raise ValueError("재료 목록의 ID가 M01–M55와 일치하지 않습니다.")
+    names = {r["name"] for r in records}
+    if len(names) != 55:
+        raise ValueError("재료 이름이 중복됩니다.")
+    expected_groups = {g for groups in TERM_SYSTEMS.values() for g in groups}
+    if {r["group"] for r in records} != expected_groups:
+        raise ValueError("재료의 계통이 9개 계통과 일치하지 않습니다.")
+    return records
 
 
-validate_materials()
+def validate_summary(records):
+    """그림·정본뿐 아니라 사용자가 보는 55개 비고와 계통도 함께 대조한다."""
+    summary = Path(__file__).resolve().parent.parent / "전문가 에이전트 정의.md"
+    section = summary.read_text(encoding="utf-8").split("## 계통별 재료 ✅", 1)[1]
+    expected = {r["name"]: (r["group"], r["note"]) for r in records}
+    actual, group = {}, ""
+    for line in section.splitlines():
+        if line.startswith("### "):
+            group = line[4:].removesuffix(" ✅")
+        match = re.match(r"^\| \*\*([^*]+)\*\*(?: ✅)? \|", line)
+        if not match or group not in {r["group"] for r in records}:
+            continue
+        name = match[1]
+        if name not in expected:
+            raise ValueError(f"본문에 정본에 없는 재료가 있습니다: {name}")
+        if name in actual:
+            raise ValueError(f"본문 재료 중복: {name}")
+        cells = [cell.strip() for cell in line.strip("|").split("|")]
+        if len(cells) != 4:
+            raise ValueError(f"본문 재료 표는 비고를 포함한 4열이어야 합니다: {name}")
+        actual[name] = (group, cells[-1])
+    if actual != expected:
+        changed = [name for name in expected if actual.get(name) != expected[name]]
+        raise ValueError(f"본문 재료·계통·비고가 정본과 다릅니다: {changed}")
 
+
+MATERIALS = load_materials()
+validate_summary(MATERIALS)
+TERMS = {
+    term: [(group, [r for r in MATERIALS if r["group"] == group]) for group in groups]
+    for term, groups in TERM_SYSTEMS.items()
+}
+ORDER = list(TERMS)
 out = []
 
 
-# ── 계통 안의 흐름·필수·조건부 재료 ──────────────────────────────────────
-def segments(rows):
-    """chev (흐름 칩) · plus (보통 재료) · cond (필요한 경우)"""
-    chev, plus, cond = [], [], []
-    for r in rows:
-        mats = [t for t in r if t[0] == "m"]
-        if mats and all(not t[2] for t in mats):
-            cond += r
-        elif any(t[0] == "o" and t[1] == "→" for t in r):
-            chev += mats
-        else:
-            plus += r
-    for grp in (plus, cond):
-        while grp and grp[0][0] == "o":
-            grp.pop(0)
-    return chev, plus, cond
+def material_tokens(records):
+    tokens = []
+    for record in records:
+        if tokens:
+            tokens.append(PLUS)
+        tokens.append(("m", record["name"], record["usage"]))
+    return tokens
 
 
 def unit_w(u):
@@ -263,23 +237,27 @@ def stack_h(n):
 
 
 
-def plan_sys(sysname, rows, body_w):
+def plan_sys(group, records, body_w):
     inner = body_w - 2 * SPAD
-    chev, plus, cond = segments(rows)
-    pl = flow(plus, inner)
-    cl = flow(cond, inner - 28) if cond else []
-    vl = flow_chev(chev, inner) if chev else []
-    h = SPAD + (SLBL if sysname else 0)
-    if vl:
-        h += stack_h(len(vl)) + (14 if pl else 0)
-    if pl:
-        h += stack_h(len(pl))
-    if cl:
-        h += CTOP + CLBL + stack_h(len(cl)) + CBOT
-    if sysname == "규칙·권한":
+    name = "" if group in {"환경", "실무"} else group
+    blocks = []
+    for usage in USAGE_LABELS:
+        selected = [r for r in records if r["usage"] == usage]
+        if not selected:
+            continue
+        is_flow = len(selected) == 1 and selected[0]["id"] == "M41"
+        if is_flow:
+            lines = flow_chev([("m", label, usage) for label in FLOW_STEPS], inner - 28)
+        else:
+            lines = flow(material_tokens(selected), inner - 28)
+        blocks.append({"usage": usage, "lines": lines, "flow": is_flow,
+                       "h": CLBL + stack_h(len(lines)) + 12})
+    h = SPAD + (SLBL if name else 0)
+    h += sum(block["h"] for block in blocks) + CTOP * (len(blocks) - 1)
+    if group == "규칙·권한":
         h += 38
     h += SPAD
-    return {"name": sysname, "chev": vl, "plus": pl, "cond": cl, "h": h}
+    return {"name": name, "blocks": blocks, "h": h}
 
 
 def plan_term(name, body_w):
@@ -301,12 +279,14 @@ H = LOOP_Y + LOOP_H + MARGIN
 
 out.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
            f'font-family="{FONT}" role="img" aria-labelledby="formula-title formula-desc">')
-out.append('<title id="formula-title">전문 AI 에이전트 수식 — 6개 항·9개 계통·55개 재료</title>')
+out.append('<title id="formula-title">전문 AI 에이전트 구성 전개식 — 6개 항·9개 계통·55개 재료</title>')
 out.append('<desc id="formula-desc">환경 × 지식 × 규칙 × 실무 × 검증 × 학습. '
            '산출물 제작·편집, 데이터 처리, 계산·분석·최적화, 실험·시뮬레이션, 업무 자산을 포함한다. '
-           '점선은 업무에 필요한 경우 적용하며, 해당 업무에 필요하면 필수다. '
-           '실무의 업무 처리 흐름 한 재료는 아홉 단계로 펼쳤다. '
-           '필요한 재료를 사건 관계와 위임·목표·제약에 맞게 조립한다. '
+           '상시는 진행 전반에, 단계별은 해당 단계마다 적용한다. '
+           '단계별도 자료·전제·결과가 바뀌면 반복한다. '
+           '조건부는 필요할 때 적용하며, 조건이 참이면 필수다. '
+           '실무는 업무 처리 흐름과 데이터 처리·계산·실험·제작·상대 응대·납품의 일곱 재료다. '
+           '그중 업무 처리 흐름은 아홉 단계로 펼쳤다. '
            '규칙은 적용 범위와 해석을 확인해 함께 충족하며, 상황·조건부 전략·실행·외부 검증을 순환한다. '
            '재료의 개수는 전문가 성능을 보장하지 않는다.</desc>')
 out.append(f'<rect width="{W}" height="{H}" fill="#ffffff"/>')
@@ -351,15 +331,13 @@ for i, n in enumerate(names):
     tx += tw(n, tfs)
 
 
-def chip(x, y, name, req, dash=True, ext=0.0):
+def chip(x, y, name, usage, ext=0.0):
     w = bw(name) + ext
-    if req:
-        out.append(f'<rect x="{round(x,1)}" y="{round(y,1)}" width="{w}" height="{BH}" rx="8" '
-                   f'fill="{CHIP_BG}" stroke="{CHIP_EDGE}" stroke-width="1.5"/>')
-    else:
-        out.append(f'<rect x="{round(x,1)}" y="{round(y,1)}" width="{w}" height="{BH}" rx="8" '
-                   f'fill="#ffffff" stroke="{COND_EDGE}" stroke-width="1.5" '
-                   f'stroke-dasharray="{"5 4" if dash else "none"}"/>')
+    fill = CHIP_BG if usage == "상시" else "#ffffff"
+    stroke = COND_EDGE if usage == "조건부" else CHIP_EDGE
+    dash = ' stroke-dasharray="5 4"' if usage == "조건부" else ""
+    out.append(f'<rect x="{round(x,1)}" y="{round(y,1)}" width="{w}" height="{BH}" rx="8" '
+               f'fill="{fill}" stroke="{stroke}" stroke-width="1.5"{dash}/>')
     out.append(f'<text x="{round(x + w / 2,1)}" y="{round(y + BH / 2 + 7,1)}" text-anchor="middle" '
                f'font-size="{FS}" fill="{INK}">{esc(name)}</text>')
     return w
@@ -412,29 +390,30 @@ def draw_sys(p, x, y, body_w):
         out.append(f'<text x="{cx}" y="{round(y + 20,1)}" font-size="21" font-weight="700" '
                    f'fill="{INK}">{esc(p["name"])}</text>')
         y += SLBL
-    if p["chev"]:
-        for li, ln in enumerate(p["chev"]):
-            used = sum(bw(c[1]) + NOTCH * 0.6 - NOTCH for c in ln) + NOTCH
-            draw_flow_line(cx, y, ln, li == len(p["chev"]) - 1, li == 0,
-                           max(0.0, (inner - used) / len(ln)))
-            y += LINEH
-        y += -LINEH + BH + (14 if p["plus"] else 0)
-    if p["plus"]:
-        for ln in p["plus"]:
-            draw_line(cx, y, ln, inner)
-            y += LINEH
-        y += -LINEH + BH
-    if p["cond"]:
-        y += CTOP
-        bh = CLBL + stack_h(len(p["cond"])) + CBOT
-        out.append(f'<rect x="{cx}" y="{round(y,1)}" width="{inner}" '
-                   f'height="{round(bh,1)}" rx="9" fill="{COND_BG}"/>')
-        out.append(f'<text x="{round(cx + 14,1)}" y="{round(y + 19,1)}" font-size="{SMALL}" '
-                   f'font-weight="700" fill="{COND_TXT}">+ 필요한 경우에만</text>')
+    for index, block in enumerate(p["blocks"]):
+        if index:
+            y += CTOP
+        block_y = y
+        usage = block["usage"]
+        if usage == "조건부":
+            out.append(f'<rect x="{cx}" y="{round(y,1)}" width="{inner}" '
+                       f'height="{block["h"]}" rx="9" fill="{COND_BG}"/>')
+        prefix = "+ " if index else ""
+        label = prefix + USAGE_LABELS[usage]
+        if block["flow"]:
+            label += " — 업무 처리 흐름"
+        out.append(f'<text x="{cx + 14}" y="{round(y + 19,1)}" font-size="{SMALL}" '
+                   f'font-weight="700" fill="{SUB}">{esc(label)}</text>')
         y += CLBL
-        for ln in p["cond"]:
-            draw_line(cx + 14, y, ln, inner - 28)
+        for li, line in enumerate(block["lines"]):
+            if block["flow"]:
+                used = sum(bw(c[1]) + NOTCH * 0.6 - NOTCH for c in line) + NOTCH
+                draw_flow_line(cx + 14, y, line, li == len(block["lines"]) - 1, li == 0,
+                               max(0.0, (inner - 28 - used) / len(line)))
+            else:
+                draw_line(cx + 14, y, line, inner - 28)
             y += LINEH
+        y = block_y + block["h"]
     if p["name"] == "규칙·권한":
         note_y = top + p["h"] - 20
         out.append(f'<text x="{cx}" y="{note_y}" font-size="{SMALL}" fill="{SUB}">'
