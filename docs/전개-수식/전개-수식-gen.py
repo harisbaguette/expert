@@ -6,8 +6,10 @@
 #   재료 구성과 반복 실행을 함께 보인다. 규칙은 적용 의무의 동시 충족으로 표현한다.
 # Run: python3 "docs/전개-수식/전개-수식-gen.py"  (then check the render before committing)
 
-import re
+import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "definition"))
+from definition_lib import validate_materials
 
 FONT = "-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif"
 
@@ -81,7 +83,7 @@ USAGE_LABELS = {
 }
 TERM_SYSTEMS = {
     "환경": ["환경"],
-    "지식": ["자료·검색", "지식·경험", "기억·상태"],
+    "지식": ["자료·검색", "지식·경험", "기억·진행 상태"],
     "규칙": ["규칙·권한", "행동 체계"],
     "실무": ["실무"],
     "검증": ["검증·평가"],
@@ -92,63 +94,15 @@ FLOW_STEPS = ["감지·접수", "의도 파악", "문제 정의", "자료 확인
 PLUS = ("o", "+")
 
 
-def load_materials():
-    registry = (Path(__file__).parent.parent / "materials.md").read_text(encoding="utf-8")
-    records, group = [], ""
-    for line in registry.splitlines():
-        if line.startswith("## "):
-            group = line[3:].split(" — ")[0]
-        if not re.match(r"^\| M\d+ ", line):
-            continue
-        cells = [cell.strip() for cell in line.strip("|").split("|")]
-        if len(cells) != 5:
-            raise ValueError("재료 표는 적용 구분·시점을 포함한 5열이어야 합니다.")
-        mid, name = cells[0].split(" ", 1)
-        usage = re.fullmatch(r"\*\*([^*]+)\*\*<br>(.+)", cells[-1])
-        if not usage or usage[1] not in USAGE_LABELS:
-            raise ValueError(f"적용 구분·시점 누락 또는 오류: {mid} {name}")
-        records.append({"id": mid, "name": name, "group": group,
-                        "usage": usage[1], "note": cells[-1]})
-    ids = [r["id"] for r in records]
-    if len(ids) != 55 or set(ids) != {f"M{i:02d}" for i in range(1, 56)}:
-        raise ValueError("재료 목록의 ID가 M01–M55와 일치하지 않습니다.")
-    names = {r["name"] for r in records}
-    if len(names) != 55:
-        raise ValueError("재료 이름이 중복됩니다.")
-    expected_groups = {g for groups in TERM_SYSTEMS.values() for g in groups}
-    if {r["group"] for r in records} != expected_groups:
-        raise ValueError("재료의 계통이 9개 계통과 일치하지 않습니다.")
+def load_visual_materials():
+    _, mapping, summary = validate_materials()
+    correspondence = {r["name"]: r for r in mapping}
+    records = [dict(r, id="+".join(correspondence[r["name"]]["ids"])) for r in summary]
+    records.append(dict(id="M41", name="업무 처리 흐름", group="실무", usage="상시"))
     return records
 
 
-def validate_summary(records):
-    """그림·정본뿐 아니라 사용자가 보는 55개 비고와 계통도 함께 대조한다."""
-    summary = Path(__file__).resolve().parent.parent.parent / "전문가 에이전트 정의.md"
-    section = summary.read_text(encoding="utf-8").split("## 계통별 재료 ✅", 1)[1]
-    expected = {r["name"]: (r["group"], r["note"]) for r in records}
-    actual, group = {}, ""
-    for line in section.splitlines():
-        if line.startswith("### "):
-            group = line[4:].removesuffix(" ✅")
-        match = re.match(r"^\| \*\*([^*]+)\*\*(?: ✅)? \|", line)
-        if not match or group not in {r["group"] for r in records}:
-            continue
-        name = match[1]
-        if name not in expected:
-            raise ValueError(f"본문에 정본에 없는 재료가 있습니다: {name}")
-        if name in actual:
-            raise ValueError(f"본문 재료 중복: {name}")
-        cells = [cell.strip() for cell in line.strip("|").split("|")]
-        if len(cells) != 4:
-            raise ValueError(f"본문 재료 표는 비고를 포함한 4열이어야 합니다: {name}")
-        actual[name] = (group, cells[-1])
-    if actual != expected:
-        changed = [name for name in expected if actual.get(name) != expected[name]]
-        raise ValueError(f"본문 재료·계통·비고가 정본과 다릅니다: {changed}")
-
-
-MATERIALS = load_materials()
-validate_summary(MATERIALS)
+MATERIALS = load_visual_materials()
 TERMS = {
     term: [(group, [r for r in MATERIALS if r["group"] == group]) for group in groups]
     for term, groups in TERM_SYSTEMS.items()
@@ -279,16 +233,16 @@ H = LOOP_Y + LOOP_H + MARGIN
 
 out.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
            f'font-family="{FONT}" role="img" aria-labelledby="formula-title formula-desc">')
-out.append('<title id="formula-title">전문 AI 에이전트 구성 전개식 — 6개 항·9개 계통·55개 재료</title>')
+out.append('<title id="formula-title">전문 AI 에이전트 구성 전개식 — 6개 구성 요소·9계통·본문 59항목·업무 흐름</title>')
 out.append('<desc id="formula-desc">환경 × 지식 × 규칙 × 실무 × 검증 × 학습. '
            '산출물 제작·편집, 데이터 처리, 계산·분석·최적화, 실험·시뮬레이션, 업무 자산을 포함한다. '
            '상시는 진행 전반에, 단계별은 해당 단계마다 적용한다. '
            '단계별도 자료·전제·결과가 바뀌면 반복한다. '
            '조건부는 필요할 때 적용하며, 조건이 참이면 필수다. '
-           '실무는 업무 처리 흐름과 데이터 처리·계산·실험·제작·상대 응대·납품의 일곱 재료다. '
+           '실무는 데이터 처리·계산·실제 실험·모의 시험·제작·응대·시스템 실행·인수를 포함한다. '
            '그중 업무 처리 흐름은 아홉 단계로 펼쳤다. '
            '규칙은 적용 범위와 해석을 확인해 함께 충족하며, 상황·조건부 전략·실행·외부 검증을 순환한다. '
-           '재료의 개수는 전문가 성능을 보장하지 않는다.</desc>')
+           '기호는 역할의 결합을 설명하며 수치 성능의 곱셈이 아니다. 재료 수는 전문가 성능을 보장하지 않는다.</desc>')
 out.append(f'<rect width="{W}" height="{H}" fill="#ffffff"/>')
 
 

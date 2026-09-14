@@ -1,0 +1,436 @@
+{
+  "kind": "definition consistency and bounded counterexamples; not professional performance",
+  "generated_at": "2026-09-14T23:57:46.166362+00:00",
+  "baseline": "v2",
+  "counts": {
+    "systems": 9,
+    "display_items": 59,
+    "responsibility_ids": 57,
+    "tracking_keys": 62,
+    "occupations": 166
+  },
+  "checks_passed": 76,
+  "graph_mutations_detected": 22,
+  "historical_regression": {
+    "model_count": 8,
+    "enumerated_configurations": 42,
+    "omission_counterexamples": 19
+  },
+  "checks": [
+    {
+      "check": "재료 57 ID·설명 59·계통 9·이름·적용 표시 대응",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "추적할 하위 책임 키 62개·중복 없음",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "하위 책임 키와 정본 선언 일치",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "정의 2와 정본 생성 결과 일치",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "57개 상세 책임 카드 각각 1개",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "166개 직무 ID·명칭 보존",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "166개 범위 필수 필드 존재",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "직무 유형 58·80·28 보존",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "실제 능력 미검증 상태 보존",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "COVER 기준 흐름이 하나 존재",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RECEIVE 기준 흐름이 하나 존재",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ACTION 기준 흐름이 하나 존재",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "W_START 기준 흐름이 하나 존재",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 COVER:COVER",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 COVER:QUALITY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 COVER:HUMAN",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 COVER:AUTONOMY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 COVER:COST",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 COVER:SUSTAIN",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:RECEIVE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:URGENT",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:SYNC",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:SCOPE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:PROBLEM",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:DATA",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:PLAN",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:READY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:VERIFY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:VALID",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 RECEIVE:COMPLETE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 ACTION:GATE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 ACTION:SAVE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 ACTION:LIVE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 ACTION:CHECK",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "필수 경유 W_START:W_SYNC",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 COVER:COVER",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 COVER:QUALITY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 COVER:HUMAN",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 COVER:AUTONOMY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 COVER:COST",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 COVER:SUSTAIN",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:RECEIVE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:URGENT",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:SYNC",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:SCOPE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:PROBLEM",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:DATA",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:PLAN",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:READY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:VERIFY",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:VALID",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 RECEIVE:COMPLETE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 ACTION:GATE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 ACTION:SAVE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 ACTION:LIVE",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 ACTION:CHECK",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "우회 반례 검출 W_START:W_SYNC",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "자료 직접 확보 경로",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "직접 확보 뒤 상태 재대조",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "기존 건·대기 재개 뒤 상태 재대조",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "보호 조치 뒤 재대조",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "미해결 긴급 범위의 차단 설명",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "새 원천 증거 없이 불명 결과 재실행 불가",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "처리 불명 확인 만료 출구",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "부분 성공 뒤 전체 성공 직행 불가",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "취소·보상 재실행은 권한 재검사",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "대기 기한 만료·취소 종료 출구",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "무응답이 실행 재개로 직행하지 않음",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "모든 흐름 노드에 도달 가능",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "기존 복합 모형 회귀 8모형·42구성·19누락 반례",
+      "passed": true,
+      "detail": {
+        "model_count": 8,
+        "enumerated_configurations": 42,
+        "omission_counterexamples": 19
+      }
+    },
+    {
+      "check": "활성 문서의 로컬 링크·제목 연결",
+      "passed": true,
+      "detail": {
+        "links_checked": 82
+      }
+    },
+    {
+      "check": "전문가 에이전트 정의 HTML 판본 일치",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "진행-계획 HTML 판본 일치",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Mermaid 전부 렌더됨",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "구성 도식에 59개 본문 이름 포함",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "생성 SVG XML 유효",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "source_sha256": {
+    "전문가 에이전트 정의.md": "6fb6fca6300f5534ebd2ffe822f3b1f86aa9e7fa8d007d5b158d9e3ec3e143bd",
+    "전문가 에이전트 정의 2.md": "abb9a4da7ac3fb8dd0404eeee81096f6840b6951caab2cb52907674219e4a7ac",
+    "진행-계획.md": "e11bd70174421f187148897748a59350cc0e34efa66625e38329c82b0dd52d5a",
+    "docs/README.md": "e3c342ebd433b9385938c076e790ad71055488f3cb14edceebb17c87552db5c5",
+    "docs/materials.md": "f5c3051a7a9c82d76cd25dfab18124dc2c266c0c326d5a595cc404ac3850ab16",
+    "docs/runtime.md": "59539a885d776fc9938667ba68b1842ee0c63ba7c67b4a70fc17f2fc5c4c10eb",
+    "docs/evaluation.md": "a763316c9d0f1b6e8ded8614df3b89938a604fe3f9ae92ccb8130248eb9991c1",
+    "docs/reviews/material-baseline-review.md": "60418c21564526b178517f548d141e83d5144a05633dc2f3d1a8054a3f71e7f3",
+    "docs/reviews/material-counterexamples-v2.md": "5fba6978a1cf4c27a0c1a7a36dc837f460e87f4b37291d18c98b012e2b833ac0",
+    "docs/definition/README.md": "3a78fdba5fec7925cde9b27bce85f65cfc7d6048a83adf55523f13a92261a401",
+    "docs/definition/occupation-scopes.csv": "11e0e2a328ec6d1290aadc4a98e60b66f92ffc575a4758b66cb8ebe72583655f",
+    "docs/전개-수식/전개-수식.svg": "30b7ce398d1df93dbfa3adc46fbe32930c0173e54a5615d9a0b70e7018e6e1a2"
+  },
+  "tool_sha256": {
+    "docs/definition/verify_definition.py": "f85e32df91efb14de1766dec392b377f65d3696b7e78a4d1c0dbb06aa1e074be",
+    "docs/definition/definition_lib.py": "ce924f1ffec05d9d12050d1e254acc9ce92aaff9a2ae11fa855d88c3bba823f8",
+    "docs/definition/build_views.py": "990d542ef88a8de8f39fea0f72150985a1c24a76c6db3f3f72f51e282c89e2d4",
+    "docs/definition/render_html.py": "b7925974181063ce8f22038f66eb7eb15f376fac33695381107b314cdc8e6189",
+    "docs/definition/render_mermaid.cjs": "3a22c6c024957163563a13569ab630ad7c68011f3b4e629cba44ce55db7cc7ad",
+    "docs/definition/visual_check.cjs": "1cfed6e064d8e0c216c97da46c0bf39e209da52408a2924d0a1ea30084c9d1cd",
+    "docs/definition/view.css": "206ba37c4ff5cfd3eaf8cd5a27a23a68468d76517f86f29fb73ea89498db7cac"
+  },
+  "limits": [
+    "작성자에 의한 문서 구조·경로 검사",
+    "그래프 연결 검사는 노드 안의 전문 판단 능력을 검증하지 않음",
+    "과거 모형은 제한된 합성 상태·계산 검사",
+    "실제 직무 에이전트·외부 시스템·독립 전문가 비교 미실행"
+  ]
+}
