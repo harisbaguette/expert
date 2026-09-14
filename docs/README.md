@@ -4,7 +4,8 @@
 
 | 무엇 | 어디 | 어떤 내용임 |
 | --- | --- | --- |
-| 재료 목록 | [materials.md](materials.md) | 에이전트를 만들 때 쓰는 재료를 모아둔 표임 |
+| 재료 목록 | [materials.md](materials.md) | 본문 설명 53개와 세부 책임 M01–M55의 대응·입출력·검증 기준 |
+| 목표 적합성 검토 | [material-goal-alignment-review.md](reviews/material-goal-alignment-review.md) | 53개 전수 검토와 보완 반영 결과 |
 | 돌아가는 규칙 | [runtime.md](runtime.md) | 에이전트가 실제로 일할 때 지키는 약속임 |
 | 채점 기준 | [evaluation.md](evaluation.md) | 잘했는지 못했는지 따지는 잣대임 |
 | 계통 배치 검토 | [material-system-placement-review.md](reviews/material-system-placement-review.md) | 재료 55개의 배치 근거와 재배치 반영 결과임 |
@@ -29,4 +30,4 @@
 | 바깥 조사 (운영형 — 채널 · 상점 · 작품) | [바깥조사-운영형-AI-에이전트.md](바깥조사-운영형-AI-에이전트.md) | AI 가 혼자 진짜 돈을 번 첫 자리. 그 돈을 지키는 건 실력이 아니라 플랫폼 허락임 |
 | 바깥 조사 (종합 · 수식 대조) | [바깥조사-종합-수식대조.md](바깥조사-종합-수식대조.md) | 조사 14편을 우리 수식에 대입해 본 결과 — 더할 재료도 고칠 곳도 없었음 |
 
-처음 보는 사람은 `materials.md` → `runtime.md` → `evaluation.md` 순서로 보면 됨.
+처음 보는 사람은 `materials.md` → `runtime.md` → `evaluation.md` 순서로 보면 됨. 그림·HTML과 그림 생성기의 갱신은 재료를 모두 확정한 뒤 진행하며, 현재 기준은 Markdown 정의와 재료 대응표임.
