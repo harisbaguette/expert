@@ -343,5 +343,5 @@ IFRS의 IAS 8 설명은 직접 적용되는 기준이 없는 거래에서 관련
 | docs/materials.md | `f8a2a00b580701ac07e0c31f8f0aace10c7ae4f278be948d338768caee87035e` |
 | docs/runtime.md | `18551bba18c7f6ecc1cc0760758753525ce048fd4a603a4771c6268e2fbe40c0` |
 | docs/evaluation.md | `6182adaee29df468c8a589576ef0b58ae8178a73abf185049807c9554d1aa06f` |
-| docs/전개-수식-gen.py | `6549e736abf1ca90295807a6cda37dd48a4317f38136cc61c5f4524018f3ef12` |
-| docs/전개-수식.svg | `897a0912ab5b9afb82d25bbb82e358d0b75457e87bc39c3510fc1dc9324bff00` |
+| docs/전개-수식/전개-수식-gen.py | `6549e736abf1ca90295807a6cda37dd48a4317f38136cc61c5f4524018f3ef12` |
+| docs/전개-수식/전개-수식.svg | `897a0912ab5b9afb82d25bbb82e358d0b75457e87bc39c3510fc1dc9324bff00` |

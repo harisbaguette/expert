@@ -158,4 +158,4 @@ R08 — 환경 설명은 ‘무엇을 알고 어떻게 판단하는지가 아니
 
 2026-09-11의 계통 배치 검토는 당시 판본의 기록이다. 당시의 55개 일치 판정을 현재 53개 본문의 검증 결과로 재사용할 수 없다.
 
-확인 근거: [본문](../../전문가%20에이전트%20정의.md), [재료 정본](../materials.md), [실행 계약](../runtime.md), [평가 규약](../evaluation.md), [상세 구상](../../전문가%20에이전트%20정의%202.md), [이전 배치 검토](material-system-placement-review.md), [그림 생성기](../전개-수식-gen.py), [기존 합성 모형](../실험%20결과/재현/occupation-dynamic-models.py).
+확인 근거: [본문](../../전문가%20에이전트%20정의.md), [재료 정본](../materials.md), [실행 계약](../runtime.md), [평가 규약](../evaluation.md), [상세 구상](../../전문가%20에이전트%20정의%202.md), [이전 배치 검토](material-system-placement-review.md), [그림 생성기](../전개-수식/전개-수식-gen.py), [기존 합성 모형](../실험%20결과/재현/occupation-dynamic-models.py).

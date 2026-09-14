@@ -4,7 +4,7 @@
 #   재료 줄은 남는 폭을 칩이 나눠 가져 상자 좌우에 꽉 맞춘다.
 #   상시·단계별·조건부를 이름·채움·테두리로 구별한다. 분류는 materials.md에서 읽는다.
 #   재료 구성과 반복 실행을 함께 보인다. 규칙은 적용 의무의 동시 충족으로 표현한다.
-# Run: python3 "docs/전개-수식-gen.py"  (then check the render before committing)
+# Run: python3 "docs/전개-수식/전개-수식-gen.py"  (then check the render before committing)
 
 import re
 from pathlib import Path
@@ -93,7 +93,7 @@ PLUS = ("o", "+")
 
 
 def load_materials():
-    registry = Path(__file__).with_name("materials.md").read_text(encoding="utf-8")
+    registry = (Path(__file__).parent.parent / "materials.md").read_text(encoding="utf-8")
     records, group = [], ""
     for line in registry.splitlines():
         if line.startswith("## "):
@@ -123,7 +123,7 @@ def load_materials():
 
 def validate_summary(records):
     """그림·정본뿐 아니라 사용자가 보는 55개 비고와 계통도 함께 대조한다."""
-    summary = Path(__file__).resolve().parent.parent / "전문가 에이전트 정의.md"
+    summary = Path(__file__).resolve().parent.parent.parent / "전문가 에이전트 정의.md"
     section = summary.read_text(encoding="utf-8").split("## 계통별 재료 ✅", 1)[1]
     expected = {r["name"]: (r["group"], r["note"]) for r in records}
     actual, group = {}, ""
