@@ -36,7 +36,7 @@ LINEH = 46               # 재료 줄 간격
 SMALL = 17               # 그림 안 최소 글자
 
 MARGIN = 40
-TITLE_H = 110            # 맨 위 수식·구성 수 띠
+TITLE_H = 64             # 맨 위 수식 띠
 LOOP_H = 190             # 실제 실행의 피드백 순환
 TITLE_FS = 34
 BANDGAP = 62             # 항과 항 사이 (× 자리)
@@ -335,13 +335,10 @@ while True:
     if wsum <= FULL_W - 40 or tfs <= 24:
         break
     tfs -= 1
-ty = MARGIN + 34
+ty = MARGIN + TITLE_H / 2
 out.append(f'<rect x="{MARGIN}" y="{MARGIN}" width="{FULL_W}" height="{TITLE_H}" rx="12" '
            f'fill="{TITLE_BG}" stroke="{SYS_EDGE}" stroke-width="1.5"/>')
 tx = (W - wsum) / 2
-out.append(f'<text x="{W / 2}" y="{MARGIN + 87}" text-anchor="middle" '
-           f'font-size="19" fill="{SUB}">{len(SYSTEMS)}개 계통 · {len(MATERIALS)}개 항목 '
-           f'· 세부 책임 {len(RESPONSIBILITIES)}개와 연결 (M01–M57)</text>')
 out.append(f'<text x="{round(tx,1)}" y="{round(ty + tfs * 0.36,1)}" font-size="{tfs}" '
            f'font-weight="800" fill="{INK}">{lead}</text>')
 tx += tw(lead, tfs) + 20

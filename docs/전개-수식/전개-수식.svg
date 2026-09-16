@@ -1,652 +1,651 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1446 4404" width="1446" height="4404" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" role="img" aria-labelledby="formula-title formula-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1446 4358" width="1446" height="4358" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" role="img" aria-labelledby="formula-title formula-desc">
 <title id="formula-title">전문 AI 에이전트 구성 전개식 — 6개 항·9개 계통·77개 항목</title>
 <desc id="formula-desc">환경 × 지식 × 규칙 × 실무 × 검증 × 학습. 본문의 77개 항목을 세부 책임 57개와 대응한다. 상시는 진행 전반에, 단계별은 해당 단계마다 적용한다. 단계별도 자료·전제·결과가 바뀌면 반복한다. 조건부는 필요할 때 적용하며, 조건이 참이면 필수다. 실무는 진행·후속 관리, 자료 가공, 계산·분석·판정, 구상·표현·제작, 대화·협의, 업무 시스템 조작, 납품·인계, 관찰·시험·연습의 여덟 묶음이다. 규칙은 적용 범위와 해석을 확인해 함께 충족하며, 상황·조건부 전략·실행·외부 검증을 순환한다. 재료의 개수는 전문가 성능을 보장하지 않는다.</desc>
-<rect width="1446" height="4404" fill="#ffffff"/>
-<rect x="40" y="40" width="1366" height="110" rx="12" fill="#eef3f8" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="723.0" y="127" text-anchor="middle" font-size="19" fill="#55677a">9개 계통 · 77개 항목 · 세부 책임 57개와 연결 (M01–M57)</text>
-<text x="74.1" y="86.2" font-size="34" font-weight="800" fill="#16202b">구성 개념식  =</text>
-<text x="318.5" y="86.2" font-size="34" font-weight="800" fill="#16202b">① 환경</text>
-<circle cx="469.4" cy="74" r="15" fill="#1d2b38"/>
-<text x="469.4" y="81" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
-<text x="506.4" y="86.2" font-size="34" font-weight="800" fill="#16202b">② 지식</text>
-<circle cx="657.3" cy="74" r="15" fill="#1d2b38"/>
-<text x="657.3" y="81" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
-<text x="694.3" y="86.2" font-size="34" font-weight="800" fill="#16202b">③ 규칙</text>
-<circle cx="845.2" cy="74" r="15" fill="#1d2b38"/>
-<text x="845.2" y="81" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
-<text x="882.2" y="86.2" font-size="34" font-weight="800" fill="#16202b">④ 실무</text>
-<circle cx="1033.1" cy="74" r="15" fill="#1d2b38"/>
-<text x="1033.1" y="81" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
-<text x="1070.1" y="86.2" font-size="34" font-weight="800" fill="#16202b">⑤ 검증</text>
-<circle cx="1221.0" cy="74" r="15" fill="#1d2b38"/>
-<text x="1221.0" y="81" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
-<text x="1258.0" y="86.2" font-size="34" font-weight="800" fill="#16202b">⑥ 학습</text>
-<rect x="40" y="212" width="1366" height="396" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
-<path d="M40,266 L40,226 q0,-14 14,-14 L1392,212 q14,0 14,14 L1406,266 Z" fill="#1d2b38"/>
-<text x="60" y="249.0" font-size="26" font-weight="700" fill="#ffffff">①  환경</text>
-<rect x="60" y="286" width="1326" height="302" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="94" y="325" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
+<rect width="1446" height="4358" fill="#ffffff"/>
+<rect x="40" y="40" width="1366" height="64" rx="12" fill="#eef3f8" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="74.1" y="84.2" font-size="34" font-weight="800" fill="#16202b">구성 개념식  =</text>
+<text x="318.5" y="84.2" font-size="34" font-weight="800" fill="#16202b">① 환경</text>
+<circle cx="469.4" cy="72.0" r="15" fill="#1d2b38"/>
+<text x="469.4" y="79.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
+<text x="506.4" y="84.2" font-size="34" font-weight="800" fill="#16202b">② 지식</text>
+<circle cx="657.3" cy="72.0" r="15" fill="#1d2b38"/>
+<text x="657.3" y="79.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
+<text x="694.3" y="84.2" font-size="34" font-weight="800" fill="#16202b">③ 규칙</text>
+<circle cx="845.2" cy="72.0" r="15" fill="#1d2b38"/>
+<text x="845.2" y="79.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
+<text x="882.2" y="84.2" font-size="34" font-weight="800" fill="#16202b">④ 실무</text>
+<circle cx="1033.1" cy="72.0" r="15" fill="#1d2b38"/>
+<text x="1033.1" y="79.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
+<text x="1070.1" y="84.2" font-size="34" font-weight="800" fill="#16202b">⑤ 검증</text>
+<circle cx="1221.0" cy="72.0" r="15" fill="#1d2b38"/>
+<text x="1221.0" y="79.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">×</text>
+<text x="1258.0" y="84.2" font-size="34" font-weight="800" fill="#16202b">⑥ 학습</text>
+<rect x="40" y="166" width="1366" height="396" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
+<path d="M40,220 L40,180 q0,-14 14,-14 L1392,166 q14,0 14,14 L1406,220 Z" fill="#1d2b38"/>
+<text x="60" y="203.0" font-size="26" font-weight="700" fill="#ffffff">①  환경</text>
+<rect x="60" y="240" width="1326" height="302" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="94" y="279" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
 <g data-material="AI 모델" data-system="환경" data-subgroup="" data-usage="상시" data-responsibilities="M01">
 <title>AI 모델 · 상시 · 정보를 이해·판단하거나 업무에 필요한 내용을 만들 때
 M01: 판단을 수행하는 엔진. 판단 기준과 지식은 해당 책임 참조</title>
-<rect x="94" y="334" width="187.42000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="187.7" y="360.0" text-anchor="middle" font-size="19" fill="#16202b">AI 모델</text>
+<rect x="94" y="288" width="187.42000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="187.7" y="314.0" text-anchor="middle" font-size="19" fill="#16202b">AI 모델</text>
 </g>
-<text x="301.4" y="360.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="301.4" y="314.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="실행 제어" data-system="환경" data-subgroup="" data-usage="상시" data-responsibilities="M02">
 <title>실행 제어 · 상시 · 업무를 시작한 뒤 끝날 때까지
 M02: 정해진 흐름과 모델 판단에 따른 함수·도구·AI 호출, 순차·병렬·분기·합류와 실패·대기·재개를 제어. 업무 내용의 판단은 M01·M34, 업무 단계 연결은 M41</title>
-<rect x="321.4" y="334" width="204.62" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="423.7" y="360.0" text-anchor="middle" font-size="19" fill="#16202b">실행 제어</text>
+<rect x="321.4" y="288" width="204.62" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="423.7" y="314.0" text-anchor="middle" font-size="19" fill="#16202b">실행 제어</text>
 </g>
-<text x="546.0" y="360.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="546.0" y="314.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="현재 작업 정보" data-system="환경" data-subgroup="" data-usage="상시" data-responsibilities="M05">
 <title>현재 작업 정보 · 상시 · 모델이 판단할 때마다
 M05: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="566.0" y="334" width="249.22000000000003" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="690.6" y="360.0" text-anchor="middle" font-size="19" fill="#16202b">현재 작업 정보</text>
+<rect x="566.0" y="288" width="249.22000000000003" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="690.6" y="314.0" text-anchor="middle" font-size="19" fill="#16202b">현재 작업 정보</text>
 </g>
-<text x="835.3" y="360.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="835.3" y="314.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="분리 실행" data-system="환경" data-subgroup="" data-usage="상시" data-responsibilities="M10">
 <title>분리 실행 · 상시 · 업무 공간을 만들거나 코드와 도구를 실행할 때
 M10: 공간 생성·접근 제한 실행. M32는 격리 정책·준수 검사</title>
-<rect x="855.3" y="334" width="204.62" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="957.6" y="360.0" text-anchor="middle" font-size="19" fill="#16202b">분리 실행</text>
+<rect x="855.3" y="288" width="204.62" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="957.6" y="314.0" text-anchor="middle" font-size="19" fill="#16202b">분리 실행</text>
 </g>
-<text x="1079.9" y="360.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1079.9" y="314.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="운영 감시·복구" data-system="환경" data-subgroup="" data-usage="상시" data-responsibilities="M57">
 <title>운영 감시·복구 · 상시 · 에이전트와 업무 수행 기반을 운영하는 동안
 M57: 에이전트 밖의 상태 감시·장애 조정·복구·재개 조건. 업무상 감지는 M37, 상태 복원은 M03, 외부 대사는 M56</title>
-<rect x="1099.9" y="334" width="252.12" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1225.9" y="360.0" text-anchor="middle" font-size="19" fill="#16202b">운영 감시·복구</text>
+<rect x="1099.9" y="288" width="252.12" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1225.9" y="314.0" text-anchor="middle" font-size="19" fill="#16202b">운영 감시·복구</text>
 </g>
-<text x="94" y="417" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
+<text x="94" y="371" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
 <g data-material="시작 신호" data-system="환경" data-subgroup="" data-usage="단계별" data-responsibilities="M06">
 <title>시작 신호 · 단계별 · 요청·변화·정해진 시점·조건을 감지해 알릴 때
 M06: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="94" y="426" width="575.75" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="381.9" y="452.0" text-anchor="middle" font-size="19" fill="#16202b">시작 신호</text>
+<rect x="94" y="380" width="575.75" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="381.9" y="406.0" text-anchor="middle" font-size="19" fill="#16202b">시작 신호</text>
 </g>
-<text x="689.8" y="452.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="689.8" y="406.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="업무 도구·시스템" data-system="환경" data-subgroup="" data-usage="단계별" data-responsibilities="M10">
 <title>업무 도구·시스템 · 단계별 · 업무 도구·시스템을 연결하거나 요청을 보낼 때 · 결과·오류·진행 상태를 받을 때
 M10: 접속·호출·상태 반환. 전문 작업의 내용은 실무가 소유</title>
-<rect x="709.8" y="426" width="642.25" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1030.9" y="452.0" text-anchor="middle" font-size="19" fill="#16202b">업무 도구·시스템</text>
+<rect x="709.8" y="380" width="642.25" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1030.9" y="406.0" text-anchor="middle" font-size="19" fill="#16202b">업무 도구·시스템</text>
 </g>
-<rect x="80" y="490" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="509" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
+<rect x="80" y="444" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="463" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
 <g data-material="나눠 맡기기" data-system="환경" data-subgroup="" data-usage="조건부" data-responsibilities="M04">
 <title>나눠 맡기기 · 조건부 · 여러 AI에게 작업을 전달할 때 · AI 사이의 정보 교환·진행·결과 회수와 보완을 관리할 때
 M04: 분담 실행·회수. 분담 판단은 M34·M35</title>
-<rect x="94" y="518" width="399.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="293.5" y="544.0" text-anchor="middle" font-size="19" fill="#16202b">나눠 맡기기</text>
+<rect x="94" y="472" width="399.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="293.5" y="498.0" text-anchor="middle" font-size="19" fill="#16202b">나눠 맡기기</text>
 </g>
-<text x="513.0" y="544.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="513.0" y="498.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="실시간 대화" data-system="환경" data-subgroup="" data-usage="조건부" data-responsibilities="M08">
 <title>실시간 대화 · 조건부 · 바로 답을 주고받아야 하는 대화에서
 M08: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="533.0" y="518" width="399.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="732.5" y="544.0" text-anchor="middle" font-size="19" fill="#16202b">실시간 대화</text>
+<rect x="533.0" y="472" width="399.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="732.5" y="498.0" text-anchor="middle" font-size="19" fill="#16202b">실시간 대화</text>
 </g>
-<text x="952.0" y="544.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="952.0" y="498.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="시험 환경" data-system="환경" data-subgroup="" data-usage="조건부" data-responsibilities="M11">
 <title>시험 환경 · 조건부 · 시험·오류 재현·능력 평가에 별도의 공간과 조건이 필요할 때
 M11: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="972.0" y="518" width="380.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1162.0" y="544.0" text-anchor="middle" font-size="19" fill="#16202b">시험 환경</text>
+<rect x="972.0" y="472" width="380.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1162.0" y="498.0" text-anchor="middle" font-size="19" fill="#16202b">시험 환경</text>
 </g>
-<rect x="40" y="670" width="1366" height="904" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
-<path d="M40,724 L40,684 q0,-14 14,-14 L1392,670 q14,0 14,14 L1406,724 Z" fill="#1d2b38"/>
-<text x="60" y="707.0" font-size="26" font-weight="700" fill="#ffffff">②  지식</text>
-<rect x="60" y="744" width="1326" height="334" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="80" y="784" font-size="21" font-weight="700" fill="#16202b">자료·검색</text>
-<text x="94" y="815" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
+<rect x="40" y="624" width="1366" height="904" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
+<path d="M40,678 L40,638 q0,-14 14,-14 L1392,624 q14,0 14,14 L1406,678 Z" fill="#1d2b38"/>
+<text x="60" y="661.0" font-size="26" font-weight="700" fill="#ffffff">②  지식</text>
+<rect x="60" y="698" width="1326" height="334" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="80" y="738" font-size="21" font-weight="700" fill="#16202b">자료·검색</text>
+<text x="94" y="769" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
 <g data-material="근거의 신뢰성·적합성" data-system="자료·검색" data-subgroup="" data-usage="상시" data-responsibilities="M18">
 <title>근거의 신뢰성·적합성 · 상시 · 정보나 자료를 판단·실행·설명의 근거로 쓸 때
 M18: 출처·권위·독립성·주장·반대 증거와 이번 판단에 대한 적합성</title>
-<rect x="94" y="824" width="628.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="408.0" y="850.0" text-anchor="middle" font-size="19" fill="#16202b">근거의 신뢰성·적합성</text>
+<rect x="94" y="778" width="628.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="408.0" y="804.0" text-anchor="middle" font-size="19" fill="#16202b">근거의 신뢰성·적합성</text>
 </g>
-<text x="742.0" y="850.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="742.0" y="804.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="자료의 시점·버전" data-system="자료·검색" data-subgroup="" data-usage="상시" data-responsibilities="M18">
 <title>자료의 시점·버전 · 상시 · 업무에 맞는 자료를 고를 때 · 업무의 대상·시점이나 자료가 바뀌었을 때
 M18: 관측 시각·효력 시점·정정·실제 사용 판본. 근거 평가와 별도로 검사</title>
-<rect x="762.0" y="824" width="590.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1057.0" y="850.0" text-anchor="middle" font-size="19" fill="#16202b">자료의 시점·버전</text>
+<rect x="762.0" y="778" width="590.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1057.0" y="804.0" text-anchor="middle" font-size="19" fill="#16202b">자료의 시점·버전</text>
 </g>
-<text x="94" y="907" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
+<text x="94" y="861" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
 <g data-material="규칙·기준 원문" data-system="자료·검색" data-subgroup="" data-usage="단계별" data-responsibilities="M12 M13">
 <title>규칙·기준 원문 · 단계별 · 업무에 적용할 규칙·기준의 원문을 확보하거나 다시 확인할 때 · 규칙이나 적용 범위·시점이 바뀌었을 때
 M12·M13: 규칙 원문·판본 확보. 회사·계약 원문은 M17과 연결하고 적용은 M26–M30이 담당</title>
-<rect x="94" y="916" width="291.625" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="239.8" y="942.0" text-anchor="middle" font-size="19" fill="#16202b">규칙·기준 원문</text>
+<rect x="94" y="870" width="291.625" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="239.8" y="896.0" text-anchor="middle" font-size="19" fill="#16202b">규칙·기준 원문</text>
 </g>
-<text x="405.6" y="942.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="405.6" y="896.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="업무별 정보" data-system="자료·검색" data-subgroup="" data-usage="단계별" data-responsibilities="M17">
 <title>업무별 정보 · 단계별 · 업무를 시작할 때 · 대상·상황·조건에 관한 정보가 새로 확인되거나 바뀌었을 때
 M17: 이 건의 대상·상황·조건에 관한 사실 확인. 규칙 원문은 M12·M13</title>
-<rect x="425.6" y="916" width="263.125" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="557.2" y="942.0" text-anchor="middle" font-size="19" fill="#16202b">업무별 정보</text>
+<rect x="425.6" y="870" width="263.125" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="557.2" y="896.0" text-anchor="middle" font-size="19" fill="#16202b">업무별 정보</text>
 </g>
-<text x="708.8" y="942.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="708.8" y="896.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="정보·자료 이해" data-system="자료·검색" data-subgroup="" data-usage="단계별" data-responsibilities="M07">
 <title>정보·자료 이해 · 단계별 · 새 정보를 접하거나 기존 자료를 다시 살펴볼 때 · 내용이나 맥락이 달라졌을 때
 M07: 확보한 정보·자료의 내용과 구조를 읽어 뜻을 파악. 작업용 분류는 자료 선별·분류</title>
-<rect x="728.8" y="916" width="291.625" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="874.6" y="942.0" text-anchor="middle" font-size="19" fill="#16202b">정보·자료 이해</text>
+<rect x="728.8" y="870" width="291.625" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="874.6" y="896.0" text-anchor="middle" font-size="19" fill="#16202b">정보·자료 이해</text>
 </g>
-<text x="1040.4" y="942.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1040.4" y="896.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="정보·자료 찾기" data-system="자료·검색" data-subgroup="" data-usage="단계별" data-responsibilities="M19">
 <title>정보·자료 찾기 · 단계별 · 업무에 필요한 정보·지식·방법·자료가 없거나 부족할 때
 M19: 필요한 근거·예외·반대 자료의 탐색과 확보. 신뢰성 판단은 M18</title>
-<rect x="1060.4" y="916" width="291.625" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1206.2" y="942.0" text-anchor="middle" font-size="19" fill="#16202b">정보·자료 찾기</text>
+<rect x="1060.4" y="870" width="291.625" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1206.2" y="896.0" text-anchor="middle" font-size="19" fill="#16202b">정보·자료 찾기</text>
 </g>
-<rect x="80" y="980" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="999" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
+<rect x="80" y="934" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="953" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
 <g data-material="적용 사례" data-system="자료·검색" data-subgroup="" data-usage="조건부" data-responsibilities="M14">
 <title>적용 사례 · 조건부 · 규칙이나 방법의 적용 과정·결과를 참고할 때 · 사례의 조건을 이번 업무와 비교해야 할 때
 M14: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="94" y="1008" width="191.68" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="189.8" y="1034.0" text-anchor="middle" font-size="19" fill="#16202b">적용 사례</text>
+<rect x="94" y="962" width="191.68" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="189.8" y="988.0" text-anchor="middle" font-size="19" fill="#16202b">적용 사례</text>
 </g>
-<text x="305.7" y="1034.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="305.7" y="988.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="참고 자료" data-system="자료·검색" data-subgroup="" data-usage="조건부" data-responsibilities="M15">
 <title>참고 자료 · 조건부 · 업무를 이해하거나 판단·작업에 참고할 자료가 필요할 때
 M15: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="325.7" y="1008" width="191.68" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="421.5" y="1034.0" text-anchor="middle" font-size="19" fill="#16202b">참고 자료</text>
+<rect x="325.7" y="962" width="191.68" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="421.5" y="988.0" text-anchor="middle" font-size="19" fill="#16202b">참고 자료</text>
 </g>
-<text x="537.4" y="1034.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="537.4" y="988.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="재사용 자료" data-system="자료·검색" data-subgroup="" data-usage="조건부" data-responsibilities="M55">
 <title>재사용 자료 · 조건부 · 다시 쓸 자료·서식·부품·코드를 정리하거나 가져다 쓸 때 · 이용 권한이나 사용할 도구·환경이 바뀌었을 때
 M55: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="557.4" y="1008" width="210.68" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="662.7" y="1034.0" text-anchor="middle" font-size="19" fill="#16202b">재사용 자료</text>
+<rect x="557.4" y="962" width="210.68" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="662.7" y="988.0" text-anchor="middle" font-size="19" fill="#16202b">재사용 자료</text>
 </g>
-<text x="788.0" y="1034.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="788.0" y="988.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="현재 값·상태 확인" data-system="자료·검색" data-subgroup="" data-usage="조건부" data-responsibilities="M16">
 <title>현재 값·상태 확인 · 조건부 · 현재 값이나 상태에 따라 판단·실행이 달라질 때
 M16: 지금 필요한 값과 관측 시각·신선도를 확인. 새 기록을 만들어야 하면 관찰·측정</title>
-<rect x="808.0" y="1008" width="264.78" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="940.4" y="1034.0" text-anchor="middle" font-size="19" fill="#16202b">현재 값·상태 확인</text>
+<rect x="808.0" y="962" width="264.78" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="940.4" y="988.0" text-anchor="middle" font-size="19" fill="#16202b">현재 값·상태 확인</text>
 </g>
-<text x="1092.8" y="1034.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1092.8" y="988.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="변경 감시·반영" data-system="자료·검색" data-subgroup="" data-usage="조건부" data-responsibilities="M20">
 <title>변경 감시·반영 · 조건부 · 업무에 영향을 주는 정보의 변경을 계속 따라가야 할 때
 M20: 변경 수신·판본 비교·영향 통지. 값 조회는 M16, 상태 무효화는 M25</title>
-<rect x="1112.8" y="1008" width="239.17999999999998" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1232.4" y="1034.0" text-anchor="middle" font-size="19" fill="#16202b">변경 감시·반영</text>
+<rect x="1112.8" y="962" width="239.17999999999998" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1232.4" y="988.0" text-anchor="middle" font-size="19" fill="#16202b">변경 감시·반영</text>
 </g>
-<path d="M723.0,1078 L723.0,1120" stroke="#c3d0db" stroke-width="2"/>
-<circle cx="723.0" cy="1099.0" r="15" fill="#ffffff" stroke="#c3d0db" stroke-width="2"/>
-<text x="723.0" y="1105.7" text-anchor="middle" font-size="19" font-weight="700" fill="#55677a">+</text>
-<rect x="60" y="1120" width="1326" height="150" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="80" y="1160" font-size="21" font-weight="700" fill="#16202b">지식·경험</text>
-<text x="94" y="1191" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
+<path d="M723.0,1032 L723.0,1074" stroke="#c3d0db" stroke-width="2"/>
+<circle cx="723.0" cy="1053.0" r="15" fill="#ffffff" stroke="#c3d0db" stroke-width="2"/>
+<text x="723.0" y="1059.7" text-anchor="middle" font-size="19" font-weight="700" fill="#55677a">+</text>
+<rect x="60" y="1074" width="1326" height="150" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="80" y="1114" font-size="21" font-weight="700" fill="#16202b">지식·경험</text>
+<text x="94" y="1145" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
 <g data-material="업무 지식" data-system="지식·경험" data-subgroup="" data-usage="상시" data-responsibilities="M21">
 <title>업무 지식 · 상시 · 업무를 이해하고 판단하거나 수행할 때 · 지식을 구성하거나 근거·개념·관계·적용 조건이 바뀌었을 때
 M21: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="94" y="1200" width="585.25" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="386.6" y="1226.0" text-anchor="middle" font-size="19" fill="#16202b">업무 지식</text>
+<rect x="94" y="1154" width="585.25" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="386.6" y="1180.0" text-anchor="middle" font-size="19" fill="#16202b">업무 지식</text>
 </g>
-<text x="699.2" y="1226.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="699.2" y="1180.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="실전 경험·감각" data-system="지식·경험" data-subgroup="" data-usage="상시" data-responsibilities="M22">
 <title>실전 경험·감각 · 상시 · 상황을 이해하고 어떤 방법으로 대응할지 정할 때
 M22: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="719.2" y="1200" width="632.75" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1035.6" y="1226.0" text-anchor="middle" font-size="19" fill="#16202b">실전 경험·감각</text>
+<rect x="719.2" y="1154" width="632.75" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1035.6" y="1180.0" text-anchor="middle" font-size="19" fill="#16202b">실전 경험·감각</text>
 </g>
-<path d="M723.0,1270 L723.0,1312" stroke="#c3d0db" stroke-width="2"/>
-<circle cx="723.0" cy="1291.0" r="15" fill="#ffffff" stroke="#c3d0db" stroke-width="2"/>
-<text x="723.0" y="1297.7" text-anchor="middle" font-size="19" font-weight="700" fill="#55677a">+</text>
-<rect x="60" y="1312" width="1326" height="242" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="80" y="1352" font-size="21" font-weight="700" fill="#16202b">기억·진행 상태</text>
-<text x="94" y="1383" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
+<path d="M723.0,1224 L723.0,1266" stroke="#c3d0db" stroke-width="2"/>
+<circle cx="723.0" cy="1245.0" r="15" fill="#ffffff" stroke="#c3d0db" stroke-width="2"/>
+<text x="723.0" y="1251.7" text-anchor="middle" font-size="19" font-weight="700" fill="#55677a">+</text>
+<rect x="60" y="1266" width="1326" height="242" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="80" y="1306" font-size="21" font-weight="700" fill="#16202b">기억·진행 상태</text>
+<text x="94" y="1337" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
 <g data-material="현재 진행 상태" data-system="기억·진행 상태" data-subgroup="" data-usage="상시" data-responsibilities="M03 M25">
 <title>현재 진행 상태 · 상시 · 진행 상태나 담당·조건·승인이 바뀌었을 때 · 대기·실패·취소 상태를 정리하거나 업무를 이어 갈 때
 M03·M25: M03은 내구 저장·복원, M25는 상태의 의미·변경 영향</title>
-<rect x="94" y="1392" width="1258.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="723.0" y="1418.0" text-anchor="middle" font-size="19" fill="#16202b">현재 진행 상태</text>
+<rect x="94" y="1346" width="1258.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="723.0" y="1372.0" text-anchor="middle" font-size="19" fill="#16202b">현재 진행 상태</text>
 </g>
-<text x="94" y="1475" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
+<text x="94" y="1429" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
 <g data-material="장기 기억" data-system="기억·진행 상태" data-subgroup="" data-usage="단계별" data-responsibilities="M24">
 <title>장기 기억 · 단계별 · 다음 업무에도 남길 정보를 보관하거나 이전 기억을 찾을 때 · 기억할 내용이 바뀌거나 잘못된 것으로 확인됐을 때 · 보관할 필요가 없어졌을 때
 M24: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="94" y="1484" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="723.0" y="1510.0" text-anchor="middle" font-size="19" fill="#16202b">장기 기억</text>
+<rect x="94" y="1438" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="723.0" y="1464.0" text-anchor="middle" font-size="19" fill="#16202b">장기 기억</text>
 </g>
-<rect x="40" y="1636" width="1366" height="796" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
-<path d="M40,1690 L40,1650 q0,-14 14,-14 L1392,1636 q14,0 14,14 L1406,1690 Z" fill="#1d2b38"/>
-<text x="60" y="1673.0" font-size="26" font-weight="700" fill="#ffffff">③  규칙</text>
-<rect x="60" y="1710" width="1326" height="326" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="80" y="1750" font-size="21" font-weight="700" fill="#16202b">규칙·권한</text>
-<text x="94" y="1781" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
+<rect x="40" y="1590" width="1366" height="796" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
+<path d="M40,1644 L40,1604 q0,-14 14,-14 L1392,1590 q14,0 14,14 L1406,1644 Z" fill="#1d2b38"/>
+<text x="60" y="1627.0" font-size="26" font-weight="700" fill="#ffffff">③  규칙</text>
+<rect x="60" y="1664" width="1326" height="326" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="80" y="1704" font-size="21" font-weight="700" fill="#16202b">규칙·권한</text>
+<text x="94" y="1735" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
 <g data-material="법·의무 기준" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M27">
 <title>법·의무 기준 · 상시 · 해당 법과 기준이 적용되는 업무 전반 · 적용 지역·대상·시점이나 법이 바뀌었을 때
 M27: 적용 법·의무 기준·자격 행위의 범위·예외·근거 확인</title>
-<rect x="94" y="1790" width="189.78" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="188.9" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">법·의무 기준</text>
+<rect x="94" y="1744" width="189.78" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="188.9" y="1770.0" text-anchor="middle" font-size="19" fill="#16202b">법·의무 기준</text>
 </g>
-<text x="303.8" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="303.8" y="1770.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="직업 윤리·의무" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M27">
 <title>직업 윤리·의무 · 상시 · 직업·역할에 따른 윤리와 의무가 적용되는 동안 · 역할·관계·이해관계가 바뀌었을 때
 M27: 역할·관계별 윤리·비밀·독립성·이해충돌. 법적 근거와 겹치면 같은 규칙을 참조</title>
-<rect x="323.8" y="1790" width="208.78" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="428.2" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">직업 윤리·의무</text>
+<rect x="323.8" y="1744" width="208.78" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="428.2" y="1770.0" text-anchor="middle" font-size="19" fill="#16202b">직업 윤리·의무</text>
 </g>
-<text x="552.6" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="552.6" y="1770.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="에이전트 기본 원칙" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M26">
 <title>에이전트 기본 원칙 · 상시 · 모든 판단과 행동에서
 M26: 공통 행동 원칙. 규칙 충돌의 해결은 규칙의 적용·우선순위, 플랫폼 이용 정책은 M28</title>
-<rect x="572.6" y="1790" width="243.88000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="694.5" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">에이전트 기본 원칙</text>
+<rect x="572.6" y="1744" width="243.88000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="694.5" y="1770.0" text-anchor="middle" font-size="19" fill="#16202b">에이전트 기본 원칙</text>
 </g>
-<text x="836.4" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="836.4" y="1770.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="계약·합의 조건" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M28">
 <title>계약·합의 조건 · 상시 · 합의된 조건이나 종료 후 남는 의무가 적용되는 동안 · 합의가 변경·취소·종료됐을 때
 M28: 범위·납기·보수·합의·계약상 책임·종료 뒤 의무와 변경 절차</title>
-<rect x="856.4" y="1790" width="208.78" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="960.8" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">계약·합의 조건</text>
+<rect x="856.4" y="1744" width="208.78" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="960.8" y="1770.0" text-anchor="middle" font-size="19" fill="#16202b">계약·합의 조건</text>
 </g>
-<text x="1085.2" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1085.2" y="1770.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="플랫폼·제출처 규정" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M28">
 <title>플랫폼·제출처 규정 · 상시 · 서비스를 이용하거나 결과를 제출할 때 · 서비스·계정·이용 방식·제출 유형이나 적용 규정이 바뀌었을 때
 M28: 모델·도구 제공자를 포함한 서비스·계정·제출 경로별 규정과 개정. 기술적 지원은 M10</title>
-<rect x="1105.2" y="1790" width="246.78" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1228.6" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">플랫폼·제출처 규정</text>
+<rect x="1105.2" y="1744" width="246.78" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1228.6" y="1770.0" text-anchor="middle" font-size="19" fill="#16202b">플랫폼·제출처 규정</text>
 </g>
-<text x="105.0" y="1862.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="105.0" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="조직 규칙" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M29">
 <title>조직 규칙 · 상시 · 맡은 업무를 진행하는 동안 · 규정이나 역할·권한이 바뀌었을 때
 M29: 조직의 승인·전결·운영 조건과 유효한 변경·예외 권한</title>
-<rect x="125" y="1836" width="136.35000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="193.2" y="1862.0" text-anchor="middle" font-size="19" fill="#16202b">조직 규칙</text>
+<rect x="125" y="1790" width="136.35000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="193.2" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">조직 규칙</text>
 </g>
-<text x="281.4" y="1862.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="281.4" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="사용자 지정 규칙" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M30">
 <title>사용자 지정 규칙 · 상시 · 사용자가 정한 추가 조건이 적용되는 동안 · 조건이나 선호가 바뀌거나 취소됐을 때
 M30: 의뢰인·운영자의 추가 조건·선호와 전역·직무·에이전트·프로젝트·개별 업무의 범위. 실행 권한은 M31</title>
-<rect x="301.4" y="1836" width="199.95000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="401.3" y="1862.0" text-anchor="middle" font-size="19" fill="#16202b">사용자 지정 규칙</text>
+<rect x="301.4" y="1790" width="199.95000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="401.3" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">사용자 지정 규칙</text>
 </g>
-<text x="521.3" y="1862.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="521.3" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="규칙의 적용·우선순위" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M26">
 <title>규칙의 적용·우선순위 · 상시 · 업무에 적용할 규칙을 정할 때 · 규칙·지시가 충돌하거나 바뀌었을 때 · 변경·예외 요청을 판단할 때
 M26: 함께 지킬 규칙의 범위·시점 확인과 충돌 해소, 남는 보호 기준의 동시 충족. 원문 확보는 M12·M13, 변경·예외 권한은 M31</title>
-<rect x="541.3" y="1836" width="240.85" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="661.7" y="1862.0" text-anchor="middle" font-size="19" fill="#16202b">규칙의 적용·우선순위</text>
+<rect x="541.3" y="1790" width="240.85" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="661.7" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">규칙의 적용·우선순위</text>
 </g>
-<text x="802.2" y="1862.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="802.2" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="업무 권한" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M31">
 <title>업무 권한 · 상시 · 업무를 맡거나 다시 맡길 때 · 승인·실행·재개 직전 · 권한·동의·대상·내용이 바뀌었을 때 · 긴급 조치가 필요할 때
 M31: 위임·명의·행위 범위와 결정·승인·사고 대응 담당. 계약상 책임은 M28 참조</title>
-<rect x="822.2" y="1836" width="136.35000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="890.3" y="1862.0" text-anchor="middle" font-size="19" fill="#16202b">업무 권한</text>
+<rect x="822.2" y="1790" width="136.35000000000002" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="890.3" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">업무 권한</text>
 </g>
-<text x="978.5" y="1862.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="978.5" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="안전장치" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M32">
 <title>안전장치 · 상시 · 정보를 주고받거나 실행·재시도·재개할 때 · 진행 중 권한·규칙·한도·위험이 바뀌었을 때
 M32: 위험·반출·격리 정책 검사. 실행 공간은 M10 참조</title>
-<rect x="998.5" y="1836" width="129.65" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1063.3" y="1862.0" text-anchor="middle" font-size="19" fill="#16202b">안전장치</text>
+<rect x="998.5" y="1790" width="129.65" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1063.3" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">안전장치</text>
 </g>
-<text x="1148.2" y="1862.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1148.2" y="1816.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="비용·위험 한도" data-system="규칙·권한" data-subgroup="" data-usage="상시" data-responsibilities="M33">
 <title>비용·위험 한도 · 상시 · 업무 한도와 보호 조치를 정할 때 · 실행·재개와 대기의 위험을 비교할 때 · 사용·진행·예약분이나 위험 조건이 바뀌었을 때
 M33: 비용·시간·시도·노출 한도와 예약·누적·결합 손실 관리. 책임 근거는 M27·M28, 실행 담당은 M31 참조</title>
-<rect x="1168.2" y="1836" width="183.85" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1260.1" y="1862.0" text-anchor="middle" font-size="19" fill="#16202b">비용·위험 한도</text>
+<rect x="1168.2" y="1790" width="183.85" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1260.1" y="1816.0" text-anchor="middle" font-size="19" fill="#16202b">비용·위험 한도</text>
 </g>
-<rect x="80" y="1900" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="1919" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
+<rect x="80" y="1854" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="1873" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
 <g data-material="표현 방식·스타일" data-system="규칙·권한" data-subgroup="" data-usage="조건부" data-responsibilities="M23">
 <title>표현 방식·스타일 · 조건부 · 말투·문체·디자인·연출 등 표현 기준을 정하거나 맞춰야 할 때
 M23: 표현 기준의 출처인 계약·회사·사용자 규칙과 변경 권한을 유지. 별도 우선순위를 만들지 않음</title>
-<rect x="94" y="1928" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="723.0" y="1954.0" text-anchor="middle" font-size="19" fill="#16202b">표현 방식·스타일</text>
+<rect x="94" y="1882" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="723.0" y="1908.0" text-anchor="middle" font-size="19" fill="#16202b">표현 방식·스타일</text>
 </g>
-<text x="80" y="2016" font-size="17" fill="#55677a">관할·대상·해석 근거 확인 → 적용 의무·권한·한도를 함께 충족</text>
-<path d="M723.0,2036 L723.0,2078" stroke="#c3d0db" stroke-width="2"/>
-<circle cx="723.0" cy="2057.0" r="15" fill="#ffffff" stroke="#c3d0db" stroke-width="2"/>
-<text x="723.0" y="2063.7" text-anchor="middle" font-size="19" font-weight="700" fill="#55677a">+</text>
-<rect x="60" y="2078" width="1326" height="334" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="80" y="2118" font-size="21" font-weight="700" fill="#16202b">행동 체계</text>
-<text x="94" y="2149" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
+<text x="80" y="1970" font-size="17" fill="#55677a">관할·대상·해석 근거 확인 → 적용 의무·권한·한도를 함께 충족</text>
+<path d="M723.0,1990 L723.0,2032" stroke="#c3d0db" stroke-width="2"/>
+<circle cx="723.0" cy="2011.0" r="15" fill="#ffffff" stroke="#c3d0db" stroke-width="2"/>
+<text x="723.0" y="2017.7" text-anchor="middle" font-size="19" font-weight="700" fill="#55677a">+</text>
+<rect x="60" y="2032" width="1326" height="334" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="80" y="2072" font-size="21" font-weight="700" fill="#16202b">행동 체계</text>
+<text x="94" y="2103" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
 <g data-material="지시·의도 파악" data-system="행동 체계" data-subgroup="" data-usage="상시" data-responsibilities="M34">
 <title>지시·의도 파악 · 상시 · 새 요청을 받았을 때 · 지시가 바뀌었을 때 · 요청의 뜻이 모호하거나 이해가 어긋났을 때
 M34: 원하는 결과 확정과 이해 확인. 되묻기 실행은 M08·M38, 보고에 싣기는 M40, 지시 권한·우선순위는 M30·M31</title>
-<rect x="94" y="2158" width="270.25" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="229.1" y="2184.0" text-anchor="middle" font-size="19" fill="#16202b">지시·의도 파악</text>
+<rect x="94" y="2112" width="270.25" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="229.1" y="2138.0" text-anchor="middle" font-size="19" fill="#16202b">지시·의도 파악</text>
 </g>
-<text x="384.2" y="2184.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="384.2" y="2138.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="문제·목표·완료 조건" data-system="행동 체계" data-subgroup="" data-usage="상시" data-responsibilities="M34 M36">
 <title>문제·목표·완료 조건 · 상시 · 이해한 요청을 업무 목표로 정리할 때 · 문제 상황·목표·요구 조건이나 판단의 바탕이 바뀌었을 때
 M34·M36: 해결할 문제·목표의 우선순위와 합격·인수 조건 결정. 검사는 M42·M46, 인수 수행은 M40</title>
-<rect x="404.2" y="2158" width="317.75" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="563.1" y="2184.0" text-anchor="middle" font-size="19" fill="#16202b">문제·목표·완료 조건</text>
+<rect x="404.2" y="2112" width="317.75" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="563.1" y="2138.0" text-anchor="middle" font-size="19" fill="#16202b">문제·목표·완료 조건</text>
 </g>
-<text x="742.0" y="2184.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="742.0" y="2138.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="대안·전략 판단" data-system="행동 체계" data-subgroup="" data-usage="상시" data-responsibilities="M34">
 <title>대안·전략 판단 · 상시 · 목표를 이룰 방법을 선택하거나 바꿀 때 · 업무를 맡을지, 계속할지, 미루거나 중단할지 판단할 때
 M34: 방법의 효과·비용·위험 비교와 수임·계속·보류·중단 결정. 계획 전개는 M35, 분담 실행은 M04</title>
-<rect x="762.0" y="2158" width="270.25" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="897.1" y="2184.0" text-anchor="middle" font-size="19" fill="#16202b">대안·전략 판단</text>
+<rect x="762.0" y="2112" width="270.25" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="897.1" y="2138.0" text-anchor="middle" font-size="19" fill="#16202b">대안·전략 판단</text>
 </g>
-<text x="1052.2" y="2184.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1052.2" y="2138.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="사람에게 넘기기" data-system="행동 체계" data-subgroup="" data-usage="상시" data-responsibilities="M39">
 <title>사람에게 넘기기 · 상시 · 사람의 판단·승인·자격·작업이 필요할 때 · 넘긴 일의 진행과 답변을 확인하거나 받은 결과를 반영할 때
 M39: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="1072.2" y="2158" width="279.75" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1212.1" y="2184.0" text-anchor="middle" font-size="19" fill="#16202b">사람에게 넘기기</text>
+<rect x="1072.2" y="2112" width="279.75" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1212.1" y="2138.0" text-anchor="middle" font-size="19" fill="#16202b">사람에게 넘기기</text>
 </g>
-<text x="94" y="2241" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
+<text x="94" y="2195" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
 <g data-material="업무 절차·실행 계획" data-system="행동 체계" data-subgroup="" data-usage="단계별" data-responsibilities="M35">
 <title>업무 절차·실행 계획 · 단계별 · 선택한 방법을 실행 계획으로 옮길 때 · 방법·일정·자원이나 입력·작업 진행 상태가 바뀌었을 때
 M35: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="94" y="2250" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="723.0" y="2276.0" text-anchor="middle" font-size="19" fill="#16202b">업무 절차·실행 계획</text>
+<rect x="94" y="2204" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="723.0" y="2230.0" text-anchor="middle" font-size="19" fill="#16202b">업무 절차·실행 계획</text>
 </g>
-<rect x="80" y="2314" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="2333" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
+<rect x="80" y="2268" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="2287" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
 <g data-material="먼저 알아채기" data-system="행동 체계" data-subgroup="" data-usage="조건부" data-responsibilities="M37">
 <title>먼저 알아채기 · 조건부 · 상황을 계속 살피고 필요한 일을 먼저 찾아내도록 맡겨진 업무에서
 M37: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="94" y="2342" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="723.0" y="2368.0" text-anchor="middle" font-size="19" fill="#16202b">먼저 알아채기</text>
+<rect x="94" y="2296" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="723.0" y="2322.0" text-anchor="middle" font-size="19" fill="#16202b">먼저 알아채기</text>
 </g>
-<rect x="40" y="2494" width="1366" height="856" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
-<path d="M40,2548 L40,2508 q0,-14 14,-14 L1392,2494 q14,0 14,14 L1406,2548 Z" fill="#1d2b38"/>
-<text x="60" y="2531.0" font-size="26" font-weight="700" fill="#ffffff">④  실무</text>
-<rect x="60" y="2568" width="1326" height="762" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="94" y="2607" font-size="17" font-weight="700" fill="#55677a">진행·후속 관리 — 상시 · 업무 내내 적용</text>
+<rect x="40" y="2448" width="1366" height="856" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
+<path d="M40,2502 L40,2462 q0,-14 14,-14 L1392,2448 q14,0 14,14 L1406,2502 Z" fill="#1d2b38"/>
+<text x="60" y="2485.0" font-size="26" font-weight="700" fill="#ffffff">④  실무</text>
+<rect x="60" y="2522" width="1326" height="762" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="94" y="2561" font-size="17" font-weight="700" fill="#55677a">진행·후속 관리 — 상시 · 업무 내내 적용</text>
 <g data-material="작업 진행·연결" data-system="실무" data-subgroup="진행·후속 관리" data-usage="상시" data-responsibilities="M41">
 <title>작업 진행·연결 · 상시 · 업무를 맡은 뒤 종료·인계할 때까지 · 계속 운영하도록 맡은 업무의 각 처리 과정에서
 M41: 계획과 우선순위에 따라 지금 할 작업을 진행하고 결과를 다음 담당·검토로 연결. 계획 수립은 M35, 상태 보존은 M03·M25</title>
-<rect x="94" y="2616" width="609.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="398.5" y="2642.0" text-anchor="middle" font-size="19" fill="#16202b">작업 진행·연결</text>
+<rect x="94" y="2570" width="609.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="398.5" y="2596.0" text-anchor="middle" font-size="19" fill="#16202b">작업 진행·연결</text>
 </g>
-<text x="723.0" y="2642.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="723.0" y="2596.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="대기·후속 관리" data-system="실무" data-subgroup="진행·후속 관리" data-usage="상시" data-responsibilities="M41">
 <title>대기·후속 관리 · 상시 · 업무의 대기·기한·후속 책임을 유지하는 동안 · 응답·상태 변화·확인 시점이 도래했을 때 · 반복 업무의 회차가 바뀌거나 담당이 바뀔 때
 M41: 응답·승인·외부 처리의 대기와 기한·회차·남은 약속을 확인 시점까지 관리. 신호 감지는 M06, 이관 답변은 M39</title>
-<rect x="743.0" y="2616" width="609.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1047.5" y="2642.0" text-anchor="middle" font-size="19" fill="#16202b">대기·후속 관리</text>
+<rect x="743.0" y="2570" width="609.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1047.5" y="2596.0" text-anchor="middle" font-size="19" fill="#16202b">대기·후속 관리</text>
 </g>
-<rect x="80" y="2680" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="2699" font-size="17" font-weight="700" fill="#55677a">+ 자료 가공 — 조건부 · 필요하면 필수</text>
+<rect x="80" y="2634" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="2653" font-size="17" font-weight="700" fill="#55677a">+ 자료 가공 — 조건부 · 필요하면 필수</text>
 <g data-material="자료 선별·분류" data-system="실무" data-subgroup="자료 가공" data-usage="조건부" data-responsibilities="M52">
 <title>자료 선별·분류 · 조건부 · 확보한 자료를 고르거나 분류·연결할 때 · 분류 업무를 맡은 동안 새 자료나 요청이 들어올 때
 M52: 사용할 자료·항목과 분류·연결 결과. 자료의 뜻은 M07의 결과를 사용</title>
-<rect x="94" y="2708" width="392.6666666666667" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="290.3" y="2734.0" text-anchor="middle" font-size="19" fill="#16202b">자료 선별·분류</text>
+<rect x="94" y="2662" width="392.6666666666667" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="290.3" y="2688.0" text-anchor="middle" font-size="19" fill="#16202b">자료 선별·분류</text>
 </g>
-<text x="506.7" y="2734.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="506.7" y="2688.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="자료 정리·결합" data-system="실무" data-subgroup="자료 가공" data-usage="조건부" data-responsibilities="M52">
 <title>자료 정리·결합 · 조건부 · 자료의 오류·중복·누락을 정리하거나 합치고 나눌 때 · 정기 정리 시점이나 원본의 추가·변경이 있을 때
 M52: 원본과 연결된 정리·결합 자료와 미해결 차이. 업무 시스템 반영은 M56</title>
-<rect x="526.7" y="2708" width="392.6666666666667" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="723.0" y="2734.0" text-anchor="middle" font-size="19" fill="#16202b">자료 정리·결합</text>
+<rect x="526.7" y="2662" width="392.6666666666667" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="723.0" y="2688.0" text-anchor="middle" font-size="19" fill="#16202b">자료 정리·결합</text>
 </g>
-<text x="939.3" y="2734.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="939.3" y="2688.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="형식·구조 변환" data-system="실무" data-subgroup="자료 가공" data-usage="조건부" data-responsibilities="M52 M09">
 <title>형식·구조 변환 · 조건부 · 사용할 프로그램이나 제출처에 맞게 파일 형식·항목 구조를 바꿔야 할 때
 M52·M09: 대상 프로그램·항목 구조에 맞춘 변환본과 변환하지 못한 요소. 뜻을 바꾸는 편집은 내용 재구성</title>
-<rect x="959.3" y="2708" width="392.6666666666667" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1155.7" y="2734.0" text-anchor="middle" font-size="19" fill="#16202b">형식·구조 변환</text>
+<rect x="959.3" y="2662" width="392.6666666666667" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1155.7" y="2688.0" text-anchor="middle" font-size="19" fill="#16202b">형식·구조 변환</text>
 </g>
-<rect x="80" y="2772" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="2791" font-size="17" font-weight="700" fill="#55677a">+ 계산·분석·판정 — 조건부 · 필요하면 필수</text>
+<rect x="80" y="2726" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="2745" font-size="17" font-weight="700" fill="#55677a">+ 계산·분석·판정 — 조건부 · 필요하면 필수</text>
 <g data-material="계산" data-system="실무" data-subgroup="계산·분석·판정" data-usage="조건부" data-responsibilities="M53">
 <title>계산 · 조건부 · 필요한 값을 계산하거나 문제의 조건을 식으로 정리해 풀 때
 M53: 식·값·단위·오차 조건을 갖춘 계산 결과</title>
-<rect x="94" y="2800" width="170.56" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="179.3" y="2826.0" text-anchor="middle" font-size="19" fill="#16202b">계산</text>
+<rect x="94" y="2754" width="170.56" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="179.3" y="2780.0" text-anchor="middle" font-size="19" fill="#16202b">계산</text>
 </g>
-<text x="284.6" y="2826.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="284.6" y="2780.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="분석" data-system="실무" data-subgroup="계산·분석·판정" data-usage="조건부" data-responsibilities="M53">
 <title>분석 · 조건부 · 정보의 특징·차이·관계·원인이나 현재 상태를 해석해야 할 때 · 분석 업무의 정기 검토 시점이나 중요한 새 정보가 들어왔을 때
 M53: 특징·관계·원인의 설명과 근거·대안 해석. 요건 충족 결론은 기준 적용·판정</title>
-<rect x="304.6" y="2800" width="170.56" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="389.8" y="2826.0" text-anchor="middle" font-size="19" fill="#16202b">분석</text>
+<rect x="304.6" y="2754" width="170.56" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="389.8" y="2780.0" text-anchor="middle" font-size="19" fill="#16202b">분석</text>
 </g>
-<text x="495.1" y="2826.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="495.1" y="2780.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="기준 적용·판정" data-system="실무" data-subgroup="계산·분석·판정" data-usage="조건부" data-responsibilities="M18 M21 M34">
 <title>기준 적용·판정 · 조건부 · 대상의 적합 여부·자격·책임·처리 조건을 판단하는 업무를 맡았을 때
 M18·M21·M34: 대상의 요건 충족·자격·등급 판정. 그 판단을 다시 검사하는 일은 검증·평가</title>
-<rect x="515.1" y="2800" width="262.76" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="646.5" y="2826.0" text-anchor="middle" font-size="19" fill="#16202b">기준 적용·판정</text>
+<rect x="515.1" y="2754" width="262.76" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="646.5" y="2780.0" text-anchor="middle" font-size="19" fill="#16202b">기준 적용·판정</text>
 </g>
-<text x="797.9" y="2826.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="797.9" y="2780.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="예측" data-system="실무" data-subgroup="계산·분석·판정" data-usage="조건부" data-responsibilities="M53">
 <title>예측 · 조건부 · 앞으로의 결과나 변화를 예상해 판단에 써야 할 때 · 정기 예측 시점이나 주요 정보·가정이 바뀌었을 때
 M53: 앞으로의 결과·범위와 가정·불확실성</title>
-<rect x="817.9" y="2800" width="170.56" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="903.2" y="2826.0" text-anchor="middle" font-size="19" fill="#16202b">예측</text>
+<rect x="817.9" y="2754" width="170.56" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="903.2" y="2780.0" text-anchor="middle" font-size="19" fill="#16202b">예측</text>
 </g>
-<text x="1008.4" y="2826.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1008.4" y="2780.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="조건 안에서 최선 찾기" data-system="실무" data-subgroup="계산·분석·판정" data-usage="조건부" data-responsibilities="M53">
 <title>조건 안에서 최선 찾기 · 조건부 · 조건 안에서 유리한 안을 찾거나 기존 안을 조정할 때 · 운영 중 목표 달성에 영향을 주는 수요·자원·비용 조건이 바뀌었을 때
 M53: 정한 목적·제약 안의 비교와 득실·탐색 한계. 목표 우선순위는 M34</title>
-<rect x="1028.4" y="2800" width="323.56" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1190.2" y="2826.0" text-anchor="middle" font-size="19" fill="#16202b">조건 안에서 최선 찾기</text>
+<rect x="1028.4" y="2754" width="323.56" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1190.2" y="2780.0" text-anchor="middle" font-size="19" fill="#16202b">조건 안에서 최선 찾기</text>
 </g>
-<rect x="80" y="2864" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="2883" font-size="17" font-weight="700" fill="#55677a">+ 구상·표현·제작 — 조건부 · 필요하면 필수</text>
+<rect x="80" y="2818" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="2837" font-size="17" font-weight="700" fill="#55677a">+ 구상·표현·제작 — 조건부 · 필요하면 필수</text>
 <g data-material="결과물 설계" data-system="실무" data-subgroup="구상·표현·제작" data-usage="조건부" data-responsibilities="M35 M09">
 <title>결과물 설계 · 조건부 · 결과물이나 서비스의 내용·구성·형태·작동 방식을 정하거나 바꿀 때
 M35·M09: 만들 내용·구성·형태·기능과 요소 간 연결. 업무 전체의 순서·담당은 M35</title>
-<rect x="94" y="2892" width="370.5" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="279.2" y="2918.0" text-anchor="middle" font-size="19" fill="#16202b">결과물 설계</text>
+<rect x="94" y="2846" width="370.5" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="279.2" y="2872.0" text-anchor="middle" font-size="19" fill="#16202b">결과물 설계</text>
 </g>
-<text x="484.5" y="2918.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="484.5" y="2872.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="내용 재구성" data-system="실무" data-subgroup="구상·표현·제작" data-usage="조건부" data-responsibilities="M09 M38">
 <title>내용 재구성 · 조건부 · 기존 내용을 요약·번역·통역하거나 목적과 상대에 맞게 표현을 바꿀 때
 M09·M38: 뜻과 맥락을 살린 요약·번역·통역·표현 변경. 파일이 없는 통역도 포함</title>
-<rect x="504.5" y="2892" width="370.5" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="689.8" y="2918.0" text-anchor="middle" font-size="19" fill="#16202b">내용 재구성</text>
+<rect x="504.5" y="2846" width="370.5" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="689.8" y="2872.0" text-anchor="middle" font-size="19" fill="#16202b">내용 재구성</text>
 </g>
-<text x="895.0" y="2918.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="895.0" y="2872.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="결과물 만들기·수정" data-system="실무" data-subgroup="구상·표현·제작" data-usage="조건부" data-responsibilities="M09">
 <title>결과물 만들기·수정 · 조건부 · 내용과 설계를 결과물로 만들 때 · 기존 결과물의 기능·구성·표현을 고치거나 여러 요소를 조합할 때
 M09: 내용·설계를 반영한 결과물과 수정본 제작. 변환·재구성한 결과를 중복 제작하지 않음</title>
-<rect x="915.0" y="2892" width="437.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1133.5" y="2918.0" text-anchor="middle" font-size="19" fill="#16202b">결과물 만들기·수정</text>
+<rect x="915.0" y="2846" width="437.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1133.5" y="2872.0" text-anchor="middle" font-size="19" fill="#16202b">결과물 만들기·수정</text>
 </g>
-<rect x="80" y="2956" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="2975" font-size="17" font-weight="700" fill="#55677a">+ 대화·협의 — 조건부 · 필요하면 필수</text>
+<rect x="80" y="2910" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="2929" font-size="17" font-weight="700" fill="#55677a">+ 대화·협의 — 조건부 · 필요하면 필수</text>
 <g data-material="사람과 소통" data-system="실무" data-subgroup="대화·협의" data-usage="조건부" data-responsibilities="M38">
 <title>사람과 소통 · 조건부 · 맡은 대화·응대가 이어지는 동안 · 질문·답변·설명·제안이 필요할 때 · 오해를 풀거나 이해·의견·합의 여부를 확인할 때
 M38: 상대에 맞는 질문·답변·설명·제안과 이해 확인</title>
-<rect x="94" y="2984" width="617.1" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="402.6" y="3010.0" text-anchor="middle" font-size="19" fill="#16202b">사람과 소통</text>
+<rect x="94" y="2938" width="617.1" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="402.6" y="2964.0" text-anchor="middle" font-size="19" fill="#16202b">사람과 소통</text>
 </g>
-<text x="731.1" y="3010.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="731.1" y="2964.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="협상·조율" data-system="실무" data-subgroup="대화·협의" data-usage="조건부" data-responsibilities="M38">
 <title>협상·조율 · 조건부 · 이해관계나 요구가 달라 조건·역할·약속을 함께 조정해야 할 때
 M38: 조정한 조건·역할·약속과 합의하지 못한 사항. 질문·설명은 사람과 소통</title>
-<rect x="751.1" y="2984" width="600.9" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1051.5" y="3010.0" text-anchor="middle" font-size="19" fill="#16202b">협상·조율</text>
+<rect x="751.1" y="2938" width="600.9" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1051.5" y="2964.0" text-anchor="middle" font-size="19" fill="#16202b">협상·조율</text>
 </g>
-<rect x="80" y="3048" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="3067" font-size="17" font-weight="700" fill="#55677a">+ 업무 시스템 조작 — 조건부 · 필요하면 필수</text>
+<rect x="80" y="3002" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="3021" font-size="17" font-weight="700" fill="#55677a">+ 업무 시스템 조작 — 조건부 · 필요하면 필수</text>
 <g data-material="기록 입력·수정" data-system="실무" data-subgroup="업무 시스템 조작" data-usage="조건부" data-responsibilities="M56">
 <title>기록 입력·수정 · 조건부 · 업무 기록을 등록·수정·삭제할 때 · 기록 관리 업무에서 새 거래·요청·상태 변경이 발생하거나 정기 반영 시점이 왔을 때
 M56: 업무 시스템에 반영된 기록과 변경 이력. 거래의 성립·취소는 신청·거래 처리</title>
-<rect x="94" y="3076" width="295.675" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="241.8" y="3102.0" text-anchor="middle" font-size="19" fill="#16202b">기록 입력·수정</text>
+<rect x="94" y="3030" width="295.675" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="241.8" y="3056.0" text-anchor="middle" font-size="19" fill="#16202b">기록 입력·수정</text>
 </g>
-<text x="409.7" y="3102.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="409.7" y="3056.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="신청·거래 처리" data-system="실무" data-subgroup="업무 시스템 조작" data-usage="조건부" data-responsibilities="M56">
 <title>신청·거래 처리 · 조건부 · 맡은 신청·거래 업무에 새 요청이 들어왔을 때 · 변경·취소·환불 요청이나 처리 상태 변화가 있을 때 · 미결 건의 확인 시점이 왔을 때
 M56: 신청·예약·주문·지급의 접수·확정·거절·부분 처리와 변경·취소·환불 상태</title>
-<rect x="429.7" y="3076" width="295.675" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="577.5" y="3102.0" text-anchor="middle" font-size="19" fill="#16202b">신청·거래 처리</text>
+<rect x="429.7" y="3030" width="295.675" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="577.5" y="3056.0" text-anchor="middle" font-size="19" fill="#16202b">신청·거래 처리</text>
 </g>
-<text x="745.4" y="3102.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="745.4" y="3056.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="설정·작동 제어" data-system="실무" data-subgroup="업무 시스템 조작" data-usage="조건부" data-responsibilities="M56">
 <title>설정·작동 제어 · 조건부 · 프로그램이나 서비스의 설정·접근 권한·작동 상태를 바꿀 때 · 운영을 맡은 동안 유지 조건에서 벗어나거나 정해진 조정 시점이 왔을 때
 M56: 반영된 설정과 시작·중지·재개 상태. 에이전트 기반의 감시·복구는 M57</title>
-<rect x="765.4" y="3076" width="295.675" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="913.2" y="3102.0" text-anchor="middle" font-size="19" fill="#16202b">설정·작동 제어</text>
+<rect x="765.4" y="3030" width="295.675" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="913.2" y="3056.0" text-anchor="middle" font-size="19" fill="#16202b">설정·작동 제어</text>
 </g>
-<text x="1081.0" y="3102.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1081.0" y="3056.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="게시·배포" data-system="실무" data-subgroup="업무 시스템 조작" data-usage="조건부" data-responsibilities="M56">
 <title>게시·배포 · 조건부 · 게시·배포 요청이나 예약 시점이 왔을 때 · 공개 범위나 제공 판본을 바꿀 때 · 정기 발행·배포 업무의 다음 회차가 왔을 때
 M56: 지정한 대상·시점·환경에 제공된 판본과 공개 상태. 개별 수신자 인수는 전달·인수 확인</title>
-<rect x="1101.0" y="3076" width="250.97500000000002" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1226.5" y="3102.0" text-anchor="middle" font-size="19" fill="#16202b">게시·배포</text>
+<rect x="1101.0" y="3030" width="250.97500000000002" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1226.5" y="3056.0" text-anchor="middle" font-size="19" fill="#16202b">게시·배포</text>
 </g>
-<text x="94" y="3159" font-size="17" font-weight="700" fill="#55677a">+ 납품·인계 — 단계별 · 해당 단계마다 적용</text>
+<text x="94" y="3113" font-size="17" font-weight="700" fill="#55677a">+ 납품·인계 — 단계별 · 해당 단계마다 적용</text>
 <g data-material="납품 준비" data-system="실무" data-subgroup="납품·인계" data-usage="단계별" data-responsibilities="M40">
 <title>납품 준비 · 단계별 · 결과를 납품하거나 업무를 다른 담당자에게 인계할 준비를 할 때
 M40: 결과·원본·연결 자료·설명·검사 기록·남은 일의 인계 묶음</title>
-<rect x="94" y="3168" width="585.25" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="386.6" y="3194.0" text-anchor="middle" font-size="19" fill="#16202b">납품 준비</text>
+<rect x="94" y="3122" width="585.25" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="386.6" y="3148.0" text-anchor="middle" font-size="19" fill="#16202b">납품 준비</text>
 </g>
-<text x="699.2" y="3194.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="699.2" y="3148.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="전달·인수 확인" data-system="실무" data-subgroup="납품·인계" data-usage="단계별" data-responsibilities="M40">
 <title>전달·인수 확인 · 단계별 · 결과를 전달할 때 · 약속한 수령·사용 조건을 확인하거나 전달 문제·수정 요청을 받아 알릴 때
 M40: 전달·수령·사용 확인과 반려·수정 요청·미결 상태</title>
-<rect x="719.2" y="3168" width="632.75" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1035.6" y="3194.0" text-anchor="middle" font-size="19" fill="#16202b">전달·인수 확인</text>
+<rect x="719.2" y="3122" width="632.75" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1035.6" y="3148.0" text-anchor="middle" font-size="19" fill="#16202b">전달·인수 확인</text>
 </g>
-<rect x="80" y="3232" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="3251" font-size="17" font-weight="700" fill="#55677a">+ 관찰·시험·연습 — 조건부 · 필요하면 필수</text>
+<rect x="80" y="3186" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="3205" font-size="17" font-weight="700" fill="#55677a">+ 관찰·시험·연습 — 조건부 · 필요하면 필수</text>
 <g data-material="관찰·측정" data-system="실무" data-subgroup="관찰·시험·연습" data-usage="조건부" data-responsibilities="M54 M07 M16">
 <title>관찰·측정 · 조건부 · 판단에 필요한 새 관찰·측정 기록을 얻을 때 · 관측 업무를 맡은 기간의 정해진 주기·변화 신호에 따라 대상을 살필 때
 M54·M07·M16: 대상·시점·방법·조건을 갖춘 새 관찰·측정 기록. 기존 값 조회는 현재 값·상태 확인</title>
-<rect x="94" y="3260" width="405.3333333333333" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="296.7" y="3286.0" text-anchor="middle" font-size="19" fill="#16202b">관찰·측정</text>
+<rect x="94" y="3214" width="405.3333333333333" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="296.7" y="3240.0" text-anchor="middle" font-size="19" fill="#16202b">관찰·측정</text>
 </g>
-<text x="519.3" y="3286.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="519.3" y="3240.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="실험" data-system="실무" data-subgroup="관찰·시험·연습" data-usage="조건부" data-responsibilities="M54">
 <title>실험 · 조건부 · 조건이나 방법의 변화가 결과에 주는 영향을 비교해야 할 때
 M54: 바꾼 조건의 영향을 비교한 관측 결과와 적용 한계</title>
-<rect x="539.3" y="3260" width="357.8333333333333" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="718.2" y="3286.0" text-anchor="middle" font-size="19" fill="#16202b">실험</text>
+<rect x="539.3" y="3214" width="357.8333333333333" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="718.2" y="3240.0" text-anchor="middle" font-size="19" fill="#16202b">실험</text>
 </g>
-<text x="917.2" y="3286.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="917.2" y="3240.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="시뮬레이션" data-system="실무" data-subgroup="관찰·시험·연습" data-usage="조건부" data-responsibilities="M54">
 <title>시뮬레이션 · 조건부 · 상황을 가정해 진행 과정과 결과를 예상하거나 대응을 미리 연습해야 할 때
 M54: 가정한 상황의 진행·반응·결과 또는 대응 연습 기록. 실제 관측과 별도 증거로 유지</title>
-<rect x="937.2" y="3260" width="414.8333333333333" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1144.6" y="3286.0" text-anchor="middle" font-size="19" fill="#16202b">시뮬레이션</text>
+<rect x="937.2" y="3214" width="414.8333333333333" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1144.6" y="3240.0" text-anchor="middle" font-size="19" fill="#16202b">시뮬레이션</text>
 </g>
-<rect x="40" y="3412" width="1366" height="428" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
-<path d="M40,3466 L40,3426 q0,-14 14,-14 L1392,3412 q14,0 14,14 L1406,3466 Z" fill="#1d2b38"/>
-<text x="60" y="3449.0" font-size="26" font-weight="700" fill="#ffffff">⑤  검증</text>
-<rect x="60" y="3486" width="1326" height="334" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="80" y="3526" font-size="21" font-weight="700" fill="#16202b">검증·평가</text>
-<text x="94" y="3557" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
+<rect x="40" y="3366" width="1366" height="428" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
+<path d="M40,3420 L40,3380 q0,-14 14,-14 L1392,3366 q14,0 14,14 L1406,3420 Z" fill="#1d2b38"/>
+<text x="60" y="3403.0" font-size="26" font-weight="700" fill="#ffffff">⑤  검증</text>
+<rect x="60" y="3440" width="1326" height="334" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="80" y="3480" font-size="21" font-weight="700" fill="#16202b">검증·평가</text>
+<text x="94" y="3511" font-size="17" font-weight="700" fill="#55677a">상시 · 업무 내내 적용</text>
 <g data-material="판단 근거 기록" data-system="검증·평가" data-subgroup="" data-usage="상시" data-responsibilities="M47">
 <title>판단 근거 기록 · 상시 · 판단하거나 실행할 때 · 내용을 바꾸거나 검사할 때
 M47: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="94" y="3566" width="1258.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
-<text x="723.0" y="3592.0" text-anchor="middle" font-size="19" fill="#16202b">판단 근거 기록</text>
+<rect x="94" y="3520" width="1258.0" height="38" rx="8" fill="#d5e2ec" stroke="#6d8194" stroke-width="1.5"/>
+<text x="723.0" y="3546.0" text-anchor="middle" font-size="19" fill="#16202b">판단 근거 기록</text>
 </g>
-<text x="94" y="3649" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
+<text x="94" y="3603" font-size="17" font-weight="700" fill="#55677a">+ 단계별 · 해당 단계마다 적용</text>
 <g data-material="결과 검증·재검증" data-system="검증·평가" data-subgroup="" data-usage="단계별" data-responsibilities="M42">
 <title>결과 검증·재검증 · 단계별 · 작업 결과를 확인할 때 · 결과·자료·입력값·조건이 바뀌었을 때
 M42: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="94" y="3658" width="190.93333333333334" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="189.5" y="3684.0" text-anchor="middle" font-size="19" fill="#16202b">결과 검증·재검증</text>
+<rect x="94" y="3612" width="190.93333333333334" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="189.5" y="3638.0" text-anchor="middle" font-size="19" fill="#16202b">결과 검증·재검증</text>
 </g>
-<text x="304.9" y="3684.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="304.9" y="3638.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="반대 근거·다시 확인" data-system="검증·평가" data-subgroup="" data-usage="단계별" data-responsibilities="M43">
 <title>반대 근거·다시 확인 · 단계별 · 중요한 판단을 내리거나 알리기 전 · 판단이나 그 바탕이 된 사실·가정·근거가 바뀌었을 때
 M43: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="324.9" y="3658" width="216.53333333333336" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="433.2" y="3684.0" text-anchor="middle" font-size="19" fill="#16202b">반대 근거·다시 확인</text>
+<rect x="324.9" y="3612" width="216.53333333333336" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="433.2" y="3638.0" text-anchor="middle" font-size="19" fill="#16202b">반대 근거·다시 확인</text>
 </g>
-<text x="561.5" y="3684.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="561.5" y="3638.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="빠진 위험 확인" data-system="검증·평가" data-subgroup="" data-usage="단계별" data-responsibilities="M44">
 <title>빠진 위험 확인 · 단계별 · 업무를 맡거나 계획할 때 · 실행하기 전 · 진행 중 상황이 바뀌었을 때 · 결과를 넘기기 전
 M44: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="581.5" y="3658" width="169.03333333333336" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="666.0" y="3684.0" text-anchor="middle" font-size="19" fill="#16202b">빠진 위험 확인</text>
+<rect x="581.5" y="3612" width="169.03333333333336" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="666.0" y="3638.0" text-anchor="middle" font-size="19" fill="#16202b">빠진 위험 확인</text>
 </g>
-<text x="770.5" y="3684.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="770.5" y="3638.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="일하는 과정 평가" data-system="검증·평가" data-subgroup="" data-usage="단계별" data-responsibilities="M45">
 <title>일하는 과정 평가 · 단계별 · 각 단계가 끝났을 때 · 전체 업무가 끝났을 때
 M45: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="790.5" y="3658" width="188.03333333333336" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="884.5" y="3684.0" text-anchor="middle" font-size="19" fill="#16202b">일하는 과정 평가</text>
+<rect x="790.5" y="3612" width="188.03333333333336" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="884.5" y="3638.0" text-anchor="middle" font-size="19" fill="#16202b">일하는 과정 평가</text>
 </g>
-<text x="998.5" y="3684.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="998.5" y="3638.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="결과 품질 평가" data-system="검증·평가" data-subgroup="" data-usage="단계별" data-responsibilities="M46">
 <title>결과 품질 평가 · 단계별 · 결과를 넘기거나 사용하기 전 · 대화나 서비스가 끝난 뒤 · 결과가 바뀌었을 때
 M46: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="1018.5" y="3658" width="169.03333333333336" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1103.0" y="3684.0" text-anchor="middle" font-size="19" fill="#16202b">결과 품질 평가</text>
+<rect x="1018.5" y="3612" width="169.03333333333336" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1103.0" y="3638.0" text-anchor="middle" font-size="19" fill="#16202b">결과 품질 평가</text>
 </g>
-<text x="1207.6" y="3684.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="1207.6" y="3638.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="성과 추적" data-system="검증·평가" data-subgroup="" data-usage="단계별" data-responsibilities="M51">
 <title>성과 추적 · 단계별 · 목표 달성 여부를 무엇으로 언제 확인할지 정할 때 · 정해 둔 확인 시점 · 나중에 효과나 문제가 드러났을 때
 M51: 해당 세부 책임의 입력·출력·검증 기준 적용</title>
-<rect x="1227.6" y="3658" width="124.43333333333335" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
-<text x="1289.8" y="3684.0" text-anchor="middle" font-size="19" fill="#16202b">성과 추적</text>
+<rect x="1227.6" y="3612" width="124.43333333333335" height="38" rx="8" fill="#ffffff" stroke="#6d8194" stroke-width="1.5"/>
+<text x="1289.8" y="3638.0" text-anchor="middle" font-size="19" fill="#16202b">성과 추적</text>
 </g>
-<rect x="80" y="3722" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="3741" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
+<rect x="80" y="3676" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="3695" font-size="17" font-weight="700" fill="#55677a">+ 조건부 · 필요하면 필수</text>
 <g data-material="업무 능력 시험" data-system="검증·평가" data-subgroup="" data-usage="조건부" data-responsibilities="M49">
 <title>업무 능력 시험 · 조건부 · 에이전트를 업무에 처음 투입하기 전 · 검증된 범위 밖의 일을 맡기려 할 때 · 수행 능력에 영향을 주는 변경 전후 · 기존 시험 결과를 더는 신뢰하기 어려울 때
 M49: 고정한 판본·범위의 시험. 기존 시험과 보호된 새 과제 포함</title>
-<rect x="94" y="3750" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="723.0" y="3776.0" text-anchor="middle" font-size="19" fill="#16202b">업무 능력 시험</text>
+<rect x="94" y="3704" width="1258.0" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="723.0" y="3730.0" text-anchor="middle" font-size="19" fill="#16202b">업무 능력 시험</text>
 </g>
-<rect x="40" y="3902" width="1366" height="244" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
-<path d="M40,3956 L40,3916 q0,-14 14,-14 L1392,3902 q14,0 14,14 L1406,3956 Z" fill="#1d2b38"/>
-<text x="60" y="3939.0" font-size="26" font-weight="700" fill="#ffffff">⑥  학습</text>
-<rect x="60" y="3976" width="1326" height="150" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
-<text x="80" y="4016" font-size="21" font-weight="700" fill="#16202b">학습·개선</text>
-<rect x="80" y="4028" width="1286" height="78" rx="9" fill="#dde7ef"/>
-<text x="94" y="4047" font-size="17" font-weight="700" fill="#55677a">조건부 · 필요하면 필수</text>
+<rect x="40" y="3856" width="1366" height="244" rx="14" fill="#dde6ee" stroke="#a7b9c8" stroke-width="2"/>
+<path d="M40,3910 L40,3870 q0,-14 14,-14 L1392,3856 q14,0 14,14 L1406,3910 Z" fill="#1d2b38"/>
+<text x="60" y="3893.0" font-size="26" font-weight="700" fill="#ffffff">⑥  학습</text>
+<rect x="60" y="3930" width="1326" height="150" rx="10" fill="#ffffff" stroke="#c3d0db" stroke-width="1.5"/>
+<text x="80" y="3970" font-size="21" font-weight="700" fill="#16202b">학습·개선</text>
+<rect x="80" y="3982" width="1286" height="78" rx="9" fill="#dde7ef"/>
+<text x="94" y="4001" font-size="17" font-weight="700" fill="#55677a">조건부 · 필요하면 필수</text>
 <g data-material="성공·실패 원인 분석" data-system="학습·개선" data-subgroup="" data-usage="조건부" data-responsibilities="M48">
 <title>성공·실패 원인 분석 · 조건부 · 재사용할 만한 성과가 나왔을 때 · 원인이 불분명하거나 영향이 큰 문제, 반복 오류를 분석해야 할 때
 M48: 재사용할 성과와 실패의 원인, 수정 대상 진단. 지속 변경은 M50</title>
-<rect x="94" y="4056" width="631.3" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="409.6" y="4082.0" text-anchor="middle" font-size="19" fill="#16202b">성공·실패 원인 분석</text>
+<rect x="94" y="4010" width="631.3" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="409.6" y="4036.0" text-anchor="middle" font-size="19" fill="#16202b">성공·실패 원인 분석</text>
 </g>
-<text x="745.3" y="4082.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
+<text x="745.3" y="4036.0" text-anchor="middle" font-size="21" fill="#55677a">+</text>
 <g data-material="능력 개선·확장" data-system="학습·개선" data-subgroup="" data-usage="조건부" data-responsibilities="M50">
 <title>능력 개선·확장 · 조건부 · 평가나 업무 경험에서 개선할 점을 찾았을 때 · 새로운 업무에 필요한 능력을 갖출 때
 M50: 능력 확보·지속 변경·검증 후 적용·복구</title>
-<rect x="765.3" y="4056" width="586.7" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
-<text x="1058.7" y="4082.0" text-anchor="middle" font-size="19" fill="#16202b">능력 개선·확장</text>
+<rect x="765.3" y="4010" width="586.7" height="38" rx="8" fill="#ffffff" stroke="#8fa0b0" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="1058.7" y="4036.0" text-anchor="middle" font-size="19" fill="#16202b">능력 개선·확장</text>
 </g>
-<path d="M723.0,608 L723.0,670" stroke="#a7b9c8" stroke-width="2"/>
-<circle cx="723.0" cy="639.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
-<text x="723.0" y="648.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
-<path d="M723.0,1574 L723.0,1636" stroke="#a7b9c8" stroke-width="2"/>
-<circle cx="723.0" cy="1605.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
-<text x="723.0" y="1614.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
-<path d="M723.0,2432 L723.0,2494" stroke="#a7b9c8" stroke-width="2"/>
-<circle cx="723.0" cy="2463.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
-<text x="723.0" y="2472.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
-<path d="M723.0,3350 L723.0,3412" stroke="#a7b9c8" stroke-width="2"/>
-<circle cx="723.0" cy="3381.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
-<text x="723.0" y="3390.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
-<path d="M723.0,3840 L723.0,3902" stroke="#a7b9c8" stroke-width="2"/>
-<circle cx="723.0" cy="3871.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
-<text x="723.0" y="3880.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
-<rect x="40" y="4174" width="1366" height="190" rx="12" fill="#eef3f8" stroke="#c3d0db"/>
-<text x="64" y="4209" font-size="23" font-weight="700" fill="#16202b">사건이 진행되는 동안 반복</text>
-<rect x="64.0" y="4232" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
-<text x="190.6" y="4263" text-anchor="middle" font-size="19" fill="#16202b">상황 갱신</text>
-<text x="319.2" y="4262" font-size="17" fill="#55677a">→</text>
-<rect x="330.2" y="4232" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
-<text x="456.79999999999995" y="4263" text-anchor="middle" font-size="19" fill="#16202b">대안·조건부 전략</text>
-<text x="585.4" y="4262" font-size="17" fill="#55677a">→</text>
-<rect x="596.4" y="4232" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
-<text x="723.0" y="4263" text-anchor="middle" font-size="19" fill="#16202b">권한·제약·전문 검토</text>
-<text x="851.5999999999999" y="4262" font-size="17" fill="#55677a">→</text>
-<rect x="862.5999999999999" y="4232" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
-<text x="989.1999999999999" y="4263" text-anchor="middle" font-size="19" fill="#16202b">실행·외부 결과</text>
-<text x="1117.8" y="4262" font-size="17" fill="#55677a">→</text>
-<rect x="1128.8" y="4232" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
-<text x="1255.3999999999999" y="4263" text-anchor="middle" font-size="19" fill="#16202b">반증·성과 확인</text>
-<path d="M1255.3999999999999,4280 V4309 H190.6 V4280 m-6,8 l6,-8 l6,8" fill="none" stroke="#6d8194" stroke-width="2"/>
-<text x="723.0" y="4337" text-anchor="middle" font-size="19" fill="#55677a">새 증거·상대 반응·이견·다른 건으로 번지는 손해 → 영향받는 판단과 작업 재검토</text>
+<path d="M723.0,562 L723.0,624" stroke="#a7b9c8" stroke-width="2"/>
+<circle cx="723.0" cy="593.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
+<text x="723.0" y="602.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
+<path d="M723.0,1528 L723.0,1590" stroke="#a7b9c8" stroke-width="2"/>
+<circle cx="723.0" cy="1559.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
+<text x="723.0" y="1568.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
+<path d="M723.0,2386 L723.0,2448" stroke="#a7b9c8" stroke-width="2"/>
+<circle cx="723.0" cy="2417.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
+<text x="723.0" y="2426.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
+<path d="M723.0,3304 L723.0,3366" stroke="#a7b9c8" stroke-width="2"/>
+<circle cx="723.0" cy="3335.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
+<text x="723.0" y="3344.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
+<path d="M723.0,3794 L723.0,3856" stroke="#a7b9c8" stroke-width="2"/>
+<circle cx="723.0" cy="3825.0" r="23" fill="#1d2b38" stroke="#1d2b38" stroke-width="2"/>
+<text x="723.0" y="3834.1" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">×</text>
+<rect x="40" y="4128" width="1366" height="190" rx="12" fill="#eef3f8" stroke="#c3d0db"/>
+<text x="64" y="4163" font-size="23" font-weight="700" fill="#16202b">사건이 진행되는 동안 반복</text>
+<rect x="64.0" y="4186" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
+<text x="190.6" y="4217" text-anchor="middle" font-size="19" fill="#16202b">상황 갱신</text>
+<text x="319.2" y="4216" font-size="17" fill="#55677a">→</text>
+<rect x="330.2" y="4186" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
+<text x="456.79999999999995" y="4217" text-anchor="middle" font-size="19" fill="#16202b">대안·조건부 전략</text>
+<text x="585.4" y="4216" font-size="17" fill="#55677a">→</text>
+<rect x="596.4" y="4186" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
+<text x="723.0" y="4217" text-anchor="middle" font-size="19" fill="#16202b">권한·제약·전문 검토</text>
+<text x="851.5999999999999" y="4216" font-size="17" fill="#55677a">→</text>
+<rect x="862.5999999999999" y="4186" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
+<text x="989.1999999999999" y="4217" text-anchor="middle" font-size="19" fill="#16202b">실행·외부 결과</text>
+<text x="1117.8" y="4216" font-size="17" fill="#55677a">→</text>
+<rect x="1128.8" y="4186" width="253.2" height="48" rx="8" fill="#d5e2ec" stroke="#6d8194"/>
+<text x="1255.3999999999999" y="4217" text-anchor="middle" font-size="19" fill="#16202b">반증·성과 확인</text>
+<path d="M1255.3999999999999,4234 V4263 H190.6 V4234 m-6,8 l6,-8 l6,8" fill="none" stroke="#6d8194" stroke-width="2"/>
+<text x="723.0" y="4291" text-anchor="middle" font-size="19" fill="#55677a">새 증거·상대 반응·이견·다른 건으로 번지는 손해 → 영향받는 판단과 작업 재검토</text>
 </svg>
