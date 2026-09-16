@@ -2,17 +2,14 @@
 # 않으므로, 그림만 보고 다 읽혀야 한다.
 #   항 6개는 × 로, 항 안의 계통과 재료는 + 로 이어진다. 항을 한 줄로 쌓아 × 다섯 개가 한 축에 선다.
 #   재료 줄은 남는 폭을 칩이 나눠 가져 상자 좌우에 꽉 맞춘다.
-#   상시·단계별·조건부를 이름·채움·테두리로 구별한다. 분류는 materials.md에서 읽는다.
+#   이름·계통·실무 묶음·적용 구분은 본문에서 읽고 materials.md의 공식 대응표와 대조한다.
 #   재료 구성과 반복 실행을 함께 보인다. 규칙은 적용 의무의 동시 충족으로 표현한다.
 # Run: python3 "docs/전개-수식/전개-수식-gen.py"  (then check the render before committing)
 #
-# 낡음 경고 (2026-09-16): 이 생성기와 전개-수식.svg 는 재료 55개 판(M01–M55) 기준이다.
-# 현재 본문 계통별 재료는 77개, 세부 책임은 M01–M57 이라 load_materials() 의 ID 검사에서
-# ValueError('재료 목록의 ID가 M01–M55와 일치하지 않습니다.') 로 멈춘다. 그림 제목의 '55개 재료'
-# 는 현재 그림에 실제로 그려진 칩 수라 숫자만 77로 바꾸면 그림과 제목이 어긋난다. 생성기를
-# 77행·M01–M57 판으로 고친 뒤 다시 만들어야 한다.
+# 기준선: 본문 77개 항목 · 9개 계통 · 세부 책임 M01–M57. 한 항목과 한 ID는 일대일이 아니다.
 
 import re
+from html import escape
 from pathlib import Path
 
 FONT = "-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif"
@@ -36,11 +33,10 @@ BH = 38                  # 재료 칩 높이
 GAP = 9                  # 재료 사이
 OP_W = 22                # + 기호 칸
 LINEH = 46               # 재료 줄 간격
-NOTCH = 11               # 흐름 칩 화살촉 깊이
 SMALL = 17               # 그림 안 최소 글자
 
 MARGIN = 40
-TITLE_H = 64             # 맨 위 수식 띠
+TITLE_H = 110            # 맨 위 수식·구성 수 띠
 LOOP_H = 190             # 실제 실행의 피드백 순환
 TITLE_FS = 34
 BANDGAP = 62             # 항과 항 사이 (× 자리)
@@ -76,10 +72,10 @@ def bw(s):
 
 
 def esc(s):
-    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    return escape(s, quote=True)
 
 
-# ── 재료 구성과 적용 구분 — 이름·계통·분류의 정본은 materials.md ─────────
+# ── 본문 항목과 세부 책임의 공식 대응 ────────────────────────────────
 USAGE_LABELS = {
     "상시": "상시 · 업무 내내 적용",
     "단계별": "단계별 · 해당 단계마다 적용",
@@ -87,28 +83,40 @@ USAGE_LABELS = {
 }
 TERM_SYSTEMS = {
     "환경": ["환경"],
-    "지식": ["자료·검색", "지식·경험", "기억·상태"],
+    "지식": ["자료·검색", "지식·경험", "기억·진행 상태"],
     "규칙": ["규칙·권한", "행동 체계"],
     "실무": ["실무"],
     "검증": ["검증·평가"],
     "학습": ["학습·개선"],
 }
-FLOW_STEPS = ["감지·접수", "의도 파악", "문제 정의", "자료 확인", "판단·계획",
-              "처리", "검증", "완료·보고", "남기기"]
 PLUS = ("o", "+")
+ROOT = Path(__file__).resolve().parents[2]
+EXPECTED_ITEMS = 77
+EXPECTED_IDS = {f"M{i:02d}" for i in range(1, 58)}
+SYSTEMS = [group for groups in TERM_SYSTEMS.values() for group in groups]
 
 
-def load_materials():
-    registry = (Path(__file__).parent.parent / "materials.md").read_text(encoding="utf-8")
+def section(text, heading):
+    if text.count(heading + "\n") != 1:
+        raise ValueError(f"절 제목이 없거나 중복됩니다: {heading}")
+    return text.split(heading + "\n", 1)[1].split("\n## ", 1)[0]
+
+
+def table_cells(line, count):
+    cells = [cell.strip() for cell in line.strip("|").split("|")]
+    if len(cells) != count:
+        raise ValueError(f"표는 {count}열이어야 합니다: {cells[0]}")
+    return cells
+
+
+def load_responsibilities(registry):
     records, group = [], ""
     for line in registry.splitlines():
         if line.startswith("## "):
             group = line[3:].split(" — ")[0]
         if not re.match(r"^\| M\d+ ", line):
             continue
-        cells = [cell.strip() for cell in line.strip("|").split("|")]
-        if len(cells) != 5:
-            raise ValueError("재료 표는 적용 구분·시점을 포함한 5열이어야 합니다.")
+        cells = table_cells(line, 5)
         mid, name = cells[0].split(" ", 1)
         usage = re.fullmatch(r"\*\*([^*]+)\*\*<br>(.+)", cells[-1])
         if not usage or usage[1] not in USAGE_LABELS:
@@ -116,45 +124,73 @@ def load_materials():
         records.append({"id": mid, "name": name, "group": group,
                         "usage": usage[1], "note": cells[-1]})
     ids = [r["id"] for r in records]
-    if len(ids) != 55 or set(ids) != {f"M{i:02d}" for i in range(1, 56)}:
-        raise ValueError("재료 목록의 ID가 M01–M55와 일치하지 않습니다.")
+    if len(ids) != len(EXPECTED_IDS) or set(ids) != EXPECTED_IDS:
+        raise ValueError("세부 책임의 ID가 M01–M57과 일치하지 않습니다.")
     names = {r["name"] for r in records}
-    if len(names) != 55:
-        raise ValueError("재료 이름이 중복됩니다.")
-    expected_groups = {g for groups in TERM_SYSTEMS.values() for g in groups}
+    if len(names) != len(records):
+        raise ValueError("세부 책임 이름이 중복됩니다.")
+    expected_groups = (set(SYSTEMS) - {"기억·진행 상태"}) | {"기억·상태"}
     if {r["group"] for r in records} != expected_groups:
         raise ValueError("재료의 계통이 9개 계통과 일치하지 않습니다.")
     return records
 
 
-def validate_summary(records):
-    """그림·정본뿐 아니라 사용자가 보는 55개 비고와 계통도 함께 대조한다."""
-    summary = Path(__file__).resolve().parent.parent.parent / "전문가 에이전트 정의.md"
-    section = summary.read_text(encoding="utf-8").split("## 계통별 재료 ✅", 1)[1]
-    expected = {r["name"]: (r["group"], r["note"]) for r in records}
-    actual, group = {}, ""
-    for line in section.splitlines():
+def load_summary(summary):
+    records, group, subgroup = [], "", ""
+    for line in section(summary, "## 계통별 재료 ✅").splitlines():
         if line.startswith("### "):
             group = line[4:].removesuffix(" ✅")
-        match = re.match(r"^\| \*\*([^*]+)\*\*(?: ✅)? \|", line)
-        if not match or group not in {r["group"] for r in records}:
+            subgroup = ""
+        if line.startswith("#### "):
+            subgroup = line[5:]
+        match = re.match(r"^\|\s*\*\*([^*]+)\*\*(?:\s+✅)?\s*\|", line)
+        if not match or not group:
             continue
-        name = match[1]
-        if name not in expected:
-            raise ValueError(f"본문에 정본에 없는 재료가 있습니다: {name}")
-        if name in actual:
-            raise ValueError(f"본문 재료 중복: {name}")
-        cells = [cell.strip() for cell in line.strip("|").split("|")]
-        if len(cells) != 4:
-            raise ValueError(f"본문 재료 표는 비고를 포함한 4열이어야 합니다: {name}")
-        actual[name] = (group, cells[-1])
-    if actual != expected:
-        changed = [name for name in expected if actual.get(name) != expected[name]]
-        raise ValueError(f"본문 재료·계통·비고가 정본과 다릅니다: {changed}")
+        cells = table_cells(line, 6)
+        usage = re.fullmatch(r"\*\*([^*]+)\*\*", cells[4])
+        if not usage or usage[1] not in USAGE_LABELS or not cells[5]:
+            raise ValueError(f"본문 적용 구분·시점 오류: {match[1]}")
+        records.append({"name": match[1], "group": group, "subgroup": subgroup,
+                        "usage": usage[1], "note": cells[5]})
+    if len(records) != EXPECTED_ITEMS or len({r["name"] for r in records}) != EXPECTED_ITEMS:
+        raise ValueError("본문 항목은 중복 없이 77개여야 합니다.")
+    if list(dict.fromkeys(r["group"] for r in records)) != SYSTEMS:
+        raise ValueError("본문의 계통·순서가 9개 계통과 일치하지 않습니다.")
+    return records
 
 
-MATERIALS = load_materials()
-validate_summary(MATERIALS)
+def load_mapping(registry):
+    records = []
+    for line in section(registry, "## 본문과 세부 책임의 대응").splitlines():
+        if not line.startswith("| ") or line.startswith("| 본문 계통 |"):
+            continue
+        group, name, refs, usage, boundary = table_cells(line, 5)
+        ids = re.findall(r"\bM\d+\b", refs)
+        if not ids or not set(ids) <= EXPECTED_IDS or usage not in USAGE_LABELS:
+            raise ValueError(f"대응표 세부 책임·적용 구분 오류: {name}")
+        records.append({"group": group, "name": name, "ids": ids,
+                        "usage": usage, "boundary": boundary})
+    if len(records) != EXPECTED_ITEMS or len({r["name"] for r in records}) != EXPECTED_ITEMS:
+        raise ValueError("대응표 항목은 중복 없이 77개여야 합니다.")
+    used_ids = {mid for r in records for mid in r["ids"]}
+    if used_ids != EXPECTED_IDS:
+        raise ValueError(f"본문에 연결되지 않은 세부 책임: {sorted(EXPECTED_IDS - used_ids)}")
+    return records
+
+
+def validate_summary(records, mapping):
+    """일대다·다대일 대응을 허용하고 본문 이름·계통·구분·순서를 검사한다."""
+    for record, mapped in zip(records, mapping, strict=True):
+        if any(record[key] != mapped[key] for key in ("name", "group", "usage")):
+            raise ValueError(f"본문과 대응표의 이름·계통·구분·순서 불일치: {record['name']} / {mapped['name']}")
+        record["ids"] = mapped["ids"]
+        record["boundary"] = mapped["boundary"]
+
+
+REGISTRY = (ROOT / "docs/materials.md").read_text(encoding="utf-8")
+RESPONSIBILITIES = load_responsibilities(REGISTRY)
+MATERIALS = load_summary((ROOT / "전문가 에이전트 정의.md").read_text(encoding="utf-8"))
+validate_summary(MATERIALS, load_mapping(REGISTRY))
 TERMS = {
     term: [(group, [r for r in MATERIALS if r["group"] == group]) for group in groups]
     for term, groups in TERM_SYSTEMS.items()
@@ -168,7 +204,7 @@ def material_tokens(records):
     for record in records:
         if tokens:
             tokens.append(PLUS)
-        tokens.append(("m", record["name"], record["usage"]))
+        tokens.append(("m", record["name"], record["usage"], record))
     return tokens
 
 
@@ -222,21 +258,6 @@ def flow(tokens, maxw):
     return best
 
 
-def flow_chev(chips, maxw):
-    """흐름 칩은 서로 맞물려 붙는다. 칩 하나가 밀어내는 폭은 칩 폭에서 물린 깊이를 뺀 만큼."""
-    lines, cur, w = [], [], 0.0
-    for c in chips:
-        adv = bw(c[1]) + NOTCH * 0.6 - NOTCH
-        if cur and w + adv + NOTCH > maxw:
-            lines.append(cur)
-            cur, w = [], 0.0
-        cur.append(c)
-        w += adv
-    if cur:
-        lines.append(cur)
-    return lines
-
-
 def stack_h(n):
     return n * BH + (n - 1) * (LINEH - BH) if n else 0
 
@@ -247,16 +268,11 @@ def plan_sys(group, records, body_w):
     inner = body_w - 2 * SPAD
     name = "" if group in {"환경", "실무"} else group
     blocks = []
-    for usage in USAGE_LABELS:
-        selected = [r for r in records if r["usage"] == usage]
-        if not selected:
-            continue
-        is_flow = len(selected) == 1 and selected[0]["id"] == "M41"
-        if is_flow:
-            lines = flow_chev([("m", label, usage) for label in FLOW_STEPS], inner - 28)
-        else:
-            lines = flow(material_tokens(selected), inner - 28)
-        blocks.append({"usage": usage, "lines": lines, "flow": is_flow,
+    keys = list(dict.fromkeys((r["subgroup"], r["usage"]) for r in records))
+    for subgroup, usage in keys:
+        selected = [r for r in records if (r["subgroup"], r["usage"]) == (subgroup, usage)]
+        lines = flow(material_tokens(selected), inner - 28)
+        blocks.append({"usage": usage, "subgroup": subgroup, "lines": lines,
                        "h": CLBL + stack_h(len(lines)) + 12})
     h = SPAD + (SLBL if name else 0)
     h += sum(block["h"] for block in blocks) + CTOP * (len(blocks) - 1)
@@ -285,14 +301,15 @@ H = LOOP_Y + LOOP_H + MARGIN
 
 out.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
            f'font-family="{FONT}" role="img" aria-labelledby="formula-title formula-desc">')
-out.append('<title id="formula-title">전문 AI 에이전트 구성 전개식 — 6개 항·9개 계통·55개 재료</title>')
+out.append(f'<title id="formula-title">전문 AI 에이전트 구성 전개식 — '
+           f'{len(TERMS)}개 항·{len(SYSTEMS)}개 계통·{len(MATERIALS)}개 항목</title>')
 out.append('<desc id="formula-desc">환경 × 지식 × 규칙 × 실무 × 검증 × 학습. '
-           '산출물 제작·편집, 데이터 처리, 계산·분석·최적화, 실험·시뮬레이션, 업무 자산을 포함한다. '
+           f'본문의 {len(MATERIALS)}개 항목을 세부 책임 {len(RESPONSIBILITIES)}개와 대응한다. '
            '상시는 진행 전반에, 단계별은 해당 단계마다 적용한다. '
            '단계별도 자료·전제·결과가 바뀌면 반복한다. '
            '조건부는 필요할 때 적용하며, 조건이 참이면 필수다. '
-           '실무는 업무 처리 흐름과 데이터 처리·계산·실험·제작·상대 응대·납품의 일곱 재료다. '
-           '그중 업무 처리 흐름은 아홉 단계로 펼쳤다. '
+           '실무는 진행·후속 관리, 자료 가공, 계산·분석·판정, 구상·표현·제작, '
+           '대화·협의, 업무 시스템 조작, 납품·인계, 관찰·시험·연습의 여덟 묶음이다. '
            '규칙은 적용 범위와 해석을 확인해 함께 충족하며, 상황·조건부 전략·실행·외부 검증을 순환한다. '
            '재료의 개수는 전문가 성능을 보장하지 않는다.</desc>')
 out.append(f'<rect width="{W}" height="{H}" fill="#ffffff"/>')
@@ -318,10 +335,13 @@ while True:
     if wsum <= FULL_W - 40 or tfs <= 24:
         break
     tfs -= 1
-ty = MARGIN + TITLE_H / 2
+ty = MARGIN + 34
 out.append(f'<rect x="{MARGIN}" y="{MARGIN}" width="{FULL_W}" height="{TITLE_H}" rx="12" '
            f'fill="{TITLE_BG}" stroke="{SYS_EDGE}" stroke-width="1.5"/>')
 tx = (W - wsum) / 2
+out.append(f'<text x="{W / 2}" y="{MARGIN + 87}" text-anchor="middle" '
+           f'font-size="19" fill="{SUB}">{len(SYSTEMS)}개 계통 · {len(MATERIALS)}개 항목 '
+           f'· 세부 책임 {len(RESPONSIBILITIES)}개와 연결 (M01–M57)</text>')
 out.append(f'<text x="{round(tx,1)}" y="{round(ty + tfs * 0.36,1)}" font-size="{tfs}" '
            f'font-weight="800" fill="{INK}">{lead}</text>')
 tx += tw(lead, tfs) + 20
@@ -337,35 +357,22 @@ for i, n in enumerate(names):
     tx += tw(n, tfs)
 
 
-def chip(x, y, name, usage, ext=0.0):
+def chip(x, y, name, usage, record, ext=0.0):
     w = bw(name) + ext
     fill = CHIP_BG if usage == "상시" else "#ffffff"
     stroke = COND_EDGE if usage == "조건부" else CHIP_EDGE
     dash = ' stroke-dasharray="5 4"' if usage == "조건부" else ""
+    out.append(f'<g data-material="{esc(name)}" data-system="{esc(record["group"])}" '
+               f'data-subgroup="{esc(record["subgroup"])}" data-usage="{usage}" '
+               f'data-responsibilities="{" ".join(record["ids"])}">')
+    out.append(f'<title>{esc(name)} · {usage} · {esc(record["note"])}\n'
+               f'{"·".join(record["ids"])}: {esc(record["boundary"])}</title>')
     out.append(f'<rect x="{round(x,1)}" y="{round(y,1)}" width="{w}" height="{BH}" rx="8" '
                f'fill="{fill}" stroke="{stroke}" stroke-width="1.5"{dash}/>')
     out.append(f'<text x="{round(x + w / 2,1)}" y="{round(y + BH / 2 + 7,1)}" text-anchor="middle" '
                f'font-size="{FS}" fill="{INK}">{esc(name)}</text>')
+    out.append('</g>')
     return w
-
-
-def draw_flow_line(x, y, chips, last, first=True, extra=0.0):
-    """화살표꼴 칩을 맞물려 그린다 — 기호 없이 순서가 읽힌다. 첫 칩과 맨 끝은 평평하게 막는다."""
-    for ci, c in enumerate(chips):
-        end = last and ci == len(chips) - 1
-        head = first and ci == 0
-        w = bw(c[1]) + NOTCH * 0.6 + extra
-        x0, y1 = round(x, 1), round(y + BH, 1)
-        xm, ym = round(x + w, 1), round(y + BH / 2, 1)
-        tip = (f'L{round(x + w - NOTCH,1)},{round(y,1)} L{xm},{ym} L{round(x + w - NOTCH,1)},{y1} '
-               if not end else f'L{xm},{round(y,1)} L{xm},{y1} ')
-        back = f'L{x0},{y1} Z' if head else f'L{x0},{y1} L{round(x0 + NOTCH,1)},{ym} Z'
-        d = f'M{x0},{round(y,1)} ' + tip + back
-        out.append(f'<path d="{d}" fill="{CHIP_BG}" stroke="{CHIP_EDGE}" stroke-width="1.5" '
-                   'stroke-linejoin="round"/>')
-        out.append(f'<text x="{round(x + w / 2 + NOTCH / 2,1)}" y="{round(y + BH / 2 + 7,1)}" '
-                   f'text-anchor="middle" font-size="{FS}" fill="{INK}">{esc(c[1])}</text>')
-        x += w - NOTCH
 
 
 def justify(toks, width):
@@ -379,7 +386,7 @@ def draw_line(x, y, toks, width=None):
     ext = justify(toks, width) if width else 0.0
     for t in toks:
         if t[0] == "m":
-            x += chip(x, y, t[1], t[2], ext=ext) + GAP
+            x += chip(x, y, t[1], t[2], t[3], ext=ext) + GAP
         else:
             out.append(f'<text x="{round(x + OP_W / 2,1)}" y="{round(y + BH / 2 + 7,1)}" '
                        f'text-anchor="middle" font-size="21" fill="{SUB}">{esc(t[1])}</text>')
@@ -405,19 +412,12 @@ def draw_sys(p, x, y, body_w):
             out.append(f'<rect x="{cx}" y="{round(y,1)}" width="{inner}" '
                        f'height="{block["h"]}" rx="9" fill="{COND_BG}"/>')
         prefix = "+ " if index else ""
-        label = prefix + USAGE_LABELS[usage]
-        if block["flow"]:
-            label += " — 업무 처리 흐름"
+        label = prefix + (block["subgroup"] + " — " if block["subgroup"] else "") + USAGE_LABELS[usage]
         out.append(f'<text x="{cx + 14}" y="{round(y + 19,1)}" font-size="{SMALL}" '
                    f'font-weight="700" fill="{SUB}">{esc(label)}</text>')
         y += CLBL
-        for li, line in enumerate(block["lines"]):
-            if block["flow"]:
-                used = sum(bw(c[1]) + NOTCH * 0.6 - NOTCH for c in line) + NOTCH
-                draw_flow_line(cx + 14, y, line, li == len(block["lines"]) - 1, li == 0,
-                               max(0.0, (inner - 28 - used) / len(line)))
-            else:
-                draw_line(cx + 14, y, line, inner - 28)
+        for line in block["lines"]:
+            draw_line(cx + 14, y, line, inner - 28)
             y += LINEH
         y = block_y + block["h"]
     if p["name"] == "규칙·권한":
@@ -456,7 +456,7 @@ for a, b in zip(ORDER, ORDER[1:]):
                'stroke-width="2"/>')
     op_circle(cx, (y0 + y1) / 2, "×", True)
 
-# ── 실제 업무 순환: 아홉 단계의 기본 흐름에 걸리는 재계획·완료 계약 ─────
+# ── 실제 업무 순환: 상황 변화에 따른 실행·검증·재검토 ────────────────
 out.append(f'<rect x="{MARGIN}" y="{LOOP_Y}" width="{FULL_W}" height="{LOOP_H}" '
            f'rx="12" fill="{TITLE_BG}" stroke="{SYS_EDGE}"/>')
 out.append(f'<text x="{MARGIN + 24}" y="{LOOP_Y + 35}" font-size="23" '
