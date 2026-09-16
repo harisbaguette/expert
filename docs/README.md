@@ -5,7 +5,7 @@
 | 무엇 | 어디 | 어떤 내용임 |
 | --- | --- | --- |
 | 구조 기준선 검토 | [material-baseline-review.md](reviews/material-baseline-review.md) | 59개 설명·57개 세부 책임의 전수 검토, 시스템 실행·운영 복구 보완과 검증 범위 |
-| 재료 목록 | [materials.md](materials.md) | 본문 설명 59개와 세부 책임 M01–M57의 대응·입출력·검증 기준 |
+| 재료 목록 | [materials.md](materials.md) | 본문 재료 77개와 세부 책임 M01–M57의 대응·입출력·검증 기준 |
 | 목표 적합성 검토 | [material-goal-alignment-review.md](reviews/material-goal-alignment-review.md) | 검토 당시 53개 행 전수 검토와 보완 반영 결과 |
 | 재료 비판 검토 | [material-harsh-critique-review.md](reviews/material-harsh-critique-review.md) | 검토 당시 50개 재료를 목표에 대고 하나씩 비난하고 구멍을 메운 결과임 |
 | 돌아가는 규칙 | [runtime.md](runtime.md) | 에이전트가 실제로 일할 때 지키는 약속임 |
