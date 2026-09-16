@@ -129,8 +129,7 @@ def load_responsibilities(registry):
     names = {r["name"] for r in records}
     if len(names) != len(records):
         raise ValueError("세부 책임 이름이 중복됩니다.")
-    expected_groups = (set(SYSTEMS) - {"기억·진행 상태"}) | {"기억·상태"}
-    if {r["group"] for r in records} != expected_groups:
+    if {r["group"] for r in records} != set(SYSTEMS):
         raise ValueError("재료의 계통이 9개 계통과 일치하지 않습니다.")
     return records
 
