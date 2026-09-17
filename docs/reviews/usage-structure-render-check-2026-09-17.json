@@ -1,54 +1,39 @@
 {
-  "renderer": "Chromium via Puppeteer",
+  "format": "inline Mermaid",
+  "canonical_source": "전문가 에이전트 정의.md",
   "date": "2026-09-17",
+  "renderer": "Mermaid 11.17.2 / ELK / Chromium",
   "checks": [
     {
-      "mode": "solo",
-      "svg": "docs/images/expert-definition/usage-materials-solo.svg",
-      "sha256": "c8a3463119242307525f7be1df8b4c3991a7e2ac8fd1386b6fd2275db50cc12c",
-      "viewport": [
-        1800,
-        1350
-      ],
-      "width": 1380,
-      "height": 23457,
-      "nodes": 127,
+      "scenario": "solo",
+      "source": "전문가 에이전트 정의.md / 사용 구조 / inline Mermaid",
+      "mermaid_source_sha256": "3393b21e15c273ff5d5d3e23d36bcacf95d146388c3cc1100df2b9b72874a8ff",
+      "rendered_nodes": 150,
       "node_overlaps": [],
-      "text_overflow": [],
-      "label_overlaps": [],
-      "edge_node_hits": []
+      "edge_label_overlaps": [],
+      "material_title_font": "18px / 700",
+      "helper_font": "14px / 400"
     },
     {
-      "mode": "orchestration",
-      "svg": "docs/images/expert-definition/usage-materials-orchestration.svg",
-      "sha256": "124a2705dbb37d6c1f3da39afda43e5f0ae7b466e95be0520903f00815a8ed99",
-      "viewport": [
-        1800,
-        1350
-      ],
-      "width": 1780,
-      "height": 26385,
-      "nodes": 141,
+      "scenario": "orchestration",
+      "source": "전문가 에이전트 정의.md / 사용 구조 / inline Mermaid",
+      "mermaid_source_sha256": "cba7d4b82724da81fdbb2a8ab0303c46c113143eb449812005ea352e9c70bef4",
+      "rendered_nodes": 164,
       "node_overlaps": [],
-      "text_overflow": [],
-      "label_overlaps": [],
-      "edge_node_hits": []
+      "edge_label_overlaps": [],
+      "material_title_font": "18px / 700",
+      "helper_font": "14px / 400"
     },
     {
-      "mode": "complex",
-      "svg": "docs/images/expert-definition/usage-materials-complex.svg",
-      "sha256": "bb14933cb8987a9a1d1160d254bb29ecc3fdcb5d56ab54c0d2bc1c660432c059",
-      "viewport": [
-        1800,
-        1350
-      ],
-      "width": 1780,
-      "height": 27693,
-      "nodes": 148,
+      "scenario": "complex",
+      "source": "전문가 에이전트 정의.md / 사용 구조 / inline Mermaid",
+      "mermaid_source_sha256": "bc0972808ce966da6e47708e7b4a8f879a598c2cd980c0527847734c3846c1bf",
+      "rendered_nodes": 171,
       "node_overlaps": [],
-      "text_overflow": [],
-      "label_overlaps": [],
-      "edge_node_hits": []
+      "edge_label_overlaps": [],
+      "material_title_font": "18px / 700",
+      "helper_font": "14px / 400"
     }
-  ]
+  ],
+  "scope": "Mermaid 문법·정식 재료명·분기 정의·도형과 분기 문구 겹침을 확인했다. 이전 고정 좌표 SVG의 선 교차 0 판정은 이 결과에 적용하지 않는다."
 }
