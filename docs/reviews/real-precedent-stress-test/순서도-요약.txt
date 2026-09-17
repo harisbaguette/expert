@@ -1,0 +1,1757 @@
+
+===== 업무 처리 흐름 =====
+[묶음 PHASE_0] 시작 · 긴급 대응
+  REQ: 요청
+  SIGNAL: 신호 감지
+  CHANCE: 기회 발견
+  HARM: 지금 실제 피해·오류·장애가 진행 중이고 / 바로 막지 않으면 계속 커지는가?
+  SAFE_ACTION: 지금 바로 할 수 있는 / 안전한 임시조치가 있는가?
+  EMERGENCY_RULE: 미리 승인된 / 긴급 예외 조치가 있는가?
+  FIRST_ACTION: 추가 피해부터 막기 / 문제 작업 중지 · 추가 결제나 전송 막기 / 영향 범위 분리 · 정상 상태 복구 · 임시 대체
+  EMERGENCY_APPROVAL: 긴급 승인 요청
+  EMERGENCY_EXEC: 정해 둔 긴급 조치 실행 / 실행하는 즉시 보고
+  EMERGENCY_DECISION: 승인됐는가?
+  APPROVED_ACTION: 승인된 조치 실행
+  EMERGENCY_MONITOR: 권한 안에서 추가 피해를 막고 / 상태와 변화를 계속 기록
+  EMERGENCY_CHECK: 추가 피해가 / 멈췄는가?
+  OPPORTUNITY: 지금 놓치면 / 사라지는 기회인가?
+  OPPORTUNITY_DEADLINE: 기회가 사라지는 시점을 / 업무 기한으로 등록
+  CASE_TYPE: 이번 요청·신호가 / 새로운 건인가?
+[묶음 PHASE_1] 접수
+  LOAD_CASE: 진행 중인 건 불러오기 / 현재 상태 · 남은 일 · 기한 · 대기 사항 확인
+  CASE_CHANGED: 기존 목표나 업무 범위가 / 바뀌었는가?
+  INTAKE_CHECK: 한 건의 범위 확인 / 요청자의 권한 · 당사자 동의 · 이해충돌 / 업무 범위 · 보수 · 책임 조건 확인
+  ACCEPTABLE: 지금 상태로 / 접수할 수 있는가?
+  CONDITION_CHECK: 접수에 부족한 조건 확인 / 권한 증빙 · 당사자 동의 · 필요한 승인 / 업무 범위 조정 등
+  CONDITION_REQUEST: 조건 보완 요청
+  CONDITION_WAIT: 조건 충족 대기
+  CONDITION_OK: 필요한 조건이 / 충족됐는가?
+  CONDITION_DEADLINE: 보완할 기한이 / 남아 있는가?
+  REJECT: 거절 / 거절 이유와 가능한 대안 안내
+  REJECT_RECORD: ("접수·거절 기록 남기기")
+  ACCEPTED: 접수 확정
+[묶음 PHASE_2] 의도 파악
+  INTENT_CLEAR: 요청·지시만으로 / 원하는 결과가 한 가지로 정해지는가?
+  AMBIGUOUS: 모호한 부분과 / 빠진 지시를 구분
+  INTENT_ASK: 되묻기 · 지시 확인 · 의도 확인
+  INTENT_CONFIRMED: 원하는 결과가 / 확인됐는가?
+  ASSUME_SAFE: 확인 없이 가정해도 / 결과 · 권리 · 비용에 큰 영향이 없는가?
+  ASSUMPTION: 가정한 내용과 / 그 영향을 명시
+  INTENT_WAIT: 답변 대기
+[묶음 PHASE_3] 문제 정의
+  PROBLEM_ANALYSIS: 원하는 결과를 막는 / 원인 · 제약 · 빠진 요소 확인
+  DIRECT_SOLUTION: 요청받은 일을 그대로 하면 / 원하는 결과가 실제로 나오는가?
+  REFRAME: 실제로 해결해야 할 문제를 / 다시 정의
+  REFRAME_SCOPE: 새로 정의한 문제가 / 기존 의도나 범위를 바꾸는가?
+  REFRAME_CONFIRM: 바뀐 목표 · 범위 · 완료 조건 확인
+  PROBLEM_SCOPE: 풀 문제 · 풀지 않을 문제 / 업무 범위 확정
+[묶음 PHASE_4] 자료 확인
+  COLLECT: 필요한 자료를 직접 수집하고 / 가능하면 원문까지 확인
+  CLASSIFY_DATA: 사실 · 주장 · 추정을 구분
+  VALIDATE_DATA: 출처 · 시점 · 관할 · 판본 확인
+  DATA_ENOUGH: 결론을 바꿀 핵심 사실이 / 확인됐거나 가정으로 표시됐는가?
+  DATA_GAP: 빠진 정보와 / 확인 방법 정하기
+  GET_DATA: 추가 조회 · 상대나 기관에 질문 · 실험
+  DATA_FOUND: 추가 사실을 / 확인했는가?
+  DATA_LIMIT: 확인할 수 없는 내용은 / 가정 · 근거 부족 · 입증 책임을 명시
+[묶음 PHASE_5] 판단 · 계획
+  OPTIONS: 가능한 방법과 대안 만들기
+  COMPARE: 효과 · 비용 · 위험 · 부작용 / 상대의 예상 반응 비교
+  KNOWN_CASE: 기존 규칙이나 사례로 / 판단할 수 있는가?
+  NEW_METHOD: 원리와 유사 사례를 바탕으로 / 새 방법 설계
+  SMALL_TEST_Q: 작은 범위에서 / 먼저 시험할 수 있는가?
+  SMALL_TEST: 작게 시험하고 / 어떤 결과가 나오면 중단할지도 정함
+  UNCERTAIN_PLAN: 불확실성을 명시하고 / 되돌리기 쉬운 방법을 우선
+  SELECT: 실행 방법 선택
+  EXECUTION_PLAN: 실행 순서 · 사건 간 영향 · 공동 작업 / 관측별 전환 · 복구 · 중단 기준을 정함
+  PREMISE: 계획의 핵심 전제가 / 지금도 유지되는가?
+  UPDATE_PLAN: 바뀐 조건을 반영해 / 판단 · 계획 다시 수행
+  REPEAT_Q: 주기적으로 / 반복하는 업무인가?
+  REPEAT_RULE: 주기 · 자동 실행 범위 · 한도 / 다음 점검 시점을 정함
+  HUMAN_Q: 실행 전에 사람의 결정이 필요한가? / 되돌릴 수 없는 행동 · 사전 승인 필요 / 판단 불가 · 한도 초과 · 자격자 전속
+  HUMAN_PREP: AI가 할 수 있는 조사 · 계산 · 작성 / 대안 비교 · 검증까지 먼저 완료
+  DECIDER: 현재 결정권자가 / 권한이 있고 이해충돌도 없는가?
+  DECISION_REQUEST: 권한 있는 사람에게 결정 요청
+  ALT_DECIDER: 미리 정한 다른 결정권자에게 요청
+  DECISION_RECEIVED: 기한 안에 / 결정이 왔는가?
+  ESCALATE: 다음 승인권자에게 올림
+  APPROVAL_GRANTED: 승인 · 진행 결정인가?
+  DECISION_REJECTED: 반려 · 보류 사유와 / 남은 일 기록
+[묶음 PHASE_6] 처리
+  PRE_EXECUTE: 실행 전 시험 · 복구 수단 확보 / 권한 · 금액 · 손실 한도 자동 검사
+  EXEC_ACTION: 실제 실행
+  EXEC_STATE: 실행 직후 실제 상태와 / 상대 · 시스템 반응 기록
+  EXEC_FAIL: 실행에 실패했는가?
+  EXEC_LIMIT: 시간 · 비용 · 시도 횟수 등 / 정한 중단 한도를 넘었는가?
+  REPEAT_FAIL: 같은 실패가 / 반복되고 있는가?
+  STOP_HUMAN: 현재 상태 · 실패 원인 · 대안과 함께 / 사람에게 넘김
+  RECOVER: 재시도 · 취소 · 원상복구
+  STOP_DECISION: 다시 진행하기로 / 결정됐는가?
+  LOCAL_REPLAN: 실패 원인을 반영해 / 방법과 실행 순서 다시 계획
+  STOP_RECORD: 중단 상태와 / 남은 위험 기록
+[묶음 PHASE_7] 검증
+  ACTUAL_RESULT: 원천 시스템 · 상대 · 시장에서 / 실제 결과 확인
+  RECALCULATE: 계산을 다시 하고 / 내 기록과 원천 기록 비교
+  CROSS_CHECK: 독립 근거 · 다른 방법으로 반증 / 팀 간 이견 · 공통 오류 · 교차 영향 검토
+  RISK_CHECK: 놓친 위험 · 빠진 대상 · 누락 항목 확인
+  ISSUE: 수정해야 할 문제가 / 발견됐는가?
+  ISSUE_CAUSE: 문제는 어디에서 / 생겼는가?
+  REWORK_DATA: 자료를 다시 확인하고 / 이후 판단 · 처리를 다시 수행
+  CAUSE_PLAN: 판단 · 계획의 문제인가?
+  REWORK_PLAN: 판단 · 계획을 다시 하고 / 필요한 처리를 다시 수행
+  CAUSE_EXEC: 처리의 문제인가?
+  REWORK_EXEC: 잘못된 처리를 수정
+  UNFIXABLE: 고칠 수 없는 문제는 숨기지 않고 / 영향 · 유효기간 · 재검토 시점을 기록
+  REVERIFY: 수정 결과 다시 검증
+[묶음 PHASE_8] 완료 · 보고
+  COMPLETE: 처음 정한 완료 조건이 / 실제 상태에서 충족됐는가?
+  CAN_FINISH: 추가 처리하면 / 완료할 수 있는가?
+  REMAINING_WORK: 남은 일 처리
+  PARTIAL: 완료된 부분 · 남은 일 / 완료하지 못한 이유를 구분
+  REMAINING_VERIFY: 추가 처리 결과 검증
+  DELIVER: 결과물 · 결론 · 근거 · 가정 / 미완료 사항 전달
+  RESPONSE: 받는 사람의 반응은?
+  REVISION_SCOPE: 기존 업무 범위 안의 / 수정인가?
+  NEW_REQUEST: 새 목표 · 범위 · 완료 조건으로 / 다시 접수
+  REVISION: 수정 처리
+  REVISION_VERIFY: 수정 결과 다시 검증
+[묶음 PHASE_9] 남기기
+  CASE_RECORD: ("사례 · 실패 원인 · 판단 과정 / 실제 성과 기록")
+  UPDATE: ("필요한 지식 · 규칙 · 절차 · 기억 / 고정 시험 항목 갱신")
+  CONNECT: ("결과와 기억을 / 다음 업무에 연결")
+  FOLLOW_UP: 후속 확인 · 반복 주기 · 성과 확정일이 / 남아 있는가?
+  SCHEDULE: ("다음 기한 · 주기 · 성과 확정일을 / 감시 대상으로 등록")
+  FINAL: 업무 종료
+  WAIT: 대기 / 다음 신호가 오면 기존 건으로 재개
+  SIGNAL --> HARM
+  ? REQ ~~~ HARM
+  ? CHANCE ~~~ HARM
+  CHANCE --> OPPORTUNITY
+  REQ --> CASE_TYPE
+  HARM -->|아니오 · 긴급 아님| CASE_TYPE
+  HARM -->|예| SAFE_ACTION
+  SAFE_ACTION -->|예| FIRST_ACTION
+  SAFE_ACTION -->|아니오| EMERGENCY_RULE
+  FIRST_ACTION --> EMERGENCY_CHECK
+  EMERGENCY_RULE -->|예| EMERGENCY_EXEC
+  EMERGENCY_RULE -->|아니오| EMERGENCY_APPROVAL
+  EMERGENCY_EXEC --> EMERGENCY_CHECK
+  EMERGENCY_APPROVAL --> EMERGENCY_DECISION
+  EMERGENCY_DECISION -->|예| APPROVED_ACTION
+  EMERGENCY_DECISION -->|아니오| EMERGENCY_MONITOR
+  APPROVED_ACTION --> EMERGENCY_CHECK
+  EMERGENCY_MONITOR --> EMERGENCY_CHECK
+  EMERGENCY_CHECK -->|예| CASE_TYPE
+  EMERGENCY_CHECK -->|아니오 · 아직 진행 중| SAFE_ACTION
+  OPPORTUNITY -->|아니오| CASE_TYPE
+  OPPORTUNITY -->|예| OPPORTUNITY_DEADLINE
+  OPPORTUNITY_DEADLINE --> CASE_TYPE
+  CASE_TYPE -->|아니오| LOAD_CASE
+  CASE_TYPE -->|예| INTAKE_CHECK
+  ? INTAKE_CHECK ~~~ LOAD_CASE
+  LOAD_CASE --> CASE_CHANGED
+  CASE_CHANGED -->|예| INTENT_CLEAR
+  INTAKE_CHECK --> ACCEPTABLE
+  ACCEPTABLE -->|가능| ACCEPTED
+  ACCEPTABLE -->|조건 충족 후 가능| CONDITION_CHECK
+  ACCEPTABLE -->|불가| REJECT
+  CONDITION_CHECK --> CONDITION_REQUEST
+  CONDITION_REQUEST --> CONDITION_WAIT
+  CONDITION_WAIT --> CONDITION_OK
+  CONDITION_OK -->|예| ACCEPTED
+  CONDITION_OK -->|아니오| CONDITION_DEADLINE
+  CONDITION_DEADLINE -->|예| CONDITION_WAIT
+  CONDITION_DEADLINE -->|아니오| REJECT
+  REJECT --> REJECT_RECORD
+  REJECT_RECORD --> FINAL
+  ACCEPTED --> INTENT_CLEAR
+  INTENT_CLEAR -->|예| PROBLEM_ANALYSIS
+  INTENT_CLEAR -->|아니오| AMBIGUOUS
+  AMBIGUOUS --> INTENT_ASK
+  INTENT_ASK --> INTENT_CONFIRMED
+  INTENT_CONFIRMED -->|예| PROBLEM_ANALYSIS
+  INTENT_CONFIRMED -->|아니오| ASSUME_SAFE
+  ASSUME_SAFE -->|예| ASSUMPTION
+  ASSUME_SAFE -->|아니오| INTENT_WAIT
+  ASSUMPTION --> PROBLEM_ANALYSIS
+  INTENT_WAIT --> INTENT_ASK
+  PROBLEM_ANALYSIS --> DIRECT_SOLUTION
+  DIRECT_SOLUTION -->|예| PROBLEM_SCOPE
+  DIRECT_SOLUTION -->|아니오| REFRAME
+  REFRAME --> REFRAME_SCOPE
+  REFRAME_SCOPE -->|아니오| PROBLEM_SCOPE
+  REFRAME_SCOPE -->|예| REFRAME_CONFIRM
+  REFRAME_CONFIRM --> PROBLEM_SCOPE
+  PROBLEM_SCOPE --> COLLECT
+  COLLECT --> CLASSIFY_DATA
+  CLASSIFY_DATA --> VALIDATE_DATA
+  VALIDATE_DATA --> DATA_ENOUGH
+  DATA_ENOUGH -->|예| OPTIONS
+  DATA_ENOUGH -->|아니오| DATA_GAP
+  DATA_GAP --> GET_DATA
+  GET_DATA --> DATA_FOUND
+  DATA_FOUND -->|예| COLLECT
+  DATA_FOUND -->|아니오| DATA_LIMIT
+  DATA_LIMIT --> OPTIONS
+  CASE_CHANGED -->|아니오| OPTIONS
+  OPTIONS --> COMPARE
+  COMPARE --> KNOWN_CASE
+  KNOWN_CASE -->|예| SELECT
+  KNOWN_CASE -->|아니오| NEW_METHOD
+  NEW_METHOD --> SMALL_TEST_Q
+  SMALL_TEST_Q -->|예| SMALL_TEST
+  SMALL_TEST_Q -->|아니오| UNCERTAIN_PLAN
+  SMALL_TEST --> SELECT
+  UNCERTAIN_PLAN --> SELECT
+  SELECT --> EXECUTION_PLAN
+  EXECUTION_PLAN --> PREMISE
+  PREMISE -->|예| REPEAT_Q
+  PREMISE -->|아니오| UPDATE_PLAN
+  UPDATE_PLAN --> EXECUTION_PLAN
+  REPEAT_Q -->|아니오| HUMAN_Q
+  REPEAT_Q -->|예| REPEAT_RULE
+  REPEAT_RULE --> HUMAN_Q
+  HUMAN_Q -->|아니오| PRE_EXECUTE
+  HUMAN_Q -->|예| HUMAN_PREP
+  HUMAN_PREP --> DECIDER
+  DECIDER -->|예| DECISION_REQUEST
+  DECIDER -->|아니오| ALT_DECIDER
+  DECISION_REQUEST --> DECISION_RECEIVED
+  ALT_DECIDER --> DECISION_RECEIVED
+  DECISION_RECEIVED -->|예| APPROVAL_GRANTED
+  DECISION_RECEIVED -->|아니오| ESCALATE
+  ESCALATE --> DECISION_RECEIVED
+  PRE_EXECUTE --> EXEC_ACTION
+  EXEC_ACTION --> EXEC_STATE
+  EXEC_STATE --> EXEC_FAIL
+  EXEC_FAIL -->|아니오| ACTUAL_RESULT
+  EXEC_FAIL -->|예| EXEC_LIMIT
+  EXEC_LIMIT -->|예| STOP_HUMAN
+  EXEC_LIMIT -->|아니오| REPEAT_FAIL
+  REPEAT_FAIL -->|아니오| RECOVER
+  REPEAT_FAIL -->|예| LOCAL_REPLAN
+  RECOVER --> PRE_EXECUTE
+  LOCAL_REPLAN --> PRE_EXECUTE
+  STOP_HUMAN --> STOP_DECISION
+  STOP_DECISION -->|예| LOCAL_REPLAN
+  STOP_DECISION -->|아니오| STOP_RECORD
+  STOP_RECORD --> COMPLETE
+  ACTUAL_RESULT --> RECALCULATE
+  RECALCULATE --> CROSS_CHECK
+  CROSS_CHECK --> RISK_CHECK
+  RISK_CHECK --> ISSUE
+  ISSUE -->|아니오| COMPLETE
+  ISSUE -->|예| ISSUE_CAUSE
+  ISSUE_CAUSE -->|자료| REWORK_DATA
+  ISSUE_CAUSE -->|그 외| CAUSE_PLAN
+  CAUSE_PLAN -->|예| REWORK_PLAN
+  CAUSE_PLAN -->|아니오| CAUSE_EXEC
+  CAUSE_EXEC -->|예| REWORK_EXEC
+  CAUSE_EXEC -->|수정 불가| UNFIXABLE
+  REWORK_DATA --> REVERIFY
+  REWORK_PLAN --> REVERIFY
+  REWORK_EXEC --> REVERIFY
+  REVERIFY --> ISSUE
+  UNFIXABLE --> COMPLETE
+  COMPLETE -->|예| DELIVER
+  COMPLETE -->|아니오| CAN_FINISH
+  CAN_FINISH -->|예| REMAINING_WORK
+  CAN_FINISH -->|아니오| PARTIAL
+  REMAINING_WORK --> REMAINING_VERIFY
+  REMAINING_VERIFY --> COMPLETE
+  PARTIAL --> DELIVER
+  DELIVER --> RESPONSE
+  RESPONSE -->|완료 확인| CASE_RECORD
+  RESPONSE -->|새 요청·범위 변경| NEW_REQUEST
+  RESPONSE -->|수정 요청| REVISION_SCOPE
+  REVISION_SCOPE -->|예| REVISION
+  REVISION_SCOPE -->|아니오| NEW_REQUEST
+  REVISION --> REVISION_VERIFY
+  REVISION_VERIFY --> DELIVER
+  NEW_REQUEST --> INTAKE_CHECK
+  CASE_RECORD --> UPDATE
+  UPDATE --> CONNECT
+  CONNECT --> FOLLOW_UP
+  FOLLOW_UP -->|아니오| FINAL
+  FOLLOW_UP -->|예| SCHEDULE
+  SCHEDULE --> WAIT
+  APPROVAL_GRANTED -->|예| PRE_EXECUTE
+  APPROVAL_GRANTED -->|아니오| DECISION_REJECTED
+  DECISION_REJECTED --> COMPLETE
+  WAIT --> LOAD_CASE
+
+===== 사용 구조 1 단독 상황 =====
+  start: <b>요청·변경·재개 신호 도착</b>
+[묶음 REQUEST] 요청의 뜻과 완료 기준
+  input0: <b>시작 신호</b> / <small>단계별 · 새 업무 또는 기다리던 업무에 / 신호를 연결</small>
+  input1: <b>업무별 정보</b> / <small>단계별 · 대상·기한·요청 내용·현재 / 조건을 모음</small>
+  input2: <b>지시·의도 파악</b> / <small>상시 · 무엇을 원하는지와 허용한 범위를 / 확인</small>
+  input3: <b>문제·목표·완료 조건</b> / <small>상시 · 해결할 문제와 완료를 증명할 / 결과를 정함</small>
+  input4: <b>성과 추적</b> / <small>단계별 · 어떤 성과를 언제 확인할지 정함</small>
+[묶음 EXPERT] 한 전문가가 필요한 재료를 직접 조합
+  expert_entry: <b>한 전문가의 재료 조합</b> / <small>자기 목표·자료·권한으로 판단·실행·검증</small>
+[묶음 ONGOING] 아래 재료는 전 구간에 계속 적용 · 실행 순서가 아님
+  unused: <b>나눠 맡기기</b> / <small>조건부 · 이 상황에서는 미사용 / 한 전문가가 직접 처리</small>
+  control: <b>실행 제어</b> / <small>상시 · 판단·도구·분기를 호출하고 / 결과·오류를 연결</small>
+  isolation: <b>분리 실행</b> / <small>상시 · 작업·자료·자원을 분리하고 허용 / 범위만 공유</small>
+  record: <b>판단 근거 기록</b> / <small>상시 · 선택·판단·실행·검증의 입력과 / 이유를 기록</small>
+  ops: <b>운영 감시·복구</b> / <small>상시 · 별도 감시자가 지연·장애를 / 격리하고 저장 상태로 복구</small>
+  ongoing_state: <b>현재 진행 상태</b> / <small>상시 · / 담당·완료·대기·승인·취소·미확인을 유지</small>
+[묶음 CONTEXT] 현재 판단에 필요한 재료를 함께 사용
+  facts: <b>정보·자료 이해</b> / <small>단계별 · 받은 자료의 사실·주장·추정과 / 맥락을 구별</small>
+  memory: <b>장기 기억</b> / <small>단계별 · 관련된 이전 결정·약속·교훈을 / 불러옴</small>
+  context: <b>현재 작업 정보</b> / <small>상시 · 이번 자료·관련 기억·진행 상태를 / 필요한 만큼 구성</small>
+  knowledge: <b>업무 지식</b> / <small>상시 · 원리·방법·적용 조건</small>
+  experience: <b>실전 경험·감각</b> / <small>상시 · 핵심 단서·예외·함정</small>
+  model: <b>AI 모델</b> / <small>상시 · 현재 정보에 지식·경험을 함께 / 써서 판단하고 내용을 생성</small>
+[묶음 EVIDENCE] 근거 확보와 확인
+  ? search_q{"<b>근거가 더 필요한가?</b>"}:::note
+  search: <b>정보·자료 찾기</b> / <small>단계별 · 부족한 근거·지식·방법을 / 원문까지 확인</small>
+  empty: <b>못 찾음·없음 구분</b> / <small>단계별 · 빈 조회·없음 판단 때 검색 / 한계·접근 불가·확인된 없음을 구별</small>
+  evidence: <b>근거의 신뢰성·적합성</b> / <small>상시 · 새 근거와 기존 근거의 / 출처·한계·적합성을 확인</small>
+  version: <b>자료의 시점·버전</b> / <small>상시 · 대상 시점에 맞는 판본·확인 / 시각을 확인</small>
+  ? extra_q{"<b>추가로 필요한 자료가 있는가?</b>"}:::note
+[묶음 MORE_SOURCES] 조건이 맞는 자료를 함께 더함
+  source_0: <b>적용 사례</b> / <small>조건부 · 이번 조건과 사례의 적용 과정·결과 비교</small>
+  source_1: <b>참고 자료</b> / <small>조건부 · 원리·방법·표현에 참고할 자료 확보</small>
+  source_2: <b>재사용 자료</b> / <small>조건부 · 이용 권한·호환이 맞는 / 서식·코드·부품·원본을 가져옴</small>
+  source_3: <b>현재 값·상태 확인</b> / <small>조건부 · 필요한 현재 값·상태와 확인 시각 확보</small>
+  source_4: <b>먼저 알아채기</b> / <small>조건부 · 맡은 감시 범위에서 / 새 문제·기회와 긴급도를 발견</small>
+  source_5: <b>변경 감시·반영</b> / <small>조건부 · 맡은 자료·조건의 변경과 / 영향받는 업무를 찾아 알림</small>
+  source_join:  
+  source_check: <b>근거의 신뢰성·적합성</b> / <small>상시 · 추가 자료도 출처·한계·적합성을 확인</small>
+  source_version: <b>자료의 시점·버전</b> / <small>상시 · 추가 자료·변경에 맞는 적용 판본 확인</small>
+  enriched: <b>현재 작업 정보</b> / <small>상시 · 추가 정보·변경·확인 한계를 이번 / 판단에 반영</small>
+[묶음 RULES] 점선은 충돌 시 위계 · 모든 적용 규칙을 함께 지킴
+  rule_source: <b>규칙·기준 원문</b> / <small>단계별 · 대상·지역·시점·설정 권한에 / 맞는 원문 확보</small>
+  rule_0: <b>법·의무 기준</b> / <small>상시 · 상하·위임·특별·개정·경과</small>
+  rule_1: <b>직업 윤리·의무</b> / <small>상시 · 직업의 필수 의무</small>
+  rule_2: <b>에이전트 기본 원칙</b> / <small>상시 · 원칙·승인된 보호 기준</small>
+  rule_rank1:  
+  rule_3: <b>계약·합의 조건</b> / <small>상시 · 유효한 계약·합의</small>
+  rule_4: <b>플랫폼·제출처 규정</b> / <small>상시 · 플랫폼·제출처 필수 규정</small>
+  rule_5: <b>조직 규칙</b> / <small>상시 · 조직의 필수 규칙</small>
+  rule_6: <b>사용자 지정 규칙</b> / <small>상시 · 사용자가 추가한 필수 조건</small>
+  rule_7: <b>표현 방식·스타일</b> / <small>조건부 · ⑤ 기본 방식·스타일</small>
+  priority: <b>규칙의 적용·우선순위</b> / <small>상시 · 적용 규칙은 함께 지킴 · / 충돌하는 조항만 위계로 조정 / 하위 조건도 충돌하지 않으면 유지</small>
+  ? rule_q{"<b>적용 조건·충돌이 해결됐는가?</b>"}:::note
+  rule_human: <b>사람에게 넘기기</b> / <small>상시 · 근거·대안을 갖춰 해석·예외 / 권한자에게 결정 요청</small>
+  rule_who: <b>보고 주체 확인</b> / <small>상시 · 답변자의 권한과 결정 범위를 확인</small>
+  ? rule_reply{"<b>유효한 결정으로 해결됐는가?</b>"}:::note
+  rule_hold: <b>충돌 미해결 · 해당 작업 보류</b> / <small>이유·남은 책임을 반환</small>
+[묶음 PLAN] 목표에 맞춰 재료의 입력과 결과를 연결
+  plan0: <b>문제·목표·완료 조건</b> / <small>상시 · 확인한 근거·규칙으로 목표와 완료 / 증거를 확정</small>
+  plan1: <b>대안·전략 판단</b> / <small>상시 · 정보·지식·경험으로 대안의 / 효과·비용·위험을 비교</small>
+  plan2: <b>업무 절차·실행 계획</b> / <small>단계별 · 어떤 재료의 결과를 다음 어떤 / 재료가 받을지 정함</small>
+  plan3: <b>빠진 위험 확인</b> / <small>단계별 · 계획·변경·실행·전달에서 빠진 / 조건과 피해를 점검</small>
+[묶음 CAPABILITY] 실제 투입 전 수행 능력 확인
+  ? ability_q{"<b>이번 범위의 능력이 검증됐는가?</b>"}:::note
+  ability_env: <b>시험 환경</b> / <small>조건부 · 별도 시험 공간·조건이 필요하면 / 준비</small>
+  ability_test: <b>업무 능력 시험</b> / <small>조건부 · 첫 투입·범위 밖·능력 / 변경·시험 신뢰 상실이면 시험</small>
+  ? ability_pass{"<b>이번 업무를 수행할 수 있는가?</b>"}:::note
+  ability_hold: <b>미검증 범위는 투입하지 않음</b> / <small>부족한 능력·미완료 상태 반환</small>
+[묶음 PERMISSION] 매 실행·위임·재시도·재개에 적용
+  authority: <b>업무 권한</b> / <small>상시 · 대상·행동·내용·기간의 위임과 / 동의</small>
+  limit: <b>비용·위험 한도</b> / <small>상시 · 사용량+진행분+예약분과 / 실행·대기의 위험</small>
+  safety: <b>안전장치</b> / <small>상시 · 매 실행·위임·재시도·재개 전 / 규칙·권한·승인·한도를 함께 검사</small>
+  ? allowed{"<b>이번 행동을 실행할 수 있는가?</b>"}:::note
+  human: <b>사람에게 넘기기</b> / <small>상시 · 되돌릴 수 없는 일·승인 / 조건·판단 불가·한도 초과·자격자 전속</small>
+  human_wait: <b>대기·후속 관리</b> / <small>상시 · AI가 준비·비교·검증을 마친 뒤 / 필요한 결정·작업과 기한을 관리</small>
+  human_who: <b>보고 주체 확인</b> / <small>상시 · 답변자·권한·대상·승인 내용을 / 대조</small>
+  ? human_reply{"<b>유효한 답변을 받았는가?</b>"}:::note
+  human_hold: <b>금지·거절·취소·기한 종료</b> / <small>해당 행동을 실행하지 않고 상태 반환</small>
+[묶음 ACTION_INPUT] 직전 결과를 다음 재료의 입력으로 사용
+  action_context: <b>현재 작업 정보</b> / <small>상시 · 확인한 자료·조건 + 직전 재료의 / 검증 결과</small>
+  progress: <b>작업 진행·연결</b> / <small>상시 · 이미 끝난 작업은 유지 / 준비된 입력·직전 검증 결과를 / 계획의 다음 재료에 연결</small>
+  ? tool_q{"<b>외부 도구·시스템이 필요한가?</b>"}:::note
+  tool: <b>업무 도구·시스템</b> / <small>단계별 · 도구 연결과 요청·응답 형식을 준비 / 실행 때 실제 결과·오류·상태를 주고받음</small>
+  select: <b>실행 계획에서 다음 작업 확인</b>
+[묶음 ACTIONS] 필요한 재료만 조합 · 각 결과를 확인하며 다음 입력으로 전달
+  action_join:  
+[묶음 WORK_DATA] 자료 가공 · 필요한 처리부터 시작
+  ? choose_DATA{"<b>자료를 가공할 차례인가?</b>"}:::note
+  ? data_entry{"<b>어떤 처리부터 필요한가?</b>"}:::note
+  action_0: <b>자료 선별·분류</b> / <small>조건부 · 필요한 자료를 고르고 종류별로 나눔</small>
+  ? data_merge{"<b>고른 자료를 정리·결합해야 하나?</b>"}:::note
+  action_1: <b>자료 정리·결합</b> / <small>조건부 · 오류·중복·누락을 다루고 / 같이 쓸 자료를 맞춰 합침</small>
+  ? data_format{"<b>다음 작업에 맞게 형식을 바꿀까?</b>"}:::note
+  action_2: <b>형식·구조 변환</b> / <small>조건부 · 내용을 보존하며 / 다음 재료·도구가 읽을 형식으로 바꿈</small>
+  result_DATA:  
+[묶음 WORK_JUDGE] 계산·판단 · 필요한 판단부터 시작
+  ? choose_JUDGE{"<b>계산·판단을 할 차례인가?</b>"}:::note
+  ? judge_entry{"<b>지금 필요한 판단은?</b>"}:::note
+  action_3: <b>계산</b> / <small>조건부 · 값·식·단위로 수치를 구함</small>
+  ? calc_interpret{"<b>계산값의 의미도 해석할까?</b>"}:::note
+  action_4: <b>분석</b> / <small>조건부 · 자료·계산값에서 / 차이·관계·원인과 한계를 찾음</small>
+  ? analysis_next{"<b>분석 결과로 무엇을 더 판단할까?</b>"}:::note
+  action_5: <b>기준 적용·판정</b> / <small>조건부 · 확인한 사실을 기준과 대조해 판정</small>
+  action_6: <b>예측</b> / <small>조건부 · 확인한 관계와 가정으로 / 앞으로의 결과·불확실성을 추정</small>
+  ? judge_best{"<b>판정·예측을 써서<br/>최선의 안도 고를까?</b>"}:::note
+  action_7: <b>조건 안에서 최선 찾기</b> / <small>조건부 · 후보·목표·제약을 비교해 / 유리한 안과 절충점을 구함</small>
+  result_JUDGE:  
+[묶음 WORK_MAKE] 설계·내용을 받아 결과물 완성
+  ? choose_MAKE{"<b>결과물을 구성·제작할 차례인가?</b>"}:::note
+  ? make_design{"<b>새 설계나 설계 수정이 필요한가?</b>"}:::note
+  action_8: <b>결과물 설계</b> / <small>조건부 · 목적에 맞는 구성·형태·작동을 정함</small>
+  design_verify: <b>결과 검증·재검증</b> / <small>단계별 · 설계가 목적·조건에 맞는지 확인</small>
+  ? design_ok{"<b>이 설계를 사용해도 되는가?</b>"}:::note
+  ? make_content{"<b>요약·번역·표현 변경이 필요한가?</b>"}:::note
+  action_9: <b>내용 재구성</b> / <small>조건부 · 원문 뜻을 보존하면서 / 목적·설계에 맞는 내용으로 바꿈</small>
+  ? make_build{"<b>실제 제작·구현·수정도 필요한가?</b>"}:::note
+  action_10: <b>결과물 만들기·수정</b> / <small>조건부 · 확인한 설계·내용·재사용 자료로 / 결과물을 만들거나 고침</small>
+  result_MAKE:  
+[묶음 WORK_PEOPLE] 대화 통로를 갖추고 소통·조율
+  ? choose_PEOPLE{"<b>사람과 소통·조율할 차례인가?</b>"}:::note
+  ? people_realtime{"<b>즉시 답을 주고받아야 하는가?</b>"}:::note
+  action_20: <b>실시간 대화</b> / <small>조건부 · 연결·발언 순서·중단·재개를 관리</small>
+  action_11: <b>사람과 소통</b> / <small>조건부 · 질문·설명·응대 후 / 상대의 답변·이해를 확인</small>
+  ? people_negotiate{"<b>요구·역할·조건이<br/>달라 조율해야 하나?</b>"}:::note
+  action_12: <b>협상·조율</b> / <small>조건부 · 허용 범위 안에서 / 서로의 조건을 비교해 합의안을 만듦</small>
+  people_followup: <b>사람과 소통</b> / <small>조건부 · 합의안을 설명하고 / 남은 쟁점에 대한 답변·조건을 확인</small>
+  ? people_again{"<b>추가 의견 교환이 필요한가?</b>"}:::note
+  result_PEOPLE:  
+[묶음 WORK_OPERATE] 확인한 결과를 실제 시스템에 반영
+  ? choose_OPERATE{"<b>시스템에 실제로 반영할 차례인가?</b>"}:::note
+  ? operate_kind{"<b>이번에 허용된 행동은?</b>"}:::note
+  action_13: <b>기록 입력·수정</b> / <small>조건부 · 확인한 내용을 기록에 반영</small>
+  action_14: <b>신청·거래 처리</b> / <small>조건부 · 허용된 신청·주문·예약·취소를 처리</small>
+  action_15: <b>설정·작동 제어</b> / <small>조건부 · 허용된 설정·장비 상태를 바꿈</small>
+  action_16: <b>게시·배포</b> / <small>조건부 · 확인한 판본을 정해진 범위에 공개</small>
+  result_OPERATE:  
+[묶음 WORK_OBSERVE] 시험 조건을 갖추고 관찰·실험·모의
+  ? choose_OBSERVE{"<b>관찰·실험·모의가 필요한가?</b>"}:::note
+  ? observe_kind{"<b>현재 상태를 볼까,<br/>조건을 바꿔 볼까?</b>"}:::note
+  ? observe_env{"<b>별도 시험 공간·조건이 필요한가?</b>"}:::note
+  action_21: <b>시험 환경</b> / <small>조건부 · 시험 조건·자료·도구를 준비 / 미통과 판본의 실제 투입을 차단</small>
+  ? observe_method{"<b>실제 시험인가, 가상 시험인가?</b>"}:::note
+  action_18: <b>실험</b> / <small>조건부 · 조건을 바꾸거나 통제해 / 효과·차이를 비교할 시험을 수행</small>
+  action_17: <b>관찰·측정</b> / <small>조건부 · 현장·시험에서 값·현상을 관측 / 시각·방법·조건과 함께 기록</small>
+  action_19: <b>시뮬레이션</b> / <small>조건부 · 가정한 상황·모델로 모의 실행 / 가정·결과·현실과의 차이를 남김</small>
+  result_OBSERVE:  
+[묶음 WORK_ANSWER] 갖춘 근거로 판단·답변
+  ? choose_ANSWER{"<b>판단·설명·답변을 만들 차례인가?</b>"}:::note
+  action_22: <b>AI 모델</b> / <small>상시 · 현재 정보·규칙·지식·경험으로 / 판단하고 답변을 생성</small>
+  result_ANSWER:  
+[묶음 VERIFY] 결과를 검증하고 필요한 재료를 다시 연결
+  verify0: <b>보고 주체 확인</b> / <small>상시 · 누가 맡은 결과인지, / 분담·판본·대외 명의 확인</small>
+  verify1: <b>결과 검증·재검증</b> / <small>단계별 · 입력·근거·완료 조건과 대조 · / 변경되면 영향받은 결과도 확인</small>
+  verify2: <b>반대 근거·다시 확인</b> / <small>단계별 · 중요한 판단은 다른 / 근거·방법으로 반증</small>
+  verify3: <b>일하는 과정 평가</b> / <small>단계별 · 각 단계의 방법·절차·권한 / 사용을 평가</small>
+  verify4: <b>결과 품질 평가</b> / <small>단계별 · 사용 / 목적·기능·정확성·이해·편의를 확인</small>
+  ? result_status{"<b>검증 결과는?</b>"}:::note
+  ? more{"<b>이 결과를 사용할 다음<br/>재료가 필요한가?</b>"}:::note
+  fix: <b>업무 절차·실행 계획</b> / <small>단계별 · 새 근거·규칙을 반영해 문제 / 있는 재료 조합만 수정</small>
+  unknown: <b>현재 값·상태 확인</b> / <small>조건부 · 외부 작업이 실제로 처리됐는지 / 조회</small>
+  unknown_wait: <b>대기·후속 관리</b> / <small>상시 · 기한 안에서 확인 · 상태 확인 / 전 중복 실행 금지</small>
+  ? unknown_q{"<b>실제 처리 상태가 확인됐는가?</b>"}:::note
+  unknown_hold: <b>확인 기한 종료 · 미확인 반환</b> / <small>실행 성공으로 보고하지 않음</small>
+  expert_output: <b>담당 작업의 결과·상태 반환</b> / <small>결과·근거·판본·완료/미완료·남은 책임</small>
+[묶음 HANDOVER] 전체 결과를 확인하고 남은 책임까지 인계
+  whole_quality: <b>결과 품질 평가</b> / <small>단계별 · 전체 결과가 받는 사람의 목적에 / 맞게 바로 쓰일 수 있는지 확인</small>
+  ? final_q{"<b>전체 완료 조건과<br/>품질을 충족했는가?</b>"}:::note
+  final_fix: <b>대안·전략 판단</b> / <small>상시 · 미달 부분을 기한·한도 안에서 / 보완할 수 있는지 판단</small>
+  ? can_fix{"<b>보완할 수 있는가?</b>"}:::note
+  deliver: <b>납품 준비</b> / <small>단계별 · 결과·원본·근거·사용법·남은 / 책임을 갖춤 / 미완료면 상태·이유·한계를 명시</small>
+  handover: <b>전달·인수 확인</b> / <small>단계별 · 수령·사용 조건·남은 책임의 / 인계를 확인</small>
+  ? receipt_q{"<b>수령·사용 상태가 확인됐는가?</b>"}:::note
+  receipt_wait: <b>대기·후속 관리</b> / <small>상시 · 수신·사용 문제를 확인하고 기한 / 안에 재전달·후속 조치</small>
+  closed: <b>현재 진행 상태</b> / <small>상시 · 완료·인수와 미완료·거절·인수 / 실패를 구별하고 후속 책임 유지</small>
+[묶음 LEARN] 결과에서 학습 · 검증된 개선만 다음 업무에 적용
+  performance: <b>성과 추적</b> / <small>단계별 · 약속한 시점의 실제 성과·후속 / 문제를 확인</small>
+  learn_memory: <b>장기 기억</b> / <small>단계별 · 판단·실행·평가 기록과 성과 중 / 재사용할 결정·약속·교훈을 보관·정정</small>
+  ? cause_q{"<b>재사용할 성과·분석할<br/>문제가 있는가?</b>"}:::note
+  cause: <b>성공·실패 원인 분석</b> / <small>조건부 · 재사용할 성과·원인 불명·영향이 / 큰 문제·반복 오류의 원인과 적용 조건 / 분석</small>
+  ? improve_q{"<b>개선할 점·새로 필요한<br/>능력이 있는가?</b>"}:::note
+  improve: <b>능력 개선·확장</b> / <small>조건부 · 지식·판단 요령·방법·도구를 / 보완</small>
+  improve_env: <b>시험 환경</b> / <small>조건부 · 별도 공간·조건이 필요하면 준비 / · 미통과 판본의 실제 투입 차단</small>
+  improve_test: <b>업무 능력 시험</b> / <small>조건부 · 개선 효과와 기존 능력을 함께 / 시험</small>
+  ? improve_pass{"<b>개선 효과·기존 능력<br/>모두 통과했는가?</b>"}:::note
+  adopt: <b>업무 지식</b> / <small>상시 · 검증된 내용과 적용 조건을 반영</small>
+  adopt_memory: <b>장기 기억</b> / <small>단계별 · 검증 근거·판본·교훈을 다음 / 판단에 제공</small>
+  finish: <b>이번 처리를 마침</b> / <small>남은 책임은 계속 관리 / 후속 신호가 오면 해당 건을 이어서 처리</small>
+  start --> input0
+  input0 --> input1
+  input1 --> input2
+  input2 --> input3
+  input3 --> input4
+  input4 --> expert_entry
+  expert_entry -.-> |단독: 사용하지 않음| unused
+  expert_entry -.-> control
+  control -.-> |작업별 실행| isolation
+  control -.-> |판단·실행 근거| record
+  isolation -.-> |분리된 운영 상태| ops
+  record -.-> |진행 기록| ongoing_state
+  ops -.-> |복구 상태| ongoing_state
+  expert_entry --> |이번 업무 자료| facts
+  expert_entry --> |관련 이전 기록| memory
+  facts --> |읽고 확인한 내용| context
+  memory --> |관련 기억| context
+  ongoing_state -.-> |현재 진행 상태| context
+  context --> |현재 업무의 사실·조건| model
+  context --> |관련 지식 선택| knowledge
+  context --> |조건에 맞는 판단 요령 선택| experience
+  knowledge --> model
+  experience --> model
+  model --> search_q
+  search_q --> |예| search
+  search_q --> |아니오 · 기존 근거| evidence
+  search --> |빈 조회·없음 판단| empty
+  search --> |찾음| evidence
+  empty --> |조회 한계·확인된 없음| evidence
+  evidence --> version
+  version --> extra_q
+  extra_q --> |적용 과정 비교| source_0
+  source_0 --> |비슷한 조건·차이| source_join
+  extra_q --> |원리·방법 참고| source_1
+  source_1 --> |설명·작업 근거| source_join
+  extra_q --> |서식·부품 활용| source_2
+  source_2 --> |권한·호환이 맞는 재료| source_join
+  extra_q --> |현재 값이 중요| source_3
+  source_3 --> |조회 값·확인 시각| source_join
+  extra_q --> |상황 감시를 맡음| source_4
+  source_4 --> |새 문제·기회·긴급도| source_join
+  extra_q --> |변화를 계속 추적| source_5
+  source_5 --> |변경 내용·영향받는 일| source_join
+  source_join --> |조건에 해당한 자료를 모음| source_check
+  source_check --> source_version
+  source_version --> |확인한 자료만 반영| enriched
+  extra_q --> |추가 자료 불필요| enriched
+  ? source_0 ~~~ source_1
+  ? source_1 ~~~ source_2
+  ? source_2 ~~~ source_3
+  ? source_3 ~~~ source_4
+  ? source_4 ~~~ source_5
+  enriched --> rule_source
+  rule_source --> |원문과 적용 조건을 함께 검토| priority
+  rule_source -.-> |법적 적용 관계를 먼저 확인| rule_0
+  rule_0 -.-> |그 안에서 ①| rule_1
+  rule_0 -.-> |그 안에서 ①| rule_2
+  rule_1 -.-> |① 함께 적용| rule_rank1
+  rule_2 -.-> |① 함께 적용| rule_rank1
+  rule_rank1 -.-> |다음 ②| rule_3
+  rule_rank1 -.-> |다음 ②| rule_4
+  rule_3 -.-> |다음 ③| rule_5
+  rule_4 -.-> |다음 ③| rule_5
+  rule_5 -.-> |다음 ④| rule_6
+  rule_6 -.-> |표현 기준 필요: 기본 방식 ⑤| rule_7
+  rule_7 -.-> |충돌하지 않는 조건도 함께 유지| priority
+  rule_6 -.-> |기본 스타일 추가 불필요| priority
+  priority --> rule_q
+  rule_q --> |아니오 · 해결할 권한 필요| rule_human
+  rule_human --> rule_who
+  rule_who --> rule_reply
+  rule_reply --> |예 · 유효한 결정 반영| priority
+  rule_reply --> |아니오 · 해결되지 않음| rule_hold
+  rule_q --> |예 · 적용 조건 확정| plan0
+  plan0 --> plan1
+  plan1 --> plan2
+  plan2 --> plan3
+  plan3 --> ability_q
+  ability_q --> |아니오 · 별도 환경 필요| ability_env
+  ability_q --> |아니오 · 별도 환경 불필요| ability_test
+  ability_env --> ability_test
+  ability_test --> ability_pass
+  ability_pass --> |아니오 · 미검증 범위| ability_hold
+  ability_q L_ability_q_authority_routed@--> |예 · 검증된 범위| authority
+  ability_pass --> |예 · 시험 통과| authority
+  authority --> |허용된 범위에서 쓸 비용·위험 확인| limit
+  limit --> |사용·진행·예약분과 위험| safety
+  safety --> allowed
+  allowed --> |사람의 결정·전속 작업 필요| human
+  human --> human_wait
+  human_wait --> human_who
+  human_who --> human_reply
+  human_reply --> |답변 대기 · 기한 안| human_wait
+  human_reply L_human_reply_safety_routed@--> |유효한 답변| safety
+  human_reply --> |거절·취소·기한 종료| human_hold
+  allowed --> |금지 · 우회 실행 금지| human_hold
+  allowed --> |허용| action_context
+  action_context --> progress
+  progress --> tool_q
+  tool_q --> |예| tool
+  tool --> |호출할 연결 준비| select
+  tool_q --> |아니오| select
+  select --> choose_DATA
+  choose_DATA --> |아니오 · 다른 작업| choose_JUDGE
+  choose_JUDGE --> |아니오 · 다른 작업| choose_MAKE
+  choose_MAKE --> |아니오 · 다른 작업| choose_PEOPLE
+  choose_PEOPLE --> |아니오 · 다른 작업| choose_OPERATE
+  choose_OPERATE --> |아니오 · 다른 작업| choose_OBSERVE
+  choose_OBSERVE --> |아니오 · 다른 작업| choose_ANSWER
+  choose_ANSWER --> |해당 없음 · 필요한 조합 재계획| plan2
+  choose_DATA --> |예| data_entry
+  data_entry --> |선별·분류부터| action_0
+  data_entry --> |정리·결합부터| action_1
+  data_entry --> |형식만 변환| action_2
+  action_0 --> |선별·분류한 자료| data_merge
+  data_merge --> |예| action_1
+  data_merge --> |아니오| data_format
+  action_1 --> |정리·결합한 자료| data_format
+  data_format --> |예| action_2
+  data_format --> |아니오 · 현재 형식 사용| result_DATA
+  action_2 --> |변환한 자료| result_DATA
+  choose_JUDGE --> |예| judge_entry
+  judge_entry --> |수치 구하기| action_3
+  judge_entry --> |관계·원인 해석| action_4
+  judge_entry --> |기준으로 판정| action_5
+  judge_entry --> |예측부터| action_6
+  judge_entry --> |제약 안에서 선택| action_7
+  action_3 --> |계산값·단위| calc_interpret
+  calc_interpret --> |예| action_4
+  calc_interpret --> |아니오 · 수치가 결과| result_JUDGE
+  action_4 --> |해석·근거·한계| analysis_next
+  analysis_next --> |기준 판정| action_5
+  analysis_next --> |예측| action_6
+  analysis_next --> |최선 선택| action_7
+  analysis_next --> |추가 판단 불필요| result_JUDGE
+  action_5 --> |판정·적용 근거| judge_best
+  action_6 --> |예상·가정·불확실성| judge_best
+  judge_best --> |예| action_7
+  judge_best --> |아니오| result_JUDGE
+  action_7 --> |선택안·절충점| result_JUDGE
+  choose_MAKE --> |예| make_design
+  make_design --> |예| action_8
+  make_design --> |아니오 · 기존 설계 사용<br/>또는 설계 불필요| make_content
+  action_8 --> |설계안| design_verify
+  design_verify --> design_ok
+  design_ok --> |아니오 · 설계 보완| action_8
+  design_ok --> |예 · 검증한 설계를 전달| make_content
+  make_content --> |예| action_9
+  make_content --> |아니오 · 기존 내용 사용| make_build
+  action_9 --> |목적에 맞게 바꾼 내용| make_build
+  make_build --> |예 · 설계·내용을 입력으로| action_10
+  make_build --> |아니오 · 설계·내용 자체가 결과| result_MAKE
+  action_10 --> |완성·수정한 결과물| result_MAKE
+  choose_PEOPLE --> |예| people_realtime
+  people_realtime --> |예| action_20
+  people_realtime --> |아니오 · 문서·메일 등| action_11
+  action_20 --> |연결된 대화 통로| action_11
+  action_11 --> |답변·의견·이해 확인| people_negotiate
+  people_negotiate --> |예| action_12
+  people_negotiate --> |아니오| result_PEOPLE
+  action_12 --> |합의안·남은 쟁점| people_again
+  people_again --> |예 · 허용된 추가 소통| people_followup
+  people_followup --> |바뀐 의견·조건을 검증 후 다음 판단에| result_PEOPLE
+  people_again --> |아니오 · 합의 또는 미합의 반환| result_PEOPLE
+  choose_OPERATE --> |예 · 이번 행동의 승인·권한 확인됨| operate_kind
+  operate_kind --> |기록을 반영| action_13
+  action_13 --> |반영 내역·처리 상태| result_OPERATE
+  operate_kind --> |신청·거래·취소| action_14
+  action_14 --> |접수·처리 내역| result_OPERATE
+  operate_kind --> |설정·작동 변경| action_15
+  action_15 --> |변경 상태·이력| result_OPERATE
+  operate_kind --> |게시·배포| action_16
+  action_16 --> |공개 판본·범위| result_OPERATE
+  choose_OBSERVE --> |예| observe_kind
+  observe_kind --> |현재 상태를 관찰·측정| action_17
+  observe_kind --> |조건을 바꿔 실제·가상 시험| observe_env
+  observe_env --> |예| action_21
+  observe_env --> |아니오 · 기존 조건으로 가능| observe_method
+  action_21 --> |준비된 시험 공간·조건| observe_method
+  observe_method --> |실제 조건을 바꿔 비교| action_18
+  observe_method --> |가정한 상황을 모의 실행| action_19
+  action_18 --> |시험한 효과·차이를 관측| action_17
+  action_17 --> |측정값·관찰 기록| result_OBSERVE
+  action_19 --> |모의 결과·가정·한계| result_OBSERVE
+  choose_ANSWER --> |예| action_22
+  action_22 --> |판단·생성한 내용| result_ANSWER
+  result_DATA --> action_join
+  result_JUDGE --> action_join
+  result_MAKE --> action_join
+  result_PEOPLE --> action_join
+  result_OPERATE --> action_join
+  result_OBSERVE --> action_join
+  result_ANSWER --> action_join
+  action_join --> |사용한 재료의 결과·근거| verify0
+  verify0 --> verify1
+  verify1 --> verify2
+  verify2 --> verify3
+  verify3 --> verify4
+  verify4 --> result_status
+  result_status --> |문제없음| more
+  result_status L_result_status_fix_routed@--> |문제| fix
+  fix --> |수정 계획 · 실행 전 재검사| safety
+  result_status --> |미확인| unknown
+  unknown --> unknown_wait
+  unknown_wait --> unknown_q
+  unknown_q --> |아직 미확인 · 기한 안| unknown
+  unknown_q --> |실제 상태 확인| verify0
+  unknown_q --> |기한 종료| unknown_hold
+  more --> |예 · 검증 결과를 보존하고 다음 행동만| safety
+  more --> |아니오 · 담당 작업 완료| expert_output
+  rule_hold --> |미완료·이유·남은 책임 반환| expert_output
+  ability_hold --> |미완료·이유·남은 책임 반환| expert_output
+  human_hold --> |미완료·이유·남은 책임 반환| expert_output
+  unknown_hold --> |미완료·이유·남은 책임 반환| expert_output
+  expert_output --> whole_quality
+  whole_quality --> final_q
+  final_q --> |아니오| final_fix
+  final_fix --> can_fix
+  can_fix L_can_fix_context_routed@--> |예 · 미달 부분만 보완| context
+  can_fix --> |아니오 · 미완료 상태 전달| deliver
+  final_q --> |예 · 전체 기준 통과| deliver
+  deliver --> handover
+  handover --> receipt_q
+  receipt_q --> |응답 대기·전달 문제| receipt_wait
+  receipt_wait --> |재전달·답변| handover
+  receipt_q --> |인수 확인| closed
+  receipt_wait --> |거절·기한 종료| closed
+  closed --> performance
+  performance --> learn_memory
+  learn_memory --> cause_q
+  cause_q --> |예| cause
+  cause_q --> |아니오| improve_q
+  cause --> improve_q
+  improve_q --> |예| improve
+  improve_q --> |아니오 · 개선 생략| finish
+  improve --> |별도 환경 필요| improve_env
+  improve --> |별도 환경 불필요| improve_test
+  improve_env --> improve_test
+  improve_test --> improve_pass
+  improve_pass --> |예| adopt
+  adopt --> adopt_memory
+  adopt_memory --> finish
+  improve_pass --> |아니오 · 기존 검증본 유지| finish
+  ? L_human_reply_safety_routed@{ curve: linear }
+  ? L_can_fix_context_routed@{ curve: linear }
+  ? L_ability_q_authority_routed@{ curve: linear }
+  ? L_result_status_fix_routed@{ curve: linear }
+
+===== 사용 구조 2 오케스트레이션 =====
+  start: <b>요청·변경·재개 신호 도착</b>
+[묶음 REQUEST] 요청의 뜻과 완료 기준
+  input0: <b>시작 신호</b> / <small>단계별 · 새 업무 또는 기다리던 업무에 / 신호를 연결</small>
+  input1: <b>업무별 정보</b> / <small>단계별 · 대상·기한·요청 내용·현재 / 조건을 모음</small>
+  input2: <b>지시·의도 파악</b> / <small>상시 · 무엇을 원하는지와 허용한 범위를 / 확인</small>
+  input3: <b>문제·목표·완료 조건</b> / <small>상시 · 해결할 문제와 완료를 증명할 / 결과를 정함</small>
+  input4: <b>성과 추적</b> / <small>단계별 · 어떤 성과를 언제 확인할지 정함</small>
+[묶음 ASSIGN] 총괄 · 필요한 수만큼 분담 · A·B는 대표 경로
+  dispatch0: <b>대안·전략 판단</b> / <small>상시 · 분담 방법·우선순위·필요한 / 전문성을 비교</small>
+  dispatch1: <b>업무 절차·실행 계획</b> / <small>단계별 · 담당별 입력·결과와 선후 관계를 / 정함</small>
+  dispatch_state: <b>현재 진행 상태</b> / <small>상시 · 완료·진행·미착수·막힌 작업을 구별 / 이미 검증된 결과·승인을 보존</small>
+  schedule: <b>작업 진행·연결</b> / <small>상시 · 미완료 작업 중 선행 결과·입력이 / 준비된 작업만 고름</small>
+  ? dispatch_ready{"<b>지금 실행할 작업이 있는가?</b>"}:::note
+  dispatch_wait: <b>대기·후속 관리</b> / <small>상시 · 선행 결과·답변·자원·기한을 확인 / 서로 기다리면 순서·분담 재조정</small>
+  ? dispatch_event{"<b>기다린 조건이 해결됐는가?</b>"}:::note
+  dispatch_authority: <b>업무 권한</b> / <small>상시 · 담당별 위임·자료 공유·승인 범위 확인</small>
+  dispatch_budget: <b>비용·위험 한도</b> / <small>상시 · 모든 담당의 사용·진행·예약분을 합산</small>
+  dispatch_guard: <b>안전장치</b> / <small>상시 · 총괄의 규칙·위임 권한·공동 한도와 / 담당의 검증된 능력을 함께 확인</small>
+  ? dispatch_allowed{"<b>이번 위임·자료 공유가 허용되는가?</b>"}:::note
+  dispatch_human: <b>사람에게 넘기기</b> / <small>상시 · 대안·영향을 갖춰 권한자에게 / 필요한 결정만 요청</small>
+  ? assigned_to{"<b>이번에 준비된 작업의 담당은?</b>"}:::note
+  parallel_ready:  
+  dispatch2: <b>나눠 맡기기</b> / <small>조건부 · 준비된 작업만 담당에게 전달 / 목표·입력·권한·기한·반환 형식 포함</small>
+[묶음 EXPERT] 전문가별 재료 조합 · 각자 받은 입력으로 아래 조합을 사용
+  expert_entry: <b>전문가 A의 재료 조합</b> / <small>자기 목표·자료·권한으로 판단·실행·검증</small>
+[묶음 ONGOING] 아래 재료는 전 구간에 계속 적용 · 실행 순서가 아님
+  control: <b>실행 제어</b> / <small>상시 · 판단·도구·분기를 호출하고 / 결과·오류를 연결</small>
+  isolation: <b>분리 실행</b> / <small>상시 · 작업·자료·자원을 분리하고 허용 / 범위만 공유</small>
+  record: <b>판단 근거 기록</b> / <small>상시 · 선택·판단·실행·검증의 입력과 / 이유를 기록</small>
+  ops: <b>운영 감시·복구</b> / <small>상시 · 별도 감시자가 지연·장애를 / 격리하고 저장 상태로 복구</small>
+  ongoing_state: <b>현재 진행 상태</b> / <small>상시 · / 담당·완료·대기·승인·취소·미확인을 유지</small>
+[묶음 CONTEXT] 현재 판단에 필요한 재료를 함께 사용
+  facts: <b>정보·자료 이해</b> / <small>단계별 · 받은 자료의 사실·주장·추정과 / 맥락을 구별</small>
+  memory: <b>장기 기억</b> / <small>단계별 · 관련된 이전 결정·약속·교훈을 / 불러옴</small>
+  context: <b>현재 작업 정보</b> / <small>상시 · 이번 자료·관련 기억·진행 상태를 / 필요한 만큼 구성</small>
+  knowledge: <b>업무 지식</b> / <small>상시 · 원리·방법·적용 조건</small>
+  experience: <b>실전 경험·감각</b> / <small>상시 · 핵심 단서·예외·함정</small>
+  model: <b>AI 모델</b> / <small>상시 · 현재 정보에 지식·경험을 함께 / 써서 판단하고 내용을 생성</small>
+[묶음 EVIDENCE] 근거 확보와 확인
+  ? search_q{"<b>근거가 더 필요한가?</b>"}:::note
+  search: <b>정보·자료 찾기</b> / <small>단계별 · 부족한 근거·지식·방법을 / 원문까지 확인</small>
+  empty: <b>못 찾음·없음 구분</b> / <small>단계별 · 빈 조회·없음 판단 때 검색 / 한계·접근 불가·확인된 없음을 구별</small>
+  evidence: <b>근거의 신뢰성·적합성</b> / <small>상시 · 새 근거와 기존 근거의 / 출처·한계·적합성을 확인</small>
+  version: <b>자료의 시점·버전</b> / <small>상시 · 대상 시점에 맞는 판본·확인 / 시각을 확인</small>
+  ? extra_q{"<b>추가로 필요한 자료가 있는가?</b>"}:::note
+[묶음 MORE_SOURCES] 조건이 맞는 자료를 함께 더함
+  source_0: <b>적용 사례</b> / <small>조건부 · 이번 조건과 사례의 적용 과정·결과 비교</small>
+  source_1: <b>참고 자료</b> / <small>조건부 · 원리·방법·표현에 참고할 자료 확보</small>
+  source_2: <b>재사용 자료</b> / <small>조건부 · 이용 권한·호환이 맞는 / 서식·코드·부품·원본을 가져옴</small>
+  source_3: <b>현재 값·상태 확인</b> / <small>조건부 · 필요한 현재 값·상태와 확인 시각 확보</small>
+  source_4: <b>먼저 알아채기</b> / <small>조건부 · 맡은 감시 범위에서 / 새 문제·기회와 긴급도를 발견</small>
+  source_5: <b>변경 감시·반영</b> / <small>조건부 · 맡은 자료·조건의 변경과 / 영향받는 업무를 찾아 알림</small>
+  source_join:  
+  source_check: <b>근거의 신뢰성·적합성</b> / <small>상시 · 추가 자료도 출처·한계·적합성을 확인</small>
+  source_version: <b>자료의 시점·버전</b> / <small>상시 · 추가 자료·변경에 맞는 적용 판본 확인</small>
+  enriched: <b>현재 작업 정보</b> / <small>상시 · 추가 정보·변경·확인 한계를 이번 / 판단에 반영</small>
+[묶음 RULES] 점선은 충돌 시 위계 · 모든 적용 규칙을 함께 지킴
+  rule_source: <b>규칙·기준 원문</b> / <small>단계별 · 대상·지역·시점·설정 권한에 / 맞는 원문 확보</small>
+  rule_0: <b>법·의무 기준</b> / <small>상시 · 상하·위임·특별·개정·경과</small>
+  rule_1: <b>직업 윤리·의무</b> / <small>상시 · 직업의 필수 의무</small>
+  rule_2: <b>에이전트 기본 원칙</b> / <small>상시 · 원칙·승인된 보호 기준</small>
+  rule_rank1:  
+  rule_3: <b>계약·합의 조건</b> / <small>상시 · 유효한 계약·합의</small>
+  rule_4: <b>플랫폼·제출처 규정</b> / <small>상시 · 플랫폼·제출처 필수 규정</small>
+  rule_5: <b>조직 규칙</b> / <small>상시 · 조직의 필수 규칙</small>
+  rule_6: <b>사용자 지정 규칙</b> / <small>상시 · 사용자가 추가한 필수 조건</small>
+  rule_7: <b>표현 방식·스타일</b> / <small>조건부 · ⑤ 기본 방식·스타일</small>
+  priority: <b>규칙의 적용·우선순위</b> / <small>상시 · 적용 규칙은 함께 지킴 · / 충돌하는 조항만 위계로 조정 / 하위 조건도 충돌하지 않으면 유지</small>
+  ? rule_q{"<b>적용 조건·충돌이 해결됐는가?</b>"}:::note
+  rule_human: <b>사람에게 넘기기</b> / <small>상시 · 근거·대안을 갖춰 해석·예외 / 권한자에게 결정 요청</small>
+  rule_who: <b>보고 주체 확인</b> / <small>상시 · 답변자의 권한과 결정 범위를 확인</small>
+  ? rule_reply{"<b>유효한 결정으로 해결됐는가?</b>"}:::note
+  rule_hold: <b>충돌 미해결 · 해당 작업 보류</b> / <small>이유·남은 책임을 반환</small>
+[묶음 PLAN] 목표에 맞춰 재료의 입력과 결과를 연결
+  plan0: <b>문제·목표·완료 조건</b> / <small>상시 · 확인한 근거·규칙으로 목표와 완료 / 증거를 확정</small>
+  plan1: <b>대안·전략 판단</b> / <small>상시 · 정보·지식·경험으로 대안의 / 효과·비용·위험을 비교</small>
+  plan2: <b>업무 절차·실행 계획</b> / <small>단계별 · 어떤 재료의 결과를 다음 어떤 / 재료가 받을지 정함</small>
+  plan3: <b>빠진 위험 확인</b> / <small>단계별 · 계획·변경·실행·전달에서 빠진 / 조건과 피해를 점검</small>
+[묶음 CAPABILITY] 실제 투입 전 수행 능력 확인
+  ? ability_q{"<b>이번 범위의 능력이 검증됐는가?</b>"}:::note
+  ability_env: <b>시험 환경</b> / <small>조건부 · 별도 시험 공간·조건이 필요하면 / 준비</small>
+  ability_test: <b>업무 능력 시험</b> / <small>조건부 · 첫 투입·범위 밖·능력 / 변경·시험 신뢰 상실이면 시험</small>
+  ? ability_pass{"<b>이번 업무를 수행할 수 있는가?</b>"}:::note
+  ability_hold: <b>미검증 범위는 투입하지 않음</b> / <small>부족한 능력·미완료 상태 반환</small>
+[묶음 PERMISSION] 매 실행·위임·재시도·재개에 적용
+  authority: <b>업무 권한</b> / <small>상시 · 대상·행동·내용·기간의 위임과 / 동의</small>
+  limit: <b>비용·위험 한도</b> / <small>상시 · 사용량+진행분+예약분과 / 실행·대기의 위험</small>
+  safety: <b>안전장치</b> / <small>상시 · 매 실행·위임·재시도·재개 전 / 규칙·권한·승인·한도를 함께 검사</small>
+  ? allowed{"<b>이번 행동을 실행할 수 있는가?</b>"}:::note
+  human: <b>사람에게 넘기기</b> / <small>상시 · 되돌릴 수 없는 일·승인 / 조건·판단 불가·한도 초과·자격자 전속</small>
+  human_wait: <b>대기·후속 관리</b> / <small>상시 · AI가 준비·비교·검증을 마친 뒤 / 필요한 결정·작업과 기한을 관리</small>
+  human_who: <b>보고 주체 확인</b> / <small>상시 · 답변자·권한·대상·승인 내용을 / 대조</small>
+  ? human_reply{"<b>유효한 답변을 받았는가?</b>"}:::note
+  human_hold: <b>금지·거절·취소·기한 종료</b> / <small>해당 행동을 실행하지 않고 상태 반환</small>
+[묶음 ACTION_INPUT] 직전 결과를 다음 재료의 입력으로 사용
+  action_context: <b>현재 작업 정보</b> / <small>상시 · 확인한 자료·조건 + 직전 재료의 / 검증 결과</small>
+  progress: <b>작업 진행·연결</b> / <small>상시 · 이미 끝난 작업은 유지 / 준비된 입력·직전 검증 결과를 / 계획의 다음 재료에 연결</small>
+  ? tool_q{"<b>외부 도구·시스템이 필요한가?</b>"}:::note
+  tool: <b>업무 도구·시스템</b> / <small>단계별 · 도구 연결과 요청·응답 형식을 준비 / 실행 때 실제 결과·오류·상태를 주고받음</small>
+  select: <b>실행 계획에서 다음 작업 확인</b>
+[묶음 ACTIONS] 필요한 재료만 조합 · 각 결과를 확인하며 다음 입력으로 전달
+  action_join:  
+[묶음 WORK_DATA] 자료 가공 · 필요한 처리부터 시작
+  ? choose_DATA{"<b>자료를 가공할 차례인가?</b>"}:::note
+  ? data_entry{"<b>어떤 처리부터 필요한가?</b>"}:::note
+  action_0: <b>자료 선별·분류</b> / <small>조건부 · 필요한 자료를 고르고 종류별로 나눔</small>
+  ? data_merge{"<b>고른 자료를 정리·결합해야 하나?</b>"}:::note
+  action_1: <b>자료 정리·결합</b> / <small>조건부 · 오류·중복·누락을 다루고 / 같이 쓸 자료를 맞춰 합침</small>
+  ? data_format{"<b>다음 작업에 맞게 형식을 바꿀까?</b>"}:::note
+  action_2: <b>형식·구조 변환</b> / <small>조건부 · 내용을 보존하며 / 다음 재료·도구가 읽을 형식으로 바꿈</small>
+  result_DATA:  
+[묶음 WORK_JUDGE] 계산·판단 · 필요한 판단부터 시작
+  ? choose_JUDGE{"<b>계산·판단을 할 차례인가?</b>"}:::note
+  ? judge_entry{"<b>지금 필요한 판단은?</b>"}:::note
+  action_3: <b>계산</b> / <small>조건부 · 값·식·단위로 수치를 구함</small>
+  ? calc_interpret{"<b>계산값의 의미도 해석할까?</b>"}:::note
+  action_4: <b>분석</b> / <small>조건부 · 자료·계산값에서 / 차이·관계·원인과 한계를 찾음</small>
+  ? analysis_next{"<b>분석 결과로 무엇을 더 판단할까?</b>"}:::note
+  action_5: <b>기준 적용·판정</b> / <small>조건부 · 확인한 사실을 기준과 대조해 판정</small>
+  action_6: <b>예측</b> / <small>조건부 · 확인한 관계와 가정으로 / 앞으로의 결과·불확실성을 추정</small>
+  ? judge_best{"<b>판정·예측을 써서<br/>최선의 안도 고를까?</b>"}:::note
+  action_7: <b>조건 안에서 최선 찾기</b> / <small>조건부 · 후보·목표·제약을 비교해 / 유리한 안과 절충점을 구함</small>
+  result_JUDGE:  
+[묶음 WORK_MAKE] 설계·내용을 받아 결과물 완성
+  ? choose_MAKE{"<b>결과물을 구성·제작할 차례인가?</b>"}:::note
+  ? make_design{"<b>새 설계나 설계 수정이 필요한가?</b>"}:::note
+  action_8: <b>결과물 설계</b> / <small>조건부 · 목적에 맞는 구성·형태·작동을 정함</small>
+  design_verify: <b>결과 검증·재검증</b> / <small>단계별 · 설계가 목적·조건에 맞는지 확인</small>
+  ? design_ok{"<b>이 설계를 사용해도 되는가?</b>"}:::note
+  ? make_content{"<b>요약·번역·표현 변경이 필요한가?</b>"}:::note
+  action_9: <b>내용 재구성</b> / <small>조건부 · 원문 뜻을 보존하면서 / 목적·설계에 맞는 내용으로 바꿈</small>
+  ? make_build{"<b>실제 제작·구현·수정도 필요한가?</b>"}:::note
+  action_10: <b>결과물 만들기·수정</b> / <small>조건부 · 확인한 설계·내용·재사용 자료로 / 결과물을 만들거나 고침</small>
+  result_MAKE:  
+[묶음 WORK_PEOPLE] 대화 통로를 갖추고 소통·조율
+  ? choose_PEOPLE{"<b>사람과 소통·조율할 차례인가?</b>"}:::note
+  ? people_realtime{"<b>즉시 답을 주고받아야 하는가?</b>"}:::note
+  action_20: <b>실시간 대화</b> / <small>조건부 · 연결·발언 순서·중단·재개를 관리</small>
+  action_11: <b>사람과 소통</b> / <small>조건부 · 질문·설명·응대 후 / 상대의 답변·이해를 확인</small>
+  ? people_negotiate{"<b>요구·역할·조건이<br/>달라 조율해야 하나?</b>"}:::note
+  action_12: <b>협상·조율</b> / <small>조건부 · 허용 범위 안에서 / 서로의 조건을 비교해 합의안을 만듦</small>
+  people_followup: <b>사람과 소통</b> / <small>조건부 · 합의안을 설명하고 / 남은 쟁점에 대한 답변·조건을 확인</small>
+  ? people_again{"<b>추가 의견 교환이 필요한가?</b>"}:::note
+  result_PEOPLE:  
+[묶음 WORK_OPERATE] 확인한 결과를 실제 시스템에 반영
+  ? choose_OPERATE{"<b>시스템에 실제로 반영할 차례인가?</b>"}:::note
+  ? operate_kind{"<b>이번에 허용된 행동은?</b>"}:::note
+  action_13: <b>기록 입력·수정</b> / <small>조건부 · 확인한 내용을 기록에 반영</small>
+  action_14: <b>신청·거래 처리</b> / <small>조건부 · 허용된 신청·주문·예약·취소를 처리</small>
+  action_15: <b>설정·작동 제어</b> / <small>조건부 · 허용된 설정·장비 상태를 바꿈</small>
+  action_16: <b>게시·배포</b> / <small>조건부 · 확인한 판본을 정해진 범위에 공개</small>
+  result_OPERATE:  
+[묶음 WORK_OBSERVE] 시험 조건을 갖추고 관찰·실험·모의
+  ? choose_OBSERVE{"<b>관찰·실험·모의가 필요한가?</b>"}:::note
+  ? observe_kind{"<b>현재 상태를 볼까,<br/>조건을 바꿔 볼까?</b>"}:::note
+  ? observe_env{"<b>별도 시험 공간·조건이 필요한가?</b>"}:::note
+  action_21: <b>시험 환경</b> / <small>조건부 · 시험 조건·자료·도구를 준비 / 미통과 판본의 실제 투입을 차단</small>
+  ? observe_method{"<b>실제 시험인가, 가상 시험인가?</b>"}:::note
+  action_18: <b>실험</b> / <small>조건부 · 조건을 바꾸거나 통제해 / 효과·차이를 비교할 시험을 수행</small>
+  action_17: <b>관찰·측정</b> / <small>조건부 · 현장·시험에서 값·현상을 관측 / 시각·방법·조건과 함께 기록</small>
+  action_19: <b>시뮬레이션</b> / <small>조건부 · 가정한 상황·모델로 모의 실행 / 가정·결과·현실과의 차이를 남김</small>
+  result_OBSERVE:  
+[묶음 WORK_ANSWER] 갖춘 근거로 판단·답변
+  ? choose_ANSWER{"<b>판단·설명·답변을 만들 차례인가?</b>"}:::note
+  action_22: <b>AI 모델</b> / <small>상시 · 현재 정보·규칙·지식·경험으로 / 판단하고 답변을 생성</small>
+  result_ANSWER:  
+[묶음 VERIFY] 결과를 검증하고 필요한 재료를 다시 연결
+  verify0: <b>보고 주체 확인</b> / <small>상시 · 누가 맡은 결과인지, / 분담·판본·대외 명의 확인</small>
+  verify1: <b>결과 검증·재검증</b> / <small>단계별 · 입력·근거·완료 조건과 대조 · / 변경되면 영향받은 결과도 확인</small>
+  verify2: <b>반대 근거·다시 확인</b> / <small>단계별 · 중요한 판단은 다른 / 근거·방법으로 반증</small>
+  verify3: <b>일하는 과정 평가</b> / <small>단계별 · 각 단계의 방법·절차·권한 / 사용을 평가</small>
+  verify4: <b>결과 품질 평가</b> / <small>단계별 · 사용 / 목적·기능·정확성·이해·편의를 확인</small>
+  ? result_status{"<b>검증 결과는?</b>"}:::note
+  ? more{"<b>이 결과를 사용할 다음<br/>재료가 필요한가?</b>"}:::note
+  fix: <b>업무 절차·실행 계획</b> / <small>단계별 · 새 근거·규칙을 반영해 문제 / 있는 재료 조합만 수정</small>
+  unknown: <b>현재 값·상태 확인</b> / <small>조건부 · 외부 작업이 실제로 처리됐는지 / 조회</small>
+  unknown_wait: <b>대기·후속 관리</b> / <small>상시 · 기한 안에서 확인 · 상태 확인 / 전 중복 실행 금지</small>
+  ? unknown_q{"<b>실제 처리 상태가 확인됐는가?</b>"}:::note
+  unknown_hold: <b>확인 기한 종료 · 미확인 반환</b> / <small>실행 성공으로 보고하지 않음</small>
+  expert_output: <b>담당 작업의 결과·상태 반환</b> / <small>결과·근거·판본·완료/미완료·남은 책임</small>
+[묶음 OTHER] 다른 담당의 독립 실행
+  other_expert: <b>전문가 B · 독립 실행</b> / <small>「전문가별 재료 조합」을 각각 사용 / 자기 목표·자료·권한으로 실행 / 각자의 결과·상태를 반환</small>
+  result_b: <b>결과 검증·재검증</b> / <small>단계별 · B의 결과·근거·판본·처리 상태 / 확인</small>
+[묶음 ORCHESTRATION] 총괄이 실제 결과를 회수하고 후속 담당을 연결
+  result_a: <b>결과 검증·재검증</b> / <small>단계별 · A의 결과·근거·판본·처리 상태 / 확인</small>
+  collect: <b>나눠 맡기기</b> / <small>조건부 · 총괄이 배정한 작업의 결과·상태를 회수 / 누락·중복·이견·실패를 구별</small>
+  ? ready{"<b>이번에 배정한 작업의 결과는?</b>"}:::note
+  pending: <b>대기·후속 관리</b> / <small>상시 · 미확인·지연이면 담당 상태 조회와 / 기한 관리</small>
+  reassign: <b>대안·전략 판단</b> / <small>상시 · 문제 있는 작업·담당만 조정 / 실패 부분만 재작업 대상으로 표시 / 유효한 완료 결과는 그대로 유지</small>
+  ? retry_q{"<b>기한·한도 안에서 보완 가능한가?</b>"}:::note
+  incomplete: <b>미완료·이유·남은 책임을 전달</b>
+  result_save: <b>현재 진행 상태</b> / <small>상시 · 검증된 결과는 완료로 보존 / 미확인·실패는 따로 표시 / 뒤 작업에 근거·판본을 연결</small>
+  ? dependent_q{"<b>아직 완료하지 못한<br/>작업이 남았는가?</b>"}:::note
+  follow: <b>나눠 맡기기</b> / <small>조건부 · 검증된 선행 결과·근거·판본을 / 후속 담당의 입력으로 전달</small>
+  integration_input: <b>현재 작업 정보</b> / <small>상시 · 검증된 부분 결과·근거·판본을 / 전체 결과의 검증 입력으로 묶음</small>
+  integration: <b>결과 검증·재검증</b> / <small>단계별 · 총괄이 부분 결과를 결합해 전체 / 목표·누락·중복·모순을 확인</small>
+[묶음 HANDOVER] 전체 결과를 확인하고 남은 책임까지 인계
+  whole_quality: <b>결과 품질 평가</b> / <small>단계별 · 전체 결과가 받는 사람의 목적에 / 맞게 바로 쓰일 수 있는지 확인</small>
+  ? final_q{"<b>전체 완료 조건과<br/>품질을 충족했는가?</b>"}:::note
+  final_fix: <b>대안·전략 판단</b> / <small>상시 · 미달 부분을 기한·한도 안에서 / 보완할 수 있는지 판단</small>
+  ? can_fix{"<b>보완할 수 있는가?</b>"}:::note
+  deliver: <b>납품 준비</b> / <small>단계별 · 결과·원본·근거·사용법·남은 / 책임을 갖춤 / 미완료면 상태·이유·한계를 명시</small>
+  handover: <b>전달·인수 확인</b> / <small>단계별 · 수령·사용 조건·남은 책임의 / 인계를 확인</small>
+  ? receipt_q{"<b>수령·사용 상태가 확인됐는가?</b>"}:::note
+  receipt_wait: <b>대기·후속 관리</b> / <small>상시 · 수신·사용 문제를 확인하고 기한 / 안에 재전달·후속 조치</small>
+  closed: <b>현재 진행 상태</b> / <small>상시 · 완료·인수와 미완료·거절·인수 / 실패를 구별하고 후속 책임 유지</small>
+[묶음 LEARN] 결과에서 학습 · 검증된 개선만 다음 업무에 적용
+  performance: <b>성과 추적</b> / <small>단계별 · 약속한 시점의 실제 성과·후속 / 문제를 확인</small>
+  learn_memory: <b>장기 기억</b> / <small>단계별 · 판단·실행·평가 기록과 성과 중 / 재사용할 결정·약속·교훈을 보관·정정</small>
+  ? cause_q{"<b>재사용할 성과·분석할<br/>문제가 있는가?</b>"}:::note
+  cause: <b>성공·실패 원인 분석</b> / <small>조건부 · 재사용할 성과·원인 불명·영향이 / 큰 문제·반복 오류의 원인과 적용 조건 / 분석</small>
+  ? improve_q{"<b>개선할 점·새로 필요한<br/>능력이 있는가?</b>"}:::note
+  improve: <b>능력 개선·확장</b> / <small>조건부 · 지식·판단 요령·방법·도구를 / 보완</small>
+  improve_env: <b>시험 환경</b> / <small>조건부 · 별도 공간·조건이 필요하면 준비 / · 미통과 판본의 실제 투입 차단</small>
+  improve_test: <b>업무 능력 시험</b> / <small>조건부 · 개선 효과와 기존 능력을 함께 / 시험</small>
+  ? improve_pass{"<b>개선 효과·기존 능력<br/>모두 통과했는가?</b>"}:::note
+  adopt: <b>업무 지식</b> / <small>상시 · 검증된 내용과 적용 조건을 반영</small>
+  adopt_memory: <b>장기 기억</b> / <small>단계별 · 검증 근거·판본·교훈을 다음 / 판단에 제공</small>
+  finish: <b>이번 처리를 마침</b> / <small>남은 책임은 계속 관리 / 후속 신호가 오면 해당 건을 이어서 처리</small>
+  start --> input0
+  input0 --> input1
+  input1 --> input2
+  input2 --> input3
+  input3 --> input4
+  input4 --> dispatch0
+  dispatch0 --> dispatch1
+  dispatch1 --> dispatch_state
+  dispatch_state --> schedule
+  schedule --> dispatch_ready
+  dispatch_ready --> |예 · 미완료이며 입력 준비됨| dispatch_authority
+  dispatch_ready --> |아니오 · 선행 결과·자원 필요| dispatch_wait
+  dispatch_wait --> dispatch_event
+  dispatch_event --> |예 · 답변 권한·새 상태 반영| dispatch_state
+  dispatch_event --> |아니오| dispatch_wait
+  dispatch_event --> |기한 종료·서로 기다림·해결 불가| reassign
+  dispatch_authority --> |유효한 위임·공유 범위| dispatch_guard
+  dispatch_budget --> |이번 배정까지 합친 공동 한도| dispatch_guard
+  dispatch_guard --> dispatch_allowed
+  dispatch_allowed --> |예| dispatch2
+  dispatch_allowed --> |권한자의 결정 필요| dispatch_human
+  dispatch_human --> |결정·답변을 기다림| dispatch_wait
+  dispatch_allowed L_dispatch_allowed_incomplete_routed@--> |금지·거절·취소| incomplete
+  dispatch2 --> assigned_to
+  assigned_to --> |A 담당만 준비됨| expert_entry
+  assigned_to --> |B 담당만 준비됨| other_expert
+  assigned_to --> |둘 다 준비됨 · 병렬| parallel_ready
+  parallel_ready --> |A의 작업·입력| expert_entry
+  parallel_ready --> |B의 작업·입력| other_expert
+  expert_entry -.-> control
+  control -.-> |작업별 실행| isolation
+  control -.-> |판단·실행 근거| record
+  isolation -.-> |분리된 운영 상태| ops
+  record -.-> |진행 기록| ongoing_state
+  ops -.-> |복구 상태| ongoing_state
+  expert_entry --> |이번 업무 자료| facts
+  expert_entry --> |관련 이전 기록| memory
+  facts --> |읽고 확인한 내용| context
+  memory --> |관련 기억| context
+  ongoing_state -.-> |현재 진행 상태| context
+  context --> |현재 업무의 사실·조건| model
+  context --> |관련 지식 선택| knowledge
+  context --> |조건에 맞는 판단 요령 선택| experience
+  knowledge --> model
+  experience --> model
+  model --> search_q
+  search_q --> |예| search
+  search_q --> |아니오 · 기존 근거| evidence
+  search --> |빈 조회·없음 판단| empty
+  search --> |찾음| evidence
+  empty --> |조회 한계·확인된 없음| evidence
+  evidence --> version
+  version --> extra_q
+  extra_q --> |적용 과정 비교| source_0
+  source_0 --> |비슷한 조건·차이| source_join
+  extra_q --> |원리·방법 참고| source_1
+  source_1 --> |설명·작업 근거| source_join
+  extra_q --> |서식·부품 활용| source_2
+  source_2 --> |권한·호환이 맞는 재료| source_join
+  extra_q --> |현재 값이 중요| source_3
+  source_3 --> |조회 값·확인 시각| source_join
+  extra_q --> |상황 감시를 맡음| source_4
+  source_4 --> |새 문제·기회·긴급도| source_join
+  extra_q --> |변화를 계속 추적| source_5
+  source_5 --> |변경 내용·영향받는 일| source_join
+  source_join --> |조건에 해당한 자료를 모음| source_check
+  source_check --> source_version
+  source_version --> |확인한 자료만 반영| enriched
+  extra_q --> |추가 자료 불필요| enriched
+  ? source_0 ~~~ source_1
+  ? source_1 ~~~ source_2
+  ? source_2 ~~~ source_3
+  ? source_3 ~~~ source_4
+  ? source_4 ~~~ source_5
+  enriched --> rule_source
+  rule_source --> |원문과 적용 조건을 함께 검토| priority
+  rule_source -.-> |법적 적용 관계를 먼저 확인| rule_0
+  rule_0 -.-> |그 안에서 ①| rule_1
+  rule_0 -.-> |그 안에서 ①| rule_2
+  rule_1 -.-> |① 함께 적용| rule_rank1
+  rule_2 -.-> |① 함께 적용| rule_rank1
+  rule_rank1 -.-> |다음 ②| rule_3
+  rule_rank1 -.-> |다음 ②| rule_4
+  rule_3 -.-> |다음 ③| rule_5
+  rule_4 -.-> |다음 ③| rule_5
+  rule_5 -.-> |다음 ④| rule_6
+  rule_6 -.-> |표현 기준 필요: 기본 방식 ⑤| rule_7
+  rule_7 -.-> |충돌하지 않는 조건도 함께 유지| priority
+  rule_6 -.-> |기본 스타일 추가 불필요| priority
+  priority --> rule_q
+  rule_q --> |아니오 · 해결할 권한 필요| rule_human
+  rule_human --> rule_who
+  rule_who --> rule_reply
+  rule_reply --> |예 · 유효한 결정 반영| priority
+  rule_reply --> |아니오 · 해결되지 않음| rule_hold
+  rule_q --> |예 · 적용 조건 확정| plan0
+  plan0 --> plan1
+  plan1 --> plan2
+  plan2 --> plan3
+  plan3 --> ability_q
+  ability_q --> |아니오 · 별도 환경 필요| ability_env
+  ability_q --> |아니오 · 별도 환경 불필요| ability_test
+  ability_env --> ability_test
+  ability_test --> ability_pass
+  ability_pass --> |아니오 · 미검증 범위| ability_hold
+  ability_q --> |예 · 검증된 범위| authority
+  ability_pass --> |예 · 시험 통과| authority
+  authority --> |허용된 범위에서 쓸 비용·위험 확인| limit
+  limit --> |사용·진행·예약분과 위험| safety
+  safety --> allowed
+  allowed --> |사람의 결정·전속 작업 필요| human
+  human --> human_wait
+  human_wait --> human_who
+  human_who --> human_reply
+  human_reply --> |답변 대기 · 기한 안| human_wait
+  human_reply --> |유효한 답변| safety
+  human_reply --> |거절·취소·기한 종료| human_hold
+  allowed --> |금지 · 우회 실행 금지| human_hold
+  allowed --> |허용| action_context
+  action_context --> progress
+  progress --> tool_q
+  tool_q --> |예| tool
+  tool --> |호출할 연결 준비| select
+  tool_q --> |아니오| select
+  select --> choose_DATA
+  choose_DATA --> |아니오 · 다른 작업| choose_JUDGE
+  choose_JUDGE --> |아니오 · 다른 작업| choose_MAKE
+  choose_MAKE --> |아니오 · 다른 작업| choose_PEOPLE
+  choose_PEOPLE --> |아니오 · 다른 작업| choose_OPERATE
+  choose_OPERATE --> |아니오 · 다른 작업| choose_OBSERVE
+  choose_OBSERVE --> |아니오 · 다른 작업| choose_ANSWER
+  choose_ANSWER --> |해당 없음 · 필요한 조합 재계획| plan2
+  choose_DATA --> |예| data_entry
+  data_entry --> |선별·분류부터| action_0
+  data_entry --> |정리·결합부터| action_1
+  data_entry --> |형식만 변환| action_2
+  action_0 --> |선별·분류한 자료| data_merge
+  data_merge --> |예| action_1
+  data_merge --> |아니오| data_format
+  action_1 --> |정리·결합한 자료| data_format
+  data_format --> |예| action_2
+  data_format --> |아니오 · 현재 형식 사용| result_DATA
+  action_2 --> |변환한 자료| result_DATA
+  choose_JUDGE --> |예| judge_entry
+  judge_entry --> |수치 구하기| action_3
+  judge_entry --> |관계·원인 해석| action_4
+  judge_entry --> |기준으로 판정| action_5
+  judge_entry --> |예측부터| action_6
+  judge_entry --> |제약 안에서 선택| action_7
+  action_3 --> |계산값·단위| calc_interpret
+  calc_interpret --> |예| action_4
+  calc_interpret --> |아니오 · 수치가 결과| result_JUDGE
+  action_4 --> |해석·근거·한계| analysis_next
+  analysis_next --> |기준 판정| action_5
+  analysis_next --> |예측| action_6
+  analysis_next --> |최선 선택| action_7
+  analysis_next --> |추가 판단 불필요| result_JUDGE
+  action_5 --> |판정·적용 근거| judge_best
+  action_6 --> |예상·가정·불확실성| judge_best
+  judge_best --> |예| action_7
+  judge_best --> |아니오| result_JUDGE
+  action_7 --> |선택안·절충점| result_JUDGE
+  choose_MAKE --> |예| make_design
+  make_design --> |예| action_8
+  make_design --> |아니오 · 기존 설계 사용<br/>또는 설계 불필요| make_content
+  action_8 --> |설계안| design_verify
+  design_verify --> design_ok
+  design_ok --> |아니오 · 설계 보완| action_8
+  design_ok --> |예 · 검증한 설계를 전달| make_content
+  make_content --> |예| action_9
+  make_content --> |아니오 · 기존 내용 사용| make_build
+  action_9 --> |목적에 맞게 바꾼 내용| make_build
+  make_build --> |예 · 설계·내용을 입력으로| action_10
+  make_build --> |아니오 · 설계·내용 자체가 결과| result_MAKE
+  action_10 --> |완성·수정한 결과물| result_MAKE
+  choose_PEOPLE --> |예| people_realtime
+  people_realtime --> |예| action_20
+  people_realtime --> |아니오 · 문서·메일 등| action_11
+  action_20 --> |연결된 대화 통로| action_11
+  action_11 --> |답변·의견·이해 확인| people_negotiate
+  people_negotiate --> |예| action_12
+  people_negotiate --> |아니오| result_PEOPLE
+  action_12 --> |합의안·남은 쟁점| people_again
+  people_again --> |예 · 허용된 추가 소통| people_followup
+  people_followup --> |바뀐 의견·조건을 검증 후 다음 판단에| result_PEOPLE
+  people_again --> |아니오 · 합의 또는 미합의 반환| result_PEOPLE
+  choose_OPERATE --> |예 · 이번 행동의 승인·권한 확인됨| operate_kind
+  operate_kind --> |기록을 반영| action_13
+  action_13 --> |반영 내역·처리 상태| result_OPERATE
+  operate_kind --> |신청·거래·취소| action_14
+  action_14 --> |접수·처리 내역| result_OPERATE
+  operate_kind --> |설정·작동 변경| action_15
+  action_15 --> |변경 상태·이력| result_OPERATE
+  operate_kind --> |게시·배포| action_16
+  action_16 --> |공개 판본·범위| result_OPERATE
+  choose_OBSERVE --> |예| observe_kind
+  observe_kind --> |현재 상태를 관찰·측정| action_17
+  observe_kind --> |조건을 바꿔 실제·가상 시험| observe_env
+  observe_env --> |예| action_21
+  observe_env --> |아니오 · 기존 조건으로 가능| observe_method
+  action_21 --> |준비된 시험 공간·조건| observe_method
+  observe_method --> |실제 조건을 바꿔 비교| action_18
+  observe_method --> |가정한 상황을 모의 실행| action_19
+  action_18 --> |시험한 효과·차이를 관측| action_17
+  action_17 --> |측정값·관찰 기록| result_OBSERVE
+  action_19 --> |모의 결과·가정·한계| result_OBSERVE
+  choose_ANSWER --> |예| action_22
+  action_22 --> |판단·생성한 내용| result_ANSWER
+  result_DATA --> action_join
+  result_JUDGE --> action_join
+  result_MAKE --> action_join
+  result_PEOPLE --> action_join
+  result_OPERATE --> action_join
+  result_OBSERVE --> action_join
+  result_ANSWER --> action_join
+  action_join --> |사용한 재료의 결과·근거| verify0
+  verify0 --> verify1
+  verify1 --> verify2
+  verify2 --> verify3
+  verify3 --> verify4
+  verify4 --> result_status
+  result_status --> |문제없음| more
+  result_status --> |문제| fix
+  fix --> |수정 계획 · 실행 전 재검사| safety
+  result_status --> |미확인| unknown
+  unknown --> unknown_wait
+  unknown_wait --> unknown_q
+  unknown_q --> |아직 미확인 · 기한 안| unknown
+  unknown_q --> |실제 상태 확인| verify0
+  unknown_q --> |기한 종료| unknown_hold
+  more --> |예 · 검증 결과를 보존하고 다음 행동만| safety
+  more --> |아니오 · 담당 작업 완료| expert_output
+  rule_hold --> |미완료·이유·남은 책임 반환| expert_output
+  ability_hold --> |미완료·이유·남은 책임 반환| expert_output
+  human_hold --> |미완료·이유·남은 책임 반환| expert_output
+  unknown_hold --> |미완료·이유·남은 책임 반환| expert_output
+  other_expert --> |B의 결과·근거·판본·상태| result_b
+  expert_output --> result_a
+  result_a --> collect
+  result_b --> |B 상태·결과 회수| collect
+  collect --> result_save
+  result_save --> ready
+  ready --> |미확인·지연 · 기한 안| pending
+  pending --> |조회·답변·기한 도달| collect
+  ready --> |오류·이견·누락·기한 종료| reassign
+  reassign --> retry_q
+  retry_q --> |예 · 완료분 유지하고 재배정| dispatch0
+  retry_q --> |아니오 · 보완 불가| incomplete
+  ready --> |이번 배정분 검증됨| dependent_q
+  dependent_q --> |예 · 선행 결과를 후속 입력으로| follow
+  follow --> |준비된 후속 작업만 고름| dispatch_state
+  dependent_q --> |아니오 · 통합할 결과 확보| integration_input
+  integration_input --> integration
+  integration --> whole_quality
+  whole_quality --> final_q
+  final_q --> |아니오| final_fix
+  final_fix --> can_fix
+  can_fix --> |예 · 미달 부분만 보완| dispatch0
+  can_fix --> |아니오 · 미완료 상태 전달| deliver
+  final_q --> |예 · 전체 기준 통과| deliver
+  incomplete --> |미완료·이유 인계| deliver
+  deliver --> handover
+  handover --> receipt_q
+  receipt_q --> |응답 대기·전달 문제| receipt_wait
+  receipt_wait --> |재전달·답변| handover
+  receipt_q --> |인수 확인| closed
+  receipt_wait --> |거절·기한 종료| closed
+  closed --> performance
+  performance --> learn_memory
+  learn_memory --> cause_q
+  cause_q --> |예| cause
+  cause_q --> |아니오| improve_q
+  cause --> improve_q
+  improve_q --> |예| improve
+  improve_q --> |아니오 · 개선 생략| finish
+  improve --> |별도 환경 필요| improve_env
+  improve --> |별도 환경 불필요| improve_test
+  improve_env --> improve_test
+  improve_test --> improve_pass
+  improve_pass --> |예| adopt
+  adopt --> adopt_memory
+  adopt_memory --> finish
+  improve_pass --> |아니오 · 기존 검증본 유지| finish
+  ? L_dispatch_allowed_incomplete_routed@{ curve: linear }
+
+===== 사용 구조 3 복합 상황 =====
+  start: <b>요청·변경·재개 신호 도착</b>
+[묶음 REQUEST] 요청의 뜻과 완료 기준
+  input0: <b>시작 신호</b> / <small>단계별 · 새 업무 또는 기다리던 업무에 / 신호를 연결</small>
+  input1: <b>업무별 정보</b> / <small>단계별 · 대상·기한·요청 내용·현재 / 조건을 모음</small>
+  input2: <b>지시·의도 파악</b> / <small>상시 · 무엇을 원하는지와 허용한 범위를 / 확인</small>
+  input3: <b>문제·목표·완료 조건</b> / <small>상시 · 해결할 문제와 완료를 증명할 / 결과를 정함</small>
+  input4: <b>성과 추적</b> / <small>단계별 · 어떤 성과를 언제 확인할지 정함</small>
+[묶음 ASSIGN] 전체 총괄 · 연결된 여러 건 · A·B는 대표 경로
+  dispatch0: <b>대안·전략 판단</b> / <small>상시 · 분담 방법·우선순위·필요한 / 전문성을 비교</small>
+  dispatch1: <b>비용·위험 한도</b> / <small>상시 · 모든 건의 사용·진행·예약분을 / 합산해 공동 자원·한도를 배정</small>
+  dispatch2: <b>업무 절차·실행 계획</b> / <small>단계별 · 담당별 입력·결과와 선후 관계를 / 정함 · 서로 기다리는 관계는 분해·순서 / 조정</small>
+  dispatch_state: <b>현재 진행 상태</b> / <small>상시 · 완료·진행·미착수·막힌 작업을 구별 / 이미 검증된 결과·승인을 보존</small>
+  schedule: <b>작업 진행·연결</b> / <small>상시 · 미완료 작업 중 선행 결과·입력이 / 준비된 작업만 고름</small>
+  ? dispatch_ready{"<b>지금 실행할 작업이 있는가?</b>"}:::note
+  dispatch_wait: <b>대기·후속 관리</b> / <small>상시 · 선행 결과·답변·자원·기한을 확인 / 서로 기다리면 순서·분담 재조정</small>
+  ? dispatch_event{"<b>기다린 조건이 해결됐는가?</b>"}:::note
+  dispatch_authority: <b>업무 권한</b> / <small>상시 · 담당별 위임·자료 공유·승인 범위 확인</small>
+  dispatch_guard: <b>안전장치</b> / <small>상시 · 총괄의 규칙·위임 권한·공동 한도와 / 담당의 검증된 능력을 함께 확인</small>
+  ? dispatch_allowed{"<b>이번 위임·자료 공유가 허용되는가?</b>"}:::note
+  dispatch_human: <b>사람에게 넘기기</b> / <small>상시 · 대안·영향을 갖춰 권한자에게 / 필요한 결정만 요청</small>
+  ? assigned_to{"<b>이번에 준비된 작업의 담당은?</b>"}:::note
+  parallel_ready:  
+  dispatch3: <b>나눠 맡기기</b> / <small>조건부 · 준비된 작업만 담당에게 전달 / 목표·입력·권한·기한·반환 형식 포함</small>
+[묶음 EXPERT] 전문가별 재료 조합 · 건 A 팀 안에서 각자 실행하고 회수
+  lead_a: <b>나눠 맡기기</b> / <small>조건부 · 건 A 총괄이 여러 전문가에게 / 목표·입력·권한을 나눠 전달</small>
+  expert_entry: <b>건 A · 각 전문가의 재료 조합</b> / <small>자기 목표·자료·권한으로 판단·실행·검증</small>
+[묶음 ONGOING] 아래 재료는 전 구간에 계속 적용 · 실행 순서가 아님
+  control: <b>실행 제어</b> / <small>상시 · 판단·도구·분기를 호출하고 / 결과·오류를 연결</small>
+  isolation: <b>분리 실행</b> / <small>상시 · 작업·자료·자원을 분리하고 허용 / 범위만 공유</small>
+  record: <b>판단 근거 기록</b> / <small>상시 · 선택·판단·실행·검증의 입력과 / 이유를 기록</small>
+  ops: <b>운영 감시·복구</b> / <small>상시 · 별도 감시자가 지연·장애를 / 격리하고 저장 상태로 복구</small>
+  ongoing_state: <b>현재 진행 상태</b> / <small>상시 · / 담당·완료·대기·승인·취소·미확인을 유지</small>
+[묶음 CONTEXT] 현재 판단에 필요한 재료를 함께 사용
+  facts: <b>정보·자료 이해</b> / <small>단계별 · 받은 자료의 사실·주장·추정과 / 맥락을 구별</small>
+  memory: <b>장기 기억</b> / <small>단계별 · 관련된 이전 결정·약속·교훈을 / 불러옴</small>
+  context: <b>현재 작업 정보</b> / <small>상시 · 이번 자료·관련 기억·진행 상태를 / 필요한 만큼 구성</small>
+  knowledge: <b>업무 지식</b> / <small>상시 · 원리·방법·적용 조건</small>
+  experience: <b>실전 경험·감각</b> / <small>상시 · 핵심 단서·예외·함정</small>
+  model: <b>AI 모델</b> / <small>상시 · 현재 정보에 지식·경험을 함께 / 써서 판단하고 내용을 생성</small>
+[묶음 EVIDENCE] 근거 확보와 확인
+  ? search_q{"<b>근거가 더 필요한가?</b>"}:::note
+  search: <b>정보·자료 찾기</b> / <small>단계별 · 부족한 근거·지식·방법을 / 원문까지 확인</small>
+  empty: <b>못 찾음·없음 구분</b> / <small>단계별 · 빈 조회·없음 판단 때 검색 / 한계·접근 불가·확인된 없음을 구별</small>
+  evidence: <b>근거의 신뢰성·적합성</b> / <small>상시 · 새 근거와 기존 근거의 / 출처·한계·적합성을 확인</small>
+  version: <b>자료의 시점·버전</b> / <small>상시 · 대상 시점에 맞는 판본·확인 / 시각을 확인</small>
+  ? extra_q{"<b>추가로 필요한 자료가 있는가?</b>"}:::note
+[묶음 MORE_SOURCES] 조건이 맞는 자료를 함께 더함
+  source_0: <b>적용 사례</b> / <small>조건부 · 이번 조건과 사례의 적용 과정·결과 비교</small>
+  source_1: <b>참고 자료</b> / <small>조건부 · 원리·방법·표현에 참고할 자료 확보</small>
+  source_2: <b>재사용 자료</b> / <small>조건부 · 이용 권한·호환이 맞는 / 서식·코드·부품·원본을 가져옴</small>
+  source_3: <b>현재 값·상태 확인</b> / <small>조건부 · 필요한 현재 값·상태와 확인 시각 확보</small>
+  source_4: <b>먼저 알아채기</b> / <small>조건부 · 맡은 감시 범위에서 / 새 문제·기회와 긴급도를 발견</small>
+  source_5: <b>변경 감시·반영</b> / <small>조건부 · 맡은 자료·조건의 변경과 / 영향받는 업무를 찾아 알림</small>
+  source_join:  
+  source_check: <b>근거의 신뢰성·적합성</b> / <small>상시 · 추가 자료도 출처·한계·적합성을 확인</small>
+  source_version: <b>자료의 시점·버전</b> / <small>상시 · 추가 자료·변경에 맞는 적용 판본 확인</small>
+  enriched: <b>현재 작업 정보</b> / <small>상시 · 추가 정보·변경·확인 한계를 이번 / 판단에 반영</small>
+[묶음 RULES] 점선은 충돌 시 위계 · 모든 적용 규칙을 함께 지킴
+  rule_source: <b>규칙·기준 원문</b> / <small>단계별 · 대상·지역·시점·설정 권한에 / 맞는 원문 확보</small>
+  rule_0: <b>법·의무 기준</b> / <small>상시 · 상하·위임·특별·개정·경과</small>
+  rule_1: <b>직업 윤리·의무</b> / <small>상시 · 직업의 필수 의무</small>
+  rule_2: <b>에이전트 기본 원칙</b> / <small>상시 · 원칙·승인된 보호 기준</small>
+  rule_rank1:  
+  rule_3: <b>계약·합의 조건</b> / <small>상시 · 유효한 계약·합의</small>
+  rule_4: <b>플랫폼·제출처 규정</b> / <small>상시 · 플랫폼·제출처 필수 규정</small>
+  rule_5: <b>조직 규칙</b> / <small>상시 · 조직의 필수 규칙</small>
+  rule_6: <b>사용자 지정 규칙</b> / <small>상시 · 사용자가 추가한 필수 조건</small>
+  rule_7: <b>표현 방식·스타일</b> / <small>조건부 · ⑤ 기본 방식·스타일</small>
+  priority: <b>규칙의 적용·우선순위</b> / <small>상시 · 적용 규칙은 함께 지킴 · / 충돌하는 조항만 위계로 조정 / 하위 조건도 충돌하지 않으면 유지</small>
+  ? rule_q{"<b>적용 조건·충돌이 해결됐는가?</b>"}:::note
+  rule_human: <b>사람에게 넘기기</b> / <small>상시 · 근거·대안을 갖춰 해석·예외 / 권한자에게 결정 요청</small>
+  rule_who: <b>보고 주체 확인</b> / <small>상시 · 답변자의 권한과 결정 범위를 확인</small>
+  ? rule_reply{"<b>유효한 결정으로 해결됐는가?</b>"}:::note
+  rule_hold: <b>충돌 미해결 · 해당 작업 보류</b> / <small>이유·남은 책임을 반환</small>
+[묶음 PLAN] 목표에 맞춰 재료의 입력과 결과를 연결
+  plan0: <b>문제·목표·완료 조건</b> / <small>상시 · 확인한 근거·규칙으로 목표와 완료 / 증거를 확정</small>
+  plan1: <b>대안·전략 판단</b> / <small>상시 · 정보·지식·경험으로 대안의 / 효과·비용·위험을 비교</small>
+  plan2: <b>업무 절차·실행 계획</b> / <small>단계별 · 어떤 재료의 결과를 다음 어떤 / 재료가 받을지 정함</small>
+  plan3: <b>빠진 위험 확인</b> / <small>단계별 · 계획·변경·실행·전달에서 빠진 / 조건과 피해를 점검</small>
+[묶음 CAPABILITY] 실제 투입 전 수행 능력 확인
+  ? ability_q{"<b>이번 범위의 능력이 검증됐는가?</b>"}:::note
+  ability_env: <b>시험 환경</b> / <small>조건부 · 별도 시험 공간·조건이 필요하면 / 준비</small>
+  ability_test: <b>업무 능력 시험</b> / <small>조건부 · 첫 투입·범위 밖·능력 / 변경·시험 신뢰 상실이면 시험</small>
+  ? ability_pass{"<b>이번 업무를 수행할 수 있는가?</b>"}:::note
+  ability_hold: <b>미검증 범위는 투입하지 않음</b> / <small>부족한 능력·미완료 상태 반환</small>
+[묶음 PERMISSION] 매 실행·위임·재시도·재개에 적용
+  authority: <b>업무 권한</b> / <small>상시 · 대상·행동·내용·기간의 위임과 / 동의</small>
+  limit: <b>비용·위험 한도</b> / <small>상시 · 사용량+진행분+예약분과 / 실행·대기의 위험</small>
+  safety: <b>안전장치</b> / <small>상시 · 매 실행·위임·재시도·재개 전 / 규칙·권한·승인·한도를 함께 검사</small>
+  ? allowed{"<b>이번 행동을 실행할 수 있는가?</b>"}:::note
+  human: <b>사람에게 넘기기</b> / <small>상시 · 되돌릴 수 없는 일·승인 / 조건·판단 불가·한도 초과·자격자 전속</small>
+  human_wait: <b>대기·후속 관리</b> / <small>상시 · AI가 준비·비교·검증을 마친 뒤 / 필요한 결정·작업과 기한을 관리</small>
+  human_who: <b>보고 주체 확인</b> / <small>상시 · 답변자·권한·대상·승인 내용을 / 대조</small>
+  ? human_reply{"<b>유효한 답변을 받았는가?</b>"}:::note
+  human_hold: <b>금지·거절·취소·기한 종료</b> / <small>해당 행동을 실행하지 않고 상태 반환</small>
+[묶음 ACTION_INPUT] 직전 결과를 다음 재료의 입력으로 사용
+  action_context: <b>현재 작업 정보</b> / <small>상시 · 확인한 자료·조건 + 직전 재료의 / 검증 결과</small>
+  progress: <b>작업 진행·연결</b> / <small>상시 · 이미 끝난 작업은 유지 / 준비된 입력·직전 검증 결과를 / 계획의 다음 재료에 연결</small>
+  ? tool_q{"<b>외부 도구·시스템이 필요한가?</b>"}:::note
+  tool: <b>업무 도구·시스템</b> / <small>단계별 · 도구 연결과 요청·응답 형식을 준비 / 실행 때 실제 결과·오류·상태를 주고받음</small>
+  select: <b>실행 계획에서 다음 작업 확인</b>
+[묶음 ACTIONS] 필요한 재료만 조합 · 각 결과를 확인하며 다음 입력으로 전달
+  action_join:  
+[묶음 WORK_DATA] 자료 가공 · 필요한 처리부터 시작
+  ? choose_DATA{"<b>자료를 가공할 차례인가?</b>"}:::note
+  ? data_entry{"<b>어떤 처리부터 필요한가?</b>"}:::note
+  action_0: <b>자료 선별·분류</b> / <small>조건부 · 필요한 자료를 고르고 종류별로 나눔</small>
+  ? data_merge{"<b>고른 자료를 정리·결합해야 하나?</b>"}:::note
+  action_1: <b>자료 정리·결합</b> / <small>조건부 · 오류·중복·누락을 다루고 / 같이 쓸 자료를 맞춰 합침</small>
+  ? data_format{"<b>다음 작업에 맞게 형식을 바꿀까?</b>"}:::note
+  action_2: <b>형식·구조 변환</b> / <small>조건부 · 내용을 보존하며 / 다음 재료·도구가 읽을 형식으로 바꿈</small>
+  result_DATA:  
+[묶음 WORK_JUDGE] 계산·판단 · 필요한 판단부터 시작
+  ? choose_JUDGE{"<b>계산·판단을 할 차례인가?</b>"}:::note
+  ? judge_entry{"<b>지금 필요한 판단은?</b>"}:::note
+  action_3: <b>계산</b> / <small>조건부 · 값·식·단위로 수치를 구함</small>
+  ? calc_interpret{"<b>계산값의 의미도 해석할까?</b>"}:::note
+  action_4: <b>분석</b> / <small>조건부 · 자료·계산값에서 / 차이·관계·원인과 한계를 찾음</small>
+  ? analysis_next{"<b>분석 결과로 무엇을 더 판단할까?</b>"}:::note
+  action_5: <b>기준 적용·판정</b> / <small>조건부 · 확인한 사실을 기준과 대조해 판정</small>
+  action_6: <b>예측</b> / <small>조건부 · 확인한 관계와 가정으로 / 앞으로의 결과·불확실성을 추정</small>
+  ? judge_best{"<b>판정·예측을 써서<br/>최선의 안도 고를까?</b>"}:::note
+  action_7: <b>조건 안에서 최선 찾기</b> / <small>조건부 · 후보·목표·제약을 비교해 / 유리한 안과 절충점을 구함</small>
+  result_JUDGE:  
+[묶음 WORK_MAKE] 설계·내용을 받아 결과물 완성
+  ? choose_MAKE{"<b>결과물을 구성·제작할 차례인가?</b>"}:::note
+  ? make_design{"<b>새 설계나 설계 수정이 필요한가?</b>"}:::note
+  action_8: <b>결과물 설계</b> / <small>조건부 · 목적에 맞는 구성·형태·작동을 정함</small>
+  design_verify: <b>결과 검증·재검증</b> / <small>단계별 · 설계가 목적·조건에 맞는지 확인</small>
+  ? design_ok{"<b>이 설계를 사용해도 되는가?</b>"}:::note
+  ? make_content{"<b>요약·번역·표현 변경이 필요한가?</b>"}:::note
+  action_9: <b>내용 재구성</b> / <small>조건부 · 원문 뜻을 보존하면서 / 목적·설계에 맞는 내용으로 바꿈</small>
+  ? make_build{"<b>실제 제작·구현·수정도 필요한가?</b>"}:::note
+  action_10: <b>결과물 만들기·수정</b> / <small>조건부 · 확인한 설계·내용·재사용 자료로 / 결과물을 만들거나 고침</small>
+  result_MAKE:  
+[묶음 WORK_PEOPLE] 대화 통로를 갖추고 소통·조율
+  ? choose_PEOPLE{"<b>사람과 소통·조율할 차례인가?</b>"}:::note
+  ? people_realtime{"<b>즉시 답을 주고받아야 하는가?</b>"}:::note
+  action_20: <b>실시간 대화</b> / <small>조건부 · 연결·발언 순서·중단·재개를 관리</small>
+  action_11: <b>사람과 소통</b> / <small>조건부 · 질문·설명·응대 후 / 상대의 답변·이해를 확인</small>
+  ? people_negotiate{"<b>요구·역할·조건이<br/>달라 조율해야 하나?</b>"}:::note
+  action_12: <b>협상·조율</b> / <small>조건부 · 허용 범위 안에서 / 서로의 조건을 비교해 합의안을 만듦</small>
+  people_followup: <b>사람과 소통</b> / <small>조건부 · 합의안을 설명하고 / 남은 쟁점에 대한 답변·조건을 확인</small>
+  ? people_again{"<b>추가 의견 교환이 필요한가?</b>"}:::note
+  result_PEOPLE:  
+[묶음 WORK_OPERATE] 확인한 결과를 실제 시스템에 반영
+  ? choose_OPERATE{"<b>시스템에 실제로 반영할 차례인가?</b>"}:::note
+  ? operate_kind{"<b>이번에 허용된 행동은?</b>"}:::note
+  action_13: <b>기록 입력·수정</b> / <small>조건부 · 확인한 내용을 기록에 반영</small>
+  action_14: <b>신청·거래 처리</b> / <small>조건부 · 허용된 신청·주문·예약·취소를 처리</small>
+  action_15: <b>설정·작동 제어</b> / <small>조건부 · 허용된 설정·장비 상태를 바꿈</small>
+  action_16: <b>게시·배포</b> / <small>조건부 · 확인한 판본을 정해진 범위에 공개</small>
+  result_OPERATE:  
+[묶음 WORK_OBSERVE] 시험 조건을 갖추고 관찰·실험·모의
+  ? choose_OBSERVE{"<b>관찰·실험·모의가 필요한가?</b>"}:::note
+  ? observe_kind{"<b>현재 상태를 볼까,<br/>조건을 바꿔 볼까?</b>"}:::note
+  ? observe_env{"<b>별도 시험 공간·조건이 필요한가?</b>"}:::note
+  action_21: <b>시험 환경</b> / <small>조건부 · 시험 조건·자료·도구를 준비 / 미통과 판본의 실제 투입을 차단</small>
+  ? observe_method{"<b>실제 시험인가, 가상 시험인가?</b>"}:::note
+  action_18: <b>실험</b> / <small>조건부 · 조건을 바꾸거나 통제해 / 효과·차이를 비교할 시험을 수행</small>
+  action_17: <b>관찰·측정</b> / <small>조건부 · 현장·시험에서 값·현상을 관측 / 시각·방법·조건과 함께 기록</small>
+  action_19: <b>시뮬레이션</b> / <small>조건부 · 가정한 상황·모델로 모의 실행 / 가정·결과·현실과의 차이를 남김</small>
+  result_OBSERVE:  
+[묶음 WORK_ANSWER] 갖춘 근거로 판단·답변
+  ? choose_ANSWER{"<b>판단·설명·답변을 만들 차례인가?</b>"}:::note
+  action_22: <b>AI 모델</b> / <small>상시 · 현재 정보·규칙·지식·경험으로 / 판단하고 답변을 생성</small>
+  result_ANSWER:  
+[묶음 VERIFY] 결과를 검증하고 필요한 재료를 다시 연결
+  verify0: <b>보고 주체 확인</b> / <small>상시 · 누가 맡은 결과인지, / 분담·판본·대외 명의 확인</small>
+  verify1: <b>결과 검증·재검증</b> / <small>단계별 · 입력·근거·완료 조건과 대조 · / 변경되면 영향받은 결과도 확인</small>
+  verify2: <b>반대 근거·다시 확인</b> / <small>단계별 · 중요한 판단은 다른 / 근거·방법으로 반증</small>
+  verify3: <b>일하는 과정 평가</b> / <small>단계별 · 각 단계의 방법·절차·권한 / 사용을 평가</small>
+  verify4: <b>결과 품질 평가</b> / <small>단계별 · 사용 / 목적·기능·정확성·이해·편의를 확인</small>
+  ? result_status{"<b>검증 결과는?</b>"}:::note
+  ? more{"<b>이 결과를 사용할 다음<br/>재료가 필요한가?</b>"}:::note
+  fix: <b>업무 절차·실행 계획</b> / <small>단계별 · 새 근거·규칙을 반영해 문제 / 있는 재료 조합만 수정</small>
+  unknown: <b>현재 값·상태 확인</b> / <small>조건부 · 외부 작업이 실제로 처리됐는지 / 조회</small>
+  unknown_wait: <b>대기·후속 관리</b> / <small>상시 · 기한 안에서 확인 · 상태 확인 / 전 중복 실행 금지</small>
+  ? unknown_q{"<b>실제 처리 상태가 확인됐는가?</b>"}:::note
+  unknown_hold: <b>확인 기한 종료 · 미확인 반환</b> / <small>실행 성공으로 보고하지 않음</small>
+  expert_output: <b>담당 작업의 결과·상태 반환</b> / <small>결과·근거·판본·완료/미완료·남은 책임</small>
+  team_collect_a: <b>나눠 맡기기</b> / <small>조건부 · 건 A 총괄이 각 전문가의 결과를 회수 / 팀 안의 후속 작업·보완까지 연결</small>
+  ? team_next_a{"<b>팀 안의 다음 작업을<br/>시작할 수 있는가?</b>"}:::note
+  result_a: <b>결과 검증·재검증</b> / <small>단계별 · A의 결과·근거·판본·처리 상태 / 확인</small>
+[묶음 OTHER] 건 B 팀 · 각 전문가가 같은 재료 조합으로 독립 실행
+  lead_b: <b>나눠 맡기기</b> / <small>조건부 · 건 B 총괄이 여러 전문가에게 / 목표·입력·권한을 나눠 전달</small>
+  other_expert: <b>건 B · 전문가별 독립 실행</b> / <small>「전문가별 재료 조합」을 각각 사용 / 자기 목표·자료·권한으로 실행 / 각자의 결과·상태를 반환</small>
+  team_collect_b: <b>나눠 맡기기</b> / <small>조건부 · 건 B 총괄이 각 전문가의 결과를 회수 / 팀 안의 후속 작업·보완까지 연결</small>
+  ? team_next_b{"<b>팀 안의 다음 작업을<br/>시작할 수 있는가?</b>"}:::note
+  result_b: <b>결과 검증·재검증</b> / <small>단계별 · B의 결과·근거·판본·처리 상태 / 확인</small>
+[묶음 ORCHESTRATION] 총괄이 실제 결과를 회수하고 후속 담당을 연결
+  collect: <b>나눠 맡기기</b> / <small>조건부 · 총괄이 배정한 작업의 결과·상태를 회수 / 누락·중복·이견·실패를 구별</small>
+  ? ready{"<b>이번에 배정한 작업의 결과는?</b>"}:::note
+  pending: <b>대기·후속 관리</b> / <small>상시 · 미확인·지연이면 담당 상태 조회와 / 기한 관리</small>
+  reassign: <b>대안·전략 판단</b> / <small>상시 · 문제 있는 작업·담당만 조정 / 실패 부분만 재작업 대상으로 표시 / 유효한 완료 결과는 그대로 유지</small>
+  ? retry_q{"<b>기한·한도 안에서 보완 가능한가?</b>"}:::note
+  incomplete: <b>미완료·이유·남은 책임을 전달</b>
+  result_save: <b>현재 진행 상태</b> / <small>상시 · 검증된 결과는 완료로 보존 / 미확인·실패는 따로 표시 / 뒤 작업에 근거·판본을 연결</small>
+  ? dependent_q{"<b>아직 완료하지 못한<br/>작업이 남았는가?</b>"}:::note
+  follow: <b>나눠 맡기기</b> / <small>조건부 · 검증된 선행 결과·근거·판본을 / 후속 담당의 입력으로 전달</small>
+[묶음 CHANGE_IMPACT] 건 사이 변경 · 영향받은 결과만 다시 확인
+  ? cross_change{"<b>다른 건에 영향을<br/>주는 변경이 있는가?</b>"}:::note
+  impact0: <b>변경 감시·반영</b> / <small>조건부 · 건 A의 원문·결과 변경이 이를 / 사용한 건 B에 미치는 영향 확인</small>
+  impact1: <b>자료의 시점·버전</b> / <small>상시 · 옛 결과와 새 결과를 구별해 / 잘못된 재사용 차단</small>
+  impact2: <b>결과 검증·재검증</b> / <small>단계별 · 변경된 결과와 그 결과에 의존한 / 다른 건을 함께 재검증</small>
+  ? impact_ok{"<b>변경 뒤에도 기존 결과가 유효한가?</b>"}:::note
+  invalidate: <b>현재 진행 상태</b> / <small>상시 · 무효 결과와 의존한 후속 결과를 / 재작업 대상으로 표시·사용 중단</small>
+  integration_input: <b>현재 작업 정보</b> / <small>상시 · 검증된 부분 결과·근거·판본을 / 전체 결과의 검증 입력으로 묶음</small>
+  integration: <b>결과 검증·재검증</b> / <small>단계별 · 총괄이 부분 결과를 결합해 전체 / 목표·누락·중복·모순을 확인</small>
+[묶음 HANDOVER] 전체 결과를 확인하고 남은 책임까지 인계
+  whole_quality: <b>결과 품질 평가</b> / <small>단계별 · 전체 결과가 받는 사람의 목적에 / 맞게 바로 쓰일 수 있는지 확인</small>
+  ? final_q{"<b>전체 완료 조건과<br/>품질을 충족했는가?</b>"}:::note
+  final_fix: <b>대안·전략 판단</b> / <small>상시 · 미달 부분을 기한·한도 안에서 / 보완할 수 있는지 판단</small>
+  ? can_fix{"<b>보완할 수 있는가?</b>"}:::note
+  deliver: <b>납품 준비</b> / <small>단계별 · 결과·원본·근거·사용법·남은 / 책임을 갖춤 / 미완료면 상태·이유·한계를 명시</small>
+  handover: <b>전달·인수 확인</b> / <small>단계별 · 수령·사용 조건·남은 책임의 / 인계를 확인</small>
+  ? receipt_q{"<b>수령·사용 상태가 확인됐는가?</b>"}:::note
+  receipt_wait: <b>대기·후속 관리</b> / <small>상시 · 수신·사용 문제를 확인하고 기한 / 안에 재전달·후속 조치</small>
+  closed: <b>현재 진행 상태</b> / <small>상시 · 완료·인수와 미완료·거절·인수 / 실패를 구별하고 후속 책임 유지</small>
+[묶음 LEARN] 결과에서 학습 · 검증된 개선만 다음 업무에 적용
+  performance: <b>성과 추적</b> / <small>단계별 · 약속한 시점의 실제 성과·후속 / 문제를 확인</small>
+  learn_memory: <b>장기 기억</b> / <small>단계별 · 판단·실행·평가 기록과 성과 중 / 재사용할 결정·약속·교훈을 보관·정정</small>
+  ? cause_q{"<b>재사용할 성과·분석할<br/>문제가 있는가?</b>"}:::note
+  cause: <b>성공·실패 원인 분석</b> / <small>조건부 · 재사용할 성과·원인 불명·영향이 / 큰 문제·반복 오류의 원인과 적용 조건 / 분석</small>
+  ? improve_q{"<b>개선할 점·새로 필요한<br/>능력이 있는가?</b>"}:::note
+  improve: <b>능력 개선·확장</b> / <small>조건부 · 지식·판단 요령·방법·도구를 / 보완</small>
+  improve_env: <b>시험 환경</b> / <small>조건부 · 별도 공간·조건이 필요하면 준비 / · 미통과 판본의 실제 투입 차단</small>
+  improve_test: <b>업무 능력 시험</b> / <small>조건부 · 개선 효과와 기존 능력을 함께 / 시험</small>
+  ? improve_pass{"<b>개선 효과·기존 능력<br/>모두 통과했는가?</b>"}:::note
+  adopt: <b>업무 지식</b> / <small>상시 · 검증된 내용과 적용 조건을 반영</small>
+  adopt_memory: <b>장기 기억</b> / <small>단계별 · 검증 근거·판본·교훈을 다음 / 판단에 제공</small>
+  finish: <b>이번 처리를 마침</b> / <small>남은 책임은 계속 관리 / 후속 신호가 오면 해당 건을 이어서 처리</small>
+  start --> input0
+  input0 --> input1
+  input1 --> input2
+  input2 --> input3
+  input3 --> input4
+  input4 --> dispatch0
+  dispatch0 --> dispatch1
+  dispatch1 --> dispatch2
+  dispatch2 --> dispatch_state
+  dispatch_state --> schedule
+  schedule --> dispatch_ready
+  dispatch_ready --> |예 · 미완료이며 입력 준비됨| dispatch_authority
+  dispatch_ready --> |아니오 · 선행 결과·자원 필요| dispatch_wait
+  dispatch_wait --> dispatch_event
+  dispatch_event --> |예 · 답변 권한·새 상태 반영| dispatch_state
+  dispatch_event --> |아니오| dispatch_wait
+  dispatch_event --> |기한 종료·서로 기다림·해결 불가| reassign
+  dispatch_authority --> |유효한 위임·공유 범위| dispatch_guard
+  dispatch1 --> |이번 배정까지 합친 공동 한도| dispatch_guard
+  dispatch_guard --> dispatch_allowed
+  dispatch_allowed --> |예| dispatch3
+  dispatch_allowed --> |권한자의 결정 필요| dispatch_human
+  dispatch_human --> |결정·답변을 기다림| dispatch_wait
+  dispatch_allowed --> |금지·거절·취소| incomplete
+  dispatch3 --> assigned_to
+  assigned_to --> |A 담당만 준비됨| lead_a
+  assigned_to --> |B 담당만 준비됨| lead_b
+  assigned_to --> |둘 다 준비됨 · 병렬| parallel_ready
+  parallel_ready --> |A의 작업·입력| lead_a
+  parallel_ready --> |B의 작업·입력| lead_b
+  lead_a --> |건 A의 담당별 입력| expert_entry
+  lead_b --> |건 B의 담당별 입력| other_expert
+  expert_entry -.-> control
+  control -.-> |작업별 실행| isolation
+  control -.-> |판단·실행 근거| record
+  isolation -.-> |분리된 운영 상태| ops
+  record -.-> |진행 기록| ongoing_state
+  ops -.-> |복구 상태| ongoing_state
+  expert_entry --> |이번 업무 자료| facts
+  expert_entry --> |관련 이전 기록| memory
+  facts --> |읽고 확인한 내용| context
+  memory --> |관련 기억| context
+  ongoing_state -.-> |현재 진행 상태| context
+  context --> |현재 업무의 사실·조건| model
+  context --> |관련 지식 선택| knowledge
+  context --> |조건에 맞는 판단 요령 선택| experience
+  knowledge --> model
+  experience --> model
+  model --> search_q
+  search_q --> |예| search
+  search_q --> |아니오 · 기존 근거| evidence
+  search --> |빈 조회·없음 판단| empty
+  search --> |찾음| evidence
+  empty --> |조회 한계·확인된 없음| evidence
+  evidence --> version
+  version --> extra_q
+  extra_q --> |적용 과정 비교| source_0
+  source_0 --> |비슷한 조건·차이| source_join
+  extra_q --> |원리·방법 참고| source_1
+  source_1 --> |설명·작업 근거| source_join
+  extra_q --> |서식·부품 활용| source_2
+  source_2 --> |권한·호환이 맞는 재료| source_join
+  extra_q --> |현재 값이 중요| source_3
+  source_3 --> |조회 값·확인 시각| source_join
+  extra_q --> |상황 감시를 맡음| source_4
+  source_4 --> |새 문제·기회·긴급도| source_join
+  extra_q --> |변화를 계속 추적| source_5
+  source_5 --> |변경 내용·영향받는 일| source_join
+  source_join --> |조건에 해당한 자료를 모음| source_check
+  source_check --> source_version
+  source_version --> |확인한 자료만 반영| enriched
+  extra_q --> |추가 자료 불필요| enriched
+  ? source_0 ~~~ source_1
+  ? source_1 ~~~ source_2
+  ? source_2 ~~~ source_3
+  ? source_3 ~~~ source_4
+  ? source_4 ~~~ source_5
+  enriched --> rule_source
+  rule_source --> |원문과 적용 조건을 함께 검토| priority
+  rule_source -.-> |법적 적용 관계를 먼저 확인| rule_0
+  rule_0 -.-> |그 안에서 ①| rule_1
+  rule_0 -.-> |그 안에서 ①| rule_2
+  rule_1 -.-> |① 함께 적용| rule_rank1
+  rule_2 -.-> |① 함께 적용| rule_rank1
+  rule_rank1 -.-> |다음 ②| rule_3
+  rule_rank1 -.-> |다음 ②| rule_4
+  rule_3 -.-> |다음 ③| rule_5
+  rule_4 -.-> |다음 ③| rule_5
+  rule_5 -.-> |다음 ④| rule_6
+  rule_6 -.-> |표현 기준 필요: 기본 방식 ⑤| rule_7
+  rule_7 -.-> |충돌하지 않는 조건도 함께 유지| priority
+  rule_6 -.-> |기본 스타일 추가 불필요| priority
+  priority --> rule_q
+  rule_q --> |아니오 · 해결할 권한 필요| rule_human
+  rule_human --> rule_who
+  rule_who --> rule_reply
+  rule_reply --> |예 · 유효한 결정 반영| priority
+  rule_reply --> |아니오 · 해결되지 않음| rule_hold
+  rule_q --> |예 · 적용 조건 확정| plan0
+  plan0 --> plan1
+  plan1 --> plan2
+  plan2 --> plan3
+  plan3 --> ability_q
+  ability_q --> |아니오 · 별도 환경 필요| ability_env
+  ability_q --> |아니오 · 별도 환경 불필요| ability_test
+  ability_env --> ability_test
+  ability_test --> ability_pass
+  ability_pass --> |아니오 · 미검증 범위| ability_hold
+  ability_q --> |예 · 검증된 범위| authority
+  ability_pass --> |예 · 시험 통과| authority
+  authority --> |허용된 범위에서 쓸 비용·위험 확인| limit
+  limit --> |사용·진행·예약분과 위험| safety
+  safety --> allowed
+  allowed --> |사람의 결정·전속 작업 필요| human
+  human --> human_wait
+  human_wait --> human_who
+  human_who --> human_reply
+  human_reply --> |답변 대기 · 기한 안| human_wait
+  human_reply --> |유효한 답변| safety
+  human_reply --> |거절·취소·기한 종료| human_hold
+  allowed --> |금지 · 우회 실행 금지| human_hold
+  allowed --> |허용| action_context
+  action_context --> progress
+  progress --> tool_q
+  tool_q --> |예| tool
+  tool --> |호출할 연결 준비| select
+  tool_q --> |아니오| select
+  select --> choose_DATA
+  choose_DATA --> |아니오 · 다른 작업| choose_JUDGE
+  choose_JUDGE --> |아니오 · 다른 작업| choose_MAKE
+  choose_MAKE --> |아니오 · 다른 작업| choose_PEOPLE
+  choose_PEOPLE --> |아니오 · 다른 작업| choose_OPERATE
+  choose_OPERATE --> |아니오 · 다른 작업| choose_OBSERVE
+  choose_OBSERVE --> |아니오 · 다른 작업| choose_ANSWER
+  choose_ANSWER --> |해당 없음 · 필요한 조합 재계획| plan2
+  choose_DATA --> |예| data_entry
+  data_entry --> |선별·분류부터| action_0
+  data_entry --> |정리·결합부터| action_1
+  data_entry --> |형식만 변환| action_2
+  action_0 --> |선별·분류한 자료| data_merge
+  data_merge --> |예| action_1
+  data_merge --> |아니오| data_format
+  action_1 --> |정리·결합한 자료| data_format
+  data_format --> |예| action_2
+  data_format --> |아니오 · 현재 형식 사용| result_DATA
+  action_2 --> |변환한 자료| result_DATA
+  choose_JUDGE --> |예| judge_entry
+  judge_entry --> |수치 구하기| action_3
+  judge_entry --> |관계·원인 해석| action_4
+  judge_entry --> |기준으로 판정| action_5
+  judge_entry --> |예측부터| action_6
+  judge_entry --> |제약 안에서 선택| action_7
+  action_3 --> |계산값·단위| calc_interpret
+  calc_interpret --> |예| action_4
+  calc_interpret --> |아니오 · 수치가 결과| result_JUDGE
+  action_4 --> |해석·근거·한계| analysis_next
+  analysis_next --> |기준 판정| action_5
+  analysis_next --> |예측| action_6
+  analysis_next --> |최선 선택| action_7
+  analysis_next --> |추가 판단 불필요| result_JUDGE
+  action_5 --> |판정·적용 근거| judge_best
+  action_6 --> |예상·가정·불확실성| judge_best
+  judge_best --> |예| action_7
+  judge_best --> |아니오| result_JUDGE
+  action_7 --> |선택안·절충점| result_JUDGE
+  choose_MAKE --> |예| make_design
+  make_design --> |예| action_8
+  make_design --> |아니오 · 기존 설계 사용<br/>또는 설계 불필요| make_content
+  action_8 --> |설계안| design_verify
+  design_verify --> design_ok
+  design_ok --> |아니오 · 설계 보완| action_8
+  design_ok --> |예 · 검증한 설계를 전달| make_content
+  make_content --> |예| action_9
+  make_content --> |아니오 · 기존 내용 사용| make_build
+  action_9 --> |목적에 맞게 바꾼 내용| make_build
+  make_build --> |예 · 설계·내용을 입력으로| action_10
+  make_build --> |아니오 · 설계·내용 자체가 결과| result_MAKE
+  action_10 --> |완성·수정한 결과물| result_MAKE
+  choose_PEOPLE --> |예| people_realtime
+  people_realtime --> |예| action_20
+  people_realtime --> |아니오 · 문서·메일 등| action_11
+  action_20 --> |연결된 대화 통로| action_11
+  action_11 --> |답변·의견·이해 확인| people_negotiate
+  people_negotiate --> |예| action_12
+  people_negotiate --> |아니오| result_PEOPLE
+  action_12 --> |합의안·남은 쟁점| people_again
+  people_again --> |예 · 허용된 추가 소통| people_followup
+  people_followup --> |바뀐 의견·조건을 검증 후 다음 판단에| result_PEOPLE
+  people_again --> |아니오 · 합의 또는 미합의 반환| result_PEOPLE
+  choose_OPERATE --> |예 · 이번 행동의 승인·권한 확인됨| operate_kind
+  operate_kind --> |기록을 반영| action_13
+  action_13 --> |반영 내역·처리 상태| result_OPERATE
+  operate_kind --> |신청·거래·취소| action_14
+  action_14 --> |접수·처리 내역| result_OPERATE
+  operate_kind --> |설정·작동 변경| action_15
+  action_15 --> |변경 상태·이력| result_OPERATE
+  operate_kind --> |게시·배포| action_16
+  action_16 --> |공개 판본·범위| result_OPERATE
+  choose_OBSERVE --> |예| observe_kind
+  observe_kind --> |현재 상태를 관찰·측정| action_17
+  observe_kind --> |조건을 바꿔 실제·가상 시험| observe_env
+  observe_env --> |예| action_21
+  observe_env --> |아니오 · 기존 조건으로 가능| observe_method
+  action_21 --> |준비된 시험 공간·조건| observe_method
+  observe_method --> |실제 조건을 바꿔 비교| action_18
+  observe_method --> |가정한 상황을 모의 실행| action_19
+  action_18 --> |시험한 효과·차이를 관측| action_17
+  action_17 --> |측정값·관찰 기록| result_OBSERVE
+  action_19 --> |모의 결과·가정·한계| result_OBSERVE
+  choose_ANSWER --> |예| action_22
+  action_22 --> |판단·생성한 내용| result_ANSWER
+  result_DATA --> action_join
+  result_JUDGE --> action_join
+  result_MAKE --> action_join
+  result_PEOPLE --> action_join
+  result_OPERATE --> action_join
+  result_OBSERVE --> action_join
+  result_ANSWER --> action_join
+  action_join --> |사용한 재료의 결과·근거| verify0
+  verify0 --> verify1
+  verify1 --> verify2
+  verify2 --> verify3
+  verify3 --> verify4
+  verify4 --> result_status
+  result_status --> |문제없음| more
+  result_status --> |문제| fix
+  fix --> |수정 계획 · 실행 전 재검사| safety
+  result_status --> |미확인| unknown
+  unknown --> unknown_wait
+  unknown_wait --> unknown_q
+  unknown_q --> |아직 미확인 · 기한 안| unknown
+  unknown_q --> |실제 상태 확인| verify0
+  unknown_q --> |기한 종료| unknown_hold
+  more --> |예 · 검증 결과를 보존하고 다음 행동만| safety
+  more --> |아니오 · 담당 작업 완료| expert_output
+  rule_hold --> |미완료·이유·남은 책임 반환| expert_output
+  ability_hold --> |미완료·이유·남은 책임 반환| expert_output
+  human_hold --> |미완료·이유·남은 책임 반환| expert_output
+  unknown_hold --> |미완료·이유·남은 책임 반환| expert_output
+  other_expert --> |B의 결과·근거·판본·상태| team_collect_b
+  team_collect_b --> team_next_b
+  team_next_b --> |예 · 검증 결과를 후속 담당에게| lead_b
+  team_next_b --> |아니오 · 완료 또는 막힌 상태 반환| result_b
+  expert_output --> team_collect_a
+  team_collect_a --> team_next_a
+  team_next_a --> |예 · 검증 결과를 후속 담당에게| lead_a
+  team_next_a --> |아니오 · 완료 또는 막힌 상태 반환| result_a
+  result_a --> collect
+  result_b --> |B 상태·결과 회수| collect
+  collect --> result_save
+  result_save --> cross_change
+  ready --> |미확인·지연 · 기한 안| pending
+  pending --> |조회·답변·기한 도달| collect
+  ready --> |오류·이견·누락·기한 종료| reassign
+  reassign --> retry_q
+  retry_q --> |예 · 완료분 유지하고 재배정| dispatch0
+  retry_q --> |아니오 · 보완 불가| incomplete
+  ready --> |이번 배정분 검증됨| dependent_q
+  dependent_q --> |예 · 선행 결과를 후속 입력으로| follow
+  follow --> |준비된 후속 작업만 고름| dispatch_state
+  dependent_q --> |아니오 · 건별 필수 결과 확보| integration_input
+  integration_input --> integration
+  cross_change --> |예 · 영향받는 건만| impact0
+  impact0 --> impact1
+  impact1 --> impact2
+  impact2 --> impact_ok
+  impact_ok --> |예| ready
+  impact_ok --> |아니오 · 의존한 후속 결과도 무효| invalidate
+  invalidate --> |영향받은 미완료 작업만 다시 선택| dispatch_state
+  cross_change --> |아니오| ready
+  integration --> whole_quality
+  whole_quality --> final_q
+  final_q --> |아니오| final_fix
+  final_fix --> can_fix
+  can_fix --> |예 · 미달 부분만 보완| dispatch0
+  can_fix --> |아니오 · 미완료 상태 전달| deliver
+  final_q --> |예 · 전체 기준 통과| deliver
+  incomplete --> |미완료·이유 인계| deliver
+  deliver --> handover
+  handover --> receipt_q
+  receipt_q --> |응답 대기·전달 문제| receipt_wait
+  receipt_wait --> |재전달·답변| handover
+  receipt_q --> |인수 확인| closed
+  receipt_wait --> |거절·기한 종료| closed
+  closed --> performance
+  performance --> learn_memory
+  learn_memory --> cause_q
+  cause_q --> |예| cause
+  cause_q --> |아니오| improve_q
+  cause --> improve_q
+  improve_q --> |예| improve
+  improve_q --> |아니오 · 개선 생략| finish
+  improve --> |별도 환경 필요| improve_env
+  improve --> |별도 환경 불필요| improve_test
+  improve_env --> improve_test
+  improve_test --> improve_pass
+  improve_pass --> |예| adopt
+  adopt --> adopt_memory
+  adopt_memory --> finish
+  improve_pass --> |아니오 · 기존 검증본 유지| finish
