@@ -1,0 +1,54 @@
+{
+  "renderer": "Chromium via Puppeteer",
+  "date": "2026-09-17",
+  "checks": [
+    {
+      "mode": "solo",
+      "svg": "docs/images/expert-definition/usage-materials-solo.svg",
+      "sha256": "c8a3463119242307525f7be1df8b4c3991a7e2ac8fd1386b6fd2275db50cc12c",
+      "viewport": [
+        1800,
+        1350
+      ],
+      "width": 1380,
+      "height": 23457,
+      "nodes": 127,
+      "node_overlaps": [],
+      "text_overflow": [],
+      "label_overlaps": [],
+      "edge_node_hits": []
+    },
+    {
+      "mode": "orchestration",
+      "svg": "docs/images/expert-definition/usage-materials-orchestration.svg",
+      "sha256": "124a2705dbb37d6c1f3da39afda43e5f0ae7b466e95be0520903f00815a8ed99",
+      "viewport": [
+        1800,
+        1350
+      ],
+      "width": 1780,
+      "height": 26385,
+      "nodes": 141,
+      "node_overlaps": [],
+      "text_overflow": [],
+      "label_overlaps": [],
+      "edge_node_hits": []
+    },
+    {
+      "mode": "complex",
+      "svg": "docs/images/expert-definition/usage-materials-complex.svg",
+      "sha256": "bb14933cb8987a9a1d1160d254bb29ecc3fdcb5d56ab54c0d2bc1c660432c059",
+      "viewport": [
+        1800,
+        1350
+      ],
+      "width": 1780,
+      "height": 27693,
+      "nodes": 148,
+      "node_overlaps": [],
+      "text_overflow": [],
+      "label_overlaps": [],
+      "edge_node_hits": []
+    }
+  ]
+}
