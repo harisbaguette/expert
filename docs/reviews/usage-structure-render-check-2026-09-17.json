@@ -1,21 +1,60 @@
 {
-  "checked_on": "2026-09-17",
+  "checked_on": "2026-09-18",
+  "supersedes": "이 파일의 이전 2026-09-17 검토와 다른 선 색·단일 시작/종료·렌더러 수치",
   "document": "전문가 에이전트 정의.md",
   "section": "사용 구조",
   "renderer": {
-    "mermaid": "11.17.2",
+    "mermaid": "11.17.0",
+    "source": "VS Code 1.137.0 내장 mermaid-markdown-features",
+    "bundle": "/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/mermaid-markdown-features/markdown-preview-out/index.js",
     "layout": "ELK",
-    "nodePlacementStrategy": "SIMPLE",
-    "browser": "Chromium / Puppeteer"
+    "nodePlacementStrategy": "LINEAR_SEGMENTS",
+    "render_viewport_width": 1400,
+    "audit_viewport_width": 900,
+    "browser": "Chromium / Puppeteer",
+    "scope": "앱 내장 번들을 별도 Chromium에서 실행함. 실제 VS Code 미리보기 UI 자체를 검사한 것은 아님."
   },
-  "prefix_sha256": "ff2f97267583eeaf6695ba009bed2effec243838d404392fec5d34d10a1aa534",
+  "preservation": {
+    "prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+    "prefix_matches_immediately_before_edit": true,
+    "existing_images_preserved": true,
+    "note": "원문 앞부분은 수정 직전 본문과 대조했다. 이전 세션의 앞부분 해시로 되돌리지 않았다."
+  },
+  "structure": {
+    "scenario_diagrams": 3,
+    "format": "inline Mermaid",
+    "starts_and_ends": "각 흐름마다 실제 시작·종료를 허용. 처리 중단·보류는 가까운 종료 도형에서 끝남.",
+    "conditional_combinations": [
+      "자료 가공",
+      "계산·분석·판정",
+      "구상·제작",
+      "대화·협의",
+      "업무 시스템 조작",
+      "관찰·시험",
+      "판단·설명·답변"
+    ],
+    "learning": "성과·실패·후속 결과가 확인될 때 별도로 시작하며 문서 배치상 마지막에 둠.",
+    "procedures": "담당별로 확장된 같은 재료 조합을 독립 적용. 재실행 도형은 표시된 절차를 재사용하고 정상 결과·중단 상태를 반환.",
+    "layout_links": "Mermaid ~~~ 는 화면 배치 전용. 실제 실행·의존·복귀 경로에서 제외함."
+  },
+  "arrow_legend": {
+    "#60a5fa": "진행",
+    "#f87171": "아니오·불가",
+    "#facc15": "앞 단계로 복귀"
+  },
   "methods": {
-    "node_and_label_overlap": "실제 렌더링의 경계 상자 대조",
-    "shape_penetration": "보이는 연결선을 8px 간격으로 샘플링하고 실제 도형 내부 포함 여부 대조; 자신의 시작·도착 도형 제외",
-    "edge_crossings": "보이는 실제 곡선을 3px 간격으로 샘플링하여 선분의 내부 교차 검사; 포트 주변 9px 및 같은 선·평행 중첩 제외",
-    "text_clipping": "노드 라벨 경계와 도형 경계 대조",
-    "control_paths": "합류한 완료·계속·중단·배정 상태에 맞는 분기만 따라 경로 검사"
+    "material_coverage": "계통별 재료 표의 정식 명칭·구분을 세 Mermaid 각각과 대조",
+    "control_paths": "각 실제 시작부터 도달 가능하며 종료 도형에 도달하는지 검사. 합류 상태와 명시된 재사용 절차의 입력·반환 범위를 따로 검사.",
+    "visual_geometry": "스킬 audit-svg.cjs로 실제 도형·라벨·보이는 연결선의 충돌 후보 측정",
+    "arrow_direction": "렌더된 도형 좌표와 의미를 대조. 모든 노란 복귀의 화살촉이 더 위에 있는 목적지를 향함.",
+    "manual_review": "공통 재료 조합의 구간별 화면과 상황별 분담·회수·변경·보류·재실행 구간을 읽고 확인"
   },
+  "limitations": [
+    "충돌 후보 0개가 모든 환경에서의 무결함이나 독자의 이해를 증명하지는 않는다.",
+    "곡선 샘플링은 미세한 접촉을 놓칠 수 있으며 모든 글자 잘림을 증명하는 검사는 아니다.",
+    "가로 폭을 900px로 맞추면 보조 글자는 도식별 약 11~13px다. 더 좁은 화면의 무확대 가독성까지 검증한 것은 아니다.",
+    "문장 보완 뒤 재렌더한 최종 전체를 기하 검사했으며, 수동 화면 검토는 공통 구간과 주요 분기·복귀 중심이다."
+  ],
   "diagrams": [
     {
       "scenario": "단독",
@@ -27,35 +66,57 @@
         "조건부": 33
       },
       "one_material_per_material_node": true,
-      "nodes": 181,
-      "decisions_with_labeled_branches": 53,
-      "edges_excluding_layout": 251,
+      "nodes": 188,
+      "decisions_with_labeled_branches": 51,
+      "edges_excluding_layout": 232,
+      "starts": 9,
+      "endings": 13,
+      "independent_material_combinations": 7,
       "semantic_path_checks": [
         "지원 재료의 사용처",
         "선행 결과의 전달",
         "불필요한 처리 생략",
         "추가 근거 검증",
-        "규칙 위계와 실행 구분",
-        "다음 실행 재검사"
+        "규칙 확인 위계와 하위 조건 유지",
+        "다음 실행 재검사",
+        "각 흐름의 시작·종료 연결",
+        "명시적인 조건·병렬 분기",
+        "복귀선·부정 분기 색",
+        "재사용 절차의 범위"
       ],
-      "source_sha256": "3efb41cddd5ae85757fdab80b6cbe39a0e43aae3794f7aae95bbc50be3271051",
-      "render_input_sha256": "f277262f69d732b7a77d16070ac4032b2aa84e45599731e9c9389b3dec4807bf",
-      "width_px": 738.921875,
-      "height_px": 38346.65625,
-      "previous_width_px": 10323.496,
-      "width_reduction_percent": 92.8,
-      "start_is_topmost": true,
-      "finish_is_bottommost": true,
-      "main_route_top_to_bottom": true,
-      "node_overlaps": 0,
-      "label_overlaps": 0,
-      "foreign_node_penetrations": 0,
-      "foreign_label_penetrations": 0,
-      "text_clipping": 0,
-      "sampled_actual_path_crossings": 0,
-      "material_name_font_px": 18,
-      "material_name_weight": 700,
-      "helper_font_px": 14
+      "source_sha256": "479ef89314e7122a11f9db438808e01e8c9e9d874e5e936d8cb3d0a474c08f3f",
+      "render_input_sha256": "23b662af16f71083820a32f890d2a45142e81dc518c8bb682ad4071f48a4af37",
+      "svg_sha256": "54836c216ff9f656d244fee7ea83c565f5befee358ad509a8b8a9e9330c66882",
+      "current": {
+        "width_px": 1153.814208984375,
+        "height_px": 34593.96875,
+        "edges_over_4000px": 1,
+        "longest_edge_px": 4611.18,
+        "total_route_bends": 713,
+        "maximum_route_bends": 9
+      },
+      "baseline_same_renderer": {
+        "width_px": 1066.25,
+        "height_px": 37190.296875,
+        "edges_over_4000px": 20,
+        "longest_edge_px": 27465.04,
+        "total_route_bends": 2209,
+        "maximum_route_bends": 71
+      },
+      "arrow_counts": {
+        "forward": 176,
+        "return": 6,
+        "negative": 50
+      },
+      "arrow_direction_mismatches": [],
+      "all_arrows_solid": true,
+      "unlabeled_circle_connectors": 0,
+      "measured_collision_candidates": 0,
+      "audit_warnings": [],
+      "minimum_effective_font_px_at_900": 9.4,
+      "material_name_font_px_native": 18,
+      "helper_font_px_native": 14,
+      "helper_font_px_at_900": 10.92
     },
     {
       "scenario": "오케스트레이션",
@@ -67,38 +128,60 @@
         "조건부": 33
       },
       "one_material_per_material_node": true,
-      "nodes": 215,
-      "decisions_with_labeled_branches": 62,
-      "edges_excluding_layout": 301,
+      "nodes": 225,
+      "decisions_with_labeled_branches": 61,
+      "edges_excluding_layout": 280,
+      "starts": 9,
+      "endings": 15,
+      "independent_material_combinations": 7,
       "semantic_path_checks": [
         "지원 재료의 사용처",
         "선행 결과의 전달",
         "불필요한 처리 생략",
         "추가 근거 검증",
-        "규칙 위계와 실행 구분",
+        "규칙 확인 위계와 하위 조건 유지",
         "다음 실행 재검사",
         "독립·병렬 실행",
         "완료 결과 보존",
-        "후속 작업 준비·권한 확인"
+        "후속 작업 준비·권한 확인",
+        "각 흐름의 시작·종료 연결",
+        "명시적인 조건·병렬 분기",
+        "복귀선·부정 분기 색",
+        "재사용 절차의 범위"
       ],
-      "source_sha256": "ca666239aadeb584146ac26a08eea527a4dde38626da147d3e15be84978e1ee5",
-      "render_input_sha256": "54feed794e3a32ff85618630a96ef06c81c58a45586a5eafc62c7b14bc26edbb",
-      "width_px": 1066,
-      "height_px": 46423.234375,
-      "previous_width_px": 11177.145,
-      "width_reduction_percent": 90.5,
-      "start_is_topmost": true,
-      "finish_is_bottommost": true,
-      "main_route_top_to_bottom": true,
-      "node_overlaps": 0,
-      "label_overlaps": 0,
-      "foreign_node_penetrations": 0,
-      "foreign_label_penetrations": 0,
-      "text_clipping": 0,
-      "sampled_actual_path_crossings": 0,
-      "material_name_font_px": 18,
-      "material_name_weight": 700,
-      "helper_font_px": 14
+      "source_sha256": "362111da1d9b317a85354ff4e87772973daba0fd8080cca2b4e2b42520a4a6fb",
+      "render_input_sha256": "7866372391dbc352dccc92722ea8f7fea36f15c2d45679c851d374fa0da006a2",
+      "svg_sha256": "8fb7f2a0bdca412183df1930d9198341874ddd6cdb1bbf10146221a4cafd6852",
+      "current": {
+        "width_px": 984.220458984375,
+        "height_px": 41095.34375,
+        "edges_over_4000px": 0,
+        "longest_edge_px": 3553.94,
+        "total_route_bends": 859,
+        "maximum_route_bends": 9
+      },
+      "baseline_same_renderer": {
+        "width_px": 1087.03125,
+        "height_px": 47843.1875,
+        "edges_over_4000px": 20,
+        "longest_edge_px": 46863.05,
+        "total_route_bends": 2966,
+        "maximum_route_bends": 89
+      },
+      "arrow_counts": {
+        "forward": 210,
+        "negative": 61,
+        "return": 9
+      },
+      "arrow_direction_mismatches": [],
+      "all_arrows_solid": true,
+      "unlabeled_circle_connectors": 0,
+      "measured_collision_candidates": 0,
+      "audit_warnings": [],
+      "minimum_effective_font_px_at_900": 11,
+      "material_name_font_px_native": 18,
+      "helper_font_px_native": 14,
+      "helper_font_px_at_900": 12.8
     },
     {
       "scenario": "복합",
@@ -110,41 +193,63 @@
         "조건부": 33
       },
       "one_material_per_material_node": true,
-      "nodes": 227,
-      "decisions_with_labeled_branches": 66,
-      "edges_excluding_layout": 317,
+      "nodes": 235,
+      "decisions_with_labeled_branches": 64,
+      "edges_excluding_layout": 293,
+      "starts": 9,
+      "endings": 15,
+      "independent_material_combinations": 7,
       "semantic_path_checks": [
         "지원 재료의 사용처",
         "선행 결과의 전달",
         "불필요한 처리 생략",
         "추가 근거 검증",
-        "규칙 위계와 실행 구분",
+        "규칙 확인 위계와 하위 조건 유지",
         "다음 실행 재검사",
         "독립·병렬 실행",
         "완료 결과 보존",
         "후속 작업 준비·권한 확인",
         "진행 중 건 사이 변경 확인",
         "의존 결과의 사용 중단·재작업",
-        "팀 내부 후속 작업"
+        "팀 내부 후속 작업",
+        "각 흐름의 시작·종료 연결",
+        "명시적인 조건·병렬 분기",
+        "복귀선·부정 분기 색",
+        "재사용 절차의 범위"
       ],
-      "source_sha256": "d25c8b9d8133bb215378df9c39202cf1cb98f02dd28d9937c2185af228baad97",
-      "render_input_sha256": "664bd715a4f1a79fafdbb1720ecfa07f04ef8783096f2ce6cb3a12fa100dcb7a",
-      "width_px": 1230.921875,
-      "height_px": 48283.6875,
-      "previous_width_px": 12228.316,
-      "width_reduction_percent": 89.9,
-      "start_is_topmost": true,
-      "finish_is_bottommost": true,
-      "main_route_top_to_bottom": true,
-      "node_overlaps": 0,
-      "label_overlaps": 0,
-      "foreign_node_penetrations": 0,
-      "foreign_label_penetrations": 0,
-      "text_clipping": 0,
-      "sampled_actual_path_crossings": 0,
-      "material_name_font_px": 18,
-      "material_name_weight": 700,
-      "helper_font_px": 14
+      "source_sha256": "14fc327afb7967eccc51fc02f61a1108964ff037278f55b853e9568d891fbc73",
+      "render_input_sha256": "55c284fb43cd83326235b4aaa518a7caa5de932d39c234152e612964d3be1d01",
+      "svg_sha256": "25c55c3bf2369503a2ac53d206ffc4cf5f83b910b4c2122be812bc968ade8747",
+      "current": {
+        "width_px": 1157.215087890625,
+        "height_px": 42873.5,
+        "edges_over_4000px": 1,
+        "longest_edge_px": 5018.91,
+        "total_route_bends": 910,
+        "maximum_route_bends": 11
+      },
+      "baseline_same_renderer": {
+        "width_px": 1249.34375,
+        "height_px": 49968.09375,
+        "edges_over_4000px": 22,
+        "longest_edge_px": 47835.99,
+        "total_route_bends": 3067,
+        "maximum_route_bends": 89
+      },
+      "arrow_counts": {
+        "forward": 219,
+        "negative": 64,
+        "return": 10
+      },
+      "arrow_direction_mismatches": [],
+      "all_arrows_solid": true,
+      "unlabeled_circle_connectors": 0,
+      "measured_collision_candidates": 0,
+      "audit_warnings": [],
+      "minimum_effective_font_px_at_900": 9.3,
+      "material_name_font_px_native": 18,
+      "helper_font_px_native": 14,
+      "helper_font_px_at_900": 10.89
     }
   ]
 }

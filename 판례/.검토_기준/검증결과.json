@@ -1,14 +1,15 @@
 {
-  "verified_at": "2026-09-18T09:18:11.916739+09:00",
+  "verified_at": "2026-09-18T15:00:23.506827+09:00",
   "result": "통과",
   "case_files": 20,
   "index_files": 0,
   "original_cases": 22,
-  "original_fields_checked": 110,
-  "original_characters_excluding_whitespace": 758129,
-  "method": "원본 HTML의 표시 문자와 Markdown을 HTML로 렌더링한 표시 문자를 공백 제외 전수 대조. 생성 함수를 재사용하지 않음.",
+  "original_fields_checked": 22,
+  "original_characters_excluding_whitespace": 655059,
+  "method": "판결 본문의 원본 HTML 표시 문자와 Markdown을 HTML로 렌더링한 원문 표시 문자를 공백 제외 전수 대조. 파란색 해설 문장은 비교에서 분리. 생성 함수를 재사용하지 않음.",
   "local_links_checked": 41,
-  "tables_rendered": 20,
+  "tables_rendered": 40,
+  "blue_paragraph_explanations": 3098,
   "source_hashes_and_snapshot_hashes": "일치",
   "trademark_image_pixels": "일치",
   "legal_reasoning_automatically_proved": false,
@@ -17,64 +18,8 @@
     {
       "file": "01_12_12와_5_18_96도3376.md",
       "source_id": "209155",
-      "field": "판시사항",
-      "nonspace_characters": 809,
-      "preserved": true
-    },
-    {
-      "file": "01_12_12와_5_18_96도3376.md",
-      "source_id": "209155",
-      "field": "판결요지",
-      "nonspace_characters": 7666,
-      "preserved": true
-    },
-    {
-      "file": "01_12_12와_5_18_96도3376.md",
-      "source_id": "209155",
-      "field": "참조조문",
-      "nonspace_characters": 299,
-      "preserved": true
-    },
-    {
-      "file": "01_12_12와_5_18_96도3376.md",
-      "source_id": "209155",
-      "field": "참조판례",
-      "nonspace_characters": 348,
-      "preserved": true
-    },
-    {
-      "file": "01_12_12와_5_18_96도3376.md",
-      "source_id": "209155",
       "field": "판례내용",
       "nonspace_characters": 54429,
-      "preserved": true
-    },
-    {
-      "file": "02_분식회계와_대출_2003도3516.md",
-      "source_id": "67148",
-      "field": "판시사항",
-      "nonspace_characters": 1450,
-      "preserved": true
-    },
-    {
-      "file": "02_분식회계와_대출_2003도3516.md",
-      "source_id": "67148",
-      "field": "판결요지",
-      "nonspace_characters": 0,
-      "preserved": true
-    },
-    {
-      "file": "02_분식회계와_대출_2003도3516.md",
-      "source_id": "67148",
-      "field": "참조조문",
-      "nonspace_characters": 420,
-      "preserved": true
-    },
-    {
-      "file": "02_분식회계와_대출_2003도3516.md",
-      "source_id": "67148",
-      "field": "참조판례",
-      "nonspace_characters": 1676,
       "preserved": true
     },
     {
@@ -87,64 +32,8 @@
     {
       "file": "03_국정농단_2018도13792.md",
       "source_id": "225457",
-      "field": "판시사항",
-      "nonspace_characters": 884,
-      "preserved": true
-    },
-    {
-      "file": "03_국정농단_2018도13792.md",
-      "source_id": "225457",
-      "field": "판결요지",
-      "nonspace_characters": 4700,
-      "preserved": true
-    },
-    {
-      "file": "03_국정농단_2018도13792.md",
-      "source_id": "225457",
-      "field": "참조조문",
-      "nonspace_characters": 155,
-      "preserved": true
-    },
-    {
-      "file": "03_국정농단_2018도13792.md",
-      "source_id": "225457",
-      "field": "참조판례",
-      "nonspace_characters": 952,
-      "preserved": true
-    },
-    {
-      "file": "03_국정농단_2018도13792.md",
-      "source_id": "225457",
       "field": "판례내용",
       "nonspace_characters": 45589,
-      "preserved": true
-    },
-    {
-      "file": "04_세월호_2015도6809.md",
-      "source_id": "209175",
-      "field": "판시사항",
-      "nonspace_characters": 1024,
-      "preserved": true
-    },
-    {
-      "file": "04_세월호_2015도6809.md",
-      "source_id": "209175",
-      "field": "판결요지",
-      "nonspace_characters": 4828,
-      "preserved": true
-    },
-    {
-      "file": "04_세월호_2015도6809.md",
-      "source_id": "209175",
-      "field": "참조조문",
-      "nonspace_characters": 868,
-      "preserved": true
-    },
-    {
-      "file": "04_세월호_2015도6809.md",
-      "source_id": "209175",
-      "field": "참조판례",
-      "nonspace_characters": 133,
       "preserved": true
     },
     {
@@ -157,64 +46,8 @@
     {
       "file": "05_전자정보_압수수색_2011모1839.md",
       "source_id": "209207",
-      "field": "판시사항",
-      "nonspace_characters": 1534,
-      "preserved": true
-    },
-    {
-      "file": "05_전자정보_압수수색_2011모1839.md",
-      "source_id": "209207",
-      "field": "판결요지",
-      "nonspace_characters": 4721,
-      "preserved": true
-    },
-    {
-      "file": "05_전자정보_압수수색_2011모1839.md",
-      "source_id": "209207",
-      "field": "참조조문",
-      "nonspace_characters": 411,
-      "preserved": true
-    },
-    {
-      "file": "05_전자정보_압수수색_2011모1839.md",
-      "source_id": "209207",
-      "field": "참조판례",
-      "nonspace_characters": 31,
-      "preserved": true
-    },
-    {
-      "file": "05_전자정보_압수수색_2011모1839.md",
-      "source_id": "209207",
       "field": "판례내용",
       "nonspace_characters": 23035,
-      "preserved": true
-    },
-    {
-      "file": "06_새만금_2006두330.md",
-      "source_id": "193967",
-      "field": "판시사항",
-      "nonspace_characters": 939,
-      "preserved": true
-    },
-    {
-      "file": "06_새만금_2006두330.md",
-      "source_id": "193967",
-      "field": "판결요지",
-      "nonspace_characters": 7038,
-      "preserved": true
-    },
-    {
-      "file": "06_새만금_2006두330.md",
-      "source_id": "193967",
-      "field": "참조조문",
-      "nonspace_characters": 1197,
-      "preserved": true
-    },
-    {
-      "file": "06_새만금_2006두330.md",
-      "source_id": "193967",
-      "field": "참조판례",
-      "nonspace_characters": 446,
       "preserved": true
     },
     {
@@ -227,64 +60,8 @@
     {
       "file": "07_전교조_2016두32992.md",
       "source_id": "226511",
-      "field": "판시사항",
-      "nonspace_characters": 756,
-      "preserved": true
-    },
-    {
-      "file": "07_전교조_2016두32992.md",
-      "source_id": "226511",
-      "field": "판결요지",
-      "nonspace_characters": 4640,
-      "preserved": true
-    },
-    {
-      "file": "07_전교조_2016두32992.md",
-      "source_id": "226511",
-      "field": "참조조문",
-      "nonspace_characters": 379,
-      "preserved": true
-    },
-    {
-      "file": "07_전교조_2016두32992.md",
-      "source_id": "226511",
-      "field": "참조판례",
-      "nonspace_characters": 228,
-      "preserved": true
-    },
-    {
-      "file": "07_전교조_2016두32992.md",
-      "source_id": "226511",
       "field": "판례내용",
       "nonspace_characters": 69371,
-      "preserved": true
-    },
-    {
-      "file": "08_사증_거부_2017두38874.md",
-      "source_id": "208725",
-      "field": "판시사항",
-      "nonspace_characters": 1301,
-      "preserved": true
-    },
-    {
-      "file": "08_사증_거부_2017두38874.md",
-      "source_id": "208725",
-      "field": "판결요지",
-      "nonspace_characters": 3288,
-      "preserved": true
-    },
-    {
-      "file": "08_사증_거부_2017두38874.md",
-      "source_id": "208725",
-      "field": "참조조문",
-      "nonspace_characters": 488,
-      "preserved": true
-    },
-    {
-      "file": "08_사증_거부_2017두38874.md",
-      "source_id": "208725",
-      "field": "참조판례",
-      "nonspace_characters": 415,
       "preserved": true
     },
     {
@@ -297,64 +74,8 @@
     {
       "file": "09_동성_동반자_건강보험_2023두36800.md",
       "source_id": "241011",
-      "field": "판시사항",
-      "nonspace_characters": 447,
-      "preserved": true
-    },
-    {
-      "file": "09_동성_동반자_건강보험_2023두36800.md",
-      "source_id": "241011",
-      "field": "판결요지",
-      "nonspace_characters": 2332,
-      "preserved": true
-    },
-    {
-      "file": "09_동성_동반자_건강보험_2023두36800.md",
-      "source_id": "241011",
-      "field": "참조조문",
-      "nonspace_characters": 139,
-      "preserved": true
-    },
-    {
-      "file": "09_동성_동반자_건강보험_2023두36800.md",
-      "source_id": "241011",
-      "field": "참조판례",
-      "nonspace_characters": 220,
-      "preserved": true
-    },
-    {
-      "file": "09_동성_동반자_건강보험_2023두36800.md",
-      "source_id": "241011",
       "field": "판례내용",
       "nonspace_characters": 43679,
-      "preserved": true
-    },
-    {
-      "file": "10_고엽제_2006다17539.md",
-      "source_id": "192119",
-      "field": "판시사항",
-      "nonspace_characters": 1289,
-      "preserved": true
-    },
-    {
-      "file": "10_고엽제_2006다17539.md",
-      "source_id": "192119",
-      "field": "판결요지",
-      "nonspace_characters": 3437,
-      "preserved": true
-    },
-    {
-      "file": "10_고엽제_2006다17539.md",
-      "source_id": "192119",
-      "field": "참조조문",
-      "nonspace_characters": 301,
-      "preserved": true
-    },
-    {
-      "file": "10_고엽제_2006다17539.md",
-      "source_id": "192119",
-      "field": "참조판례",
-      "nonspace_characters": 409,
       "preserved": true
     },
     {
@@ -367,64 +88,8 @@
     {
       "file": "11_KIKO_2012다13637.md",
       "source_id": "192259",
-      "field": "판시사항",
-      "nonspace_characters": 876,
-      "preserved": true
-    },
-    {
-      "file": "11_KIKO_2012다13637.md",
-      "source_id": "192259",
-      "field": "판결요지",
-      "nonspace_characters": 3567,
-      "preserved": true
-    },
-    {
-      "file": "11_KIKO_2012다13637.md",
-      "source_id": "192259",
-      "field": "참조조문",
-      "nonspace_characters": 170,
-      "preserved": true
-    },
-    {
-      "file": "11_KIKO_2012다13637.md",
-      "source_id": "192259",
-      "field": "참조판례",
-      "nonspace_characters": 337,
-      "preserved": true
-    },
-    {
-      "file": "11_KIKO_2012다13637.md",
-      "source_id": "192259",
       "field": "판례내용",
       "nonspace_characters": 14121,
-      "preserved": true
-    },
-    {
-      "file": "12_강제동원_2013다61381.md",
-      "source_id": "204201",
-      "field": "판시사항",
-      "nonspace_characters": 162,
-      "preserved": true
-    },
-    {
-      "file": "12_강제동원_2013다61381.md",
-      "source_id": "204201",
-      "field": "판결요지",
-      "nonspace_characters": 1793,
-      "preserved": true
-    },
-    {
-      "file": "12_강제동원_2013다61381.md",
-      "source_id": "204201",
-      "field": "참조조문",
-      "nonspace_characters": 187,
-      "preserved": true
-    },
-    {
-      "file": "12_강제동원_2013다61381.md",
-      "source_id": "204201",
-      "field": "참조판례",
-      "nonspace_characters": 0,
       "preserved": true
     },
     {
@@ -437,64 +102,8 @@
     {
       "file": "13_통상임금_2012다89399.md",
       "source_id": "209199",
-      "field": "판시사항",
-      "nonspace_characters": 614,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "209199",
-      "field": "판결요지",
-      "nonspace_characters": 5321,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "209199",
-      "field": "참조조문",
-      "nonspace_characters": 239,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "209199",
-      "field": "참조판례",
-      "nonspace_characters": 408,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "209199",
       "field": "판례내용",
       "nonspace_characters": 40487,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "600537",
-      "field": "판시사항",
-      "nonspace_characters": 163,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "600537",
-      "field": "판결요지",
-      "nonspace_characters": 2508,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "600537",
-      "field": "참조조문",
-      "nonspace_characters": 83,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "600537",
-      "field": "참조판례",
-      "nonspace_characters": 99,
       "preserved": true
     },
     {
@@ -507,64 +116,8 @@
     {
       "file": "13_통상임금_2012다89399.md",
       "source_id": "600539",
-      "field": "판시사항",
-      "nonspace_characters": 110,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "600539",
-      "field": "판결요지",
-      "nonspace_characters": 871,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "600539",
-      "field": "참조조문",
-      "nonspace_characters": 34,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "600539",
-      "field": "참조판례",
-      "nonspace_characters": 49,
-      "preserved": true
-    },
-    {
-      "file": "13_통상임금_2012다89399.md",
-      "source_id": "600539",
       "field": "판례내용",
       "nonspace_characters": 4811,
-      "preserved": true
-    },
-    {
-      "file": "14_교회_분열_2004다37775.md",
-      "source_id": "126700",
-      "field": "판시사항",
-      "nonspace_characters": 256,
-      "preserved": true
-    },
-    {
-      "file": "14_교회_분열_2004다37775.md",
-      "source_id": "126700",
-      "field": "판결요지",
-      "nonspace_characters": 3292,
-      "preserved": true
-    },
-    {
-      "file": "14_교회_분열_2004다37775.md",
-      "source_id": "126700",
-      "field": "참조조문",
-      "nonspace_characters": 53,
-      "preserved": true
-    },
-    {
-      "file": "14_교회_분열_2004다37775.md",
-      "source_id": "126700",
-      "field": "참조판례",
-      "nonspace_characters": 1215,
       "preserved": true
     },
     {
@@ -577,64 +130,8 @@
     {
       "file": "15_상속과_간호_2014스44_45.md",
       "source_id": "210541",
-      "field": "판시사항",
-      "nonspace_characters": 350,
-      "preserved": true
-    },
-    {
-      "file": "15_상속과_간호_2014스44_45.md",
-      "source_id": "210541",
-      "field": "판결요지",
-      "nonspace_characters": 901,
-      "preserved": true
-    },
-    {
-      "file": "15_상속과_간호_2014스44_45.md",
-      "source_id": "210541",
-      "field": "참조조문",
-      "nonspace_characters": 183,
-      "preserved": true
-    },
-    {
-      "file": "15_상속과_간호_2014스44_45.md",
-      "source_id": "210541",
-      "field": "참조판례",
-      "nonspace_characters": 499,
-      "preserved": true
-    },
-    {
-      "file": "15_상속과_간호_2014스44_45.md",
-      "source_id": "210541",
       "field": "판례내용",
       "nonspace_characters": 14100,
-      "preserved": true
-    },
-    {
-      "file": "16_인공수정과_친자_2016므2510.md",
-      "source_id": "210411",
-      "field": "판시사항",
-      "nonspace_characters": 223,
-      "preserved": true
-    },
-    {
-      "file": "16_인공수정과_친자_2016므2510.md",
-      "source_id": "210411",
-      "field": "판결요지",
-      "nonspace_characters": 3573,
-      "preserved": true
-    },
-    {
-      "file": "16_인공수정과_친자_2016므2510.md",
-      "source_id": "210411",
-      "field": "참조조문",
-      "nonspace_characters": 145,
-      "preserved": true
-    },
-    {
-      "file": "16_인공수정과_친자_2016므2510.md",
-      "source_id": "210411",
-      "field": "참조판례",
-      "nonspace_characters": 222,
       "preserved": true
     },
     {
@@ -647,64 +144,8 @@
     {
       "file": "17_공익법인에_주식_기부_2011두21447.md",
       "source_id": "184731",
-      "field": "판시사항",
-      "nonspace_characters": 166,
-      "preserved": true
-    },
-    {
-      "file": "17_공익법인에_주식_기부_2011두21447.md",
-      "source_id": "184731",
-      "field": "판결요지",
-      "nonspace_characters": 3008,
-      "preserved": true
-    },
-    {
-      "file": "17_공익법인에_주식_기부_2011두21447.md",
-      "source_id": "184731",
-      "field": "참조조문",
-      "nonspace_characters": 187,
-      "preserved": true
-    },
-    {
-      "file": "17_공익법인에_주식_기부_2011두21447.md",
-      "source_id": "184731",
-      "field": "참조판례",
-      "nonspace_characters": 0,
-      "preserved": true
-    },
-    {
-      "file": "17_공익법인에_주식_기부_2011두21447.md",
-      "source_id": "184731",
       "field": "판례내용",
       "nonspace_characters": 43712,
-      "preserved": true
-    },
-    {
-      "file": "18_해외_페이퍼컴퍼니_2018두128.md",
-      "source_id": "204237",
-      "field": "판시사항",
-      "nonspace_characters": 710,
-      "preserved": true
-    },
-    {
-      "file": "18_해외_페이퍼컴퍼니_2018두128.md",
-      "source_id": "204237",
-      "field": "판결요지",
-      "nonspace_characters": 2381,
-      "preserved": true
-    },
-    {
-      "file": "18_해외_페이퍼컴퍼니_2018두128.md",
-      "source_id": "204237",
-      "field": "참조조문",
-      "nonspace_characters": 241,
-      "preserved": true
-    },
-    {
-      "file": "18_해외_페이퍼컴퍼니_2018두128.md",
-      "source_id": "204237",
-      "field": "참조판례",
-      "nonspace_characters": 361,
       "preserved": true
     },
     {
@@ -717,64 +158,8 @@
     {
       "file": "19_특허_정정_2016후2522.md",
       "source_id": "226011",
-      "field": "판시사항",
-      "nonspace_characters": 296,
-      "preserved": true
-    },
-    {
-      "file": "19_특허_정정_2016후2522.md",
-      "source_id": "226011",
-      "field": "판결요지",
-      "nonspace_characters": 983,
-      "preserved": true
-    },
-    {
-      "file": "19_특허_정정_2016후2522.md",
-      "source_id": "226011",
-      "field": "참조조문",
-      "nonspace_characters": 60,
-      "preserved": true
-    },
-    {
-      "file": "19_특허_정정_2016후2522.md",
-      "source_id": "226011",
-      "field": "참조판례",
-      "nonspace_characters": 378,
-      "preserved": true
-    },
-    {
-      "file": "19_특허_정정_2016후2522.md",
-      "source_id": "226011",
       "field": "판례내용",
       "nonspace_characters": 13133,
-      "preserved": true
-    },
-    {
-      "file": "20_AMERICAN_UNIVERSITY_2015후1454.md",
-      "source_id": "198440",
-      "field": "판시사항",
-      "nonspace_characters": 507,
-      "preserved": true
-    },
-    {
-      "file": "20_AMERICAN_UNIVERSITY_2015후1454.md",
-      "source_id": "198440",
-      "field": "판결요지",
-      "nonspace_characters": 2358,
-      "preserved": true
-    },
-    {
-      "file": "20_AMERICAN_UNIVERSITY_2015후1454.md",
-      "source_id": "198440",
-      "field": "참조조문",
-      "nonspace_characters": 209,
-      "preserved": true
-    },
-    {
-      "file": "20_AMERICAN_UNIVERSITY_2015후1454.md",
-      "source_id": "198440",
-      "field": "참조판례",
-      "nonspace_characters": 124,
       "preserved": true
     },
     {
@@ -784,5 +169,99 @@
       "nonspace_characters": 16337,
       "preserved": true
     }
-  ]
+  ],
+  "annotation_progress": {
+    "finished_cases": 22,
+    "total_cases": 22,
+    "finished": [
+      {
+        "source_id": "600537",
+        "paragraphs": 74
+      },
+      {
+        "source_id": "204201",
+        "paragraphs": 186
+      },
+      {
+        "source_id": "209175",
+        "paragraphs": 288
+      },
+      {
+        "source_id": "184731",
+        "paragraphs": 197
+      },
+      {
+        "source_id": "241011",
+        "paragraphs": 219
+      },
+      {
+        "source_id": "198440",
+        "paragraphs": 101
+      },
+      {
+        "source_id": "193967",
+        "paragraphs": 144
+      },
+      {
+        "source_id": "126700",
+        "paragraphs": 124
+      },
+      {
+        "source_id": "209207",
+        "paragraphs": 103
+      },
+      {
+        "source_id": "600539",
+        "paragraphs": 30
+      },
+      {
+        "source_id": "225457",
+        "paragraphs": 253
+      },
+      {
+        "source_id": "209155",
+        "paragraphs": 343
+      },
+      {
+        "source_id": "204237",
+        "paragraphs": 160
+      },
+      {
+        "source_id": "192259",
+        "paragraphs": 69
+      },
+      {
+        "source_id": "210411",
+        "paragraphs": 246
+      },
+      {
+        "source_id": "208725",
+        "paragraphs": 63
+      },
+      {
+        "source_id": "210541",
+        "paragraphs": 108
+      },
+      {
+        "source_id": "226011",
+        "paragraphs": 65
+      },
+      {
+        "source_id": "209199",
+        "paragraphs": 206
+      },
+      {
+        "source_id": "192119",
+        "paragraphs": 120
+      },
+      {
+        "source_id": "226511",
+        "paragraphs": 293
+      },
+      {
+        "source_id": "67148",
+        "paragraphs": 91
+      }
+    ]
+  }
 }

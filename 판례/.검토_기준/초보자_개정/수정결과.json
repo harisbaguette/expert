@@ -1,0 +1,122 @@
+{
+  "paragraph_changes": [
+    {
+      "source_id": "210411",
+      "changed": 15,
+      "added": 5
+    },
+    {
+      "source_id": "204237",
+      "changed": 10,
+      "added": 3
+    },
+    {
+      "source_id": "67148",
+      "changed": 21,
+      "added": 2
+    },
+    {
+      "source_id": "209199",
+      "changed": 19,
+      "added": 4
+    },
+    {
+      "source_id": "210541",
+      "changed": 9,
+      "added": 0
+    },
+    {
+      "source_id": "209207",
+      "changed": 12,
+      "added": 3
+    },
+    {
+      "source_id": "241011",
+      "changed": 12,
+      "added": 5
+    },
+    {
+      "source_id": "209175",
+      "changed": 14,
+      "added": 5
+    },
+    {
+      "source_id": "226011",
+      "changed": 11,
+      "added": 0
+    },
+    {
+      "source_id": "600539",
+      "changed": 9,
+      "added": 3
+    },
+    {
+      "source_id": "209155",
+      "changed": 35,
+      "added": 0
+    },
+    {
+      "source_id": "198440",
+      "changed": 10,
+      "added": 0
+    },
+    {
+      "source_id": "184731",
+      "changed": 12,
+      "added": 5
+    },
+    {
+      "source_id": "600537",
+      "changed": 10,
+      "added": 3
+    },
+    {
+      "source_id": "204201",
+      "changed": 15,
+      "added": 2
+    },
+    {
+      "source_id": "226511",
+      "changed": 22,
+      "added": 5
+    },
+    {
+      "source_id": "192119",
+      "changed": 15,
+      "added": 3
+    },
+    {
+      "source_id": "208725",
+      "changed": 12,
+      "added": 0
+    },
+    {
+      "source_id": "193967",
+      "changed": 19,
+      "added": 3
+    },
+    {
+      "source_id": "126700",
+      "changed": 12,
+      "added": 3
+    },
+    {
+      "source_id": "192259",
+      "changed": 13,
+      "added": 0
+    },
+    {
+      "source_id": "225457",
+      "changed": 22,
+      "added": 6
+    }
+  ],
+  "comprehensive_explanations": 20,
+  "comparison_tables": 20,
+  "definitions_modified_by_this_revision": false,
+  "original_characters_preserved": 655059,
+  "rendered_examples_checked": [
+    "원문 아래 파란 해설",
+    "현재 상태와 보완 표"
+  ]
+}
