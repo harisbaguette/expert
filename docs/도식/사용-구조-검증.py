@@ -7,9 +7,9 @@
 from pathlib import Path
 from html import unescape
 from collections import Counter
-import json,re
+import json,re,sys
 ROOT=Path(__file__).resolve().parents[2]
-doc=(ROOT/'전문가 에이전트 정의.md').read_text()
+doc=(Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'전문가 에이전트 정의.md').read_text()
 part=doc.split('## 계통별 재료')[1].split('## 사용 구조')[0]
 catalog={}
 for line in part.splitlines():
@@ -56,14 +56,43 @@ for scenario,source in zip(('단독','오케스트레이션','복합'),blocks):
 
     # 이름 존재 여부와 별도로, 지원·선행 재료의 결과가 소비되는 경로를 확인한다.
     # blocked는 그 재료를 사용하지 않고도 결과에 도달하는 잘못된 우회 검사에 쓴다.
+    # 상태를 모은 뒤 다시 분기하는 도형은 들어온 상태에 맞는 출구만 탄다.
+    # 이 구분 없이 단순 연결만 탐색하면, '배정 금지'가 '배정 가능' 출구로
+    # 나가는 등 실제 도식에 없는 우회를 잘못 검출하게 된다.
+    hubs={'outcome_state':'next_route','batch_state':'batch_route','dispatch_status':'dispatch_route'}
+    def incoming_state(hub,label):
+        label=(label or '').replace('<br/>',' ')
+        if hub=='dispatch_status':
+            if '배정 가능' in label:return 'ready'
+            if '답변·조건' in label:return 'recheck'
+            if '기한 종료' in label:return 'retry'
+            if any(x in label for x in ('금지','거절','취소')):return 'stop'
+        else:
+            if '계속할 수 없음' in label:return 'stop'
+            if '전체 완료' in label or '담당 작업 완료' in label:return 'done'
+            if any(x in label for x in ('계속','재계획','보완','다음 재료')):return 'continue'
+        raise AssertionError((scenario,'합류 상태를 식별할 수 없음',hub,label))
+
     def reaches(start, target, blocked=()):
-        todo=[start];seen=set(blocked)
+        todo=[(start,())];seen=set();blocked=set(blocked)
         while todo:
-            key=todo.pop()
-            if key in seen:continue
+            key,state_items=todo.pop()
+            if key in blocked or (key,state_items) in seen:continue
             if key==target:return True
-            seen.add(key)
-            todo.extend(b for a,b,kind,_ in edges if a==key and kind=='-->')
+            seen.add((key,state_items));state=dict(state_items)
+            for a,b,kind,label in edges:
+                if a!=key or kind!='-->':continue
+                label=(label or '').replace('<br/>',' ')
+                if key in hubs.values() and key in state:
+                    value=state[key]
+                    if key=='dispatch_route':
+                        expected=('ready' if label=='배정 가능' else 'recheck' if '다시 검사' in label
+                                  else 'retry' if '재조정' in label else 'stop')
+                        if value!=expected:continue
+                    elif label.startswith('예')!=(value=='continue'):continue
+                updated=state.copy()
+                if b in hubs:updated[hubs[b]]=incoming_state(b,label)
+                todo.append((b,tuple(sorted(updated.items()))))
         return False
 
     def has_edge(a,b):
@@ -90,10 +119,13 @@ for scenario,source in zip(('단독','오케스트레이션','복합'),blocks):
     assert not reaches('source_join','enriched',{'source_version'}),(scenario,'추가 자료의 판본 검사 누락')
     rule_nodes={f'rule_{i}' for i in range(8)}|{'rule_rank1'}
     assert not any(a in rule_nodes and b in rule_nodes and kind=='-->' for a,b,kind,_ in edges),(scenario,'규칙 위계를 실행 순서로 표기')
-    assert has_edge('more','safety'),(scenario,'다음 재료 사용 전 권한·한도 검사 누락')
+    for guard in ('authority','limit','safety'):
+        assert reaches('more',guard),(scenario,'다음 재료 사용 전 재검사 경로 누락',guard)
+        assert not reaches('more','select',{guard}),(scenario,'다음 재료의 권한·한도 검사 우회',guard)
+    assert reaches('more','expert_output',{'fix','rule_hold','ability_hold','human_hold','unknown_hold'}),(scenario,'담당 작업 완료를 재실행·중단 없이 반환하지 못함')
     semantic_checks=['지원 재료의 사용처','선행 결과의 전달','불필요한 처리 생략','추가 근거 검증','규칙 위계와 실행 구분','다음 실행 재검사']
     if scenario!='단독':
-        assert has_edge('follow','dispatch_state'),(scenario,'후속 작업을 전체 재배정으로 처리')
+        assert reaches('follow','dispatch_state'),(scenario,'후속 작업의 현재 상태 확인 누락')
         assignment='dispatch2' if scenario=='오케스트레이션' else 'dispatch3'
         assert not reaches('follow',assignment,{'schedule'}),(scenario,'준비된 작업 선택 우회')
         assert not reaches('follow',assignment,{'dispatch_guard'}),(scenario,'위임 허용 검사 우회')
@@ -105,7 +137,7 @@ for scenario,source in zip(('단독','오케스트레이션','복합'),blocks):
         semantic_checks+=['독립·병렬 실행','완료 결과 보존','후속 작업 준비·권한 확인']
     if scenario=='복합':
         assert has_edge('result_save','cross_change'),(scenario,'진행 중 변경 확인 누락')
-        assert has_edge('impact_ok','invalidate') and has_edge('invalidate','dispatch_state'),(scenario,'변경으로 무효인 후속 결과의 재작업 누락')
+        assert has_edge('impact_ok','invalidate') and reaches('invalidate','dispatch_state'),(scenario,'변경으로 무효인 후속 결과의 재작업 누락')
         for suffix in ('a','b'):
             assert has_edge('team_next_'+suffix,'lead_'+suffix),(scenario,'팀 내부 후속 작업 연결 누락')
         semantic_checks+=['진행 중 건 사이 변경 확인','의존 결과의 사용 중단·재작업','팀 내부 후속 작업']

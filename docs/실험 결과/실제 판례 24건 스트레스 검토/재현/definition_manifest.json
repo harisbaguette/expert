@@ -1,0 +1,30 @@
+[
+  {
+    "file": "전문가 에이전트 정의.md",
+    "sha256": "ec97edec18dcd270205f2a88f6a3069306347a3d5de47c0d49288af7a4bc44ba"
+  },
+  {
+    "file": "전문가 에이전트 정의 2.md",
+    "sha256": "e3795cc05655f8a4eeab08a3ad5001b0915a58bb8c9140affc5277aa3494cbce"
+  },
+  {
+    "file": "docs/materials.md",
+    "sha256": "0dd1f97842fdab7d688edf46ee080c1ce16bbec8b7c7100dc01f351c37912aac"
+  },
+  {
+    "file": "docs/runtime.md",
+    "sha256": "fcf74c7ac0c3a91afcf93637828c2cb67e2b152f4c49b30f75e126ebbb7382ba"
+  },
+  {
+    "file": "docs/evaluation.md",
+    "sha256": "3d6565dba9df457ed166c206da1d70030d57247e7cc8cff8591878c44b30097c"
+  },
+  {
+    "file": "docs/도식/사용-구조-검증.py",
+    "sha256": "df979363d9ba223f793d1c67d3fb1b84c7af2299cf4b74d9f1adadc62158b967"
+  },
+  {
+    "file": "docs/전개-수식/전개-수식-gen.py",
+    "sha256": "4ac32a0adb2bb839e37422100714df5a6635ba8c6d1159731998a30c131e9b74"
+  }
+]

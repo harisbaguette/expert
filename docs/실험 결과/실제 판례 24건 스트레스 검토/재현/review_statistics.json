@@ -1,0 +1,19 @@
+{
+  "selected": 24,
+  "unique_case_keys": 24,
+  "categories": {
+    "형사": 6,
+    "일반행정": 4,
+    "민사": 7,
+    "가사": 3,
+    "세무": 2,
+    "특허": 2
+  },
+  "body_chars_total": 959288,
+  "en_banc": 19,
+  "dissent_signal": 18,
+  "corpus_duplicate_key_groups": 1384,
+  "corpus_duplicate_key_extra_records": 1423,
+  "autonomous_run_count": 0,
+  "autonomous_success_rate": null
+}

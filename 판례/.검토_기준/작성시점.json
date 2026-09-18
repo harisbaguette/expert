@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-09-18T08:49:29.494251+09:00",
+  "note": "다른 작업의 수정과 구분하기 위해 이 시점의 문서를 보관함. 원본 정의는 수정하지 않음.",
+  "files": [
+    {
+      "source": "/Users/haris/Desktop/전문가 에이전트 정의/전문가 에이전트 정의.md",
+      "snapshot": ".검토_기준/전문가 에이전트 정의.md",
+      "sha256": "ab806c10aaadd026f4eba939ee75015d06c90624df91c098107ef9ea10d845f4"
+    },
+    {
+      "source": "/Users/haris/Desktop/전문가 에이전트 정의/전문가 에이전트 정의 2.md",
+      "snapshot": ".검토_기준/전문가 에이전트 정의 2.md",
+      "sha256": "eec3d6a14f4a97307f834a9b19932fb3b4932785036f72724f0ab7ba49116c8f"
+    },
+    {
+      "source": "/Users/haris/Desktop/전문가 에이전트 정의/docs/materials.md",
+      "snapshot": ".검토_기준/materials.md",
+      "sha256": "0dd1f97842fdab7d688edf46ee080c1ce16bbec8b7c7100dc01f351c37912aac"
+    }
+  ]
+}

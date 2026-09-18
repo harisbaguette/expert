@@ -1,0 +1,82 @@
+{
+  "scope": "보존한 큰 업무 처리 흐름의 정적 도식 검사; 실행 엔진 동작 시험 아님",
+  "material_count": 79,
+  "mapped_material_count": 77,
+  "unmapped_names": [
+    "못 찾음·없음 구분",
+    "보고 주체 확인"
+  ],
+  "probes": [
+    {
+      "id": "D02",
+      "issue": "목표 불변인 기존 건이 새 자료 검증을 우회할 수 있는 도식 경로",
+      "path": [
+        "LOAD_CASE",
+        "CASE_CHANGED",
+        "OPTIONS"
+      ]
+    },
+    {
+      "id": "D03",
+      "issue": "사용자 요청은 긴급피해 판단을 거치지 않고 접수로 들어가는 도식 경로",
+      "path": [
+        "REQ",
+        "CASE_TYPE",
+        "INTAKE_CHECK"
+      ]
+    },
+    {
+      "id": "D04",
+      "issue": "실패 판단 노드에 부분성공·결과불명 분기가 명시되지 않음",
+      "branches": [
+        [
+          "EXEC_FAIL",
+          "ACTUAL_RESULT",
+          "아니오"
+        ],
+        [
+          "EXEC_FAIL",
+          "EXEC_LIMIT",
+          "예"
+        ]
+      ]
+    },
+    {
+      "id": "D05",
+      "issue": "의도 답변 대기의 반복 경로에 기한·종료 분기가 명시되지 않음",
+      "branches": [
+        [
+          "INTENT_ASK",
+          "INTENT_CONFIRMED",
+          null
+        ],
+        [
+          "INTENT_CONFIRMED",
+          "PROBLEM_ANALYSIS",
+          "예"
+        ],
+        [
+          "INTENT_CONFIRMED",
+          "ASSUME_SAFE",
+          "아니오"
+        ],
+        [
+          "ASSUME_SAFE",
+          "ASSUMPTION",
+          "예"
+        ],
+        [
+          "ASSUME_SAFE",
+          "INTENT_WAIT",
+          "아니오"
+        ],
+        [
+          "INTENT_WAIT",
+          "INTENT_ASK",
+          null
+        ]
+      ]
+    }
+  ],
+  "limitation": "분기 의미와 상시 규칙을 자동 실행한 것이 아니다. 상세 runtime 및 새 사용 구조의 보완을 함께 읽어야 한다."
+}

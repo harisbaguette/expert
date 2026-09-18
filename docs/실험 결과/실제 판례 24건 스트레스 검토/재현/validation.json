@@ -1,0 +1,28 @@
+{
+  "scope": "검토 산출물의 무결성·참조·집계만 검사. 법리 정확도·에이전트 실행 능력·승소율은 채점하지 않음.",
+  "source": {
+    "source_hashes": 24,
+    "unique_cases": 24,
+    "material_references": "유효",
+    "evidence_anchor_presence": "통과"
+  },
+  "corpus": {
+    "inventory_rows": 123352,
+    "error_rows": 47245,
+    "total": 170597
+  },
+  "definition": {
+    "snapshot_files": 7,
+    "live_files_changed_since_snapshot": [
+      "전문가 에이전트 정의.md",
+      "전문가 에이전트 정의 2.md",
+      "docs/도식/사용-구조-검증.py"
+    ]
+  },
+  "reports": {
+    "case_cards": 24,
+    "csv_rows": 24,
+    "local_links": 66
+  },
+  "status": "검토 기록 검증 통과"
+}

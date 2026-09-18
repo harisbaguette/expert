@@ -1,0 +1,11 @@
+{
+  "returncode": 0,
+  "stdout": "[\n  {\n    \"scenario\": \"단독\",\n    \"format\": \"inline Mermaid\",\n    \"materials\": 79,\n    \"types\": {\n      \"상시\": 29,\n      \"단계별\": 17,\n      \"조건부\": 33\n    },\n    \"one_material_per_material_node\": true,\n    \"nodes\": 181,\n    \"decisions_with_labeled_branches\": 53,\n    \"edges_excluding_layout\": 251,\n    \"semantic_path_checks\": [\n      \"지원 재료의 사용처\",\n      \"선행 결과의 전달\",\n      \"불필요한 처리 생략\",\n      \"추가 근거 검증\",\n      \"규칙 위계와 실행 구분\",\n      \"다음 실행 재검사\"\n    ]\n  },\n  {\n    \"scenario\": \"오케스트레이션\",\n    \"format\": \"inline Mermaid\",\n    \"materials\": 79,\n    \"types\": {\n      \"상시\": 29,\n      \"단계별\": 17,\n      \"조건부\": 33\n    },\n    \"one_material_per_material_node\": true,\n    \"nodes\": 215,\n    \"decisions_with_labeled_branches\": 62,\n    \"edges_excluding_layout\": 301,\n    \"semantic_path_checks\": [\n      \"지원 재료의 사용처\",\n      \"선행 결과의 전달\",\n      \"불필요한 처리 생략\",\n      \"추가 근거 검증\",\n      \"규칙 위계와 실행 구분\",\n      \"다음 실행 재검사\",\n      \"독립·병렬 실행\",\n      \"완료 결과 보존\",\n      \"후속 작업 준비·권한 확인\"\n    ]\n  },\n  {\n    \"scenario\": \"복합\",\n    \"format\": \"inline Mermaid\",\n    \"materials\": 79,\n    \"types\": {\n      \"상시\": 29,\n      \"단계별\": 17,\n      \"조건부\": 33\n    },\n    \"one_material_per_material_node\": true,\n    \"nodes\": 227,\n    \"decisions_with_labeled_branches\": 66,\n    \"edges_excluding_layout\": 317,\n    \"semantic_path_checks\": [\n      \"지원 재료의 사용처\",\n      \"선행 결과의 전달\",\n      \"불필요한 처리 생략\",\n      \"추가 근거 검증\",\n      \"규칙 위계와 실행 구분\",\n      \"다음 실행 재검사\",\n      \"독립·병렬 실행\",\n      \"완료 결과 보존\",\n      \"후속 작업 준비·권한 확인\",\n      \"진행 중 건 사이 변경 확인\",\n      \"의존 결과의 사용 중단·재작업\",\n      \"팀 내부 후속 작업\"\n    ]\n  }\n]\n",
+  "stderr": "",
+  "sections_unchanged": {
+    "## 업무 처리 흐름": true,
+    "## 계통별 재료": true
+  },
+  "definition_sha256": "6a03f9ac75c20e825fce6a24fe91db69f9191eae3f9676d69c808fd1fcc90399",
+  "checker_sha256": "2352f6ff395ee4eb3163f2797e4f59d44f64ffa19f6fa70f04fb8d7f31693b56"
+}

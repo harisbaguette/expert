@@ -1,0 +1,21 @@
+{
+  "사용구조검사": {
+    "command": [
+      "python3",
+      "docs/도식/사용-구조-검증.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/Users/haris/Desktop/전문가 에이전트 정의/docs/도식/사용-구조-검증.py\", line 124, in <module>\n    assert not reaches('more','select',{guard}),(scenario,'다음 재료의 권한·한도 검사 우회',guard)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('단독', '다음 재료의 권한·한도 검사 우회', 'authority')\n"
+  },
+  "전개도검사": {
+    "command": [
+      "python3",
+      "docs/전개-수식/전개-수식-gen.py",
+      "--help"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/Users/haris/Desktop/전문가 에이전트 정의/docs/전개-수식/전개-수식-gen.py\", line 191, in <module>\n    MATERIALS = load_summary((ROOT / \"전문가 에이전트 정의.md\").read_text(encoding=\"utf-8\"))\n                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/haris/Desktop/전문가 에이전트 정의/docs/전개-수식/전개-수식-gen.py\", line 155, in load_summary\n    raise ValueError(\"본문 항목은 중복 없이 77개여야 합니다.\")\nValueError: 본문 항목은 중복 없이 77개여야 합니다.\n"
+  }
+}
