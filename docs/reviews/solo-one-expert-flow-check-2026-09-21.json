@@ -1,0 +1,24 @@
+{
+  "scenario": "단독 상황 — 한 건 · 한 전문가",
+  "materials": 79,
+  "material_types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "nodes": 107,
+  "connections": 97,
+  "dimensions": [
+    2160,
+    8280.0
+  ],
+  "original_document_prefix_preserved": true,
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "0fdb50889705a26cacc3461d48bc28ee622d44c27524d601ee4bdcd07da0a714",
+  "browser": "Chrome/152.0.7977.75",
+  "geometry_issues": [],
+  "scope_of_check": "Canonical coverage, key flow connections and actual rendered geometry; not a guarantee of universal comprehension.",
+  "png_sha256": "31f678570d6507b79890a54998ab831412bd1152e4c0aa90522123e9c97140d3",
+  "image_embedded_under_solo_heading": true,
+  "visual_review": "전체 렌더와 구간별 확대 렌더에서 글자, 도형, 연결 방향을 확인함."
+}
