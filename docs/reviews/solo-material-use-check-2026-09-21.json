@@ -1,0 +1,89 @@
+{
+  "materials": 79,
+  "types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "control_nodes": 23,
+  "all_control_nodes_reachable": true,
+  "all_control_paths_have_terminal_routes": true,
+  "checked_paths": {
+    "normal": [
+      "start",
+      "intake",
+      "evidence",
+      "rules",
+      "plan",
+      "permit",
+      "work",
+      "verify",
+      "quality",
+      "delivery",
+      "received",
+      "learn",
+      "finish"
+    ],
+    "rework": [
+      "quality",
+      "plan",
+      "permit",
+      "work",
+      "verify"
+    ],
+    "approval": [
+      "permit",
+      "human",
+      "identity",
+      "human_valid",
+      "permit"
+    ],
+    "invalid_approval": [
+      "human_valid",
+      "human_hold"
+    ],
+    "unconfirmed": [
+      "quality",
+      "wait",
+      "wait_result",
+      "verify"
+    ],
+    "still_waiting": [
+      "wait_result",
+      "wait",
+      "wait_result"
+    ],
+    "wait_expired": [
+      "wait_result",
+      "wait_hold"
+    ],
+    "receipt_correction": [
+      "received",
+      "plan",
+      "permit",
+      "work"
+    ],
+    "receipt_wait": [
+      "received",
+      "receipt_wait",
+      "received"
+    ],
+    "receipt_rejected": [
+      "received",
+      "receipt_stop"
+    ]
+  },
+  "dimensions": [
+    1660,
+    8169
+  ],
+  "display_width": 1100,
+  "geometry_issues": [],
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "cb4aa8e5ab8e679b14c26f2dacfc831d1ea01ae8bc953efa6c4a29c0951a07a9",
+  "browser": "Chrome/152.0.7977.75",
+  "limitation": "Checks cover canonical names, modeled paths and measured geometry; they do not certify universal human comprehension.",
+  "png_sha256": "0b8d98622702203b9ded9a645145abc364527fd03e6b5bf7b6f781f68daecb49",
+  "document_embedded": true,
+  "visual_review": "원문 이미지의 일러스트 계통과 대조하고, 1100px 표시 폭에서 전체 구간을 직접 확인했다."
+}

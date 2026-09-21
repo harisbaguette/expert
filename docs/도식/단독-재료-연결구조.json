@@ -1,0 +1,5589 @@
+{
+  "width": 1800,
+  "height": 12120,
+  "nodes": {
+    "start": {
+      "id": "start",
+      "title": "한 건의 요청·재개",
+      "x": 730,
+      "y": 40,
+      "w": 340,
+      "h": 68,
+      "body": "",
+      "kind": "terminal",
+      "material": null
+    },
+    "signal": {
+      "id": "signal",
+      "title": "시작 신호",
+      "x": 710,
+      "y": 158,
+      "w": 380,
+      "h": 105,
+      "body": "새 요청·변경·답변을\n해당 건에 연결",
+      "kind": "process",
+      "material": "시작 신호"
+    },
+    "early": {
+      "id": "early",
+      "title": "먼저 알아채기",
+      "x": 100,
+      "y": 355,
+      "w": 410,
+      "h": 110,
+      "body": "감시를 맡았다면\n문제·기회와 대응 이유를 발견",
+      "kind": "process",
+      "material": "먼저 알아채기"
+    },
+    "change": {
+      "id": "change",
+      "title": "변경 감시·반영",
+      "x": 100,
+      "y": 550,
+      "w": 410,
+      "h": 120,
+      "body": "추적할 변화가 생기면\n바뀐 근거와 영향받은 결과를 알림",
+      "kind": "process",
+      "material": "변경 감시·반영"
+    },
+    "watch": {
+      "id": "watch",
+      "title": "상황 감시를 맡은 동안",
+      "x": 120,
+      "y": 40,
+      "w": 370,
+      "h": 68,
+      "body": "",
+      "kind": "terminal",
+      "material": null
+    },
+    "watchtype": {
+      "id": "watchtype",
+      "title": "어떤 신호인가?",
+      "x": 145,
+      "y": 160,
+      "w": 320,
+      "h": 145,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "case": {
+      "id": "case",
+      "title": "업무별 정보",
+      "x": 710,
+      "y": 330,
+      "w": 380,
+      "h": 110,
+      "body": "요청·대상·기한·상황과\n새로 들어온 자료를 모음",
+      "kind": "process",
+      "material": "업무별 정보"
+    },
+    "understand": {
+      "id": "understand",
+      "title": "정보·자료 이해",
+      "x": 710,
+      "y": 510,
+      "w": 380,
+      "h": 110,
+      "body": "자료의 내용·맥락을 읽어\n사실·주장·불명확한 점을 구별",
+      "kind": "process",
+      "material": "정보·자료 이해"
+    },
+    "intent": {
+      "id": "intent",
+      "title": "지시·의도 파악",
+      "x": 710,
+      "y": 690,
+      "w": 380,
+      "h": 110,
+      "body": "원하는 결과와 맡긴 범위를 파악\n해석에 따라 범위가 달라지면 확인",
+      "kind": "process",
+      "material": "지시·의도 파악"
+    },
+    "communicate0": {
+      "id": "communicate0",
+      "title": "사람과 소통",
+      "x": 100,
+      "y": 865,
+      "w": 410,
+      "h": 110,
+      "body": "범위를 바꾸는 모호함이 있으면\n구체적으로 묻고 답을 확인",
+      "kind": "process",
+      "material": "사람과 소통"
+    },
+    "live": {
+      "id": "live",
+      "title": "실시간 대화",
+      "x": 100,
+      "y": 700,
+      "w": 410,
+      "h": 105,
+      "body": "즉시 주고받는 대화라면\n발언·중단·재접속을 연결",
+      "kind": "process",
+      "material": "실시간 대화",
+      "input_from": "communicate0"
+    },
+    "goal": {
+      "id": "goal",
+      "title": "문제·목표·완료 조건",
+      "x": 710,
+      "y": 1035,
+      "w": 380,
+      "h": 120,
+      "body": "풀 문제·범위·우선순위와\n끝났음을 확인할 증거를 정함",
+      "kind": "process",
+      "material": "문제·목표·완료 조건"
+    },
+    "measure0": {
+      "id": "measure0",
+      "title": "성과 추적",
+      "x": 1270,
+      "y": 1035,
+      "w": 410,
+      "h": 120,
+      "body": "목표에서 확인 항목과 시점을 정함\n완료 뒤에도 실제 효과를 확인",
+      "kind": "process",
+      "material": "성과 추적"
+    },
+    "unused": {
+      "id": "unused",
+      "title": "나눠 맡기기",
+      "x": 1270,
+      "y": 160,
+      "w": 410,
+      "h": 110,
+      "body": "이 상황에서는 쓰지 않음\n한 전문가가 전 과정을 담당",
+      "kind": "unused",
+      "material": "나눠 맡기기"
+    },
+    "search": {
+      "id": "search",
+      "title": "정보·자료 찾기",
+      "x": 295,
+      "y": 1320,
+      "w": 370,
+      "h": 110,
+      "body": "부족한 정보·방법·원문을 찾음\n찾은 출처와 미확보 항목을 남김",
+      "kind": "process",
+      "material": "정보·자료 찾기"
+    },
+    "absent": {
+      "id": "absent",
+      "title": "못 찾음·없음 구분",
+      "x": 135,
+      "y": 1530,
+      "w": 330,
+      "h": 125,
+      "body": "빈 검색이면 범위·질의 확인\n근거 없이 “없다”로 단정하지 않음",
+      "kind": "process",
+      "material": "못 찾음·없음 구분"
+    },
+    "now": {
+      "id": "now",
+      "title": "현재 값·상태 확인",
+      "x": 490,
+      "y": 1530,
+      "w": 330,
+      "h": 125,
+      "body": "현재 값이 판단을 바꾸면 조회\n처리 불명 거래는 재실행 전 확인",
+      "kind": "process",
+      "material": "현재 값·상태 확인"
+    },
+    "case_ref": {
+      "id": "case_ref",
+      "title": "적용 사례",
+      "x": 135,
+      "y": 1720,
+      "w": 215,
+      "h": 130,
+      "body": "필요한 사례의\n조건·근거·결과 비교",
+      "kind": "source",
+      "material": "적용 사례",
+      "input_from": "search"
+    },
+    "reference": {
+      "id": "reference",
+      "title": "참고 자료",
+      "x": 370,
+      "y": 1720,
+      "w": 215,
+      "h": 130,
+      "body": "필요한 원리·방법·\n표현을 참고",
+      "kind": "source",
+      "material": "참고 자료",
+      "input_from": "search"
+    },
+    "reuse": {
+      "id": "reuse",
+      "title": "재사용 자료",
+      "x": 605,
+      "y": 1720,
+      "w": 215,
+      "h": 130,
+      "body": "서식·부품을 쓰면\n권리·환경 확인",
+      "kind": "source",
+      "material": "재사용 자료",
+      "input_from": "search"
+    },
+    "trust": {
+      "id": "trust",
+      "title": "근거의 신뢰성·적합성",
+      "x": 240,
+      "y": 1950,
+      "w": 480,
+      "h": 125,
+      "body": "찾은 자료·조회 결과·사례의 출처와 증거 등급 대조\n이번 대상에 맞고 받아들여질 근거인지 확인",
+      "kind": "process",
+      "material": "근거의 신뢰성·적합성",
+      "used_at": "each relevant judgment, execution and verification"
+    },
+    "version": {
+      "id": "version",
+      "title": "자료의 시점·버전",
+      "x": 240,
+      "y": 2145,
+      "w": 480,
+      "h": 110,
+      "body": "이번 대상·시점에 맞는 판본을 선택\n원문의 위치·확인 시각·변경 관계를 연결",
+      "kind": "process",
+      "material": "자료의 시점·버전",
+      "used_at": "each relevant judgment, execution and verification"
+    },
+    "knowledge": {
+      "id": "knowledge",
+      "title": "업무 지식",
+      "x": 135,
+      "y": 2340,
+      "w": 330,
+      "h": 125,
+      "body": "검증된 근거를 원리·방법으로 연결\n적용 조건·예외를 판단에 제공",
+      "kind": "source",
+      "material": "업무 지식",
+      "used_at": "each relevant judgment, execution and verification"
+    },
+    "experience": {
+      "id": "experience",
+      "title": "실전 경험·감각",
+      "x": 490,
+      "y": 2340,
+      "w": 330,
+      "h": 125,
+      "body": "관련 경험의 단서·요령을 대조\n지금 상황에 맞는 해석을 도움",
+      "kind": "source",
+      "material": "실전 경험·감각",
+      "used_at": "each relevant judgment, execution and verification"
+    },
+    "memory": {
+      "id": "memory",
+      "title": "장기 기억",
+      "x": 240,
+      "y": 2555,
+      "w": 480,
+      "h": 115,
+      "body": "해당 고객·건의 이전 결정·약속·교훈을 꺼냄\n현재 근거와 맞는지 확인해 사용",
+      "kind": "source",
+      "material": "장기 기억",
+      "used_at": "each relevant judgment, execution and verification"
+    },
+    "original": {
+      "id": "original",
+      "title": "규칙·기준 원문",
+      "x": 1120,
+      "y": 1320,
+      "w": 400,
+      "h": 100,
+      "body": "출처·설정 권한·범위·시점을 확인",
+      "kind": "source",
+      "material": "규칙·기준 원문"
+    },
+    "law": {
+      "id": "law",
+      "title": "법·의무 기준",
+      "x": 985,
+      "y": 1490,
+      "w": 670,
+      "h": 105,
+      "body": "법령의 상하·특별·위임 관계와 대상 시점부터 확인\n유효한 명령·처분·예외를 반영",
+      "kind": "process",
+      "material": "법·의무 기준"
+    },
+    "ethics": {
+      "id": "ethics",
+      "title": "직업 윤리·의무",
+      "x": 1030,
+      "y": 1700,
+      "w": 295,
+      "h": 99,
+      "body": "필수 직업 의무",
+      "kind": "source",
+      "material": "직업 윤리·의무",
+      "applies_to": "priority",
+      "priority_rank": 1
+    },
+    "principles": {
+      "id": "principles",
+      "title": "에이전트 기본 원칙",
+      "x": 1345,
+      "y": 1700,
+      "w": 295,
+      "h": 99,
+      "body": "기본 원칙·승인된 보호 기준",
+      "kind": "source",
+      "material": "에이전트 기본 원칙",
+      "applies_to": "priority",
+      "priority_rank": 1
+    },
+    "contract": {
+      "id": "contract",
+      "title": "계약·합의 조건",
+      "x": 1030,
+      "y": 1839,
+      "w": 295,
+      "h": 99,
+      "body": "유효한 계약·약속",
+      "kind": "source",
+      "material": "계약·합의 조건",
+      "applies_to": "priority",
+      "priority_rank": 2
+    },
+    "platform": {
+      "id": "platform",
+      "title": "플랫폼·제출처 규정",
+      "x": 1345,
+      "y": 1839,
+      "w": 295,
+      "h": 99,
+      "body": "플랫폼의 필수 조건",
+      "kind": "source",
+      "material": "플랫폼·제출처 규정",
+      "applies_to": "priority",
+      "priority_rank": 2
+    },
+    "org": {
+      "id": "org",
+      "title": "조직 규칙",
+      "x": 1030,
+      "y": 1978,
+      "w": 610,
+      "h": 99,
+      "body": "조직의 필수 규정",
+      "kind": "source",
+      "material": "조직 규칙",
+      "applies_to": "priority",
+      "priority_rank": 3
+    },
+    "user_rule": {
+      "id": "user_rule",
+      "title": "사용자 지정 규칙",
+      "x": 1030,
+      "y": 2117,
+      "w": 610,
+      "h": 99,
+      "body": "사용자가 추가한 조건",
+      "kind": "source",
+      "material": "사용자 지정 규칙",
+      "applies_to": "priority",
+      "priority_rank": 4
+    },
+    "style": {
+      "id": "style",
+      "title": "표현 방식·스타일",
+      "x": 1030,
+      "y": 2256,
+      "w": 610,
+      "h": 99,
+      "body": "대상·매체에 맞는 기본 표현",
+      "kind": "source",
+      "material": "표현 방식·스타일",
+      "applies_to": "priority",
+      "priority_rank": 5
+    },
+    "priority": {
+      "id": "priority",
+      "title": "규칙의 적용·우선순위",
+      "x": 985,
+      "y": 2470,
+      "w": 670,
+      "h": 175,
+      "body": "법적 적용 관계 + 위의 기준을 함께 대조\n충돌 없는 조건·보호 기준은 모두 유지\n예외 요건·변경 권한을 확인하고 미해결 쟁점을 남김",
+      "kind": "process",
+      "material": "규칙의 적용·우선순위",
+      "used_at": "each relevant judgment, execution and verification"
+    },
+    "context": {
+      "id": "context",
+      "title": "현재 작업 정보",
+      "x": 640,
+      "y": 2845,
+      "w": 520,
+      "h": 145,
+      "body": "목표 + 검증된 자료·지식 + 적용 기준 + 진행 상태\n이번 판단에 필요한 것만 모으고\n새 결과·변경이 오면 갱신",
+      "kind": "source",
+      "material": "현재 작업 정보"
+    },
+    "model": {
+      "id": "model",
+      "title": "AI 모델",
+      "x": 640,
+      "y": 3065,
+      "w": 520,
+      "h": 110,
+      "body": "현재 작업 정보를 읽어 이해·판단·생성\n정해진 계산·조회는 모델 호출 없이 실행 가능",
+      "kind": "process",
+      "material": "AI 모델"
+    },
+    "strategy": {
+      "id": "strategy",
+      "title": "대안·전략 판단",
+      "x": 640,
+      "y": 3245,
+      "w": 520,
+      "h": 120,
+      "body": "목표·근거·비용·위험으로 방법을 비교\n추가 조사·계속·보류·중단 중 적절한 방향을 정함",
+      "kind": "process",
+      "material": "대안·전략 판단"
+    },
+    "risk": {
+      "id": "risk",
+      "title": "빠진 위험 확인",
+      "x": 120,
+      "y": 3245,
+      "w": 390,
+      "h": 120,
+      "body": "계획·실행·전달 전에\n놓친 조건과 피해를 찾아 대조",
+      "kind": "process",
+      "material": "빠진 위험 확인",
+      "input_from": [
+        "goal",
+        "plan",
+        "context2"
+      ]
+    },
+    "plan": {
+      "id": "plan",
+      "title": "업무 절차·실행 계획",
+      "x": 640,
+      "y": 4090,
+      "w": 520,
+      "h": 120,
+      "body": "선택한 방법을 입력 → 작업 → 출력으로 연결\n순서·병렬·검사·중단·재개 조건을 정함",
+      "kind": "process",
+      "material": "업무 절차·실행 계획"
+    },
+    "progress": {
+      "id": "progress",
+      "title": "작업 진행·연결",
+      "x": 640,
+      "y": 4285,
+      "w": 520,
+      "h": 120,
+      "body": "완료분을 보존하고 시작 가능한 다음 작업 선택\n변경이 계획을 벗어나면 방법·계획부터 다시 판단",
+      "kind": "process",
+      "material": "작업 진행·연결"
+    },
+    "state": {
+      "id": "state",
+      "title": "현재 진행 상태",
+      "x": 1250,
+      "y": 4090,
+      "w": 430,
+      "h": 120,
+      "body": "완료·실패·대기·승인·남은 일 유지\n외부 처리 결과가 불명확한 상태도 보존",
+      "kind": "source",
+      "material": "현재 진행 상태"
+    },
+    "record": {
+      "id": "record",
+      "title": "판단 근거 기록",
+      "x": 1250,
+      "y": 4285,
+      "w": 430,
+      "h": 120,
+      "body": "매 판단·실행·검사의 입력과 결과 기록\n왜 선택·수정했는지 근거를 연결",
+      "kind": "source",
+      "material": "판단 근거 기록",
+      "applies_to": "ALL_DECISIONS_AND_ACTIONS",
+      "outputs_to": [
+        "process_eval",
+        "cause",
+        "memory2"
+      ]
+    },
+    "control": {
+      "id": "control",
+      "title": "실행 제어",
+      "x": 640,
+      "y": 4475,
+      "w": 520,
+      "h": 120,
+      "body": "준비된 입력으로 함수·도구·모델 호출\n조건 분기·결과 합류·오류·대기·재개를 연결",
+      "kind": "process",
+      "material": "실행 제어"
+    },
+    "isolation": {
+      "id": "isolation",
+      "title": "분리 실행",
+      "x": 120,
+      "y": 4285,
+      "w": 390,
+      "h": 120,
+      "body": "실행할 자료·작업 공간과 자원을 분리\n허용한 공유만 열고 오류 확산을 막음",
+      "kind": "process",
+      "material": "분리 실행"
+    },
+    "monitor": {
+      "id": "monitor",
+      "title": "운영 감시·복구",
+      "x": 1250,
+      "y": 4475,
+      "w": 430,
+      "h": 120,
+      "body": "별도 운영 감시가 장애·지연을 감지\n격리·복구 후 저장 상태로 업무를 돌려줌",
+      "kind": "process",
+      "material": "운영 감시·복구"
+    },
+    "rights": {
+      "id": "rights",
+      "title": "업무 권한",
+      "x": 120,
+      "y": 4680,
+      "w": 390,
+      "h": 115,
+      "body": "누구의 어떤 행위인지 확인\n현재 승인 범위·유효 기간·철회 반영",
+      "kind": "source",
+      "material": "업무 권한"
+    },
+    "limit": {
+      "id": "limit",
+      "title": "비용·위험 한도",
+      "x": 1250,
+      "y": 4680,
+      "w": 430,
+      "h": 115,
+      "body": "사용·예약·진행분까지 합산\n실행·대기의 비용과 위험을 비교",
+      "kind": "source",
+      "material": "비용·위험 한도"
+    },
+    "guard": {
+      "id": "guard",
+      "title": "안전장치",
+      "x": 640,
+      "y": 4705,
+      "w": 520,
+      "h": 120,
+      "body": "매 정보 교환·실행·재시도·재개 때\n규칙·권한·한도와 대조해 허용·차단·보류",
+      "kind": "process",
+      "material": "안전장치",
+      "criteria_from": [
+        "priority",
+        "rights",
+        "limit"
+      ]
+    },
+    "allowed": {
+      "id": "allowed",
+      "title": "실행해도 되는가?",
+      "x": 720,
+      "y": 4890,
+      "w": 360,
+      "h": 170,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "handoff": {
+      "id": "handoff",
+      "title": "사람에게 넘기기",
+      "x": 1250,
+      "y": 4900,
+      "w": 430,
+      "h": 145,
+      "body": "준비·조사·검증을 마친 뒤 필요한 결정만 요청\n되돌릴 수 없음·필수 승인·판단 불가\n한도 초과·자격자 전속일 때",
+      "kind": "process",
+      "material": "사람에게 넘기기"
+    },
+    "hold": {
+      "id": "hold",
+      "title": "해당 작업 보류·중단",
+      "x": 120,
+      "y": 4920,
+      "w": 390,
+      "h": 82,
+      "body": "사유와 재개 조건을 남김",
+      "kind": "stop",
+      "material": null
+    },
+    "identity0": {
+      "id": "identity0",
+      "title": "보고 주체 확인",
+      "x": 1250,
+      "y": 5140,
+      "w": 430,
+      "h": 120,
+      "body": "받은 승인·결정의 사람·권한·대상·판본 대조\n불일치한 답은 적용하지 않고 다시 확인",
+      "kind": "process",
+      "material": "보고 주체 확인"
+    },
+    "tools": {
+      "id": "tools",
+      "title": "업무 도구·시스템",
+      "x": 640,
+      "y": 5165,
+      "w": 520,
+      "h": 110,
+      "body": "선택한 작업의 도구 요청을 연결\n도구의 결과·오류·외부 처리 상태를 회수",
+      "kind": "process",
+      "material": "업무 도구·시스템"
+    },
+    "type0": {
+      "id": "type0",
+      "title": "자료를\n정리하는가?",
+      "x": 95,
+      "y": 5374,
+      "w": 240,
+      "h": 150,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "choose0": {
+      "id": "choose0",
+      "title": "필요한 재료를\n선택·조합",
+      "x": 815,
+      "y": 5374,
+      "w": 450,
+      "h": 160,
+      "body": "",
+      "kind": "decisionwide",
+      "material": null
+    },
+    "sort": {
+      "id": "sort",
+      "title": "자료 선별·분류",
+      "x": 420.0,
+      "y": 5565,
+      "w": 392.0,
+      "h": 135,
+      "body": "원자료 → 필요한 항목·분류",
+      "kind": "process",
+      "material": "자료 선별·분류"
+    },
+    "combine": {
+      "id": "combine",
+      "title": "자료 정리·결합",
+      "x": 834.0,
+      "y": 5565,
+      "w": 392.0,
+      "h": 135,
+      "body": "흩어진 기록 → 연결·정리된 자료",
+      "kind": "process",
+      "material": "자료 정리·결합"
+    },
+    "convert": {
+      "id": "convert",
+      "title": "형식·구조 변환",
+      "x": 1248.0,
+      "y": 5565,
+      "w": 392.0,
+      "h": 135,
+      "body": "원본 → 필요한 형식·항목 구조",
+      "kind": "process",
+      "material": "형식·구조 변환"
+    },
+    "out0": {
+      "id": "out0",
+      "title": "정리·분류·변환된 자료",
+      "x": 770,
+      "y": 5735,
+      "w": 540,
+      "h": 60,
+      "body": "",
+      "kind": "data",
+      "material": null
+    },
+    "type1": {
+      "id": "type1",
+      "title": "값·의미·결론을\n구하는가?",
+      "x": 95,
+      "y": 5864,
+      "w": 240,
+      "h": 150,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "choose1": {
+      "id": "choose1",
+      "title": "필요한 재료를\n선택·조합",
+      "x": 815,
+      "y": 5864,
+      "w": 450,
+      "h": 160,
+      "body": "",
+      "kind": "decisionwide",
+      "material": null
+    },
+    "calc": {
+      "id": "calc",
+      "title": "계산",
+      "x": 420.0,
+      "y": 6055,
+      "w": 226.4,
+      "h": 135,
+      "body": "수치·식\n→ 계산값",
+      "kind": "process",
+      "material": "계산"
+    },
+    "analysis": {
+      "id": "analysis",
+      "title": "분석",
+      "x": 668.4,
+      "y": 6055,
+      "w": 226.4,
+      "h": 135,
+      "body": "자료·계산값\n→ 관계·원인",
+      "kind": "process",
+      "material": "분석"
+    },
+    "judge": {
+      "id": "judge",
+      "title": "기준 적용·판정",
+      "x": 916.8,
+      "y": 6055,
+      "w": 226.4,
+      "h": 135,
+      "body": "사실·기준\n→ 충족 여부",
+      "kind": "process",
+      "material": "기준 적용·판정"
+    },
+    "forecast": {
+      "id": "forecast",
+      "title": "예측",
+      "x": 1165.2,
+      "y": 6055,
+      "w": 226.4,
+      "h": 135,
+      "body": "자료·가정\n→ 전망·불확실성",
+      "kind": "process",
+      "material": "예측"
+    },
+    "optimize": {
+      "id": "optimize",
+      "title": "조건 안에서 최선 찾기",
+      "x": 1413.6,
+      "y": 6055,
+      "w": 226.4,
+      "h": 135,
+      "body": "후보·제약\n→ 가장 나은 안",
+      "kind": "process",
+      "material": "조건 안에서 최선 찾기"
+    },
+    "out1": {
+      "id": "out1",
+      "title": "판단에 필요한 값·결론",
+      "x": 770,
+      "y": 6225,
+      "w": 540,
+      "h": 60,
+      "body": "",
+      "kind": "data",
+      "material": null
+    },
+    "type2": {
+      "id": "type2",
+      "title": "결과물을\n만드는가?",
+      "x": 95,
+      "y": 6354,
+      "w": 240,
+      "h": 150,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "choose2": {
+      "id": "choose2",
+      "title": "필요한 재료를\n선택·조합",
+      "x": 815,
+      "y": 6354,
+      "w": 450,
+      "h": 160,
+      "body": "",
+      "kind": "decisionwide",
+      "material": null
+    },
+    "design": {
+      "id": "design",
+      "title": "결과물 설계",
+      "x": 420.0,
+      "y": 6545,
+      "w": 392.0,
+      "h": 135,
+      "body": "목적·요건·표현 기준 → 구성·제작 설계",
+      "kind": "process",
+      "material": "결과물 설계"
+    },
+    "reframe": {
+      "id": "reframe",
+      "title": "내용 재구성",
+      "x": 834.0,
+      "y": 6545,
+      "w": 392.0,
+      "h": 135,
+      "body": "기존 내용 → 목적에 맞는 내용",
+      "kind": "process",
+      "material": "내용 재구성"
+    },
+    "make": {
+      "id": "make",
+      "title": "결과물 만들기·수정",
+      "x": 1248.0,
+      "y": 6545,
+      "w": 392.0,
+      "h": 135,
+      "body": "설계·재사용 자료 → 결과물·수정본",
+      "kind": "process",
+      "material": "결과물 만들기·수정"
+    },
+    "out2": {
+      "id": "out2",
+      "title": "설계·내용·결과물",
+      "x": 770,
+      "y": 6715,
+      "w": 540,
+      "h": 60,
+      "body": "",
+      "kind": "data",
+      "material": null
+    },
+    "type3": {
+      "id": "type3",
+      "title": "사람과\n조율하는가?",
+      "x": 95,
+      "y": 6844,
+      "w": 240,
+      "h": 150,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "choose3": {
+      "id": "choose3",
+      "title": "필요한 재료를\n선택·조합",
+      "x": 815,
+      "y": 6844,
+      "w": 450,
+      "h": 160,
+      "body": "",
+      "kind": "decisionwide",
+      "material": null
+    },
+    "talk": {
+      "id": "talk",
+      "title": "사람과 소통",
+      "x": 420.0,
+      "y": 7035,
+      "w": 599.0,
+      "h": 135,
+      "body": "상대·내용·표현 기준 → 이해·답변 확인",
+      "kind": "process",
+      "material": "사람과 소통"
+    },
+    "negotiate": {
+      "id": "negotiate",
+      "title": "협상·조율",
+      "x": 1041.0,
+      "y": 7035,
+      "w": 599.0,
+      "h": 135,
+      "body": "서로 다른 요구 → 합의·남은 쟁점",
+      "kind": "process",
+      "material": "협상·조율"
+    },
+    "out3": {
+      "id": "out3",
+      "title": "답변·합의·남은 쟁점",
+      "x": 770,
+      "y": 7205,
+      "w": 540,
+      "h": 60,
+      "body": "",
+      "kind": "data",
+      "material": null
+    },
+    "type4": {
+      "id": "type4",
+      "title": "외부에\n반영하는가?",
+      "x": 95,
+      "y": 7334,
+      "w": 240,
+      "h": 150,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "choose4": {
+      "id": "choose4",
+      "title": "필요한 재료를\n선택·조합",
+      "x": 815,
+      "y": 7334,
+      "w": 450,
+      "h": 160,
+      "body": "",
+      "kind": "decisionwide",
+      "material": null
+    },
+    "write": {
+      "id": "write",
+      "title": "기록 입력·수정",
+      "x": 420.0,
+      "y": 7525,
+      "w": 288.5,
+      "h": 135,
+      "body": "확인한 내용 → 반영 기록·이력",
+      "kind": "process",
+      "material": "기록 입력·수정"
+    },
+    "transaction": {
+      "id": "transaction",
+      "title": "신청·거래 처리",
+      "x": 730.5,
+      "y": 7525,
+      "w": 288.5,
+      "h": 135,
+      "body": "승인된 요청 → 접수·처리 상태",
+      "kind": "process",
+      "material": "신청·거래 처리"
+    },
+    "operate": {
+      "id": "operate",
+      "title": "설정·작동 제어",
+      "x": 1041.0,
+      "y": 7525,
+      "w": 288.5,
+      "h": 135,
+      "body": "유지 조건·상태 → 설정·작동 조정",
+      "kind": "process",
+      "material": "설정·작동 제어"
+    },
+    "publish": {
+      "id": "publish",
+      "title": "게시·배포",
+      "x": 1351.5,
+      "y": 7525,
+      "w": 288.5,
+      "h": 135,
+      "body": "확인된 판본 → 공개·제공 상태",
+      "kind": "process",
+      "material": "게시·배포"
+    },
+    "out4": {
+      "id": "out4",
+      "title": "반영 결과·외부 처리 상태",
+      "x": 770,
+      "y": 7695,
+      "w": 540,
+      "h": 60,
+      "body": "",
+      "kind": "data",
+      "material": null
+    },
+    "type5": {
+      "id": "type5",
+      "title": "새 증거를\n만드는가?",
+      "x": 95,
+      "y": 7824,
+      "w": 240,
+      "h": 150,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "choose5": {
+      "id": "choose5",
+      "title": "필요한 재료를\n선택·조합",
+      "x": 815,
+      "y": 7824,
+      "w": 450,
+      "h": 160,
+      "body": "",
+      "kind": "decisionwide",
+      "material": null
+    },
+    "observe": {
+      "id": "observe",
+      "title": "관찰·측정",
+      "x": 420.0,
+      "y": 8015,
+      "w": 392.0,
+      "h": 135,
+      "body": "대상·방법 → 조건이 붙은 관측값",
+      "kind": "process",
+      "material": "관찰·측정"
+    },
+    "experiment": {
+      "id": "experiment",
+      "title": "실험",
+      "x": 834.0,
+      "y": 8015,
+      "w": 392.0,
+      "h": 135,
+      "body": "비교 조건 → 차이·영향·한계",
+      "kind": "process",
+      "material": "실험"
+    },
+    "simulate": {
+      "id": "simulate",
+      "title": "시뮬레이션",
+      "x": 1248.0,
+      "y": 8015,
+      "w": 392.0,
+      "h": 135,
+      "body": "가정·모형 → 예상 진행·반응",
+      "kind": "process",
+      "material": "시뮬레이션"
+    },
+    "out5": {
+      "id": "out5",
+      "title": "관측·비교·가정의 결과",
+      "x": 770,
+      "y": 8185,
+      "w": 540,
+      "h": 60,
+      "body": "",
+      "kind": "data",
+      "material": null
+    },
+    "verify": {
+      "id": "verify",
+      "title": "결과 검증·재검증",
+      "x": 640,
+      "y": 8410,
+      "w": 520,
+      "h": 140,
+      "body": "각 결과를 원문·완료 조건·다음 입력 요건과 대조\n문제없음 / 문제 있음 / 아직 확인 불가\n수정·변경이 생기면 영향받은 결과도 재검증",
+      "kind": "process",
+      "material": "결과 검증·재검증"
+    },
+    "identity": {
+      "id": "identity",
+      "title": "보고 주체 확인",
+      "x": 1230,
+      "y": 8380,
+      "w": 430,
+      "h": 120,
+      "body": "보고한 주체·대상·요청·판본을 대조\n불일치하면 결과 대신 반려 사유를 전달",
+      "kind": "process",
+      "material": "보고 주체 확인",
+      "input_from": "tools"
+    },
+    "counter": {
+      "id": "counter",
+      "title": "반대 근거·다시 확인",
+      "x": 130,
+      "y": 8410,
+      "w": 380,
+      "h": 140,
+      "body": "중요한 결론이면 반대 증거·다른 방법으로 대조\n판단을 유지·수정·유보할 근거를 제시",
+      "kind": "process",
+      "material": "반대 근거·다시 확인"
+    },
+    "vdecision": {
+      "id": "vdecision",
+      "title": "결과를 확인했는가?",
+      "x": 720,
+      "y": 8810,
+      "w": 360,
+      "h": 175,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "wait": {
+      "id": "wait",
+      "title": "대기·후속 관리",
+      "x": 1240,
+      "y": 8820,
+      "w": 430,
+      "h": 140,
+      "body": "답변·승인·외부 처리·확인 시점 관리\n기한이 오면 조회·대체·인계를 연결\n응답이 오면 최신 조건으로 재개",
+      "kind": "process",
+      "material": "대기·후속 관리"
+    },
+    "more": {
+      "id": "more",
+      "title": "완료 조건을\n모두 충족했는가?",
+      "x": 720,
+      "y": 9070,
+      "w": 360,
+      "h": 190,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "context2": {
+      "id": "context2",
+      "title": "현재 작업 정보",
+      "x": 130,
+      "y": 9065,
+      "w": 390,
+      "h": 155,
+      "body": "검증한 결과·상태를 다음 작업의 입력으로 보탬\n오류·부족한 근거·변경은 보완 대상으로 표시",
+      "kind": "source",
+      "material": "현재 작업 정보"
+    },
+    "quality": {
+      "id": "quality",
+      "title": "결과 품질 평가",
+      "x": 650,
+      "y": 9350,
+      "w": 500,
+      "h": 120,
+      "body": "목적·분야 기준으로 정확성·기능·이해·사용성 평가\n완료 기준에 못 미친 부분은 보완 작업으로 연결",
+      "kind": "process",
+      "material": "결과 품질 평가"
+    },
+    "process_eval": {
+      "id": "process_eval",
+      "title": "일하는 과정 평가",
+      "x": 1240,
+      "y": 9350,
+      "w": 430,
+      "h": 120,
+      "body": "각 단계와 종료 시 방법·절차·권한 준수 평가\n당시 조건에서 적절한 판단이었는지 확인",
+      "kind": "process",
+      "material": "일하는 과정 평가"
+    },
+    "pack": {
+      "id": "pack",
+      "title": "납품 준비",
+      "x": 650,
+      "y": 9760,
+      "w": 500,
+      "h": 120,
+      "body": "확인한 결과·판본·원본·사용 설명을 갖춤\n미완료·후속 책임·담당과 검사 결과도 연결",
+      "kind": "process",
+      "material": "납품 준비"
+    },
+    "delivery": {
+      "id": "delivery",
+      "title": "전달·인수 확인",
+      "x": 650,
+      "y": 9960,
+      "w": 500,
+      "h": 120,
+      "body": "정해진 상대에게 전달하고 도착·사용 조건 확인\n수정 요청·확인 대기·인수 완료를 구별",
+      "kind": "process",
+      "material": "전달·인수 확인"
+    },
+    "receipt": {
+      "id": "receipt",
+      "title": "인수 상태는?",
+      "x": 720,
+      "y": 10155,
+      "w": 360,
+      "h": 175,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "wait2": {
+      "id": "wait2",
+      "title": "대기·후속 관리",
+      "x": 1240,
+      "y": 10165,
+      "w": 430,
+      "h": 140,
+      "body": "확인·수정 요청과 남은 약속을 유지\n기한·응답에 맞춰 재확인 또는 보완 연결",
+      "kind": "process",
+      "material": "대기·후속 관리"
+    },
+    "outcome": {
+      "id": "outcome",
+      "title": "성과 추적",
+      "x": 650,
+      "y": 10415,
+      "w": 500,
+      "h": 120,
+      "body": "정한 시점에 목표 달성과 뒤늦은 효과·문제 확인\n난이도·환경·자원 차이를 고려해 비교",
+      "kind": "process",
+      "material": "성과 추적"
+    },
+    "cause": {
+      "id": "cause",
+      "title": "성공·실패 원인 분석",
+      "x": 650,
+      "y": 10835,
+      "w": 500,
+      "h": 120,
+      "body": "재사용할 성과·반복 오류·큰 문제가 있으면\n지식·방법·도구·조건에서 원인과 개선점을 찾음",
+      "kind": "process",
+      "material": "성공·실패 원인 분석"
+    },
+    "improve": {
+      "id": "improve",
+      "title": "능력 개선·확장",
+      "x": 650,
+      "y": 11255,
+      "w": 500,
+      "h": 120,
+      "body": "개선점이나 새로운 업무가 있으면\n지식·방법·도구의 개선안을 만들고 시험에 연결",
+      "kind": "process",
+      "material": "능력 개선·확장"
+    },
+    "testenv": {
+      "id": "testenv",
+      "title": "시험 환경",
+      "x": 120,
+      "y": 11255,
+      "w": 380,
+      "h": 120,
+      "body": "실제 업무·원본과 분리해 조건 재현\n미시험·실패 판본은 실제 적용 차단",
+      "kind": "process",
+      "material": "시험 환경",
+      "guards_real_use_of": "capability"
+    },
+    "capability": {
+      "id": "capability",
+      "title": "업무 능력 시험",
+      "x": 650,
+      "y": 11455,
+      "w": 500,
+      "h": 145,
+      "body": "처음 투입·범위 밖 업무·능력 변경 때 시험\n개선 효과와 기존 능력 유지까지 확인\n통과한 범위·판본만 실제 업무에 적용",
+      "kind": "process",
+      "material": "업무 능력 시험"
+    },
+    "passed": {
+      "id": "passed",
+      "title": "능력 시험을\n통과했는가?",
+      "x": 1240,
+      "y": 11450,
+      "w": 400,
+      "h": 170,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "memory2": {
+      "id": "memory2",
+      "title": "장기 기억",
+      "x": 650,
+      "y": 11740,
+      "w": 500,
+      "h": 140,
+      "body": "사실·약속·결정·교훈을 해당 건과 근거에 묶어 보존\n검증된 개선은 다음 업무의 지식·방법에 반영\n잘못된 기억은 정정하고 남은 책임은 유지",
+      "kind": "source",
+      "material": "장기 기억"
+    },
+    "finish": {
+      "id": "finish",
+      "title": "이번 건 처리 종료",
+      "x": 710,
+      "y": 11955,
+      "w": 380,
+      "h": 85,
+      "body": "남은 약속·후속 확인은 계속 관리",
+      "kind": "terminal",
+      "material": null
+    },
+    "clear": {
+      "id": "clear",
+      "title": "범위가 달라질 만큼\n모호한가?",
+      "x": 720,
+      "y": 845,
+      "w": 360,
+      "h": 155,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "qualified": {
+      "id": "qualified",
+      "title": "이번 일은 검증된\n능력 범위 안인가?",
+      "x": 720,
+      "y": 3420,
+      "w": 360,
+      "h": 170,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "testenv0": {
+      "id": "testenv0",
+      "title": "시험 환경",
+      "x": 120,
+      "y": 3420,
+      "w": 390,
+      "h": 110,
+      "body": "처음 투입·범위 밖 업무·능력 변경이면\n실제 업무와 분리한 시험을 준비",
+      "kind": "process",
+      "material": "시험 환경"
+    },
+    "capability0": {
+      "id": "capability0",
+      "title": "업무 능력 시험",
+      "x": 120,
+      "y": 3610,
+      "w": 390,
+      "h": 135,
+      "body": "이번 일을 끝까지 처리할 수 있는지 시험\n예외·중단·재개와 기존 능력도 확인",
+      "kind": "process",
+      "material": "업무 능력 시험"
+    },
+    "qualified_test": {
+      "id": "qualified_test",
+      "title": "시험을 통과했는가?",
+      "x": 120,
+      "y": 3815,
+      "w": 390,
+      "h": 160,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "unqualified": {
+      "id": "unqualified",
+      "title": "해당 업무 투입 보류",
+      "x": 120,
+      "y": 4050,
+      "w": 390,
+      "h": 82,
+      "body": "미통과 판본은 실제 투입 차단",
+      "kind": "stop",
+      "material": null
+    },
+    "qualityok": {
+      "id": "qualityok",
+      "title": "받는 사람이 쓸 만큼\n품질이 충분한가?",
+      "x": 720,
+      "y": 9535,
+      "w": 360,
+      "h": 170,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "repair": {
+      "id": "repair",
+      "title": "작업 진행·연결",
+      "x": 120,
+      "y": 9560,
+      "w": 390,
+      "h": 120,
+      "body": "미달한 항목을 보완 작업으로 연결\n바뀐 부분과 영향받은 결과를 다시 검사",
+      "kind": "process",
+      "material": "작업 진행·연결"
+    },
+    "learnneed": {
+      "id": "learnneed",
+      "title": "원인을 분석할\n성과·문제가 있는가?",
+      "x": 720,
+      "y": 10600,
+      "w": 360,
+      "h": 170,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "memory_direct": {
+      "id": "memory_direct",
+      "title": "장기 기억",
+      "x": 1240,
+      "y": 10625,
+      "w": 430,
+      "h": 125,
+      "body": "이번 건의 사실·결정·약속·교훈 보존\n남은 책임과 후속 확인도 함께 유지",
+      "kind": "source",
+      "material": "장기 기억"
+    },
+    "improveneed": {
+      "id": "improveneed",
+      "title": "능력을 바꿀\n필요가 있는가?",
+      "x": 720,
+      "y": 11010,
+      "w": 360,
+      "h": 170,
+      "body": "",
+      "kind": "decision",
+      "material": null
+    },
+    "memory_reuse": {
+      "id": "memory_reuse",
+      "title": "장기 기억",
+      "x": 1240,
+      "y": 11035,
+      "w": 430,
+      "h": 125,
+      "body": "유지·재사용할 방법과 적용 조건 보존\n능력을 바꾸지 않아도 교훈은 다음 일에 활용",
+      "kind": "source",
+      "material": "장기 기억"
+    },
+    "state_result": {
+      "id": "state_result",
+      "title": "현재 진행 상태",
+      "x": 640,
+      "y": 8605,
+      "w": 520,
+      "h": 115,
+      "body": "검증 결과를 완료·보완·확인 대기 상태에 반영\n이미 끝난 외부 처리는 중복 실행하지 않음",
+      "kind": "source",
+      "material": "현재 진행 상태"
+    },
+    "record_read": {
+      "id": "record_read",
+      "title": "판단 근거 기록",
+      "x": 1240,
+      "y": 9160,
+      "w": 430,
+      "h": 115,
+      "body": "각 단계의 입력·선택·실행·검사 기록\n평가할 근거로 꺼냄",
+      "kind": "source",
+      "material": "판단 근거 기록"
+    },
+    "delivery_repair": {
+      "id": "delivery_repair",
+      "title": "작업 진행·연결",
+      "x": 120,
+      "y": 10180,
+      "w": 390,
+      "h": 125,
+      "body": "받은 수정 요청을 해당 작업에 연결\n수정·영향 범위 확인 뒤 다시 검증",
+      "kind": "process",
+      "material": "작업 진행·연결"
+    }
+  },
+  "groups": [
+    {
+      "id": "evidence",
+      "x": 90,
+      "y": 1240,
+      "w": 780,
+      "h": 1515,
+      "title": "판단에 쓸 근거를 갖춘다",
+      "desc": ""
+    },
+    {
+      "id": "rules",
+      "x": 930,
+      "y": 1240,
+      "w": 780,
+      "h": 1515,
+      "title": "이번 일에 적용할 기준을 맞춘다",
+      "desc": ""
+    },
+    {
+      "id": "rank",
+      "x": 1010,
+      "y": 1680,
+      "w": 650,
+      "h": 701,
+      "title": "",
+      "desc": ""
+    },
+    {
+      "id": "opg0",
+      "x": 380,
+      "y": 5370,
+      "w": 1300,
+      "h": 422,
+      "title": "",
+      "desc": ""
+    },
+    {
+      "id": "opg1",
+      "x": 380,
+      "y": 5860,
+      "w": 1300,
+      "h": 422,
+      "title": "",
+      "desc": ""
+    },
+    {
+      "id": "opg2",
+      "x": 380,
+      "y": 6350,
+      "w": 1300,
+      "h": 422,
+      "title": "",
+      "desc": ""
+    },
+    {
+      "id": "opg3",
+      "x": 380,
+      "y": 6840,
+      "w": 1300,
+      "h": 422,
+      "title": "",
+      "desc": ""
+    },
+    {
+      "id": "opg4",
+      "x": 380,
+      "y": 7330,
+      "w": 1300,
+      "h": 422,
+      "title": "",
+      "desc": ""
+    },
+    {
+      "id": "opg5",
+      "x": 380,
+      "y": 7820,
+      "w": 1300,
+      "h": 422,
+      "title": "",
+      "desc": ""
+    }
+  ],
+  "edges": [
+    {
+      "source": "start",
+      "target": "signal",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          108
+        ],
+        [
+          900.0,
+          158
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "watch",
+      "target": "watchtype",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          305.0,
+          108
+        ],
+        [
+          305.0,
+          160.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "watchtype",
+      "target": "early",
+      "label": "새 문제·기회",
+      "kind": "flow",
+      "points": [
+        [
+          305.0,
+          305.0
+        ],
+        [
+          305.0,
+          355
+        ]
+      ],
+      "at": [
+        305,
+        330
+      ]
+    },
+    {
+      "source": "watchtype",
+      "target": "change",
+      "label": "기존 조건 변화",
+      "kind": "flow",
+      "points": [
+        [
+          145.0,
+          232.5
+        ],
+        [
+          70,
+          232.5
+        ],
+        [
+          70,
+          610
+        ],
+        [
+          100,
+          610.0
+        ]
+      ],
+      "at": [
+        145,
+        510
+      ]
+    },
+    {
+      "source": "early",
+      "target": "signal",
+      "label": "발견한 일",
+      "kind": "flow",
+      "points": [
+        [
+          510,
+          410.0
+        ],
+        [
+          565,
+          410
+        ],
+        [
+          565,
+          210.5
+        ],
+        [
+          710,
+          210.5
+        ]
+      ],
+      "at": [
+        558,
+        330
+      ]
+    },
+    {
+      "source": "change",
+      "target": "signal",
+      "label": "해당 건 재검토",
+      "kind": "flow",
+      "points": [
+        [
+          510,
+          610.0
+        ],
+        [
+          620,
+          610
+        ],
+        [
+          620,
+          238.5
+        ],
+        [
+          710,
+          238.5
+        ]
+      ],
+      "at": [
+        615,
+        530
+      ]
+    },
+    {
+      "source": "signal",
+      "target": "case",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          263
+        ],
+        [
+          900.0,
+          330
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "case",
+      "target": "understand",
+      "label": "요청과 자료",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          440
+        ],
+        [
+          900.0,
+          510
+        ]
+      ],
+      "at": [
+        900,
+        474
+      ]
+    },
+    {
+      "source": "understand",
+      "target": "intent",
+      "label": "자료가 말하는 내용",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          620
+        ],
+        [
+          900.0,
+          690
+        ]
+      ],
+      "at": [
+        900,
+        658
+      ]
+    },
+    {
+      "source": "goal",
+      "target": "measure0",
+      "label": "성과를 볼 기준",
+      "kind": "flow",
+      "points": [
+        [
+          1090,
+          1095.0
+        ],
+        [
+          1270,
+          1095.0
+        ]
+      ],
+      "at": [
+        1180,
+        1095
+      ]
+    },
+    {
+      "source": "goal",
+      "target": "search",
+      "label": "부족한 근거",
+      "kind": "flow",
+      "points": [
+        [
+          820.0,
+          1155
+        ],
+        [
+          820,
+          1200
+        ],
+        [
+          480,
+          1200
+        ],
+        [
+          480.0,
+          1320
+        ]
+      ],
+      "at": [
+        630,
+        1200
+      ]
+    },
+    {
+      "source": "search",
+      "target": "absent",
+      "label": "빈 검색·없음 주장",
+      "kind": "flow",
+      "points": [
+        [
+          480.0,
+          1430
+        ],
+        [
+          480,
+          1475
+        ],
+        [
+          300,
+          1475
+        ],
+        [
+          300.0,
+          1530
+        ]
+      ],
+      "at": [
+        280,
+        1475
+      ]
+    },
+    {
+      "source": "search",
+      "target": "now",
+      "label": "지금 값이 필요",
+      "kind": "flow",
+      "points": [
+        [
+          500.0,
+          1430
+        ],
+        [
+          500,
+          1485
+        ],
+        [
+          655,
+          1485
+        ],
+        [
+          655.0,
+          1530
+        ]
+      ],
+      "at": [
+        675,
+        1485
+      ]
+    },
+    {
+      "source": "absent",
+      "target": "trust",
+      "label": "검색·조회 결과",
+      "kind": "flow",
+      "points": [
+        [
+          135,
+          1592.5
+        ],
+        [
+          110,
+          1592.5
+        ],
+        [
+          110,
+          2012.5
+        ],
+        [
+          240,
+          2012.5
+        ]
+      ],
+      "at": [
+        170,
+        1918
+      ]
+    },
+    {
+      "source": "now",
+      "target": "trust",
+      "label": "검색·조회 결과",
+      "kind": "flow",
+      "points": [
+        [
+          820,
+          1592.5
+        ],
+        [
+          845,
+          1592.5
+        ],
+        [
+          845,
+          2012.5
+        ],
+        [
+          720,
+          2012.5
+        ]
+      ],
+      "at": [
+        785,
+        1890
+      ]
+    },
+    {
+      "source": "case_ref",
+      "target": "trust",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          242.5,
+          1850
+        ],
+        [
+          242.5,
+          1895
+        ],
+        [
+          380,
+          1895
+        ],
+        [
+          380.0,
+          1950
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "reference",
+      "target": "trust",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          477.5,
+          1850
+        ],
+        [
+          477.5,
+          1895
+        ],
+        [
+          480,
+          1895
+        ],
+        [
+          480.0,
+          1950
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "reuse",
+      "target": "trust",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          712.5,
+          1850
+        ],
+        [
+          712.5,
+          1895
+        ],
+        [
+          580,
+          1895
+        ],
+        [
+          580.0,
+          1950
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "trust",
+      "target": "version",
+      "label": "사용할 수 있는 근거",
+      "kind": "flow",
+      "points": [
+        [
+          480.0,
+          2075
+        ],
+        [
+          480.0,
+          2145
+        ]
+      ],
+      "at": [
+        480,
+        2110
+      ]
+    },
+    {
+      "source": "version",
+      "target": "knowledge",
+      "label": "원리·방법을 뒷받침",
+      "kind": "flow",
+      "points": [
+        [
+          450.0,
+          2255
+        ],
+        [
+          450,
+          2295
+        ],
+        [
+          300,
+          2295
+        ],
+        [
+          300.0,
+          2340
+        ]
+      ],
+      "at": [
+        280,
+        2295
+      ]
+    },
+    {
+      "source": "version",
+      "target": "experience",
+      "label": "경험과 대조할 사실",
+      "kind": "flow",
+      "points": [
+        [
+          510.0,
+          2255
+        ],
+        [
+          510,
+          2295
+        ],
+        [
+          655,
+          2295
+        ],
+        [
+          655.0,
+          2340
+        ]
+      ],
+      "at": [
+        690,
+        2295
+      ]
+    },
+    {
+      "source": "goal",
+      "target": "original",
+      "label": "적용할 기준",
+      "kind": "flow",
+      "points": [
+        [
+          980.0,
+          1155
+        ],
+        [
+          980,
+          1200
+        ],
+        [
+          1320,
+          1200
+        ],
+        [
+          1320.0,
+          1320
+        ]
+      ],
+      "at": [
+        1190,
+        1200
+      ]
+    },
+    {
+      "source": "original",
+      "target": "law",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1320.0,
+          1420
+        ],
+        [
+          1320.0,
+          1490
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "law",
+      "target": "priority",
+      "label": "법적 적용 관계",
+      "kind": "flow",
+      "points": [
+        [
+          1655,
+          1542.5
+        ],
+        [
+          1685,
+          1542.5
+        ],
+        [
+          1685,
+          2557.5
+        ],
+        [
+          1655,
+          2557.5
+        ]
+      ],
+      "at": [
+        1640,
+        2420
+      ]
+    },
+    {
+      "source": "knowledge",
+      "target": "context",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          300.0,
+          2465
+        ],
+        [
+          300,
+          2500
+        ],
+        [
+          110,
+          2500
+        ],
+        [
+          110,
+          2720
+        ],
+        [
+          740.0,
+          2845
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "memory",
+      "target": "context",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          480.0,
+          2670
+        ],
+        [
+          480,
+          2720
+        ],
+        [
+          870.0,
+          2845
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "experience",
+      "target": "context",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          655.0,
+          2465
+        ],
+        [
+          655,
+          2500
+        ],
+        [
+          845,
+          2500
+        ],
+        [
+          845,
+          2720
+        ],
+        [
+          1000.0,
+          2845
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "priority",
+      "target": "context",
+      "label": "지켜야 할 조건",
+      "kind": "flow",
+      "points": [
+        [
+          1320.0,
+          2645
+        ],
+        [
+          1320,
+          2917.5
+        ],
+        [
+          1160,
+          2917.5
+        ]
+      ],
+      "at": [
+        1250,
+        2865
+      ]
+    },
+    {
+      "source": "context",
+      "target": "model",
+      "label": "지금 판단할 정보",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          2990
+        ],
+        [
+          900.0,
+          3065
+        ]
+      ],
+      "at": [
+        900,
+        3028
+      ]
+    },
+    {
+      "source": "model",
+      "target": "strategy",
+      "label": "이해한 상황과 가능한 방법",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          3175
+        ],
+        [
+          900.0,
+          3245
+        ]
+      ],
+      "at": [
+        900,
+        3213
+      ]
+    },
+    {
+      "source": "risk",
+      "target": "strategy",
+      "label": "빠뜨린 위험",
+      "kind": "flow",
+      "points": [
+        [
+          510,
+          3305.0
+        ],
+        [
+          640,
+          3305.0
+        ]
+      ],
+      "at": [
+        575,
+        3305
+      ]
+    },
+    {
+      "source": "plan",
+      "target": "progress",
+      "label": "작업과 연결 조건",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          4210
+        ],
+        [
+          900.0,
+          4285
+        ]
+      ],
+      "at": [
+        900,
+        4248
+      ]
+    },
+    {
+      "source": "state",
+      "target": "progress",
+      "label": "현재 상태",
+      "kind": "flow",
+      "points": [
+        [
+          1250,
+          4150.0
+        ],
+        [
+          1205,
+          4150
+        ],
+        [
+          1205,
+          4305
+        ],
+        [
+          1160,
+          4305.0
+        ]
+      ],
+      "at": [
+        1210,
+        4240
+      ]
+    },
+    {
+      "source": "progress",
+      "target": "record",
+      "label": "근거",
+      "kind": "flow",
+      "points": [
+        [
+          1160,
+          4345.0
+        ],
+        [
+          1250,
+          4345.0
+        ]
+      ],
+      "at": [
+        1205,
+        4345
+      ]
+    },
+    {
+      "source": "progress",
+      "target": "control",
+      "label": "지금 할 작업과 입력",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          4405
+        ],
+        [
+          900.0,
+          4475
+        ]
+      ],
+      "at": [
+        900,
+        4442
+      ]
+    },
+    {
+      "source": "isolation",
+      "target": "control",
+      "label": "실행 공간·자원",
+      "kind": "flow",
+      "points": [
+        [
+          315.0,
+          4405
+        ],
+        [
+          315,
+          4535
+        ],
+        [
+          640,
+          4535.0
+        ]
+      ],
+      "at": [
+        470,
+        4505
+      ]
+    },
+    {
+      "source": "control",
+      "target": "monitor",
+      "label": "상태",
+      "kind": "flow",
+      "points": [
+        [
+          1160,
+          4535.0
+        ],
+        [
+          1250,
+          4535.0
+        ]
+      ],
+      "at": [
+        1205,
+        4535
+      ]
+    },
+    {
+      "source": "monitor",
+      "target": "state",
+      "label": "복구한 상태",
+      "kind": "return",
+      "points": [
+        [
+          1680,
+          4535.0
+        ],
+        [
+          1725,
+          4535
+        ],
+        [
+          1725,
+          4150
+        ],
+        [
+          1680,
+          4150.0
+        ]
+      ],
+      "at": [
+        1690,
+        4235
+      ]
+    },
+    {
+      "source": "control",
+      "target": "guard",
+      "label": "실행 요청",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          4595
+        ],
+        [
+          900.0,
+          4705
+        ]
+      ],
+      "at": [
+        900,
+        4650
+      ]
+    },
+    {
+      "source": "rights",
+      "target": "guard",
+      "label": "현재 권한",
+      "kind": "flow",
+      "points": [
+        [
+          510,
+          4737.5
+        ],
+        [
+          575.0,
+          4737.5
+        ],
+        [
+          575.0,
+          4765.0
+        ],
+        [
+          640,
+          4765.0
+        ]
+      ],
+      "at": [
+        575,
+        4765
+      ]
+    },
+    {
+      "source": "limit",
+      "target": "guard",
+      "label": "한도",
+      "kind": "flow",
+      "points": [
+        [
+          1250,
+          4737.5
+        ],
+        [
+          1205.0,
+          4737.5
+        ],
+        [
+          1205.0,
+          4765.0
+        ],
+        [
+          1160,
+          4765.0
+        ]
+      ],
+      "at": [
+        1205,
+        4765
+      ]
+    },
+    {
+      "source": "guard",
+      "target": "allowed",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          4825
+        ],
+        [
+          900.0,
+          4890.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "allowed",
+      "target": "handoff",
+      "label": "아니오\n사람 결정",
+      "kind": "blocked",
+      "points": [
+        [
+          1080.0,
+          4975.0
+        ],
+        [
+          1165.0,
+          4975.0
+        ],
+        [
+          1165.0,
+          4972.5
+        ],
+        [
+          1250,
+          4972.5
+        ]
+      ],
+      "at": [
+        1165,
+        4975.0
+      ]
+    },
+    {
+      "source": "allowed",
+      "target": "hold",
+      "label": "아니오\n실행 불가",
+      "kind": "blocked",
+      "points": [
+        [
+          720.0,
+          4975.0
+        ],
+        [
+          615.0,
+          4975.0
+        ],
+        [
+          615.0,
+          4961.0
+        ],
+        [
+          510,
+          4961.0
+        ]
+      ],
+      "at": [
+        615,
+        4975.0
+      ]
+    },
+    {
+      "source": "handoff",
+      "target": "identity0",
+      "label": "답변이 도착하면",
+      "kind": "flow",
+      "points": [
+        [
+          1465.0,
+          5045
+        ],
+        [
+          1465.0,
+          5140
+        ]
+      ],
+      "at": [
+        1465,
+        5090
+      ]
+    },
+    {
+      "source": "identity0",
+      "target": "guard",
+      "label": "유효한 결정 반영 후 재검사",
+      "kind": "return",
+      "points": [
+        [
+          1680,
+          5200.0
+        ],
+        [
+          1735,
+          5200
+        ],
+        [
+          1735,
+          4845
+        ],
+        [
+          1130,
+          4845
+        ],
+        [
+          1160,
+          4805.0
+        ]
+      ],
+      "at": [
+        1440,
+        4845
+      ]
+    },
+    {
+      "source": "allowed",
+      "target": "tools",
+      "label": "예 · 허용된 작업",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          5060.0
+        ],
+        [
+          900.0,
+          5165
+        ]
+      ],
+      "at": [
+        900,
+        5115
+      ]
+    },
+    {
+      "source": "type0",
+      "target": "choose0",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          335.0,
+          5449.0
+        ],
+        [
+          575.0,
+          5449.0
+        ],
+        [
+          575.0,
+          5454.0
+        ],
+        [
+          815.0,
+          5454.0
+        ]
+      ],
+      "at": [
+        515,
+        5449
+      ]
+    },
+    {
+      "source": "tools",
+      "target": "type0",
+      "label": "실행할 작업의 종류",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          5275
+        ],
+        [
+          900,
+          5320
+        ],
+        [
+          215,
+          5320
+        ],
+        [
+          215.0,
+          5374.0
+        ]
+      ],
+      "at": [
+        555,
+        5320
+      ]
+    },
+    {
+      "source": "choose0",
+      "target": "sort",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          921.578947368421,
+          5491.894736842105
+        ],
+        [
+          616.0,
+          5565
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose0",
+      "target": "combine",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1040.0,
+          5534.0
+        ],
+        [
+          1030.0,
+          5565
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose0",
+      "target": "convert",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1158.421052631579,
+          5491.894736842105
+        ],
+        [
+          1444.0,
+          5565
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "sort",
+      "target": "out0",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          616.0,
+          5700
+        ],
+        [
+          985.0,
+          5735
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "combine",
+      "target": "out0",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1030.0,
+          5700
+        ],
+        [
+          1040.0,
+          5735
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "convert",
+      "target": "out0",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1444.0,
+          5700
+        ],
+        [
+          1095.0,
+          5735
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "out0",
+      "target": "identity",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1310,
+          5765.0
+        ],
+        [
+          1750,
+          5765
+        ],
+        [
+          1750,
+          8440.0
+        ],
+        [
+          1660,
+          8440.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "type1",
+      "target": "choose1",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          335.0,
+          5939.0
+        ],
+        [
+          575.0,
+          5939.0
+        ],
+        [
+          575.0,
+          5944.0
+        ],
+        [
+          815.0,
+          5944.0
+        ]
+      ],
+      "at": [
+        515,
+        5939
+      ]
+    },
+    {
+      "source": "type0",
+      "target": "type1",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          215.0,
+          5524.0
+        ],
+        [
+          215.0,
+          5864.0
+        ]
+      ],
+      "at": [
+        215,
+        5715
+      ]
+    },
+    {
+      "source": "choose1",
+      "target": "calc",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          921.578947368421,
+          5981.894736842105
+        ],
+        [
+          533.2,
+          6055
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose1",
+      "target": "analysis",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          959.6428571428571,
+          5995.428571428572
+        ],
+        [
+          781.6,
+          6055
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose1",
+      "target": "judge",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1040.0,
+          6024.0
+        ],
+        [
+          1030.0,
+          6055
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose1",
+      "target": "forecast",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1120.357142857143,
+          5995.428571428572
+        ],
+        [
+          1278.4,
+          6055
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose1",
+      "target": "optimize",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1158.421052631579,
+          5981.894736842105
+        ],
+        [
+          1526.8,
+          6055
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "calc",
+      "target": "out1",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          533.2,
+          6190
+        ],
+        [
+          930.0,
+          6225
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "analysis",
+      "target": "out1",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          781.6,
+          6190
+        ],
+        [
+          985.0,
+          6225
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "judge",
+      "target": "out1",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1030.0,
+          6190
+        ],
+        [
+          1040.0,
+          6225
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "forecast",
+      "target": "out1",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1278.4,
+          6190
+        ],
+        [
+          1095.0,
+          6225
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "optimize",
+      "target": "out1",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1526.8,
+          6190
+        ],
+        [
+          1150.0,
+          6225
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "out1",
+      "target": "identity",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1310,
+          6255.0
+        ],
+        [
+          1750,
+          6255
+        ],
+        [
+          1750,
+          8440.0
+        ],
+        [
+          1660,
+          8440.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "type2",
+      "target": "choose2",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          335.0,
+          6429.0
+        ],
+        [
+          575.0,
+          6429.0
+        ],
+        [
+          575.0,
+          6434.0
+        ],
+        [
+          815.0,
+          6434.0
+        ]
+      ],
+      "at": [
+        515,
+        6429
+      ]
+    },
+    {
+      "source": "type1",
+      "target": "type2",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          215.0,
+          6014.0
+        ],
+        [
+          215.0,
+          6354.0
+        ]
+      ],
+      "at": [
+        215,
+        6205
+      ]
+    },
+    {
+      "source": "choose2",
+      "target": "design",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          921.578947368421,
+          6471.894736842105
+        ],
+        [
+          616.0,
+          6545
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose2",
+      "target": "reframe",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1040.0,
+          6514.0
+        ],
+        [
+          1030.0,
+          6545
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose2",
+      "target": "make",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1158.421052631579,
+          6471.894736842105
+        ],
+        [
+          1444.0,
+          6545
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "design",
+      "target": "out2",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          616.0,
+          6680
+        ],
+        [
+          985.0,
+          6715
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "reframe",
+      "target": "out2",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1030.0,
+          6680
+        ],
+        [
+          1040.0,
+          6715
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "make",
+      "target": "out2",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1444.0,
+          6680
+        ],
+        [
+          1095.0,
+          6715
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "out2",
+      "target": "identity",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1310,
+          6745.0
+        ],
+        [
+          1750,
+          6745
+        ],
+        [
+          1750,
+          8440.0
+        ],
+        [
+          1660,
+          8440.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "type3",
+      "target": "choose3",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          335.0,
+          6919.0
+        ],
+        [
+          575.0,
+          6919.0
+        ],
+        [
+          575.0,
+          6924.0
+        ],
+        [
+          815.0,
+          6924.0
+        ]
+      ],
+      "at": [
+        515,
+        6919
+      ]
+    },
+    {
+      "source": "type2",
+      "target": "type3",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          215.0,
+          6504.0
+        ],
+        [
+          215.0,
+          6844.0
+        ]
+      ],
+      "at": [
+        215,
+        6695
+      ]
+    },
+    {
+      "source": "choose3",
+      "target": "talk",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          921.578947368421,
+          6961.894736842105
+        ],
+        [
+          719.5,
+          7035
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose3",
+      "target": "negotiate",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1158.421052631579,
+          6961.894736842105
+        ],
+        [
+          1340.5,
+          7035
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "talk",
+      "target": "out3",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          719.5,
+          7170
+        ],
+        [
+          1012.5,
+          7205
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "negotiate",
+      "target": "out3",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1340.5,
+          7170
+        ],
+        [
+          1067.5,
+          7205
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "out3",
+      "target": "identity",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1310,
+          7235.0
+        ],
+        [
+          1750,
+          7235
+        ],
+        [
+          1750,
+          8440.0
+        ],
+        [
+          1660,
+          8440.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "type4",
+      "target": "choose4",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          335.0,
+          7409.0
+        ],
+        [
+          575.0,
+          7409.0
+        ],
+        [
+          575.0,
+          7414.0
+        ],
+        [
+          815.0,
+          7414.0
+        ]
+      ],
+      "at": [
+        515,
+        7409
+      ]
+    },
+    {
+      "source": "type3",
+      "target": "type4",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          215.0,
+          6994.0
+        ],
+        [
+          215.0,
+          7334.0
+        ]
+      ],
+      "at": [
+        215,
+        7185
+      ]
+    },
+    {
+      "source": "choose4",
+      "target": "write",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          921.578947368421,
+          7451.894736842105
+        ],
+        [
+          564.25,
+          7525
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose4",
+      "target": "transaction",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          979.1891891891892,
+          7472.378378378378
+        ],
+        [
+          874.75,
+          7525
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose4",
+      "target": "operate",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1100.8108108108108,
+          7472.378378378378
+        ],
+        [
+          1185.25,
+          7525
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose4",
+      "target": "publish",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1158.421052631579,
+          7451.894736842105
+        ],
+        [
+          1495.75,
+          7525
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "write",
+      "target": "out4",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          564.25,
+          7660
+        ],
+        [
+          957.5,
+          7695
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "transaction",
+      "target": "out4",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          874.75,
+          7660
+        ],
+        [
+          1012.5,
+          7695
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "operate",
+      "target": "out4",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1185.25,
+          7660
+        ],
+        [
+          1067.5,
+          7695
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "publish",
+      "target": "out4",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1495.75,
+          7660
+        ],
+        [
+          1122.5,
+          7695
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "out4",
+      "target": "identity",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1310,
+          7725.0
+        ],
+        [
+          1750,
+          7725
+        ],
+        [
+          1750,
+          8440.0
+        ],
+        [
+          1660,
+          8440.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "type5",
+      "target": "choose5",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          335.0,
+          7899.0
+        ],
+        [
+          575.0,
+          7899.0
+        ],
+        [
+          575.0,
+          7904.0
+        ],
+        [
+          815.0,
+          7904.0
+        ]
+      ],
+      "at": [
+        515,
+        7899
+      ]
+    },
+    {
+      "source": "type4",
+      "target": "type5",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          215.0,
+          7484.0
+        ],
+        [
+          215.0,
+          7824.0
+        ]
+      ],
+      "at": [
+        215,
+        7675
+      ]
+    },
+    {
+      "source": "choose5",
+      "target": "observe",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          921.578947368421,
+          7941.894736842105
+        ],
+        [
+          616.0,
+          8015
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose5",
+      "target": "experiment",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1040.0,
+          7984.0
+        ],
+        [
+          1030.0,
+          8015
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "choose5",
+      "target": "simulate",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1158.421052631579,
+          7941.894736842105
+        ],
+        [
+          1444.0,
+          8015
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "observe",
+      "target": "out5",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          616.0,
+          8150
+        ],
+        [
+          985.0,
+          8185
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "experiment",
+      "target": "out5",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1030.0,
+          8150
+        ],
+        [
+          1040.0,
+          8185
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "simulate",
+      "target": "out5",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1444.0,
+          8150
+        ],
+        [
+          1095.0,
+          8185
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "out5",
+      "target": "identity",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1310,
+          8215.0
+        ],
+        [
+          1750,
+          8215
+        ],
+        [
+          1750,
+          8440.0
+        ],
+        [
+          1660,
+          8440.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "counter",
+      "target": "verify",
+      "label": "대조 근거",
+      "kind": "flow",
+      "points": [
+        [
+          510,
+          8480.0
+        ],
+        [
+          640,
+          8480.0
+        ]
+      ],
+      "at": [
+        575,
+        8480
+      ]
+    },
+    {
+      "source": "vdecision",
+      "target": "wait",
+      "label": "아직 확인 불가",
+      "kind": "blocked",
+      "points": [
+        [
+          1080.0,
+          8897.5
+        ],
+        [
+          1160.0,
+          8897.5
+        ],
+        [
+          1160.0,
+          8890.0
+        ],
+        [
+          1240,
+          8890.0
+        ]
+      ],
+      "at": [
+        1160,
+        8895
+      ]
+    },
+    {
+      "source": "wait",
+      "target": "verify",
+      "label": "답변·상태 확인 후 재검증",
+      "kind": "return",
+      "points": [
+        [
+          1670,
+          8890.0
+        ],
+        [
+          1715,
+          8890
+        ],
+        [
+          1715,
+          8585
+        ],
+        [
+          1195,
+          8585
+        ],
+        [
+          1195,
+          8515
+        ],
+        [
+          1160,
+          8515.0
+        ]
+      ],
+      "at": [
+        1450,
+        8585
+      ]
+    },
+    {
+      "source": "vdecision",
+      "target": "more",
+      "label": "예 · 문제없음",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          8985.0
+        ],
+        [
+          900.0,
+          9070.0
+        ]
+      ],
+      "at": [
+        900,
+        9030
+      ]
+    },
+    {
+      "source": "vdecision",
+      "target": "context2",
+      "label": "문제 있음 · 보완 필요",
+      "kind": "blocked",
+      "points": [
+        [
+          720.0,
+          8897.5
+        ],
+        [
+          630,
+          8897.5
+        ],
+        [
+          325,
+          8897.5
+        ],
+        [
+          325.0,
+          9065
+        ]
+      ],
+      "at": [
+        470,
+        8897.5
+      ]
+    },
+    {
+      "source": "more",
+      "target": "context2",
+      "label": "아니오\n다음 작업",
+      "kind": "blocked",
+      "points": [
+        [
+          720.0,
+          9165.0
+        ],
+        [
+          620.0,
+          9165.0
+        ],
+        [
+          620.0,
+          9142.5
+        ],
+        [
+          520,
+          9142.5
+        ]
+      ],
+      "at": [
+        620,
+        9165
+      ]
+    },
+    {
+      "source": "context2",
+      "target": "context",
+      "label": "검증 결과로 다음 작업 선택",
+      "kind": "return",
+      "points": [
+        [
+          130,
+          9142.5
+        ],
+        [
+          45,
+          9142.5
+        ],
+        [
+          45,
+          3020
+        ],
+        [
+          595,
+          3020
+        ],
+        [
+          595,
+          2952.5
+        ],
+        [
+          640,
+          2952.5
+        ]
+      ],
+      "at": [
+        310,
+        3020
+      ]
+    },
+    {
+      "source": "more",
+      "target": "quality",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          9260.0
+        ],
+        [
+          900.0,
+          9350
+        ]
+      ],
+      "at": [
+        900,
+        9305
+      ]
+    },
+    {
+      "source": "quality",
+      "target": "process_eval",
+      "label": "결과",
+      "kind": "flow",
+      "points": [
+        [
+          1150,
+          9410.0
+        ],
+        [
+          1240,
+          9410.0
+        ]
+      ],
+      "at": [
+        1195,
+        9410
+      ]
+    },
+    {
+      "source": "pack",
+      "target": "delivery",
+      "label": "결과와 인계 내용",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          9880
+        ],
+        [
+          900.0,
+          9960
+        ]
+      ],
+      "at": [
+        900,
+        9925
+      ]
+    },
+    {
+      "source": "delivery",
+      "target": "receipt",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          10080
+        ],
+        [
+          900.0,
+          10155.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "receipt",
+      "target": "wait2",
+      "label": "확인 대기",
+      "kind": "blocked",
+      "points": [
+        [
+          1080.0,
+          10242.5
+        ],
+        [
+          1160.0,
+          10242.5
+        ],
+        [
+          1160.0,
+          10235.0
+        ],
+        [
+          1240,
+          10235.0
+        ]
+      ],
+      "at": [
+        1160,
+        10225
+      ]
+    },
+    {
+      "source": "wait2",
+      "target": "delivery",
+      "label": "인수 확인 재개",
+      "kind": "return",
+      "points": [
+        [
+          1455.0,
+          10165
+        ],
+        [
+          1455,
+          10020
+        ],
+        [
+          1150,
+          10020.0
+        ]
+      ],
+      "at": [
+        1350,
+        10020
+      ]
+    },
+    {
+      "source": "receipt",
+      "target": "outcome",
+      "label": "인수 완료",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          10330.0
+        ],
+        [
+          900.0,
+          10415
+        ]
+      ],
+      "at": [
+        900,
+        10375
+      ]
+    },
+    {
+      "source": "improve",
+      "target": "capability",
+      "label": "적용 전 시험할 개선안",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          11375
+        ],
+        [
+          900.0,
+          11455
+        ]
+      ],
+      "at": [
+        900,
+        11415
+      ]
+    },
+    {
+      "source": "testenv",
+      "target": "capability",
+      "label": "재현 가능한 시험 조건",
+      "kind": "flow",
+      "points": [
+        [
+          310.0,
+          11375
+        ],
+        [
+          310,
+          11527.5
+        ],
+        [
+          650,
+          11527.5
+        ]
+      ],
+      "at": [
+        415,
+        11480
+      ]
+    },
+    {
+      "source": "capability",
+      "target": "passed",
+      "label": "검사값",
+      "kind": "flow",
+      "points": [
+        [
+          1150,
+          11527.5
+        ],
+        [
+          1195.0,
+          11527.5
+        ],
+        [
+          1195.0,
+          11535.0
+        ],
+        [
+          1240.0,
+          11535.0
+        ]
+      ],
+      "at": [
+        1195,
+        11528
+      ]
+    },
+    {
+      "source": "passed",
+      "target": "improve",
+      "label": "미통과한 개선안 보완",
+      "kind": "return",
+      "points": [
+        [
+          1440.0,
+          11450.0
+        ],
+        [
+          1440,
+          11315
+        ],
+        [
+          1150,
+          11315.0
+        ]
+      ],
+      "at": [
+        1390,
+        11355
+      ]
+    },
+    {
+      "source": "passed",
+      "target": "memory2",
+      "label": "예 · 검증된 개선 반영",
+      "kind": "flow",
+      "points": [
+        [
+          1440.0,
+          11620.0
+        ],
+        [
+          1440,
+          11810
+        ],
+        [
+          1150,
+          11810.0
+        ]
+      ],
+      "at": [
+        1410,
+        11700
+      ]
+    },
+    {
+      "source": "memory2",
+      "target": "finish",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          11880
+        ],
+        [
+          900.0,
+          11955
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "intent",
+      "target": "clear",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          800
+        ],
+        [
+          900.0,
+          845.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "clear",
+      "target": "goal",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          900.0,
+          1000.0
+        ],
+        [
+          900.0,
+          1035
+        ]
+      ],
+      "at": [
+        900,
+        1020
+      ]
+    },
+    {
+      "source": "clear",
+      "target": "communicate0",
+      "label": "예 · 확인 필요",
+      "kind": "flow",
+      "points": [
+        [
+          720.0,
+          922.5
+        ],
+        [
+          615.0,
+          922.5
+        ],
+        [
+          615.0,
+          920.0
+        ],
+        [
+          510,
+          920.0
+        ]
+      ],
+      "at": [
+        605,
+        922
+      ]
+    },
+    {
+      "source": "live",
+      "target": "communicate0",
+      "label": "대화 통로",
+      "kind": "flow",
+      "points": [
+        [
+          100,
+          752.5
+        ],
+        [
+          70,
+          752.5
+        ],
+        [
+          70,
+          920
+        ],
+        [
+          100,
+          920.0
+        ]
+      ],
+      "at": [
+        100,
+        838
+      ]
+    },
+    {
+      "source": "communicate0",
+      "target": "intent",
+      "label": "확인한 뜻·범위 반영",
+      "kind": "return",
+      "points": [
+        [
+          305.0,
+          865
+        ],
+        [
+          305,
+          835
+        ],
+        [
+          610,
+          835
+        ],
+        [
+          610,
+          745
+        ],
+        [
+          710,
+          745.0
+        ]
+      ],
+      "at": [
+        615,
+        790
+      ]
+    },
+    {
+      "source": "strategy",
+      "target": "qualified",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          3365
+        ],
+        [
+          900.0,
+          3420.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "qualified",
+      "target": "plan",
+      "label": "예 · 통과한 범위·판본",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          3590.0
+        ],
+        [
+          900.0,
+          4090
+        ]
+      ],
+      "at": [
+        920,
+        3760
+      ]
+    },
+    {
+      "source": "qualified",
+      "target": "testenv0",
+      "label": "아니오 · 먼저 시험",
+      "kind": "blocked",
+      "points": [
+        [
+          720.0,
+          3505.0
+        ],
+        [
+          615.0,
+          3505.0
+        ],
+        [
+          615.0,
+          3475.0
+        ],
+        [
+          510,
+          3475.0
+        ]
+      ],
+      "at": [
+        610,
+        3490
+      ]
+    },
+    {
+      "source": "testenv0",
+      "target": "capability0",
+      "label": "시험 조건·통과 기준",
+      "kind": "flow",
+      "points": [
+        [
+          315.0,
+          3530
+        ],
+        [
+          315.0,
+          3610
+        ]
+      ],
+      "at": [
+        315,
+        3570
+      ]
+    },
+    {
+      "source": "capability0",
+      "target": "qualified_test",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          315.0,
+          3745
+        ],
+        [
+          315.0,
+          3815.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "qualified_test",
+      "target": "plan",
+      "label": "예 · 가능한 범위만 계획",
+      "kind": "flow",
+      "points": [
+        [
+          510.0,
+          3895.0
+        ],
+        [
+          580,
+          3895
+        ],
+        [
+          580,
+          4150.0
+        ],
+        [
+          640,
+          4150.0
+        ]
+      ],
+      "at": [
+        595,
+        3975
+      ]
+    },
+    {
+      "source": "qualified_test",
+      "target": "unqualified",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          315.0,
+          3975.0
+        ],
+        [
+          315.0,
+          4050
+        ]
+      ],
+      "at": [
+        315,
+        4013
+      ]
+    },
+    {
+      "source": "type5",
+      "target": "context2",
+      "label": "아니오\n작업 재선택",
+      "kind": "blocked",
+      "points": [
+        [
+          215.0,
+          7974.0
+        ],
+        [
+          215,
+          8304
+        ],
+        [
+          80,
+          8304
+        ],
+        [
+          80,
+          8985
+        ],
+        [
+          250,
+          8985
+        ],
+        [
+          250.0,
+          9065
+        ]
+      ],
+      "at": [
+        150,
+        8304
+      ]
+    },
+    {
+      "source": "quality",
+      "target": "qualityok",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          9470
+        ],
+        [
+          900.0,
+          9535.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "qualityok",
+      "target": "pack",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          9705.0
+        ],
+        [
+          900.0,
+          9760
+        ]
+      ],
+      "at": [
+        900,
+        9745
+      ]
+    },
+    {
+      "source": "qualityok",
+      "target": "repair",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          720.0,
+          9620.0
+        ],
+        [
+          510,
+          9620.0
+        ]
+      ],
+      "at": [
+        610,
+        9620
+      ]
+    },
+    {
+      "source": "repair",
+      "target": "context2",
+      "label": "보완할 내용 반영",
+      "kind": "return",
+      "points": [
+        [
+          315.0,
+          9560
+        ],
+        [
+          315,
+          9290
+        ],
+        [
+          325,
+          9290
+        ],
+        [
+          325.0,
+          9220
+        ]
+      ],
+      "at": [
+        315,
+        9465
+      ]
+    },
+    {
+      "source": "outcome",
+      "target": "learnneed",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          10535
+        ],
+        [
+          900.0,
+          10600.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "learnneed",
+      "target": "cause",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          10770.0
+        ],
+        [
+          900.0,
+          10835
+        ]
+      ],
+      "at": [
+        900,
+        10815
+      ]
+    },
+    {
+      "source": "learnneed",
+      "target": "memory_direct",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          1080.0,
+          10685.0
+        ],
+        [
+          1160.0,
+          10685.0
+        ],
+        [
+          1160.0,
+          10687.5
+        ],
+        [
+          1240,
+          10687.5
+        ]
+      ],
+      "at": [
+        1160,
+        10685
+      ]
+    },
+    {
+      "source": "memory_direct",
+      "target": "finish",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1670,
+          10687.5
+        ],
+        [
+          1710,
+          10687.5
+        ],
+        [
+          1710,
+          11997.5
+        ],
+        [
+          1090,
+          11997.5
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "process_eval",
+      "target": "outcome",
+      "label": "과정 평가와 실제 성과 비교",
+      "kind": "flow",
+      "points": [
+        [
+          1670,
+          9410.0
+        ],
+        [
+          1740,
+          9410.0
+        ],
+        [
+          1740,
+          10475.0
+        ],
+        [
+          1150,
+          10475.0
+        ]
+      ],
+      "at": [
+        1620,
+        10390.0
+      ]
+    },
+    {
+      "source": "cause",
+      "target": "improveneed",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          10955
+        ],
+        [
+          900.0,
+          11010.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "improveneed",
+      "target": "improve",
+      "label": "예",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          11180.0
+        ],
+        [
+          900.0,
+          11255
+        ]
+      ],
+      "at": [
+        900,
+        11225
+      ]
+    },
+    {
+      "source": "improveneed",
+      "target": "memory_reuse",
+      "label": "아니오",
+      "kind": "blocked",
+      "points": [
+        [
+          1080.0,
+          11095.0
+        ],
+        [
+          1160.0,
+          11095.0
+        ],
+        [
+          1160.0,
+          11097.5
+        ],
+        [
+          1240,
+          11097.5
+        ]
+      ],
+      "at": [
+        1160,
+        11095
+      ]
+    },
+    {
+      "source": "memory_reuse",
+      "target": "finish",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1670,
+          11097.5
+        ],
+        [
+          1710,
+          11097.5
+        ],
+        [
+          1710,
+          11997.5
+        ],
+        [
+          1090,
+          11997.5
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "identity",
+      "target": "verify",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          1230,
+          8440.0
+        ],
+        [
+          1195.0,
+          8440.0
+        ],
+        [
+          1195.0,
+          8480.0
+        ],
+        [
+          1160,
+          8480.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "verify",
+      "target": "state_result",
+      "label": "검증 결과와 처리 상태",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          8550
+        ],
+        [
+          900.0,
+          8605
+        ]
+      ],
+      "at": [
+        900,
+        8578
+      ]
+    },
+    {
+      "source": "state_result",
+      "target": "vdecision",
+      "label": "",
+      "kind": "flow",
+      "points": [
+        [
+          900.0,
+          8720
+        ],
+        [
+          900.0,
+          8810.0
+        ]
+      ],
+      "at": null
+    },
+    {
+      "source": "record_read",
+      "target": "process_eval",
+      "label": "과정 평가의 근거",
+      "kind": "flow",
+      "points": [
+        [
+          1455.0,
+          9275
+        ],
+        [
+          1455.0,
+          9350
+        ]
+      ],
+      "at": [
+        1455,
+        9315
+      ]
+    },
+    {
+      "source": "receipt",
+      "target": "delivery_repair",
+      "label": "수정 요청",
+      "kind": "blocked",
+      "points": [
+        [
+          720.0,
+          10242.5
+        ],
+        [
+          510,
+          10242.5
+        ]
+      ],
+      "at": [
+        610,
+        10242.5
+      ]
+    },
+    {
+      "source": "delivery_repair",
+      "target": "repair",
+      "label": "수정할 작업으로 복귀",
+      "kind": "return",
+      "points": [
+        [
+          315.0,
+          10180
+        ],
+        [
+          315.0,
+          9680
+        ]
+      ],
+      "at": [
+        315,
+        9930.0
+      ]
+    },
+    {
+      "source": "rank",
+      "target": "priority",
+      "label": "함께 대조",
+      "kind": "flow",
+      "points": [
+        [
+          1335.0,
+          2381
+        ],
+        [
+          1335.0,
+          2425.5
+        ],
+        [
+          1320.0,
+          2425.5
+        ],
+        [
+          1320.0,
+          2470
+        ]
+      ],
+      "at": [
+        1325,
+        2425.5
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "x": 975,
+      "y": 1655,
+      "text": "충돌하는 조항에만 아래 순위를 적용",
+      "size": 24,
+      "weight": 800,
+      "color": "#192C36",
+      "anchor": "start"
+    },
+    {
+      "x": 982,
+      "y": 1751,
+      "text": "1",
+      "size": 30,
+      "weight": 800,
+      "color": "#228DE1",
+      "anchor": "start"
+    },
+    {
+      "x": 982,
+      "y": 1890,
+      "text": "2",
+      "size": 30,
+      "weight": 800,
+      "color": "#228DE1",
+      "anchor": "start"
+    },
+    {
+      "x": 982,
+      "y": 2029,
+      "text": "3",
+      "size": 30,
+      "weight": 800,
+      "color": "#228DE1",
+      "anchor": "start"
+    },
+    {
+      "x": 982,
+      "y": 2168,
+      "text": "4",
+      "size": 30,
+      "weight": 800,
+      "color": "#228DE1",
+      "anchor": "start"
+    },
+    {
+      "x": 982,
+      "y": 2307,
+      "text": "5",
+      "size": 30,
+      "weight": 800,
+      "color": "#228DE1",
+      "anchor": "start"
+    }
+  ],
+  "illustrations": [
+    [
+      0,
+      1250,
+      300,
+      400,
+      267
+    ],
+    [
+      2,
+      1320,
+      2810,
+      340,
+      226
+    ],
+    [
+      5,
+      140,
+      11680,
+      350,
+      232
+    ],
+    [
+      4,
+      1290,
+      3620,
+      360,
+      240
+    ]
+  ],
+  "catalog": {
+    "AI 모델": {
+      "name": "AI 모델",
+      "definition": "목표와 입력된 정보를 바탕으로 내용을 이해하고 추론한다. 가능한 답이나 행동을 만들고 비교해 무엇을 할지 판단한다. 업무에 필요한 답변·아이디어·콘텐츠를 생성한다.",
+      "usage": "상시",
+      "condition": "정보를 이해·판단하거나 업무에 필요한 내용을 만들 때"
+    },
+    "실행 제어": {
+      "name": "실행 제어",
+      "definition": "정해진 작업 흐름과 모델의 판단에 따라 함수·도구·AI를 호출하고 결과·오류를 전달한다. 판단과 실행의 반복, 순차·병렬 실행, 조건 분기와 결과 합류를 제어한다. 선행 작업과 필요한 결과의 준비 여부를 확인하고, 정해진 계산·조회·변환·조건 분기는 모델을 거치지 않고 실행한다. 일부 실패·대기·취소·재개·종료를 처리하며 변경된 실행 계획을 반영한다.",
+      "usage": "상시",
+      "condition": "업무를 시작한 뒤 끝날 때까지"
+    },
+    "현재 작업 정보": {
+      "name": "현재 작업 정보",
+      "definition": "이번 판단에 필요한 지시·자료·진행 상태·이전 기록을 골라 모델에게 제공한다. 목표와 조건을 유지하면서 정보의 양과 구성을 조절하고, 상황이 바뀌면 필요한 내용을 교체·보완한다.",
+      "usage": "상시",
+      "condition": "모델이 판단할 때마다"
+    },
+    "분리 실행": {
+      "name": "분리 실행",
+      "definition": "서로 섞이면 안 되는 자료와 작업을 구분해 공간과 실행 환경을 나눈다. 함께 쓰도록 허용된 자료와 도구는 공유할 수 있게 한다. 한 작업의 오류나 과도한 자원 사용이 다른 작업에 번지지 않도록 실행과 자원 사용을 조절한다.",
+      "usage": "상시",
+      "condition": "업무 공간을 만들거나 코드와 도구를 실행할 때"
+    },
+    "운영 감시·복구": {
+      "name": "운영 감시·복구",
+      "definition": "에이전트와 별도로 운영 상태를 감시한다. 에이전트와 시스템의 중단뿐 아니라 응답 지연·오류 증가·자원 부족도 찾아낸다. 문제가 다른 곳으로 번지지 않게 막고 시스템을 다시 정상 상태로 돌린다. 중단된 업무는 중단 시점의 저장된 진행 상태와 함께 담당에게 돌려준다.",
+      "usage": "상시",
+      "condition": "에이전트와 업무 수행 기반을 운영하는 동안"
+    },
+    "시작 신호": {
+      "name": "시작 신호",
+      "definition": "요청이나 변화가 생기거나 정해진 시점·조건에 도달했는지 감지한다. 감지한 신호를 해당 업무나 대기 건의 담당에게 전달한다.",
+      "usage": "단계별",
+      "condition": "요청·변화·정해진 시점·조건을 감지해 알릴 때"
+    },
+    "업무 도구·시스템": {
+      "name": "업무 도구·시스템",
+      "definition": "업무에 필요한 도구와 시스템을 연결해 사용할 수 있게 한다. 요청을 대상 도구가 처리할 수 있는 형태로 전달하고, 결과·오류·진행 상태를 에이전트에게 돌려준다.",
+      "usage": "단계별",
+      "condition": "업무 도구·시스템을 연결하거나 요청을 보낼 때 · 결과·오류·진행 상태를 받을 때"
+    },
+    "나눠 맡기기": {
+      "name": "나눠 맡기기",
+      "definition": "정해진 분담에 따라 각 AI에 작업과 필요한 자료·도구·허용된 권한을 전달한다. AI 사이에 필요한 정보와 중간 결과를 주고받게 하고 진행 상태를 모은다. 결과를 합치면서 빠진 부분과 중복, 이견, 실패를 확인해 담당 AI의 보완 작업을 연결한다. 분담이나 방법을 바꿔야 할 문제는 대안·전략 판단으로 돌려보낸다.",
+      "usage": "조건부",
+      "condition": "여러 AI에게 작업을 전달할 때 · AI 사이의 정보 교환·진행·결과 회수와 보완을 관리할 때"
+    },
+    "실시간 대화": {
+      "name": "실시간 대화",
+      "definition": "대화의 입력과 출력을 실시간으로 주고받게 한다. 대화 방식에 맞춰 발언 순서와 응답의 중단·재개를 처리한다. 연결과 전송 상태를 관리하고, 끊긴 대화를 다시 이어 갈 수 있게 한다.",
+      "usage": "조건부",
+      "condition": "바로 답을 주고받아야 하는 대화에서"
+    },
+    "시험 환경": {
+      "name": "시험 환경",
+      "definition": "시험 목적에 맞는 환경과 조건을 구성하고 필요한 자료·도구·계정을 준비한다. 비교하거나 다시 재현할 수 있도록 시험 조건을 관리한다. 운영 중인 업무나 원본 자료에 영향을 주면 안 되는 시험에는 분리된 공간을 제공한다. 시험 기록이 없거나 통과하지 못한 판본은 실제 환경으로 나가지 못하게 막는다.",
+      "usage": "조건부",
+      "condition": "시험·오류 재현·능력 평가에 별도의 공간과 조건이 필요할 때"
+    },
+    "근거의 신뢰성·적합성": {
+      "name": "근거의 신뢰성·적합성",
+      "definition": "정보의 출처와 수집·작성 과정을 살펴 얼마나 믿을 수 있는지 확인한다. 이번 업무의 대상과 조건에 맞는 근거인지 판단한다. 빠진 내용이나 치우침, 다른 정보와의 충돌을 확인하고 사실·주장·추정을 구분한다. 여러 자료에서 종합한 주장과 관계도 원문이 뒷받침하는지 확인하고, 추론한 내용과 직접 확인한 사실을 구별한다. 같은 정보를 옮겨 쓴 여러 자료를 서로 독립된 근거로 세지 않는다. 내용과 별개로, 결과를 판정할 곳이 그 근거를 받아 주는지, 취득 경로가 허용된 방법인지, 구속력 등급(원본·구속 규칙·참고·사후 작성)이 무엇인지 확인하고 낮은 등급으로 높은 등급의 결론을 대신하지 않는다. 같은 사실에 상충하는 수치·전문가 소견이 있으면 판정할 곳이 채택할 가능성 순으로 등급을 매기고 이유를 적는다.",
+      "usage": "상시",
+      "condition": "정보나 자료를 판단·실행·설명의 근거로 쓸 때 · 남이나 상대가 낸 자료를 근거로 받을 때"
+    },
+    "자료의 시점·버전": {
+      "name": "자료의 시점·버전",
+      "definition": "업무를 처리하는 날짜와 판단해야 할 대상 시점을 구분한다. 그 대상과 시점에 맞는 자료 버전을 고른다. 어떤 버전을 사용했는지와 언제 확인했는지도 남긴다. 수정된 자료와 이전 버전의 관계도 함께 관리한다. 자료를 종합해 만든 지식에서도 근거 원문의 위치·판본·적용 시점을 되짚을 수 있게 연결한다.",
+      "usage": "상시",
+      "condition": "업무에 맞는 자료를 고를 때 · 업무의 대상·시점이나 자료가 바뀌었을 때"
+    },
+    "규칙·기준 원문": {
+      "name": "규칙·기준 원문",
+      "definition": "업무에 적용할 규칙과 기준을 원문으로 확보한다. 출처와 적용 시점을 함께 정리해 어떤 규칙인지 확인하고 찾아볼 수 있게 한다.",
+      "usage": "단계별",
+      "condition": "업무에 적용할 규칙·기준의 원문을 확보하거나 다시 확인할 때 · 규칙이나 적용 범위·시점이 바뀌었을 때"
+    },
+    "업무별 정보": {
+      "name": "업무별 정보",
+      "definition": "이번 업무의 대상과 현황, 요구 사항과 조건을 파악하는 데 필요한 정보를 모아 정리한다. 사람이나 조직이 제공한 자료뿐 아니라 관찰·측정한 내용과 시스템 기록도 함께 다룬다. 업무 중 새로 확인되거나 바뀐 정보도 함께 정리한다.",
+      "usage": "단계별",
+      "condition": "업무를 시작할 때 · 대상·상황·조건에 관한 정보가 새로 확인되거나 바뀌었을 때"
+    },
+    "정보·자료 이해": {
+      "name": "정보·자료 이해",
+      "definition": "여러 형태로 들어온 정보의 내용과 구조, 맥락을 파악한다. 서로 관련된 내용을 연결해 의미를 이해하고 업무에 필요한 내용을 뽑아 정리한다. 내용이 나온 위치나 시점을 남기고, 알아보기 어렵거나 뜻이 불분명한 부분을 구분한다.",
+      "usage": "단계별",
+      "condition": "새 정보를 접하거나 기존 자료를 다시 살펴볼 때 · 내용이나 맥락이 달라졌을 때"
+    },
+    "정보·자료 찾기": {
+      "name": "정보·자료 찾기",
+      "definition": "업무에 필요한 정보와 지식, 해결 방법과 자료를 찾아 확보한다. 웹·자료실·내부 기록을 검색하거나 사람·기관에 문의한다. 개념·대상·근거 사이의 연결을 따라 관련 지식과 예외·반대 근거를 찾고, 종합된 내용에서 근거 원문으로 되짚어 확인한다. 찾은 내용과 출처, 아직 확보하지 못한 내용을 정리한다.",
+      "usage": "단계별",
+      "condition": "업무에 필요한 정보·지식·방법·자료가 없거나 부족할 때"
+    },
+    "못 찾음·없음 구분": {
+      "name": "못 찾음·없음 구분",
+      "definition": "찾기와 조회의 결과를 찾음·못 찾음·없음으로 나눈다. 못 찾음은 찾아본 범위와 질의의 한계로, 없음은 근거를 갖춘 단정으로 구분해 적는다. 없음으로 적으려면 어디를 어떤 질의로 언제까지 찾았는지와 그 자리가 빠짐없이 담은 목록인지 확인한다. 전수 목록이 아니면 찾은 범위 안에는 없다로만 적는다. 찾아봄·원문 확인·전수 확인의 증거 등급을 붙이고 낮은 등급을 높여 말하지 않는다. 아무것도 못 찾은 검색도 질의·원천·시점과 함께 남긴다. 같은 분야에서 사례를 못 찾았을 때는 다른 분야에서 같은 구조의 사례를 찾았는지까지 적고, 분야를 넘겨 빌린 사례는 그렇게 표시한다.",
+      "usage": "단계별",
+      "condition": "없음·해당 없음을 결론이나 근거로 적을 때 · 찾기나 조회가 빈손으로 끝났을 때"
+    },
+    "적용 사례": {
+      "name": "적용 사례",
+      "definition": "다른 업무에서 규칙이나 방법을 어떻게 적용했는지와 그 결과를 보여 주는 사례를 모은다. 무엇을 근거로 판단했는지와 어떤 조건에서 효과나 문제가 나타났는지 확인한다. 이번 업무와 비슷한 점과 다른 점도 살핀다.",
+      "usage": "조건부",
+      "condition": "규칙이나 방법의 적용 과정·결과를 참고할 때 · 사례의 조건을 이번 업무와 비교해야 할 때"
+    },
+    "참고 자료": {
+      "name": "참고 자료",
+      "definition": "원리와 방법, 판단과 표현에 참고할 자료를 확보한다. 어떤 부분을 어떤 목적으로 참고할 수 있는지 정리해 필요한 때 찾아볼 수 있게 한다.",
+      "usage": "조건부",
+      "condition": "업무를 이해하거나 판단·작업에 참고할 자료가 필요할 때"
+    },
+    "재사용 자료": {
+      "name": "재사용 자료",
+      "definition": "여러 업무에서 다시 사용할 서식·원본·부품·코드 등을 관리한다. 필요한 부분을 가져다 쓰거나 고쳐 쓸 수 있게 정리한다. 다시 사용할 권리가 있는지, 사용할 도구나 환경에 맞는지도 확인한다.",
+      "usage": "조건부",
+      "condition": "다시 쓸 자료·서식·부품·코드를 정리하거나 가져다 쓸 때 · 이용 권한이나 사용할 도구·환경이 바뀌었을 때"
+    },
+    "현재 값·상태 확인": {
+      "name": "현재 값·상태 확인",
+      "definition": "판단이나 실행에 필요한 현재 값과 상태를 조회하거나 관찰한다. 확인한 시점과 지금 업무에 사용할 수 있는 정보인지 함께 확인한다.",
+      "usage": "조건부",
+      "condition": "현재 값이나 상태에 따라 판단·실행이 달라질 때"
+    },
+    "변경 감시·반영": {
+      "name": "변경 감시·반영",
+      "definition": "지켜보기로 한 자료나 조건·상태의 변화를 찾아낸다. 무엇이 바뀌었고 언제부터 영향을 주는지 확인한다. 영향을 받는 업무와 담당을 찾아 알리고, 보관 중인 관련 자료를 새 내용으로 바꾼다. 근거 원문이 정정·철회되면 연결된 지식과 그 지식에서 파생된 내용을 따라 재검토 대상을 찾아 해당 담당에게 알린다. 기본 감시 항목에는 적용 규칙의 해석·개정 동향과 상대·관계자의 지위 변화(도산·합병·해산·담당 교체 등)를 넣는다. 맡을 때 적용 규칙이 다투어지는 중이면 그 규칙의 변경 추적을 자동으로 켠다.",
+      "usage": "조건부",
+      "condition": "업무에 영향을 주는 정보의 변경을 계속 따라가야 할 때 · 맡을 때 적용 규칙이 다투어지고 있을 때"
+    },
+    "업무 지식": {
+      "name": "업무 지식",
+      "definition": "업무에 필요한 개념·대상·원리·방법과 그 관계를 정리하고 판단과 수행에 활용한다. 검증된 자료를 종합해 근거·적용 조건·예외·이견이 연결된 지식으로 구성하고, 새 근거나 정정에 따라 내용을 보완한다. 개념과 관계의 의미를 일관되게 유지하고, 근거가 부족한 내용은 미확인으로 구분한다. 다른 분야의 지식이 필요하면 함께 연결해 쓴다. 조건에 맞는 방법을 고르고, 익숙한 방법으로 해결되지 않으면 기본 원리에서 다른 방법을 찾아 적용한다.",
+      "usage": "상시",
+      "condition": "업무를 이해하고 판단하거나 수행할 때 · 지식을 구성하거나 근거·개념·관계·적용 조건이 바뀌었을 때"
+    },
+    "실전 경험·감각": {
+      "name": "실전 경험·감각",
+      "definition": "전문가와 에이전트의 업무 경험에서 반복해서 확인된 판단 요령을 상황에 맞게 활용한다. 중요한 단서와 먼저 살펴볼 부분을 가려내고, 조건이나 예외에 맞는 대응 방법을 고른다.",
+      "usage": "상시",
+      "condition": "상황을 이해하고 어떤 방법으로 대응할지 정할 때"
+    },
+    "현재 진행 상태": {
+      "name": "현재 진행 상태",
+      "definition": "현재 목표와 작업별 진행 상태, 남은 일을 기록한다. 담당자와 작업의 선후 관계, 선택된 분기와 병렬 작업별 결과, 기다리는 답변과 외부 처리 상태를 연결해 관리한다. 적용된 실행 계획과 작업 연결의 변경 이력을 남긴다. 완료·실패·취소와 승인·약속·조건의 변경을 반영해 다음에 어디서 무엇을 이어 할지 알 수 있게 한다.",
+      "usage": "상시",
+      "condition": "진행 상태나 담당·조건·승인이 바뀌었을 때 · 대기·실패·취소 상태를 정리하거나 업무를 이어 갈 때"
+    },
+    "장기 기억": {
+      "name": "장기 기억",
+      "definition": "다음 업무에도 활용할 정보·경험·결정·약속을 골라 근거와 함께 보관한다. 고객·건별 사실과 약속은 해당 맥락에 묶고, 여러 업무에 통하는 지식으로 정리할 내용은 업무 지식의 구성·검증 절차에 연결한다. 필요한 때 관련 기억을 찾아 제공한다. 바뀌거나 잘못된 내용은 갱신·정정하고, 변경 시점과 이전 내용의 관계를 남긴다. 보관할 필요가 없어진 내용은 정리한다. 결정·결과마다 어떤 규칙·근거에 기댔는지 함께 남겨, 그 규칙이 바뀌면 같은 규칙을 쓴 과거 건을 목록으로 뽑아 재검토 대상으로 올린다.",
+      "usage": "단계별",
+      "condition": "다음 업무에도 남길 정보를 보관하거나 이전 기억을 찾을 때 · 기억할 내용이 바뀌거나 잘못된 것으로 확인됐을 때 · 기댔던 규칙·근거가 바뀌었을 때 · 보관할 필요가 없어졌을 때"
+    },
+    "법·의무 기준": {
+      "name": "법·의무 기준",
+      "definition": "업무에 적용되는 국가·분야·시점의 법과 의무 기준을 확인한다. 법령의 상하 관계, 위임, 특별 규정과 개정·경과조치를 검토해 적용할 내용을 정한다. 해당 업무에 효력이 있는 판결·명령과 해석을 함께 확인하고, 지켜야 할 요건과 허용·금지되는 범위를 정리한다. 적용되는 예외나 기준 변경을 반영한다.",
+      "usage": "상시",
+      "condition": "해당 법과 기준이 적용되는 업무 전반 · 적용 지역·대상·시점이나 법이 바뀌었을 때"
+    },
+    "직업 윤리·의무": {
+      "name": "직업 윤리·의무",
+      "definition": "직업이나 맡은 역할에서 지켜야 할 윤리·의무를 확인해 판단과 행동에 적용한다. 관계자의 권리와 맡은 책임을 살피고, 이해관계나 역할 때문에 의무가 충돌하는지 확인한다. 역할이나 관계가 바뀌면 적용되는 의무와 수행 조건을 다시 확인한다. 이해충돌 확인 대상에는 맡긴 사람 자신이 책임 주체인 경우, 가족·동료·증인처럼 가까운 관계자, 같은 편 다른 당사자의 행위 귀속을 넣는다. 당사자가 여럿이면 자격·이익 기준으로 먼저 갈라 건을 나누고, 서로 상충하는 주장이 있으면 맡는 범위를 나누거나, 함께 맡을 때는 팀을 나누고 정보 교환을 끊은 채 결론을 각각 낸다.",
+      "usage": "상시",
+      "condition": "직업·역할에 따른 윤리와 의무가 적용되는 동안 · 역할·관계·이해관계가 바뀌었을 때 · 당사자가 여럿이거나 늘었을 때"
+    },
+    "에이전트 기본 원칙": {
+      "name": "에이전트 기본 원칙",
+      "definition": "업무 목적과 맡은 범위를 지키고, 근거·불확실성·진행 상태를 정직하게 알린다. 지시와 참고 정보를 구분해, 외부 정보에 섞인 지시가 업무의 목표나 권한을 임의로 바꾸지 않게 한다.",
+      "usage": "상시",
+      "condition": "모든 판단과 행동에서"
+    },
+    "계약·합의 조건": {
+      "name": "계약·합의 조건",
+      "definition": "합의된 업무 조건과 각 당사자의 권리·의무를 확인해 적용한다. 약속의 적용 범위와 이행 상태를 관리하고, 조건의 변경·취소·종료를 반영한다. 업무가 끝난 뒤에도 남는 의무를 구분해 유지한다.",
+      "usage": "상시",
+      "condition": "합의된 조건이나 종료 후 남는 의무가 적용되는 동안 · 합의가 변경·취소·종료됐을 때"
+    },
+    "플랫폼·제출처 규정": {
+      "name": "플랫폼·제출처 규정",
+      "definition": "이용하거나 제출할 대상이 정한 조건과 절차를 확인해 적용한다. 서비스·계정·이용 방식·제출 유형에 따라 달라지는 규칙을 구분하고, 변경된 규정과 적용 범위를 반영한다.",
+      "usage": "상시",
+      "condition": "서비스를 이용하거나 결과를 제출할 때 · 서비스·계정·이용 방식·제출 유형이나 적용 규정이 바뀌었을 때"
+    },
+    "조직 규칙": {
+      "name": "조직 규칙",
+      "definition": "소속 조직이나 일을 맡긴 조직의 규칙 중 이번 업무에 적용되는 내용을 확인하고 따른다. 업무·역할·권한에 맞는 적용 범위를 구분하고, 규정 변경과 조직에서 허용한 예외를 반영한다.",
+      "usage": "상시",
+      "condition": "맡은 업무를 진행하는 동안 · 규정이나 역할·권한이 바뀌었을 때"
+    },
+    "사용자 지정 규칙": {
+      "name": "사용자 지정 규칙",
+      "definition": "의뢰인이나 운영자가 따로 정한 조건을 적용한다. 반드시 지켜야 하는 조건과 단순한 선호는 구분한다. 어디까지 적용되는지와 언제까지 적용되는지도 관리한다. 사용자가 내용을 바꾸거나 취소하면 새 내용으로 반영한다.",
+      "usage": "상시",
+      "condition": "사용자가 정한 추가 조건이 적용되는 동안 · 조건이나 선호가 바뀌거나 취소됐을 때"
+    },
+    "규칙의 적용·우선순위": {
+      "name": "규칙의 적용·우선순위",
+      "definition": "규칙의 원문·설정 권한·적용 범위·시점을 확인한다. 법적 적용 관계를 먼저 반영하고, 직업상 필수 의무·에이전트 기본 원칙·승인된 보호 기준 → 유효한 계약·플랫폼 필수 규정 → 조직의 필수 규칙 → 사용자 지정 규칙 → 기본 방식·스타일 순으로 충돌을 푼다. 문서 이름이 아니라 의무의 근거와 설정 권한으로 순위를 정하고, 충돌하는 조항의 실행 기준을 정한다. 충돌을 푼 뒤 남는 조건과 보호 기준을 함께 충족할 방법을 찾고, 변경·예외의 결정 권한을 확인한다. 적용한 근거와 해결되지 않은 쟁점을 남기고, 판단할 수 없는 부분을 담당자에게 넘긴다. 충돌이 우선순위가 아니라 예외 요건의 사실 입증으로 풀리는 유형이면 요건별 입증 계획을 세워 결정권자에게 넘긴다. 규정이 아니어도 행위를 실제로 막는 조치(명령·처분·계약상 제한)는 시점과 함께 적용 규칙에 올린다.",
+      "usage": "상시",
+      "condition": "업무에 적용할 규칙을 정할 때 · 규칙·지시가 충돌하거나 바뀌었을 때 · 변경·예외 요청을 판단할 때 · 예외 요건을 사실로 입증해야 할 때"
+    },
+    "업무 권한": {
+      "name": "업무 권한",
+      "definition": "누구를 대신해 어떤 대상에 어떤 행동을 할 수 있는지 확인하고 관리한다. 결정·승인·위임·동의의 주체와 권한을 준 경로, 다시 맡길 수 있는 범위를 확인한다. 권한의 유효 기간과 변경·철회를 반영하고, 실행 직전에 그 권한이 지금도 유효한지와 현재 허용된 범위를 확인해 제공한다. 긴급 조치에도 미리 정한 발동 조건과 권한을 적용한다.",
+      "usage": "상시",
+      "condition": "업무를 맡거나 다시 맡길 때 · 승인·실행·재개 직전 · 권한·동의·대상·내용이 바뀌었을 때 · 긴급 조치가 필요할 때"
+    },
+    "안전장치": {
+      "name": "안전장치",
+      "definition": "들어오거나 나가는 정보와 실행 요청을 현재 규칙·권한·한도 및 승인 내용과 대조한다. 허용·위반·확인 불가를 구분하고, 위반한 실행은 차단하며 확인할 수 없는 실행은 보류한다. 진행 중 조건이나 위험이 달라지면 영향을 받는 요청과 작업에 새 기준을 적용한다. 재시도·위임·다른 도구를 통한 실행에도 같은 조건을 검사한다.",
+      "usage": "상시",
+      "condition": "정보를 주고받거나 실행·재시도·재개할 때 · 진행 중 권한·규칙·한도·위험이 바뀌었을 때"
+    },
+    "비용·위험 한도": {
+      "name": "비용·위험 한도",
+      "definition": "비용·시간·자원과 감수할 위험의 한도를 업무 조건과 권한에 맞춰 정한다. 피해의 크기·확산·복구 가능성·발생 가능성과 불확실성을 살피고, 실행과 대기에서 생길 피해를 비교한다. 사용량과 진행·예약된 작업의 필요량을 합쳐 남은 여유를 관리한다. 한도 초과 가능성과 필요한 보호 조치·추가 판단을 알린다.",
+      "usage": "상시",
+      "condition": "업무 한도와 보호 조치를 정할 때 · 실행·재개와 대기의 위험을 비교할 때 · 사용·진행·예약분이나 위험 조건이 바뀌었을 때"
+    },
+    "표현 방식·스타일": {
+      "name": "표현 방식·스타일",
+      "definition": "업무의 대상·목적·매체에 맞는 표현 기준을 정리한다. 원하는 인상과 전달 방식, 사용하거나 피해야 할 표현을 구체화한다. 정해진 문체·디자인·브랜드 기준을 작업 전반에 일관되게 적용한다.",
+      "usage": "조건부",
+      "condition": "말투·문체·디자인·연출 등 표현 기준을 정하거나 맞춰야 할 때"
+    },
+    "지시·의도 파악": {
+      "name": "지시·의도 파악",
+      "definition": "요청과 앞뒤 맥락에서 원하는 결과와 이유, 허용한 범위를 읽어 낸다. 모호하거나 빠진 내용은 잘못 이해했을 때의 영향을 보고 질문할 것과 가정해도 될 것을 구분한다. 뜻에 따라 목표나 범위가 달라지는 부분은 맡긴 사람에게 확인하고, 가정한 내용과 그 영향을 알린다. 맡긴 말이 붙인 분류·이름과 실제 자료의 내용이 다르면 자료 쪽을 기준으로 다시 묻는다.",
+      "usage": "상시",
+      "condition": "새 요청을 받았을 때 · 지시가 바뀌었을 때 · 요청의 뜻이 모호하거나 이해가 어긋났을 때 · 맡긴 말의 분류와 실제 자료가 어긋날 때"
+    },
+    "문제·목표·완료 조건": {
+      "name": "문제·목표·완료 조건",
+      "definition": "이해한 요청과 확인된 자료를 바탕으로 해결할 문제와 목표를 정한다. 맡은 범위와 지켜야 할 조건 안에서 목표의 우선순위를 정한다. 전체 업무와 각 단계의 목표를 달성했다고 볼 상태, 확인 항목과 확인 방법·증거를 정한다. 요청한 목표나 범위를 넓혀야 하면 변경을 제안하고 확인된 내용을 반영한다.",
+      "usage": "상시",
+      "condition": "이해한 요청을 업무 목표로 정리할 때 · 문제 상황·목표·요구 조건이나 판단의 바탕이 바뀌었을 때"
+    },
+    "대안·전략 판단": {
+      "name": "대안·전략 판단",
+      "definition": "정해진 목표를 이룰 방법을 찾거나 새로 생각해 낸다. 각 방법의 효과와 근거, 시간과 비용, 위험과 불확실한 점을 비교한다. 어떤 방법을 쓸지와 선택 전에 무엇을 더 알아야 하는지 정한다. 가능한 방법과 그 부담을 보고 업무를 맡을지, 계속할지, 미루거나 중단할지도 판단한다.",
+      "usage": "상시",
+      "condition": "목표를 이룰 방법을 선택하거나 바꿀 때 · 업무를 맡을지, 계속할지, 미루거나 중단할지 판단할 때"
+    },
+    "사람에게 넘기기": {
+      "name": "사람에게 넘기기",
+      "definition": "사람의 결정·승인·자격이 필요하거나 에이전트가 해결할 수 없는 일을 담당자에게 넘긴다. 넘기는 이유와 필요한 자료, 요청할 판단이나 작업을 정리한다. 업무 일정에 맞춰 답변이 필요한 시점과 늦어질 때의 조치를 정하고, 확인 시점이 오면 요청 상태를 확인한다. 받은 답변과 결과를 요청했던 판단이나 작업에 반영한다.",
+      "usage": "상시",
+      "condition": "사람의 판단·승인·자격·작업이 필요할 때 · 넘긴 일의 진행과 답변을 확인하거나 받은 결과를 반영할 때"
+    },
+    "업무 절차·실행 계획": {
+      "name": "업무 절차·실행 계획",
+      "definition": "선택한 방법을 작업별 입력·출력과 연결 관계로 구체화하고 담당자·도구·자원·일정을 배정한다. 선후 관계와 병렬 실행, 결과를 모아야 하는 지점과 조건별 경로를 정한다. 의미 해석이 필요한 판단과 명시된 값·상태로 처리할 분기를 구분한다. 검사·승인, 일부 실패 시 처리와 반복·중단·재개 조건을 작업 순서에 넣는다. 입력과 중간 결과에 따라 필요한 작업 수와 연결을 구체화하거나 변경한다.",
+      "usage": "단계별",
+      "condition": "선택한 방법을 실행 계획으로 옮길 때 · 방법·일정·자원이나 입력·작업 진행 상태가 바뀌었을 때"
+    },
+    "먼저 알아채기": {
+      "name": "먼저 알아채기",
+      "definition": "상황의 변화와 여러 단서를 연결해 새로운 대응이 필요한 문제나 기회를 찾는다. 따로 요청받지 않은 일도 맡은 업무 범위에 들고 대응할 필요가 있는지 살핀다. 발견한 내용과 대응이 필요한 이유, 얼마나 급한지를 정리해 판단할 일로 알린다.",
+      "usage": "조건부",
+      "condition": "상황을 계속 살피고 필요한 일을 먼저 찾아내도록 맡겨진 업무에서"
+    },
+    "작업 진행·연결": {
+      "name": "작업 진행·연결",
+      "definition": "준비된 자료와 현재 진행 상태를 보고, 정해진 계획과 우선순위에 따라 지금 시작할 수 있는 작업을 진행한다. 작업 결과를 다음 담당과 검토 단계에 전달한다. 실행 실패·검토 반려·조건 변경이 생기면 필요한 수정·확인 작업으로 연결한다. 완료 기준과 검사 결과에 따라 계속 진행할 일과 대기·종료·인계할 일을 구분한다. 계획으로 처리할 수 없는 변경은 업무 절차·실행 계획이나 대안·전략 판단으로 돌려보낸다.",
+      "usage": "상시",
+      "condition": "업무를 맡은 뒤 종료·인계할 때까지 · 계속 운영하도록 맡은 업무의 각 처리 과정에서"
+    },
+    "대기·후속 관리": {
+      "name": "대기·후속 관리",
+      "definition": "답변·승인·외부 처리를 기다리는 일과 나중에 해야 할 일을, 각 담당이 정한 조건과 확인 시점에 맞춰 관리한다. 응답이나 상태 변화가 도착하면 현재 진행 상태와 조건을 확인해 연결된 작업을 다시 진행하게 한다. 기한이 지나면 정해 둔 재확인·대체·인계 절차를 연결한다. 반복 업무의 다음 회차와 완료 뒤 남은 약속도 이행하거나 담당을 넘길 때까지 관리한다. 되돌릴 수 없는 결정(선택하면 이후 선택지가 닫히는 것)과 그 기한은 따로 표시해 실행 전에 재확인한다. 다른 절차의 상태로 정해지는 기한과, 상대의 기한이 만드는 상대의 행동 예정 시점도 기한으로 등록한다. 계산으로 나온 기한은 자동으로 등록한다.",
+      "usage": "상시",
+      "condition": "업무의 대기·기한·후속 책임을 유지하는 동안 · 응답·상태 변화·확인 시점이 도래했을 때 · 되돌릴 수 없는 결정의 기한이 생겼을 때 · 반복 업무의 회차가 바뀌거나 담당이 바뀔 때"
+    },
+    "자료 선별·분류": {
+      "name": "자료 선별·분류",
+      "definition": "작업에 필요한 자료와 항목을 고르고, 내용과 특성에 따라 분류한다. 서로 다른 자료에서 같은 개념·대상을 가리키는 항목을 연결하고, 연결한 근거를 남긴다. 이름이 같아도 다른 대상일 수 있음을 확인한다. 동일 여부가 불명확하거나 분류가 겹치는 항목, 어느 쪽인지 정하기 어려운 자료는 따로 구분해 남긴다.",
+      "usage": "조건부",
+      "condition": "확보한 자료를 고르거나 분류·연결할 때 · 분류 업무를 맡은 동안 새 자료나 요청이 들어올 때"
+    },
+    "자료 정리·결합": {
+      "name": "자료 정리·결합",
+      "definition": "확보한 자료의 표기와 항목을 맞추고, 잘못된 것으로 확인된 내용과 중복을 정리한다. 정해진 연결 기준에 따라 자료를 합치거나 나눈다. 빠진 값과 서로 맞지 않는 내용은 구분해 남기고, 바꾼 내용이 어느 원본에서 왔는지 연결한다. 합친 주장·관계의 근거와 서로 다른 적용 조건을 유지하고, 잘못 연결한 항목을 되돌릴 수 있게 변경 내역을 남긴다.",
+      "usage": "조건부",
+      "condition": "자료의 오류·중복·누락을 정리하거나 합치고 나눌 때 · 정기 정리 시점이나 원본의 추가·변경이 있을 때"
+    },
+    "형식·구조 변환": {
+      "name": "형식·구조 변환",
+      "definition": "원본의 내용과 항목을 사용할 형식과 구조에 맞게 옮긴다. 항목 사이의 연결과 수식·글꼴·시간 정보 등 유지해야 할 요소를 함께 옮긴다. 옮길 수 없거나 달라지는 부분을 구분하고, 사용할 수 있는 대체 형식을 마련한다.",
+      "usage": "조건부",
+      "condition": "사용할 프로그램이나 제출처에 맞게 파일 형식·항목 구조를 바꿔야 할 때"
+    },
+    "계산": {
+      "name": "계산",
+      "definition": "구하려는 값과 조건을 식과 계산 규칙으로 정리한다. 문제에 맞는 방법으로 계산한다. 어떤 값과 단위, 방법을 썼고 무엇을 가정했는지 결과와 함께 남긴다. 얼마나 세밀하게 계산해야 하는지와 결과에 어느 정도 오차가 있을 수 있는지도 살핀다. 한 항목의 결과가 다른 항목의 값·기한·합산을 바꾸면 그 연동을 식에 넣고, 같은 계산을 대상 여럿에게 반복할 때는 개별 예외를 표로 유지해 한 칸이 바뀌면 그 대상만 다시 계산한다. 남이 낸 계산도 같은 기준으로 검산하며, 계산은 실행 전 계획 단계에서도 돌린다.",
+      "usage": "조건부",
+      "condition": "필요한 값을 계산하거나 문제의 조건을 식으로 정리해 풀 때 · 한 항목의 결과가 다른 항목의 값을 바꿀 때 · 남이 낸 계산을 근거로 받을 때"
+    },
+    "분석": {
+      "name": "분석",
+      "definition": "여러 정보를 비교하고 연결해 반복되는 특징과 차이, 관계와 변화 흐름을 찾는다. 원인과 현재 상태를 해석하고 서로 다른 설명을 비교한다. 확인된 사실과 분석으로 추정한 내용을 구분하고, 근거와 확실하지 않은 부분, 어디까지 적용할 수 있는지 정리한다.",
+      "usage": "조건부",
+      "condition": "정보의 특징·차이·관계·원인이나 현재 상태를 해석해야 할 때 · 분석 업무의 정기 검토 시점이나 중요한 새 정보가 들어왔을 때"
+    },
+    "기준 적용·판정": {
+      "name": "기준 적용·판정",
+      "definition": "업무 대상에 적용할 요건과 기준을 확인하고 사실·증거와 항목별로 대조한다. 예외나 해석이 갈리는 부분은 관련 근거와 조건을 함께 검토한다. 충족 여부와 정도, 해당하는 조건·등급을 판단하고 이유를 정리한다. 아직 판단할 수 없는 부분과 추가로 확인할 내용을 구분한다.",
+      "usage": "조건부",
+      "condition": "대상의 적합 여부·자격·책임·처리 조건을 판단하는 업무를 맡았을 때"
+    },
+    "예측": {
+      "name": "예측",
+      "definition": "지금까지의 정보와 파악한 관계를 바탕으로 앞으로의 결과나 변화를 예상한다. 조건이나 선택이 바뀌면 예상이 얼마나 달라지는지 살핀다. 예상의 근거와 가정, 가능한 범위와 불확실한 점을 함께 정리한다.",
+      "usage": "조건부",
+      "condition": "앞으로의 결과나 변화를 예상해 판단에 써야 할 때 · 정기 예측 시점이나 주요 정보·가정이 바뀌었을 때"
+    },
+    "조건 안에서 최선 찾기": {
+      "name": "조건 안에서 최선 찾기",
+      "definition": "정해진 목표와 조건을 확인하고 바꿀 수 있는 요소를 찾는다. 수량·배치·순서·구조·설정 등을 달리한 안들을 비교해 더 나은 안을 찾는다. 한쪽이 좋아지면서 다른 쪽이 나빠지는 점도 함께 살핀다. 찾은 안의 장점과 한계, 어디까지 비교했는지 정리한다.",
+      "usage": "조건부",
+      "condition": "조건 안에서 유리한 안을 찾거나 기존 안을 조정할 때 · 운영 중 목표 달성에 영향을 주는 수요·자원·비용 조건이 바뀌었을 때"
+    },
+    "결과물 설계": {
+      "name": "결과물 설계",
+      "definition": "목표와 요구 조건에 맞는 아이디어를 구상하고, 담을 내용과 요소, 전체 구성을 정한다. 모양과 표현 방식, 기능과 작동 방식을 정한다. 구현에 필요한 규격과 요소 사이의 연결을 정리한다.",
+      "usage": "조건부",
+      "condition": "결과물이나 서비스의 내용·구성·형태·작동 방식을 정하거나 바꿀 때"
+    },
+    "내용 재구성": {
+      "name": "내용 재구성",
+      "definition": "기존 내용을 목적과 상대에 맞게 줄이거나 풀어 쓰고, 언어와 표현 방식을 바꾼다. 원문의 뜻과 사실관계, 필요한 말투와 맥락을 살려 다시 구성한다. 여러 자료를 종합할 때는 각 주장·관계의 출처와 서로 다른 적용 조건·이견을 유지한다. 줄이거나 바꾸면서 빠지는 중요한 내용과 뜻이 불분명한 부분을 함께 알린다.",
+      "usage": "조건부",
+      "condition": "기존 내용을 요약·번역·통역하거나 목적과 상대에 맞게 표현을 바꿀 때"
+    },
+    "결과물 만들기·수정": {
+      "name": "결과물 만들기·수정",
+      "definition": "정한 내용과 설계에 맞춰 결과물을 만들고 필요한 요소를 조합한다. 기존 결과물의 기능·구성·표현을 고치거나 다른 용도에 맞게 편집한다. 원본과 연결된 요소를 함께 맞추고 사용할 수 있는 형태로 마무리한다.",
+      "usage": "조건부",
+      "condition": "내용과 설계를 결과물로 만들 때 · 기존 결과물의 기능·구성·표현을 고치거나 여러 요소를 조합할 때"
+    },
+    "사람과 소통": {
+      "name": "사람과 소통",
+      "definition": "상대가 말한 내용과 반응을 보고 필요한 질문을 하거나 설명한다. 필요한 답변도 한다. 상대가 얼마나 이해하고 있는지와 어떤 입장인지에 맞춰 말할 내용과 전달 방식을 조절한다. 서로 다르게 이해한 부분이 있으면 바로잡는다. 무엇에 합의했는지와 아직 의견이 다른 부분도 확인한다. 상대나 제3자에게 묻거나 자료를 정리해 달라고 하기 전에, 그 접촉이 근거의 신뢰를 해치거나 상대에게 불리하게 쓰일 위험을 먼저 판정하고 방법을 정한다.",
+      "usage": "조건부",
+      "condition": "맡은 대화·응대가 이어지는 동안 · 질문·답변·설명·제안이 필요할 때 · 오해를 풀거나 이해·의견·합의 여부를 확인할 때 · 접촉 자체가 근거나 상대의 입장에 영향을 줄 수 있을 때"
+    },
+    "협상·조율": {
+      "name": "협상·조율",
+      "definition": "참여자들의 요구와 우선순위, 조정할 수 있는 범위를 파악한다. 허용된 범위에서 조건과 대안을 제안하고 상대의 답에 맞춰 수정안을 협의한다. 합의한 조건과 각자의 역할·약속을 정리하고, 합의하지 못한 부분은 다음 판단에 연결한다.",
+      "usage": "조건부",
+      "condition": "이해관계나 요구가 달라 조건·역할·약속을 함께 조정해야 할 때"
+    },
+    "기록 입력·수정": {
+      "name": "기록 입력·수정",
+      "definition": "업무 시스템에 남길 항목과 대상 기록을 확인하고 새 내용을 입력하거나 기존 내용을 수정·삭제한다. 다른 작업에서 바뀐 내용과 대조해 변경 범위를 맞춘다. 반영된 기록과 변경 이력을 확인하고 누락되거나 잘못 입력된 부분을 정정한다.",
+      "usage": "조건부",
+      "condition": "업무 기록을 등록·수정·삭제할 때 · 기록 관리 업무에서 새 거래·요청·상태 변경이 발생하거나 정기 반영 시점이 왔을 때"
+    },
+    "신청·거래 처리": {
+      "name": "신청·거래 처리",
+      "definition": "대상과 금액·수량·일정, 실행 조건을 확인하고 정해진 신청이나 거래를 진행한다. 접수·확정·거절·부분 처리 상태를 확인한다. 처리 여부가 불분명하면 원래 요청의 상태부터 확인한다. 확인된 상태와 허용 범위에 따라 남은 처리나 변경·취소·환불을 진행하고 결과를 대조한다.",
+      "usage": "조건부",
+      "condition": "맡은 신청·거래 업무에 새 요청이 들어왔을 때 · 변경·취소·환불 요청이나 처리 상태 변화가 있을 때 · 미결 건의 확인 시점이 왔을 때"
+    },
+    "설정·작동 제어": {
+      "name": "설정·작동 제어",
+      "definition": "조작할 대상의 현재 설정과 작동 상태를 확인한다. 정해진 설정을 바꾸고 기능을 시작·중지·재개한다. 운영 중에는 관측한 상태를 유지해야 할 조건과 비교해 필요한 설정과 작동을 조정한다. 변경이 반영됐는지 확인하고, 문제가 생기면 허용된 범위에서 설정을 되돌리거나 작동 상태를 조정한다.",
+      "usage": "조건부",
+      "condition": "프로그램이나 서비스의 설정·접근 권한·작동 상태를 바꿀 때 · 운영을 맡은 동안 유지 조건에서 벗어나거나 정해진 조정 시점이 왔을 때"
+    },
+    "게시·배포": {
+      "name": "게시·배포",
+      "definition": "공개하거나 제공할 판본과 대상, 시점과 범위를 맞춘다. 정해진 경로로 게시하거나 사용 환경에 배포하고 반영된 판본과 공개 상태를 확인한다. 잘못된 게시나 배포는 허용된 범위에서 정정·철회하거나 이전 판본으로 되돌린다.",
+      "usage": "조건부",
+      "condition": "게시·배포 요청이나 예약 시점이 왔을 때 · 공개 범위나 제공 판본을 바꿀 때 · 정기 발행·배포 업무의 다음 회차가 왔을 때"
+    },
+    "납품 준비": {
+      "name": "납품 준비",
+      "definition": "받는 사람이 다음에 할 일에 맞춰 전달할 결과와 사용 설명, 필요한 원본과 연결 자료를 갖춘다. 결과의 판본과 포함 범위를 정리하고, 이미 확인한 검사 결과를 연결한다. 처리 내역과 미완료 사항, 이어서 할 일과 담당자도 함께 정리한다.",
+      "usage": "단계별",
+      "condition": "결과를 납품하거나 업무를 다른 담당자에게 인계할 준비를 할 때"
+    },
+    "전달·인수 확인": {
+      "name": "전달·인수 확인",
+      "definition": "정해진 상대와 경로로 결과를 전달한다. 약속한 확인 방식에 따라 도착 여부와 받아 쓸 수 있는지를 확인한다. 전달 오류나 수정 요청이 있으면 내용을 정리해 알린다. 전달·확인 대기·인수 완료 상태와 남은 일을 구분해 알린다.",
+      "usage": "단계별",
+      "condition": "결과를 전달할 때 · 약속한 수령·사용 조건을 확인하거나 전달 문제·수정 요청을 받아 알릴 때"
+    },
+    "관찰·측정": {
+      "name": "관찰·측정",
+      "definition": "관찰하거나 측정할 대상과 항목, 방법과 시점을 정한다. 대상을 살펴보거나 값을 측정하고 당시 조건과 함께 기록한다. 관찰하기 어렵거나 측정값을 믿기 어려운 부분, 빠진 기록을 표시한다.",
+      "usage": "조건부",
+      "condition": "판단에 필요한 새 관찰·측정 기록을 얻을 때 · 관측 업무를 맡은 기간의 정해진 주기·변화 신호에 따라 대상을 살필 때"
+    },
+    "실험": {
+      "name": "실험",
+      "definition": "알아보려는 질문과 바꿀 조건, 비교할 대상을 정한다. 결과를 비교할 수 있도록 다른 조건을 관리하며 시험한다. 관측한 차이와 결과에 영향을 줄 수 있는 다른 요인, 시험의 한계를 정리한다.",
+      "usage": "조건부",
+      "condition": "조건이나 방법의 변화가 결과에 주는 영향을 비교해야 할 때"
+    },
+    "시뮬레이션": {
+      "name": "시뮬레이션",
+      "definition": "가정한 조건에서 대상이 어떻게 움직이고 반응하는지 컴퓨터 계산이나 역할 연기로 표현한다. 그 안에서 업무의 흐름과 결과를 예상하거나 대응을 연습한다. 사용한 가정과 빠진 조건, 업무에 적용할 때 달라질 수 있는 점을 정리한다.",
+      "usage": "조건부",
+      "condition": "상황을 가정해 진행 과정과 결과를 예상하거나 대응을 미리 연습해야 할 때"
+    },
+    "판단 근거 기록": {
+      "name": "판단 근거 기록",
+      "definition": "왜 그렇게 판단했는지와 무엇을 근거로 삼았는지 기록한다. 단계별 입력과 실행 결과, 선택된 경로와 그 판단 근거·조건을 연결해 남긴다. 내용을 고치거나 검사했다면 이유와 확인 방법, 결과도 기록한다.",
+      "usage": "상시",
+      "condition": "판단하거나 실행할 때 · 내용을 바꾸거나 검사할 때"
+    },
+    "보고 주체 확인": {
+      "name": "보고 주체 확인",
+      "definition": "결과나 보고를 받을 때 낸 쪽의 신원과 받아 간 분담 번호, 낸 결과물의 지문을 맡길 때 적어 둔 값과 대조한다. 하나라도 맞지 않으면 받지 않고 막은 이유와 다음 행선지를 남긴다. 받아들인 뒤에 결과물이 바뀌었는지도 지문을 다시 재어 확인한다. 사람에게 넘긴 일이 돌아올 때는 본인이 맞는지와 무엇을 승인한 것인지 확인한다. 안에서 누가 만들었는지와 밖으로 누구 이름으로 나가는지를 함께 기록한다.",
+      "usage": "상시",
+      "condition": "결과·보고를 받을 때 · 사람에게 넘긴 일이 돌아올 때 · 명의로 대외 행위를 하기 전"
+    },
+    "결과 검증·재검증": {
+      "name": "결과 검증·재검증",
+      "definition": "각 단계와 최종 결과가 정해진 조건에 맞는지, 틀리거나 빠진 부분은 없는지 근거와 대조해 확인한다. 다음 작업에 넘길 결과는 필요한 형식·항목·의미 조건도 확인한다. 요청한 작업이 끝났는지도 확인한다. 수정한 경우에는 바꿔야 할 부분이 바뀌었고 그대로 둬야 할 부분은 유지됐는지 살핀다. 지식을 구성·갱신한 경우에는 다른 대상의 잘못된 통합, 근거 없는 관계, 누락된 예외·이견, 끊긴 참조와 정정이 빠진 관련 항목도 확인한다. 확인 결과를 **문제없음·문제 있음·아직 확인할 수 없음**으로 나눠 알린다. 결과나 자료, 입력값, 조건이 바뀌면 그 부분과 영향을 받는 결과를 다시 확인한다. 상대·제3자·판정 기관이 낸 계산과 문서도 내 것과 같은 기준으로 검산하고, 상대가 낸 근거는 상대에게 불리한 방향으로도 읽어 본다.",
+      "usage": "단계별",
+      "condition": "작업 결과를 확인할 때 · 결과·자료·입력값·조건이 바뀌었을 때 · 남이 낸 결과·계산을 근거로 받을 때"
+    },
+    "반대 근거·다시 확인": {
+      "name": "반대 근거·다시 확인",
+      "definition": "판단의 바탕이 된 사실과 가정을 다시 살피고, 반대 근거와 다른 설명을 찾는다. 그 판단이 맞지 않는 상황도 살핀다. 다른 자료나 방법으로 다시 확인하고, 결론이 다르면 그 이유를 비교한다. 원래 판단을 유지할지, 고칠지, 추가 확인까지 미룰지 정한다.",
+      "usage": "단계별",
+      "condition": "중요한 판단을 내리거나 알리기 전 · 판단이나 그 바탕이 된 사실·가정·근거가 바뀌었을 때"
+    },
+    "빠진 위험 확인": {
+      "name": "빠진 위험 확인",
+      "definition": "목표와 계획, 작업 결과에서 놓친 조건과 잘못될 수 있는 부분을 찾는다. 다른 작업과 함께 진행하거나 결과를 넘겨 쓸 때 생길 문제도 살핀다. 결과를 사용할 환경이나 조건이 달라질 때 어떤 문제가 생길지도 확인한다. 피해가 얼마나 클지와 무엇을 먼저 확인하거나 대비해야 할지 정리한다.",
+      "usage": "단계별",
+      "condition": "업무를 맡거나 계획할 때 · 실행하기 전 · 진행 중 상황이 바뀌었을 때 · 결과를 넘기기 전"
+    },
+    "일하는 과정 평가": {
+      "name": "일하는 과정 평가",
+      "definition": "그때 알고 있던 정보와 업무 조건으로 볼 때, 그 방법을 고른 것이 적절했는지 살핀다. 필요한 자료와 절차를 빠뜨리지 않았는지, 맡은 권한을 지켰는지 확인한다. 상황이 바뀌었을 때 계획을 바꾸거나 일을 계속·중단한 판단이 적절했는지도 살핀다. 일하는 과정에서 잘한 점과 잘못한 점을 정리한다.",
+      "usage": "단계별",
+      "condition": "각 단계가 끝났을 때 · 전체 업무가 끝났을 때"
+    },
+    "결과 품질 평가": {
+      "name": "결과 품질 평가",
+      "definition": "결과를 사용할 목적과 해당 분야의 품질 기준에 맞춰 평가한다. 내용이 정확하고 충분한지, 필요한 기능과 성능을 갖췄는지, 이해하고 쓰기 쉬운지 살핀다. 대화나 서비스도 맡은 역할에 맞게 제공했는지 평가한다. 결과에서 잘된 점과 더 나아져야 할 점을 정리한다.",
+      "usage": "단계별",
+      "condition": "결과를 넘기거나 사용하기 전 · 대화나 서비스가 끝난 뒤 · 결과가 바뀌었을 때"
+    },
+    "성과 추적": {
+      "name": "성과 추적",
+      "definition": "목표를 얼마나 달성했는지 확인할 항목과 시점을 정한다. 확인한 결과를 기록하고, 이전 업무나 방법을 바꾸기 전후의 결과와 비교한다. 비교할 때는 일의 어려움, 주변 상황, 쓴 시간과 자원, 사람에게 받은 도움의 차이도 살핀다. 나중에 나타나는 효과와 문제도 이어서 확인한다.",
+      "usage": "단계별",
+      "condition": "목표 달성 여부를 무엇으로 언제 확인할지 정할 때 · 정해 둔 확인 시점 · 나중에 효과나 문제가 드러났을 때"
+    },
+    "업무 능력 시험": {
+      "name": "업무 능력 시험",
+      "definition": "시험할 일과 통과 기준을 정하고, 에이전트가 끝까지 처리할 수 있는지 확인한다. 익숙한 일과 처음 보는 일, 도중에 조건이 바뀌는 상황과 예외도 시험한다. 사용하는 실행 흐름에 맞춰 함수만 실행하는 경로, 함수·AI가 섞인 경로, 병렬 작업의 일부 실패·결과 누락·중단 후 재개를 시험한다. 비교할 전문가의 결과가 있으면 같은 조건에서 비교한다. 시험 결과로 맡길 수 있는 일과 부족한 능력을 구분한다. 모델·지식·방법·도구·규칙·자료·실행 환경의 변경이 능력에 미치는 영향을 시험한다. 개선을 위한 변경은 나아졌는지와 예전에 잘하던 일도 계속 잘하는지 확인한다.",
+      "usage": "조건부",
+      "condition": "에이전트를 업무에 처음 투입하기 전 · 검증된 범위 밖의 일을 맡기려 할 때 · 수행 능력에 영향을 주는 변경 전후 · 기존 시험 결과를 더는 신뢰하기 어려울 때"
+    },
+    "성공·실패 원인 분석": {
+      "name": "성공·실패 원인 분석",
+      "definition": "업무가 잘되거나 실패한 원인을 분석한다. 어떤 지식·방법·도구와 조건이 결과에 영향을 주었는지 확인한다. 같은 원인이 다른 업무에도 영향을 주는지 살핀다. 유지·재사용할 점과 고치거나 보완할 점을 정한다.",
+      "usage": "조건부",
+      "condition": "재사용할 만한 성과가 나왔을 때 · 원인이 불분명하거나 영향이 큰 문제, 반복 오류를 분석해야 할 때"
+    },
+    "능력 개선·확장": {
+      "name": "능력 개선·확장",
+      "definition": "업무 경험과 평가 결과에 따라 에이전트의 지식·판단 요령·방법·도구를 고치거나 새로 갖춘다. 개선 효과와 기존 능력에 미치는 영향을 확인한 개선안을 적용한다. 적용 후의 평가와 다음 업무의 성과를 받아 필요한 보완을 이어 간다.",
+      "usage": "조건부",
+      "condition": "평가나 업무 경험에서 개선할 점을 찾았을 때 · 새로운 업무에 필요한 능력을 갖출 때"
+    }
+  },
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a"
+}
