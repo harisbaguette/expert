@@ -37,7 +37,7 @@ def sha(value):
     return hashlib.sha256(value).hexdigest()
 
 fields = ['판례내용']
-checks, links, tables, blue_notes = [], 0, 0, 0
+checks, links, tables, colored_notes, colored_originals = [], 0, 0, 0, 0
 assert len(manifest['files']) == 20
 assert len(list(ROOT.glob('*.md'))) == 20
 for info in manifest['files']:
@@ -54,12 +54,16 @@ for info in manifest['files']:
             pattern = re.escape('<!-- 원문시작:'+prefix+field+' -->') + r'(.*?)' + re.escape('<!-- 원문끝:'+prefix+field+' -->')
             match = re.findall(pattern, content, re.S)
             assert len(match) == 1, (path.name, field, '구역 누락/중복')
+            paragraphs = json.loads((BASE/'단락_해설'/f'{sid}_paragraphs.json').read_text())
+            found_originals = re.findall(r'<(?:p|h4) class="original" style="color: #82AAFF;">', match[0])
+            assert len(found_originals) == len(paragraphs), (path.name, sid, '원문 파란색 표시 누락')
+            colored_originals += len(found_originals)
             notes = json.loads((BASE/'단락_해설'/f'{sid}_notes.json').read_text())
             expected_notes = sum(value is not None for value in notes.values())
-            found_notes = re.findall(r'<p class="explanation" style="color: #1565c0;">(.*?)</p>', match[0], re.S)
+            found_notes = re.findall(r'<p class="explanation" style="color: #FFD54F;">(.*?)</p>', match[0], re.S)
             assert len(found_notes) == expected_notes, (path.name, sid, '해설 표시 누락')
             assert all(visible(note) for note in found_notes), (path.name, '빈 해설')
-            blue_notes += len(found_notes)
+            colored_notes += len(found_notes)
             original = visible(str(doc.get(field) or ''))
             rendered = visible(md.render(match[0]))
             if not original:
@@ -118,9 +122,10 @@ report = {
     'case_files':20, 'index_files':0, 'original_cases':22,
     'original_fields_checked':len(checks),
     'original_characters_excluding_whitespace':sum(x['nonspace_characters'] for x in checks),
-    'method':'판결 본문의 원본 HTML 표시 문자와 Markdown을 HTML로 렌더링한 원문 표시 문자를 공백 제외 전수 대조. 파란색 해설 문장은 비교에서 분리. 생성 함수를 재사용하지 않음.',
+    'method':'판결 본문의 원본 HTML 표시 문자와 Markdown을 HTML로 렌더링한 원문 표시 문자를 공백 제외 전수 대조. 노란색 해설 문장은 비교에서 분리. 생성 함수를 재사용하지 않음.',
     'local_links_checked':links, 'tables_rendered':tables,
-    'blue_paragraph_explanations':blue_notes,
+    'colored_paragraph_explanations':colored_notes, 'explanation_color':'#FFD54F',
+    'colored_original_paragraphs':colored_originals, 'original_color':'#82AAFF',
     'source_hashes_and_snapshot_hashes':'일치', 'trademark_image_pixels':'일치',
     'legal_reasoning_automatically_proved':False,
     'agent_autonomous_execution_tested':False,

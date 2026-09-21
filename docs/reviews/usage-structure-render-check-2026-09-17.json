@@ -1,255 +1,316 @@
 {
-  "checked_on": "2026-09-18",
-  "supersedes": "이 파일의 이전 2026-09-17 검토와 다른 선 색·단일 시작/종료·렌더러 수치",
-  "document": "전문가 에이전트 정의.md",
-  "section": "사용 구조",
-  "renderer": {
-    "mermaid": "11.17.0",
-    "source": "VS Code 1.137.0 내장 mermaid-markdown-features",
-    "bundle": "/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/mermaid-markdown-features/markdown-preview-out/index.js",
-    "layout": "ELK",
-    "nodePlacementStrategy": "LINEAR_SEGMENTS",
-    "render_viewport_width": 1400,
-    "audit_viewport_width": 900,
-    "browser": "Chromium / Puppeteer",
-    "scope": "앱 내장 번들을 별도 Chromium에서 실행함. 실제 VS Code 미리보기 UI 자체를 검사한 것은 아님."
+  "checked_at": "2026-09-21",
+  "scope": "사용 구조의 세 Mermaid",
+  "viewport": {
+    "width": 1920,
+    "height": 1080,
+    "body_width": 1856
   },
-  "preservation": {
-    "prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
-    "prefix_matches_immediately_before_edit": true,
-    "existing_images_preserved": true,
-    "note": "원문 앞부분은 수정 직전 본문과 대조했다. 이전 세션의 앞부분 해시로 되돌리지 않았다."
+  "renderer": "VS Code 1.137.0 내장 Mermaid 11.17.0 번들을 별도 Chromium에서 실행",
+  "default_limits": {
+    "maxTextSize": 50000,
+    "maxEdges": 500
   },
-  "structure": {
-    "scenario_diagrams": 3,
-    "format": "inline Mermaid",
-    "starts_and_ends": "각 흐름마다 실제 시작·종료를 허용. 처리 중단·보류는 가까운 종료 도형에서 끝남.",
-    "conditional_combinations": [
-      "자료 가공",
-      "계산·분석·판정",
-      "구상·제작",
-      "대화·협의",
-      "업무 시스템 조작",
-      "관찰·시험",
-      "판단·설명·답변"
-    ],
-    "learning": "성과·실패·후속 결과가 확인될 때 별도로 시작하며 문서 배치상 마지막에 둠.",
-    "procedures": "담당별로 확장된 같은 재료 조합을 독립 적용. 재실행 도형은 표시된 절차를 재사용하고 정상 결과·중단 상태를 반환.",
-    "layout_links": "Mermaid ~~~ 는 화면 배치 전용. 실제 실행·의존·복귀 경로에서 제외함."
-  },
-  "arrow_legend": {
-    "#60a5fa": "진행",
-    "#f87171": "아니오·불가",
-    "#facc15": "앞 단계로 복귀"
-  },
-  "methods": {
-    "material_coverage": "계통별 재료 표의 정식 명칭·구분을 세 Mermaid 각각과 대조",
-    "control_paths": "각 실제 시작부터 도달 가능하며 종료 도형에 도달하는지 검사. 합류 상태와 명시된 재사용 절차의 입력·반환 범위를 따로 검사.",
-    "visual_geometry": "스킬 audit-svg.cjs로 실제 도형·라벨·보이는 연결선의 충돌 후보 측정",
-    "arrow_direction": "렌더된 도형 좌표와 의미를 대조. 모든 노란 복귀의 화살촉이 더 위에 있는 목적지를 향함.",
-    "manual_review": "공통 재료 조합의 구간별 화면과 상황별 분담·회수·변경·보류·재실행 구간을 읽고 확인"
-  },
-  "limitations": [
-    "충돌 후보 0개가 모든 환경에서의 무결함이나 독자의 이해를 증명하지는 않는다.",
-    "곡선 샘플링은 미세한 접촉을 놓칠 수 있으며 모든 글자 잘림을 증명하는 검사는 아니다.",
-    "가로 폭을 900px로 맞추면 보조 글자는 도식별 약 11~13px다. 더 좁은 화면의 무확대 가독성까지 검증한 것은 아니다.",
-    "문장 보완 뒤 재렌더한 최종 전체를 기하 검사했으며, 수동 화면 검토는 공통 구간과 주요 분기·복귀 중심이다."
-  ],
-  "diagrams": [
+  "prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "prefix_unchanged": true,
+  "source_equals_render_input": true,
+  "records": [
     {
-      "scenario": "단독",
-      "format": "inline Mermaid",
-      "materials": 79,
-      "types": {
-        "상시": 29,
-        "단계별": 17,
-        "조건부": 33
+      "scenario": "solo",
+      "source_sha256": "e5294f0919768d0e08c6efadf7930b419f88ccf737885c8df9f856f247e5b97d",
+      "svg_sha256": "ce05299fb8e34e657dfd0e15ab3af8dd63afb27389640688ca8ff7e4125d4ffd",
+      "native_size": {
+        "width": 2261.109375,
+        "height": 44806.859375
       },
-      "one_material_per_material_node": true,
-      "nodes": 188,
-      "decisions_with_labeled_branches": 51,
-      "edges_excluding_layout": 232,
-      "starts": 9,
-      "endings": 13,
-      "independent_material_combinations": 7,
-      "semantic_path_checks": [
-        "지원 재료의 사용처",
-        "선행 결과의 전달",
-        "불필요한 처리 생략",
-        "추가 근거 검증",
-        "규칙 확인 위계와 하위 조건 유지",
-        "다음 실행 재검사",
-        "각 흐름의 시작·종료 연결",
-        "명시적인 조건·병렬 분기",
-        "복귀선·부정 분기 색",
-        "재사용 절차의 범위"
+      "body_width": 1856,
+      "helper_font_px": 18.06,
+      "title_font_px": 19.7,
+      "min_effective_font_px": 17.2,
+      "source_check": {
+        "scenario": "단독",
+        "materials": 79,
+        "types": {
+          "상시": 29,
+          "단계별": 17,
+          "조건부": 33
+        },
+        "nodes": 200,
+        "execution_nodes": 168,
+        "support_nodes": 32,
+        "execution_arrows": 231,
+        "application_relations": 10,
+        "layout_edges": 58,
+        "starts": 1,
+        "endings": 9,
+        "reachable_execution_nodes": 168,
+        "bound_support_nodes": 32,
+        "source_characters": 31067,
+        "checks": "pass"
+      },
+      "geometry_candidates": [],
+      "geometry_warning_count": 5,
+      "geometry_warnings": [
+        "Coarser curve sampling for L_sclear_sstate_0: 2997 -> 1500",
+        "Coarser curve sampling for L_spermit_sstate_0: 2817 -> 1500",
+        "Coarser curve sampling for L_scontinue_sin_0: 3616 -> 1500",
+        "Coarser curve sampling for L_repair_allowed_sin_0: 5864 -> 1500",
+        "Coarser curve sampling for L_sneeded_sstate_0: 3463 -> 1500"
       ],
-      "source_sha256": "479ef89314e7122a11f9db438808e01e8c9e9d874e5e936d8cb3d0a474c08f3f",
-      "render_input_sha256": "23b662af16f71083820a32f890d2a45142e81dc518c8bb682ad4071f48a4af37",
-      "svg_sha256": "54836c216ff9f656d244fee7ea83c565f5befee358ad509a8b8a9e9330c66882",
-      "current": {
-        "width_px": 1153.814208984375,
-        "height_px": 34593.96875,
-        "edges_over_4000px": 1,
-        "longest_edge_px": 4611.18,
-        "total_route_bends": 713,
-        "maximum_route_bends": 9
-      },
-      "baseline_same_renderer": {
-        "width_px": 1066.25,
-        "height_px": 37190.296875,
-        "edges_over_4000px": 20,
-        "longest_edge_px": 27465.04,
-        "total_route_bends": 2209,
-        "maximum_route_bends": 71
-      },
-      "arrow_counts": {
-        "forward": 176,
-        "return": 6,
-        "negative": 50
-      },
-      "arrow_direction_mismatches": [],
-      "all_arrows_solid": true,
-      "unlabeled_circle_connectors": 0,
-      "measured_collision_candidates": 0,
-      "audit_warnings": [],
-      "minimum_effective_font_px_at_900": 9.4,
-      "material_name_font_px_native": 18,
-      "helper_font_px_native": 14,
-      "helper_font_px_at_900": 10.92
+      "exact_polyline_and_arrow_check": {
+        "arrow_counts": {
+          "uses": 10,
+          "flow": 153,
+          "negative": 69,
+          "return": 9
+        },
+        "arrow_direction_mismatches": [],
+        "start_topmost": true,
+        "finish_bottommost": true,
+        "polyline_candidates": []
+      }
     },
     {
-      "scenario": "오케스트레이션",
-      "format": "inline Mermaid",
-      "materials": 79,
-      "types": {
-        "상시": 29,
-        "단계별": 17,
-        "조건부": 33
+      "scenario": "orchestration",
+      "source_sha256": "3fe46ddaaf5d28405aa85bbfa75bedfb9e6cc67bf684ec0d2a972a41d1297bfe",
+      "svg_sha256": "7e52903794fb48b19c7e381b4c01acf3530bddf19cfd461cc063592355ac2561",
+      "native_size": {
+        "width": 2445.296875,
+        "height": 64374.796875
       },
-      "one_material_per_material_node": true,
-      "nodes": 225,
-      "decisions_with_labeled_branches": 61,
-      "edges_excluding_layout": 280,
-      "starts": 9,
-      "endings": 15,
-      "independent_material_combinations": 7,
-      "semantic_path_checks": [
-        "지원 재료의 사용처",
-        "선행 결과의 전달",
-        "불필요한 처리 생략",
-        "추가 근거 검증",
-        "규칙 확인 위계와 하위 조건 유지",
-        "다음 실행 재검사",
-        "독립·병렬 실행",
-        "완료 결과 보존",
-        "후속 작업 준비·권한 확인",
-        "각 흐름의 시작·종료 연결",
-        "명시적인 조건·병렬 분기",
-        "복귀선·부정 분기 색",
-        "재사용 절차의 범위"
+      "body_width": 1856,
+      "helper_font_px": 16.7,
+      "title_font_px": 18.22,
+      "min_effective_font_px": 15.9,
+      "source_check": {
+        "scenario": "오케스트레이션",
+        "materials": 79,
+        "types": {
+          "상시": 29,
+          "단계별": 17,
+          "조건부": 33
+        },
+        "nodes": 296,
+        "execution_nodes": 264,
+        "support_nodes": 32,
+        "execution_arrows": 375,
+        "application_relations": 10,
+        "layout_edges": 94,
+        "starts": 1,
+        "endings": 9,
+        "reachable_execution_nodes": 264,
+        "bound_support_nodes": 32,
+        "source_characters": 46509,
+        "checks": "pass"
+      },
+      "geometry_candidates": [],
+      "geometry_warning_count": 12,
+      "geometry_warnings": [
+        "Coarser curve sampling for L_awclear_awstate_0: 2501 -> 1500",
+        "Coarser curve sampling for L_awpermit_awstate_0: 2337 -> 1500",
+        "Coarser curve sampling for L_bwclear_bwstate_0: 2501 -> 1500",
+        "Coarser curve sampling for L_bwpermit_bwstate_0: 2337 -> 1500",
+        "Coarser curve sampling for L_awcontinue_awin_0: 3061 -> 1500",
+        "Coarser curve sampling for L_bwcontinue_bwin_0: 3061 -> 1500",
+        "Coarser curve sampling for L_repair_allowed_assign_0: 9492 -> 1500",
+        "Coarser curve sampling for L_awneeded_awstate_0: 2862 -> 1500",
+        "Coarser curve sampling for L_bwneeded_bwstate_0: 2862 -> 1500",
+        "Coarser curve sampling for L_needs_b_collect_0: 3821 -> 1500",
+        "Coarser curve sampling for L_parallel_b_ready_0: 3713 -> 1500",
+        "Coarser curve sampling for L_b_ready_b_done_0: 3256 -> 1500"
       ],
-      "source_sha256": "362111da1d9b317a85354ff4e87772973daba0fd8080cca2b4e2b42520a4a6fb",
-      "render_input_sha256": "7866372391dbc352dccc92722ea8f7fea36f15c2d45679c851d374fa0da006a2",
-      "svg_sha256": "8fb7f2a0bdca412183df1930d9198341874ddd6cdb1bbf10146221a4cafd6852",
-      "current": {
-        "width_px": 984.220458984375,
-        "height_px": 41095.34375,
-        "edges_over_4000px": 0,
-        "longest_edge_px": 3553.94,
-        "total_route_bends": 859,
-        "maximum_route_bends": 9
-      },
-      "baseline_same_renderer": {
-        "width_px": 1087.03125,
-        "height_px": 47843.1875,
-        "edges_over_4000px": 20,
-        "longest_edge_px": 46863.05,
-        "total_route_bends": 2966,
-        "maximum_route_bends": 89
-      },
-      "arrow_counts": {
-        "forward": 210,
-        "negative": 61,
-        "return": 9
-      },
-      "arrow_direction_mismatches": [],
-      "all_arrows_solid": true,
-      "unlabeled_circle_connectors": 0,
-      "measured_collision_candidates": 0,
-      "audit_warnings": [],
-      "minimum_effective_font_px_at_900": 11,
-      "material_name_font_px_native": 18,
-      "helper_font_px_native": 14,
-      "helper_font_px_at_900": 12.8
+      "exact_polyline_and_arrow_check": {
+        "arrow_counts": {
+          "uses": 10,
+          "flow": 249,
+          "negative": 113,
+          "return": 13
+        },
+        "arrow_direction_mismatches": [],
+        "start_topmost": true,
+        "finish_bottommost": true,
+        "polyline_candidates": []
+      }
     },
     {
-      "scenario": "복합",
-      "format": "inline Mermaid",
-      "materials": 79,
-      "types": {
-        "상시": 29,
-        "단계별": 17,
-        "조건부": 33
+      "scenario": "complex",
+      "source_sha256": "0a70a1cb23960df5519da6288715e799eaa147568d966ec65be67f596098e690",
+      "svg_sha256": "e57fdcfbb9c7cfcec0de6fa2c5a972076b090a379c5a9c4e13d02f137889f01e",
+      "native_size": {
+        "width": 2401.609375,
+        "height": 67959.3125
       },
-      "one_material_per_material_node": true,
-      "nodes": 235,
-      "decisions_with_labeled_branches": 64,
-      "edges_excluding_layout": 293,
-      "starts": 9,
-      "endings": 15,
-      "independent_material_combinations": 7,
-      "semantic_path_checks": [
-        "지원 재료의 사용처",
-        "선행 결과의 전달",
-        "불필요한 처리 생략",
-        "추가 근거 검증",
-        "규칙 확인 위계와 하위 조건 유지",
-        "다음 실행 재검사",
-        "독립·병렬 실행",
-        "완료 결과 보존",
-        "후속 작업 준비·권한 확인",
-        "진행 중 건 사이 변경 확인",
-        "의존 결과의 사용 중단·재작업",
-        "팀 내부 후속 작업",
-        "각 흐름의 시작·종료 연결",
-        "명시적인 조건·병렬 분기",
-        "복귀선·부정 분기 색",
-        "재사용 절차의 범위"
+      "body_width": 1856,
+      "helper_font_px": 17.0,
+      "title_font_px": 18.55,
+      "min_effective_font_px": 16.2,
+      "source_check": {
+        "scenario": "복합",
+        "materials": 79,
+        "types": {
+          "상시": 29,
+          "단계별": 17,
+          "조건부": 33
+        },
+        "nodes": 310,
+        "execution_nodes": 278,
+        "support_nodes": 32,
+        "execution_arrows": 393,
+        "application_relations": 10,
+        "layout_edges": 96,
+        "starts": 1,
+        "endings": 9,
+        "reachable_execution_nodes": 278,
+        "bound_support_nodes": 32,
+        "source_characters": 48492,
+        "checks": "pass"
+      },
+      "geometry_candidates": [],
+      "geometry_warning_count": 12,
+      "geometry_warnings": [
+        "Coarser curve sampling for L_needs_b_collect_0: 4235 -> 1500",
+        "Coarser curve sampling for L_awclear_awstate_0: 2547 -> 1500",
+        "Coarser curve sampling for L_awpermit_awstate_0: 2380 -> 1500",
+        "Coarser curve sampling for L_bwclear_bwstate_0: 2547 -> 1500",
+        "Coarser curve sampling for L_bwpermit_bwstate_0: 2380 -> 1500",
+        "Coarser curve sampling for L_awcontinue_awin_0: 3116 -> 1500",
+        "Coarser curve sampling for L_bwcontinue_bwin_0: 3116 -> 1500",
+        "Coarser curve sampling for L_repair_allowed_assign_0: 10433 -> 1500",
+        "Coarser curve sampling for L_awneeded_awstate_0: 2914 -> 1500",
+        "Coarser curve sampling for L_bwneeded_bwstate_0: 2914 -> 1500",
+        "Coarser curve sampling for L_parallel_b_ready_0: 4182 -> 1500",
+        "Coarser curve sampling for L_b_ready_b_done_0: 3397 -> 1500"
       ],
-      "source_sha256": "14fc327afb7967eccc51fc02f61a1108964ff037278f55b853e9568d891fbc73",
-      "render_input_sha256": "55c284fb43cd83326235b4aaa518a7caa5de932d39c234152e612964d3be1d01",
-      "svg_sha256": "25c55c3bf2369503a2ac53d206ffc4cf5f83b910b4c2122be812bc968ade8747",
-      "current": {
-        "width_px": 1157.215087890625,
-        "height_px": 42873.5,
-        "edges_over_4000px": 1,
-        "longest_edge_px": 5018.91,
-        "total_route_bends": 910,
-        "maximum_route_bends": 11
-      },
-      "baseline_same_renderer": {
-        "width_px": 1249.34375,
-        "height_px": 49968.09375,
-        "edges_over_4000px": 22,
-        "longest_edge_px": 47835.99,
-        "total_route_bends": 3067,
-        "maximum_route_bends": 89
-      },
-      "arrow_counts": {
-        "forward": 219,
-        "negative": 64,
-        "return": 10
-      },
-      "arrow_direction_mismatches": [],
-      "all_arrows_solid": true,
-      "unlabeled_circle_connectors": 0,
-      "measured_collision_candidates": 0,
-      "audit_warnings": [],
-      "minimum_effective_font_px_at_900": 9.3,
-      "material_name_font_px_native": 18,
-      "helper_font_px_native": 14,
-      "helper_font_px_at_900": 10.89
+      "exact_polyline_and_arrow_check": {
+        "arrow_counts": {
+          "uses": 10,
+          "flow": 261,
+          "negative": 117,
+          "return": 15
+        },
+        "arrow_direction_mismatches": [],
+        "start_topmost": true,
+        "finish_bottommost": true,
+        "polyline_candidates": []
+      }
     }
-  ]
+  ],
+  "visual_review": {
+    "full_layout_sheets": [
+      {
+        "scenario": "solo",
+        "file": "/tmp/usage-complete/solo-overview-0.png",
+        "display_y_from": 0,
+        "display_y_to": 9600,
+        "scale": 0.5
+      },
+      {
+        "scenario": "solo",
+        "file": "/tmp/usage-complete/solo-overview-1.png",
+        "display_y_from": 9600,
+        "display_y_to": 19200,
+        "scale": 0.5
+      },
+      {
+        "scenario": "solo",
+        "file": "/tmp/usage-complete/solo-overview-2.png",
+        "display_y_from": 19200,
+        "display_y_to": 28800,
+        "scale": 0.5
+      },
+      {
+        "scenario": "solo",
+        "file": "/tmp/usage-complete/solo-overview-3.png",
+        "display_y_from": 28800,
+        "display_y_to": 36779.083718583934,
+        "scale": 0.5
+      },
+      {
+        "scenario": "orchestration",
+        "file": "/tmp/usage-complete/orchestration-overview-0.png",
+        "display_y_from": 0,
+        "display_y_to": 9600,
+        "scale": 0.5
+      },
+      {
+        "scenario": "orchestration",
+        "file": "/tmp/usage-complete/orchestration-overview-1.png",
+        "display_y_from": 9600,
+        "display_y_to": 19200,
+        "scale": 0.5
+      },
+      {
+        "scenario": "orchestration",
+        "file": "/tmp/usage-complete/orchestration-overview-2.png",
+        "display_y_from": 19200,
+        "display_y_to": 28800,
+        "scale": 0.5
+      },
+      {
+        "scenario": "orchestration",
+        "file": "/tmp/usage-complete/orchestration-overview-3.png",
+        "display_y_from": 28800,
+        "display_y_to": 38400,
+        "scale": 0.5
+      },
+      {
+        "scenario": "orchestration",
+        "file": "/tmp/usage-complete/orchestration-overview-4.png",
+        "display_y_from": 38400,
+        "display_y_to": 48000,
+        "scale": 0.5
+      },
+      {
+        "scenario": "orchestration",
+        "file": "/tmp/usage-complete/orchestration-overview-5.png",
+        "display_y_from": 48000,
+        "display_y_to": 48860.98870919303,
+        "scale": 0.5
+      },
+      {
+        "scenario": "complex",
+        "file": "/tmp/usage-complete/complex-overview-0.png",
+        "display_y_from": 0,
+        "display_y_to": 9600,
+        "scale": 0.5
+      },
+      {
+        "scenario": "complex",
+        "file": "/tmp/usage-complete/complex-overview-1.png",
+        "display_y_from": 9600,
+        "display_y_to": 19200,
+        "scale": 0.5
+      },
+      {
+        "scenario": "complex",
+        "file": "/tmp/usage-complete/complex-overview-2.png",
+        "display_y_from": 19200,
+        "display_y_to": 28800,
+        "scale": 0.5
+      },
+      {
+        "scenario": "complex",
+        "file": "/tmp/usage-complete/complex-overview-3.png",
+        "display_y_from": 28800,
+        "display_y_to": 38400,
+        "scale": 0.5
+      },
+      {
+        "scenario": "complex",
+        "file": "/tmp/usage-complete/complex-overview-4.png",
+        "display_y_from": 38400,
+        "display_y_to": 48000,
+        "scale": 0.5
+      },
+      {
+        "scenario": "complex",
+        "file": "/tmp/usage-complete/complex-overview-5.png",
+        "display_y_from": 48000,
+        "display_y_to": 52519.98318835677,
+        "scale": 0.5
+      }
+    ],
+    "detail_screens": "전체 배치는 16장의 연속 구간 캡처로 확인. 접수·재료 선택·결과 회수·학습의 대표 구간은 1920×1080 상세 화면에서도 확인.",
+    "limits": "실제 VS Code 미리보기 UI나 실제 초심자를 대상으로 한 독해 시험은 아님. 전체 도식은 세로 스크롤을 유지하며, 16:9 화면의 가로 공간을 분기에 사용한다."
+  }
 }
