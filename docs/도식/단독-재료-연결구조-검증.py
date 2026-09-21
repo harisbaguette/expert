@@ -36,8 +36,9 @@ def run(folder):
             assert n['term']==cat[n['material']]['term']
             assert cat[n['material']]['system'] in d['system_mapping'][n['term']]
             assert any(t['id']==k and t['text'].startswith(n['term']) for t in g['system_labels'])
-    assert len(g['arrowheads'])==len(es)
-    assert {a['id'] for a in g['arrowheads']}=={f'e{i}' for i in range(len(es))}
+    execution_edges=[(i,e) for i,e in enumerate(es) if e['kind']!='reference']
+    assert len(g['arrowheads'])==len(execution_edges)
+    assert {a['id'] for a in g['arrowheads']}=={f'e{i}' for i,e in execution_edges}
     incoming,outgoing=defaultdict(list),defaultdict(list)
     for e in es:
         assert e['source'] in ns|groups and e['target'] in ns
@@ -58,7 +59,14 @@ def run(folder):
       'clarification':['intent','clear','communicate0','intent'],
       'initial_capability_gate':['strategy','qualified','testenv0','capability0','qualified_test','plan'],
       'initial_capability_failure':['qualified_test','unqualified'],
-      'direct_execution':['qualified','plan','unused','progress','control','guard','allowed','tools','type0'],
+      'direct_execution':['qualified','plan','progress','record','control','guard','allowed','tools','type0'],
+      'live_request':['live_start','live','signal','case','understand','intent'],
+      'performance_criteria':['goal','measure0','search','trust'],
+      'reference_lookup':['search','reference','trust','version','memory','context'],
+      'risk_check':['model','risk','strategy'],
+      'isolated_execution':['progress','isolation','control'],
+      'counter_evidence':['identity','counter','verify'],
+      'process_records':['quality','record_read','process_eval','outcome'],
       'data_preparation':['type0','choose0','combine','out0','identity','verify','state_result','vdecision'],
       'calculation_then_next_input':['type1','choose1','calc','out1','identity','verify','state_result','vdecision','more','context2','context'],
       'system_action':['type4','choose4','transaction','out4','identity','verify'],
@@ -74,11 +82,42 @@ def run(folder):
       'receipt_correction':['receipt','delivery_repair','repair','context2'],
       'no_analysis_needed':['outcome','learnneed','memory_direct','finish'],
       'no_change_needed':['learnneed','cause','improveneed','memory_reuse','finish'],
-      'tested_improvement':['improveneed','improve','capability','passed','memory2','finish'],
-      'failed_improvement':['passed','improve','capability','passed'],
+      'tested_improvement':['improveneed','improve','testenv','capability','passed','memory2','finish'],
+      'failed_improvement':['passed','improve','testenv','capability','passed'],
     }
     for name,route in routes.items():assert all(has(a,b) for a,b in zip(route,route[1:])),name
-    assert incoming['unused'] and outgoing['unused']
+    assert incoming['unused'] and all(e['kind']=='reference' for e in incoming['unused'])
+    assert not outgoing['unused']
+    starts={k for k,n in ns.items() if n['kind']=='terminal' and not incoming[k]}
+    terminals={k for k,n in ns.items() if n['kind'] in ('terminal','stop') and not outgoing[k]}
+    references={k for k,n in ns.items() if n['kind']=='reference'}
+    unused={k for k,n in ns.items() if n['kind']=='unused'}
+    assert starts=={'start','watch','live_start'}
+    assert terminals=={'finish','hold','unqualified'}
+    for k,n in ns.items():
+        if k in starts|references|unused:continue
+        assert incoming[k],('missing input',k,n['title'])
+        if k not in terminals:assert outgoing[k],('non-terminal dead end',k,n['title'])
+    reachable=set(starts);pending=list(starts)
+    while pending:
+        for e in outgoing[pending.pop()]:
+            if e['kind']=='reference':continue
+            k=e['target']
+            if k not in reachable:reachable.add(k);pending.append(k)
+    assert set(ns)-references-unused<=reachable,('unreachable actions',set(ns)-references-unused-reachable)
+    can_finish=set(terminals);pending=list(terminals)
+    while pending:
+        for e in incoming[pending.pop()]:
+            if e['kind']=='reference':continue
+            k=e['source']
+            if k not in can_finish:can_finish.add(k);pending.append(k)
+    assert reachable<=can_finish,('no terminal route',reachable-can_finish)
+    for k in references:
+        consumer=ns[k]['applies_to']
+        assert consumer in reachable
+        group=ns[k].get('reference_group')
+        assert has(group or k,consumer),('unconnected reference',k,consumer)
+    assert {ns[k]['material'] for k in unused}=={'나눠 맡기기'}
     for i in range(6):
         n=ns['choose'+str(i)]
         assert n['kind']=='decisionwide' and len(outgoing[n['id']])>=2
@@ -125,6 +164,10 @@ def run(folder):
     return dict(materials=len(cat),usage_types=dict(Counter(c['usage'] for c in cat.values())),
         system_counts=dict(Counter(c['term'] for c in cat.values())),illustrations=g['illustration_count'],arrowheads=len(g['arrowheads']),
         material_coverage=coverage,checked_routes=routes,geometry_issues=issues,
+        flow_audit=dict(starts=sorted(starts),terminals=sorted(terminals),
+            reachable_actions=len(reachable),reference_inputs=sorted(references),
+            used_materials=len(cat)-len(unused),intentionally_unused=['나눠 맡기기'],
+            missing_materials=[],unreachable_actions=[],nonterminal_dead_ends=[]),
         source_prefix_sha256=d['source_prefix_sha256'],svg_sha256=g['svg_sha256'],
         rendered_dimensions=[d['width'],d['height']],display_width=1100,
         limitation='명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.')

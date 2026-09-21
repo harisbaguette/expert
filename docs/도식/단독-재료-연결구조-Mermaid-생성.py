@@ -1,210 +1,296 @@
 #!/usr/bin/env python3
-"""단독-재료-연결구조.json(정본, 노드 128·재료 79)을 네이티브 Mermaid 순서도로 바꾼다.
+"""단독-재료-연결구조.json(현재 정본, 79재료)을 읽어
+네이티브 Mermaid flowchart(elk 레이아웃) 소스를 생성한다.
 
-참조 이미지(solo-material-relations.png)와 같은 구획·같은 상하좌우 배치를 목표로 한다.
- - 구획(subgraph)은 JSON의 groups 사각형 안에 들어가는 노드로 기하학적으로 정한다.
- - 위아래 차례는 정본 좌표 (y, x) 순서를 선언 순서로 그대로 옮겨 ELK에 넘긴다.
- - 되돌아가는 선도 목적지 상자로 가는 진짜 화살표(A --> B)로 그린다. `A <-- B`는 쓰지 않는다
-   (ELK가 렌더에서 통째로 빼 버린다 — 도식-설계.md).
- - 배치 머리글은 도식-설계.md의 「업무 처리 흐름」 순서도(113 노드)에서 검증된 값을 쓴다:
-   layout elk + NETWORK_SIMPLEX + mergeEdges:false + keepEntryNodeOnTop:true, curve linear.
-사용법: python3 단독-재료-연결구조-Mermaid-생성.py [--embed]
+정의1 문서('## 사용 구조' > '### 1. 단독 상황')에 이미 박혀 있는
+이미지(solo-material-relations.png)와 같은 데이터를 그대로 쓰되,
+Mermaid 엔진이 배치를 다시 계산하므로 픽셀 단위 동일 위치는 낼 수 없고
+흐름 순서·묶음(subgraph)·갈래 방향 같은 상대 배치만 맞춘다.
+
+도식-설계.md에서 검증된 설정을 그대로 가져다 쓴다:
+  - layout: elk, nodePlacementStrategy: NETWORK_SIMPLEX, mergeEdges: false,
+    keepEntryNodeOnTop: true, curve: linear (basis 아님)
+  - 6모양 6색 분류 + linkStyle 6역할 색상
+  - 화살표는 항상 A --> B (A <-- B 는 렌더러가 조용히 버림)
+
+사용법:
+  python3 단독-재료-연결구조-Mermaid-생성.py [--out FILE] [--embed]
+    --embed: 정의1 문서의 '### 1. 단독 상황' 절 기존 이미지 아래에 삽입
 """
-from pathlib import Path
 import argparse
 import html
 import json
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / 'docs/도식'
+DATA = ROOT / 'docs/도식/단독-재료-연결구조.json'
 DOC = ROOT / '전문가 에이전트 정의.md'
-SECTION = '### 1. 단독 상황 — 한 건 · 한 전문가'
-IMAGE = ('![한 건을 한 전문가가 처리할 때 79개 재료의 입력·결과·조건·다음 작업이 연결되는 구조]'
-         '(docs/images/expert-definition/solo-material-relations.png)')
+OUT_DEFAULT = ROOT / 'docs/도식/usage-structure-solo.mmd'
 
-# 참조 SVG(단독-재료-연결구조.py)의 색을 그대로 옮긴다.
-INK, MUTED = '#192C36', '#526773'
-BLUE, RED, YELLOW = '#228DE1', '#D95750', '#E3A512'
-FILL = {'process': '#FFFFFF', 'material': '#E8F5FE', 'decision': '#FFF5C6',
-        'terminal': '#E7F5E9', 'stop': '#FFF0EC', 'source': '#F6FAFC',
-        'unused': '#F3F3F1', 'data': '#FFFFFF'}
-RANK_BADGE = {1: '①', 2: '②', 3: '③', 4: '④', 5: '⑤'}
-
-CONFIG = {
-    'layout': 'elk',
-    'theme': 'base',
-    'flowchart': {'defaultRenderer': 'elk', 'htmlLabels': True, 'wrappingWidth': 380,
-                  'curve': 'linear', 'nodeSpacing': 70, 'rankSpacing': 85,
-                  'padding': 20, 'useMaxWidth': True},
-    'themeVariables': {'fontFamily': 'Apple SD Gothic Neo, Noto Sans KR, sans-serif',
-                       'fontSize': '16px', 'lineColor': BLUE,
-                       'clusterBkg': 'transparent', 'clusterBorder': '#CADFE9'},
-    'themeCSS': ('.marker{overflow:visible !important}'
-                 '.arrowMarkerPath{stroke-width:5px !important;stroke-linejoin:round !important;'
-                 'stroke-linecap:round !important;transform:translateX(-6px)}'
-                 f'.nodeLabel b{{display:inline-block;font-size:17px;font-weight:700;color:{INK}}}'
-                 f'.nodeLabel small{{display:inline-block;font-size:14px;line-height:1.45;'
-                 f'word-break:keep-all;color:{MUTED}}}'
-                 f'.nodeLabel .rank{{font-size:17px;font-weight:800;color:{BLUE}}}'
-                 '.nodeLabel p{margin:0}'
-                 '.edgeLabel{font-size:14px}'
-                 f'.edgeLabel,.edgeLabel p,.edgeLabel span{{color:{INK} !important;'
-                 'background:#FFFFFF !important}'
-                 f'.cluster-label{{font-size:18px;font-weight:700;color:{INK}}}'
-                 f'.cluster-label span{{color:{INK} !important}}'),
-    'elk': {'nodePlacementStrategy': 'NETWORK_SIMPLEX', 'mergeEdges': False,
-            'keepEntryNodeOnTop': True},
+# 8종 노드 → 6모양 6색 확장 매핑 (도식-설계.md 기존 6종 + source/unused 확장)
+KIND_STYLE = {
+    'terminal':      dict(cls='term',    open='(["',  close='"])'),   # 캡슐/녹색 — 시작-끝 단계
+    'decision':      dict(cls='decide',  open='{"',   close='"}'),   # 마름모 — 판단
+    'decisionwide':  dict(cls='decide',  open='{"',   close='"}'),
+    'process':       dict(cls='action',  open='["',   close='"]'),    # 사각/파랑 — 실행
+    'source':        dict(cls='human',   open='["',   close='"]'),    # 사각/주황 — 재료 조회(외부 교환)
+    'reference':    dict(cls='human',   open='["',   close='"]'),
+    'data':          dict(cls='record',  open='[("',  close='")]'),   # 실린더/회색 — 자료
+    'stop':          dict(cls='stop',    open='(["',  close='"])'),    # 캡슐/빨강 — 정지
+    'unused':        dict(cls='unused',  open='["',   close='"]'),    # 사각/점선회색 — 쓰지 않음
 }
 
-# 구획 제목 — 정본 groups의 title이 빈 것은 배치용 상자이므로 테두리 없이 둔다.
-GROUP_TITLE = {'rank': '충돌하는 조항에만 아래 순위를 적용'}
-# 참조 이미지에서 줄로 나란히 선 재료들 — 보이지 않는 선으로 줄 순서만 고정한다.
-ROW_CHAINS = [['ethics', 'contract', 'org', 'user_rule', 'style'],
-              ['principles', 'platform']]
+# 참고 이미지(solo-material-relations.png)와 같은 옅은 파스텔 톤 — 흰 배경 문서 기준
+CLASS_DEFS = '''\
+classDef term fill:#d9f2e6,stroke:#4caf7d,stroke-width:1.5px,color:#1a1a2e
+classDef decide fill:#e6d9f7,stroke:#9b6dd6,stroke-width:1.5px,color:#1a1a2e
+classDef action fill:#dbe9fb,stroke:#5b8fd1,stroke-width:1.5px,color:#1a1a2e
+classDef human fill:#fbe3c8,stroke:#d99a4e,stroke-width:1.5px,color:#1a1a2e
+classDef record fill:#e3e7ee,stroke:#8f97a8,stroke-width:1.5px,color:#1a1a2e
+classDef stop fill:#fbdada,stroke:#d16565,stroke-width:1.5px,color:#1a1a2e
+classDef unused fill:#eceef1,stroke:#9aa0a8,stroke-width:1px,stroke-dasharray:4 3,color:#6b7280
+classDef termstart fill:#c3f0d9,stroke:#16a34a,stroke-width:3.5px,color:#0f3d24
+classDef termend fill:#d9f2e6,stroke:#4caf7d,stroke-width:3.5px,stroke-dasharray:2 2,color:#1a1a2e'''
+
+GROUP_TITLE_STYLE = 'stroke:#94a3b8,stroke-width:1px,stroke-dasharray:2 4,color:#3a3f4b'
+GROUP_EVIDENCE_STYLE = f'fill:#eef8f1,{GROUP_TITLE_STYLE}'
+GROUP_RULES_STYLE = f'fill:#f3eefb,{GROUP_TITLE_STYLE}'
+GROUP_PLAIN_STYLE = 'fill:none,stroke:none'
+
+ROLE_COLOR = {
+    '시작진입': '#4caf7d',
+    '예':      '#5fb890',
+    '그냥다음': '#5b8fd1',
+    '아니오':   '#d99a4e',
+    '되돌아감': '#c46ec4',
+    '멈춤':    '#d16565',
+    '참조':    '#718096',
+}
 
 
-def mid(key):
-    """Mermaid 예약어(style·end·class 등)와 부딪히지 않게 노드·구획 이름에 머리를 붙인다."""
-    return 'n_' + key
+RESERVED = {
+    'graph', 'subgraph', 'end', 'style', 'linkstyle', 'classdef', 'class',
+    'click', 'direction', 'tb', 'td', 'bt', 'rl', 'lr', 'flowchart',
+}
 
 
-def q(text):
-    return html.escape(text, quote=True).replace('\n', '<br/>')
+def safe_id(raw_id: str) -> str:
+    """Mermaid 예약어(style/end/class 등)와 겹치는 노드·그룹 id는 충돌을 피해 접미사를 붙인다."""
+    return f'{raw_id}_n' if raw_id.lower() in RESERVED else raw_id
 
 
-def load():
-    return json.loads((OUT / '단독-재료-연결구조.json').read_text())
+def esc(s: str) -> str:
+    return html.escape(s, quote=True).replace('\n', '<br/>')
 
 
-def drawn(gid, groups):
-    """그림에 남길 구획인지 — 제목이 있는 구획만 그린다.
-
-    정본 groups 9개 중 opg0~opg5 는 순수 SVG 를 그릴 때 좌표를 잡으려고 둔 배치용 상자다.
-    참조 이미지에서도 테두리·제목이 없다. Mermaid 에서 subgraph 로 남기면 ELK 가 구획마다
-    층을 따로 잡아 폭이 8800px 까지 벌어지므로(실측) 그리지 않는다.
-    """
-    return bool(GROUP_TITLE.get(gid, groups[gid]['title']))
-
-
-def membership(nodes, groups):
-    """노드가 어느 구획 사각형 안에 들어가는지 기하학적으로 정한다(가장 작은 것 우선)."""
-    def inside(n, g):
-        return (g['x'] <= n['x'] and g['y'] <= n['y']
-                and n['x'] + n['w'] <= g['x'] + g['w']
-                and n['y'] + n['h'] <= g['y'] + g['h'])
-    owner = {}
-    for key, n in nodes.items():
-        hits = [gid for gid, g in groups.items() if inside(n, g)]
-        if hits:
-            owner[key] = min(hits, key=lambda gid: groups[gid]['w'] * groups[gid]['h'])
-    return owner
+def node_label(n: dict, marker: str = '') -> str:
+    title = esc(n.get('title', n['id']))
+    if n.get('kind') == 'reference':
+        title = '참조 기준 · ' + title
+    if marker:
+        title = marker + title
+    body = n.get('body', '')
+    if body:
+        return f"<b>{title}</b><br/><span style='font-size:11px'>{esc(body)}</span>"
+    return f'<b>{title}</b>'
 
 
-def nesting(groups):
-    parent = {}
-    for a, ga in groups.items():
-        outer = [b for b, gb in groups.items()
-                 if b != a and gb['x'] <= ga['x'] and gb['y'] <= ga['y']
-                 and gb['x'] + gb['w'] >= ga['x'] + ga['w']
-                 and gb['y'] + gb['h'] >= ga['y'] + ga['h']]
-        parent[a] = min(outer, key=lambda b: groups[b]['w'] * groups[b]['h']) if outer else None
-    return parent
+def rect_contains(outer, inner) -> bool:
+    ox1, oy1 = outer['x'], outer['y']
+    ox2, oy2 = ox1 + outer['w'], oy1 + outer['h']
+    ix1, iy1 = inner['x'], inner['y']
+    ix2, iy2 = ix1 + inner['w'], iy1 + inner['h']
+    return ox1 - 1 <= ix1 and oy1 - 1 <= iy1 and ix2 <= ox2 + 1 and iy2 <= oy2 + 1
 
 
-def node_line(key, n, indent):
-    label = ''
-    if n.get('priority_rank'):
-        label += "<span class='rank'>" + RANK_BADGE[n['priority_rank']] + '</span> '
-    label += '<b>' + q(n['title']) + '</b>'
-    if n['body']:
-        label += '<br/><small>' + q(n['body']) + '</small>'
-    kind = n['kind']
-    cls = ('decision' if kind in ('decision', 'decisionwide')
-           else 'material' if n['material'] and kind == 'process'
-           else kind)
-    open_, close = (('{"', '"}') if kind in ('decision', 'decisionwide')
-                    else ('(["', '"])') if kind in ('terminal', 'stop')
-                    else ('["', '"]'))
-    return f'{" " * indent}{mid(key)}{open_}{label}{close}:::{cls}'
+def group_area(g):
+    return g['w'] * g['h']
 
 
-def export(d):
-    nodes = d['nodes']
-    groups = {g['id']: g for g in d['groups']}
-    owner = {k: g for k, g in membership(nodes, groups).items() if drawn(g, groups)}
-    parent = nesting(groups)
-    order = sorted(nodes, key=lambda k: (nodes[k]['y'], nodes[k]['x']))
+def build(data: dict) -> str:
+    nodes = list(data['nodes'].values())
+    groups = data['groups']
+    edges = data['edges']
 
-    lines = ['%%{init: ' + json.dumps(CONFIG, ensure_ascii=False) + ' }%%', 'flowchart TB',
-             '  %% 파란 선은 흐름·전달, 빨간 선은 아니오·차단, 노란 선은 앞 단계로 되돌아감.',
-             '  %% 점선 테두리는 배치 구획이며 실행 단계가 아니다. ~~~ 는 보이지 않는 줄 맞춤이다.']
+    # 흐름 간선(참조 제외)만으로 진입/종료 노드 계산 — ELK 배치는 시작을 맨 위로 고정하지 못하므로
+    # 위치가 아니라 글자·색으로 시작/종료를 구분한다
+    indeg, outdeg = {}, {}
+    for e in edges:
+        if e['kind'] == 'reference':
+            continue
+        outdeg[e['source']] = outdeg.get(e['source'], 0) + 1
+        indeg[e['target']] = indeg.get(e['target'], 0) + 1
+    start_ids = {n['id'] for n in nodes if n.get('kind') == 'terminal' and indeg.get(n['id'], 0) == 0}
+    finish_ids = {n['id'] for n in nodes if n.get('kind') == 'terminal'
+                  and outdeg.get(n['id'], 0) == 0 and n['id'] not in start_ids}
 
-    def emit_group(gid, indent=2):
-        g = groups[gid]
-        title = GROUP_TITLE.get(gid, g['title'])
-        out = [f'{" " * indent}subgraph {mid(gid)}["{q(title) if title else " "}"]',
-               f'{" " * (indent + 2)}direction TB']
-        for key in order:
-            if owner.get(key) == gid:
-                out.append(node_line(key, nodes[key], indent + 2))
-        for child in groups:
-            if drawn(child, groups) and parent[child] == gid:
-                out += emit_group(child, indent + 2)
-        out.append(f'{" " * indent}end')
-        return out
+    # 노드 -> 가장 좁은(가장 구체적인) 소속 그룹 하나만 고름(=바로 담긴 subgraph)
+    node_group = {}
+    for n in nodes:
+        candidates = [g for g in groups if rect_contains(g, n)]
+        if not candidates:
+            continue
+        node_group[n['id']] = min(candidates, key=group_area)['id']
 
-    for key in order:
-        if key not in owner:
-            lines.append(node_line(key, nodes[key], 2))
-    for gid in groups:
-        if drawn(gid, groups) and parent[gid] is None:
-            lines += emit_group(gid)
+    # 그룹 -> 부모 그룹(자기보다 넓고 자길 담는 그룹 중 가장 좁은 것)
+    group_by_id = {g['id']: g for g in groups}
+    group_parent = {}
+    for g in groups:
+        parents = [p for p in groups if p['id'] != g['id'] and rect_contains(p, g)]
+        if parents:
+            group_parent[g['id']] = min(parents, key=group_area)['id']
 
-    kinds = []
-    for e in d['edges']:
-        label = q(e['label'])
-        arrow = '-->' + (f'|"{label}"|' if label else '')
-        lines.append(f'  {mid(e["source"])} {arrow} {mid(e["target"])}')
-        kinds.append(e['kind'])
-    for chain in ROW_CHAINS:
-        for a, b in zip(chain, chain[1:]):
-            lines.append(f'  {mid(a)} ~~~ {mid(b)}')
-            kinds.append('layout')
+    group_children_groups = {g['id']: [] for g in groups}
+    for gid, pid in group_parent.items():
+        group_children_groups[pid].append(gid)
 
-    for cls, fill in FILL.items():
-        radius = ',rx:6px,ry:6px' if cls not in ('decision',) else ''
-        lines.append(f'  classDef {cls} fill:{fill},stroke:{INK},stroke-width:1.6px,'
-                     f'color:{INK}{radius}')
-    for gid in groups:
-        if drawn(gid, groups):
-            lines.append(f'  style {mid(gid)} fill:none,stroke:#CADFE9,stroke-width:1.7px,'
-                         f'stroke-dasharray:3 9,color:{INK}')
-    for kind, color in (('flow', BLUE), ('blocked', RED), ('return', YELLOW)):
-        ix = [str(i) for i, k in enumerate(kinds) if k == kind]
-        if ix:
-            lines.append(f'  linkStyle {",".join(ix)} stroke:{color},stroke-width:2.2px')
+    group_children_nodes = {g['id']: [] for g in groups}
+    for n in nodes:
+        gid = node_group.get(n['id'])
+        if gid:
+            group_children_nodes[gid].append(n)
+
+    nodes_by_id = {n['id']: n for n in nodes}
+
+    def node_line(n, indent):
+        kind = n.get('kind', 'process')
+        style = KIND_STYLE.get(kind, KIND_STYLE['process'])
+        if n['id'] in start_ids:
+            marker = '▶ 시작 · '
+        elif n['id'] in finish_ids:
+            marker = '■ 종료 · '
+        else:
+            marker = ''
+        label = node_label(n, marker)
+        return f'{indent}{safe_id(n["id"])}{style["open"]}{label}{style["close"]}'
+
+    lines = []
+    lines.append('%%{init: {"flowchart": {"defaultRenderer": "elk", "htmlLabels": true, '
+                  '"nodeSpacing": 24, "rankSpacing": 32, "padding": 16, "wrappingWidth": 300, '
+                  '"curve": "linear", "useMaxWidth": true}, '
+                  '"elk": {"nodePlacementStrategy": "NETWORK_SIMPLEX", "mergeEdges": false, '
+                  '"keepEntryNodeOnTop": true}} }%%')
+    lines.append('flowchart TB')
+    lines.append('')
+
+    top_groups = [g for g in groups if g['id'] not in group_parent]
+    top_groups.sort(key=lambda g: g['y'])
+
+    def emit_group(gid, indent):
+        g = group_by_id[gid]
+        title = g.get('title', '').strip()
+        gtitle = esc(title) if title else ' '
+        lines.append(f'{indent}subgraph {safe_id(gid)}["{gtitle}"]')
+        inner = indent + '  '
+        members = sorted(
+            group_children_nodes[gid] + [
+                ('GROUP', cgid) for cgid in group_children_groups[gid]
+            ],
+            key=lambda m: (m['y'] if isinstance(m, dict) else group_by_id[m[1]]['y'])
+        )
+        for m in members:
+            if isinstance(m, dict):
+                lines.append(node_line(m, inner))
+            else:
+                emit_group(m[1], inner)
+        lines.append(f'{indent}end')
+
+    for g in top_groups:
+        emit_group(g['id'], '  ')
+        lines.append('')
+
+    ungrouped = [n for n in nodes if n['id'] not in node_group]
+    ungrouped.sort(key=lambda n: n['y'])
+    for n in ungrouped:
+        lines.append(node_line(n, '  '))
+    lines.append('')
+
+    def edge_role(e):
+        src = nodes_by_id.get(e['source'])
+        tgt = nodes_by_id.get(e['target'])
+        if e['kind'] == 'reference':
+            return '참조'
+        if e['kind'] == 'return':
+            return '되돌아감'
+        if e['kind'] == 'blocked':
+            return '아니오'
+        if src and src.get('kind') == 'terminal':
+            return '시작진입'
+        if tgt and tgt.get('kind') in ('stop', 'terminal'):
+            return '멈춤'
+        if src and src.get('kind') in ('decision', 'decisionwide'):
+            return '예'
+        return '그냥다음'
+
+    roles = []
+    for e in edges:
+        label = e.get('label', '').strip()
+        connector = '---' if e['kind'] == 'reference' else '-->'
+        arrow = f'{safe_id(e["source"])} {connector}'
+        if label:
+            arrow += f'|{esc(label)}|'
+        arrow += f' {safe_id(e["target"])}'
+        lines.append(f'  {arrow}')
+        roles.append(edge_role(e))
+    lines.append('')
+
+    lines.append(CLASS_DEFS)
+    lines.append('')
+
+    by_kind = {}
+    for n in nodes:
+        kind = n.get('kind', 'process')
+        if kind == 'terminal' and n['id'] in start_ids:
+            kind = 'terminal_start'
+        elif kind == 'terminal' and n['id'] in finish_ids:
+            kind = 'terminal_finish'
+        by_kind.setdefault(kind, []).append(n['id'])
+    term_cls = {'terminal_start': 'termstart', 'terminal_finish': 'termend'}
+    for kind, ids in by_kind.items():
+        cls = term_cls.get(kind) or KIND_STYLE.get(kind, KIND_STYLE['process'])['cls']
+        lines.append(f'class {",".join(safe_id(i) for i in ids)} {cls}')
+    lines.append('')
+
+    group_fill = {'evidence': GROUP_EVIDENCE_STYLE, 'rules': GROUP_RULES_STYLE}
+    for g in groups:
+        if g.get('title', '').strip():
+            style = group_fill.get(g['id'], GROUP_EVIDENCE_STYLE)
+        else:
+            style = GROUP_PLAIN_STYLE
+        lines.append(f'style {safe_id(g["id"])} {style}')
+    lines.append('')
+
+    for i, role in enumerate(roles):
+        color = ROLE_COLOR[role]
+        dash = ',stroke-dasharray:5 4' if role in ('아니오', '되돌아감', '참조') else ''
+        lines.append(f'linkStyle {i} stroke:{color},stroke-width:2px{dash}')
+
     return '\n'.join(lines) + '\n'
 
 
-def embed(chart):
-    text = DOC.read_text()
-    head, rest = text.split(SECTION, 1)
-    tail = rest.split('\n### ', 1)[1]
-    body = f'{SECTION}\n\n{IMAGE}\n\n```mermaid\n{chart}```\n\n### {tail}'
-    DOC.write_text(head + body)
-
-
 def main():
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--embed', action='store_true', help='정의 문서의 「1. 단독 상황」 절에 넣는다.')
-    ap.add_argument('--out', type=Path, default=OUT / 'solo-material-relations.mmd')
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--out', default=str(OUT_DEFAULT))
+    ap.add_argument('--embed', action='store_true')
     args = ap.parse_args()
-    chart = export(load())
-    args.out.write_text(chart)
-    print(f'{args.out}: {chart.count(chr(10))} lines')
+
+    data = json.loads(DATA.read_text())
+    mermaid = build(data)
+    out_path = Path(args.out)
+    out_path.write_text(mermaid)
+    print(f'생성됨: {out_path} ({len(mermaid)} bytes)')
+
     if args.embed:
-        embed(chart)
-        print(f'{DOC}: embedded')
+        text = DOC.read_text()
+        marker = '![한 건을 한 전문가가 처리할 때 79개 재료의 입력·결과·조건·다음 작업이 연결되는 구조](docs/images/expert-definition/solo-material-relations.png)'
+        if marker not in text:
+            raise SystemExit('삽입 지점(이미지 마크다운)을 문서에서 찾지 못함')
+        start = text.index(marker) + len(marker)
+        next_heading = text.index('\n### 2.', start)
+        head, tail = text[:start], text[next_heading:]
+        block = f'\n\n```mermaid\n{mermaid}```\n'
+        DOC.write_text(head + block + tail)
+        print(f'삽입됨(이전 블록 교체): {DOC}')
 
 
 if __name__ == '__main__':

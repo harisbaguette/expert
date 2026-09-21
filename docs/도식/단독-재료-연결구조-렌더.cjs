@@ -1,12 +1,14 @@
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
-const pp=require(process.env.PUPPETEER_MODULE||'puppeteer');
+const usePlaywright=Boolean(process.env.PLAYWRIGHT_MODULE);
+const pp=usePlaywright?require(process.env.PLAYWRIGHT_MODULE).chromium:require(process.env.PUPPETEER_MODULE||'puppeteer');
 const root=path.resolve(__dirname,'../..');
 const dir=process.argv[2]||'/tmp/solo-material-relations';fs.mkdirSync(dir,{recursive:true});
 (async()=>{const browser=await pp.launch({headless:true});try{
  const page=await browser.newPage();
+ const setViewport=size=>usePlaywright?page.setViewportSize(size):page.setViewport(size);
  const svg=fs.readFileSync(path.join(root,'docs/images/expert-definition/solo-material-relations.svg'),'utf8');
  const width=+svg.match(/width="([\d.]+)"/)[1],height=+svg.match(/height="([\d.]+)"/)[1];
- await page.setViewport({width,height:1000,deviceScaleFactor:1});
+ await setViewport({width,height:1000});
  await page.setContent('<body style="margin:0;background:white">'+svg+'</body>');
  await page.evaluate(()=>document.fonts.ready);
  const measured=await page.evaluate(()=>{const rect=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}};
@@ -21,7 +23,7 @@ const dir=process.argv[2]||'/tmp/solo-material-relations';fs.mkdirSync(dir,{recu
  if(!process.env.FAST_RENDER){
   await page.screenshot({path:path.join(dir,'solo-material-relations.png'),fullPage:true});
   await page.addStyleTag({content:'body > svg {width:1100px;height:auto;display:block}'});
-  await page.setViewport({width:1100,height:1000});
+  await setViewport({width:1100,height:1000});
   for(let y=0,i=0;y<height*1100/width;y+=900,i++){
    await page.evaluate(y=>scrollTo(0,y),y);await page.screenshot({path:path.join(dir,`normal-${i}.png`)});
   }
