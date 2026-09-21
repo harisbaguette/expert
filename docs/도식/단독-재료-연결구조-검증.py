@@ -27,7 +27,17 @@ def run(folder):
         if n['material']:instances[n['material']].append(k)
     assert len(cat)==79 and set(instances)==set(cat)
     assert all(n['title']==n['material'] for n in ns.values() if n['material'])
-    assert ns['unused']['kind']=='unused' and '쓰지 않음' in ns['unused']['body']
+    assert ns['unused']['kind']=='unused' and '쓰지 않습니다' in ns['unused']['body']
+    assert not d['illustrations'] and g['illustration_count']==0
+    assert set(d['system_styles'])=={'환경','지식','규칙','실무','검증','학습'}
+    assert len(g['system_labels'])==sum(bool(n['material']) for n in ns.values())
+    for k,n in ns.items():
+        if n['material']:
+            assert n['term']==cat[n['material']]['term']
+            assert cat[n['material']]['system'] in d['system_mapping'][n['term']]
+            assert any(t['id']==k and t['text'].startswith(n['term']) for t in g['system_labels'])
+    assert len(g['arrowheads'])==len(es)
+    assert {a['id'] for a in g['arrowheads']}=={f'e{i}' for i in range(len(es))}
     incoming,outgoing=defaultdict(list),defaultdict(list)
     for e in es:
         assert e['source'] in ns|groups and e['target'] in ns
@@ -48,7 +58,7 @@ def run(folder):
       'clarification':['intent','clear','communicate0','intent'],
       'initial_capability_gate':['strategy','qualified','testenv0','capability0','qualified_test','plan'],
       'initial_capability_failure':['qualified_test','unqualified'],
-      'direct_execution':['qualified','plan','progress','control','guard','allowed','tools','type0'],
+      'direct_execution':['qualified','plan','unused','progress','control','guard','allowed','tools','type0'],
       'data_preparation':['type0','choose0','combine','out0','identity','verify','state_result','vdecision'],
       'calculation_then_next_input':['type1','choose1','calc','out1','identity','verify','state_result','vdecision','more','context2','context'],
       'system_action':['type4','choose4','transaction','out4','identity','verify'],
@@ -68,6 +78,7 @@ def run(folder):
       'failed_improvement':['passed','improve','capability','passed'],
     }
     for name,route in routes.items():assert all(has(a,b) for a,b in zip(route,route[1:])),name
+    assert incoming['unused'] and outgoing['unused']
     for i in range(6):
         n=ns['choose'+str(i)]
         assert n['kind']=='decisionwide' and len(outgoing[n['id']])>=2
@@ -105,7 +116,14 @@ def run(folder):
             if lid!=f'e{i}' and any(v.intersects_node(a,b,t) for a,b in zip(e['points'],e['points'][1:])):issues.append(['edge-label',i,lid])
     for a,b in itertools.combinations(g['labels']+g['annotations'],2):
         if v.overlap(a,b,2):issues.append(['label-overlap',a.get('id',a.get('text')),b.get('id',b.get('text'))])
+    for t in g['labels']:
+        i=int(t['id'][1:]);e=es[i];x,y=e['at']
+        dist=lambda p,a,b:__import__('math').dist(p,(a[0]+max(0,min(1,((p[0]-a[0])*(b[0]-a[0])+(p[1]-a[1])*(b[1]-a[1]))/max(.001,(b[0]-a[0])**2+(b[1]-a[1])**2)))*(b[0]-a[0]),a[1]+max(0,min(1,((p[0]-a[0])*(b[0]-a[0])+(p[1]-a[1])*(b[1]-a[1]))/max(.001,(b[0]-a[0])**2+(b[1]-a[1])**2)))*(b[1]-a[1])))
+        if min(dist((x,y),a,b) for a,b in zip(e['points'],e['points'][1:]))>1:issues.append(['label-detached-from-own-edge',i])
+        for arrow in g['arrowheads']:
+            if v.overlap(t,arrow,0):issues.append(['label-hides-arrow',i,arrow['id']])
     return dict(materials=len(cat),usage_types=dict(Counter(c['usage'] for c in cat.values())),
+        system_counts=dict(Counter(c['term'] for c in cat.values())),illustrations=g['illustration_count'],arrowheads=len(g['arrowheads']),
         material_coverage=coverage,checked_routes=routes,geometry_issues=issues,
         source_prefix_sha256=d['source_prefix_sha256'],svg_sha256=g['svg_sha256'],
         rendered_dimensions=[d['width'],d['height']],display_width=1100,

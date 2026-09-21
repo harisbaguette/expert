@@ -12,6 +12,9 @@ const dir=process.argv[2]||'/tmp/solo-material-relations';fs.mkdirSync(dir,{recu
  const measured=await page.evaluate(()=>{const rect=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}};
  return{nodes:[...document.querySelectorAll('.node,.material')].map(n=>({id:n.dataset.id,shape:rect(n.querySelector('.shape')),texts:[...n.querySelectorAll(':scope > text')].map(t=>({text:t.textContent,...rect(t)}))})),
  labels:[...document.querySelectorAll('.edge-label')].map(e=>({id:e.dataset.edge,...rect(e)})),
+ arrowheads:[...document.querySelectorAll('.arrowhead')].map(e=>({id:e.dataset.edge,...rect(e)})),
+ system_labels:[...document.querySelectorAll('.system-label')].map(e=>({id:e.parentElement.dataset.id,text:e.textContent,...rect(e)})),
+ illustration_count:document.querySelectorAll('image,use,img').length,
  annotations:[...document.querySelectorAll('text.annotation,.scope > text')].map(e=>({text:e.textContent,...rect(e)}))};});
  measured.svg_sha256=crypto.createHash('sha256').update(svg).digest('hex');measured.browser=await browser.version();
  fs.writeFileSync(path.join(dir,'geometry.json'),JSON.stringify(measured,null,2));

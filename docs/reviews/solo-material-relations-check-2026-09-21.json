@@ -5,6 +5,16 @@
     "단계별": 17,
     "조건부": 33
   },
+  "system_counts": {
+    "환경": 10,
+    "지식": 16,
+    "규칙": 18,
+    "실무": 24,
+    "검증": 9,
+    "학습": 2
+  },
+  "illustrations": 0,
+  "arrowheads": 159,
   "material_coverage": [
     {
       "material": "시작 신호",
@@ -13,7 +23,7 @@
       "instances": [
         {
           "instance": "signal",
-          "visible_text": "새 요청·변경·답변을\n해당 건에 연결",
+          "visible_text": "요청이나 답변이 오면\n어느 업무를 시작하거나 이어 갈지 알립니다.",
           "inputs": [
             "start",
             "early",
@@ -35,7 +45,7 @@
       "instances": [
         {
           "instance": "early",
-          "visible_text": "감시를 맡았다면\n문제·기회와 대응 이유를 발견",
+          "visible_text": "상황을 살피도록 맡겨졌다면 문제나 기회를 찾습니다.\n왜 대응해야 하며 얼마나 급한지 알립니다.",
           "inputs": [
             "watchtype"
           ],
@@ -55,7 +65,7 @@
       "instances": [
         {
           "instance": "change",
-          "visible_text": "추적할 변화가 생기면\n바뀐 근거와 영향받은 결과를 알림",
+          "visible_text": "추적하기로 한 자료나 조건이 바뀌는지 살핍니다.\n바뀌면 그 자료를 쓴 판단과 결과도 다시 확인하게 알립니다.",
           "inputs": [
             "watchtype"
           ],
@@ -75,7 +85,7 @@
       "instances": [
         {
           "instance": "case",
-          "visible_text": "요청·대상·기한·상황과\n새로 들어온 자료를 모음",
+          "visible_text": "무엇을 누구에게 언제까지 해 줘야 하는지 모읍니다.\n대상의 현재 상황과 새로 받은 자료도 함께 정리합니다.",
           "inputs": [
             "signal"
           ],
@@ -95,7 +105,7 @@
       "instances": [
         {
           "instance": "understand",
-          "visible_text": "자료의 내용·맥락을 읽어\n사실·주장·불명확한 점을 구별",
+          "visible_text": "자료를 읽고 어떤 뜻인지 파악합니다.\n확인된 사실, 누군가의 주장, 아직 모르는 부분을 나눕니다.",
           "inputs": [
             "case"
           ],
@@ -115,7 +125,7 @@
       "instances": [
         {
           "instance": "intent",
-          "visible_text": "원하는 결과와 맡긴 범위를 파악\n해석에 따라 범위가 달라지면 확인",
+          "visible_text": "어떤 결과를 원하며 어디까지 맡겼는지 파악합니다.\n뜻에 따라 일의 범위가 달라질 부분은 물어서 확인합니다.",
           "inputs": [
             "understand",
             "communicate0"
@@ -136,7 +146,7 @@
       "instances": [
         {
           "instance": "communicate0",
-          "visible_text": "범위를 바꾸는 모호함이 있으면\n구체적으로 묻고 답을 확인",
+          "visible_text": "뜻에 따라 일의 범위가 달라진다면\n구체적으로 묻고 어떤 뜻인지 답을 확인합니다.",
           "inputs": [
             "clear",
             "live"
@@ -150,7 +160,7 @@
         },
         {
           "instance": "talk",
-          "visible_text": "상대·내용·표현 기준 → 이해·답변 확인",
+          "visible_text": "상대가 이해할 수 있게 묻거나 설명합니다.\n받은 답과 서로 이해한 내용이 맞는지 확인합니다.",
           "inputs": [
             "choose3"
           ],
@@ -170,7 +180,7 @@
       "instances": [
         {
           "instance": "live",
-          "visible_text": "즉시 주고받는 대화라면\n발언·중단·재접속을 연결",
+          "visible_text": "바로 답을 주고받아야 할 때 대화를 연결합니다.\n말이 겹치거나 연결이 끊기면 중단하고 다시 이어 줍니다.",
           "inputs": [],
           "outputs": [
             "communicate0"
@@ -188,7 +198,7 @@
       "instances": [
         {
           "instance": "goal",
-          "visible_text": "풀 문제·범위·우선순위와\n끝났음을 확인할 증거를 정함",
+          "visible_text": "무엇을 해결하고 무엇부터 할지 정합니다.\n어떤 결과와 증거가 있어야 끝났다고 볼지도 정합니다.",
           "inputs": [
             "clear"
           ],
@@ -210,7 +220,7 @@
       "instances": [
         {
           "instance": "measure0",
-          "visible_text": "목표에서 확인 항목과 시점을 정함\n완료 뒤에도 실제 효과를 확인",
+          "visible_text": "목표를 이뤘는지 무엇으로 언제 확인할지 정합니다.\n일이 끝난 뒤 나타나는 효과도 확인하기로 합니다.",
           "inputs": [
             "goal"
           ],
@@ -221,7 +231,7 @@
         },
         {
           "instance": "outcome",
-          "visible_text": "정한 시점에 목표 달성과 뒤늦은 효과·문제 확인\n난이도·환경·자원 차이를 고려해 비교",
+          "visible_text": "정한 시점에 실제로 목표를 이뤘는지 확인합니다.\n난이도, 주변 상황, 쓴 자원의 차이를 고려해 비교합니다.",
           "inputs": [
             "receipt",
             "process_eval"
@@ -242,9 +252,13 @@
       "instances": [
         {
           "instance": "unused",
-          "visible_text": "이 상황에서는 쓰지 않음\n한 전문가가 전 과정을 담당",
-          "inputs": [],
-          "outputs": [],
+          "visible_text": "여러 AI에게 일을 나눌 때 쓰는 기능입니다.\n이 상황에서는 쓰지 않습니다. 한 전문가가 직접 처리합니다.",
+          "inputs": [
+            "plan"
+          ],
+          "outputs": [
+            "progress"
+          ],
           "application": null,
           "priority_rank": null,
           "unused": true
@@ -258,7 +272,7 @@
       "instances": [
         {
           "instance": "search",
-          "visible_text": "부족한 정보·방법·원문을 찾음\n찾은 출처와 미확보 항목을 남김",
+          "visible_text": "판단에 부족한 정보나 방법, 원문을 찾습니다.\n어디서 찾았고 무엇을 아직 못 찾았는지 남깁니다.",
           "inputs": [
             "goal"
           ],
@@ -279,7 +293,7 @@
       "instances": [
         {
           "instance": "absent",
-          "visible_text": "빈 검색이면 범위·질의 확인\n근거 없이 “없다”로 단정하지 않음",
+          "visible_text": "검색에 안 나왔다고 없다고 단정하지 않습니다.\n찾아본 범위와 정말 없다고 말할 근거를 확인합니다.",
           "inputs": [
             "search"
           ],
@@ -299,7 +313,7 @@
       "instances": [
         {
           "instance": "now",
-          "visible_text": "현재 값이 판단을 바꾸면 조회\n처리 불명 거래는 재실행 전 확인",
+          "visible_text": "지금 값이나 상태에 따라 판단이 달라지면 조회합니다.\n처리됐는지 모르는 거래는 다시 실행하기 전에 먼저 확인합니다.",
           "inputs": [
             "search"
           ],
@@ -319,7 +333,7 @@
       "instances": [
         {
           "instance": "case_ref",
-          "visible_text": "필요한 사례의\n조건·근거·결과 비교",
+          "visible_text": "비슷한 일에서 쓴 방법과 결과를 살핍니다.\n이번 일에도 같은 조건이 맞는지 비교합니다.",
           "inputs": [],
           "outputs": [
             "trust"
@@ -337,7 +351,7 @@
       "instances": [
         {
           "instance": "reference",
-          "visible_text": "필요한 원리·방법·\n표현을 참고",
+          "visible_text": "일을 이해하거나 만들 때 필요한\n원리, 방법, 표현의 예를 찾아 참고합니다.",
           "inputs": [],
           "outputs": [
             "trust"
@@ -355,7 +369,7 @@
       "instances": [
         {
           "instance": "reuse",
-          "visible_text": "서식·부품을 쓰면\n권리·환경 확인",
+          "visible_text": "서식이나 부품을 다시 가져다 씁니다.\n사용할 권리가 있고 현재 환경에 맞는지 확인합니다.",
           "inputs": [],
           "outputs": [
             "trust"
@@ -373,7 +387,7 @@
       "instances": [
         {
           "instance": "trust",
-          "visible_text": "찾은 자료·조회 결과·사례의 출처와 증거 등급 대조\n이번 대상에 맞고 받아들여질 근거인지 확인",
+          "visible_text": "누가 어디서 얻은 자료인지 살펴 믿을 수 있는지 확인합니다.\n이번 일에 맞는지, 결과를 판단할 곳에서 인정할 근거인지도 확인합니다.",
           "inputs": [
             "absent",
             "now",
@@ -397,7 +411,7 @@
       "instances": [
         {
           "instance": "version",
-          "visible_text": "이번 대상·시점에 맞는 판본을 선택\n원문의 위치·확인 시각·변경 관계를 연결",
+          "visible_text": "이번 일을 판단할 날짜에 맞는 자료를 고릅니다.\n어떤 버전을 언제 확인했는지 원문과 함께 남깁니다.",
           "inputs": [
             "trust"
           ],
@@ -418,7 +432,7 @@
       "instances": [
         {
           "instance": "knowledge",
-          "visible_text": "검증된 근거를 원리·방법으로 연결\n적용 조건·예외를 판단에 제공",
+          "visible_text": "검증된 원리와 방법을 이번 일의 판단에 씁니다.\n어떤 조건에서 맞고 어떤 예외가 있는지도 함께 살핍니다.",
           "inputs": [
             "version"
           ],
@@ -438,7 +452,7 @@
       "instances": [
         {
           "instance": "experience",
-          "visible_text": "관련 경험의 단서·요령을 대조\n지금 상황에 맞는 해석을 도움",
+          "visible_text": "비슷한 경험에서 중요한 단서와 대응 요령을 떠올립니다.\n지금 상황에도 맞는지 살펴 판단에 보탭니다.",
           "inputs": [
             "version"
           ],
@@ -458,7 +472,7 @@
       "instances": [
         {
           "instance": "memory",
-          "visible_text": "해당 고객·건의 이전 결정·약속·교훈을 꺼냄\n현재 근거와 맞는지 확인해 사용",
+          "visible_text": "지난번에 확인한 사실, 결정, 약속과 교훈을 꺼냅니다.\n이번 일과 관련 있고 아직 유효한 내용만 사용합니다.",
           "inputs": [],
           "outputs": [
             "context"
@@ -469,7 +483,7 @@
         },
         {
           "instance": "memory2",
-          "visible_text": "사실·약속·결정·교훈을 해당 건과 근거에 묶어 보존\n검증된 개선은 다음 업무의 지식·방법에 반영\n잘못된 기억은 정정하고 남은 책임은 유지",
+          "visible_text": "확인한 사실, 약속, 결정과 교훈을 근거와 함께 보관합니다.\n검증된 개선은 다음 일에 쓰고 잘못된 기억은 고칩니다.",
           "inputs": [
             "passed"
           ],
@@ -482,7 +496,7 @@
         },
         {
           "instance": "memory_direct",
-          "visible_text": "이번 건의 사실·결정·약속·교훈 보존\n남은 책임과 후속 확인도 함께 유지",
+          "visible_text": "이번 건의 사실과 결정, 약속과 교훈을 보관합니다.\n남은 책임과 나중에 확인할 일도 함께 남깁니다.",
           "inputs": [
             "learnneed"
           ],
@@ -495,7 +509,7 @@
         },
         {
           "instance": "memory_reuse",
-          "visible_text": "유지·재사용할 방법과 적용 조건 보존\n능력을 바꾸지 않아도 교훈은 다음 일에 활용",
+          "visible_text": "유지할 방법과 그 방법이 맞는 조건을 보관합니다.\n능력을 바꾸지 않아도 교훈은 다음 일에 사용합니다.",
           "inputs": [
             "improveneed"
           ],
@@ -515,7 +529,7 @@
       "instances": [
         {
           "instance": "original",
-          "visible_text": "출처·설정 권한·범위·시점을 확인",
+          "visible_text": "적용할 규칙의 원문을 확보합니다.\n누가 정했으며 어디에 언제 적용되는지 확인합니다.",
           "inputs": [
             "goal"
           ],
@@ -535,7 +549,7 @@
       "instances": [
         {
           "instance": "law",
-          "visible_text": "법령의 상하·특별·위임 관계와 대상 시점부터 확인\n유효한 명령·처분·예외를 반영",
+          "visible_text": "법의 우선순위와 이번 일에 적용되는 시점을 살핍니다.\n특별 규정, 위임 범위, 유효한 명령과 예외도 확인합니다.",
           "inputs": [
             "original"
           ],
@@ -555,7 +569,7 @@
       "instances": [
         {
           "instance": "ethics",
-          "visible_text": "필수 직업 의무",
+          "visible_text": "비밀 보호 등 반드시 지켜야 할 직업상 의무를 확인합니다.\n관계자의 이익이나 역할이 충돌하는지도 살핍니다.",
           "inputs": [],
           "outputs": [],
           "application": "priority",
@@ -571,7 +585,7 @@
       "instances": [
         {
           "instance": "principles",
-          "visible_text": "기본 원칙·승인된 보호 기준",
+          "visible_text": "맡은 목적과 범위를 지키고 사실대로 알립니다.\n외부 자료에 적힌 말로 목표나 권한을 바꾸지 않습니다.",
           "inputs": [],
           "outputs": [],
           "application": "priority",
@@ -587,7 +601,7 @@
       "instances": [
         {
           "instance": "contract",
-          "visible_text": "유효한 계약·약속",
+          "visible_text": "약속한 범위와 기한, 권리와 의무를 확인합니다.\n변경된 약속과 일이 끝난 뒤에도 남는 의무를 반영합니다.",
           "inputs": [],
           "outputs": [],
           "application": "priority",
@@ -603,7 +617,7 @@
       "instances": [
         {
           "instance": "platform",
-          "visible_text": "플랫폼의 필수 조건",
+          "visible_text": "사용하는 서비스와 결과를 받는 곳의 규칙을 확인합니다.\n현재 계정과 제출 방식에 맞는 필수 조건을 적용합니다.",
           "inputs": [],
           "outputs": [],
           "application": "priority",
@@ -619,7 +633,7 @@
       "instances": [
         {
           "instance": "org",
-          "visible_text": "조직의 필수 규정",
+          "visible_text": "이번 업무에 적용되는 조직의 규정을 확인합니다.\n맡은 역할과 조직에서 허용한 예외도 함께 살핍니다.",
           "inputs": [],
           "outputs": [],
           "application": "priority",
@@ -635,7 +649,7 @@
       "instances": [
         {
           "instance": "user_rule",
-          "visible_text": "사용자가 추가한 조건",
+          "visible_text": "사용자가 추가로 정한 조건을 확인합니다.\n반드시 지킬 조건과 선호를 나누고 변경된 요구를 반영합니다.",
           "inputs": [],
           "outputs": [],
           "application": "priority",
@@ -651,7 +665,7 @@
       "instances": [
         {
           "instance": "style",
-          "visible_text": "대상·매체에 맞는 기본 표현",
+          "visible_text": "받는 사람과 쓰일 곳에 맞는 말투와 디자인을 정합니다.\n결과를 만들 때 같은 기준을 유지합니다.",
           "inputs": [],
           "outputs": [],
           "application": "priority",
@@ -667,7 +681,7 @@
       "instances": [
         {
           "instance": "priority",
-          "visible_text": "법적 적용 관계 + 위의 기준을 함께 대조\n충돌 없는 조건·보호 기준은 모두 유지\n예외 요건·변경 권한을 확인하고 미해결 쟁점을 남김",
+          "visible_text": "법에서 정한 적용 관계를 먼저 확인합니다.\n서로 충돌한 조항만 위 순위로 정합니다.\n충돌하지 않은 조건과 보호 기준도 함께 지킵니다.\n예외를 허용할 사람과 필요한 증거를 확인합니다.",
           "inputs": [
             "law",
             "rank"
@@ -688,7 +702,7 @@
       "instances": [
         {
           "instance": "context",
-          "visible_text": "목표 + 검증된 자료·지식 + 적용 기준 + 진행 상태\n이번 판단에 필요한 것만 모으고\n새 결과·변경이 오면 갱신",
+          "visible_text": "목표, 자료, 지킬 규칙과 진행 상황에서\n이번 판단에 필요한 정보를 골라 제공합니다.",
           "inputs": [
             "knowledge",
             "memory",
@@ -705,7 +719,7 @@
         },
         {
           "instance": "context2",
-          "visible_text": "검증한 결과·상태를 다음 작업의 입력으로 보탬\n오류·부족한 근거·변경은 보완 대상으로 표시",
+          "visible_text": "검사한 결과와 진행 상황을 다음 작업의 입력에 보탭니다.\n잘못된 부분과 부족한 근거는 보완할 일로 표시합니다.",
           "inputs": [
             "vdecision",
             "more",
@@ -728,7 +742,7 @@
       "instances": [
         {
           "instance": "model",
-          "visible_text": "현재 작업 정보를 읽어 이해·판단·생성\n정해진 계산·조회는 모델 호출 없이 실행 가능",
+          "visible_text": "지금 필요한 정보를 읽고 뜻을 이해하거나 판단합니다.\n필요한 답이나 내용을 만듭니다.",
           "inputs": [
             "context"
           ],
@@ -748,7 +762,7 @@
       "instances": [
         {
           "instance": "strategy",
-          "visible_text": "목표·근거·비용·위험으로 방법을 비교\n추가 조사·계속·보류·중단 중 적절한 방향을 정함",
+          "visible_text": "방법마다 효과, 근거, 비용과 위험을 비교합니다.\n더 조사할지, 진행할지, 미루거나 중단할지 정합니다.",
           "inputs": [
             "model",
             "risk"
@@ -769,7 +783,7 @@
       "instances": [
         {
           "instance": "risk",
-          "visible_text": "계획·실행·전달 전에\n놓친 조건과 피해를 찾아 대조",
+          "visible_text": "계획하거나 실행하고 넘기기 전에\n놓친 조건과 예상 못 한 피해가 없는지 살핍니다.",
           "inputs": [],
           "outputs": [
             "strategy"
@@ -787,13 +801,13 @@
       "instances": [
         {
           "instance": "plan",
-          "visible_text": "선택한 방법을 입력 → 작업 → 출력으로 연결\n순서·병렬·검사·중단·재개 조건을 정함",
+          "visible_text": "방법을 구체적인 작업으로 나누고 필요한 입력과 결과를 정합니다.\n먼저 할 일, 함께 할 일, 검사할 때와 중단·재개 조건을 연결합니다.",
           "inputs": [
             "qualified",
             "qualified_test"
           ],
           "outputs": [
-            "progress"
+            "unused"
           ],
           "application": null,
           "priority_rank": null,
@@ -808,10 +822,10 @@
       "instances": [
         {
           "instance": "progress",
-          "visible_text": "완료분을 보존하고 시작 가능한 다음 작업 선택\n변경이 계획을 벗어나면 방법·계획부터 다시 판단",
+          "visible_text": "끝난 일은 남겨 두고 지금 할 수 있는 다음 작업을 고릅니다.\n기존 계획으로 해결되지 않으면 방법과 계획부터 다시 정합니다.",
           "inputs": [
-            "plan",
-            "state"
+            "state",
+            "unused"
           ],
           "outputs": [
             "record",
@@ -823,7 +837,7 @@
         },
         {
           "instance": "repair",
-          "visible_text": "미달한 항목을 보완 작업으로 연결\n바뀐 부분과 영향받은 결과를 다시 검사",
+          "visible_text": "기준에 못 미친 부분을 고칠 작업으로 연결합니다.\n고친 부분과 그 영향을 받는 결과를 다시 검사합니다.",
           "inputs": [
             "qualityok",
             "delivery_repair"
@@ -837,7 +851,7 @@
         },
         {
           "instance": "delivery_repair",
-          "visible_text": "받은 수정 요청을 해당 작업에 연결\n수정·영향 범위 확인 뒤 다시 검증",
+          "visible_text": "받은 수정 요청을 실제로 고쳐야 할 작업에 연결합니다.\n고친 뒤에는 관련된 결과까지 다시 검사합니다.",
           "inputs": [
             "receipt"
           ],
@@ -857,7 +871,7 @@
       "instances": [
         {
           "instance": "state",
-          "visible_text": "완료·실패·대기·승인·남은 일 유지\n외부 처리 결과가 불명확한 상태도 보존",
+          "visible_text": "끝난 일과 남은 일, 기다리는 답과 승인을 기록합니다.\n외부 처리가 끝났는지 모르는 상태도 따로 남깁니다.",
           "inputs": [
             "monitor"
           ],
@@ -870,7 +884,7 @@
         },
         {
           "instance": "state_result",
-          "visible_text": "검증 결과를 완료·보완·확인 대기 상태에 반영\n이미 끝난 외부 처리는 중복 실행하지 않음",
+          "visible_text": "검사 결과에 따라 끝난 일, 고칠 일, 기다릴 일을 기록합니다.\n이미 끝난 외부 처리는 다시 실행하지 않습니다.",
           "inputs": [
             "verify"
           ],
@@ -890,7 +904,7 @@
       "instances": [
         {
           "instance": "record",
-          "visible_text": "매 판단·실행·검사의 입력과 결과 기록\n왜 선택·수정했는지 근거를 연결",
+          "visible_text": "무슨 자료로 왜 판단하고 실행했는지 남깁니다.\n내용을 바꾸거나 검사했다면 그 이유와 결과도 기록합니다.",
           "inputs": [
             "progress"
           ],
@@ -901,7 +915,7 @@
         },
         {
           "instance": "record_read",
-          "visible_text": "각 단계의 입력·선택·실행·검사 기록\n평가할 근거로 꺼냄",
+          "visible_text": "각 단계에서 무엇을 보고 왜 실행했는지 기록을 꺼냅니다.\n일하는 과정을 평가할 근거로 사용합니다.",
           "inputs": [],
           "outputs": [
             "process_eval"
@@ -919,7 +933,7 @@
       "instances": [
         {
           "instance": "control",
-          "visible_text": "준비된 입력으로 함수·도구·모델 호출\n조건 분기·결과 합류·오류·대기·재개를 연결",
+          "visible_text": "업무 내내 필요한 도구와 모델을 실행합니다.\n앞선 결과를 기다리고, 오류나 중단이 생기면 다음 처리를 연결합니다.",
           "inputs": [
             "progress",
             "isolation"
@@ -941,7 +955,7 @@
       "instances": [
         {
           "instance": "isolation",
-          "visible_text": "실행할 자료·작업 공간과 자원을 분리\n허용한 공유만 열고 오류 확산을 막음",
+          "visible_text": "섞이면 안 되는 자료와 작업 공간을 나눕니다.\n허용한 것만 공유하고 오류가 다른 작업에 번지지 않게 합니다.",
           "inputs": [],
           "outputs": [
             "control"
@@ -959,7 +973,7 @@
       "instances": [
         {
           "instance": "monitor",
-          "visible_text": "별도 운영 감시가 장애·지연을 감지\n격리·복구 후 저장 상태로 업무를 돌려줌",
+          "visible_text": "별도 감시자가 장애나 지연을 살핍니다.\n문제가 생기면 복구하고 저장된 진행 상황부터 이어 가게 합니다.",
           "inputs": [
             "control"
           ],
@@ -979,7 +993,7 @@
       "instances": [
         {
           "instance": "rights",
-          "visible_text": "누구의 어떤 행위인지 확인\n현재 승인 범위·유효 기간·철회 반영",
+          "visible_text": "누구를 대신해 어디까지 행동해도 되는지 확인합니다.\n실행 직전에 승인이 유효하고 취소되지 않았는지 다시 봅니다.",
           "inputs": [],
           "outputs": [
             "guard"
@@ -997,7 +1011,7 @@
       "instances": [
         {
           "instance": "limit",
-          "visible_text": "사용·예약·진행분까지 합산\n실행·대기의 비용과 위험을 비교",
+          "visible_text": "이미 쓴 비용과 앞으로 쓸 비용을 합쳐 한도를 확인합니다.\n실행하거나 기다릴 때 생길 피해도 비교합니다.",
           "inputs": [],
           "outputs": [
             "guard"
@@ -1015,7 +1029,7 @@
       "instances": [
         {
           "instance": "guard",
-          "visible_text": "매 정보 교환·실행·재시도·재개 때\n규칙·권한·한도와 대조해 허용·차단·보류",
+          "visible_text": "정보를 주고받거나 실행할 때마다 규칙, 권한, 한도를 확인합니다.\n위반하면 막고, 확인할 수 없으면 보류합니다. 재개할 때도 검사합니다.",
           "inputs": [
             "control",
             "rights",
@@ -1038,7 +1052,7 @@
       "instances": [
         {
           "instance": "handoff",
-          "visible_text": "준비·조사·검증을 마친 뒤 필요한 결정만 요청\n되돌릴 수 없음·필수 승인·판단 불가\n한도 초과·자격자 전속일 때",
+          "visible_text": "조사와 준비를 마친 뒤 사람이 맡을 결정만 요청합니다.\n되돌릴 수 없는 일, 필수 승인, 해결 못 한 판단,\n한도 초과나 자격이 필요한 일이 해당합니다.",
           "inputs": [
             "allowed"
           ],
@@ -1058,7 +1072,7 @@
       "instances": [
         {
           "instance": "identity0",
-          "visible_text": "받은 승인·결정의 사람·권한·대상·판본 대조\n불일치한 답은 적용하지 않고 다시 확인",
+          "visible_text": "승인한 사람과 권한, 승인한 대상과 버전을 확인합니다.\n맞지 않는 답은 적용하지 않고 다시 확인합니다.",
           "inputs": [
             "handoff"
           ],
@@ -1071,7 +1085,7 @@
         },
         {
           "instance": "identity",
-          "visible_text": "보고한 주체·대상·요청·판본을 대조\n불일치하면 결과 대신 반려 사유를 전달",
+          "visible_text": "누가 어떤 요청에 대해 낸 결과인지 확인합니다.\n대상이나 버전이 다르면 받지 않고 이유를 알립니다.",
           "inputs": [
             "out0",
             "out1",
@@ -1096,7 +1110,7 @@
       "instances": [
         {
           "instance": "tools",
-          "visible_text": "선택한 작업의 도구 요청을 연결\n도구의 결과·오류·외부 처리 상태를 회수",
+          "visible_text": "작업에 필요한 프로그램이나 서비스를 연결합니다.\n요청을 보내고 결과, 오류, 처리 상태를 받아옵니다.",
           "inputs": [
             "allowed"
           ],
@@ -1116,7 +1130,7 @@
       "instances": [
         {
           "instance": "sort",
-          "visible_text": "원자료 → 필요한 항목·분류",
+          "visible_text": "자료에서 필요한 내용을 골라 종류별로 나눕니다.\n같은 대상을 가리키는 기록끼리 연결합니다.",
           "inputs": [
             "choose0"
           ],
@@ -1136,7 +1150,7 @@
       "instances": [
         {
           "instance": "combine",
-          "visible_text": "흩어진 기록 → 연결·정리된 자료",
+          "visible_text": "잘못된 내용과 중복을 정리하고 관련 자료를 합칩니다.\n맞지 않는 값과 원본의 위치는 남깁니다.",
           "inputs": [
             "choose0"
           ],
@@ -1156,7 +1170,7 @@
       "instances": [
         {
           "instance": "convert",
-          "visible_text": "원본 → 필요한 형식·항목 구조",
+          "visible_text": "쓸 프로그램이나 제출처에 맞게 자료의 형식을 바꿉니다.\n내용과 항목의 연결이 빠지지 않게 옮깁니다.",
           "inputs": [
             "choose0"
           ],
@@ -1176,7 +1190,7 @@
       "instances": [
         {
           "instance": "calc",
-          "visible_text": "수치·식\n→ 계산값",
+          "visible_text": "수치와 계산식으로\n필요한 값을 구합니다.",
           "inputs": [
             "choose1"
           ],
@@ -1196,7 +1210,7 @@
       "instances": [
         {
           "instance": "analysis",
-          "visible_text": "자료·계산값\n→ 관계·원인",
+          "visible_text": "자료와 계산값을 살펴\n관계나 원인을 찾습니다.",
           "inputs": [
             "choose1"
           ],
@@ -1216,7 +1230,7 @@
       "instances": [
         {
           "instance": "judge",
-          "visible_text": "사실·기준\n→ 충족 여부",
+          "visible_text": "확인한 사실을 기준과 비교해\n조건을 충족했는지 판단합니다.",
           "inputs": [
             "choose1"
           ],
@@ -1236,7 +1250,7 @@
       "instances": [
         {
           "instance": "forecast",
-          "visible_text": "자료·가정\n→ 전망·불확실성",
+          "visible_text": "자료와 가정을 바탕으로\n앞으로의 결과와 불확실성을 살핍니다.",
           "inputs": [
             "choose1"
           ],
@@ -1256,7 +1270,7 @@
       "instances": [
         {
           "instance": "optimize",
-          "visible_text": "후보·제약\n→ 가장 나은 안",
+          "visible_text": "지켜야 할 조건 안에서\n가장 나은 안을 고릅니다.",
           "inputs": [
             "choose1"
           ],
@@ -1276,7 +1290,7 @@
       "instances": [
         {
           "instance": "design",
-          "visible_text": "목적·요건·표현 기준 → 구성·제작 설계",
+          "visible_text": "누가 어떤 목적으로 쓸지에 맞춰\n결과의 구성과 만드는 방법을 정합니다.",
           "inputs": [
             "choose2"
           ],
@@ -1296,7 +1310,7 @@
       "instances": [
         {
           "instance": "reframe",
-          "visible_text": "기존 내용 → 목적에 맞는 내용",
+          "visible_text": "기존 내용의 순서와 표현을 바꿔\n이번 목적에 맞는 내용으로 만듭니다.",
           "inputs": [
             "choose2"
           ],
@@ -1316,7 +1330,7 @@
       "instances": [
         {
           "instance": "make",
-          "visible_text": "설계·재사용 자료 → 결과물·수정본",
+          "visible_text": "설계와 자료를 사용해 결과를 만듭니다.\n필요한 부분을 고치고 요청한 내용이 담겼는지 확인합니다.",
           "inputs": [
             "choose2"
           ],
@@ -1336,7 +1350,7 @@
       "instances": [
         {
           "instance": "negotiate",
-          "visible_text": "서로 다른 요구 → 합의·남은 쟁점",
+          "visible_text": "서로 다른 요구와 조건을 맞춥니다.\n합의한 내용과 아직 합의하지 못한 내용을 나눠 남깁니다.",
           "inputs": [
             "choose3"
           ],
@@ -1356,7 +1370,7 @@
       "instances": [
         {
           "instance": "write",
-          "visible_text": "확인한 내용 → 반영 기록·이력",
+          "visible_text": "확인한 내용을 시스템에 넣거나 고칩니다.\n제대로 반영됐는지 확인하고 바뀐 이력을 남깁니다.",
           "inputs": [
             "choose4"
           ],
@@ -1376,7 +1390,7 @@
       "instances": [
         {
           "instance": "transaction",
-          "visible_text": "승인된 요청 → 접수·처리 상태",
+          "visible_text": "허용된 신청이나 거래를 진행합니다.\n접수와 처리 상태를 확인하고, 불명확하면 재실행 전에 조회합니다.",
           "inputs": [
             "choose4"
           ],
@@ -1396,7 +1410,7 @@
       "instances": [
         {
           "instance": "operate",
-          "visible_text": "유지 조건·상태 → 설정·작동 조정",
+          "visible_text": "현재 상태를 확인하고 설정이나 작동을 바꿉니다.\n원하는 상태가 됐는지 살피고 문제가 생기면 조정합니다.",
           "inputs": [
             "choose4"
           ],
@@ -1416,7 +1430,7 @@
       "instances": [
         {
           "instance": "publish",
-          "visible_text": "확인된 판본 → 공개·제공 상태",
+          "visible_text": "확인된 결과를 정한 대상과 범위에 공개합니다.\n맞는 버전이 전달됐는지 확인하고 잘못됐으면 바로잡습니다.",
           "inputs": [
             "choose4"
           ],
@@ -1436,7 +1450,7 @@
       "instances": [
         {
           "instance": "observe",
-          "visible_text": "대상·방법 → 조건이 붙은 관측값",
+          "visible_text": "대상을 살펴보거나 값을 잽니다.\n언제 어떤 조건에서 얻은 기록인지 함께 남깁니다.",
           "inputs": [
             "choose5"
           ],
@@ -1456,7 +1470,7 @@
       "instances": [
         {
           "instance": "experiment",
-          "visible_text": "비교 조건 → 차이·영향·한계",
+          "visible_text": "조건을 바꿔 결과가 얼마나 달라지는지 비교합니다.\n다른 영향이나 시험의 한계도 함께 기록합니다.",
           "inputs": [
             "choose5"
           ],
@@ -1476,7 +1490,7 @@
       "instances": [
         {
           "instance": "simulate",
-          "visible_text": "가정·모형 → 예상 진행·반응",
+          "visible_text": "가정한 상황을 계산이나 역할 연기로 미리 시험합니다.\n예상되는 진행과 반응, 실제와 다른 조건을 살핍니다.",
           "inputs": [
             "choose5"
           ],
@@ -1496,7 +1510,7 @@
       "instances": [
         {
           "instance": "verify",
-          "visible_text": "각 결과를 원문·완료 조건·다음 입력 요건과 대조\n문제없음 / 문제 있음 / 아직 확인 불가\n수정·변경이 생기면 영향받은 결과도 재검증",
+          "visible_text": "결과를 근거와 완료 기준에 맞춰 검사합니다.\n다음 작업에 필요한 내용과 형식도 확인합니다.\n문제없음, 문제 있음, 확인 불가를 나누고 바뀐 부분은 다시 검사합니다.",
           "inputs": [
             "counter",
             "wait",
@@ -1518,7 +1532,7 @@
       "instances": [
         {
           "instance": "counter",
-          "visible_text": "중요한 결론이면 반대 증거·다른 방법으로 대조\n판단을 유지·수정·유보할 근거를 제시",
+          "visible_text": "중요한 결론은 반대 증거나 다른 방법으로 다시 살핍니다.\n결론을 유지할지, 고칠지, 더 확인할지 정합니다.",
           "inputs": [],
           "outputs": [
             "verify"
@@ -1536,7 +1550,7 @@
       "instances": [
         {
           "instance": "wait",
-          "visible_text": "답변·승인·외부 처리·확인 시점 관리\n기한이 오면 조회·대체·인계를 연결\n응답이 오면 최신 조건으로 재개",
+          "visible_text": "누구의 답을 언제까지 기다리는지 기록합니다.\n기한이 되면 다시 확인하고, 답이 오면 현재 조건에 맞춰 이어 갑니다.",
           "inputs": [
             "vdecision"
           ],
@@ -1549,7 +1563,7 @@
         },
         {
           "instance": "wait2",
-          "visible_text": "확인·수정 요청과 남은 약속을 유지\n기한·응답에 맞춰 재확인 또는 보완 연결",
+          "visible_text": "아직 받지 못한 확인과 남은 약속을 기록합니다.\n기한이 되거나 답이 오면 다시 확인하거나 보완합니다.",
           "inputs": [
             "receipt"
           ],
@@ -1569,7 +1583,7 @@
       "instances": [
         {
           "instance": "quality",
-          "visible_text": "목적·분야 기준으로 정확성·기능·이해·사용성 평가\n완료 기준에 못 미친 부분은 보완 작업으로 연결",
+          "visible_text": "결과가 정확하고 충분하며 이해하고 쓰기 쉬운지 봅니다.\n사용 목적에 못 미친 부분은 고칠 작업으로 돌립니다.",
           "inputs": [
             "more"
           ],
@@ -1590,7 +1604,7 @@
       "instances": [
         {
           "instance": "process_eval",
-          "visible_text": "각 단계와 종료 시 방법·절차·권한 준수 평가\n당시 조건에서 적절한 판단이었는지 확인",
+          "visible_text": "당시 상황에서 방법과 순서가 적절했는지 살핍니다.\n필요한 절차를 거쳤고 맡은 권한을 지켰는지도 확인합니다.",
           "inputs": [
             "quality",
             "record_read"
@@ -1611,7 +1625,7 @@
       "instances": [
         {
           "instance": "pack",
-          "visible_text": "확인한 결과·판본·원본·사용 설명을 갖춤\n미완료·후속 책임·담당과 검사 결과도 연결",
+          "visible_text": "결과와 원본, 사용 설명, 검사 내용을 함께 준비합니다.\n끝내지 못한 일과 이어서 맡을 사람도 적습니다.",
           "inputs": [
             "qualityok"
           ],
@@ -1631,7 +1645,7 @@
       "instances": [
         {
           "instance": "delivery",
-          "visible_text": "정해진 상대에게 전달하고 도착·사용 조건 확인\n수정 요청·확인 대기·인수 완료를 구별",
+          "visible_text": "약속한 상대에게 결과를 보내고 받아 쓸 수 있는지 확인합니다.\n받았는지 기다리는 상태와 수정 요청을 구별합니다.",
           "inputs": [
             "pack",
             "wait2"
@@ -1652,7 +1666,7 @@
       "instances": [
         {
           "instance": "cause",
-          "visible_text": "재사용할 성과·반복 오류·큰 문제가 있으면\n지식·방법·도구·조건에서 원인과 개선점을 찾음",
+          "visible_text": "다시 쓸 만한 성과나 큰 문제, 반복된 오류가 있으면\n무엇 때문에 그런 결과가 났는지 찾아 유지할 점과 고칠 점을 정합니다.",
           "inputs": [
             "learnneed"
           ],
@@ -1672,7 +1686,7 @@
       "instances": [
         {
           "instance": "improve",
-          "visible_text": "개선점이나 새로운 업무가 있으면\n지식·방법·도구의 개선안을 만들고 시험에 연결",
+          "visible_text": "개선이 필요하면 지식이나 방법, 도구를 고칩니다.\n바꾼 것이 효과가 있는지 시험한 뒤 적용합니다.",
           "inputs": [
             "passed",
             "improveneed"
@@ -1693,7 +1707,7 @@
       "instances": [
         {
           "instance": "testenv",
-          "visible_text": "실제 업무·원본과 분리해 조건 재현\n미시험·실패 판본은 실제 적용 차단",
+          "visible_text": "실제 업무나 원본에 영향을 주지 않는 곳에서 시험합니다.\n시험하지 않았거나 실패한 버전은 실제 업무에 쓰지 못하게 합니다.",
           "inputs": [],
           "outputs": [
             "capability"
@@ -1704,7 +1718,7 @@
         },
         {
           "instance": "testenv0",
-          "visible_text": "처음 투입·범위 밖 업무·능력 변경이면\n실제 업무와 분리한 시험을 준비",
+          "visible_text": "처음 맡기는 일이나 아직 검증하지 않은 일이라면\n실제 업무에 영향을 주지 않는 시험 공간을 준비합니다.",
           "inputs": [
             "qualified"
           ],
@@ -1724,7 +1738,7 @@
       "instances": [
         {
           "instance": "capability",
-          "visible_text": "처음 투입·범위 밖 업무·능력 변경 때 시험\n개선 효과와 기존 능력 유지까지 확인\n통과한 범위·판본만 실제 업무에 적용",
+          "visible_text": "처음 맡기거나 검증된 범위를 넘으면 능력을 시험합니다.\n개선 뒤에는 더 나아졌는지와 기존 능력도 유지되는지 봅니다.\n통과한 범위와 버전만 실제 업무에 씁니다.",
           "inputs": [
             "improve",
             "testenv"
@@ -1738,7 +1752,7 @@
         },
         {
           "instance": "capability0",
-          "visible_text": "이번 일을 끝까지 처리할 수 있는지 시험\n예외·중단·재개와 기존 능력도 확인",
+          "visible_text": "이번 일을 처음부터 끝까지 처리할 수 있는지 시험합니다.\n예외와 중단 뒤 재개, 원래 잘하던 일도 확인합니다.",
           "inputs": [
             "testenv0"
           ],
@@ -1774,6 +1788,7 @@
     "direct_execution": [
       "qualified",
       "plan",
+      "unused",
       "progress",
       "control",
       "guard",
@@ -1903,38 +1918,26 @@
   },
   "geometry_issues": [],
   "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
-  "svg_sha256": "1d4b4fcc5b90718d2dcce2bdb3032af3dfe31b15fa3bd1f66020747e720c0830",
+  "svg_sha256": "9b8a9c07a2fba035f84acdc8844d52d4ef96adfbfa4931b60b0fbecf53e99d72",
   "rendered_dimensions": [
     1800,
-    12120
+    16364
   ],
   "display_width": 1100,
   "limitation": "명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.",
-  "png_sha256": "bec4ef3a7d246eeff4ee3f71877981649f789441ed434b6f7767c32e7650a46c",
-  "visual_review": {
-    "display_width": 1100,
-    "inspected_slices": [
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8
-    ],
-    "reviewed": [
-      "canonical material titles",
-      "legibility and line wrapping",
-      "illustration cropping",
-      "rule precedence connection",
-      "selected operation outputs",
-      "verification-to-next-input return",
-      "approval and waiting",
-      "initial capability failure",
-      "quality and delivery correction",
-      "conditional learning and tested improvement"
-    ]
-  }
+  "visually_inspected_slices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "png_sha256": "9fda5634e6121e0f28a217eb1897b35cb3a307c14a9b5524929148987e1484e8",
+  "published_image": "docs/images/expert-definition/solo-material-relations.png"
 }

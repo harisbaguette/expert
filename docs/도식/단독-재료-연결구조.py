@@ -7,22 +7,26 @@ is thus an executable branch of the graph, not an unconnected material catalogue
 """
 from pathlib import Path
 from collections import Counter
-import base64, hashlib, html, json, math, re
+import ast, bisect, hashlib, html, json, math, re
 
 ROOT=Path(__file__).resolve().parents[2]
 PREFIX=(ROOT/'전문가 에이전트 정의.md').read_text().split('## 사용 구조',1)[0]
-CAT={}
+formula_tree=ast.parse((ROOT/'docs/전개-수식/전개-수식-gen.py').read_text())
+TERM_SYSTEMS=next(ast.literal_eval(n.value) for n in formula_tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='TERM_SYSTEMS' for t in n.targets))
+SYSTEM_TERM={s:term for term,systems in TERM_SYSTEMS.items() for s in systems}
+CAT={};current_system=''
 for line in PREFIX.split('## 계통별 재료',1)[1].splitlines():
+    if line.startswith('### '):current_system=line[4:].replace('✅','').strip()
     if line.startswith('| **') and '✅' in line:
         c=[s.strip() for s in line.strip('|').split('|')]
         if len(c)==6:
             n=re.search(r'\*\*(.*?)\*\*',c[0])[1]
-            CAT[n]=dict(name=n,definition=c[2],usage=c[4].strip('*'),condition=c[5])
+            CAT[n]=dict(name=n,definition=c[2],usage=c[4].strip('*'),condition=c[5],system=current_system,term=SYSTEM_TERM[current_system])
 assert len(CAT)==79
 W=1800
 C=dict(ink='#192C36',muted='#526773',blue='#228DE1',red='#D95750',yellow='#E3A512',
        pale='#E8F5FE',border='#CADFE9',green='#E7F5E9',white='#FFFFFF')
-N={};E=[];G=[];A=[];ART=[]
+N={};E=[];G=[];A=[]
 esc=lambda s:html.escape(str(s),quote=True)
 def measure(s,z):return sum(z*(.97 if ord(c)>255 else .28 if c==' ' else .53) for c in s)
 def wrap(s,w,z):
@@ -94,7 +98,6 @@ edge('intent','goal')
 mat('measure0','성과 추적',1270,865,410,120,body='목표에서 확인 항목과 시점을 정함\n완료 뒤에도 실제 효과를 확인')
 edge('goal','measure0','성과를 볼 기준',sa='r',sb='l',at=(1180,925))
 mat('unused','나눠 맡기기',1270,160,410,110,body='이 상황에서는 쓰지 않음\n한 전문가가 전 과정을 담당',kind='unused')
-ART.append((0,1250,300,400,267))
 
 # Evidence is refined before being used; references are distinct inputs.
 group('evidence',90,1070,780,1515,'판단에 쓸 근거를 갖춘다')
@@ -158,7 +161,6 @@ edge('experience','context','',qi=100,via=[(655,2330),(845,2330),(845,2550)])
 edge('priority','context','지켜야 할 조건',sa='b',sb='r',via=[(1320,2747.5)],at=(1250,2695))
 mat('model','AI 모델',640,2895,520,110,body='현재 작업 정보를 읽어 이해·판단·생성\n정해진 계산·조회는 모델 호출 없이 실행 가능')
 edge('context','model','지금 판단할 정보',at=(900,2858))
-ART.append((2,1320,2640,340,226))
 mat('strategy','대안·전략 판단',640,3075,520,120,body='목표·근거·비용·위험으로 방법을 비교\n추가 조사·계속·보류·중단 중 적절한 방향을 정함')
 edge('model','strategy','이해한 상황과 가능한 방법',at=(900,3043))
 mat('risk','빠진 위험 확인',120,3075,390,120,body='계획·실행·전달 전에\n놓친 조건과 피해를 찾아 대조')
@@ -309,7 +311,6 @@ mat('memory2','장기 기억',650,D+1740,500,140,body='사실·약속·결정·�
 edge('passed','memory2','예 · 검증된 개선 반영',sa='b',sb='r',via=[(1440,D+1810)],at=(1410,D+1700))
 node('finish','이번 건 처리 종료',710,D+1955,380,85,body='남은 약속·후속 확인은 계속 관리',kind='terminal')
 edge('memory2','finish')
-ART.append((5,140, D+1680,350,232))
 
 # Explicit absence of a need bypasses the optional learning branch.
 edge('outcome','memory2','분석·개선이 필요 없으면 기록만 남김',sa='l',sb='l',via=[(585,D+915),(585,D+1430),(95,D+1430),(95,D+1635),(560,D+1635),(560,D+1810)],at=(585,D+1680))
@@ -344,7 +345,6 @@ def insert_space(y,dy):
             x,yy=e['at'];e['at']=(x,yy+dy if yy>=y else yy)
     for a in A:
         if a['y']>=y:a['y']+=dy
-    ART[:]=[(i,x,yy+dy if yy>=y else yy,w,h) for i,x,yy,w,h in ART]
     H+=dy
 
 # The question, not an ordinary process box, controls whether a clarification is needed.
@@ -375,7 +375,6 @@ edge('capability0','qualified_test')
 edge('qualified_test','plan','예 · 가능한 범위만 계획',sa='r',sb='l',via=[(580,sy+475),(580,p('plan','l')[1])],at=(595,sy+555))
 node('unqualified','해당 업무 투입 보류',120,sy+630,390,82,body='미통과 판본은 실제 투입 차단',kind='stop')
 edge('qualified_test','unqualified','아니오',kind='blocked',at=(315,sy+593))
-ART.append((4,1290,sy+200,360,240))
 
 # The last type also has an explicit destination.
 last=N['type5'];ctx=N['context2']
@@ -482,7 +481,72 @@ A[:]=[a for a in A if a['text']!='위 기준을 함께 적용 ↓']
 rank=next(g for g in G if g['id']=='rank')
 edge('rank','priority','함께 대조',at=(1325,(rank['y']+rank['h']+N['priority']['y'])/2))
 
-# Direct illustrations are cropped inside their own cell; no neighbouring fragment is shown.
+# Keep the unused material at the point where work is assigned. Passing this
+# explicitly inactive card means choosing direct execution, not invoking it.
+assignment_y=N['progress']['y']
+insert_space(assignment_y,230)
+N['unused'].update(x=640,y=assignment_y+10,w=520,h=165)
+remove('plan','progress')
+edge('plan','unused','한 전문가가 모두 맡음')
+edge('unused','progress','다른 AI에게 나누지 않고 직접 처리')
+
+COPY=json.loads((ROOT/'docs/도식/단독-재료-쉬운설명.json').read_text())
+assert set(COPY['materials'])==set(CAT)
+SYSTEM_STYLE={
+ '환경':dict(accent='#1766A6',fill='#EDF5FF'),
+ '지식':dict(accent='#157267',fill='#EAF7F3'),
+ '규칙':dict(accent='#7151A8',fill='#F3EEFC'),
+ '실무':dict(accent='#995114',fill='#FFF3E5'),
+ '검증':dict(accent='#A23C6B',fill='#FCEEF4'),
+ '학습':dict(accent='#526E20',fill='#F1F6E5'),
+}
+def text_layout(n):
+    z=25 if n['w']>=280 else 22
+    tw=n['w']-32
+    if n['kind']=='decision':tw=n['w']*.58;z=23
+    if n['kind']=='decisionwide':tw=n['w']*.75;z=23
+    titles=wrap(n['title'],tw,z)
+    bs=21 if n['material'] else 20
+    body=wrap(n['body'],n['w']-32,bs) if n['body'] else []
+    return z,bs,titles,body
+for k,n in N.items():
+    if n['material']:
+        n['term']=CAT[n['material']]['term'];n['system']=CAT[n['material']]['system']
+        n['body']=COPY['instances'].get(k,COPY['materials'][n['material']])
+        z,bs,titles,body=text_layout(n)
+        n['needed_height']=32+len(titles)*(z+5)+10+len(body)*27+22
+    else:n['needed_height']=n['h']
+
+# Stretch only occupied row intervals that need room for the easier explanation
+# and the category label. The same monotonic transform moves all line routes.
+knots=sorted({0,H,*[n['y'] for n in N.values()],*[n['y']+n['h'] for n in N.values()]})
+ys=[0.0];scales=[]
+for a,b in zip(knots,knots[1:]):
+    active=[n['needed_height']/n['h'] for n in N.values() if n['y']<b and n['y']+n['h']>a]
+    scale=max([1,*active]);scales.append(scale);ys.append(ys[-1]+(b-a)*scale)
+def yf(y):
+    i=min(max(0,bisect.bisect_right(knots,y)-1),len(scales)-1)
+    return ys[i]+(y-knots[i])*scales[i]
+for n in N.values():n['y'],n['h']=yf(n['y']),yf(n['y']+n['h'])-yf(n['y'])
+for g in G:g['y'],g['h']=yf(g['y']),yf(g['y']+g['h'])-yf(g['y'])
+for e in E:
+    e['points']=[(x,yf(y)) for x,y in e['points']]
+    if e['at']:e['at']=(e['at'][0],yf(e['at'][1]))
+for a in A:a['y']=yf(a['y'])
+H=math.ceil(yf(H))
+for k in ['goal','pack','state_result','progress']:
+    insert_space(N[k]['y'],45)
+label_edits={
+ ('watchtype','change'):'조건\n변화',('goal','measure0'):'확인 기준',
+ ('risk','strategy'):'위험',('counter','verify'):'근거',
+ ('vdecision','wait'):'확인\n불가',('capability','passed'):'결과',
+ ('unused','progress'):'한 전문가가 직접 처리',
+}
+for e in E:
+    if (e['source'],e['target'])==('absent','trust'):e['label']='검색 결과'
+    if (e['source'],e['target'])==('now','trust'):e['label']='조회 결과'
+    if (e['source'],e['target']) in label_edits:e['label']=label_edits[e['source'],e['target']]
+
 def rounded(points,r=14):
     # Polyline corners rounded without freeform splines wandering through labels.
     ps=[]
@@ -505,57 +569,111 @@ def boundary(n,point):
 for e in E:
     if e['source'] in N:e['points'][0]=boundary(N[e['source']],e['points'][0])
     if e['target'] in N:e['points'][-1]=boundary(N[e['target']],e['points'][-1])
+    end=e['points'][-1];before=next(q for q in reversed(e['points'][:-1]) if math.dist(q,end)>1)
+    length=math.dist(before,end);u=((end[0]-before[0])/length,(end[1]-before[1])/length)
+    tip=(end[0]-u[0]*5,end[1]-u[1]*5);base=(tip[0]-u[0]*18,tip[1]-u[1]*18)
+    e['arrow']=[tip,(base[0]-u[1]*8,base[1]+u[0]*8),(base[0]+u[1]*8,base[1]-u[0]*8)]
+
+def rect_overlap(a,b,pad=0):
+    return min(a['x']+a['w'],b['x']+b['w'])-max(a['x'],b['x'])>pad and min(a['y']+a['h'],b['y']+b['h'])-max(a['y'],b['y'])>pad
+def line_rect(a,b,r,pad=1):
+    xmin,xmax=r['x']+pad,r['x']+r['w']-pad;ymin,ymax=r['y']+pad,r['y']+r['h']-pad
+    if min(a[0],b[0])>xmax or max(a[0],b[0])<xmin or min(a[1],b[1])>ymax or max(a[1],b[1])<ymin:return False
+    t0,t1=0.,1.;dx=b[0]-a[0];dy=b[1]-a[1]
+    for p0,q in [(-dx,a[0]-xmin),(dx,xmax-a[0]),(-dy,a[1]-ymin),(dy,ymax-a[1])]:
+        if abs(p0)<1e-8:
+            if q<0:return False
+        elif p0<0:t0=max(t0,q/p0)
+        else:t1=min(t1,q/p0)
+        if t0>t1:return False
+    return True
+def label_box(text,x,y):
+    lines=text.split('\n');w=max(measure(s,20) for s in lines)+20;h=26*len(lines)+10
+    return dict(x=x-w/2,y=y-h/2,w=w,h=h)
+occupied=[]
+for a in A:
+    w=measure(a['text'],a['size']);x=a['x']-(w/2 if a['anchor']=='middle' else 0)
+    occupied.append(dict(x=x,y=a['y']-a['size'],w=w,h=a['size']+5))
+arrow_bounds=[]
+for e in E:
+    xs=[p[0] for p in e['arrow']];yy=[p[1] for p in e['arrow']]
+    arrow_bounds.append(dict(x=min(xs)-2,y=min(yy)-2,w=max(xs)-min(xs)+4,h=max(yy)-min(yy)+4))
+unplaced=[]
+for i,e in enumerate(E):
+    if not e['label']:continue
+    preferred=e['at'] or ((e['points'][0][0]+e['points'][-1][0])/2,(e['points'][0][1]+e['points'][-1][1])/2)
+    candidates=[]
+    for a,b in zip(e['points'],e['points'][1:]):
+        length=math.dist(a,b)
+        if length<10:continue
+        fractions={.5,*[j/20 for j in range(1,20)]}
+        initial=label_box(e['label'],0,0)
+        half=(initial['w'] if abs(b[0]-a[0])>=abs(b[1]-a[1]) else initial['h'])/2
+        fractions.update(f for f in ((half+6)/length,1-(half+26)/length) if .02<f<.98)
+        projection=((preferred[0]-a[0])*(b[0]-a[0])+(preferred[1]-a[1])*(b[1]-a[1]))/length**2
+        fractions.add(max(.03,min(.97,projection)))
+        for f in fractions:
+            x=a[0]+f*(b[0]-a[0]);y=a[1]+f*(b[1]-a[1]);r=label_box(e['label'],x,y)
+            if r['x']<6 or r['x']+r['w']>W-6 or r['y']<6:continue
+            if any(rect_overlap(r,n,0) for n in N.values()):continue
+            if any(rect_overlap(r,o,-2) for o in occupied+arrow_bounds):continue
+            if any(j!=i and any(line_rect(c,z,r) for c,z in zip(other['points'],other['points'][1:])) for j,other in enumerate(E)):continue
+            candidates.append((math.dist((x,y),preferred)+(60 if abs(b[1]-a[1])>abs(b[0]-a[0]) else 0),x,y,r))
+    if candidates:
+        _,x,y,r=min(candidates,key=lambda c:c[0]);e['at']=(x,y);e['label_rect']=r;occupied.append(r)
+    else:
+        e['label_rect']=label_box(e['label'],*preferred);e['at']=preferred;unplaced.append((i,e['source'],e['target'],e['label']))
+if unplaced:print('LABELS_NEED_PLACEMENT',json.dumps(unplaced,ensure_ascii=False))
 names=Counter(n['material'] for n in N.values() if n['material'])
 assert set(names)==set(CAT),(set(CAT)-set(names),set(names)-set(CAT))
-model=dict(width=W,height=H,nodes=N,groups=G,edges=E,annotations=A,illustrations=ART,catalog=CAT,
+model=dict(width=W,height=H,nodes=N,groups=G,edges=E,annotations=A,illustrations=[],catalog=CAT,system_styles=SYSTEM_STYLE,system_mapping=TERM_SYSTEMS,
            source_prefix_sha256=hashlib.sha256(PREFIX.encode()).hexdigest())
-atlas='data:image/png;base64,'+base64.b64encode((ROOT/'docs/images/expert-definition/assets/solo-expert-illustrations.png').read_bytes()).decode()
 o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">',
-   '<title>한 건을 한 전문가가 처리할 때의 재료 연결 구조</title>','<rect width="100%" height="100%" fill="white"/>','<defs>',f'<image id="atlas" width="1254" height="1254" href="{atlas}"/>']
-for kind,col in [('flow',C['blue']),('blocked',C['red']),('return',C['yellow'])]:
-    o.append(f'<marker id="{kind}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="{col}"/></marker>')
-o+=['</defs>',f'<g font-family="Apple SD Gothic Neo,Noto Sans CJK KR,sans-serif" fill="{C["ink"]}">']
+   '<title>한 건을 한 전문가가 처리할 때의 재료 연결 구조</title>','<rect width="100%" height="100%" fill="white"/>',f'<g font-family="Apple SD Gothic Neo,Noto Sans CJK KR,sans-serif" fill="{C["ink"]}">']
 for g in G:
     x,y,w,h=(g[k] for k in ('x','y','w','h'))
     o.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="18" fill="none" stroke="{C["border"]}" stroke-width="1.7" stroke-dasharray="3 9"/>')
     if g['title']:o.append(f'<text class="annotation" x="{x+22}" y="{y+37}" font-size="27" font-weight="800">{esc(g["title"])}</text>')
 for i,e in enumerate(E):
     col=C[{'flow':'blue','blocked':'red','return':'yellow'}[e['kind']]]
-    o.append(f'<path class="edge" data-id="e{i}" d="{rounded(e["points"])}" fill="none" stroke="{col}" stroke-width="3" stroke-linecap="round" marker-end="url(#{e["kind"]})"/>')
+    route=e['points'][:-1]+[e['arrow'][0]]
+    o.append(f'<path class="edge" data-id="e{i}" d="{rounded(route)}" fill="none" stroke="{col}" stroke-width="3.2" stroke-linecap="round"/>')
 for k,n in N.items():
     x,y,w,h=(n[t] for t in ('x','y','w','h'));kind=n['kind']
-    o.append(f'<g class="node" data-id="{k}" data-material="{esc(n["material"] or "")}">')
-    fill=C['pale'] if n['material'] else '#FFFFFF'
+    o.append(f'<g class="node" data-id="{k}" data-material="{esc(n["material"] or "")}" data-system="{n.get("term","")}">')
+    palette=SYSTEM_STYLE[n['term']] if n['material'] else None
+    fill=palette['fill'] if palette else '#FFFFFF'
     if kind in ('decision','decisionwide'):
         fill='#FFF5C6';shape=f'<path class="shape" d="M{x+w/2} {y}L{x+w} {y+h/2}L{x+w/2} {y+h}L{x} {y+h/2}Z"'
     else:
         if kind in ('terminal','stop'):fill=C['green'] if kind=='terminal' else '#FFF0EC'
-        if kind in ('source','unused'):fill='#F6FAFC' if kind=='source' else '#F3F3F1'
+        if kind=='unused':fill='#F3F5F7'
         shape=f'<rect class="shape" x="{x}" y="{y}" width="{w}" height="{h}" rx="{h/2 if kind in ("terminal","stop") else 5}"'
     o.append(shape+f' fill="{fill}" stroke="{C["ink"]}" stroke-width="2.1"/>')
-    if kind=='source':o.append(f'<path d="M{x+9} {y+9}H{x+9+min(52,w/4)}" stroke="{C["blue"]}" stroke-width="3.3" stroke-linecap="round"/>')
-    z=25 if w>=280 else 22
-    titlewidth=w-26
-    if kind=='decision':titlewidth=w*.58;z=23
-    if kind=='decisionwide':titlewidth=w*.75;z=23
-    titles=wrap(n['title'],titlewidth,z);body=wrap(n['body'],w-28,20) if n['body'] else []
-    if kind=='decisionwide' and n['body']:body=wrap(n['body'],w*.67,18)
-    total=len(titles)*(z+5)+len(body)*25+(8 if body else 0)
-    yy=y+(h-total)/2+z
+    z,bs,titles,body=text_layout(n)
+    if palette:
+        o.append(f'<path d="M{x+2} {y+8}V{y+h-8}" stroke="{palette["accent"]}" stroke-width="4"/>')
+        badge=n['term']+(' · 이 상황에서는 미사용' if kind=='unused' else '')
+        o.append(f'<text class="system-label" x="{x+16}" y="{y+25}" font-size="18" font-weight="800" fill="{palette["accent"]}">{esc(badge)}</text>')
+        yy=y+35+z
+    else:
+        total=len(titles)*(z+5)+len(body)*25+(8 if body else 0);yy=y+(h-total)/2+z
     for s in titles:o.append(f'<text class="node-title" x="{x+w/2}" y="{yy}" text-anchor="middle" font-size="{z}" font-weight="800">{esc(s)}</text>');yy+=z+5
     yy+=8 if body else 0
-    for s in body:o.append(f'<text x="{x+w/2}" y="{yy}" text-anchor="middle" font-size="{18 if kind=="decisionwide" else 20}" fill="{C["muted"]}">{esc(s)}</text>');yy+=25
+    for s in body:o.append(f'<text x="{x+w/2}" y="{yy}" text-anchor="middle" font-size="{bs}" fill="{C["muted"]}">{esc(s)}</text>');yy+=27 if palette else 25
     o.append('</g>')
 for i,e in enumerate(E):
     if not e['label']:continue
     pts=e['points'];x,y=e['at'] or ((pts[0][0]+pts[-1][0])/2,(pts[0][1]+pts[-1][1])/2)
-    lines=e['label'].split('\n');tw=max(measure(s,20) for s in lines)+16;th=25*len(lines)+8
-    o.append(f'<g class="edge-label" data-edge="e{i}"><rect x="{x-tw/2}" y="{y-th/2}" width="{tw}" height="{th}" rx="4" fill="white"/>')
-    for j,s in enumerate(lines):o.append(f'<text x="{x}" y="{y-th/2+23+j*25}" text-anchor="middle" font-size="20" font-weight="600">{esc(s)}</text>')
+    lines=e['label'].split('\n');tw=e['label_rect']['w'];th=e['label_rect']['h']
+    col=C[{'flow':'blue','blocked':'red','return':'yellow'}[e['kind']]]
+    o.append(f'<g class="edge-label" data-edge="e{i}"><rect x="{x-tw/2}" y="{y-th/2}" width="{tw}" height="{th}" rx="4" fill="white" stroke="{col}" stroke-width="1"/>')
+    for j,s in enumerate(lines):o.append(f'<text x="{x}" y="{y-th/2+24+j*26}" text-anchor="middle" font-size="20" font-weight="600">{esc(s)}</text>')
     o.append('</g>')
 for a in A:o.append(f'<text class="annotation" x="{a["x"]}" y="{a["y"]}" font-size="{a["size"]}" font-weight="{a["weight"]}" fill="{a["color"]}" text-anchor="{a["anchor"]}">{esc(a["text"])}</text>')
-for idx,x,y,w,h in ART:
-    o.append(f'<svg x="{x}" y="{y}" width="{w}" height="{h}" preserveAspectRatio="xMidYMid slice" viewBox="{idx%2*627} {idx//2*418} 627 418" overflow="hidden"><use href="#atlas"/></svg>')
+for i,e in enumerate(E):
+    col=C[{'flow':'blue','blocked':'red','return':'yellow'}[e['kind']]]
+    o.append(f'<polygon class="arrowhead" data-edge="e{i}" points="'+ ' '.join(f'{x},{y}' for x,y in e['arrow'])+f'" fill="{col}"/>')
 o+=['</g>','<metadata>'+esc(json.dumps(model,ensure_ascii=False))+'</metadata>','</svg>']
 (ROOT/'docs/images/expert-definition/solo-material-relations.svg').write_text('\n'.join(o))
 (ROOT/'docs/도식/단독-재료-연결구조.json').write_text(json.dumps(model,ensure_ascii=False,indent=2)+'\n')
