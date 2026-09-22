@@ -1,3 +1,13 @@
 # graft's local graph cache — regenerable, not committed (run `graft build`).
 /graft/
-/.ruff_cache/
+
+# 도구가 만드는 캐시·찌꺼기 (어느 깊이든)
+__pycache__/
+*.pyc
+.ruff_cache/
+
+# 이미지 생성 중간 산출물
+/output/
+
+# Kilo 작업 복사본
+/.kilo/
