@@ -60,9 +60,12 @@ def run(folder):
       'initial_capability_gate':['strategy','qualified','testenv0','capability0','qualified_test','plan'],
       'initial_capability_failure':['qualified_test','unqualified'],
       'direct_execution':['qualified','plan','progress','record','control','guard','allowed','tools','type0'],
-      'live_request':['live_start','live','signal','case','context_initial','understand','intent'],
-      'performance_criteria':['goal','measure0','checks_start','search','absent','trust'],
-      'reference_lookup':['search','reference','absent','trust','version','memory','checks_join','context'],
+      'new_request':['start','signal','context_initial','model_initial','understand','intent','clear','case','goal'],
+      'live_request':['live_start','live','signal','context_initial','model_initial','understand','intent','clear','case','goal'],
+      'changed_request':['watch','watchtype','change','signal','context_initial','model_initial','understand','intent','clear','case','goal'],
+      'discovered_request':['watch','watchtype','early','signal','context_initial','model_initial','understand','intent','clear','case','goal'],
+      'performance_criteria':['goal','measure0','checks_start','search','absent','version','trust'],
+      'reference_lookup':['search','reference','absent','version','trust','evidence_usable','evidence_use','memory','checks_join','context'],
       'mandatory_rules':['checks_start','original','law','law_constitution','law_statute','law_decree','law_ministry','law_higher','law_conflict','law_settle','law_clear','law_confirmed','priority','rule_conflict','rule_candidate','rule_resolved','rule_confirmed','checks_join','context'],
       'higher_law_priority':['law_higher','law_higher_apply','law_conflict'],
       'special_legal_rule':['law_conflict','law_special','law_special_apply','law_settle'],
@@ -71,7 +74,7 @@ def run(folder):
       'rule_precedence':['rule_conflict','rule_compare','rule_order','rule_apply','rule_candidate'],
       'rule_exception':['rule_order','rule_exception','rule_candidate','rule_resolved'],
       'unresolved_rule_conflict':['rule_resolved','rule_wait','rule_reply','priority','rule_conflict'],
-      'risk_check':['model','risk','strategy'],
+      'risk_check':['model','goal_review','risk','strategy'],
       'isolated_execution':['progress','isolation','control'],
       'counter_evidence':['identity','counter','verify'],
       'process_records':['quality','record_read','process_eval','outcome'],
@@ -81,18 +84,49 @@ def run(folder):
       'observation':['type5','choose5','observe','out5','identity','verify'],
       'other_work':['type5','context2','context'],
       'rework':['vdecision','context2','context','model','strategy'],
-      'pending':['vdecision','wait','verify'],
-      'human_decision':['allowed','handoff','identity0','guard'],
+      'pending':['vdecision','wait','identity','verify'],
+      'human_decision':['allowed','handoff','identity0','approval_valid','guard'],
       'blocked':['allowed','hold'],
       'quality_repair':['quality','qualityok','repair','context2'],
-      'delivery':['more','quality','qualityok','pack','delivery','receipt','outcome'],
-      'receipt_wait':['receipt','wait2','delivery'],
+      'delivery':['more','pack','risk_delivery','quality','qualityok','delivery_guard','delivery_allowed','delivery','receipt','outcome'],
+      'receipt_wait':['receipt','wait2','receipt'],
       'receipt_correction':['receipt','delivery_repair','repair','context2'],
       'no_analysis_needed':['outcome','learnneed','memory_direct','finish'],
       'no_change_needed':['learnneed','cause','improveneed','memory_reuse','finish'],
-      'tested_improvement':['improveneed','improve','testenv','capability','passed','memory2','finish'],
-      'failed_improvement':['passed','improve','testenv','capability','passed'],
+      'tested_improvement':['improveneed','testenv','improve','capability','passed','improve_apply','memory2','finish'],
+      'failed_improvement':['passed','retry_improve','improve','capability','passed'],
     }
+    expanded_steps={
+        ('passed','improve'):['passed','retry_improve','improve'],
+        ('model','strategy'):['model','goal_review','risk','strategy'],
+        ('context_initial','understand'):['context_initial','model_initial','understand'],
+        ('version','memory'):['version','trust','evidence_usable','evidence_use','memory'],
+        ('memory','checks_join'):['memory','evidence_done','checks_join'],
+        ('strategy','qualified'):['strategy','strategy_choice','qualified'],
+        ('plan','progress'):['plan','state','progress'],
+        ('identity','verify'):['identity','identity_ok','counter_needed','verify'],
+        ('identity','counter'):['identity','identity_ok','counter_needed','counter'],
+        ('context2','context'):['context2','checks_start','search','absent','version','trust','evidence_usable','evidence_use','evidence_done','checks_join','context'],
+        ('quality','record_read'):['quality','qualityok','delivery_guard','delivery_allowed','delivery','receipt','record_read'],
+        ('receipt','outcome'):['receipt','record_read','process_eval','outcome'],
+    }
+    for name,old_route in list(routes.items()):
+        route=[old_route[0]]
+        for a,b in zip(old_route,old_route[1:]):route.extend(expanded_steps.get((a,b),[a,b])[1:])
+        routes[name]=route
+        assert all(has(a,b) for a,b in zip(route,route[1:])),name
+    routes.update(
+        goal_reconsideration=['model','goal_review','context_initial','model_initial','understand','intent','clear','case','goal'],
+        invalid_approval=['identity0','approval_valid','handoff'],
+        delivery_permission=['qualityok','delivery_guard','delivery_allowed','delivery_approval','delivery_guard'],
+        delivery_retry=['receipt','delivery_guard','delivery_allowed','delivery','receipt'],
+        delivery_blocked=['delivery_allowed','delivery_hold'],
+        delayed_effect=['outcome','effect_wait','outcome','learnneed'],
+        unusable_evidence=['version','trust','evidence_usable','evidence_repair','search'],
+        invalid_result=['identity','identity_ok','identity_reject','identity'],
+        strategy_more_information=['strategy','strategy_choice','strategy_more','checks_start'],
+        strategy_hold=['strategy','strategy_choice','strategy_stop'],
+        defer_failed_improvement=['passed','retry_improve','memory_unapplied','finish'])
     for name,route in routes.items():assert all(has(a,b) for a,b in zip(route,route[1:])),name
     assert incoming['unused'] and all(e['kind']=='reference' for e in incoming['unused'])
     assert not outgoing['unused']
@@ -101,7 +135,7 @@ def run(folder):
     references={k for k,n in ns.items() if n['kind']=='reference'}
     unused={k for k,n in ns.items() if n['kind']=='unused'}
     assert starts=={'start','watch','live_start'}
-    assert terminals=={'finish','hold','unqualified'}
+    assert terminals=={'finish','hold','unqualified','strategy_stop','delivery_hold'}
     for k,n in ns.items():
         if k in starts|references|unused:continue
         assert incoming[k],('missing input',k,n['title'])
@@ -152,20 +186,19 @@ def run(folder):
         ['signal','live'],['search','original'],
         ['ethics','principles'],['contract','platform'],['strategy','risk'],
         ['plan','state'],['progress','isolation','record'],['control','monitor'],
-        ['verify','counter','identity'],
-        ['quality','record_read'],['pack','process_eval'],['improve','testenv'],
+        ['improve','testenv'],
     ]
     center_rows=[
         ['watchtype','signal','live'],['clear','communicate0'],['qualified','testenv0'],
         ['allowed','hold','handoff'],['vdecision','wait'],['more','context2'],
         ['qualityok','repair'],['receipt','wait2','delivery_repair'],
-        ['learnneed','memory_direct'],['improveneed','memory_reuse'],['capability','passed'],
+        ['learnneed','memory_direct'],['improveneed','memory_reuse'],['passed','retry_improve'],
     ]
     for row in center_rows:aligned('row centers: '+','.join(row),[cy(k) for k in row])
     for column in [
         ['watch','watchtype','early','change','communicate0'],
         ['risk','testenv0','capability0','qualified_test','unqualified','isolation','rights','limit','hold','counter','context2','repair','delivery_repair','testenv'],
-        ['state','record','monitor','handoff','identity0','identity','wait','record_read','process_eval','wait2','memory_direct','memory_reuse','passed'],
+        ['state','record','monitor','handoff','identity0','identity','wait','record_read','process_eval','wait2','memory_direct','memory_reuse','retry_improve','memory_unapplied'],
     ]:aligned('column centers: '+column[0],[cx(k) for k in column])
     def edge_between(a,b):return next(e for e in es if e['source']==a and e['target']==b)
     evidence_options=['now','case_ref','reference','reuse']
@@ -180,19 +213,19 @@ def run(folder):
         assert outlet['source_port']=='r' and outlet['target_port']=='t'
         assert all(p[0]==120 for p in inlet['points'][1:-1])
         assert all(p[0]==840 for p in outlet['points'][1:3])
-        assert outlet['points'][-2][0]==cx('absent')
+        assert abs(outlet['points'][-2][0]-cx('absent'))<.03
         assert all(e['target']=='absent' for e in outgoing[k]),('optional cards became sequential',k)
         for role in ['system-label','node-title','node-body']:
             t=next(t for t in rendered[k]['texts'] if t['role']==role)
             aligned(k+' '+role+' left inset',[16,t['x']-ns[k]['x']])
     assert not ns['absent'].get('condition') and not edge_between('search','absent').get('label_node')
     assert {e['source'] for e in incoming['absent']}=={'search',*evidence_options}
-    assert {e['source'] for e in incoming['trust']}=={'absent'},'result interpretation can be skipped'
-    assert {e['target'] for e in outgoing['absent']}=={'trust'}
-    common_check=edge_between('absent','trust')
+    assert {e['source'] for e in incoming['trust']}=={'version'},'result interpretation can be skipped'
+    assert {e['target'] for e in outgoing['absent']}=={'version'}
+    common_check=edge_between('absent','version')
     assert len(common_check['points'])==2 and common_check['source_port']=='b' and common_check['target_port']=='t'
     aligned('common evidence checks centerline',[cx('absent'),cx('trust'),cx('version')])
-    aligned('common evidence checks gap',[32,ns['trust']['y']-ns['absent']['y']-ns['absent']['h']])
+    aligned('common evidence checks gap',[32,ns['version']['y']-ns['absent']['y']-ns['absent']['h']])
     assert ns['absent']['y']>=ns['reuse']['y']+ns['reuse']['h']+64
     context_sources=['knowledge','experience','memory']
     for coord in ['x','w','h']:
@@ -202,7 +235,7 @@ def run(folder):
     aligned('context input card gaps',[32,*[ns[b]['y']-ns[a]['y']-ns[a]['h'] for a,b in zip(context_sources,context_sources[1:])]])
     merge_y=[]
     for k in context_sources:
-        inlet=edge_between('version',k);outlet=edge_between(k,'checks_join')
+        inlet=edge_between('evidence_use',k);outlet=edge_between(k,'evidence_done')
         assert inlet['label_node']==k and ns[k]['condition']==inlet['label']
         assert any(t['role']=='node-condition' and t['text']==ns[k]['condition'] for t in rendered[k]['texts'])
         assert inlet['source_port']==inlet['target_port']=='l'
@@ -210,7 +243,7 @@ def run(folder):
         assert all(p[0]==120 for p in inlet['points'][1:-1])
         assert all(p[0]==840 for p in outlet['points'][1:3])
         merge_y.append(outlet['points'][-2][1])
-        assert all(e['target']=='checks_join' for e in outgoing[k]),('context inputs became sequential',k)
+        assert all(e['target']=='evidence_done' for e in outgoing[k]),('context inputs became sequential',k)
         for role in ['system-label','node-title','node-body']:
             t=next(t for t in rendered[k]['texts'] if t['role']==role)
             aligned(k+' '+role+' left inset',[16,t['x']-ns[k]['x']])
@@ -221,18 +254,23 @@ def run(folder):
     assert {e['target'] for e in outgoing['checks_start']}==set(fork['required_branches'])
     assert {e['target'] for e in outgoing['measure0']}=={'checks_start'}
     assert join['control_role']=='all_complete' and set(join['required_groups'])=={'evidence','rules'}
-    assert join['completion_sources']=={'evidence':context_sources,'rules':['rule_confirmed']}
-    assert {e['source'] for e in incoming['checks_join']}==set(context_sources)|{'rule_confirmed'}
+    assert join['completion_sources']=={'evidence':['evidence_done'],'rules':['rule_confirmed']}
+    assert {e['source'] for e in incoming['checks_join']}=={'evidence_done','rule_confirmed'}
     assert {e['target'] for e in outgoing['checks_join']}=={'context'}
     assert {e['source'] for e in incoming['context'] if e['kind']!='return'}=={'checks_join'},'preparation bypasses both-check completion'
-    assert all(has(k,'checks_join') and not has(k,'context') for k in [*context_sources,'rule_confirmed'])
+    assert all(has(k,'checks_join') and not has(k,'context') for k in ['evidence_done','rule_confirmed'])
     assert len(edge_between('measure0','checks_start')['points'])==len(edge_between('checks_join','context')['points'])==2
-    aligned('both-check completion rail',[*merge_y,edge_between('rule_confirmed','checks_join')['points'][1][1]])
+    aligned('both-check completion rail',[edge_between('evidence_done','checks_join')['points'][-2][1],edge_between('rule_confirmed','checks_join')['points'][1][1]])
     aligned('both-check centerline',[cx(k) for k in ['measure0','checks_start','checks_join','context']])
     assert ns['context_initial']['y']<ns['understand']['y']<ns['checks_start']['y']<ns['context']['y']
     assert ns['context_initial']['material']==ns['context']['material']==ns['context2']['material']=='현재 작업 정보'
-    assert ns['context_initial']['condition']=='처음 구성' and ns['context']['condition']=='확인 결과 반영'
-    assert {e['source'] for e in incoming['context_initial']}=={'case'}
+    assert ns['context_initial']['condition']=='요청·변경 반영' and ns['context']['condition']=='확인 결과 반영'
+    assert {e['source'] for e in incoming['context_initial']}=={'signal','goal_review'}
+    intake_order=['signal','context_initial','model_initial','understand','intent','clear','case','goal']
+    assert all(ns[a]['y']+ns[a]['h']<ns[b]['y'] for a,b in zip(intake_order,intake_order[1:]))
+    assert {e['source'] for e in incoming['case']}=={'clear'}
+    assert edge_between('clear','case')['label']=='아니오'
+    assert {e['target'] for e in outgoing['case']}=={'goal'}
     for k in ['law_higher','law_conflict','law_special','law_clear','rule_conflict','rule_order','rule_resolved']:
         assert ns[k]['kind']=='decision'
         assert {e['label'] for e in outgoing[k]}=={'예','아니오'}
@@ -241,6 +279,44 @@ def run(folder):
         assert {e['target'] for e in outgoing[reply]}=={recheck}
         assert edge_between(reply,recheck)['kind']=='return'
     assert not has('law','priority') and not has('priority','checks_join')
+    # Removing a required check must make its downstream action unreachable.
+    # This catches a newly added shortcut, even when the expected route remains.
+    def reachable_without(start,target,omitted):
+        seen={start};pending=[start]
+        while pending:
+            for e in outgoing[pending.pop()]:
+                k=e['target']
+                if e['kind']=='reference' or k in omitted or k in seen:continue
+                if k==target:return True
+                seen.add(k);pending.append(k)
+        return False
+    required_checks=[
+        ('signal','case','understand'),('signal','case','intent'),('signal','case','clear'),
+        ('signal','goal','case'),('communicate0','case','intent'),
+        ('model','qualified','goal_review'),('absent','evidence_usable','version'),
+        ('version','evidence_usable','trust'),('wait','verify','identity_ok'),
+        ('identity0','tools','approval_valid'),('more','delivery','pack'),
+        ('more','delivery','qualityok'),('pack','delivery','risk_delivery'),
+        ('pack','delivery','delivery_allowed'),('passed','memory2','improve_apply'),
+        ('improveneed','improve','testenv'),
+        ('model','qualified','risk'),('version','checks_join','evidence_usable'),
+        ('identity','verify','identity_ok'),('identity','verify','counter_needed'),
+        ('quality','outcome','receipt'),('receipt','outcome','record_read'),
+        ('context2','model','checks_join'),('strategy_more','model','checks_join'),
+    ]
+    for start,target,check in required_checks:
+        assert not reachable_without(start,target,{check}),('required check bypass',start,target,check)
+    assert {e['target'] for e in outgoing['identity_reject']}=={'identity'}
+    assert {e['target'] for e in outgoing['evidence_repair']}=={'search'}
+    assert {e['target'] for e in outgoing['strategy_choice']}=={'qualified','strategy_more','strategy_stop'}
+    assert ns['control']['completion_sources']==['isolation','record']
+    assert {e['source'] for e in incoming['control']}=={'isolation','record'}
+    assert all(ns[f'choose{i}']['selection']=='one_operation_per_pass' for i in range(6))
+    assert {e['target'] for e in outgoing['wait2']}=={'receipt'},'waiting must not resend the deliverable'
+    assert {e['target'] for e in outgoing['wait']}=={'identity'},'new results must be attributed before verification'
+    assert ns['version']['y']<ns['trust']['y']<ns['evidence_usable']['y']
+    assert all(ns[f'choose{i}']['dispatches']=='operation_selected_at_progress' for i in range(6))
+    assert ns['testenv']['x']<ns['improve']['x'] and has('testenv','improve')
     guard_references=['rights','limit']
     for coord in ['x','w','h']:
         aligned('guard reference card '+coord,[rendered[k]['shape'][coord] for k in guard_references])
@@ -256,7 +332,7 @@ def run(folder):
             aligned(k+' '+role+' left inset',[16,t['x']-ns[k]['x']])
     aligned('guard execution centerline',[cx(k) for k in ['control','guard','allowed']])
     assert all(len(edge_between(a,b)['points'])==2 for a,b in [('control','guard'),('guard','allowed')])
-    approval_return=edge_between('identity0','guard')
+    approval_return=edge_between('approval_valid','guard')
     assert approval_return['source_port']==approval_return['target_port']=='r'
     assert len(approval_return['points'])==4 and all(p[0]==1735 for p in approval_return['points'][1:-1])
     hidden_labels={f'e{i}' for i,e in enumerate(es) if e.get('label_node') or e.get('label_in_body')}
@@ -302,8 +378,8 @@ def run(folder):
             assert math.dist(point,ports[side])<.01,('not midpoint',i,which)
             outward={'t':(0,-1),'b':(0,1),'l':(-1,0),'r':(1,0)}[side]
             q=e['points'][neighbor];delta=(q[0]-point[0],q[1]-point[1])
-            assert delta[0]*outward[0]+delta[1]*outward[1]>0,('inward connector',i,which)
-            assert abs(delta[0]*outward[1]-delta[1]*outward[0])<.01,('not perpendicular',i,which)
+            if delta[0]*outward[0]+delta[1]*outward[1]<=0:issues.append(['inward connector',i,which])
+            if abs(delta[0]*outward[1]-delta[1]*outward[0])>=.01:issues.append(['not perpendicular',i,which])
         if e['kind']!='reference':assert math.dist(e['arrow'][0],e['points'][-1])<.01,('arrow gap',i)
         assert v.on_boundary(e['points'][0],endpoints[e['source']]),('source-boundary',i)
         assert v.on_boundary(e['points'][-1],endpoints[e['target']]),('target-boundary',i)
@@ -343,6 +419,8 @@ def run(folder):
         material_coverage=coverage,checked_routes=routes,geometry_issues=issues,
         flow_audit=dict(starts=sorted(starts),terminals=sorted(terminals),
             reachable_actions=len(reachable),reference_inputs=sorted(references),
+            required_checks_without_bypass=[dict(start=a,target=b,required=c) for a,b,c in required_checks],
+            failed_improvement_can_be_deferred=has('retry_improve','memory_unapplied') and has('memory_unapplied','finish'),
             used_materials=len(cat)-len(unused),intentionally_unused=['나눠 맡기기'],
             missing_materials=[],unreachable_actions=[],nonterminal_dead_ends=[],
             required_preparation=dict(branches=fork['required_branches'],execution_order=fork['execution_order'],

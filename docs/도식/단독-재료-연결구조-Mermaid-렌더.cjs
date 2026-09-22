@@ -76,7 +76,22 @@ const BUNDLE = process.env.MERMAID_BUNDLE
     if (result.error) { console.error('MERMAID ERROR:', result.error); process.exit(2); }
     fs.writeFileSync(path.join(out, 'solo-mermaid.svg'), result.svg);
     const geom = { ...result }; delete geom.svg;
+    const byId = Object.fromEntries(result.nodes.map(n => [n.id, n]));
+    const order = ['signal', 'context_initial', 'model_initial', 'understand', 'intent', 'clear', 'case', 'goal', 'checks_start',
+      'context', 'model', 'goal_review', 'progress', 'guard', 'tools', 'identity', 'verify',
+      'pack', 'risk_delivery', 'quality', 'delivery_guard', 'delivery', 'receipt', 'record_read', 'outcome', 'finish'];
+    const layoutIssues = [];
+    for (const id of ['start', 'watch', 'live_start']) {
+      if (byId[id] && byId[id].y / result.height >= 0.1) layoutIssues.push(`start below upper section: ${id}`);
+    }
+    if (byId.finish && byId.finish.y / result.height <= 0.9) layoutIssues.push('finish above lower section');
+    for (let i = 1; i < order.length; i++) {
+      const a = byId[order[i - 1]], b = byId[order[i]];
+      if (a && b && a.y >= b.y) layoutIssues.push(`workflow order reversed: ${order[i - 1]} -> ${order[i]}`);
+    }
+    geom.layout_issues = layoutIssues;
     fs.writeFileSync(path.join(out, 'solo-mermaid-geometry.json'), JSON.stringify(geom, null, 2));
+    if (layoutIssues.length) throw new Error(layoutIssues.join('; '));
     if (!process.env.FAST_RENDER) {
       await page.setViewportSize({
         width: Math.min(4000, Math.ceil(result.width) + 48),

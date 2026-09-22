@@ -1,0 +1,225 @@
+{
+  "materials": 79,
+  "usage_types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "system_counts": {
+    "환경": 10,
+    "지식": 16,
+    "규칙": 18,
+    "실무": 24,
+    "검증": 9,
+    "학습": 2
+  },
+  "illustrations": 0,
+  "arrowheads": 214,
+  "center_ports_checked": 436,
+  "arrowheads_touch_boundary": true,
+  "alignment_checks": 876,
+  "alignment_max_difference_px": 0.005927,
+  "geometry_issues": [],
+  "flow_audit": {
+    "starts": [
+      "live_start",
+      "start",
+      "watch"
+    ],
+    "terminals": [
+      "finish",
+      "hold",
+      "strategy_stop",
+      "unqualified"
+    ],
+    "reachable_actions": 160,
+    "reference_inputs": [
+      "contract",
+      "ethics",
+      "limit",
+      "org",
+      "platform",
+      "principles",
+      "rights",
+      "style",
+      "user_rule"
+    ],
+    "required_checks_without_bypass": [
+      {
+        "start": "signal",
+        "target": "case",
+        "required": "understand"
+      },
+      {
+        "start": "signal",
+        "target": "case",
+        "required": "intent"
+      },
+      {
+        "start": "signal",
+        "target": "case",
+        "required": "clear"
+      },
+      {
+        "start": "signal",
+        "target": "goal",
+        "required": "case"
+      },
+      {
+        "start": "communicate0",
+        "target": "case",
+        "required": "intent"
+      },
+      {
+        "start": "model",
+        "target": "qualified",
+        "required": "risk"
+      },
+      {
+        "start": "version",
+        "target": "checks_join",
+        "required": "evidence_usable"
+      },
+      {
+        "start": "identity",
+        "target": "verify",
+        "required": "identity_ok"
+      },
+      {
+        "start": "identity",
+        "target": "verify",
+        "required": "counter_needed"
+      },
+      {
+        "start": "quality",
+        "target": "outcome",
+        "required": "receipt"
+      },
+      {
+        "start": "receipt",
+        "target": "outcome",
+        "required": "record_read"
+      },
+      {
+        "start": "context2",
+        "target": "model",
+        "required": "checks_join"
+      },
+      {
+        "start": "strategy_more",
+        "target": "model",
+        "required": "checks_join"
+      }
+    ],
+    "failed_improvement_can_be_deferred": true,
+    "used_materials": 78,
+    "intentionally_unused": [
+      "나눠 맡기기"
+    ],
+    "missing_materials": [],
+    "unreachable_actions": [],
+    "nonterminal_dead_ends": [],
+    "required_preparation": {
+      "branches": [
+        "search",
+        "original"
+      ],
+      "execution_order": "unspecified",
+      "completion_groups": [
+        "evidence",
+        "rules"
+      ],
+      "completion_node": "checks_join",
+      "bypass_to_context": false
+    }
+  },
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "60e60a145e831c76b5a29ab21403ce758a4ce1df60999fb71b8d16c8978cecfb",
+  "rendered_dimensions": [
+    1800,
+    23434.130999999994
+  ],
+  "display_width": 1100,
+  "limitation": "명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.",
+  "review_scope": "첫 요청·재개·대화·변경 알림에서 요청 이해, 뜻 확인, 업무별 정보 정리, 목표 설정까지의 순서",
+  "changed_routes": {
+    "clarification": [
+      "intent",
+      "clear",
+      "communicate0",
+      "intent"
+    ],
+    "new_request": [
+      "start",
+      "signal",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ],
+    "live_request": [
+      "live_start",
+      "live",
+      "signal",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ],
+    "changed_request": [
+      "watch",
+      "watchtype",
+      "change",
+      "signal",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ],
+    "discovered_request": [
+      "watch",
+      "watchtype",
+      "early",
+      "signal",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ]
+  },
+  "human_review": {
+    "problem": "요청의 뜻과 범위를 파악하기 전에 업무별 정보에서 요구 사항을 정리하도록 연결돼 있었다.",
+    "correction": "현재 작업 정보에 받은 입력을 모으고, 정보·자료 이해 및 지시·의도 파악과 필요한 확인을 거쳐 업무별 정보를 정리한 뒤 목표를 정한다.",
+    "before_image": "/tmp/solo-full-review-20260922/render-4/normal-0.png",
+    "after_images": [
+      "/tmp/solo-intake-order-20260922/render/normal-0.png",
+      "/tmp/solo-intake-order-20260922/render/normal-1.png"
+    ],
+    "confirmed": [
+      "새 요청·실시간 대화·상황 변화의 네 진입 경로가 같은 이해·확인 절차를 따른다.",
+      "질문이 필요한 경우 답을 받은 뒤 의도 파악과 모호함 판단을 다시 거친다.",
+      "처음 받은 입력을 모으는 설명과 이해한 업무 내용을 정리하는 설명을 구분했다.",
+      "도형 중앙의 연결점과 실제 글자·선 위치를 확인했다."
+    ],
+    "unchanged": "재료 79종의 정의, 그룹 배치, 뒤쪽 작업 흐름"
+  },
+  "mermaid_review": {
+    "nodes": 170,
+    "edges": 218,
+    "layout_issues": [],
+    "image": "/tmp/solo-intake-order-20260922/mermaid/entry-review.png"
+  },
+  "png_sha256": "10582a053418ab39ffc72d81f2e6560f9797e327b5cb0201327085f251750bad"
+}

@@ -1,0 +1,1072 @@
+{
+  "materials": 79,
+  "usage_types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "system_counts": {
+    "환경": 10,
+    "지식": 16,
+    "규칙": 18,
+    "실무": 24,
+    "검증": 9,
+    "학습": 2
+  },
+  "illustrations": 0,
+  "arrowheads": 228,
+  "center_ports_checked": 464,
+  "arrowheads_touch_boundary": true,
+  "alignment_checks": 912,
+  "alignment_max_difference_px": 0.006305,
+  "geometry_issues": [],
+  "flow_audit": {
+    "starts": [
+      "live_start",
+      "start",
+      "watch"
+    ],
+    "terminals": [
+      "delivery_hold",
+      "finish",
+      "hold",
+      "strategy_stop",
+      "unqualified"
+    ],
+    "reachable_actions": 169,
+    "reference_inputs": [
+      "contract",
+      "ethics",
+      "limit",
+      "org",
+      "platform",
+      "principles",
+      "rights",
+      "style",
+      "user_rule"
+    ],
+    "required_checks_without_bypass": [
+      {
+        "start": "signal",
+        "target": "case",
+        "required": "understand"
+      },
+      {
+        "start": "signal",
+        "target": "case",
+        "required": "intent"
+      },
+      {
+        "start": "signal",
+        "target": "case",
+        "required": "clear"
+      },
+      {
+        "start": "signal",
+        "target": "goal",
+        "required": "case"
+      },
+      {
+        "start": "communicate0",
+        "target": "case",
+        "required": "intent"
+      },
+      {
+        "start": "model",
+        "target": "qualified",
+        "required": "goal_review"
+      },
+      {
+        "start": "absent",
+        "target": "evidence_usable",
+        "required": "version"
+      },
+      {
+        "start": "version",
+        "target": "evidence_usable",
+        "required": "trust"
+      },
+      {
+        "start": "wait",
+        "target": "verify",
+        "required": "identity_ok"
+      },
+      {
+        "start": "identity0",
+        "target": "tools",
+        "required": "approval_valid"
+      },
+      {
+        "start": "more",
+        "target": "delivery",
+        "required": "pack"
+      },
+      {
+        "start": "more",
+        "target": "delivery",
+        "required": "qualityok"
+      },
+      {
+        "start": "pack",
+        "target": "delivery",
+        "required": "risk_delivery"
+      },
+      {
+        "start": "pack",
+        "target": "delivery",
+        "required": "delivery_allowed"
+      },
+      {
+        "start": "passed",
+        "target": "memory2",
+        "required": "improve_apply"
+      },
+      {
+        "start": "improveneed",
+        "target": "improve",
+        "required": "testenv"
+      },
+      {
+        "start": "model",
+        "target": "qualified",
+        "required": "risk"
+      },
+      {
+        "start": "version",
+        "target": "checks_join",
+        "required": "evidence_usable"
+      },
+      {
+        "start": "identity",
+        "target": "verify",
+        "required": "identity_ok"
+      },
+      {
+        "start": "identity",
+        "target": "verify",
+        "required": "counter_needed"
+      },
+      {
+        "start": "quality",
+        "target": "outcome",
+        "required": "receipt"
+      },
+      {
+        "start": "receipt",
+        "target": "outcome",
+        "required": "record_read"
+      },
+      {
+        "start": "context2",
+        "target": "model",
+        "required": "checks_join"
+      },
+      {
+        "start": "strategy_more",
+        "target": "model",
+        "required": "checks_join"
+      }
+    ],
+    "failed_improvement_can_be_deferred": true,
+    "used_materials": 78,
+    "intentionally_unused": [
+      "나눠 맡기기"
+    ],
+    "missing_materials": [],
+    "unreachable_actions": [],
+    "nonterminal_dead_ends": [],
+    "required_preparation": {
+      "branches": [
+        "search",
+        "original"
+      ],
+      "execution_order": "unspecified",
+      "completion_groups": [
+        "evidence",
+        "rules"
+      ],
+      "completion_node": "checks_join",
+      "bypass_to_context": false
+    }
+  },
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "d9df99fa6a6f36de96a405862cef6cc92c2b673d4f64221f5e46c6aac92732d1",
+  "rendered_dimensions": [
+    1800,
+    25221.630999999994
+  ],
+  "display_width": 1100,
+  "limitation": "명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.",
+  "review_scope": "단독 상황 전체 재료·조건·판단·분기·복귀·합류·종료의 순서와 위치",
+  "review_basis": [
+    "정의 문서의 재료별 하는 일·사용 조건",
+    "현재 도식의 모든 블록 설명과 연결",
+    "1100px 표시 폭의 전체 18개 구간 및 변경 구간 재렌더"
+  ],
+  "findings": [
+    {
+      "id": "initial_interpretation",
+      "nodes": [
+        "understand",
+        "change"
+      ],
+      "problem": "내용 이해 단계에서 사실 검증과 변경 적용을 이미 마친 것처럼 읽혔다.",
+      "correction": "주장·불명확한 점을 파악하고, 바뀐 내용을 해당 업무에 알려 재검토하도록 구분했다."
+    },
+    {
+      "id": "goals_after_preparation",
+      "nodes": [
+        "goal",
+        "measure0",
+        "goal_review",
+        "context_initial"
+      ],
+      "problem": "처음 정한 목표가 자료·규칙 확인 결과와 달라도 다시 정할 경로가 없었다.",
+      "correction": "초안임을 표시하고 목표·범위·완료 기준이 바뀌면 요청 이해·확인·업무 정보·목표로 돌아가게 했다."
+    },
+    {
+      "id": "applicable_version",
+      "nodes": [
+        "absent",
+        "version",
+        "trust",
+        "evidence_usable"
+      ],
+      "problem": "이번 일에 맞는 판본을 고르기 전에 그 자료의 적합성을 판단했다.",
+      "correction": "판본 선택 후 신뢰성과 적합성을 확인하고, 쓸 수 있는 근거인지 판단하도록 순서를 바꿨다."
+    },
+    {
+      "id": "execution_selection",
+      "nodes": [
+        "progress",
+        "record",
+        "control",
+        "guard",
+        "tools",
+        "choose0",
+        "choose1",
+        "choose2",
+        "choose3",
+        "choose4",
+        "choose5"
+      ],
+      "problem": "승인 검사 후 작업을 새로 고르는 것으로 읽혀 검사 대상이 모호했다.",
+      "correction": "진행 단계에서 작업·대상·입력·도구를 정하고 기록하도록 명시했다. 이후 갈림길은 정해 둔 작업을 실행 경로에 연결한다."
+    },
+    {
+      "id": "restored_state",
+      "nodes": [
+        "state",
+        "monitor"
+      ],
+      "problem": "새 계획을 세울 때 완료·대기 상태를 새로 만드는 것으로 읽힐 수 있었다.",
+      "correction": "기존 완료·대기 상태를 유지하면서 새 계획을 반영하도록 고쳤다."
+    },
+    {
+      "id": "approval_response",
+      "nodes": [
+        "identity0",
+        "approval_valid",
+        "handoff",
+        "guard"
+      ],
+      "problem": "받은 승인에 대한 확인에서 불일치 결과의 행선지가 없었다.",
+      "correction": "본인·권한·대상을 판정하고, 틀린 답은 다시 요청하며 맞는 답만 안전장치로 돌려보낸다."
+    },
+    {
+      "id": "waiting_result",
+      "nodes": [
+        "wait",
+        "identity",
+        "identity_ok",
+        "identity_reject",
+        "verify"
+      ],
+      "problem": "새로 온 결과가 주체·대상·버전 확인을 건너뛰고 내용 검증으로 갔다.",
+      "correction": "새 결과와 재요청한 결과 모두 보고 주체 확인부터 다시 거친다."
+    },
+    {
+      "id": "final_package",
+      "nodes": [
+        "pack",
+        "risk_delivery",
+        "quality",
+        "qualityok"
+      ],
+      "problem": "최종 납품 묶음을 준비하기 전에 품질 판단이 끝났고 전달 시점 위험 확인이 없었다.",
+      "correction": "납품본 준비 후 사용할 때의 위험과 최종 품질을 확인한다."
+    },
+    {
+      "id": "delivery_permission",
+      "nodes": [
+        "delivery_guard",
+        "delivery_allowed",
+        "delivery_approval",
+        "delivery_hold"
+      ],
+      "problem": "최종 수신자·명의·버전·공개 범위에 대한 전달 직전 확인이 드러나지 않았다.",
+      "correction": "전달 직전 별도로 검사하고 허용·확인 필요·전달 불가를 분기한다."
+    },
+    {
+      "id": "acceptance_and_retry",
+      "nodes": [
+        "receipt",
+        "wait2",
+        "delivery",
+        "delivery_guard",
+        "delivery_repair",
+        "repair"
+      ],
+      "problem": "인수 답변 대기가 전달 단계로 돌아가 재전송으로 읽혔고 전달 실패를 구별하지 않았다.",
+      "correction": "답변 대기는 인수 상태를 다시 확인하고, 전달 실패만 승인 재검사 후 재전송한다. 수정 요청은 작업 수정으로 돌린다."
+    },
+    {
+      "id": "later_effect",
+      "nodes": [
+        "outcome",
+        "effect_wait",
+        "learnneed"
+      ],
+      "problem": "늦게 나타나는 성과를 언제 다시 확인하는지 연결선이 없었다.",
+      "correction": "현재 확인한 성과로 회고를 진행하면서 나중 효과는 담당·날짜를 정해 후속 확인으로 다시 연결한다."
+    },
+    {
+      "id": "tested_change",
+      "nodes": [
+        "testenv",
+        "improve",
+        "capability",
+        "passed",
+        "improve_apply",
+        "memory2",
+        "memory_unapplied"
+      ],
+      "problem": "개선안을 바꾼 뒤 시험 환경을 만들었고 시험 후 실제 적용이 기억 저장과 섞였다.",
+      "correction": "시험 환경 준비→시험용 개선안→시험→통과 판정→실제 적용→기록 순서로 구분했다. 실패한 개선은 적용하지 않는다."
+    }
+  ],
+  "reviewed_node_ids": [
+    "start",
+    "signal",
+    "early",
+    "change",
+    "watch",
+    "watchtype",
+    "case",
+    "understand",
+    "intent",
+    "communicate0",
+    "live",
+    "goal",
+    "measure0",
+    "unused",
+    "search",
+    "absent",
+    "now",
+    "case_ref",
+    "reference",
+    "reuse",
+    "trust",
+    "version",
+    "knowledge",
+    "experience",
+    "memory",
+    "original",
+    "law",
+    "ethics",
+    "principles",
+    "contract",
+    "platform",
+    "org",
+    "user_rule",
+    "style",
+    "priority",
+    "context",
+    "model",
+    "strategy",
+    "risk",
+    "plan",
+    "progress",
+    "state",
+    "record",
+    "control",
+    "isolation",
+    "monitor",
+    "rights",
+    "limit",
+    "guard",
+    "allowed",
+    "handoff",
+    "hold",
+    "identity0",
+    "tools",
+    "type0",
+    "choose0",
+    "sort",
+    "combine",
+    "convert",
+    "out0",
+    "type1",
+    "choose1",
+    "calc",
+    "analysis",
+    "judge",
+    "forecast",
+    "optimize",
+    "out1",
+    "type2",
+    "choose2",
+    "design",
+    "reframe",
+    "make",
+    "out2",
+    "type3",
+    "choose3",
+    "talk",
+    "negotiate",
+    "out3",
+    "type4",
+    "choose4",
+    "write",
+    "transaction",
+    "operate",
+    "publish",
+    "out4",
+    "type5",
+    "choose5",
+    "observe",
+    "experiment",
+    "simulate",
+    "out5",
+    "verify",
+    "identity",
+    "counter",
+    "vdecision",
+    "wait",
+    "more",
+    "context2",
+    "quality",
+    "process_eval",
+    "pack",
+    "delivery",
+    "receipt",
+    "wait2",
+    "outcome",
+    "cause",
+    "improve",
+    "testenv",
+    "capability",
+    "passed",
+    "memory2",
+    "finish",
+    "clear",
+    "qualified",
+    "testenv0",
+    "capability0",
+    "qualified_test",
+    "unqualified",
+    "qualityok",
+    "repair",
+    "learnneed",
+    "memory_direct",
+    "improveneed",
+    "memory_reuse",
+    "state_result",
+    "record_read",
+    "delivery_repair",
+    "live_start",
+    "context_initial",
+    "law_constitution",
+    "law_statute",
+    "law_decree",
+    "law_ministry",
+    "law_higher",
+    "law_higher_apply",
+    "law_conflict",
+    "law_special",
+    "law_special_apply",
+    "law_new",
+    "law_settle",
+    "law_clear",
+    "law_wait",
+    "law_reply",
+    "law_confirmed",
+    "rule_conflict",
+    "rule_compare",
+    "rule_order",
+    "rule_apply",
+    "rule_exception",
+    "rule_candidate",
+    "rule_resolved",
+    "rule_wait",
+    "rule_reply",
+    "rule_confirmed",
+    "checks_start",
+    "checks_join",
+    "model_initial",
+    "evidence_usable",
+    "evidence_repair",
+    "evidence_use",
+    "evidence_done",
+    "strategy_choice",
+    "strategy_more",
+    "strategy_stop",
+    "identity_ok",
+    "identity_reject",
+    "counter_needed",
+    "retry_improve",
+    "memory_unapplied",
+    "goal_review",
+    "approval_valid",
+    "risk_delivery",
+    "delivery_guard",
+    "delivery_allowed",
+    "delivery_approval",
+    "delivery_hold",
+    "effect_wait",
+    "improve_apply"
+  ],
+  "checked_routes": {
+    "clarification": [
+      "intent",
+      "clear",
+      "communicate0",
+      "intent"
+    ],
+    "initial_capability_gate": [
+      "strategy",
+      "strategy_choice",
+      "qualified",
+      "testenv0",
+      "capability0",
+      "qualified_test",
+      "plan"
+    ],
+    "initial_capability_failure": [
+      "qualified_test",
+      "unqualified"
+    ],
+    "direct_execution": [
+      "qualified",
+      "plan",
+      "state",
+      "progress",
+      "record",
+      "control",
+      "guard",
+      "allowed",
+      "tools",
+      "type0"
+    ],
+    "new_request": [
+      "start",
+      "signal",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ],
+    "live_request": [
+      "live_start",
+      "live",
+      "signal",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ],
+    "changed_request": [
+      "watch",
+      "watchtype",
+      "change",
+      "signal",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ],
+    "discovered_request": [
+      "watch",
+      "watchtype",
+      "early",
+      "signal",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ],
+    "performance_criteria": [
+      "goal",
+      "measure0",
+      "checks_start",
+      "search",
+      "absent",
+      "version",
+      "trust"
+    ],
+    "reference_lookup": [
+      "search",
+      "reference",
+      "absent",
+      "version",
+      "trust",
+      "evidence_usable",
+      "evidence_use",
+      "memory",
+      "evidence_done",
+      "checks_join",
+      "context"
+    ],
+    "mandatory_rules": [
+      "checks_start",
+      "original",
+      "law",
+      "law_constitution",
+      "law_statute",
+      "law_decree",
+      "law_ministry",
+      "law_higher",
+      "law_conflict",
+      "law_settle",
+      "law_clear",
+      "law_confirmed",
+      "priority",
+      "rule_conflict",
+      "rule_candidate",
+      "rule_resolved",
+      "rule_confirmed",
+      "checks_join",
+      "context"
+    ],
+    "higher_law_priority": [
+      "law_higher",
+      "law_higher_apply",
+      "law_conflict"
+    ],
+    "special_legal_rule": [
+      "law_conflict",
+      "law_special",
+      "law_special_apply",
+      "law_settle"
+    ],
+    "new_law_conditions": [
+      "law_special",
+      "law_new",
+      "law_settle"
+    ],
+    "legal_uncertainty": [
+      "law_clear",
+      "law_wait",
+      "law_reply",
+      "law",
+      "law_constitution"
+    ],
+    "rule_precedence": [
+      "rule_conflict",
+      "rule_compare",
+      "rule_order",
+      "rule_apply",
+      "rule_candidate"
+    ],
+    "rule_exception": [
+      "rule_order",
+      "rule_exception",
+      "rule_candidate",
+      "rule_resolved"
+    ],
+    "unresolved_rule_conflict": [
+      "rule_resolved",
+      "rule_wait",
+      "rule_reply",
+      "priority",
+      "rule_conflict"
+    ],
+    "risk_check": [
+      "model",
+      "goal_review",
+      "risk",
+      "strategy"
+    ],
+    "isolated_execution": [
+      "progress",
+      "isolation",
+      "control"
+    ],
+    "counter_evidence": [
+      "identity",
+      "identity_ok",
+      "counter_needed",
+      "counter",
+      "verify"
+    ],
+    "process_records": [
+      "quality",
+      "qualityok",
+      "delivery_guard",
+      "delivery_allowed",
+      "delivery",
+      "receipt",
+      "record_read",
+      "process_eval",
+      "outcome"
+    ],
+    "data_preparation": [
+      "type0",
+      "choose0",
+      "combine",
+      "out0",
+      "identity",
+      "identity_ok",
+      "counter_needed",
+      "verify",
+      "state_result",
+      "vdecision"
+    ],
+    "calculation_then_next_input": [
+      "type1",
+      "choose1",
+      "calc",
+      "out1",
+      "identity",
+      "identity_ok",
+      "counter_needed",
+      "verify",
+      "state_result",
+      "vdecision",
+      "more",
+      "context2",
+      "checks_start",
+      "search",
+      "absent",
+      "version",
+      "trust",
+      "evidence_usable",
+      "evidence_use",
+      "evidence_done",
+      "checks_join",
+      "context"
+    ],
+    "system_action": [
+      "type4",
+      "choose4",
+      "transaction",
+      "out4",
+      "identity",
+      "identity_ok",
+      "counter_needed",
+      "verify"
+    ],
+    "observation": [
+      "type5",
+      "choose5",
+      "observe",
+      "out5",
+      "identity",
+      "identity_ok",
+      "counter_needed",
+      "verify"
+    ],
+    "other_work": [
+      "type5",
+      "context2",
+      "checks_start",
+      "search",
+      "absent",
+      "version",
+      "trust",
+      "evidence_usable",
+      "evidence_use",
+      "evidence_done",
+      "checks_join",
+      "context"
+    ],
+    "rework": [
+      "vdecision",
+      "context2",
+      "checks_start",
+      "search",
+      "absent",
+      "version",
+      "trust",
+      "evidence_usable",
+      "evidence_use",
+      "evidence_done",
+      "checks_join",
+      "context",
+      "model",
+      "goal_review",
+      "risk",
+      "strategy"
+    ],
+    "pending": [
+      "vdecision",
+      "wait",
+      "identity",
+      "identity_ok",
+      "counter_needed",
+      "verify"
+    ],
+    "human_decision": [
+      "allowed",
+      "handoff",
+      "identity0",
+      "approval_valid",
+      "guard"
+    ],
+    "blocked": [
+      "allowed",
+      "hold"
+    ],
+    "quality_repair": [
+      "quality",
+      "qualityok",
+      "repair",
+      "context2"
+    ],
+    "delivery": [
+      "more",
+      "pack",
+      "risk_delivery",
+      "quality",
+      "qualityok",
+      "delivery_guard",
+      "delivery_allowed",
+      "delivery",
+      "receipt",
+      "record_read",
+      "process_eval",
+      "outcome"
+    ],
+    "receipt_wait": [
+      "receipt",
+      "wait2",
+      "receipt"
+    ],
+    "receipt_correction": [
+      "receipt",
+      "delivery_repair",
+      "repair",
+      "context2"
+    ],
+    "no_analysis_needed": [
+      "outcome",
+      "learnneed",
+      "memory_direct",
+      "finish"
+    ],
+    "no_change_needed": [
+      "learnneed",
+      "cause",
+      "improveneed",
+      "memory_reuse",
+      "finish"
+    ],
+    "tested_improvement": [
+      "improveneed",
+      "testenv",
+      "improve",
+      "capability",
+      "passed",
+      "improve_apply",
+      "memory2",
+      "finish"
+    ],
+    "failed_improvement": [
+      "passed",
+      "retry_improve",
+      "improve",
+      "capability",
+      "passed"
+    ],
+    "goal_reconsideration": [
+      "model",
+      "goal_review",
+      "context_initial",
+      "model_initial",
+      "understand",
+      "intent",
+      "clear",
+      "case",
+      "goal"
+    ],
+    "invalid_approval": [
+      "identity0",
+      "approval_valid",
+      "handoff"
+    ],
+    "delivery_permission": [
+      "qualityok",
+      "delivery_guard",
+      "delivery_allowed",
+      "delivery_approval",
+      "delivery_guard"
+    ],
+    "delivery_retry": [
+      "receipt",
+      "delivery_guard",
+      "delivery_allowed",
+      "delivery",
+      "receipt"
+    ],
+    "delivery_blocked": [
+      "delivery_allowed",
+      "delivery_hold"
+    ],
+    "delayed_effect": [
+      "outcome",
+      "effect_wait",
+      "outcome",
+      "learnneed"
+    ],
+    "unusable_evidence": [
+      "version",
+      "trust",
+      "evidence_usable",
+      "evidence_repair",
+      "search"
+    ],
+    "invalid_result": [
+      "identity",
+      "identity_ok",
+      "identity_reject",
+      "identity"
+    ],
+    "strategy_more_information": [
+      "strategy",
+      "strategy_choice",
+      "strategy_more",
+      "checks_start"
+    ],
+    "strategy_hold": [
+      "strategy",
+      "strategy_choice",
+      "strategy_stop"
+    ],
+    "defer_failed_improvement": [
+      "passed",
+      "retry_improve",
+      "memory_unapplied",
+      "finish"
+    ]
+  },
+  "shortcut_negative_probes": [
+    {
+      "start": "signal",
+      "target": "case",
+      "required": "understand",
+      "baseline_passes": true,
+      "shortcut_detected": true
+    },
+    {
+      "start": "version",
+      "target": "evidence_usable",
+      "required": "trust",
+      "baseline_passes": true,
+      "shortcut_detected": true
+    },
+    {
+      "start": "wait",
+      "target": "verify",
+      "required": "identity_ok",
+      "baseline_passes": true,
+      "shortcut_detected": true
+    },
+    {
+      "start": "identity0",
+      "target": "tools",
+      "required": "approval_valid",
+      "baseline_passes": true,
+      "shortcut_detected": true
+    },
+    {
+      "start": "pack",
+      "target": "delivery",
+      "required": "qualityok",
+      "baseline_passes": true,
+      "shortcut_detected": true
+    },
+    {
+      "start": "pack",
+      "target": "delivery",
+      "required": "delivery_allowed",
+      "baseline_passes": true,
+      "shortcut_detected": true
+    },
+    {
+      "start": "passed",
+      "target": "memory2",
+      "required": "improve_apply",
+      "baseline_passes": true,
+      "shortcut_detected": true
+    }
+  ],
+  "preserved": {
+    "catalog_definitions": true,
+    "all_previous_nodes": true,
+    "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a"
+  },
+  "human_review": {
+    "first_pass": [
+      "/tmp/solo-sequence-review-20260922/render-1/normal-0.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-1.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-2.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-3.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-4.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-5.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-6.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-7.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-8.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-9.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-10.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-11.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-12.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-13.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-14.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-15.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-16.png",
+      "/tmp/solo-sequence-review-20260922/render-1/normal-17.png"
+    ],
+    "final_changed_areas": [
+      "/tmp/solo-sequence-review-20260922/render-final/normal-0.png",
+      "/tmp/solo-sequence-review-20260922/render-final/normal-6.png",
+      "/tmp/solo-sequence-review-20260922/render-final/normal-8.png",
+      "/tmp/solo-sequence-review-20260922/render-final/normal-12.png",
+      "/tmp/solo-sequence-review-20260922/render-final/normal-14.png",
+      "/tmp/solo-sequence-review-20260922/render-final/normal-16.png"
+    ],
+    "checks": [
+      "준비되지 않은 정보로 판단하는 단계",
+      "단계 이름과 실제 행동의 선후 관계",
+      "선택·모두 확인·선택적 후속의 차이",
+      "재개 후 필요한 재검사",
+      "최종 산출물 검사와 전달·인수",
+      "시험용 변경과 실제 적용의 구별",
+      "도형·글자·화살표 겹침 및 중앙 접점"
+    ]
+  },
+  "mermaid_review": {
+    "nodes": 179,
+    "edges": 232,
+    "layout_issues": [],
+    "graph_equivalent": true,
+    "images": [
+      "/tmp/solo-sequence-review-20260922/mermaid-final/goal-review.png",
+      "/tmp/solo-sequence-review-20260922/mermaid-final/delivery-review.png",
+      "/tmp/solo-sequence-review-20260922/mermaid-final/improve-review.png"
+    ],
+    "layout_limit": "Mermaid는 독립 자동 배치이므로 대표 SVG/PNG의 정밀 정렬·무교차 배치와 같지 않다."
+  },
+  "published_png_sha256": "c5b9b74c5bafa32d3eea953ca0e22624ed650875c257a496a7f26ec5bd431608"
+}

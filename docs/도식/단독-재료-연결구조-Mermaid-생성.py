@@ -7,19 +7,11 @@
 Mermaid 엔진이 배치를 다시 계산하므로 픽셀 단위 동일 위치는 낼 수 없고
 흐름 순서·묶음(subgraph)·갈래 방향 같은 상대 배치만 맞춘다.
 
-레이아웃은 dagre(기본 렌더러)를 쓴다 — elk는 이 그래프에서 진입 노드(시작)를
-맨 위에, 종료 노드를 맨 아래에 두지 못했다(keepEntryNodeOnTop·
-forceNodeModelOrder·considerModelOrder·선언 순서 재배치를 다 걸어도 시작 노드가
-전체 높이의 36~49% 지점에 그대로 남음 — elk NETWORK_SIMPLEX가 진짜 위상 순서가
-아니라 간선 길이 합을 기준으로 배치하기 때문으로 보임). 같은 데이터를 dagre로
-그리면 별도 설정 없이 시작 노드가 0.1~3.2%, 종료 노드가 99.4% 지점에 온다
-(단독-재료-연결구조-Mermaid-렌더.cjs 로 렌더 후 좌표 확인, 2026-09-22). 도식-설계.md의
-elk 권고는 노드 113개짜리 다른(더 큰) 순서도 기준이고, 이 도식(129개 안팎)은
-dagre로 그려도 폭이 elk보다 오히려 좁다(6249px < elk 6607px).
-  - 6모양 6색 분류 + linkStyle 6역할 색상
-  - 화살표는 항상 A --> B (A <-- B 는 렌더러가 조용히 버림)
-  - 시작/종료 노드는 위치(dagre가 위상대로 배치)에 더해 글자(▶ 시작 ·/■ 종료 ·)와
-    색(termstart/termend)으로도 이중 표시한다
+레이아웃은 dagre로 명시한다. 화살표가 없는 참조 묶음은 소비 노드 쪽에서
+선언해 참조 묶음이 실행 시작점으로 취급되지 않게 한다. 방향이 있는 실행·복귀
+간선은 정본의 출발점과 도착점을 그대로 유지한다. 순환 경로를 바꾸면 렌더러의
+시작·종료 위치와 주요 단계 순서 검사를 반드시 다시 실행한다.
+시작·종료는 위치 외에도 글자와 색으로 표시한다.
 
 사용법:
   python3 단독-재료-연결구조-Mermaid-생성.py [--out FILE] [--embed]
@@ -93,7 +85,7 @@ def esc(s: str) -> str:
 
 def node_label(n: dict, marker: str = '') -> str:
     title = esc(n.get('title', n['id']))
-    if n.get('material') == '현재 작업 정보' and n.get('condition'):
+    if n.get('condition'):
         title += ' · ' + esc(n['condition'])
     if n.get('kind') == 'reference':
         title = '참조 기준 · ' + title
@@ -124,7 +116,11 @@ def group_area(g):
 def build(data: dict) -> str:
     nodes = list(data['nodes'].values())
     groups = data['groups']
-    edges = data['edges']
+    positions = {n['id']: n['y'] for n in nodes} | {g['id']: g['y'] for g in groups}
+    # Declare forward links before return links so Dagre's cycle breaking starts
+    # from the actual intake. Edge order also controls linkStyle indices below.
+    edges = sorted(data['edges'], key=lambda e: (
+        e['kind'] == 'return', positions[e['source']], positions[e['target']]))
 
     # 흐름 간선(참조 제외)만으로 진입/종료 노드 계산 — dagre가 이 순서대로 시작을 맨 위에,
     # 종료를 맨 아래에 배치해 주므로 위치가 곧 근거이고, 글자·색은 보조 표시다
@@ -179,7 +175,7 @@ def build(data: dict) -> str:
         return f'{indent}{safe_id(n["id"])}{style["open"]}{label}{style["close"]}'
 
     lines = []
-    lines.append('%%{init: {"flowchart": {"defaultRenderer": "dagre-wrapper", "htmlLabels": true, '
+    lines.append('%%{init: {"layout": "dagre", "flowchart": {"defaultRenderer": "dagre-wrapper", "htmlLabels": true, '
                   '"nodeSpacing": 24, "rankSpacing": 32, "padding": 16, "wrappingWidth": 300, '
                   '"curve": "linear", "useMaxWidth": true}} }%%')
     lines.append('flowchart TB')
@@ -209,18 +205,17 @@ def build(data: dict) -> str:
                 emit_group(m[1], inner)
         lines.append(f'{indent}end')
 
-    # dagre는 ELK와 달리 선언 순서를 배치에 안 쓰고 그래프 위상(누가 누구를 가리키는지)만
-    # 본다(도식-설계.md 175행) — 그래서 선언 순서 재배치가 필요 없고, 원래 있던 대로
-    # 그룹은 y좌표순, 묶이지 않은 노드도 y좌표순으로 그대로 나열한다
+    # Declare the intake first, then interleave groups and standalone steps in
+    # reading order. Group-first declarations can reverse a large return cycle.
     ungrouped = [n for n in nodes if n['id'] not in node_group]
     ungrouped.sort(key=lambda n: n['y'])
 
-    for g in top_groups:
-        emit_group(g['id'], '  ')
-        lines.append('')
-
-    for n in ungrouped:
-        lines.append(node_line(n, '  '))
+    for item in sorted(top_groups + ungrouped, key=lambda item: item['y']):
+        if item['id'] in group_by_id:
+            emit_group(item['id'], '  ')
+            lines.append('')
+        else:
+            lines.append(node_line(item, '  '))
     lines.append('')
 
     def edge_role(e):
@@ -244,10 +239,16 @@ def build(data: dict) -> str:
     for e in edges:
         label = e.get('label', '').strip()
         connector = '---' if e['kind'] == 'reference' else '-->'
-        arrow = f'{safe_id(e["source"])} {connector}'
+        source, target = e['source'], e['target']
+        # Reference links have no arrow/direction. Declare a group reference
+        # from its consumer so the cluster is not treated as an execution root
+        # when Dagre breaks cycles. Every directed workflow edge is unchanged.
+        if e['kind'] == 'reference' and source in group_by_id:
+            source, target = target, source
+        arrow = f'{safe_id(source)} {connector}'
         if label:
             arrow += f'|{esc(label)}|'
-        arrow += f' {safe_id(e["target"])}'
+        arrow += f' {safe_id(target)}'
         lines.append(f'  {arrow}')
         roles.append(edge_role(e))
     lines.append('')

@@ -834,6 +834,9 @@ def side_node(k,title,aligned_to,body=''):
     N[k]['h']=N[k]['needed_height']=len(titles)*(z+5)+len(lines)*25+(8 if lines else 0)+28
     N[k]['y']=p(aligned_to,'r')[1]-N[k]['h']/2
 def route(a,b,label='',sa='b',sb='t',via=None,kind='flow'):
+    if via is None and (sa in ('t','b'))!=(sb in ('t','b')):
+        start,end=p(a,sa),p(b,sb)
+        via=[(start[0],end[1]) if sa in ('t','b') else (end[0],start[1])]
     edge(a,b,label,kind,sa,sb,via)
     E[-1].update(source_port=sa,target_port=sb,fixed_route=True)
 def collect(a,b,label='',sa='r'):
@@ -954,11 +957,328 @@ for a,b in [('measure0','checks_start'),('checks_join','context')]:
     edge(a,b)
     E[-1].update(source_port='b',target_port='t')
 
+# Whole-flow review: a visible check must also control the next action. These
+# repairs preserve the material catalogue and the established column layout.
+def review_node(k,title,x,y,w=520,body='',kind='process',condition=None):
+    node(k,title,x,y,w,90,body,kind)
+    n=N[k]
+    if n['material']:
+        n.update(term=CAT[n['material']]['term'],system=CAT[n['material']]['system'])
+        height=evidence_height(k)
+    else:
+        z,bs,titles,lines=text_layout(n)
+        height=len(titles)*(z+5)+len(lines)*25+(8 if lines else 0)+28
+        if kind=='decision':
+            for i,line in enumerate(titles):
+                distance=abs((i-(len(titles)-1)/2)*(z+5))+z*.65
+                height=max(height,2*distance/max(.12,1-measure(line,z)/w-.08))
+    n['h']=n['needed_height']=max(90,math.ceil(height))
+    if condition:n['condition']=condition
+    return n
+
+# Understanding the request already uses the model; it is not first activated
+# after the evidence/rule checks. Each repeated instance states its purpose.
+insert_space(N['understand']['y'],220)
+review_node('model_initial','AI 모델',640,p('context_initial','b')[1]+45,
+            body=COPY['instances']['model_initial'],condition='처음 요청 이해')
+N['model']['condition']='다음 작업 판단'
+remove('context_initial','understand')
+route('context_initial','model_initial');route('model_initial','understand')
+
+# Intake supplies the received input before interpretation. The case summary is
+# written only after the request's meaning/scope is clear, and then informs goals.
+# Reuse the vacated space so the rest of the established chart stays in place.
+intake_shift=N['context_initial']['y']-N['case']['y']
+for k in ['context_initial','model_initial','understand','intent','clear','communicate0','change']:
+    N[k]['y']-=intake_shift
+N['case']['y']=N['goal']['y']-45-N['case']['h']
+for a,b in [('signal','case'),('case','context_initial'),('clear','goal'),
+            ('change','signal'),('communicate0','intent')]:remove(a,b)
+route('signal','context_initial')
+route('clear','case','아니오')
+route('case','goal')
+start,end=p('change','r'),p('signal','l')
+route('change','signal','바뀐 내용 확인','r','l',[(620,start[1]),(620,end[1])])
+start,end=p('communicate0','t'),p('intent','l')
+return_y=N['clear']['y']-10
+route('communicate0','intent','확인한 뜻·범위 반영','t','l',
+      [(start[0],return_y),(610,return_y),(610,end[1])],kind='return')
+
+# A failed evidence check cannot silently become "trusted material". Optional
+# knowledge/experience/memory inputs join locally, then complete ONE branch.
+review_node('evidence_usable','필요한 근거를\n쓸 수 있는가?',130,p('version','b')[1]+72,340,kind='decision')
+review_node('evidence_repair','근거 보완·판단 보류',590,0,260,
+            body='자료를 더 찾거나 요청합니다.\n해당 판단은 보류합니다.')
+N['evidence_repair']['y']=p('evidence_usable','r')[1]-N['evidence_repair']['h']/2
+review_node('evidence_use','필요한 지식·경험·기록 확인',160,p('evidence_usable','b')[1]+72,640,
+            body='이번 판단에 필요한 항목만 참고합니다.')
+source_top=p('evidence_use','b')[1]+72
+for i,k in enumerate(context_sources):N[k]['y']=source_top+i*(context_source_height+32)
+next(a for a in A if a['text']=='판단에 참고할 내용').update(y=source_top-28,text='필요한 항목만 참고')
+review_node('evidence_done','판단에 쓸 자료 정리 완료',160,p('memory','b')[1]+96,640,
+            body='확인한 자료와 아직 모르는 점을 함께 남깁니다.')
+assert p('evidence_done','b')[1]+80<evidence_group['y']+evidence_group['h']
+for k in context_sources:
+    remove('version',k);remove(k,'checks_join')
+    start,end=p('evidence_use','l'),p(k,'l')
+    route('evidence_use',k,N[k]['condition'],'l','l',[(120,start[1]),(120,end[1])])
+    E[-1]['label_node']=k
+    start,end=p(k,'r'),p('evidence_done','t');yy=end[1]-48
+    route(k,'evidence_done',sa='r',via=[(840,start[1]),(840,yy),(end[0],yy)])
+route('version','evidence_usable')
+route('evidence_usable','evidence_use','예')
+route('evidence_usable','evidence_repair','아니오','r','l')
+start,end=p('evidence_repair','r'),p('search','t')
+route('evidence_repair','search','보완 자료 확인','r','t',
+      [(860,start[1]),(860,end[1]-35),(end[0],end[1]-35)],kind='return')
+start,end=p('evidence_use','r'),p('evidence_done','t');yy=end[1]-48
+route('evidence_use','evidence_done','확인한 자료','r','t',[(840,start[1]),(840,yy),(end[0],yy)])
+start,end=p('evidence_done','r'),p('checks_join','t')
+route('evidence_done','checks_join',sa='r',via=[(840,start[1]),(840,context_source_merge),(end[0],context_source_merge)])
+N['checks_join']['completion_sources']['evidence']=['evidence_done']
+
+# Risk review precedes selecting a strategy. The choice can also request more
+# information or end in a documented hold, rather than inevitably executing.
+remove('model','strategy')
+n=review_node('strategy_choice','어떻게 진행할까?',720,0,360,kind='decision')
+insert_space(N['qualified']['y'],n['h']+132)
+n['y']=p('strategy','b')[1]+60
+review_node('strategy_more','부족한 정보 정리',120,0,390,
+            body='더 알아야 할 내용과\n바뀐 조건을 정리합니다.')
+review_node('strategy_stop','업무 보류·중단',1250,0,430,
+            body='이유와 다시 시작할 조건을 남깁니다.',kind='stop')
+for k in ['strategy_more','strategy_stop']:N[k]['y']=p('strategy_choice','r')[1]-N[k]['h']/2
+remove('strategy','qualified')
+route('strategy','strategy_choice');route('strategy_choice','qualified','진행')
+route('strategy_choice','strategy_more','추가 확인','l','r')
+route('strategy_choice','strategy_stop','보류·중단','r','l',kind='blocked')
+start,end=p('strategy_more','l'),p('checks_start','l')
+route('strategy_more','checks_start','추가\n확인','l','l',[(85,start[1]),(85,end[1])],kind='return')
+
+# New evidence or changed conditions return to both preparation checks. Already
+# checked, unchanged information can be reused on the next pass.
+N['checks_start']['body']='자료와 규칙을 모두 확인합니다.\n다시 진행할 때는 바뀐 내용만 재확인합니다.'
+N['checks_start']['h']=N['checks_start']['needed_height']=116
+remove('context2','context')
+start,end=p('context2','l'),p('checks_start','l')
+route('context2','checks_start','다시\n확인','l','l',[(40,start[1]),(40,end[1])],kind='return')
+
+# Establish progress from the plan before selecting the first operation. Space
+# preparation and the decision record are both inputs of execution control.
+remove('plan','progress')
+route('plan','state','계획','r','l')
+N['control'].update(control_role='all_complete',completion_sources=['isolation','record'])
+
+# Accept only the expected result. Important/changed conclusions cannot bypass
+# the counter-evidence check. Rejected results have a separate re-request loop.
+identity_top=N['identity']['y']
+old_state_top=N['state_result']['y']
+review_node('identity_ok','요청한 쪽·대상·버전이\n모두 맞는가?',720,p('identity','b')[1]+72,360,kind='decision')
+review_node('identity_reject','결과 반려·재요청',1250,0,430,
+            body='맞지 않는 결과는 받지 않습니다.\n이유를 남기고 올바른 결과를 다시 요청합니다.')
+N['identity_reject']['y']=p('identity_ok','r')[1]-N['identity_reject']['h']/2
+review_node('counter_needed','중요한 판단이거나\n근거가 바뀌었는가?',720,p('identity_ok','b')[1]+72,360,kind='decision')
+N['counter']['y']=p('counter_needed','l')[1]-N['counter']['h']/2
+N['verify']['y']=max(p('counter','b')[1],p('counter_needed','b')[1])+72
+new_state_top=p('verify','b')[1]+72
+preserve={k:N[k]['y'] for k in ['identity_ok','identity_reject','counter_needed','counter','verify']}
+insert_space(old_state_top,new_state_top-old_state_top)
+for k,y in preserve.items():N[k]['y']=y
+remove('identity','verify');remove('identity','counter');remove('counter','verify')
+route('identity','identity_ok')
+route('identity_ok','identity_reject','아니오','r','l',kind='blocked')
+start,end=p('identity_reject','r'),p('identity','r')
+route('identity_reject','identity','재확인','r','r',[(1750,start[1]),(1750,end[1])],kind='return')
+route('identity_ok','counter_needed','예')
+route('counter_needed','counter','예','l','r')
+route('counter_needed','verify','아니오')
+route('counter','verify')
+remove('wait','verify')
+route('wait','verify','답변·상태를 확인하고 재검사','t','r',kind='return')
+
+# The end-of-job evaluation starts after confirmed delivery. A side branch from
+# quality evaluation must not let the work skip delivery/acceptance entirely.
+old_outcome_top=N['outcome']['y']
+extra=N['record_read']['h']+N['process_eval']['h']+144
+insert_space(old_outcome_top,extra)
+N['record_read']['y']=old_outcome_top
+N['process_eval']['y']=p('record_read','b')[1]+72
+remove('quality','record_read');remove('receipt','outcome');remove('process_eval','outcome')
+route('receipt','record_read','받아 쓸 수 있음','b','l')
+route('process_eval','outcome')
+
+# A failed improvement may be parked; the existing verified capability remains
+# usable. A failed proposal must never be stored as an applied improvement.
+review_node('retry_improve','개선안을 고쳐\n다시 시험할까?',1285,0,360,kind='decision')
+review_node('memory_unapplied','장기 기억',1250,0,430,
+            body='시험 결과와 남은 문제를 저장합니다.\n실패한 변경은 적용하지 않고 기존 방법을 유지합니다.',condition='개선 적용 보류')
+passed_y=p('capability','b')[1]+72
+insert_space(N['memory2']['y'],passed_y+N['passed']['h']+80-N['memory2']['y'])
+N['passed'].update(x=700,y=passed_y)
+N['retry_improve']['y']=p('passed','r')[1]-N['retry_improve']['h']/2
+N['memory_unapplied']['y']=N['memory2']['y']
+for k in ['memory2','memory_unapplied']:N[k]['h']=max(N['memory2']['h'],N['memory_unapplied']['h'])
+remove('capability','passed');remove('passed','improve');remove('passed','memory2')
+route('capability','passed','결과')
+route('passed','retry_improve','아니오','r','l')
+route('passed','memory2','예')
+route('retry_improve','memory_unapplied','아니오')
+start,end=p('retry_improve','r'),p('improve','r')
+route('retry_improve','improve','예','r','r',[(1685,start[1]),(1685,end[1])],kind='return')
+start,end=p('memory_unapplied','r'),p('finish','r')
+route('memory_unapplied','finish',sa='r',sb='r',via=[(1710,start[1]),(1710,end[1])])
+
+# Dependency review: inputs precede decisions, returned results re-enter checks,
+# and preparing a change is distinct from using it in the real job.
+N['context_initial']['condition']='요청·변경 반영'
+N['goal']['condition']='요청 기준 초안'
+N['measure0']['condition']='확인 항목·시점'
+N['progress']['produces']=['operation','target','inputs','tool','current_state']
+for i in range(6):N[f'choose{i}']['dispatches']='operation_selected_at_progress'
+
+# Select the applicable version before judging whether its content is usable.
+N['trust']['y'],N['version']['y']=N['version']['y'],N['trust']['y']
+for a,b in [('absent','trust'),('trust','version'),('version','evidence_usable')]:remove(a,b)
+route('absent','version')
+route('version','trust','이번 일에 맞는 자료')
+route('trust','evidence_usable')
+
+# Evidence and rules can invalidate an apparently clear initial request/goal.
+n=review_node('goal_review','목표·범위·완료 기준을\n고쳐야 하는가?',720,0,360,kind='decision')
+insert_space(N['strategy']['y'],n['h']+150)
+n['y']=p('model','b')[1]+60
+remove('model','risk')
+route('model','goal_review')
+start,end=p('goal_review','b'),p('risk','t')
+route('goal_review','risk','아니오',via=[(start[0],end[1]-40),(end[0],end[1]-40)])
+start,end=p('goal_review','r'),p('context_initial','r')
+route('goal_review','context_initial','예 · 요청·조건 재확인','r','r',
+      [(1780,start[1]),(1780,end[1])],kind='return')
+E[-1]['at']=(1400,start[1])
+
+# A received approval is not automatically a valid approval.
+n=review_node('approval_valid','본인·권한·승인 대상이\n모두 맞는가?',1285,0,360,kind='decision')
+insert_space(next(g['y'] for g in G if g['id']=='opg0'),n['h']+100)
+n['y']=p('identity0','b')[1]+64
+remove('identity0','guard')
+route('identity0','approval_valid')
+start,end=p('approval_valid','r'),p('guard','r')
+route('approval_valid','guard','예 · 다시 검사','r','r',[(1735,start[1]),(1735,end[1])],kind='return')
+start,end=p('approval_valid','l'),p('handoff','l')
+route('approval_valid','handoff','아니오 · 다시 요청','l','l',[(1210,start[1]),(1210,end[1])],kind='return')
+
+# New results must pass provenance checks; waiting for acceptance must not send
+# the deliverable again. Only a delivery error justifies another transmission.
+remove('wait','verify')
+start,end=p('wait','b'),p('identity','r')
+route('wait','identity','새 결과 도착','b','r',
+      [(start[0],start[1]+40),(1750,start[1]+40),(1750,end[1])],kind='return')
+E[-1]['at']=(1590,start[1]+40)
+remove('identity_reject','identity')
+start,end=p('identity_reject','b'),p('identity','r')
+route('identity_reject','identity','다시 받은 결과','b','r',
+      [(start[0],start[1]+35),(1750,start[1]+35),(1750,end[1])],kind='return')
+E[-1]['at']=(1590,start[1]+35)
+remove('wait2','delivery')
+start,end=p('wait2','t'),p('receipt','t')
+route('wait2','receipt','답변·수령 상태 확인','t','t',
+      [(start[0],end[1]-36),(end[0],end[1]-36)],kind='return')
+
+# Inspect the prepared delivery package before sending it. Risk and permission
+# are rechecked for this recipient/version, not inherited from an earlier tool.
+pack_top=N['quality']['y']
+old_delivery_top=N['delivery']['y']
+N['pack']['y']=pack_top
+review_node('risk_delivery','빠진 위험 확인',640,p('pack','b')[1]+64,
+            body='받을 사람과 사용할 상황에서 생길 문제를 확인합니다.\n빠진 조건이나 넘기면 안 되는 정보가 없는지 살핍니다.',condition='전달 전')
+N['quality']['y']=p('risk_delivery','b')[1]+64
+N['qualityok']['y']=p('quality','b')[1]+64
+N['repair']['y']=p('qualityok','l')[1]-N['repair']['h']/2
+review_node('delivery_guard','안전장치',640,p('qualityok','b')[1]+80,
+            body='받는 사람·명의·파일·공개 범위를 현재 승인과 대조합니다.\n지킬 규칙과 권한·한도를 다시 확인합니다.',condition='전달 직전')
+review_node('delivery_allowed','전달해도 되는가?',720,p('delivery_guard','b')[1]+64,360,kind='decision')
+review_node('delivery_approval','사람에게 넘기기',1250,0,430,
+            body='필요한 승인이나 수정 조건을 확인합니다.\n답한 사람의 권한과 승인한 대상·버전도 대조합니다.',condition='전달 승인 확인')
+review_node('delivery_hold','전달 보류·중단',120,0,390,
+            body='준비한 결과를 보존하고\n이유와 재개 조건을 남깁니다.',kind='stop')
+for k in ['delivery_approval','delivery_hold']:N[k]['y']=p('delivery_allowed','r')[1]-N[k]['h']/2
+new_delivery_top=max(p(k,'b')[1] for k in ['delivery_allowed','delivery_approval','delivery_hold'])+80
+kept=['pack','risk_delivery','quality','qualityok','repair','delivery_guard','delivery_allowed','delivery_approval','delivery_hold']
+saved_y={k:N[k]['y'] for k in kept}
+insert_space(old_delivery_top,new_delivery_top-old_delivery_top)
+for k,y in saved_y.items():N[k]['y']=y
+for a,b in [('more','quality'),('qualityok','pack'),('pack','delivery')]:remove(a,b)
+route('more','pack','예')
+route('pack','risk_delivery')
+route('risk_delivery','quality')
+route('qualityok','delivery_guard','예')
+route('delivery_guard','delivery_allowed')
+route('delivery_allowed','delivery','예')
+route('delivery_allowed','delivery_approval','확인 필요','r','l',kind='blocked')
+route('delivery_allowed','delivery_hold','전달 불가','l','r',kind='blocked')
+start,end=p('delivery_approval','t'),p('delivery_guard','r')
+route('delivery_approval','delivery_guard','답변 확인 후 재검사','t','r',[(start[0],end[1])],kind='return')
+N['receipt']['title']='전달·인수 상태는?'
+start,end=p('receipt','b'),p('delivery_guard','r')
+route('receipt','delivery_guard','전달 실패\n재시도','b','r',
+      [(start[0],start[1]+40),(1750,start[1]+40),(1750,end[1])],kind='return')
+E[-1]['at']=(1550,start[1]+40)
+remove('delivery_repair','repair')
+start,end=p('delivery_repair','l'),p('repair','l')
+route('delivery_repair','repair','수정','l','l',[(85,start[1]),(85,end[1])],kind='return')
+N['process_eval']['condition']='인수 후 회고'
+
+# Future effects have a scheduled follow-up, while the current job can close.
+n=review_node('effect_wait','대기·후속 관리',1250,0,430,
+            body='나중에 확인할 효과의 담당자와 날짜를 정합니다.\n확인 시점이 오면 성과 추적으로 돌아갑니다.',condition='뒤늦게 나타나는 효과')
+insert_space(N['learnneed']['y'],n['h']+125)
+n['y']=p('outcome','b')[1]+75
+start,end=p('outcome','b'),p('effect_wait','t')
+route('outcome','effect_wait','나중에 확인할 효과',via=[(start[0],start[1]+35),(end[0],start[1]+35)])
+start,end=p('effect_wait','r'),p('outcome','r')
+route('effect_wait','outcome','확인 시점 도래','r','r',[(1730,start[1]),(1730,end[1])],kind='return')
+N['outcome'].update(control_role='current_result_with_optional_followup')
+
+# Prepare a safe test space before changing the proposal. Passing the test
+# permits a distinct application step; merely storing memory is not deployment.
+N['improve']['condition']='시험용 개선안'
+for a,b in [('improveneed','improve'),('improve','testenv'),('testenv','capability')]:remove(a,b)
+start,end=p('improveneed','b'),p('testenv','t')
+route('improveneed','testenv','예',via=[(start[0],end[1]-40),(end[0],end[1]-40)])
+route('testenv','improve','준비됨','r','l')
+route('improve','capability','개선안 시험')
+n=review_node('improve_apply','능력 개선·확장',640,0,520,
+            body='시험을 통과한 범위와 버전만 실제 업무에 반영합니다.\n이후 성과를 살펴 문제가 생기면 다시 보완합니다.',condition='시험 통과 후 적용')
+old_memory_y=N['memory2']['y']
+insert_space(old_memory_y,n['h']+80)
+n['y']=old_memory_y
+remove('passed','memory2')
+route('passed','improve_apply','예')
+route('improve_apply','memory2','적용 내용 기록')
+
+# A normal "no" branch is not an error/stop. Labelled work choices execute one
+# operation, validate its result, and then choose the next required operation.
+normal_branches={('clear','case'),('learnneed','memory_direct'),('improveneed','memory_reuse'),
+                 ('more','context2'),('receipt','wait2'),*[(f'type{i}',f'type{i+1}') for i in range(5)]}
+for e in E:
+    if (e['source'],e['target']) in normal_branches:e['kind']='flow'
+for i in range(6):N[f'choose{i}'].update(selection='one_operation_per_pass')
+context_source_merge=evidence_group['y']+evidence_group['h']+25
+remove('evidence_done','checks_join')
+start,end=p('evidence_done','r'),p('checks_join','t')
+route('evidence_done','checks_join',sa='r',via=[(840,start[1]),(840,context_source_merge),(end[0],context_source_merge)])
+
 def center_route(e):
     if e.get('fixed_route'):
         e['points']=simplify_path(e['points'])
-        assert math.dist(e['points'][0],p(e['source'],e['source_port']))<.01
-        assert math.dist(e['points'][-1],p(e['target'],e['target_port']))<.01
+        start,end=p(e['source'],e['source_port']),p(e['target'],e['target_port'])
+        if len(e['points'])>2:
+            if e['source_port'] in ('t','b'):e['points'][1]=(start[0],e['points'][1][1])
+            else:e['points'][1]=(e['points'][1][0],start[1])
+            if e['target_port'] in ('t','b'):e['points'][-2]=(end[0],e['points'][-2][1])
+            else:e['points'][-2]=(e['points'][-2][0],end[1])
+        e['points'][0],e['points'][-1]=start,end
+        e['points']=simplify_path(e['points'])
         return
     source=N.get(e['source']) or next(g for g in G if g['id']==e['source'])
     target=N[e['target']]
@@ -989,8 +1309,8 @@ def center_route(e):
     pair=(e['source'],e['target'])
     # Use a different midpoint when an incoming and outgoing line would overlap.
     if pair==('state','progress'):
-        sb='t';end=p('progress','t');yy=end[1]-40
-        points=[start,(1205,start[1]),(1205,yy),(end[0],yy),end]
+        sa='b';sb='t';start=p('state',sa);end=p('progress',sb);yy=end[1]-40
+        points=[start,(start[0],yy),(end[0],yy),end]
     elif pair==('record','control'):
         sb='t';end=p('control','t');yy=end[1]-35
         points=[start,(start[0],yy),(end[0],yy),end]
