@@ -7,16 +7,16 @@
 | 무엇 | 어디 | 어떤 내용임 |
 | --- | --- | --- |
 | 실제 판례 24건 대입 검토 | [고난도 판례 스트레스 검토](<실험 결과/실제 판례 24건 스트레스 검토/README.md>) | 판례 파일 170,597개 검사, 실제 판례 24건·후속 2건 대조. 79/77 대응 불일치와 법률 판단·순서도 보완 조건을 기록한 설계 검토 |
-| 실제 판례 27건 스트레스 검토 | [real-precedent-stress-test.md](reviews/real-precedent-stress-test.md) | 판례 170,597개 중 27건을 재료 79개·업무 처리 흐름·사용 구조에 대입. 보강 필요 26·해결 가능 1, 전문가 대비 평균 57%, 뿌리 결함 7개와 노드별 보강 조건 |
-| 정의 2 현행화·기술 검토 | [2026-09-16 검토 기록](reviews/definition-2-update-2026-09-16.md) | 정의 1과의 대응, 공식 기술 자료, 업무 순서 보완과 남은 실제 시험 |
-| 구조 기준선 검토 | [material-baseline-review.md](reviews/material-baseline-review.md) | 59개 설명·57개 세부 책임의 전수 검토, 시스템 실행·운영 복구 보완과 검증 범위 |
+| 실제 판례 27건 스트레스 검토 | [real-precedent-stress-test.md](reviews/판례24건-스트레스검토/real-precedent-stress-test.md) | 판례 170,597개 중 27건을 재료 79개·업무 처리 흐름·사용 구조에 대입. 보강 필요 26·해결 가능 1, 전문가 대비 평균 57%, 뿌리 결함 7개와 노드별 보강 조건 |
+| 정의 2 현행화·기술 검토 | [2026-09-16 검토 기록](reviews/기술검토/definition-2-update-2026-09-16.md) | 정의 1과의 대응, 공식 기술 자료, 업무 순서 보완과 남은 실제 시험 |
+| 구조 기준선 검토 | [material-baseline-review.md](reviews/재료/material-baseline-review.md) | 59개 설명·57개 세부 책임의 전수 검토, 시스템 실행·운영 복구 보완과 검증 범위 |
 | 재료 목록 | [materials.md](materials.md) | 본문 재료 77개와 세부 책임 M01–M57의 대응·입출력·검증 기준 |
-| 목표 적합성 검토 | [material-goal-alignment-review.md](reviews/material-goal-alignment-review.md) | 검토 당시 53개 행 전수 검토와 보완 반영 결과 |
-| 재료 비판 검토 | [material-harsh-critique-review.md](reviews/material-harsh-critique-review.md) | 검토 당시 50개 재료를 목표에 대고 하나씩 비난하고 구멍을 메운 결과임 |
+| 목표 적합성 검토 | [material-goal-alignment-review.md](reviews/재료/material-goal-alignment-review.md) | 검토 당시 53개 행 전수 검토와 보완 반영 결과 |
+| 재료 비판 검토 | [material-harsh-critique-review.md](reviews/재료/material-harsh-critique-review.md) | 검토 당시 50개 재료를 목표에 대고 하나씩 비난하고 구멍을 메운 결과임 |
 | 돌아가는 규칙 | [runtime.md](runtime.md) | 에이전트가 실제로 일할 때 지키는 약속임 |
 | 채점 기준 | [evaluation.md](evaluation.md) | 잘했는지 못했는지 따지는 잣대임 |
-| 계통 배치 검토 | [material-system-placement-review.md](reviews/material-system-placement-review.md) | 재료 55개의 배치 근거와 재배치 반영 결과임 |
-| 계통 배치 재검토 | [material-system-placement-review-2.md](reviews/material-system-placement-review-2.md) | 분리 전 50행 기준 재판정 — 옮길 행 0, 경계 보강 8행, 실무 빈자리 1행 제안임 |
+| 계통 배치 검토 | [material-system-placement-review.md](reviews/재료/material-system-placement-review.md) | 재료 55개의 배치 근거와 재배치 반영 결과임 |
+| 계통 배치 재검토 | [material-system-placement-review-2.md](reviews/재료/material-system-placement-review-2.md) | 분리 전 50행 기준 재판정 — 옮길 행 0, 경계 보강 8행, 실무 빈자리 1행 제안임 |
 | 검토 자료 | [reviews/](reviews/) | 직무별 업무 검토, 어려운 사건 시험 결과가 들어 있음 |
 | 실험 결과 | [실험 결과/](<실험 결과/>) | 166개 직무 사례의 설계·모형 검토 기록과 재실행 코드. 실제 전문가 구현·대체의 증거와 구분함 |
 | 그림 설계 메모 | [도식-설계.md](도식/도식-설계.md) | 전개 그림을 왜 그렇게 그렸는지 적어둔 메모임 |

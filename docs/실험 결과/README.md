@@ -16,7 +16,7 @@
 
 보완: 조건을 판정할 진단의 의존과 본 실행의 의존을 분리했습니다. 034·097·112·129·135는 보완 후 재전개를 포함합니다.
 
-[전체 직무 CSV](전체%20직무%20결과.csv) · [기존 종합 보고서](../reviews/occupation-dynamic-simulation.md)
+[전체 직무 CSV](전체%20직무%20결과.csv) · [기존 종합 보고서](../reviews/직무/occupation-dynamic-simulation.md)
 
 ## 법률 복합사건 심층 실험
 
@@ -220,7 +220,7 @@
 프로젝트 최상위에서 실행합니다.
 
 ```sh
-python3 "docs/실험 결과/재현/occupation-dynamic-models.py"
+python3 "docs/실험 결과/직무-동적모델-재현/occupation-dynamic-models.py"
 ```
 
 직무별 탁상 모의는 작성된 판단 기록이며 이 코드로 생성되는 성능 시험이 아닙니다.

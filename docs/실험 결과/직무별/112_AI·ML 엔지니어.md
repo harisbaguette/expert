@@ -24,4 +24,4 @@
 
 가정 응답: 추가 검색이 허용돼 필요한 근거를 확보하고 고객 경계·근거 검수가 통과. 검색 보완→근거 있는 답변 경로로 전개.
 
-[전체 결과](../README.md) · [수식·재료 보완과 검토 방법](../../reviews/occupation-dynamic-simulation.md)
+[전체 결과](../README.md) · [수식·재료 보완과 검토 방법](../../reviews/직무/occupation-dynamic-simulation.md)

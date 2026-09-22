@@ -20,4 +20,4 @@
 | 첫 도달 상태 | 모든 요구 동시 충족 불가, 일정·범위·비용 조정 필요 |
 | 첫 판정 | 목표·조건 조정 필요 |
 
-[전체 결과](../README.md) · [수식·재료 보완과 검토 방법](../../reviews/occupation-dynamic-simulation.md)
+[전체 결과](../README.md) · [수식·재료 보완과 검토 방법](../../reviews/직무/occupation-dynamic-simulation.md)

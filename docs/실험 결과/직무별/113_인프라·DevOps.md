@@ -20,4 +20,4 @@
 | 첫 도달 상태 | 복구 설계·가능한 조치 수행, 전체 서비스 복구는 외부 의존 |
 | 첫 판정 | 외부 결과·관측 대기 |
 
-[전체 결과](../README.md) · [수식·재료 보완과 검토 방법](../../reviews/occupation-dynamic-simulation.md)
+[전체 결과](../README.md) · [수식·재료 보완과 검토 방법](../../reviews/직무/occupation-dynamic-simulation.md)
