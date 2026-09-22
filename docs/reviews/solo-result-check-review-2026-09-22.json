@@ -1,0 +1,109 @@
+{
+  "materials": 79,
+  "usage_types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "system_counts": {
+    "환경": 10,
+    "지식": 16,
+    "규칙": 18,
+    "실무": 24,
+    "검증": 9,
+    "학습": 2
+  },
+  "illustrations": 0,
+  "arrowheads": 165,
+  "center_ports_checked": 338,
+  "arrowheads_touch_boundary": true,
+  "alignment_checks": 735,
+  "alignment_max_difference_px": 0.000844,
+  "geometry_issues": [],
+  "flow_audit": {
+    "starts": [
+      "live_start",
+      "start",
+      "watch"
+    ],
+    "terminals": [
+      "finish",
+      "hold",
+      "unqualified"
+    ],
+    "reachable_actions": 121,
+    "reference_inputs": [
+      "contract",
+      "ethics",
+      "limit",
+      "org",
+      "platform",
+      "principles",
+      "rights",
+      "style",
+      "user_rule"
+    ],
+    "used_materials": 78,
+    "intentionally_unused": [
+      "나눠 맡기기"
+    ],
+    "missing_materials": [],
+    "unreachable_actions": [],
+    "nonterminal_dead_ends": [],
+    "required_preparation": {
+      "branches": [
+        "search",
+        "original"
+      ],
+      "execution_order": "unspecified",
+      "completion_groups": [
+        "evidence",
+        "rules"
+      ],
+      "completion_node": "checks_join",
+      "bypass_to_context": false
+    }
+  },
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "30eeaf17f77720dfb4e4231b104d59f3c199f177e97b34aafaa8586b8750a869",
+  "rendered_dimensions": [
+    1800,
+    17800.0
+  ],
+  "display_width": 1100,
+  "limitation": "명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.",
+  "change": "못 찾음·없음 구분을 선택 항목에서 제외하고, 검색·조회 및 선택 자료의 결과를 모은 뒤 근거의 신뢰성·적합성 바로 전에 확인하도록 이동.",
+  "common_result_checks": {
+    "sequence": [
+      "absent",
+      "trust",
+      "version"
+    ],
+    "optional_inputs": [
+      "now",
+      "case_ref",
+      "reference",
+      "reuse"
+    ],
+    "bypass_to_trust": false,
+    "input_label": "검색 결과"
+  },
+  "preserved": [
+    "79개 재료와 기존 카드 문구",
+    "카드 크기와 전체 도식 크기",
+    "변경 구간 외 모든 카드 좌표",
+    "자료·규칙 모두 확인 후 진행 조건",
+    "문서의 나머지 절"
+  ],
+  "visual_review": {
+    "before_after_display_width": 650,
+    "inspected_region": "정보·자료 찾기부터 자료의 시점·버전까지",
+    "geometry_issues": []
+  },
+  "png_sha256": "3343503ac290ee40610433076660820cc58970a9d239d50387e01c7d8de8ad5e",
+  "mermaid_render": {
+    "success": true,
+    "nodes": 131,
+    "edges": 169
+  }
+}

@@ -1,17 +1,25 @@
 #!/usr/bin/env python3
 """단독-재료-연결구조.json(현재 정본, 79재료)을 읽어
-네이티브 Mermaid flowchart(elk 레이아웃) 소스를 생성한다.
+네이티브 Mermaid flowchart(dagre 레이아웃) 소스를 생성한다.
 
 정의1 문서('## 사용 구조' > '### 1. 단독 상황')에 이미 박혀 있는
 이미지(solo-material-relations.png)와 같은 데이터를 그대로 쓰되,
 Mermaid 엔진이 배치를 다시 계산하므로 픽셀 단위 동일 위치는 낼 수 없고
 흐름 순서·묶음(subgraph)·갈래 방향 같은 상대 배치만 맞춘다.
 
-도식-설계.md에서 검증된 설정을 그대로 가져다 쓴다:
-  - layout: elk, nodePlacementStrategy: NETWORK_SIMPLEX, mergeEdges: false,
-    keepEntryNodeOnTop: true, curve: linear (basis 아님)
+레이아웃은 dagre(기본 렌더러)를 쓴다 — elk는 이 그래프에서 진입 노드(시작)를
+맨 위에, 종료 노드를 맨 아래에 두지 못했다(keepEntryNodeOnTop·
+forceNodeModelOrder·considerModelOrder·선언 순서 재배치를 다 걸어도 시작 노드가
+전체 높이의 36~49% 지점에 그대로 남음 — elk NETWORK_SIMPLEX가 진짜 위상 순서가
+아니라 간선 길이 합을 기준으로 배치하기 때문으로 보임). 같은 데이터를 dagre로
+그리면 별도 설정 없이 시작 노드가 0.1~3.2%, 종료 노드가 99.4% 지점에 온다
+(단독-재료-연결구조-Mermaid-렌더.cjs 로 렌더 후 좌표 확인, 2026-09-22). 도식-설계.md의
+elk 권고는 노드 113개짜리 다른(더 큰) 순서도 기준이고, 이 도식(129개 안팎)은
+dagre로 그려도 폭이 elk보다 오히려 좁다(6249px < elk 6607px).
   - 6모양 6색 분류 + linkStyle 6역할 색상
   - 화살표는 항상 A --> B (A <-- B 는 렌더러가 조용히 버림)
+  - 시작/종료 노드는 위치(dagre가 위상대로 배치)에 더해 글자(▶ 시작 ·/■ 종료 ·)와
+    색(termstart/termend)으로도 이중 표시한다
 
 사용법:
   python3 단독-재료-연결구조-Mermaid-생성.py [--out FILE] [--embed]
@@ -85,11 +93,17 @@ def esc(s: str) -> str:
 
 def node_label(n: dict, marker: str = '') -> str:
     title = esc(n.get('title', n['id']))
+    if n.get('material') == '현재 작업 정보' and n.get('condition'):
+        title += ' · ' + esc(n['condition'])
     if n.get('kind') == 'reference':
         title = '참조 기준 · ' + title
+    if n.get('priority_rank'):
+        title = f'{n["priority_rank"]}순위 · ' + title
     if marker:
         title = marker + title
     body = n.get('body', '')
+    if n.get('caption'):
+        body = '\n'.join(filter(None, [n['caption'], body]))
     if body:
         return f"<b>{title}</b><br/><span style='font-size:11px'>{esc(body)}</span>"
     return f'<b>{title}</b>'
@@ -112,8 +126,8 @@ def build(data: dict) -> str:
     groups = data['groups']
     edges = data['edges']
 
-    # 흐름 간선(참조 제외)만으로 진입/종료 노드 계산 — ELK 배치는 시작을 맨 위로 고정하지 못하므로
-    # 위치가 아니라 글자·색으로 시작/종료를 구분한다
+    # 흐름 간선(참조 제외)만으로 진입/종료 노드 계산 — dagre가 이 순서대로 시작을 맨 위에,
+    # 종료를 맨 아래에 배치해 주므로 위치가 곧 근거이고, 글자·색은 보조 표시다
     indeg, outdeg = {}, {}
     for e in edges:
         if e['kind'] == 'reference':
@@ -165,11 +179,9 @@ def build(data: dict) -> str:
         return f'{indent}{safe_id(n["id"])}{style["open"]}{label}{style["close"]}'
 
     lines = []
-    lines.append('%%{init: {"flowchart": {"defaultRenderer": "elk", "htmlLabels": true, '
+    lines.append('%%{init: {"flowchart": {"defaultRenderer": "dagre-wrapper", "htmlLabels": true, '
                   '"nodeSpacing": 24, "rankSpacing": 32, "padding": 16, "wrappingWidth": 300, '
-                  '"curve": "linear", "useMaxWidth": true}, '
-                  '"elk": {"nodePlacementStrategy": "NETWORK_SIMPLEX", "mergeEdges": false, '
-                  '"keepEntryNodeOnTop": true}} }%%')
+                  '"curve": "linear", "useMaxWidth": true}} }%%')
     lines.append('flowchart TB')
     lines.append('')
 
@@ -180,6 +192,8 @@ def build(data: dict) -> str:
         g = group_by_id[gid]
         title = g.get('title', '').strip()
         gtitle = esc(title) if title else ' '
+        if gid == 'rank':
+            gtitle = '이 도식의 업무 기준 순서 · 같은 순위는 함께 적용'
         lines.append(f'{indent}subgraph {safe_id(gid)}["{gtitle}"]')
         inner = indent + '  '
         members = sorted(
@@ -195,12 +209,16 @@ def build(data: dict) -> str:
                 emit_group(m[1], inner)
         lines.append(f'{indent}end')
 
+    # dagre는 ELK와 달리 선언 순서를 배치에 안 쓰고 그래프 위상(누가 누구를 가리키는지)만
+    # 본다(도식-설계.md 175행) — 그래서 선언 순서 재배치가 필요 없고, 원래 있던 대로
+    # 그룹은 y좌표순, 묶이지 않은 노드도 y좌표순으로 그대로 나열한다
+    ungrouped = [n for n in nodes if n['id'] not in node_group]
+    ungrouped.sort(key=lambda n: n['y'])
+
     for g in top_groups:
         emit_group(g['id'], '  ')
         lines.append('')
 
-    ungrouped = [n for n in nodes if n['id'] not in node_group]
-    ungrouped.sort(key=lambda n: n['y'])
     for n in ungrouped:
         lines.append(node_line(n, '  '))
     lines.append('')

@@ -12,7 +12,7 @@ const dir=process.argv[2]||'/tmp/solo-material-relations';fs.mkdirSync(dir,{recu
  await page.setContent('<body style="margin:0;background:white">'+svg+'</body>');
  await page.evaluate(()=>document.fonts.ready);
  const measured=await page.evaluate(()=>{const rect=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}};
- return{nodes:[...document.querySelectorAll('.node,.material')].map(n=>({id:n.dataset.id,shape:rect(n.querySelector('.shape')),texts:[...n.querySelectorAll(':scope > text')].map(t=>({text:t.textContent,...rect(t)}))})),
+ return{nodes:[...document.querySelectorAll('.node,.material')].map(n=>({id:n.dataset.id,shape:rect(n.querySelector('.shape')),texts:[...n.querySelectorAll(':scope > text')].map(t=>({text:t.textContent,role:t.getAttribute('class'),...rect(t)}))})),
  labels:[...document.querySelectorAll('.edge-label')].map(e=>({id:e.dataset.edge,...rect(e)})),
  arrowheads:[...document.querySelectorAll('.arrowhead')].map(e=>({id:e.dataset.edge,...rect(e)})),
  system_labels:[...document.querySelectorAll('.system-label')].map(e=>({id:e.parentElement.dataset.id,text:e.textContent,...rect(e)})),

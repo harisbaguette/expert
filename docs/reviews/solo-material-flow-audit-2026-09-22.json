@@ -1,0 +1,2058 @@
+{
+  "materials": 79,
+  "usage_types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "system_counts": {
+    "환경": 10,
+    "지식": 16,
+    "규칙": 18,
+    "실무": 24,
+    "검증": 9,
+    "학습": 2
+  },
+  "illustrations": 0,
+  "arrowheads": 164,
+  "material_coverage": [
+    {
+      "material": "시작 신호",
+      "usage": "단계별",
+      "source_condition": "요청·변화·정해진 시점·조건을 감지해 알릴 때",
+      "instances": [
+        {
+          "instance": "signal",
+          "visible_text": "요청이나 답변이 오면\n어느 업무를 시작하거나 이어 갈지 알립니다.",
+          "inputs": [
+            "start",
+            "early",
+            "change",
+            "live"
+          ],
+          "outputs": [
+            "case"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "먼저 알아채기",
+      "usage": "조건부",
+      "source_condition": "상황을 계속 살피고 필요한 일을 먼저 찾아내도록 맡겨진 업무에서",
+      "instances": [
+        {
+          "instance": "early",
+          "visible_text": "반복 문의가 늘어나는 등 새 문제를 찾습니다.\n안내문을 고쳐 문의를 줄일 수 있다면 개선 기회입니다.\n맡은 범위에서 대응이 필요한 이유와 시급함을 알립니다.",
+          "inputs": [
+            "watchtype"
+          ],
+          "outputs": [
+            "signal"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "변경 감시·반영",
+      "usage": "조건부",
+      "source_condition": "업무에 영향을 주는 정보의 변경을 계속 따라가야 할 때 · 맡을 때 적용 규칙이 다투어지고 있을 때",
+      "instances": [
+        {
+          "instance": "change",
+          "visible_text": "이미 맡은 일의 마감일·자료·규칙이 바뀌면\n어떤 판단과 결과를 다시 확인해야 하는지 알립니다.",
+          "inputs": [
+            "watchtype"
+          ],
+          "outputs": [
+            "signal"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "업무별 정보",
+      "usage": "단계별",
+      "source_condition": "업무를 시작할 때 · 대상·상황·조건에 관한 정보가 새로 확인되거나 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "case",
+          "visible_text": "무엇을 누구에게 언제까지 해 줘야 하는지 모읍니다.\n대상의 현재 상황과 새로 받은 자료도 함께 정리합니다.",
+          "inputs": [
+            "signal"
+          ],
+          "outputs": [
+            "understand"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "정보·자료 이해",
+      "usage": "단계별",
+      "source_condition": "새 정보를 접하거나 기존 자료를 다시 살펴볼 때 · 내용이나 맥락이 달라졌을 때",
+      "instances": [
+        {
+          "instance": "understand",
+          "visible_text": "자료를 읽고 어떤 뜻인지 파악합니다.\n확인된 사실, 누군가의 주장, 아직 모르는 부분을 나눕니다.",
+          "inputs": [
+            "case"
+          ],
+          "outputs": [
+            "intent"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "지시·의도 파악",
+      "usage": "상시",
+      "source_condition": "새 요청을 받았을 때 · 지시가 바뀌었을 때 · 요청의 뜻이 모호하거나 이해가 어긋났을 때 · 맡긴 말의 분류와 실제 자료가 어긋날 때",
+      "instances": [
+        {
+          "instance": "intent",
+          "visible_text": "어떤 결과를 원하며 어디까지 맡겼는지 파악합니다.\n뜻에 따라 일의 범위가 달라질 부분은 물어서 확인합니다.",
+          "inputs": [
+            "understand",
+            "communicate0"
+          ],
+          "outputs": [
+            "clear"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "사람과 소통",
+      "usage": "조건부",
+      "source_condition": "맡은 대화·응대가 이어지는 동안 · 질문·답변·설명·제안이 필요할 때 · 오해를 풀거나 이해·의견·합의 여부를 확인할 때 · 접촉 자체가 근거나 상대의 입장에 영향을 줄 수 있을 때",
+      "instances": [
+        {
+          "instance": "communicate0",
+          "visible_text": "뜻에 따라 일의 범위가 달라진다면\n구체적으로 묻고 어떤 뜻인지 답을 확인합니다.",
+          "inputs": [
+            "clear"
+          ],
+          "outputs": [
+            "intent"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "talk",
+          "visible_text": "상대가 이해할 수 있게 묻거나 설명합니다.\n받은 답과 서로 이해한 내용이 맞는지 확인합니다.",
+          "inputs": [
+            "choose3"
+          ],
+          "outputs": [
+            "out3"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "실시간 대화",
+      "usage": "조건부",
+      "source_condition": "바로 답을 주고받아야 하는 대화에서",
+      "instances": [
+        {
+          "instance": "live",
+          "visible_text": "통화나 실시간 채팅을 연결해 요청·답변을 받습니다.\n말이 겹치거나 연결이 끊기면 중단·재접속을 처리합니다.",
+          "inputs": [
+            "live_start"
+          ],
+          "outputs": [
+            "signal"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "문제·목표·완료 조건",
+      "usage": "상시",
+      "source_condition": "이해한 요청을 업무 목표로 정리할 때 · 문제 상황·목표·요구 조건이나 판단의 바탕이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "goal",
+          "visible_text": "무엇을 해결하고 무엇부터 할지 정합니다.\n어떤 결과와 증거가 있어야 끝났다고 볼지도 정합니다.",
+          "inputs": [
+            "clear"
+          ],
+          "outputs": [
+            "measure0"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "성과 추적",
+      "usage": "단계별",
+      "source_condition": "목표 달성 여부를 무엇으로 언제 확인할지 정할 때 · 정해 둔 확인 시점 · 나중에 효과나 문제가 드러났을 때",
+      "instances": [
+        {
+          "instance": "measure0",
+          "visible_text": "목표 달성 여부를 무엇으로 언제 확인할지 정합니다.\n정한 항목·시점을 목표와 함께 다음 작업에 넘깁니다.",
+          "inputs": [
+            "goal"
+          ],
+          "outputs": [
+            "search",
+            "original"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "outcome",
+          "visible_text": "정한 시점에 실제로 목표를 이뤘는지 확인합니다.\n난이도, 주변 상황, 쓴 자원의 차이를 고려해 비교합니다.",
+          "inputs": [
+            "receipt",
+            "process_eval"
+          ],
+          "outputs": [
+            "learnneed"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "나눠 맡기기",
+      "usage": "조건부",
+      "source_condition": "여러 AI에게 작업을 전달할 때 · AI 사이의 정보 교환·진행·결과 회수와 보완을 관리할 때",
+      "instances": [
+        {
+          "instance": "unused",
+          "visible_text": "여러 AI에게 일을 나눌 때 쓰는 기능입니다.\n이 상황에서는 쓰지 않습니다. 한 전문가가 직접 처리합니다.",
+          "inputs": [
+            "plan"
+          ],
+          "outputs": [],
+          "application": null,
+          "priority_rank": null,
+          "unused": true
+        }
+      ]
+    },
+    {
+      "material": "정보·자료 찾기",
+      "usage": "단계별",
+      "source_condition": "업무에 필요한 정보·지식·방법·자료가 없거나 부족할 때",
+      "instances": [
+        {
+          "instance": "search",
+          "visible_text": "판단에 부족한 정보나 방법, 원문을 찾습니다.\n어디서 찾았고 무엇을 아직 못 찾았는지 남깁니다.",
+          "inputs": [
+            "measure0"
+          ],
+          "outputs": [
+            "absent",
+            "now",
+            "case_ref",
+            "reference",
+            "reuse",
+            "trust"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "못 찾음·없음 구분",
+      "usage": "단계별",
+      "source_condition": "없음·해당 없음을 결론이나 근거로 적을 때 · 찾기나 조회가 빈손으로 끝났을 때",
+      "instances": [
+        {
+          "instance": "absent",
+          "visible_text": "검색에 안 나왔다고 없다고 단정하지 않습니다.\n찾아본 범위와 정말 없다고 말할 근거를 확인합니다.",
+          "inputs": [
+            "search"
+          ],
+          "outputs": [
+            "trust"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "현재 값·상태 확인",
+      "usage": "조건부",
+      "source_condition": "현재 값이나 상태에 따라 판단·실행이 달라질 때",
+      "instances": [
+        {
+          "instance": "now",
+          "visible_text": "지금 값이나 상태에 따라 판단이 달라지면 조회합니다.\n처리됐는지 모르는 거래는 다시 실행하기 전에 먼저 확인합니다.",
+          "inputs": [
+            "search"
+          ],
+          "outputs": [
+            "trust"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "적용 사례",
+      "usage": "조건부",
+      "source_condition": "규칙이나 방법의 적용 과정·결과를 참고할 때 · 사례의 조건을 이번 업무와 비교해야 할 때",
+      "instances": [
+        {
+          "instance": "case_ref",
+          "visible_text": "비슷한 일에서 쓴 방법과 결과를 살핍니다.\n이번 일에도 같은 조건이 맞는지 비교합니다.",
+          "inputs": [
+            "search"
+          ],
+          "outputs": [
+            "trust"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "참고 자료",
+      "usage": "조건부",
+      "source_condition": "업무를 이해하거나 판단·작업에 참고할 자료가 필요할 때",
+      "instances": [
+        {
+          "instance": "reference",
+          "visible_text": "일을 이해하거나 만들 때 필요한\n원리, 방법, 표현의 예를 찾아 참고합니다.",
+          "inputs": [
+            "search"
+          ],
+          "outputs": [
+            "trust"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "재사용 자료",
+      "usage": "조건부",
+      "source_condition": "다시 쓸 자료·서식·부품·코드를 정리하거나 가져다 쓸 때 · 이용 권한이나 사용할 도구·환경이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "reuse",
+          "visible_text": "서식이나 부품을 다시 가져다 씁니다.\n사용할 권리가 있고 현재 환경에 맞는지 확인합니다.",
+          "inputs": [
+            "search"
+          ],
+          "outputs": [
+            "trust"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "근거의 신뢰성·적합성",
+      "usage": "상시",
+      "source_condition": "정보나 자료를 판단·실행·설명의 근거로 쓸 때 · 남이나 상대가 낸 자료를 근거로 받을 때",
+      "instances": [
+        {
+          "instance": "trust",
+          "visible_text": "누가 어디서 얻은 자료인지 살펴 믿을 수 있는지 확인합니다.\n이번 일에 맞는지, 결과를 판단할 곳에서 인정할 근거인지도 확인합니다.",
+          "inputs": [
+            "reference",
+            "search",
+            "absent",
+            "now",
+            "case_ref",
+            "reuse"
+          ],
+          "outputs": [
+            "version"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "자료의 시점·버전",
+      "usage": "상시",
+      "source_condition": "업무에 맞는 자료를 고를 때 · 업무의 대상·시점이나 자료가 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "version",
+          "visible_text": "이번 일을 판단할 날짜에 맞는 자료를 고릅니다.\n어떤 버전을 언제 확인했는지 원문과 함께 남깁니다.",
+          "inputs": [
+            "trust"
+          ],
+          "outputs": [
+            "knowledge",
+            "experience",
+            "memory"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "업무 지식",
+      "usage": "상시",
+      "source_condition": "업무를 이해하고 판단하거나 수행할 때 · 지식을 구성하거나 근거·개념·관계·적용 조건이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "knowledge",
+          "visible_text": "검증된 원리와 방법을 이번 일의 판단에 씁니다.\n어떤 조건에서 맞고 어떤 예외가 있는지도 함께 살핍니다.",
+          "inputs": [
+            "version"
+          ],
+          "outputs": [
+            "context"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "실전 경험·감각",
+      "usage": "상시",
+      "source_condition": "상황을 이해하고 어떤 방법으로 대응할지 정할 때",
+      "instances": [
+        {
+          "instance": "experience",
+          "visible_text": "비슷한 경험에서 중요한 단서와 대응 요령을 떠올립니다.\n지금 상황에도 맞는지 살펴 판단에 보탭니다.",
+          "inputs": [
+            "version"
+          ],
+          "outputs": [
+            "context"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "장기 기억",
+      "usage": "단계별",
+      "source_condition": "다음 업무에도 남길 정보를 보관하거나 이전 기억을 찾을 때 · 기억할 내용이 바뀌거나 잘못된 것으로 확인됐을 때 · 기댔던 규칙·근거가 바뀌었을 때 · 보관할 필요가 없어졌을 때",
+      "instances": [
+        {
+          "instance": "memory",
+          "visible_text": "지난번에 확인한 사실, 결정, 약속과 교훈을 꺼냅니다.\n이번 일과 관련 있고 아직 유효한 내용만 사용합니다.",
+          "inputs": [
+            "version"
+          ],
+          "outputs": [
+            "context"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "memory2",
+          "visible_text": "확인한 사실, 약속, 결정과 교훈을 근거와 함께 보관합니다.\n검증된 개선은 다음 일에 쓰고 잘못된 기억은 고칩니다.",
+          "inputs": [
+            "passed"
+          ],
+          "outputs": [
+            "finish"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "memory_direct",
+          "visible_text": "이번 건의 사실과 결정, 약속과 교훈을 보관합니다.\n남은 책임과 나중에 확인할 일도 함께 남깁니다.",
+          "inputs": [
+            "learnneed"
+          ],
+          "outputs": [
+            "finish"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "memory_reuse",
+          "visible_text": "유지할 방법과 그 방법이 맞는 조건을 보관합니다.\n능력을 바꾸지 않아도 교훈은 다음 일에 사용합니다.",
+          "inputs": [
+            "improveneed"
+          ],
+          "outputs": [
+            "finish"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "규칙·기준 원문",
+      "usage": "단계별",
+      "source_condition": "업무에 적용할 규칙·기준의 원문을 확보하거나 다시 확인할 때 · 규칙이나 적용 범위·시점이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "original",
+          "visible_text": "적용할 규칙의 원문을 확보합니다.\n누가 정했으며 어디에 언제 적용되는지 확인합니다.",
+          "inputs": [
+            "measure0"
+          ],
+          "outputs": [
+            "law"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "법·의무 기준",
+      "usage": "상시",
+      "source_condition": "해당 법과 기준이 적용되는 업무 전반 · 적용 지역·대상·시점이나 법이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "law",
+          "visible_text": "법의 우선순위와 이번 일에 적용되는 시점을 살핍니다.\n특별 규정, 위임 범위, 유효한 명령과 예외도 확인합니다.",
+          "inputs": [
+            "original"
+          ],
+          "outputs": [
+            "priority"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "직업 윤리·의무",
+      "usage": "상시",
+      "source_condition": "직업·역할에 따른 윤리와 의무가 적용되는 동안 · 역할·관계·이해관계가 바뀌었을 때 · 당사자가 여럿이거나 늘었을 때",
+      "instances": [
+        {
+          "instance": "ethics",
+          "visible_text": "비밀 보호 등 반드시 지켜야 할 직업상 의무를 확인합니다.\n관계자의 이익이나 역할이 충돌하는지도 살핍니다.",
+          "inputs": [],
+          "outputs": [],
+          "application": "priority",
+          "priority_rank": 1,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "에이전트 기본 원칙",
+      "usage": "상시",
+      "source_condition": "모든 판단과 행동에서",
+      "instances": [
+        {
+          "instance": "principles",
+          "visible_text": "맡은 목적과 범위를 지키고 사실대로 알립니다.\n외부 자료에 적힌 말로 목표나 권한을 바꾸지 않습니다.",
+          "inputs": [],
+          "outputs": [],
+          "application": "priority",
+          "priority_rank": 1,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "계약·합의 조건",
+      "usage": "상시",
+      "source_condition": "합의된 조건이나 종료 후 남는 의무가 적용되는 동안 · 합의가 변경·취소·종료됐을 때",
+      "instances": [
+        {
+          "instance": "contract",
+          "visible_text": "약속한 범위와 기한, 권리와 의무를 확인합니다.\n변경된 약속과 일이 끝난 뒤에도 남는 의무를 반영합니다.",
+          "inputs": [],
+          "outputs": [],
+          "application": "priority",
+          "priority_rank": 2,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "플랫폼·제출처 규정",
+      "usage": "상시",
+      "source_condition": "서비스를 이용하거나 결과를 제출할 때 · 서비스·계정·이용 방식·제출 유형이나 적용 규정이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "platform",
+          "visible_text": "사용하는 서비스와 결과를 받는 곳의 규칙을 확인합니다.\n현재 계정과 제출 방식에 맞는 필수 조건을 적용합니다.",
+          "inputs": [],
+          "outputs": [],
+          "application": "priority",
+          "priority_rank": 2,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "조직 규칙",
+      "usage": "상시",
+      "source_condition": "맡은 업무를 진행하는 동안 · 규정이나 역할·권한이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "org",
+          "visible_text": "이번 업무에 적용되는 조직의 규정을 확인합니다.\n맡은 역할과 조직에서 허용한 예외도 함께 살핍니다.",
+          "inputs": [],
+          "outputs": [],
+          "application": "priority",
+          "priority_rank": 3,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "사용자 지정 규칙",
+      "usage": "상시",
+      "source_condition": "사용자가 정한 추가 조건이 적용되는 동안 · 조건이나 선호가 바뀌거나 취소됐을 때",
+      "instances": [
+        {
+          "instance": "user_rule",
+          "visible_text": "사용자가 추가로 정한 조건을 확인합니다.\n반드시 지킬 조건과 선호를 나누고 변경된 요구를 반영합니다.",
+          "inputs": [],
+          "outputs": [],
+          "application": "priority",
+          "priority_rank": 4,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "표현 방식·스타일",
+      "usage": "조건부",
+      "source_condition": "말투·문체·디자인·연출 등 표현 기준을 정하거나 맞춰야 할 때",
+      "instances": [
+        {
+          "instance": "style",
+          "visible_text": "받는 사람과 쓰일 곳에 맞는 말투와 디자인을 정합니다.\n결과를 만들 때 같은 기준을 유지합니다.",
+          "inputs": [],
+          "outputs": [],
+          "application": "priority",
+          "priority_rank": 5,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "규칙의 적용·우선순위",
+      "usage": "상시",
+      "source_condition": "업무에 적용할 규칙을 정할 때 · 규칙·지시가 충돌하거나 바뀌었을 때 · 변경·예외 요청을 판단할 때 · 예외 요건을 사실로 입증해야 할 때",
+      "instances": [
+        {
+          "instance": "priority",
+          "visible_text": "법에서 정한 적용 관계를 먼저 확인합니다.\n서로 충돌한 조항만 위 순위로 정합니다.\n충돌하지 않은 조건과 보호 기준도 함께 지킵니다.\n예외를 허용할 사람과 필요한 증거를 확인합니다.",
+          "inputs": [
+            "law",
+            "rank"
+          ],
+          "outputs": [
+            "context"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "현재 작업 정보",
+      "usage": "상시",
+      "source_condition": "모델이 판단할 때마다",
+      "instances": [
+        {
+          "instance": "context",
+          "visible_text": "목표, 자료, 지킬 규칙과 진행 상황에서\n이번 판단에 필요한 정보를 골라 제공합니다.",
+          "inputs": [
+            "knowledge",
+            "memory",
+            "experience",
+            "priority",
+            "context2"
+          ],
+          "outputs": [
+            "model"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "context2",
+          "visible_text": "검사한 결과와 진행 상황을 다음 작업의 입력에 보탭니다.\n잘못된 부분과 부족한 근거는 보완할 일로 표시합니다.",
+          "inputs": [
+            "vdecision",
+            "more",
+            "type5",
+            "repair"
+          ],
+          "outputs": [
+            "context"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "AI 모델",
+      "usage": "상시",
+      "source_condition": "정보를 이해·판단하거나 업무에 필요한 내용을 만들 때",
+      "instances": [
+        {
+          "instance": "model",
+          "visible_text": "지금 필요한 정보를 읽고 뜻을 이해하거나 판단합니다.\n필요한 답이나 내용을 만듭니다.",
+          "inputs": [
+            "context"
+          ],
+          "outputs": [
+            "strategy",
+            "risk"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "대안·전략 판단",
+      "usage": "상시",
+      "source_condition": "목표를 이룰 방법을 선택하거나 바꿀 때 · 업무를 맡을지, 계속할지, 미루거나 중단할지 판단할 때",
+      "instances": [
+        {
+          "instance": "strategy",
+          "visible_text": "방법마다 효과, 근거, 비용과 위험을 비교합니다.\n더 조사할지, 진행할지, 미루거나 중단할지 정합니다.",
+          "inputs": [
+            "model",
+            "risk"
+          ],
+          "outputs": [
+            "qualified"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "빠진 위험 확인",
+      "usage": "단계별",
+      "source_condition": "업무를 맡거나 계획할 때 · 실행하기 전 · 진행 중 상황이 바뀌었을 때 · 결과를 넘기기 전",
+      "instances": [
+        {
+          "instance": "risk",
+          "visible_text": "계획하거나 실행하고 넘기기 전에\n놓친 조건과 예상 못 한 피해가 없는지 살핍니다.",
+          "inputs": [
+            "model"
+          ],
+          "outputs": [
+            "strategy"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "업무 절차·실행 계획",
+      "usage": "단계별",
+      "source_condition": "선택한 방법을 실행 계획으로 옮길 때 · 방법·일정·자원이나 입력·작업 진행 상태가 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "plan",
+          "visible_text": "방법을 구체적인 작업으로 나누고 필요한 입력과 결과를 정합니다.\n먼저 할 일, 함께 할 일, 검사할 때와 중단·재개 조건을 연결합니다.",
+          "inputs": [
+            "qualified",
+            "qualified_test"
+          ],
+          "outputs": [
+            "unused",
+            "progress"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "작업 진행·연결",
+      "usage": "상시",
+      "source_condition": "업무를 맡은 뒤 종료·인계할 때까지 · 계속 운영하도록 맡은 업무의 각 처리 과정에서",
+      "instances": [
+        {
+          "instance": "progress",
+          "visible_text": "끝난 일은 남겨 두고 지금 할 수 있는 다음 작업을 고릅니다.\n기존 계획으로 해결되지 않으면 방법과 계획부터 다시 정합니다.",
+          "inputs": [
+            "state",
+            "plan"
+          ],
+          "outputs": [
+            "record",
+            "isolation"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "repair",
+          "visible_text": "기준에 못 미친 부분을 고칠 작업으로 연결합니다.\n고친 부분과 그 영향을 받는 결과를 다시 검사합니다.",
+          "inputs": [
+            "qualityok",
+            "delivery_repair"
+          ],
+          "outputs": [
+            "context2"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "delivery_repair",
+          "visible_text": "받은 수정 요청을 실제로 고쳐야 할 작업에 연결합니다.\n고친 뒤에는 관련된 결과까지 다시 검사합니다.",
+          "inputs": [
+            "receipt"
+          ],
+          "outputs": [
+            "repair"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "현재 진행 상태",
+      "usage": "상시",
+      "source_condition": "진행 상태나 담당·조건·승인이 바뀌었을 때 · 대기·실패·취소 상태를 정리하거나 업무를 이어 갈 때",
+      "instances": [
+        {
+          "instance": "state",
+          "visible_text": "끝난 일과 남은 일, 기다리는 답과 승인을 기록합니다.\n외부 처리가 끝났는지 모르는 상태도 따로 남깁니다.",
+          "inputs": [
+            "monitor"
+          ],
+          "outputs": [
+            "progress"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "state_result",
+          "visible_text": "검사 결과에 따라 끝난 일, 고칠 일, 기다릴 일을 기록합니다.\n이미 끝난 외부 처리는 다시 실행하지 않습니다.",
+          "inputs": [
+            "verify"
+          ],
+          "outputs": [
+            "vdecision"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "판단 근거 기록",
+      "usage": "상시",
+      "source_condition": "판단하거나 실행할 때 · 내용을 바꾸거나 검사할 때",
+      "instances": [
+        {
+          "instance": "record",
+          "visible_text": "무슨 자료로 왜 판단하고 실행했는지 남깁니다.\n내용을 바꾸거나 검사했다면 그 이유와 결과도 기록합니다.",
+          "inputs": [
+            "progress"
+          ],
+          "outputs": [
+            "control"
+          ],
+          "application": "ALL_DECISIONS_AND_ACTIONS",
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "record_read",
+          "visible_text": "앞에서 남긴 판단·실행·검사 기록을 꺼내\n일하는 과정이 적절했는지 평가할 근거로 씁니다.",
+          "inputs": [
+            "quality"
+          ],
+          "outputs": [
+            "process_eval"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "실행 제어",
+      "usage": "상시",
+      "source_condition": "업무를 시작한 뒤 끝날 때까지",
+      "instances": [
+        {
+          "instance": "control",
+          "visible_text": "업무 내내 필요한 도구와 모델을 실행합니다.\n앞선 결과를 기다리고, 오류나 중단이 생기면 다음 처리를 연결합니다.",
+          "inputs": [
+            "isolation",
+            "record"
+          ],
+          "outputs": [
+            "monitor",
+            "guard"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "분리 실행",
+      "usage": "상시",
+      "source_condition": "업무 공간을 만들거나 코드와 도구를 실행할 때",
+      "instances": [
+        {
+          "instance": "isolation",
+          "visible_text": "섞이면 안 되는 자료와 작업 공간을 나눕니다.\n허용한 것만 공유하고 오류가 다른 작업에 번지지 않게 합니다.",
+          "inputs": [
+            "progress"
+          ],
+          "outputs": [
+            "control"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "운영 감시·복구",
+      "usage": "상시",
+      "source_condition": "에이전트와 업무 수행 기반을 운영하는 동안",
+      "instances": [
+        {
+          "instance": "monitor",
+          "visible_text": "별도 감시자가 장애나 지연을 살핍니다.\n문제가 생기면 복구하고 저장된 진행 상황부터 이어 가게 합니다.",
+          "inputs": [
+            "control"
+          ],
+          "outputs": [
+            "state"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "업무 권한",
+      "usage": "상시",
+      "source_condition": "업무를 맡거나 다시 맡길 때 · 승인·실행·재개 직전 · 권한·동의·대상·내용이 바뀌었을 때 · 긴급 조치가 필요할 때",
+      "instances": [
+        {
+          "instance": "rights",
+          "visible_text": "누구를 대신해 어디까지 행동해도 되는지 확인합니다.\n실행 직전에 승인이 유효하고 취소되지 않았는지 다시 봅니다.",
+          "inputs": [],
+          "outputs": [
+            "guard"
+          ],
+          "application": "guard",
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "비용·위험 한도",
+      "usage": "상시",
+      "source_condition": "업무 한도와 보호 조치를 정할 때 · 실행·재개와 대기의 위험을 비교할 때 · 사용·진행·예약분이나 위험 조건이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "limit",
+          "visible_text": "이미 쓴 비용과 앞으로 쓸 비용을 합쳐 한도를 확인합니다.\n실행하거나 기다릴 때 생길 피해도 비교합니다.",
+          "inputs": [],
+          "outputs": [
+            "guard"
+          ],
+          "application": "guard",
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "안전장치",
+      "usage": "상시",
+      "source_condition": "정보를 주고받거나 실행·재시도·재개할 때 · 진행 중 권한·규칙·한도·위험이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "guard",
+          "visible_text": "정보를 주고받거나 실행할 때마다 규칙, 권한, 한도를 확인합니다.\n위반하면 막고, 확인할 수 없으면 보류합니다. 재개할 때도 검사합니다.",
+          "inputs": [
+            "control",
+            "rights",
+            "limit",
+            "identity0"
+          ],
+          "outputs": [
+            "allowed"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "사람에게 넘기기",
+      "usage": "상시",
+      "source_condition": "사람의 판단·승인·자격·작업이 필요할 때 · 넘긴 일의 진행과 답변을 확인하거나 받은 결과를 반영할 때",
+      "instances": [
+        {
+          "instance": "handoff",
+          "visible_text": "조사와 준비를 마친 뒤 사람이 맡을 결정만 요청합니다.\n되돌릴 수 없는 일, 필수 승인, 해결 못 한 판단,\n한도 초과나 자격이 필요한 일이 해당합니다.",
+          "inputs": [
+            "allowed"
+          ],
+          "outputs": [
+            "identity0"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "보고 주체 확인",
+      "usage": "상시",
+      "source_condition": "결과·보고를 받을 때 · 사람에게 넘긴 일이 돌아올 때 · 명의로 대외 행위를 하기 전",
+      "instances": [
+        {
+          "instance": "identity0",
+          "visible_text": "승인한 사람과 권한, 승인한 대상과 버전을 확인합니다.\n맞지 않는 답은 적용하지 않고 다시 확인합니다.",
+          "inputs": [
+            "handoff"
+          ],
+          "outputs": [
+            "guard"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "identity",
+          "visible_text": "누가 어떤 요청에 대해 낸 결과인지 확인합니다.\n대상이나 버전이 다르면 받지 않고 이유를 알립니다.",
+          "inputs": [
+            "out0",
+            "out1",
+            "out2",
+            "out3",
+            "out4",
+            "out5"
+          ],
+          "outputs": [
+            "verify",
+            "counter"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "업무 도구·시스템",
+      "usage": "단계별",
+      "source_condition": "업무 도구·시스템을 연결하거나 요청을 보낼 때 · 결과·오류·진행 상태를 받을 때",
+      "instances": [
+        {
+          "instance": "tools",
+          "visible_text": "작업에 필요한 프로그램이나 서비스를 연결합니다.\n요청을 보내고 결과, 오류, 처리 상태를 받아옵니다.",
+          "inputs": [
+            "allowed"
+          ],
+          "outputs": [
+            "type0"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "자료 선별·분류",
+      "usage": "조건부",
+      "source_condition": "확보한 자료를 고르거나 분류·연결할 때 · 분류 업무를 맡은 동안 새 자료나 요청이 들어올 때",
+      "instances": [
+        {
+          "instance": "sort",
+          "visible_text": "자료에서 필요한 내용을 골라 종류별로 나눕니다.\n같은 대상을 가리키는 기록끼리 연결합니다.",
+          "inputs": [
+            "choose0"
+          ],
+          "outputs": [
+            "out0"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "자료 정리·결합",
+      "usage": "조건부",
+      "source_condition": "자료의 오류·중복·누락을 정리하거나 합치고 나눌 때 · 정기 정리 시점이나 원본의 추가·변경이 있을 때",
+      "instances": [
+        {
+          "instance": "combine",
+          "visible_text": "잘못된 내용과 중복을 정리하고 관련 자료를 합칩니다.\n맞지 않는 값과 원본의 위치는 남깁니다.",
+          "inputs": [
+            "choose0"
+          ],
+          "outputs": [
+            "out0"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "형식·구조 변환",
+      "usage": "조건부",
+      "source_condition": "사용할 프로그램이나 제출처에 맞게 파일 형식·항목 구조를 바꿔야 할 때",
+      "instances": [
+        {
+          "instance": "convert",
+          "visible_text": "쓸 프로그램이나 제출처에 맞게 자료의 형식을 바꿉니다.\n내용과 항목의 연결이 빠지지 않게 옮깁니다.",
+          "inputs": [
+            "choose0"
+          ],
+          "outputs": [
+            "out0"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "계산",
+      "usage": "조건부",
+      "source_condition": "필요한 값을 계산하거나 문제의 조건을 식으로 정리해 풀 때 · 한 항목의 결과가 다른 항목의 값을 바꿀 때 · 남이 낸 계산을 근거로 받을 때",
+      "instances": [
+        {
+          "instance": "calc",
+          "visible_text": "수치와 계산식으로\n필요한 값을 구합니다.",
+          "inputs": [
+            "choose1"
+          ],
+          "outputs": [
+            "out1"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "분석",
+      "usage": "조건부",
+      "source_condition": "정보의 특징·차이·관계·원인이나 현재 상태를 해석해야 할 때 · 분석 업무의 정기 검토 시점이나 중요한 새 정보가 들어왔을 때",
+      "instances": [
+        {
+          "instance": "analysis",
+          "visible_text": "자료와 계산값을 살펴\n관계나 원인을 찾습니다.",
+          "inputs": [
+            "choose1"
+          ],
+          "outputs": [
+            "out1"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "기준 적용·판정",
+      "usage": "조건부",
+      "source_condition": "대상의 적합 여부·자격·책임·처리 조건을 판단하는 업무를 맡았을 때",
+      "instances": [
+        {
+          "instance": "judge",
+          "visible_text": "확인한 사실을 기준과 비교해\n조건을 충족했는지 판단합니다.",
+          "inputs": [
+            "choose1"
+          ],
+          "outputs": [
+            "out1"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "예측",
+      "usage": "조건부",
+      "source_condition": "앞으로의 결과나 변화를 예상해 판단에 써야 할 때 · 정기 예측 시점이나 주요 정보·가정이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "forecast",
+          "visible_text": "자료와 가정을 바탕으로\n앞으로의 결과와 불확실성을 살핍니다.",
+          "inputs": [
+            "choose1"
+          ],
+          "outputs": [
+            "out1"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "조건 안에서 최선 찾기",
+      "usage": "조건부",
+      "source_condition": "조건 안에서 유리한 안을 찾거나 기존 안을 조정할 때 · 운영 중 목표 달성에 영향을 주는 수요·자원·비용 조건이 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "optimize",
+          "visible_text": "지켜야 할 조건 안에서\n가장 나은 안을 고릅니다.",
+          "inputs": [
+            "choose1"
+          ],
+          "outputs": [
+            "out1"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "결과물 설계",
+      "usage": "조건부",
+      "source_condition": "결과물이나 서비스의 내용·구성·형태·작동 방식을 정하거나 바꿀 때",
+      "instances": [
+        {
+          "instance": "design",
+          "visible_text": "누가 어떤 목적으로 쓸지에 맞춰\n결과의 구성과 만드는 방법을 정합니다.",
+          "inputs": [
+            "choose2"
+          ],
+          "outputs": [
+            "out2"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "내용 재구성",
+      "usage": "조건부",
+      "source_condition": "기존 내용을 요약·번역·통역하거나 목적과 상대에 맞게 표현을 바꿀 때",
+      "instances": [
+        {
+          "instance": "reframe",
+          "visible_text": "기존 내용의 순서와 표현을 바꿔\n이번 목적에 맞는 내용으로 만듭니다.",
+          "inputs": [
+            "choose2"
+          ],
+          "outputs": [
+            "out2"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "결과물 만들기·수정",
+      "usage": "조건부",
+      "source_condition": "내용과 설계를 결과물로 만들 때 · 기존 결과물의 기능·구성·표현을 고치거나 여러 요소를 조합할 때",
+      "instances": [
+        {
+          "instance": "make",
+          "visible_text": "설계와 자료를 사용해 결과를 만듭니다.\n필요한 부분을 고치고 요청한 내용이 담겼는지 확인합니다.",
+          "inputs": [
+            "choose2"
+          ],
+          "outputs": [
+            "out2"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "협상·조율",
+      "usage": "조건부",
+      "source_condition": "이해관계나 요구가 달라 조건·역할·약속을 함께 조정해야 할 때",
+      "instances": [
+        {
+          "instance": "negotiate",
+          "visible_text": "서로 다른 요구와 조건을 맞춥니다.\n합의한 내용과 아직 합의하지 못한 내용을 나눠 남깁니다.",
+          "inputs": [
+            "choose3"
+          ],
+          "outputs": [
+            "out3"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "기록 입력·수정",
+      "usage": "조건부",
+      "source_condition": "업무 기록을 등록·수정·삭제할 때 · 기록 관리 업무에서 새 거래·요청·상태 변경이 발생하거나 정기 반영 시점이 왔을 때",
+      "instances": [
+        {
+          "instance": "write",
+          "visible_text": "확인한 내용을 시스템에 넣거나 고칩니다.\n제대로 반영됐는지 확인하고 바뀐 이력을 남깁니다.",
+          "inputs": [
+            "choose4"
+          ],
+          "outputs": [
+            "out4"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "신청·거래 처리",
+      "usage": "조건부",
+      "source_condition": "맡은 신청·거래 업무에 새 요청이 들어왔을 때 · 변경·취소·환불 요청이나 처리 상태 변화가 있을 때 · 미결 건의 확인 시점이 왔을 때",
+      "instances": [
+        {
+          "instance": "transaction",
+          "visible_text": "허용된 신청이나 거래를 진행합니다.\n접수와 처리 상태를 확인하고, 불명확하면 재실행 전에 조회합니다.",
+          "inputs": [
+            "choose4"
+          ],
+          "outputs": [
+            "out4"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "설정·작동 제어",
+      "usage": "조건부",
+      "source_condition": "프로그램이나 서비스의 설정·접근 권한·작동 상태를 바꿀 때 · 운영을 맡은 동안 유지 조건에서 벗어나거나 정해진 조정 시점이 왔을 때",
+      "instances": [
+        {
+          "instance": "operate",
+          "visible_text": "현재 상태를 확인하고 설정이나 작동을 바꿉니다.\n원하는 상태가 됐는지 살피고 문제가 생기면 조정합니다.",
+          "inputs": [
+            "choose4"
+          ],
+          "outputs": [
+            "out4"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "게시·배포",
+      "usage": "조건부",
+      "source_condition": "게시·배포 요청이나 예약 시점이 왔을 때 · 공개 범위나 제공 판본을 바꿀 때 · 정기 발행·배포 업무의 다음 회차가 왔을 때",
+      "instances": [
+        {
+          "instance": "publish",
+          "visible_text": "확인된 결과를 정한 대상과 범위에 공개합니다.\n맞는 버전이 전달됐는지 확인하고 잘못됐으면 바로잡습니다.",
+          "inputs": [
+            "choose4"
+          ],
+          "outputs": [
+            "out4"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "관찰·측정",
+      "usage": "조건부",
+      "source_condition": "판단에 필요한 새 관찰·측정 기록을 얻을 때 · 관측 업무를 맡은 기간의 정해진 주기·변화 신호에 따라 대상을 살필 때",
+      "instances": [
+        {
+          "instance": "observe",
+          "visible_text": "대상을 살펴보거나 값을 잽니다.\n언제 어떤 조건에서 얻은 기록인지 함께 남깁니다.",
+          "inputs": [
+            "choose5"
+          ],
+          "outputs": [
+            "out5"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "실험",
+      "usage": "조건부",
+      "source_condition": "조건이나 방법의 변화가 결과에 주는 영향을 비교해야 할 때",
+      "instances": [
+        {
+          "instance": "experiment",
+          "visible_text": "조건을 바꿔 결과가 얼마나 달라지는지 비교합니다.\n다른 영향이나 시험의 한계도 함께 기록합니다.",
+          "inputs": [
+            "choose5"
+          ],
+          "outputs": [
+            "out5"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "시뮬레이션",
+      "usage": "조건부",
+      "source_condition": "상황을 가정해 진행 과정과 결과를 예상하거나 대응을 미리 연습해야 할 때",
+      "instances": [
+        {
+          "instance": "simulate",
+          "visible_text": "가정한 상황을 계산이나 역할 연기로 미리 시험합니다.\n예상되는 진행과 반응, 실제와 다른 조건을 살핍니다.",
+          "inputs": [
+            "choose5"
+          ],
+          "outputs": [
+            "out5"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "결과 검증·재검증",
+      "usage": "단계별",
+      "source_condition": "작업 결과를 확인할 때 · 결과·자료·입력값·조건이 바뀌었을 때 · 남이 낸 결과·계산을 근거로 받을 때",
+      "instances": [
+        {
+          "instance": "verify",
+          "visible_text": "결과를 근거와 완료 기준에 맞춰 검사합니다.\n다음 작업에 필요한 내용과 형식도 확인합니다.\n문제없음, 문제 있음, 확인 불가를 나누고 바뀐 부분은 다시 검사합니다.",
+          "inputs": [
+            "counter",
+            "wait",
+            "identity"
+          ],
+          "outputs": [
+            "state_result"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "반대 근거·다시 확인",
+      "usage": "단계별",
+      "source_condition": "중요한 판단을 내리거나 알리기 전 · 판단이나 그 바탕이 된 사실·가정·근거가 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "counter",
+          "visible_text": "중요한 결론은 반대 증거나 다른 방법으로 다시 살핍니다.\n결론을 유지할지, 고칠지, 더 확인할지 정합니다.",
+          "inputs": [
+            "identity"
+          ],
+          "outputs": [
+            "verify"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "대기·후속 관리",
+      "usage": "상시",
+      "source_condition": "업무의 대기·기한·후속 책임을 유지하는 동안 · 응답·상태 변화·확인 시점이 도래했을 때 · 되돌릴 수 없는 결정의 기한이 생겼을 때 · 반복 업무의 회차가 바뀌거나 담당이 바뀔 때",
+      "instances": [
+        {
+          "instance": "wait",
+          "visible_text": "누구의 답을 언제까지 기다리는지 기록합니다.\n기한이 되면 다시 확인하고, 답이 오면 현재 조건에 맞춰 이어 갑니다.",
+          "inputs": [
+            "vdecision"
+          ],
+          "outputs": [
+            "verify"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "wait2",
+          "visible_text": "아직 받지 못한 확인과 남은 약속을 기록합니다.\n기한이 되거나 답이 오면 다시 확인하거나 보완합니다.",
+          "inputs": [
+            "receipt"
+          ],
+          "outputs": [
+            "delivery"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "결과 품질 평가",
+      "usage": "단계별",
+      "source_condition": "결과를 넘기거나 사용하기 전 · 대화나 서비스가 끝난 뒤 · 결과가 바뀌었을 때",
+      "instances": [
+        {
+          "instance": "quality",
+          "visible_text": "결과가 정확하고 충분하며 이해하고 쓰기 쉬운지 봅니다.\n사용 목적에 못 미친 부분은 고칠 작업으로 돌립니다.",
+          "inputs": [
+            "more"
+          ],
+          "outputs": [
+            "qualityok",
+            "record_read"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "일하는 과정 평가",
+      "usage": "단계별",
+      "source_condition": "각 단계가 끝났을 때 · 전체 업무가 끝났을 때",
+      "instances": [
+        {
+          "instance": "process_eval",
+          "visible_text": "당시 상황에서 방법과 순서가 적절했는지 살핍니다.\n필요한 절차를 거쳤고 맡은 권한을 지켰는지도 확인합니다.",
+          "inputs": [
+            "record_read"
+          ],
+          "outputs": [
+            "outcome"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "납품 준비",
+      "usage": "단계별",
+      "source_condition": "결과를 납품하거나 업무를 다른 담당자에게 인계할 준비를 할 때",
+      "instances": [
+        {
+          "instance": "pack",
+          "visible_text": "결과와 원본, 사용 설명, 검사 내용을 함께 준비합니다.\n끝내지 못한 일과 이어서 맡을 사람도 적습니다.",
+          "inputs": [
+            "qualityok"
+          ],
+          "outputs": [
+            "delivery"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "전달·인수 확인",
+      "usage": "단계별",
+      "source_condition": "결과를 전달할 때 · 약속한 수령·사용 조건을 확인하거나 전달 문제·수정 요청을 받아 알릴 때",
+      "instances": [
+        {
+          "instance": "delivery",
+          "visible_text": "약속한 상대에게 결과를 보내고 받아 쓸 수 있는지 확인합니다.\n받았는지 기다리는 상태와 수정 요청을 구별합니다.",
+          "inputs": [
+            "pack",
+            "wait2"
+          ],
+          "outputs": [
+            "receipt"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "성공·실패 원인 분석",
+      "usage": "조건부",
+      "source_condition": "재사용할 만한 성과가 나왔을 때 · 원인이 불분명하거나 영향이 큰 문제, 반복 오류를 분석해야 할 때",
+      "instances": [
+        {
+          "instance": "cause",
+          "visible_text": "다시 쓸 만한 성과나 큰 문제, 반복된 오류가 있으면\n무엇 때문에 그런 결과가 났는지 찾아 유지할 점과 고칠 점을 정합니다.",
+          "inputs": [
+            "learnneed"
+          ],
+          "outputs": [
+            "improveneed"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "능력 개선·확장",
+      "usage": "조건부",
+      "source_condition": "평가나 업무 경험에서 개선할 점을 찾았을 때 · 새로운 업무에 필요한 능력을 갖출 때",
+      "instances": [
+        {
+          "instance": "improve",
+          "visible_text": "개선이 필요하면 지식이나 방법, 도구를 고칩니다.\n바꾼 것이 효과가 있는지 시험한 뒤 적용합니다.",
+          "inputs": [
+            "passed",
+            "improveneed"
+          ],
+          "outputs": [
+            "testenv"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "시험 환경",
+      "usage": "조건부",
+      "source_condition": "시험·오류 재현·능력 평가에 별도의 공간과 조건이 필요할 때",
+      "instances": [
+        {
+          "instance": "testenv",
+          "visible_text": "실제 업무나 원본에 영향을 주지 않는 곳에서 시험합니다.\n시험하지 않았거나 실패한 버전은 실제 업무에 쓰지 못하게 합니다.",
+          "inputs": [
+            "improve"
+          ],
+          "outputs": [
+            "capability"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "testenv0",
+          "visible_text": "처음 맡기는 일이나 아직 검증하지 않은 일이라면\n실제 업무에 영향을 주지 않는 시험 공간을 준비합니다.",
+          "inputs": [
+            "qualified"
+          ],
+          "outputs": [
+            "capability0"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    },
+    {
+      "material": "업무 능력 시험",
+      "usage": "조건부",
+      "source_condition": "에이전트를 업무에 처음 투입하기 전 · 검증된 범위 밖의 일을 맡기려 할 때 · 수행 능력에 영향을 주는 변경 전후 · 기존 시험 결과를 더는 신뢰하기 어려울 때",
+      "instances": [
+        {
+          "instance": "capability",
+          "visible_text": "처음 맡기거나 검증된 범위를 넘으면 능력을 시험합니다.\n개선 뒤에는 더 나아졌는지와 기존 능력도 유지되는지 봅니다.\n통과한 범위와 버전만 실제 업무에 씁니다.",
+          "inputs": [
+            "testenv"
+          ],
+          "outputs": [
+            "passed"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        },
+        {
+          "instance": "capability0",
+          "visible_text": "이번 일을 처음부터 끝까지 처리할 수 있는지 시험합니다.\n예외와 중단 뒤 재개, 원래 잘하던 일도 확인합니다.",
+          "inputs": [
+            "testenv0"
+          ],
+          "outputs": [
+            "qualified_test"
+          ],
+          "application": null,
+          "priority_rank": null,
+          "unused": false
+        }
+      ]
+    }
+  ],
+  "checked_routes": {
+    "clarification": [
+      "intent",
+      "clear",
+      "communicate0",
+      "intent"
+    ],
+    "initial_capability_gate": [
+      "strategy",
+      "qualified",
+      "testenv0",
+      "capability0",
+      "qualified_test",
+      "plan"
+    ],
+    "initial_capability_failure": [
+      "qualified_test",
+      "unqualified"
+    ],
+    "direct_execution": [
+      "qualified",
+      "plan",
+      "progress",
+      "record",
+      "control",
+      "guard",
+      "allowed",
+      "tools",
+      "type0"
+    ],
+    "live_request": [
+      "live_start",
+      "live",
+      "signal",
+      "case",
+      "understand",
+      "intent"
+    ],
+    "performance_criteria": [
+      "goal",
+      "measure0",
+      "search",
+      "trust"
+    ],
+    "reference_lookup": [
+      "search",
+      "reference",
+      "trust",
+      "version",
+      "memory",
+      "context"
+    ],
+    "risk_check": [
+      "model",
+      "risk",
+      "strategy"
+    ],
+    "isolated_execution": [
+      "progress",
+      "isolation",
+      "control"
+    ],
+    "counter_evidence": [
+      "identity",
+      "counter",
+      "verify"
+    ],
+    "process_records": [
+      "quality",
+      "record_read",
+      "process_eval",
+      "outcome"
+    ],
+    "data_preparation": [
+      "type0",
+      "choose0",
+      "combine",
+      "out0",
+      "identity",
+      "verify",
+      "state_result",
+      "vdecision"
+    ],
+    "calculation_then_next_input": [
+      "type1",
+      "choose1",
+      "calc",
+      "out1",
+      "identity",
+      "verify",
+      "state_result",
+      "vdecision",
+      "more",
+      "context2",
+      "context"
+    ],
+    "system_action": [
+      "type4",
+      "choose4",
+      "transaction",
+      "out4",
+      "identity",
+      "verify"
+    ],
+    "observation": [
+      "type5",
+      "choose5",
+      "observe",
+      "out5",
+      "identity",
+      "verify"
+    ],
+    "other_work": [
+      "type5",
+      "context2",
+      "context"
+    ],
+    "rework": [
+      "vdecision",
+      "context2",
+      "context",
+      "model",
+      "strategy"
+    ],
+    "pending": [
+      "vdecision",
+      "wait",
+      "verify"
+    ],
+    "human_decision": [
+      "allowed",
+      "handoff",
+      "identity0",
+      "guard"
+    ],
+    "blocked": [
+      "allowed",
+      "hold"
+    ],
+    "quality_repair": [
+      "quality",
+      "qualityok",
+      "repair",
+      "context2"
+    ],
+    "delivery": [
+      "more",
+      "quality",
+      "qualityok",
+      "pack",
+      "delivery",
+      "receipt",
+      "outcome"
+    ],
+    "receipt_wait": [
+      "receipt",
+      "wait2",
+      "delivery"
+    ],
+    "receipt_correction": [
+      "receipt",
+      "delivery_repair",
+      "repair",
+      "context2"
+    ],
+    "no_analysis_needed": [
+      "outcome",
+      "learnneed",
+      "memory_direct",
+      "finish"
+    ],
+    "no_change_needed": [
+      "learnneed",
+      "cause",
+      "improveneed",
+      "memory_reuse",
+      "finish"
+    ],
+    "tested_improvement": [
+      "improveneed",
+      "improve",
+      "testenv",
+      "capability",
+      "passed",
+      "memory2",
+      "finish"
+    ],
+    "failed_improvement": [
+      "passed",
+      "improve",
+      "testenv",
+      "capability",
+      "passed"
+    ]
+  },
+  "geometry_issues": [],
+  "flow_audit": {
+    "starts": [
+      "live_start",
+      "start",
+      "watch"
+    ],
+    "terminals": [
+      "finish",
+      "hold",
+      "unqualified"
+    ],
+    "reachable_actions": 119,
+    "reference_inputs": [
+      "contract",
+      "ethics",
+      "limit",
+      "org",
+      "platform",
+      "principles",
+      "rights",
+      "style",
+      "user_rule"
+    ],
+    "used_materials": 78,
+    "intentionally_unused": [
+      "나눠 맡기기"
+    ],
+    "missing_materials": [],
+    "unreachable_actions": [],
+    "nonterminal_dead_ends": []
+  },
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "1ac65760120b8e6ad21364a3d0111a0fa6e50cba1104b24ee55436a3cd4fd6f5",
+  "rendered_dimensions": [
+    1800,
+    16679
+  ],
+  "display_width": 1100,
+  "limitation": "명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.",
+  "browser": "147.0.7727.15",
+  "png_sha256": "1294e74d1dd45925d582066ba732cc02c80f01d8e29ebde9902365527ca26dd9",
+  "document_mermaid_matches": true,
+  "other_sections_unchanged": true,
+  "before": {
+    "processes_without_entry": [
+      "live",
+      "risk",
+      "isolation",
+      "counter",
+      "testenv"
+    ],
+    "nonterminal_dead_ends": [
+      "measure0",
+      "record"
+    ]
+  },
+  "visual_review": "PNG/SVG를 1100px 표시 폭으로 전체 12개 구간에서 확인했다. 마지막 문구 변경 구간도 다시 확인했다.",
+  "mermaid_render": {
+    "nodes": 129,
+    "edges": 168,
+    "reference_edges": 4,
+    "width": 7993.75,
+    "height": 8795.28125,
+    "scope": "문법·도형·연결 개수 및 전체 렌더 확인. 0건 기하 충돌 결과는 본문 PNG의 원본 SVG에 대한 검사다."
+  }
+}

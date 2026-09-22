@@ -1,0 +1,110 @@
+{
+  "materials": 79,
+  "usage_types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "system_counts": {
+    "환경": 10,
+    "지식": 16,
+    "규칙": 18,
+    "실무": 24,
+    "검증": 9,
+    "학습": 2
+  },
+  "illustrations": 0,
+  "arrowheads": 165,
+  "center_ports_checked": 338,
+  "arrowheads_touch_boundary": true,
+  "alignment_checks": 735,
+  "alignment_max_difference_px": 0.000488,
+  "geometry_issues": [],
+  "flow_audit": {
+    "starts": [
+      "live_start",
+      "start",
+      "watch"
+    ],
+    "terminals": [
+      "finish",
+      "hold",
+      "unqualified"
+    ],
+    "reachable_actions": 121,
+    "reference_inputs": [
+      "contract",
+      "ethics",
+      "limit",
+      "org",
+      "platform",
+      "principles",
+      "rights",
+      "style",
+      "user_rule"
+    ],
+    "used_materials": 78,
+    "intentionally_unused": [
+      "나눠 맡기기"
+    ],
+    "missing_materials": [],
+    "unreachable_actions": [],
+    "nonterminal_dead_ends": [],
+    "required_preparation": {
+      "branches": [
+        "search",
+        "original"
+      ],
+      "execution_order": "unspecified",
+      "completion_groups": [
+        "evidence",
+        "rules"
+      ],
+      "completion_node": "checks_join",
+      "bypass_to_context": false
+    }
+  },
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "aaa3b92d2f30a997d05159fb0aa16108d2385783111b55187e44642d1f45eeae",
+  "rendered_dimensions": [
+    1800,
+    17920.0
+  ],
+  "display_width": 1100,
+  "limitation": "명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.",
+  "change": {
+    "law": "한국 중앙정부 법령의 기본 위계, 같은 효력에서의 특별 규정·신법 원칙, 적용 시점·경과조치 설명",
+    "same_rank": "함께 적용 → 근거·권한·범위 확인 → 허용된 예외·변경 검토 → 미해결 작업 보류·결정권자 확인",
+    "rank_scope": "법적 기준을 먼저 확인한 뒤 적용하는 이 문서의 업무 기준 순서",
+    "changed_copy_nodes": [
+      "law",
+      "priority"
+    ]
+  },
+  "preserved": {
+    "materials": 79,
+    "nodes": 131,
+    "edges": 169,
+    "priority_ranks": true,
+    "graph_connections": true,
+    "other_document_sections": true
+  },
+  "visual_review": {
+    "document_display_width": 1100,
+    "focused_display_width": 700,
+    "regions": [
+      "법·의무 기준",
+      "1·2순위 묶음과 설명",
+      "규칙의 적용·우선순위",
+      "자료·규칙 완료 합류"
+    ]
+  },
+  "source_notes": "docs/reviews/solo-rule-priority-sources-2026-09-22.md",
+  "png_sha256": "856da323db4008757bcb516761d9ff669ffda26790a6bcec3b7ffe70e64ccd58",
+  "mermaid_render": {
+    "success": true,
+    "priority_ranks_visible": true,
+    "nodes": 131,
+    "edges": 169
+  }
+}

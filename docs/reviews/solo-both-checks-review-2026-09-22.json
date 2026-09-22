@@ -1,0 +1,96 @@
+{
+  "materials": 79,
+  "usage_types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "system_counts": {
+    "환경": 10,
+    "지식": 16,
+    "규칙": 18,
+    "실무": 24,
+    "검증": 9,
+    "학습": 2
+  },
+  "illustrations": 0,
+  "arrowheads": 166,
+  "center_ports_checked": 340,
+  "arrowheads_touch_boundary": true,
+  "alignment_checks": 736,
+  "alignment_max_difference_px": 0.000844,
+  "geometry_issues": [],
+  "flow_audit": {
+    "starts": [
+      "live_start",
+      "start",
+      "watch"
+    ],
+    "terminals": [
+      "finish",
+      "hold",
+      "unqualified"
+    ],
+    "reachable_actions": 121,
+    "reference_inputs": [
+      "contract",
+      "ethics",
+      "limit",
+      "org",
+      "platform",
+      "principles",
+      "rights",
+      "style",
+      "user_rule"
+    ],
+    "used_materials": 78,
+    "intentionally_unused": [
+      "나눠 맡기기"
+    ],
+    "missing_materials": [],
+    "unreachable_actions": [],
+    "nonterminal_dead_ends": [],
+    "required_preparation": {
+      "branches": [
+        "search",
+        "original"
+      ],
+      "execution_order": "unspecified",
+      "completion_groups": [
+        "evidence",
+        "rules"
+      ],
+      "completion_node": "checks_join",
+      "bypass_to_context": false
+    }
+  },
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "167660687bb0ba6dc7d937760e6b3a290b5aa6ea9dadfa33de79fda85919cd05",
+  "rendered_dimensions": [
+    1800,
+    17800.0
+  ],
+  "display_width": 1100,
+  "limitation": "명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.",
+  "change": "자료 확인·규칙 확인이 모두 필수이고, 두 확인 완료 후 다음 판단으로 진행함을 표시. 동시 진행은 필수가 아님.",
+  "visual_review": {
+    "before_after_same_display_width": 1100,
+    "regions": [
+      "필수 확인 진입",
+      "자료·규칙 완료 합류"
+    ],
+    "overlap_or_midpoint_issues": []
+  },
+  "preserved": [
+    "79개 재료와 기존 모든 카드 문구",
+    "기존 카드 폭·높이·가로 위치",
+    "자료·규칙 외 분기와 복귀 의미",
+    "문서의 나머지 절"
+  ],
+  "png_sha256": "1f73174e3b580b4df0f43e18d0d0dcd4ac33056d40ae144e7984f0d5f93b17db",
+  "mermaid_render": {
+    "success": true,
+    "nodes": 131,
+    "edges": 170
+  }
+}

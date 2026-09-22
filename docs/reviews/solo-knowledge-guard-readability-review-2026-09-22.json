@@ -1,0 +1,94 @@
+{
+  "materials": 79,
+  "usage_types": {
+    "상시": 29,
+    "단계별": 17,
+    "조건부": 33
+  },
+  "system_counts": {
+    "환경": 10,
+    "지식": 16,
+    "규칙": 18,
+    "실무": 24,
+    "검증": 9,
+    "학습": 2
+  },
+  "illustrations": 0,
+  "arrowheads": 164,
+  "center_ports_checked": 336,
+  "arrowheads_touch_boundary": true,
+  "alignment_checks": 726,
+  "alignment_max_difference_px": 0.000844,
+  "geometry_issues": [],
+  "flow_audit": {
+    "starts": [
+      "live_start",
+      "start",
+      "watch"
+    ],
+    "terminals": [
+      "finish",
+      "hold",
+      "unqualified"
+    ],
+    "reachable_actions": 119,
+    "reference_inputs": [
+      "contract",
+      "ethics",
+      "limit",
+      "org",
+      "platform",
+      "principles",
+      "rights",
+      "style",
+      "user_rule"
+    ],
+    "used_materials": 78,
+    "intentionally_unused": [
+      "나눠 맡기기"
+    ],
+    "missing_materials": [],
+    "unreachable_actions": [],
+    "nonterminal_dead_ends": []
+  },
+  "source_prefix_sha256": "c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a",
+  "svg_sha256": "95265b52b74e8122c314ab9554efb20dbf886c7064113b29388104e66aa7a978",
+  "rendered_dimensions": [
+    1800,
+    17500.0
+  ],
+  "display_width": 1100,
+  "limitation": "명칭·표현된 관계·선택한 경로·렌더링 좌표 검사이며, 모든 독자의 이해를 보증하지 않는다.",
+  "reviewed_regions": [
+    "자료의 시점·버전 → 업무 지식·실전 경험·감각·장기 기억 → 현재 작업 정보",
+    "업무 권한·비용·위험 한도 → 안전장치, 사람의 승인·결정 확인 후 복귀"
+  ],
+  "visual_review": {
+    "knowledge": "설명 카드의 폭·높이·간격 통일, 왼쪽 입력선과 오른쪽 수집선 공유, 연결선 설명을 카드 안으로 이동",
+    "guard": "참조 기준 두 개를 왼쪽에 묶고 중앙 실행선·오른쪽 승인 복귀선 분리",
+    "inspected_at_document_display_width": true
+  },
+  "preserved": {
+    "all_node_titles_and_bodies": true,
+    "all_semantic_edges": true,
+    "material_count": 79,
+    "nodes": 129,
+    "edges": 168,
+    "group_bounds": true
+  },
+  "changed_node_geometry": [
+    "version",
+    "knowledge",
+    "experience",
+    "memory",
+    "rights",
+    "limit",
+    "guard"
+  ],
+  "png_sha256": "c3e98232c94f349cc85dd60327aa7d5a18664fae4b46a6340474802c925cbee9",
+  "mermaid_render": {
+    "success": true,
+    "nodes": 129,
+    "edges": 168
+  }
+}
