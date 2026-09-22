@@ -17,7 +17,7 @@
 | 채점 기준 | [evaluation.md](evaluation.md) | 잘했는지 못했는지 따지는 잣대임 |
 | 계통 배치 검토 | [material-system-placement-review.md](reviews/재료/material-system-placement-review.md) | 재료 55개의 배치 근거와 재배치 반영 결과임 |
 | 계통 배치 재검토 | [material-system-placement-review-2.md](reviews/재료/material-system-placement-review-2.md) | 분리 전 50행 기준 재판정 — 옮길 행 0, 경계 보강 8행, 실무 빈자리 1행 제안임 |
-| 검토 자료 | [reviews/](reviews/) | 직무별 업무 검토, 어려운 사건 시험 결과가 들어 있음 |
+| 검토 자료 | [검토 기록 색인](reviews/README.md) | 재료·직무·사용구조·단독흐름·기술검토·판례 스트레스 검토를 주제별로 나눠 보관한 폴더의 색인 |
 | 실험 결과 | [실험 결과/](<실험 결과/>) | 166개 직무 사례의 설계·모형 검토 기록과 재실행 코드. 실제 전문가 구현·대체의 증거와 구분함 |
 | 그림 설계 메모 | [도식-설계.md](도식/도식-설계.md) | 전개 그림을 왜 그렇게 그렸는지 적어둔 메모임 |
 | 전개 그림 | [전개-수식.svg](전개-수식/전개-수식.svg) | 확정된 6개 항·9개 계통·77개 항목과 실무 8개 묶음을 펼친 그림 |
