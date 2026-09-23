@@ -1,444 +1,800 @@
 %%{init: {"layout": "dagre", "flowchart": {"defaultRenderer": "dagre-wrapper", "htmlLabels": true, "nodeSpacing": 24, "rankSpacing": 32, "padding": 16, "wrappingWidth": 300, "curve": "linear", "useMaxWidth": true}} }%%
 flowchart TB
 
-  start(["<b>▶ 시작 · 새로운 요청이 오거나<br/>하던 일을 다시 시작함</b>"])
+  start(["<b>▶ 시작 · 새 요청을 받거나<br/>업무 조건이 바뀜</b>"])
   watch(["<b>▶ 시작 · 지켜보던 상황에<br/>변화가 생김</b>"])
-  live_start(["<b>▶ 시작 · 통화·실시간 채팅 시작</b>"])
-  signal["<b>시작 신호</b><br/><span style='font-size:11px'>새 일을 시작하거나 멈춘 일을 다시 시작할 때 알립니다.<br/>요청·답변·변경 알림을 해당 업무에 연결합니다.</span>"]
+  live_start(["<b>▶ 시작 · 실시간 대화로<br/>새 요청을 받음</b>"])
   watchtype{"<b>새로 할 일인가,<br/>하던 일이 바뀐 건가?</b>"}
-  live["<b>실시간 대화</b><br/><span style='font-size:11px'>통화나 채팅으로 요청과 답을 바로 주고받게 합니다.<br/>말이 겹치거나 연결이 끊기면 대화를 다시 이어 줍니다.</span>"]
-  context_initial["<b>현재 작업 정보 · 요청·변경 반영</b><br/><span style='font-size:11px'>받은 요청·자료·변경 내용을 모델이 읽을 수 있게 모읍니다.<br/>하던 일이면 이전 기록과 진행 상태도 함께 넣습니다.</span>"]
-  early["<b>먼저 알아채기</b><br/><span style='font-size:11px'>요청받기 전에, 문제나 개선할 점을 찾아 알립니다.<br/>예: 같은 질문이 반복되면 안내문 수정을 제안합니다.</span>"]
-  model_initial["<b>AI 모델 · 처음 요청 이해</b><br/><span style='font-size:11px'>받은 요청과 자료의 뜻을 파악합니다.<br/>이후에도 판단하거나 내용을 만들 때마다 사용합니다.</span>"]
-  understand["<b>정보·자료 이해</b><br/><span style='font-size:11px'>자료의 내용과 뜻을 파악합니다.<br/>무슨 주장인지, 무엇이 불분명한지 구별합니다.</span>"]
-  change["<b>변경 감시·반영</b><br/><span style='font-size:11px'>무엇이 바뀌었고 어느 업무에 영향을 주는지 알립니다.<br/>예: 마감일 변경을 해당 업무에 연결해 다시 검토합니다.</span>"]
-  intent["<b>지시·의도 파악</b><br/><span style='font-size:11px'>사용자가 원하는 결과와 맡긴 범위를 알아냅니다.<br/>해석에 따라 할 일이 달라질 부분은 물어서 확인합니다.</span>"]
+  live["<b>실시간 대화</b><br/><small>통화·채팅으로 새 요청을 받습니다.<br/>말이 겹치면 순서를 맞추고, 끊기면 다시 연결합니다.</small>"]
+  early["<b>먼저 알아채기</b><br/><small>맡아서 지켜보던 상황에서 새로 해결할 문제나 개선할 점을 찾아 알립니다.<br/>예: 같은 질문이 반복되면 안내문 수정을 제안합니다.</small>"]
+  change["<b>변경 감시·반영</b><br/><small>지켜보기로 한 자료나 조건에서 바뀐 내용을 찾아 해당 업무에 알립니다.<br/>예: 마감일이 바뀌면 저장된 일정과 해야 할 일을 다시 확인합니다.</small>"]
+  signal["<b>시작 신호</b><br/><small>새 요청이 오거나 하던 일의 조건이 바뀌면, 해당 업무를 시작하거나 다시 확인하도록 알립니다.<br/>기다리던 답변은 그 답을 기다리는 작업으로 보냅니다.</small>"]
+  use_signal_control["<b>실행 제어</b>"]
+  isolation["<b>분리 실행 · 작업 공간 준비</b><br/><small>자료가 섞이거나 오류가 다른 업무로 번지지 않게 작업 공간을 나눕니다.<br/>기존 공간을 다시 쓸 때도 분리 상태를 확인하고, 허용된 자료·도구만 공유합니다.</small>"]
+  use_context_initial_guard{"<b>이 자료를<br/>사용해도 되는가?</b>"}
+  use_context_initial_guard_hold(["<b>허용을 확인 못해<br/>작업을 보류함</b>"])
+  context_initial["<b>현재 작업 정보 · 요청·변경 반영</b><br/><small>AI가 읽을 요청과 자료를 모읍니다.<br/>하던 일이면 이전 기록과 진행 상황도 함께 넣습니다.</small>"]
+  subgraph model["AI 모델"]
+    understand["<b>정보·자료 이해</b><br/><small>처음 받은 요청과 첨부자료를 읽고 무슨 상황인지 파악합니다.<br/>확인된 사실과 작성자의 의견을 구분하고, 아직 모르는 점을 표시합니다.</small>"]
+    intent["<b>지시·의도 파악</b><br/><small>사용자가 원하는 결과와 어디까지 맡겼는지 알아봅니다.<br/>뜻이 애매해서 할 일이 달라질 수 있으면 물어봅니다.</small>"]
+  end
+
+  use_intent_record["<b>판단 근거 기록</b>"]
   clear{"<b>목표·범위에<br/>확인이 필요한가?</b>"}
-  communicate0["<b>사람과 소통</b><br/><span style='font-size:11px'>요청의 뜻이 애매하거나 목표·범위를 바꿔야 하면 묻습니다.<br/>받은 답으로 원하는 결과와 맡긴 범위를 다시 확인합니다.</span>"]
-  case["<b>업무별 정보</b><br/><span style='font-size:11px'>파악한 대상·상황·요구 사항과 기한을 정리합니다.<br/>새로 알게 되거나 바뀐 내용도 여기에 반영합니다.</span>"]
-  goal["<b>문제·목표·완료 조건 · 요청 기준 초안</b><br/><span style='font-size:11px'>받은 요청을 바탕으로 목표·범위·완료 기준을 잡습니다.<br/>자료와 규칙을 확인한 뒤 이 기준을 다시 검토합니다.</span>"]
-  measure0["<b>성과 추적 · 확인 항목·시점</b><br/><span style='font-size:11px'>목표에 맞춰 성과를 확인할 항목과 시점을 잡습니다.<br/>목표나 완료 기준이 바뀌면 함께 고칩니다.</span>"]
-  checks_start["<b>자료와 규칙을 모두 확인</b><br/><span style='font-size:11px'>자료와 규칙을 모두 확인합니다.<br/>다시 진행할 때는 바뀐 내용만 재확인합니다.</span>"]
+  use_communicate0_guard{"<b>질문할 내용을<br/>상대에게 알려도<br/>되는가?</b>"}
+  use_communicate0_guard_hold(["<b>허용을 확인 못해<br/>작업을 보류함</b>"])
+  subgraph support_communicate0["실시간 대화<br/>(통화·채팅일 때)"]
+    communicate0["<b>사람과 소통</b><br/><small>요청이 애매하거나 할 일을 바꿔야 하면 사용자에게 묻고 답변 기한을 정합니다.<br/>답을 듣고 무엇을 어디까지 할지 다시 정합니다.</small>"]
+  end
+
+  clarification_hold(["<b>답변을 받지 못해<br/>요청 확정을 보류함</b><br/><small>업무 책임자에게 미확정 내용과<br/>다시 확인할 기한을 남깁니다.</small>"])
+  case["<b>업무별 정보</b><br/><small>이번 일의 대상, 현재 상황, 요청사항과 기한을 정리합니다.<br/>새로 알게 되거나 바뀐 내용도 같은 업무 정보에 덧붙입니다.</small>"]
+  subgraph ai_goal["AI 모델"]
+    goal["<b>문제·목표·완료 조건 · 요청 기준 초안</b><br/><small>해결할 문제와 맡은 범위를 정하고, 어떤 결과가 나와야 일을 끝낼지 정합니다.<br/>자료와 규칙을 확인한 뒤 이 기준을 다시 살핍니다.</small>"]
+  end
+
+  use_goal_record["<b>판단 근거 기록</b>"]
+  measure0["<b>성과 추적 · 확인 항목·시점</b><br/><small>시간 절약·오류 감소처럼 이번 일의 효과를 확인할 항목과 시점을 정합니다.<br/>목표나 완료 기준이 바뀌면 확인 방법도 고칩니다.</small>"]
+  checks_start["<b>자료와 규칙을 모두 확인</b><br/><small>필요한 자료와 지킬 규칙을 둘 다 살펴봅니다.<br/>하던 일을 다시 할 때는 바뀐 부분만 다시 확인합니다.</small>"]
   subgraph evidence["판단에 쓸 자료를 확인한다"]
-    search["<b>정보·자료 찾기</b><br/><span style='font-size:11px'>받은 자료를 먼저 살피고 부족한 정보만 더 찾습니다.<br/>찾은 자료의 출처와 아직 못 찾은 내용을 남깁니다.</span>"]
-    now["<b>현재 값·상태 확인 · 현재 값이 필요할 때</b><br/><span style='font-size:11px'>판단에 필요한 값이나 처리 상태를 지금 다시 확인합니다.<br/>처리 여부를 모를 때는 먼저 확인한 뒤 다시 실행할지 정합니다.</span>"]
-    case_ref["<b>적용 사례 · 사례가 필요할 때</b><br/><span style='font-size:11px'>비슷한 일을 해결한 방법과 결과를 살펴봅니다.<br/>이번에도 같은 방법이 통할지 조건을 비교합니다.</span>"]
-    reference["<b>참고 자료 · 설명이나 예시가 필요할 때</b><br/><span style='font-size:11px'>일을 이해하거나 만드는 데 쓸 설명과 예시를 찾아봅니다.</span>"]
-    reuse["<b>재사용 자료 · 양식이나 부품이 필요할 때</b><br/><span style='font-size:11px'>이미 만든 양식·코드·그림 등을 다시 씁니다.<br/>사용 권한이 있고 이번 일에 맞는 것만 가져옵니다.</span>"]
-    absent["<b>못 찾음·없음 구분</b><br/><span style='font-size:11px'>정말 없는 것과 아직 못 찾은 것을 구별합니다.<br/>검색에 안 나왔다는 이유만으로 없다고 결론 내리지 않습니다.</span>"]
-    version["<b>자료의 시점·버전</b><br/><span style='font-size:11px'>판단할 날짜에 맞는 자료와 버전을 고릅니다.<br/>어느 원본을 언제 확인했는지도 남깁니다.</span>"]
-    trust["<b>근거의 신뢰성·적합성</b><br/><span style='font-size:11px'>자료를 믿어도 되는지, 이번 일에 써도 되는지 판단합니다.<br/>믿기 어렵거나 서로 맞지 않는 내용은 따로 표시합니다.</span>"]
-    evidence_repair["<b>근거 보완·판단 보류</b><br/><span style='font-size:11px'>자료를 더 찾거나 요청합니다.<br/>해당 판단은 보류합니다.</span>"]
+    use_search_guard{"<b>이 자료를<br/>찾아봐도 되는가?</b>"}
+    use_search_guard_hold(["<b>허용을 확인 못해<br/>작업을 보류함</b>"])
+    subgraph global_tools["업무 도구·시스템<br/>(필요할 때)"]
+      search["<b>정보·자료 찾기</b><br/><small>이번 일을 판단하거나 처리하는 데 빠진 정보를 찾습니다.<br/>받은 자료부터 살피고, 더 찾은 자료의 출처와 못 찾은 내용을 적습니다.</small>"]
+    end
+    subgraph support_now["업무 도구·시스템<br/>(필요할 때)"]
+      now["<b>현재 값·상태 확인 · 현재 값이 필요할 때</b><br/><small>현재 가격·수량·처리 상태처럼 판단에 필요한 최신 정보를 확인하고 조회한 시각을 적습니다.<br/>처리 여부가 불분명한 일은 이미 끝났는지 먼저 확인합니다.</small>"]
+    end
+    case_ref["<b>적용 사례 · 사례가 필요할 때</b><br/><small>비슷한 일을 해결한 방법과 결과를 찾아봅니다.<br/>그때의 조건과 이번 조건을 비교해 같은 방법을 써도 될지 판단합니다.</small>"]
+    reference["<b>참고 자료 · 설명이나 예시가 필요할 때</b><br/><small>일을 이해하거나 결과물을 만드는 데 도움이 되는 설명과 예시를 찾습니다.</small>"]
+    reuse["<b>재사용 자료 · 양식이나 부품이 필요할 때</b><br/><small>이미 만든 양식·코드·그림에서 다시 쓸 부분을 가져옵니다.<br/>사용할 권한이 있는지, 이번 목적과 작업 환경에도 맞는지 먼저 확인합니다.</small>"]
+    absent["<b>못 찾음·없음 구분</b><br/><small>검색 결과가 없으면 어디까지 찾아봤는지 적습니다.<br/>그 범위를 빠짐없이 확인했을 때만 그 안에 없다고 판단하고, 확인이 부족하면 아직 못 찾았다고 적습니다.</small>"]
+    version["<b>자료의 시점·버전</b><br/><small>이번 판단에 맞는 날짜의 자료를 고릅니다.<br/>자료가 여러 번 수정됐다면 사용할 수정본을 정하고, 어떤 원본을 언제 확인했는지 적습니다.</small>"]
+    trust["<b>근거의 신뢰성·적합성</b><br/><small>누가 어떤 근거로 만든 자료인지 살펴 믿을 만한지 확인합니다.<br/>이번 일에도 맞는지 보고, 내용이 서로 다르거나 근거가 부족한 부분은 표시합니다.</small>"]
+    use_trust_record["<b>판단 근거 기록</b>"]
     evidence_usable{"<b>필요한 근거를<br/>쓸 수 있는가?</b>"}
-    evidence_use["<b>필요한 지식·경험·기록 확인</b><br/><span style='font-size:11px'>이번 판단에 필요한 항목만 참고합니다.</span>"]
-    knowledge["<b>업무 지식 · 지식으로 쓸 근거</b><br/><span style='font-size:11px'>검증된 원리와 방법으로 문제를 풉니다.<br/>어떤 경우에 쓸 수 있고 어떤 예외가 있는지도 확인합니다.</span>"]
-    experience["<b>실전 경험·감각 · 경험과 비교할 자료</b><br/><span style='font-size:11px'>비슷한 일을 해 본 경험에서 주의할 점과 요령을 찾습니다.<br/>지금도 통하는지 확인하고 판단에 보탭니다.</span>"]
-    memory["<b>장기 기억 · 이전 기록과 비교</b><br/><span style='font-size:11px'>이전 업무에서 남긴 사실·약속·교훈을 다시 꺼내 씁니다.<br/>이번 일에도 관련 있고 여전히 맞는 것만 고릅니다.</span>"]
-    evidence_done["<b>판단에 쓸 자료 정리 완료</b><br/><span style='font-size:11px'>확인한 자료와 아직 모르는 점을 함께 남깁니다.</span>"]
+    evidence_repair["<b>근거 보완·판단 보류</b><br/><small>더 필요한 자료를 찾거나 요청하고 기다릴 기한을 정합니다.<br/>자료를 얻기 전에는 판단을 미룹니다.</small>"]
+    evidence_hold(["<b>근거를 확보하지 못해<br/>해당 판단을 보류함</b><br/><small>판단을 미룬 이유와 다시 판단할 조건을 적습니다.</small>"])
+    evidence_use["<b>필요한 지식·경험·기록 확인</b><br/><small>아래 지식·경험·기록 중 이번 판단에 도움이 될 것만 골라 봅니다.</small>"]
+    knowledge["<b>업무 지식 · 원리·방법을 참고할 때</b><br/><small>이번 일을 풀 때 쓸 원리와 방법을 찾아봅니다.<br/>어떤 때에 쓸 수 있고, 어떤 때에는 쓰면 안 되는지도 확인합니다.</small>"]
+    experience["<b>실전 경험·감각 · 비슷한 경험을 참고할 때</b><br/><small>비슷한 일을 해 본 경험에서 주의할 점과 도움이 된 요령을 찾습니다.<br/>이번 상황에서도 맞는지 확인한 뒤 판단에 보탭니다.</small>"]
+    memory["<b>장기 기억 · 이전 기록이 필요할 때</b><br/><small>예전 업무에서 확인한 사실, 약속, 배운 점을 다시 꺼내 봅니다.<br/>이번 일과 관련이 있고 지금도 맞는 내용만 씁니다.</small>"]
+    evidence_done["<b>판단에 쓸 자료 정리 완료</b><br/><small>골라 둔 지식·경험·기록을 모두 살핀 뒤 다음으로 갑니다.<br/>확인한 내용과 아직 모르는 내용을 함께 정리합니다.</small>"]
   end
 
   subgraph rules["이번 일에서 지킬 규칙을 확인한다"]
-    original["<b>규칙·기준 원문</b><br/><span style='font-size:11px'>지켜야 할 규칙을 원문에서 직접 확인합니다.<br/>누가 정했고 언제 어디에 적용되는지 살핍니다.</span>"]
-    law["<b>법·의무 기준</b><br/><span style='font-size:11px'>이번 일에 적용되는 국가·분야·시점의 법을 확인합니다.<br/>법적 의무와 허용된 예외를 찾습니다.</span>"]
-    law_constitution["<b>헌법 확인</b><br/><span style='font-size:11px'>한국 중앙정부 법령 예</span>"]
-    law_statute["<b>법률 확인</b>"]
-    law_decree["<b>대통령령 확인</b>"]
-    law_ministry["<b>총리령·부령 확인</b>"]
-    law_higher_apply["<b>상위법 우선 적용</b><br/><span style='font-size:11px'>충돌하는 부분에 적용합니다.</span>"]
+    use_original_guard{"<b>이 원문을<br/>열어 봐도 되는가?</b>"}
+    use_original_guard_hold(["<b>허용을 확인 못해<br/>작업을 보류함</b>"])
+    subgraph support_original["업무 도구·시스템<br/>(필요할 때)"]
+      original["<b>규칙·기준 원문</b><br/><small>이번 일에 적용될 법·규칙이 적힌 원문을 확보합니다.<br/>누가 정했는지, 언제부터 어떤 일에 적용하는지도 함께 확인합니다.</small>"]
+    end
+    law["<b>법·의무 기준</b><br/><small>이번 업무의 나라·분야·날짜에 적용되는 법을 확인합니다.<br/>지켜야 할 의무와 금지된 행동, 허용된 예외를 찾습니다.</small>"]
+    law_date["<b>대상 시점과 적용 조건 확인</b><br/><small>이 법을 언제부터 적용하는지 확인합니다.<br/>예전에 생긴 일에는 예전 법을 따라야 하는지도 살핍니다.</small>"]
+    law_rank["<b>적용할 법의 상하 관계 확인</b><br/><small>이번 일에 적용되는 법 중<br/>무엇이 상위법인지 확인합니다.</small>"]
     law_higher{"<b>상위법과<br/>충돌하는가?</b>"}
+    law_higher_apply["<b>상위법 우선 적용</b><br/><small>서로 어긋나는 부분은 상위법을 따릅니다.</small>"]
     law_conflict{"<b>같은 효력의 법이<br/>충돌하는가?</b>"}
     law_special{"<b>적용할 특별<br/>규정이 있는가?</b>"}
-    law_special_apply["<b>특별 규정 우선 적용</b><br/><span style='font-size:11px'>충돌하는 부분에 적용합니다.</span>"]
-    law_new["<b>새 법 적용 조건 확인</b><br/><span style='font-size:11px'>시행일과 경과조치를<br/>대조합니다.</span>"]
-    law_settle["<b>적용할 법적 기준 확인</b><br/><span style='font-size:11px'>판결·명령과 예외 요건도 함께 확인합니다.</span>"]
-    law_wait["<b>관련 작업 보류·확인 요청</b><br/><span style='font-size:11px'>권한 있는 담당자에게<br/>불명확한 기준을 확인합니다.</span>"]
+    law_special_apply["<b>특별 규정 우선 적용</b><br/><small>서로 어긋나는 부분은 특별 규정을 따릅니다.</small>"]
+    law_new["<b>새 법을 적용할지 판단</b><br/><small>새 법을 언제부터 쓰는지 보고, 예전 일에도 새 법을 적용할지 확인합니다.</small>"]
+    law_settle["<b>적용할 법적 기준 확인</b><br/><small>관련 판결이나 명령도 살펴보고, 예외를 허용하는 조건을 확인합니다.</small>"]
     law_clear{"<b>따를 법적 기준이<br/>명확한가?</b>"}
-    law_reply["<b>답변의 권한·적법성 확인</b><br/><span style='font-size:11px'>답변이 법과 적용 범위에<br/>맞는지 확인합니다.</span>"]
-    law_confirmed["<b>적용할 법적 기준 확정</b>"]
-    subgraph rank["이 도식의 업무 기준 순서 · 같은 순위는 함께 적용"]
-      ethics["<b>1순위 · 참조 기준 · 직업 윤리·의무</b><br/><span style='font-size:11px'>전문가로서 꼭 지켜야 할 행동 기준을 확인합니다.<br/>예: 비밀을 지키고 사적인 이익 때문에 판단을 바꾸지 않습니다.</span>"]
-      principles["<b>1순위 · 참조 기준 · 에이전트 기본 원칙</b><br/><span style='font-size:11px'>AI가 맡은 일의 목적과 범위를 지키고 사실에 맞게 답하고 행동하게 합니다.<br/>외부 자료에 적힌 지시만으로 목표나 권한을 바꾸지 않습니다.</span>"]
-      contract["<b>2순위 · 참조 기준 · 계약·합의 조건</b><br/><span style='font-size:11px'>상대와 약속한 일과 서로의 책임을 확인합니다.<br/>범위·기한·권리와 일이 끝난 뒤에도 남는 약속을 챙깁니다.</span>"]
-      platform["<b>2순위 · 참조 기준 · 플랫폼·제출처 규정</b><br/><span style='font-size:11px'>일할 서비스와 결과를 제출할 곳의 규칙을 확인합니다.<br/>계정 사용법·제출 형식 등 꼭 지킬 조건을 맞춥니다.</span>"]
-      org["<b>3순위 · 참조 기준 · 조직 규칙</b><br/><span style='font-size:11px'>소속 조직이 이 업무에 정한 규칙을 확인합니다.<br/>맡은 역할에 적용되는 규정과 허용된 예외를 살핍니다.</span>"]
-      user_rule["<b>4순위 · 참조 기준 · 사용자 지정 규칙</b><br/><span style='font-size:11px'>사용자가 이번 일에 따로 정한 조건을 적용합니다.<br/>반드시 지킬 조건과 사용자가 선호하는 방식을 구별합니다.</span>"]
-      style_n["<b>5순위 · 참조 기준 · 표현 방식·스타일</b><br/><span style='font-size:11px'>받는 사람과 쓰일 곳에 맞게 말투와 디자인을 맞춥니다.<br/>결과물 전체에 같은 기준을 적용합니다.</span>"]
+    use_law_wait_guard{"<b>문의 내용을 알려도 되는가?</b>"}
+    use_law_wait_guard_hold(["<b>허용을 확인 못해<br/>작업을 보류함</b>"])
+    subgraph support_law_wait["실시간 대화<br/>(통화·채팅일 때)"]
+      law_wait["<b>관련 작업 보류·확인 요청</b><br/><small>담당자에게 어떤 기준을 따를지 묻고 답변 기한을 정합니다.</small>"]
     end
-    priority["<b>규칙의 적용·우선순위</b><br/><span style='font-size:11px'>확인한 법적 기준과 업무 규칙을 함께 대조합니다.<br/>같은 번호의 규칙도 함께 지킬 방법을 찾습니다.</span>"]
+    law_reply["<b>답변의 권한·적법성 확인</b><br/><small>답한 사람이 결정해도 되는지, 그 답이 법과 규칙에 맞는지 확인합니다.</small>"]
+    law_timeout(["<b>확인 기한이 지나<br/>해당 작업을 보류함</b>"])
+    law_confirmed["<b>적용할 법적 기준 확정</b>"]
+    priority["<b>규칙의 적용·우선순위</b><br/><small>이번 일에서 함께 지켜야 할 법과 업무 규칙을 모읍니다.<br/>서로 충돌하는 규칙이 있는지 확인하고, 아래 순서대로 적용할 기준을 정합니다.</small>"]
+    use_priority_record["<b>판단 근거 기록</b>"]
     rule_conflict{"<b>충돌하는 규칙이<br/>있는가?</b>"}
-    rule_compare["<b>근거·권한·범위 대조</b><br/><span style='font-size:11px'>규칙의 근거와 정한 사람의<br/>권한을 확인합니다.</span>"]
+    rule_compare["<b>근거·권한·범위 대조</b><br/><small>왜 이 규칙을 지켜야 하는지, 누가 정할 수 있는지, 이번 일에 어디까지 해당하는지 비교합니다.</small>"]
     rule_order{"<b>우선할 규칙을<br/>정할 수 있는가?</b>"}
     rule_apply["<b>충돌 부분에 우선 규칙 적용</b>"]
-    rule_exception["<b>허용된 예외·변경 확인</b><br/><span style='font-size:11px'>예외 요건·승인 권한과<br/>필요한 증거를 확인합니다.</span>"]
+    rule_exception["<b>허용된 예외·변경 확인</b><br/><small>예외를 허락할 사람과 조건, 필요한 증거를 확인합니다.</small>"]
     rule_candidate["<b>적용할 기준·남은 쟁점 정리</b>"]
-    rule_wait["<b>관련 작업 보류·확인 요청</b><br/><span style='font-size:11px'>결정권자에게 충돌 내용과<br/>확인이 필요한 점을 보냅니다.</span>"]
     rule_resolved{"<b>적용할 기준이<br/>모두 정해졌는가?</b>"}
-    rule_reply["<b>답변의 권한·적법성 확인</b><br/><span style='font-size:11px'>허용된 변경인지 확인하고<br/>규칙을 다시 대조합니다.</span>"]
-    rule_confirmed["<b>확인된 기준 적용·기록</b><br/><span style='font-size:11px'>함께 지킬 조건과 판단 근거를 남깁니다.</span>"]
+    use_rule_wait_guard{"<b>문의 내용을 알려도 되는가?</b>"}
+    use_rule_wait_guard_hold(["<b>허용을 확인 못해<br/>작업을 보류함</b>"])
+    subgraph support_rule_wait["실시간 대화<br/>(통화·채팅일 때)"]
+      rule_wait["<b>관련 작업 보류·확인 요청</b><br/><small>담당자에게 어떤 기준을 따를지 묻고 답변 기한을 정합니다.</small>"]
+    end
+    rule_reply["<b>답변의 권한·적법성 확인</b><br/><small>답한 사람이 결정해도 되는지, 그 답이 법과 규칙에 맞는지 확인합니다.</small>"]
+    rule_timeout(["<b>확인 기한이 지나<br/>해당 작업을 보류함</b>"])
+    rule_confirmed["<b>확인된 기준 적용·기록</b><br/><small>지키기로 한 조건과 그렇게 정한 이유를 기록합니다.</small>"]
   end
 
-  checks_join["<b>자료·규칙 확인 완료</b><br/><span style='font-size:11px'>두 확인이 끝나야 다음으로 넘어갑니다.</span>"]
-  context["<b>현재 작업 정보 · 확인 결과 반영</b><br/><span style='font-size:11px'>자료와 규칙의 확인 결과로 내용을 갱신합니다.<br/>이번 판단에 필요한 정보만 골라 모델에 넘깁니다.</span>"]
-  model["<b>AI 모델 · 다음 작업 판단</b><br/><span style='font-size:11px'>모은 정보로 다음에 할 일을 판단합니다.<br/>필요한 답변이나 결과물도 만듭니다.</span>"]
+  subgraph rank["이 도식의 업무 기준 순서 · 같은 순위는 함께 적용"]
+    ethics["<b>1순위 · 참조 기준 · 직업 윤리·의무</b><br/><small>전문가로서 지켜야 할 행동을 확인합니다.<br/>예를 들어 비밀을 지키고, 내 이익 때문에 판단을 바꾸지 않습니다.</small>"]
+    principles["<b>1순위 · 참조 기준 · 에이전트 기본 원칙</b><br/><small>AI는 맡은 일의 범위를 지키고 사실대로 답합니다.<br/>읽은 자료에 지시가 있어도 맡은 일이나 허용 범위를 마음대로 바꾸지 않습니다.</small>"]
+    contract["<b>2순위 · 참조 기준 · 계약·합의 조건</b><br/><small>약속한 업무와 기한, 서로의 권리와 책임을 확인합니다.<br/>계약이 바뀌거나 끝나도 계속 지켜야 할 약속이 있는지 살핍니다.</small>"]
+    platform["<b>2순위 · 참조 기준 · 플랫폼·제출처 규정</b><br/><small>작업에 쓰는 서비스와 결과를 제출할 곳의 규칙을 확인합니다.<br/>계정 이용 조건과 제출 형식 등 이번 일에 해당하는 규정을 따릅니다.</small>"]
+    org["<b>3순위 · 참조 기준 · 조직 규칙</b><br/><small>소속 조직이나 일을 맡긴 조직의 규칙을 확인합니다.<br/>내 역할에 적용되는 조건과 조직이 허용한 예외를 구분합니다.</small>"]
+    user_rule["<b>4순위 · 참조 기준 · 사용자 지정 규칙</b><br/><small>사용자가 이번 일에 따로 요청한 조건을 따릅니다.<br/>꼭 지켜야 하는 것과 가능하면 맞춰 주면 되는 것을 구분합니다.</small>"]
+    style_n["<b>5순위 · 참조 기준 · 표현 방식·스타일</b><br/><small>결과를 볼 사람과 쓰일 곳에 맞춰 말투·문체·디자인을 정합니다.<br/>정한 표현 방식을 결과물 전체에 일관되게 적용합니다.</small>"]
+  end
+
+  checks_join["<b>자료·규칙 확인 완료</b><br/><small>자료와 규칙을 모두 확인한 뒤에만 다음으로 갑니다.</small>"]
+  context["<b>현재 작업 정보 · 확인 결과 반영</b><br/><small>자료와 규칙을 확인해 알게 된 내용을 현재 업무 정보에 더합니다.<br/>다음 판단에 필요한 내용만 골라 AI에게 전달합니다.</small>"]
   goal_review{"<b>목표·범위·완료 기준을<br/>고쳐야 하는가?</b>"}
-  strategy["<b>대안·전략 판단</b><br/><span style='font-size:11px'>목표를 이루는 방법들을 비교해 진행 방향을 정합니다.<br/>효과·비용·위험을 보고 더 조사할지, 진행할지, 멈출지 고릅니다.</span>"]
-  risk["<b>빠진 위험 확인</b><br/><span style='font-size:11px'>미처 생각하지 못한 문제나 피해가 없는지 찾습니다.<br/>계획·실행·전달 전에 빠뜨린 조건을 살핍니다.</span>"]
-  strategy_more["<b>부족한 정보 정리</b><br/><span style='font-size:11px'>더 알아야 할 내용과<br/>바뀐 조건을 정리합니다.</span>"]
-  strategy_stop(["<b>업무 보류·중단</b><br/><span style='font-size:11px'>이유와 다시 시작할 조건을 남깁니다.</span>"])
-  strategy_choice{"<b>어떻게 진행할까?</b>"}
+  risk["<b>빠진 위험 확인</b><br/><small>어떤 방법으로 일할지 정하기 전에, 놓친 조건이나 생길 수 있는 피해를 찾습니다.<br/>피해가 큰 문제부터 확인하거나 대비할 수 있게 정리합니다.</small>"]
+  risk_result{"<b>위험을 발견했는가?</b>"}
+  risk_response["<b>위험 줄일 방법 정리</b><br/><small>생길 피해와 가능성을 살피고,<br/>피하거나 줄일 방법과 남는 위험을 적습니다.</small>"]
+  risk_scope["<b>확인한 범위·모르는 점 정리</b><br/><small>어떤 자료와 조건을 살폈는지 적습니다.<br/>확인하지 못한 부분은 모르는 점으로 남깁니다.</small>"]
+  subgraph ai_strategy["AI 모델"]
+    strategy["<b>대안·전략 판단</b><br/><small>가능한 방법의 효과·시간·비용과 남은 위험을 비교합니다.<br/>지켜야 할 규칙과 허용 한도 안에서 목표를 이룰 방법을 찾습니다.</small>"]
+  end
+
+  use_strategy_record["<b>판단 근거 기록</b>"]
+  strategy_choice{"<b>방법을 고르는 데 필요한<br/>정보가 충분한가?</b>"}
+  strategy_more["<b>부족한 정보 정리</b><br/><small>진행 여부를 정하는 데 빠진 정보와 추가로 확인할 항목을 적습니다.</small>"]
+  strategy_feasible{"<b>규칙·허용 한도 안에서<br/>목표를 이룰 방법이 있는가?</b>"}
+  strategy_stop(["<b>업무 보류·중단</b><br/><small>멈춘 이유와 다시 할 조건을 적습니다.</small>"])
   qualified{"<b>이번 일을 할 능력이<br/>이미 확인됐는가?</b>"}
-  testenv0["<b>시험 환경</b><br/><span style='font-size:11px'>새 방법이나 도구를 실제 업무와 분리해 시험하는 곳입니다.<br/>시험이 실패해도 원본과 실제 작업에 영향을 주지 않습니다.</span>"]
-  capability0["<b>업무 능력 시험</b><br/><span style='font-size:11px'>이번 일을 처음부터 끝까지 해낼 수 있는지 시험합니다.<br/>예외 상황에 대처하고 중단된 일을 이어 갈 수 있는지도 봅니다.<br/>기존에 잘하던 일도 여전히 되는지 확인합니다.</span>"]
+  use_testenv0_guard{"<b>이 자료·도구로<br/>시험해도 되는가?</b>"}
+  use_testenv0_guard_hold(["<b>허용을 확인 못해<br/>작업을 보류함</b>"])
+  subgraph support_testenv0["실제 업무와 분리한 시험 공간<br/>업무 도구·시스템<br/>(필요할 때)"]
+    testenv0["<b>시험 환경</b><br/><small>실제 업무와 분리된 시험 공간을 준비합니다.<br/>능력을 시험하다 실패해도 실제 자료와 작업에는 영향을 주지 않게 합니다.</small>"]
+    capability0["<b>업무 능력 시험</b><br/><small>이 일을 맡기기 전에, 처음부터 끝까지 해낼 수 있는지 시험합니다.<br/>조건이 바뀌거나 도중에 멈춰도 대처하는지, 기존에 잘하던 일도 해내는지 확인합니다.</small>"]
+  end
+
   qualified_test{"<b>이 업무를 맡기 위한<br/>시험을 통과했는가?</b>"}
-  unqualified(["<b>시험을 통과하지 못해<br/>업무를 보류함</b><br/><span style='font-size:11px'>통과하기 전에는 실제 일을 맡기지 않습니다.</span>"])
-  plan["<b>업무 절차·실행 계획</b><br/><span style='font-size:11px'>선택한 방법을 작업 순서와 검사·승인 단계로 나눕니다.<br/>준비물·도구·일정과 중단·재개 조건을 정합니다.</span>"]
-  state["<b>현재 진행 상태</b><br/><span style='font-size:11px'>기존에 끝난 일과 대기 중인 일을 유지하며 새 계획을 반영합니다.<br/>남은 일과 처리 여부가 불분명한 일도 표시합니다.</span>"]
-  unused["<b>나눠 맡기기</b><br/><span style='font-size:11px'>여러 AI에게 일을 나누어 맡길 때 씁니다.<br/>여기서는 한 전문가가 직접 하므로 쓰지 않습니다.</span>"]
-  progress["<b>작업 진행·연결</b><br/><span style='font-size:11px'>계획과 현재 상태를 보고 지금 할 작업을 고릅니다.<br/>실행할 대상·입력·도구를 구체적으로 정합니다.</span>"]
-  record["<b>판단 근거 기록</b><br/><span style='font-size:11px'>지금 할 작업과 대상·입력, 선택한 이유를 남깁니다.<br/>실행·수정·검사 후에도 같은 기록에 결과를 덧붙입니다.</span>"]
-  isolation["<b>분리 실행</b><br/><span style='font-size:11px'>자료와 작업이 서로 섞이거나 영향을 주지 않게 나눕니다.<br/>함께 써도 되는 것만 공유합니다.</span>"]
-  control["<b>실행 제어</b><br/><span style='font-size:11px'>작업 공간과 판단 기록이 준비됐는지 확인합니다.<br/>안전장치 확인을 거쳐 도구·AI 호출과 결과 처리를 이어 갑니다.</span>"]
-  monitor["<b>운영 감시·복구</b><br/><span style='font-size:11px'>작업 중 생긴 장애를 발견하고 다시 돌아가게 합니다.<br/>저장한 진행 상황을 불러와 멈췄던 곳부터 이어 갑니다.</span>"]
-  rights["<b>참조 기준 · 업무 권한</b><br/><span style='font-size:11px'>어떤 일을 어디까지 해도 되는지 확인합니다.<br/>누구를 대신하는지, 승인이 아직 유효한지도 봅니다.</span>"]
-  guard["<b>안전장치</b><br/><span style='font-size:11px'>규칙·승인·한도를 어기는 행동을 막습니다.<br/>자료를 주고받거나 실행하기 전에 확인하고, 허용 여부를 모르면 보류합니다.</span>"]
-  limit["<b>참조 기준 · 비용·위험 한도</b><br/><span style='font-size:11px'>돈과 위험을 얼마나 감수해도 되는지 정해 둔 선입니다.<br/>이미 쓴 몫과 앞으로 쓸 몫을 합쳐 넘지 않는지 확인합니다.</span>"]
+  unqualified(["<b>시험을 통과하지 못해<br/>업무를 보류함</b><br/><small>시험을 통과한 뒤에 실제 일을 맡깁니다.</small>"])
+  plan["<b>업무 절차·실행 계획</b><br/><small>정한 방법을 작업으로 나누고, 순서·일정과 쓸 자료·도구를 정합니다.<br/>함께 할 수 있는 일과 검사·승인할 곳, 재요청·재시도 한도와 중단·재개 조건도 정합니다.</small>"]
+  use_plan_record["<b>판단 근거 기록</b>"]
+  state["<b>현재 진행 상태</b><br/><small>계획에 따라 끝난 일, 남은 일, 답을 기다리는 일을 표시합니다.<br/>처리됐는지 아직 모르는 일도 따로 표시합니다.</small>"]
+  unused["<b>나눠 맡기기</b><br/><small>여러 AI에게 일을 나눠 줄 때 씁니다.<br/>여기서는 한 전문가가 직접 하므로 쓰지 않습니다.</small>"]
+  progress["<b>작업 진행·연결</b><br/><small>계획과 진행 상태를 보고 지금 시작할 수 있는 작업을 고릅니다.<br/>사용할 자료·도구와 그 결과를 넘길 다음 작업을 정합니다.</small>"]
+  record["<b>판단 근거 기록 · 이번 작업 기록</b><br/><small>지금 할 작업과 사용할 자료, 그 작업을 고른 이유를 적습니다.<br/>작업을 마치거나 고칠 때 결과와 검사 내용을 덧붙입니다.</small>"]
+  monitor_event(["<b>▶ 시작 · 업무 실행 중<br/>장애를 감지함</b>"])
+  control["<b>실행 제어 · 이번 실행 준비</b><br/><small>고른 작업에 필요한 자료와 실행 순서를 준비합니다.<br/>아래의 실행 전 확인이 끝나면 작업을 실행하고, 결과나 오류를 다음 단계로 보냅니다.</small>"]
+  monitor["<b>운영 감시·복구 · 별도 감시 · 장애 후 복구</b><br/><small>시스템의 오류·지연·중단을 계속 살핍니다.<br/>장애가 나면 복구하고, 어디까지 처리됐는지 확인해 중단된 작업을 이어갈 수 있게 합니다.</small>"]
+  rights["<b>참조 기준 · 업무 권한</b><br/><small>누구를 대신해 어떤 일을 어디까지 해도 되는지 확인합니다.<br/>전에 받은 허락이 지금도 유효한지 살핍니다.</small>"]
+  recovery_ok{"<b>복구되고 처리 상태도<br/>확인됐는가?</b>"}
+  recovery_hold(["<b>복구·처리 상태를 확인할 때까지<br/>중단한 작업을 보류함</b><br/><small>장애 담당자에게 상태와 미확정 처리를 넘깁니다.<br/>처리 여부를 모르는 작업은 반복 실행하지 않습니다.</small>"])
+  resume_changed{"<b>중단된 동안<br/>조건이 바뀌었는가?</b>"}
+  risk_exec["<b>빠진 위험 확인 · 구체적인 실행 전</b><br/><small>지금 고른 대상과 자료, 도구로 작업할 때 생길 문제를 살핍니다.<br/>이전 판단 뒤 바뀐 조건도 확인하고, 실행 전에 필요한 대비책을 마련합니다.</small>"]
+  guard["<b>안전장치</b><br/><small>지금 하려는 작업이 규칙과 허락받은 범위, 비용·위험 한도에 맞는지 확인합니다.<br/>범위를 넘는 작업은 막고, 허용 여부를 확인할 수 없으면 보류합니다.</small>"]
+  limit["<b>참조 기준 · 비용·위험 한도</b><br/><small>이번 업무에 쓸 돈·시간·자원과 감수할 위험의 한도를 확인합니다.<br/>이미 쓴 양과 진행 중이거나 예약된 작업에 필요한 양까지 합쳐 남은 여유를 봅니다.</small>"]
   allowed{"<b>안전장치의<br/>확인 결과는?</b>"}
-  handoff["<b>사람에게 넘기기</b><br/><span style='font-size:11px'>사람의 승인·판단·직접 수행이 필요한 일을 넘깁니다.<br/>조사와 준비를 마치고 필요한 자료와 함께 요청합니다.</span>"]
-  hold(["<b>작업을 보류하거나 중단함</b><br/><span style='font-size:11px'>멈춘 이유와 다시 시작할 조건을 남깁니다.</span>"])
-  identity0["<b>보고 주체 확인</b><br/><span style='font-size:11px'>답한 사람이 실제로 승인하거나 결정할 권한이 있는지 봅니다.<br/>승인한 대상과 버전이 이번 요청과 같은지도 확인합니다.</span>"]
-  tools["<b>업무 도구·시스템</b><br/><span style='font-size:11px'>필요한 프로그램·장비·서비스를 연결합니다.<br/>도구가 필요 없는 작업은 모델이 직접 처리합니다.</span>"]
-  approval_valid{"<b>본인·권한·승인 대상이<br/>모두 맞는가?</b>"}
-  subgraph opg0[" "]
-    choose0{"<b>정해 둔 작업은?</b>"}
-    sort["<b>자료 선별·분류</b><br/><span style='font-size:11px'>자료에서 필요한 것을 골라 종류별로 나눕니다.<br/>같은 대상을 다룬 기록끼리도 연결합니다.</span>"]
-    combine["<b>자료 정리·결합</b><br/><span style='font-size:11px'>흩어진 자료를 바로 쓸 수 있게 정리하고 합칩니다.<br/>오류·중복을 고치고, 내용이 서로 다른 부분과 원본의 위치를 남깁니다.</span>"]
-    convert["<b>형식·구조 변환</b><br/><span style='font-size:11px'>같은 내용을 쓸 곳에 맞는 파일·자료 형식으로 바꿉니다.<br/>옮기면서 내용이나 항목의 연결이 빠지지 않았는지 봅니다.</span>"]
+  hold(["<b>작업을 보류하거나 중단함</b><br/><small>멈춘 이유와 다시 시작해도 되는 조건을 적습니다.</small>"])
+  subgraph support_handoff["실시간 대화<br/>(통화·채팅일 때)"]
+    handoff["<b>사람에게 넘기기</b><br/><small>사람의 승인·결정·처리가 필요한 일을 담당자에게 보냅니다.<br/>무엇을 해 줘야 하는지, 판단할 자료와 답변 기한을 함께 전달합니다.</small>"]
+  end
+
+  identity0["<b>보고 주체 확인</b><br/><small>답을 요청한 담당자가 보낸 답인지, 그 일을 결정하거나 처리할 권한이 있는지 확인합니다.<br/>요청한 대상과 내용에 대한 답인지도 확인합니다.</small>"]
+  precheck["<b>결과 검증·재검증 · 외부 행동 전</b><br/><small>실행 전에 보낼 내용과 바꿀 대상·값이 정확한지 검사합니다.<br/>중요한 결론이 틀렸을 가능성도 살피고, 승인받은 내용에서 달라진 점이 없는지 확인합니다.</small>"]
+  handoff_timeout(["<b>거절되거나 기한이 지나<br/>해당 작업을 보류함</b>"])
+  precheck_ok{"<b>이번 실행에 쓸 내용·값이<br/>확인됐는가?</b>"}
+  tools["<b>업무 도구·시스템 · 이번 작업 준비</b><br/><small>지금 할 작업에 맞는 도구를 고르고, 도구에 전달할 자료와 조건을 준비합니다.<br/>도구가 필요 없는 일은 AI가 직접 처리합니다.</small>"]
+  approval_valid{"<b>상대·권한·대상·버전이<br/>모두 맞는가?</b>"}
+  human_return{"<b>받은 답변은<br/>어떤 내용인가?</b>"}
+  dispatch{"<b>선택한 작업은<br/>어떤 종류인가?</b>"}
+  subgraph opg0["자료 정리 · 작업 공간"]
+    choose0{"<b>선택한 자료 정리<br/>작업은?</b>"}
+    subgraph resources_0["AI 모델 (필요할 때)<br/>업무 도구·시스템 (필요할 때)"]
+      sort["<b>자료 선별·분류</b><br/><small>이번 작업에 필요한 자료를 골라 종류별로 묶습니다.<br/>같은 사람이나 같은 일을 다룬 기록은 서로 연결합니다.</small>"]
+      combine["<b>자료 정리·결합</b><br/><small>흩어진 자료를 한데 모으고, 중복이나 확인된 오류를 정리합니다.<br/>내용이 서로 다른 부분은 표시하고, 원본을 다시 찾을 수 있게 출처를 남깁니다.</small>"]
+      convert["<b>형식·구조 변환</b><br/><small>내용은 그대로 두고 필요한 파일 형식이나 구조로 바꿉니다.<br/>내용이 빠지거나 서로 연결된 항목이 끊기지 않았는지 확인합니다.</small>"]
+    end
     out0[("<b>정리를 마친 자료</b>")]
   end
 
-  type0{"<b>자료를<br/>정리하는 일인가?</b>"}
-  subgraph opg1[" "]
-    choose1{"<b>정해 둔 작업은?</b>"}
-    calc["<b>계산</b><br/><span style='font-size:11px'>숫자와 계산식으로 필요한 값을 구합니다.</span>"]
-    analysis["<b>분석</b><br/><span style='font-size:11px'>자료에서 관계·특징·원인을 찾아 무엇을 뜻하는지 설명합니다.</span>"]
-    judge["<b>기준 적용·판정</b><br/><span style='font-size:11px'>확인한 사실을 기준과 비교해 조건을 충족하는지 판단합니다.</span>"]
-    forecast["<b>예측</b><br/><span style='font-size:11px'>현재 자료와 가정으로 앞으로의 결과를 예상합니다.<br/>얼마나 확실한지도 함께 따져 봅니다.</span>"]
-    optimize["<b>조건 안에서 최선 찾기</b><br/><span style='font-size:11px'>정해진 조건을 지키면서 가장 나은 안을 고릅니다.</span>"]
+  subgraph opg1["계산·판단 · 작업 공간"]
+    choose1{"<b>선택한 계산·판단<br/>작업은?</b>"}
+    subgraph resources_1["AI 모델 (필요할 때)<br/>업무 도구·시스템 (필요할 때)"]
+      calc["<b>계산</b><br/><small>숫자와 계산식을 써서 필요한 값을 구합니다.</small>"]
+      analysis["<b>분석</b><br/><small>자료에서 눈에 띄는 특징과 서로 관련된 부분을 찾습니다.<br/>그 결과로 무엇을 알 수 있는지 설명하고, 추측한 내용은 따로 밝힙니다.</small>"]
+      judge["<b>기준 적용·판정</b><br/><small>확인한 사실이 정해 둔 기준에 맞는지 판단합니다.</small>"]
+      forecast["<b>예측</b><br/><small>자료와 예상 조건을 바탕으로 앞으로 어떤 일이 생길지 예측합니다.<br/>예측의 근거와 달라질 수 있는 조건도 함께 설명합니다.</small>"]
+      optimize["<b>조건 안에서 최선 찾기</b><br/><small>비용·시간 등 무엇을 기준으로 가장 나은 방법을 고를지 정합니다.<br/>필수 조건을 지키는 방법들을 비교해 그 기준에 가장 맞는 것을 고릅니다.</small>"]
+    end
     out1[("<b>계산값·분석 결과·판단</b>")]
   end
 
-  type1{"<b>계산하거나<br/>판단하는 일인가?</b>"}
-  subgraph opg2[" "]
-    choose2{"<b>정해 둔 작업은?</b>"}
-    design["<b>결과물 설계</b><br/><span style='font-size:11px'>결과물의 구성과 만드는 방법을 미리 정합니다.</span>"]
-    reframe["<b>내용 재구성</b><br/><span style='font-size:11px'>기존 내용의 순서와 표현을 새 목적에 맞게 바꿉니다.</span>"]
-    make["<b>결과물 만들기·수정</b><br/><span style='font-size:11px'>설계와 자료를 바탕으로 결과물을 만들거나 고칩니다.<br/>요청한 내용이 담겼는지도 확인합니다.</span>"]
+  subgraph opg2["설계·제작 · 작업 공간"]
+    choose2{"<b>선택한 설계·제작<br/>작업은?</b>"}
+    subgraph resources_2["AI 모델 (필요할 때)<br/>업무 도구·시스템 (필요할 때)"]
+      design["<b>결과물 설계</b><br/><small>결과물에 무엇을 담을지, 어떤 구성과 순서로 만들지 정합니다.<br/>만드는 방법과 완성됐는지 확인할 기준도 정합니다.</small>"]
+      reframe["<b>내용 재구성</b><br/><small>이미 있는 내용을 새로 쓸 목적에 맞춰 순서와 표현을 바꿉니다.</small>"]
+      make["<b>결과물 만들기·수정</b><br/><small>설계와 자료를 바탕으로 문서·코드 등 결과물을 만들거나 고칩니다.<br/>요청받은 내용이 빠지지 않았는지도 확인합니다.</small>"]
+    end
     out2[("<b>작성한 설계·내용·결과물</b>")]
   end
 
-  type2{"<b>결과물을<br/>만드는 일인가?</b>"}
-  subgraph opg3[" "]
-    choose3{"<b>정해 둔 작업은?</b>"}
-    talk["<b>사람과 소통</b><br/><span style='font-size:11px'>상대에게 묻고 설명해 필요한 뜻과 답을 주고받습니다.<br/>서로 같은 뜻으로 이해했는지 확인합니다.</span>"]
-    negotiate["<b>협상·조율</b><br/><span style='font-size:11px'>서로 다른 요구를 맞춰 함께 받아들일 조건을 찾습니다.<br/>합의한 것과 아직 의견이 다른 것을 남깁니다.</span>"]
+  subgraph opg3["소통·조율 · 작업 공간"]
+    choose3{"<b>선택한 소통·조율<br/>작업은?</b>"}
+    subgraph resources_3["AI 모델 (필요할 때)<br/>실시간 대화 (통화·채팅일 때)"]
+      talk["<b>사람과 소통</b><br/><small>필요한 것을 묻고 설명하며 답을 주고받습니다.<br/>서로 같은 뜻으로 알아들었는지 확인합니다.</small>"]
+      negotiate["<b>협상·조율</b><br/><small>서로 원하는 조건이 다르면, 조정할 수 있는 부분을 찾아 합의를 시도합니다.<br/>합의한 내용과 아직 의견이 다른 내용을 적습니다.</small>"]
+    end
     out3[("<b>답변·합의한 내용·남은 의견 차이</b>")]
   end
 
-  type3{"<b>대화하거나<br/>의견을 맞추는 일인가?</b>"}
-  subgraph opg4[" "]
-    choose4{"<b>정해 둔 작업은?</b>"}
-    write["<b>기록 입력·수정</b><br/><span style='font-size:11px'>시스템에 기록을 넣거나 바꿉니다.<br/>정확히 반영됐는지 확인하고 변경 이력을 남깁니다.</span>"]
-    transaction["<b>신청·거래 처리</b><br/><span style='font-size:11px'>신청·예약·주문·결제 같은 절차를 진행합니다.<br/>승인된 범위에서 처리하고, 중복 실행 전에 처리 상태를 확인합니다.</span>"]
-    operate["<b>설정·작동 제어</b><br/><span style='font-size:11px'>장치나 시스템의 설정·작동을 원하는 상태로 바꿉니다.<br/>바꾼 뒤 실제 상태도 확인합니다.</span>"]
-    publish["<b>게시·배포</b><br/><span style='font-size:11px'>결과물을 정한 사람들에게 공개하거나 배포합니다.<br/>승인된 버전이 맞는 곳에 올라갔는지 확인합니다.</span>"]
+  subgraph opg4["외부 변경·공개 · 작업 공간"]
+    choose4{"<b>선택한 외부 변경·공개<br/>작업은?</b>"}
+    subgraph resources_4["업무 도구·시스템 (필요할 때)"]
+      write["<b>기록 입력·수정</b><br/><small>시스템에 기록을 추가하거나 고칩니다.<br/>의도한 대로 저장됐는지 확인하고, 바꾸기 전후의 내용을 남깁니다.</small>"]
+      transaction["<b>신청·거래 처리</b><br/><small>허락받은 신청·예약·주문·결제를 처리합니다. 같은 일을 다시 하기 전에는 이미 처리됐는지 확인합니다.</small>"]
+      operate["<b>설정·작동 제어</b><br/><small>장치나 시스템의 설정을 바꾸거나 작동시킵니다.<br/>실제로 원하는 상태가 됐는지도 확인합니다.</small>"]
+      publish["<b>게시·배포</b><br/><small>허락받은 결과물을 정해 둔 대상에게 공개하거나 배포합니다.<br/>공개된 내용과 공개 범위가 승인받은 것과 같은지 확인합니다.</small>"]
+    end
     out4[("<b>실제 반영된 내용·처리 상태</b>")]
   end
 
-  type4{"<b>시스템을 바꾸거나<br/>결과를 공개하는가?</b>"}
-  subgraph opg5[" "]
-    choose5{"<b>정해 둔 작업은?</b>"}
-    observe["<b>관찰·측정</b><br/><span style='font-size:11px'>대상을 직접 살펴보거나 값을 재서 기록합니다.<br/>언제 어떤 조건에서 얻은 값인지도 남깁니다.</span>"]
-    experiment["<b>실험</b><br/><span style='font-size:11px'>조건을 바꾸어 그 때문에 결과가 달라지는지 확인합니다.<br/>다른 요인이 영향을 주지 않았는지도 살핍니다.</span>"]
-    simulate["<b>시뮬레이션</b><br/><span style='font-size:11px'>실제로 하기 전에 가상의 상황에서 미리 해 봅니다.<br/>예상되는 결과와 실제 상황과의 차이를 살핍니다.</span>"]
+  subgraph opg5["관찰·시험 · 작업 공간"]
+    choose5{"<b>선택한 관찰·시험<br/>작업은?</b>"}
+    subgraph resources_5["업무 도구·시스템 (필요할 때)"]
+      observe["<b>관찰·측정</b><br/><small>대상을 직접 살펴보거나 값을 재서 기록합니다.<br/>언제, 어떤 상황에서 살피거나 쟀는지도 적습니다.</small>"]
+      experiment["<b>실험</b><br/><small>조건을 바꿔 보고 그 때문에 결과가 달라졌는지 살핍니다.<br/>다른 이유 때문에 결과가 바뀐 것은 아닌지도 확인합니다.</small>"]
+      simulate["<b>시뮬레이션</b><br/><small>실제로 하기 전에 가상의 상황을 만들어 미리 해 봅니다.<br/>어떤 결과가 나오는지, 실제 상황과는 무엇이 다른지 살핍니다.</small>"]
+    end
     out5[("<b>관찰하거나 시험해서 얻은 결과</b>")]
   end
 
-  type5{"<b>관찰하거나<br/>시험하는 일인가?</b>"}
-  identity["<b>보고 주체 확인</b><br/><span style='font-size:11px'>누가 어떤 요청에 낸 답이나 결과인지 확인합니다.<br/>보낸 사람·시스템과 대상·버전이 요청에 맞는지 봅니다.</span>"]
-  identity_ok{"<b>요청한 쪽·대상·버전이<br/>모두 맞는가?</b>"}
-  identity_reject["<b>결과 반려·재요청</b><br/><span style='font-size:11px'>맞지 않는 결과는 받지 않습니다.<br/>이유를 남기고 올바른 결과를 다시 요청합니다.</span>"]
-  counter["<b>반대 근거·다시 확인</b><br/><span style='font-size:11px'>중요한 결론이 틀렸을 가능성도 확인합니다.<br/>반대 증거를 찾거나 다른 방법으로 다시 풀어 봅니다.</span>"]
-  counter_needed{"<b>중요한 판단이거나<br/>근거가 바뀌었는가?</b>"}
-  verify["<b>결과 검증·재검증</b><br/><span style='font-size:11px'>결과가 맞는지, 요구한 조건을 지켰는지 검사합니다.<br/>틀린 부분과 확인 못 한 부분을 구별합니다.<br/>고쳤다면 그 영향을 받는 다른 부분도 다시 검사합니다.</span>"]
-  state_result["<b>현재 진행 상태</b><br/><span style='font-size:11px'>검사 결과를 끝난 일·고칠 일·기다릴 일로 나눠 기록합니다.<br/>이미 끝난 외부 처리는 다시 실행하지 않습니다.</span>"]
-  vdecision{"<b>검사 결과는?</b>"}
-  wait["<b>대기·후속 관리</b><br/><span style='font-size:11px'>답을 기다리는 일이 잊히지 않게 챙깁니다.<br/>누구에게 언제까지 받을지 적고, 답이 오거나 기한이 되면 이어 갑니다.</span>"]
-  more{"<b>요청한 결과를<br/>모두 갖췄는가?</b>"}
-  context2["<b>현재 작업 정보 · 작업 결과 반영</b><br/><span style='font-size:11px'>앞선 결과와 새로 알게 된 내용을 다음 작업에 보탭니다.<br/>고칠 부분과 더 찾을 자료도 함께 넘깁니다.</span>"]
-  pack["<b>납품 준비</b><br/><span style='font-size:11px'>받는 사람이 바로 쓸 수 있도록 결과물을 챙깁니다.<br/>원본·사용 설명·검사 내용과 남은 일·담당자도 함께 준비합니다.</span>"]
-  risk_delivery["<b>빠진 위험 확인 · 전달 전</b><br/><span style='font-size:11px'>받을 사람과 사용할 상황에서 생길 문제를 확인합니다.<br/>빠진 조건이나 넘기면 안 되는 정보가 없는지 살핍니다.</span>"]
-  quality["<b>결과 품질 평가</b><br/><span style='font-size:11px'>받는 사람이 이해하고 쓰기에 충분한 결과인지 평가합니다.<br/>정확성·빠진 내용·설명의 쉬움도 함께 봅니다.</span>"]
-  qualityok{"<b>받는 사람이<br/>바로 쓸 수 있는가?</b>"}
-  repair["<b>작업 진행·연결</b><br/><span style='font-size:11px'>품질이 부족한 부분을 찾아 고칠 작업으로 돌립니다.<br/>고친 부분과 그 영향을 받은 결과를 다시 검사하게 합니다.</span>"]
-  delivery_guard["<b>안전장치 · 전달 직전</b><br/><span style='font-size:11px'>받는 사람·명의·파일·공개 범위를 현재 승인과 대조합니다.<br/>지킬 규칙과 권한·한도를 다시 확인합니다.</span>"]
-  delivery_approval["<b>사람에게 넘기기 · 전달 승인 확인</b><br/><span style='font-size:11px'>필요한 승인이나 수정 조건을 확인합니다.<br/>답한 사람의 권한과 승인한 대상·버전도 대조합니다.</span>"]
-  delivery_hold(["<b>전달 보류·중단</b><br/><span style='font-size:11px'>준비한 결과를 보존하고<br/>이유와 재개 조건을 남깁니다.</span>"])
+  identity["<b>보고 주체 확인</b><br/><small>누가 보낸 결과인지, 어떤 작업 요청에 대한 답인지 확인합니다.<br/>요청한 대상과 내용이 맞는지 보고, 예전 결과가 잘못 섞이지 않았는지도 살핍니다.</small>"]
+  identity_ok{"<b>요청한 상대의 결과이며<br/>대상·버전도 맞는가?</b>"}
+  identity_retry_allowed{"<b>처음 정한 재요청<br/>기한·횟수 안인가?</b>"}
+  identity_reject["<b>결과 반려·재요청</b><br/><small>원래 요청한 담당자에게 맞지 않는 내용을 알려 올바른 결과를 요청합니다.<br/>도구 결과는 작업 번호로 다시 조회합니다. 처음 정한 기한·횟수 안에서 재요청하고 횟수를 기록합니다.</small>"]
+  use_identity_ok_record["<b>판단 근거 기록</b>"]
+  identity_wait["<b>재요청 결과 대기</b><br/><small>담당자의 답변이나 도구의 조회 결과를<br/>정한 기한까지 기다립니다.</small>"]
+  identity_timeout(["<b>재요청을 끝내고<br/>해당 작업을 보류함</b><br/><small>확보 불가·기한 초과·횟수 초과 이유와<br/>미해결 항목을 업무 책임자에게 남깁니다.</small>"])
+  counter_needed{"<b>중요한 판단이거나<br/>근거·결과에 의문이나 변경이 있는가?</b>"}
+  subgraph ai_counter["AI 모델"]
+    counter["<b>반대 근거·다시 확인</b><br/><small>중요한 결론이 틀렸을 수도 있다고 보고 다시 확인합니다.<br/>반대되는 증거를 찾거나 다른 방법으로 풀어 봅니다.</small>"]
+  end
+
+  counter_result{"<b>반대 근거 확인 결과는?</b>"}
+  counter_compare["<b>엇갈린 근거 비교</b><br/><small>근거의 출처와 적용 조건을 비교합니다.<br/>고칠 결론과 아직 판단할 수 없는 부분을<br/>구분해 결과 검사에 넘깁니다.</small>"]
+  counter_more["<b>비교 근거 보완·대기</b><br/><small>필요한 자료를 찾거나 담당자에게 요청하고<br/>받을 기한을 정합니다.<br/>자료를 받기 전에는 결론을 확정하지 않습니다.</small>"]
+  counter_timeout(["<b>비교 근거를 확보하지 못해<br/>판단을 보류함</b><br/><small>부족한 근거와 다시 확인할 조건을 남깁니다.</small>"])
+  subgraph ai_verify["AI 모델"]
+    verify["<b>결과 검증·재검증</b><br/><small>결과가 맞고 요청한 조건도 지켰는지 검사합니다.<br/>틀린 것과 아직 확인하지 못한 것을 나눕니다.<br/>고쳤다면 그 때문에 달라진 다른 부분도 다시 검사합니다.</small>"]
+  end
+
+  verify_help["<b>검사 방법·근거 보완</b><br/><small>결과를 확인하는 데 필요한 자료나 검사 방법을 더 찾습니다.<br/>찾은 방법과 자료로 다시 검사합니다.</small>"]
+  process_step["<b>일하는 과정 평가 · 단계 완료 확인</b><br/><small>방금 한 작업에서 필요한 확인·절차·승인을 지켰는지 기록과 대조합니다.<br/>누락·위반과 확인할 수 없는 부분을 구분하고, 영향을 받는 결과와 후속 작업을 찾습니다.</small>"]
+  use_process_step_record["<b>판단 근거 기록</b>"]
+  process_check{"<b>절차·승인 확인 결과는?</b>"}
+  process_repair["<b>위반 영향 확인·시정 요청</b><br/><small>영향받는 후속 작업을 멈추고 담당자에게 알립니다.<br/>빠진 확인과 필요한 수정·취소·복구를 정리합니다.</small>"]
+  process_unknown["<b>확인할 기록·답변 정리</b><br/><small>어떤 절차나 승인을 확인하지 못했는지 적고,<br/>확인할 기록과 답을 받을 담당자를 정합니다.</small>"]
+  process_fixable{"<b>허용된 보완·복구 방법이<br/>확인됐는가?</b>"}
+  process_hold(["<b>시정 방법이 확인되지 않아<br/>해당 작업을 보류함</b><br/><small>담당자에게 위반 내용과 중단 범위를 남깁니다.</small>"])
+  state_result["<b>현재 진행 상태</b><br/><small>방금 검사한 작업이 끝났는지, 수정이나 답변이 필요한지 기록합니다.<br/>이미 끝난 외부 작업은 중복해서 실행하지 않도록 표시합니다.</small>"]
+  vdecision{"<b>요청 조건을 검사한 결과는?</b>"}
+  wait_reason{"<b>무엇이 더 필요한가?</b>"}
+  subgraph support_wait["실시간 대화<br/>(통화·채팅일 때)"]
+    wait["<b>대기·후속 관리</b><br/><small>답이 필요한 사람에게 요청하고 기다릴 기한을 정합니다.<br/>답이 오면 확인하고, 기한이 지나면 담당자에게 알립니다.</small>"]
+  end
+
+  use_wait_control["<b>실행 제어</b>"]
+  verification_event{"<b>기다린 결과는?</b>"}
+  more{"<b>요청한 작업이 모두 끝나고<br/>완료 조건도 확인됐는가?</b>"}
+  wait_expired(["<b>확인할 수 없어<br/>해당 작업을 보류함</b><br/><small>담당자에게 상황을 알리고 다시 시작할 조건을 적습니다.</small>"])
+  context2["<b>현재 작업 정보 · 작업 결과 반영</b><br/><small>방금 나온 결과와 검사 내용, 고쳐야 할 부분을 업무 정보에 더합니다.<br/>무엇이 바뀌었는지 확인하고, 영향을 받는 단계부터 다시 판단합니다.</small>"]
+  use_context2_control["<b>실행 제어</b>"]
+  retry_scope{"<b>변경의 영향을 받는<br/>가장 앞 단계는?</b>"}
+  pack["<b>납품 준비</b><br/><small>받는 사람이 바로 쓸 수 있게 결과물과 사용 설명을 준비합니다.<br/>필요한 원본과 검사 결과, 남은 일과 담당자도 함께 정리합니다.</small>"]
+  risk_delivery["<b>빠진 위험 확인 · 전달 전</b><br/><small>상대가 결과를 받아 쓰거나 다른 사람에게 공개할 때 생길 문제를 살핍니다.<br/>빠진 사용 조건이나 보내면 안 되는 정보가 있는지 확인합니다.</small>"]
+  delivery_risk_result{"<b>전달·사용 위험 확인 결과는?</b>"}
+  delivery_risk_fix["<b>전달 전 보완할 내용 정리</b><br/><small>피해를 줄일 수정과 빠진 사용 조건을 적습니다.<br/>고친 뒤에는 결과와 전달 위험을 다시 검사합니다.</small>"]
+  delivery_risk_hold(["<b>위험을 해소·확인할 때까지<br/>전달을 보류함</b><br/><small>해결하지 못한 위험과 확인할 담당자를 남깁니다.</small>"])
+  subgraph ai_quality["AI 모델"]
+    quality["<b>결과 품질 평가</b><br/><small>결과가 요청한 목적에 맞고, 상대가 이해해 바로 쓸 수 있는지 평가합니다.<br/>틀리거나 빠진 내용, 읽기 어려운 설명을 찾아 고칠 부분을 정합니다.</small>"]
+  end
+
+  use_quality_record["<b>판단 근거 기록</b>"]
+  qualityok{"<b>목적에 맞고 바로 쓸 수<br/>있다고 확인됐는가?</b>"}
+  repair["<b>작업 진행·연결</b><br/><small>품질 평가에서 발견한 문제를 고칠 작업으로 정리합니다.<br/>고친 부분과 그 수정으로 달라지는 다른 부분도 다시 검사하도록 연결합니다.</small>"]
+  quality_unknown(["<b>품질을 확인할 때까지<br/>전달을 보류함</b><br/><small>확인할 항목과 담당자·기한을 남깁니다.</small>"])
+  delivery_guard["<b>안전장치 · 전달 직전</b><br/><small>누구를 대신해 누구에게 어떤 결과를 보낼지, 어디까지 공개해도 되는지 확인합니다.<br/>규칙과 받은 허락, 비용·위험 한도에 맞는 경우에만 전달합니다.</small>"]
   delivery_allowed{"<b>전달해도 되는가?</b>"}
-  delivery["<b>전달·인수 확인</b><br/><span style='font-size:11px'>결과물을 보내고 상대가 받아 쓸 수 있는지 확인합니다.<br/>확인을 기다리는 상태와 수정 요청을 구별합니다.</span>"]
+  delivery_hold(["<b>전달 보류·중단</b><br/><small>준비한 결과물은 보관합니다. 보내지 못한 이유와 다시 보낼 조건을 적습니다.</small>"])
+  subgraph support_delivery_approval["실시간 대화<br/>(통화·채팅일 때)"]
+    delivery_approval["<b>사람에게 넘기기 · 전달 승인 확인</b><br/><small>전달을 승인할 담당자에게 보낼 내용과 받는 사람을 보여 주고 허락을 요청합니다.<br/>답변 기한을 정하고, 받은 승인이 이번 전달에 대한 것인지 확인합니다.</small>"]
+  end
+
+  delivery_timeout(["<b>거절되거나 기한이 지나<br/>전달을 보류함</b>"])
+  delivery_reply{"<b>내용·범위의<br/>수정 요청인가?</b>"}
+  subgraph support_delivery["실시간 대화<br/>(통화·채팅일 때)"]
+    delivery["<b>전달·인수 확인</b><br/><small>결과물을 보내고, 상대가 받아서 열거나 사용할 수 있는지 확인합니다.<br/>받았다는 답이 왔는지, 수정 요청이 왔는지, 아직 답을 기다리는지 기록합니다.</small>"]
+  end
+
   receipt{"<b>전달·인수 상태는?</b>"}
-  wait2["<b>대기·후속 관리</b><br/><span style='font-size:11px'>결과를 보낸 뒤, 상대의 확인을 기다리고 남은 약속을 챙깁니다.<br/>답이 오거나 기한이 되면 다시 확인합니다.</span>"]
-  delivery_repair["<b>작업 진행·연결</b><br/><span style='font-size:11px'>상대가 고쳐 달라고 한 내용을 실제 수정 작업으로 연결합니다.<br/>고친 뒤에는 관련된 결과도 다시 검사하게 합니다.</span>"]
-  record_read["<b>판단 근거 기록</b><br/><span style='font-size:11px'>앞에서 남긴 기록을 꺼내 일한 과정을 돌아보는 데 씁니다.<br/>무슨 자료로 왜 판단하고 실행했는지 확인합니다.</span>"]
-  process_eval["<b>일하는 과정 평가 · 인수 후 회고</b><br/><span style='font-size:11px'>결과가 나오기까지 일을 적절하게 했는지 돌아봅니다.<br/>당시 상황에서 방법·순서·권한을 제대로 지켰는지 봅니다.</span>"]
-  outcome["<b>성과 추적</b><br/><span style='font-size:11px'>지금 확인할 수 있는 성과를 기록합니다.<br/>나중에 나타나는 효과는 확인 시점에 다시 살핍니다.</span>"]
-  effect_wait["<b>대기·후속 관리 · 뒤늦게 나타나는 효과</b><br/><span style='font-size:11px'>나중에 확인할 효과의 담당자와 날짜를 정합니다.<br/>확인 시점이 오면 성과 추적으로 돌아갑니다.</span>"]
+  delivery_retry{"<b>재전달 방법이 확인되고<br/>재시도 한도 안인가?</b>"}
+  receipt_refused(["<b>인수를 거절해<br/>담당자에게 처리 방향 확인</b><br/><small>거절 이유와 미해결 항목을 기록합니다.<br/>새 합의 전에는 인수 완료로 처리하지 않습니다.</small>"])
+  delivery_retry_hold(["<b>재전달할 수 없어<br/>전달을 보류함</b><br/><small>실패 원인과 마지막 전달 상태를 남깁니다.</small>"])
+  delivery_repair["<b>작업 진행·연결</b><br/><small>상대가 고쳐 달라고 한 내용을 정리해 수정 작업으로 돌려보냅니다.<br/>수정한 부분과 그로 인해 달라진 결과를 다시 검사한 뒤 전달합니다.</small>"]
+  subgraph support_wait2["실시간 대화<br/>(통화·채팅일 때)"]
+    wait2["<b>대기·후속 관리</b><br/><small>상대에게 결과를 받아 쓸 수 있는지 묻고 답변 기한을 정합니다.<br/>기한이 지나도 답이 없으면 답을 못 받았다고 적습니다.</small>"]
+  end
+
+  use_wait2_control["<b>실행 제어</b>"]
+  receipt_event{"<b>기다린 결과는?</b>"}
+  receipt_timeout(["<b>인수 미확인으로 보류<br/>후속 확인 담당자·기한 기록</b><br/><small>아직 답을 받지 못했다고 적습니다.<br/>누가 언제 다시 확인할지도 정합니다.</small>"])
+  record_read["<b>판단 근거 기록</b><br/><small>이번 업무에서 남긴 판단·처리 기록을 다시 읽습니다.<br/>어떤 자료를 보고 왜 그 방법을 골랐으며, 실제로 무엇을 했는지 확인합니다.</small>"]
+  process_eval["<b>일하는 과정 평가 · 인수 후 회고</b><br/><small>업무 전체를 돌아보며 필요한 확인·절차·승인을 지켰는지 평가합니다.<br/>결과뿐 아니라 당시 알 수 있던 정보로 판단과 행동이 적절했는지도 살핍니다.</small>"]
+  retrospective_result{"<b>인수 후 바로잡을 문제가<br/>확인됐는가?</b>"}
+  retrospective_repair["<b>인수 후 시정할 내용 정리</b><br/><small>영향받는 결과와 필요한 정정·회수·복구를<br/>담당자에게 알리고 시정 작업으로 연결합니다.</small>"]
+  retrospective_hold(["<b>과정 평가가 끝나지 않아<br/>업무 마감을 보류함</b><br/><small>확인할 기록과 담당자·기한을 남깁니다.</small>"])
+  outcome["<b>성과 추적</b><br/><small>처음 정한 효과 확인 항목을 보고, 지금 측정할 수 있는 결과를 기록합니다.<br/>아직 알 수 없는 효과는 언제 다시 확인할지 구분합니다.</small>"]
+  effect_needed{"<b>남은 효과 확인은?</b>"}
+  effect_define["<b>효과 확인 방법·시점 정하기</b><br/><small>언제 무엇을 측정해야 효과를 알 수 있는지<br/>업무 책임자와 정합니다.</small>"]
+  effect_wait["<b>대기·후속 관리 · 후속 확인 등록</b><br/><small>시간이 지나야 알 수 있는 효과는 확인할 항목과 날짜, 담당자를 정해 둡니다.<br/>그때까지 기다리지 않고 이번 업무의 나머지 정리를 계속합니다.</small>"]
+  effect_registered{"<b>항목·담당자·확인 날짜가<br/>등록됐는가?</b>"}
+  effect_registration_hold(["<b>후속 확인 등록을 마칠 때까지<br/>업무 마감을 보류함</b><br/><small>미정 항목을 업무 책임자에게 알리고<br/>등록할 담당자와 기한을 남깁니다.</small>"])
   learnneed{"<b>잘되거나 안 된 이유를<br/>알아볼 필요가 있는가?</b>"}
-  memory_direct["<b>장기 기억</b><br/><span style='font-size:11px'>추가 분석 없이 이번 일의 사실·결정·교훈을 저장합니다.<br/>남은 약속과 나중에 확인할 일도 함께 적습니다.</span>"]
-  cause["<b>성공·실패 원인 분석</b><br/><span style='font-size:11px'>잘된 이유와 잘못된 이유를 찾아 다음 일에 활용합니다.<br/>계속 쓸 방법과 고칠 점을 정합니다.</span>"]
+  memory_direct["<b>장기 기억</b><br/><small>이번에 확인한 사실과 결정, 배운 점을 다음 업무에서 다시 쓸 수 있게 저장합니다.<br/>남은 약속과 나중에 확인할 일도 함께 적습니다.</small>"]
+  subgraph ai_cause["AI 모델"]
+    cause["<b>성공·실패 원인 분석</b><br/><small>기대한 결과와 실제 결과를 비교해 잘된 점과 잘못된 점의 이유를 찾습니다.<br/>확인된 원인과 추측을 구분하고, 다시 쓸 방법과 고칠 점을 정합니다.</small>"]
+  end
+
+  use_cause_record["<b>판단 근거 기록</b>"]
   improveneed{"<b>지식·방법·도구를<br/>바꿀 필요가 있는가?</b>"}
-  memory_reuse["<b>장기 기억</b><br/><span style='font-size:11px'>이번에 배운 점과 계속 쓸 방법을 저장합니다.<br/>그 방법이 언제 통하는지도 남겨 다음 일에 씁니다.</span>"]
-  improve["<b>능력 개선·확장 · 시험용 개선안</b><br/><span style='font-size:11px'>시험 환경에서 지식·방법·도구의 개선안을 만듭니다.<br/>실제 업무에는 시험을 통과한 뒤 적용합니다.</span>"]
-  testenv["<b>시험 환경</b><br/><span style='font-size:11px'>새 방법이나 도구를 실제 업무와 분리해 시험하는 곳입니다.<br/>시험이 실패해도 원본과 실제 작업에 영향을 주지 않습니다.</span>"]
-  capability["<b>업무 능력 시험</b><br/><span style='font-size:11px'>실제 일을 맡겨도 될 만큼 잘하는지 시험합니다.<br/>능력을 바꾼 뒤에는 기존에 잘하던 일도 여전히 되는지 봅니다.</span>"]
+  memory_reuse["<b>장기 기억</b><br/><small>원인을 분석하며 찾은 유용한 방법과 주의할 점을 저장합니다.<br/>어떤 조건에서 쓸 수 있는지와 그 판단의 근거도 함께 적습니다.</small>"]
+  improve_queue["<b>대기·후속 관리 · 개선 과제 등록</b><br/><small>개선할 내용과 담당자, 개선 작업을 시작할 조건을 기록합니다.<br/>개선 시험이 끝날 때까지 기다리지 않고 이번 업무는 마칩니다.</small>"]
+  job_memory["<b>장기 기억</b><br/><small>이번 업무의 사실·결정·배운 점과 남은 약속을 저장합니다.<br/>나중에 확인할 효과와 별도로 진행할 개선 작업도 찾을 수 있게 연결해 둡니다.</small>"]
+  finish(["<b>■ 종료 · 이번 업무 처리 끝</b><br/><small>나중에 하기로 남긴 일은 정해 둔 때와 조건에 맞춰 이어 갑니다.</small>"])
+  improve_start(["<b>▶ 시작 · 등록한 개선 과제의<br/>시작 조건이 됨</b>"])
+  use_improve_start_control["<b>실행 제어</b>"]
+  use_testenv_guard{"<b>이 자료·도구로<br/>시험해도 되는가?</b>"}
+  use_testenv_guard_hold(["<b>허용을 확인 못해<br/>작업을 보류함</b>"])
+  subgraph isolated_improvement["실제 업무와 분리한 시험 공간"]
+    subgraph support_testenv["업무 도구·시스템<br/>(필요할 때)"]
+      testenv["<b>시험 환경</b><br/><small>개선안을 시험할 공간과 시험용 자료를 실제 업무와 분리해 준비합니다.<br/>시험에 실패해도 실제 자료와 진행 중인 업무에는 영향을 주지 않게 합니다.</small>"]
+    end
+    subgraph ai_improve["AI 모델"]
+      improve["<b>능력 개선·확장 · 시험용 개선안</b><br/><small>부족했던 능력을 보완하도록 지식·방법·도구를 고쳐 시험용 개선안을 만듭니다.<br/>무엇을 바꿨는지 적고, 다음 단계에서 효과를 시험합니다.</small>"]
+    end
+    subgraph support_capability["업무 도구·시스템<br/>(필요할 때)"]
+      capability["<b>업무 능력 시험</b><br/><small>개선안을 적용했을 때 부족했던 능력이 나아졌는지 같은 조건에서 비교합니다.<br/>예전에 잘하던 일과 예외 상황도 다시 시험해 새 문제가 없는지 확인합니다.</small>"]
+    end
+  end
+
   passed{"<b>개선한 뒤 시험을<br/>통과했는가?</b>"}
   retry_improve{"<b>개선안을 고쳐<br/>다시 시험할까?</b>"}
-  improve_apply["<b>능력 개선·확장 · 시험 통과 후 적용</b><br/><span style='font-size:11px'>시험을 통과한 범위와 버전만 실제 업무에 반영합니다.<br/>이후 성과를 살펴 문제가 생기면 다시 보완합니다.</span>"]
-  memory2["<b>장기 기억</b><br/><span style='font-size:11px'>이번 일의 사실·약속·결정·교훈을 저장합니다.<br/>적용한 개선의 근거와 버전, 남은 후속 일도 남깁니다.</span>"]
-  memory_unapplied["<b>장기 기억 · 개선 적용 보류</b><br/><span style='font-size:11px'>시험 결과와 남은 문제를 저장합니다.<br/>실패한 변경은 적용하지 않고 기존 방법을 유지합니다.</span>"]
-  finish(["<b>■ 종료 · 이번 업무 처리 끝</b><br/><span style='font-size:11px'>남은 약속과 나중에 확인할 일은 계속 챙깁니다.</span>"])
+  improve_allowed{"<b>시험한 버전을 실제로<br/>적용해도 되는가?</b>"}
+  improve_apply["<b>능력 개선·확장 · 허용된 개선 적용</b><br/><small>시험을 통과하고 실제 업무에 적용해도 된다고 확인한 개선안을 반영합니다.<br/>허용된 범위와 한도를 지키고, 적용한 뒤 효과와 문제를 살핍니다.</small>"]
+  improvement_applied{"<b>적용 상태와 필수 점검이<br/>정상인가?</b>"}
+  improvement_restore["<b>변경 중단·복구</b><br/><small>문제가 있는 수정본의 사용을 멈춥니다.<br/>승인된 복구 방법으로 이전 상태를 복원합니다.</small>"]
+  improvement_restored{"<b>이전 상태로 복구됐는가?</b>"}
+  improvement_restore_hold(["<b>복구를 확인할 때까지<br/>영향받는 업무를 중단함</b><br/><small>장애 담당자에게 적용·복구 상태와<br/>영향받는 업무를 넘깁니다.</small>"])
+  memory2["<b>장기 기억</b><br/><small>어떤 수정본을 언제 실제 업무에 적용했고, 왜 바꿨는지 저장합니다.<br/>시험 결과와 적용 뒤 확인한 효과, 더 살필 일도 함께 적습니다.</small>"]
+  memory_unapplied["<b>장기 기억 · 개선 적용 보류</b><br/><small>실제 적용하지 않았거나 적용 뒤 되돌린 이유와 남은 문제를 기록합니다.<br/>현재 사용 중인 방법과 다시 개선할 조건을 함께 남깁니다.</small>"]
+  improve_finish(["<b>■ 종료 · 개선 작업 처리 끝</b><br/><small>실제로 바꿨는지와 언제 다시 확인할지를 적습니다.</small>"])
+  effect_start(["<b>▶ 시작 · 등록한 성과 확인<br/>시점이 됨</b>"])
+  use_effect_start_control["<b>실행 제어</b>"]
+  subgraph support_effect_check["업무 도구·시스템<br/>(필요할 때)"]
+    effect_check["<b>성과 추적</b><br/><small>정해 둔 시점에 실제 효과를 측정해 목표나 이전 결과와 비교합니다.<br/>뒤늦게 생긴 문제도 살펴 추가로 할 일이 있는지 판단합니다.</small>"]
+  end
 
-  start --> signal
+  effect_measured{"<b>효과를 판단할 자료가<br/>충분히 모였는가?</b>"}
+  effect_remeasure["<b>측정 보완·다음 확인 등록</b><br/><small>빠진 자료와 다음 측정 방법·날짜를 정합니다.<br/>담당자가 다시 확인하도록 등록합니다.</small>"]
+  effect_measure_hold(["<b>효과를 확인할 수 없어<br/>미확인 상태로 남김</b><br/><small>확인할 수 없는 이유와 영향받는 판단을<br/>업무 책임자에게 알립니다.</small>"])
+  effect_action{"<b>추가 조치가 필요한가?</b>"}
+  effect_issue["<b>문제·추가 조치 인계</b><br/><small>발견한 문제와 필요한 조치를 담당자에게 넘기고<br/>완료 기준과 확인 기한을 등록합니다.</small>"]
+  effect_record["<b>대기·후속 관리</b><br/><small>이번 효과 확인의 결과와 미확인 항목을 기록합니다.<br/>등록한 후속 조치와 담당자·기한도 함께 남깁니다.</small>"]
+  effect_end(["<b>■ 종료 · 이번 성과 확인 끝</b>"])
+
   watch --> watchtype
   live_start --> live
-  live -->|받은 요청·답변| signal
-  signal --> context_initial
+  start --> signal
   watchtype -->|새로 할 일| early
   watchtype -->|하던 일이<br/>달라짐| change
-  context_initial --> model_initial
+  live -->|받은 새 요청| signal
   early -->|발견한 일| signal
-  model_initial --> understand
-  understand -->|파악한 내용| intent
   change -->|바뀐 내용 확인| signal
-  intent --> clear
-  clear -->|예 · 뜻 확인| communicate0
+  signal --> use_signal_control
+  use_signal_control --> isolation
+  isolation --> use_context_initial_guard
+  use_context_initial_guard -->|아니오·알 수 없음| use_context_initial_guard_hold
+  use_context_initial_guard -->|예| context_initial
+  context_initial --> understand
+  understand -->|파악한 내용| intent
+  intent --> use_intent_record
+  use_intent_record --> clear
+  clear -->|예| use_communicate0_guard
   clear -->|아니오| case
+  use_communicate0_guard -->|아니오·알 수 없음| use_communicate0_guard_hold
+  use_communicate0_guard -->|예| communicate0
+  communicate0 -->|거절·기한 초과| clarification_hold
   case --> goal
-  goal -->|목표와 완료 기준| measure0
+  goal --> use_goal_record
+  use_goal_record -->|목표와 완료 기준| measure0
   measure0 --> checks_start
-  checks_start -->|필요한 자료 찾기| search
-  checks_start -->|지킬 규칙 확인| original
+  checks_start -->|지킬 규칙 확인| use_original_guard
+  checks_start -->|필요한 자료 찾기| use_search_guard
+  use_search_guard -->|아니오·알 수 없음| use_search_guard_hold
+  use_original_guard -->|아니오·알 수 없음| use_original_guard_hold
+  use_search_guard -->|예| search
+  use_original_guard -->|예| original
   original --> law
   search -->|현재 값 필요| now
   search -->|사례 필요| case_ref
   search -->|설명·예시가 필요하면| reference
   search -->|다시 쓸 양식·부품| reuse
-  search -->|검색 결과| absent
-  law --> law_constitution
+  search -->|추가 확인 필요 없음| absent
+  law --> law_date
   now -->|조회 결과| absent
   case_ref --> absent
-  law_constitution --> law_statute
-  law_statute --> law_decree
+  law_date --> law_rank
   reference --> absent
-  law_decree --> law_ministry
+  law_rank --> law_higher
   reuse --> absent
-  law_ministry --> law_higher
-  law_higher_apply --> law_conflict
+  absent --> version
   law_higher -->|예| law_higher_apply
   law_higher -->|아니오| law_conflict
-  absent --> version
+  law_higher_apply --> law_conflict
   law_conflict -->|예| law_special
   law_conflict -->|아니오| law_settle
   version -->|이번 일에 맞는 자료| trust
   law_special -->|예| law_special_apply
   law_special -->|아니오| law_new
+  trust --> use_trust_record
   law_special_apply --> law_settle
-  trust --> evidence_usable
+  use_trust_record --> evidence_usable
   law_new --> law_settle
   evidence_usable -->|아니오| evidence_repair
   evidence_usable -->|예| evidence_use
+  evidence_repair -->|확보 불가·기한 초과| evidence_hold
   law_settle --> law_clear
-  evidence_use -->|지식으로 쓸 근거| knowledge
-  evidence_use -->|경험과 비교할 자료| experience
-  evidence_use -->|이전 기록과 비교| memory
-  evidence_use -->|확인한 자료| evidence_done
-  law_wait -->|답변 도착| law_reply
-  law_clear -->|아니오| law_wait
+  evidence_use -->|원리·방법을 참고할 때| knowledge
+  evidence_use -->|비슷한 경험을 참고할 때| experience
+  evidence_use -->|이전 기록이 필요할 때| memory
+  evidence_use -->|추가 확인 필요 없음| evidence_done
+  law_clear -->|아니오| use_law_wait_guard
   law_clear -->|예| law_confirmed
+  use_law_wait_guard -->|아니오·알 수 없음| use_law_wait_guard_hold
+  use_law_wait_guard -->|예| law_wait
+  law_wait -->|답변 도착| law_reply
+  law_wait -->|기한 초과| law_timeout
   knowledge --> evidence_done
   experience --> evidence_done
   memory --> evidence_done
   law_confirmed --> priority
+  priority --> use_priority_record
   evidence_done --> checks_join
-  priority ---|함께 적용| rank
-  priority --> rule_conflict
+  use_priority_record --> rule_conflict
   rule_conflict -->|예| rule_compare
   rule_conflict -->|아니오| rule_candidate
+  priority ---|충돌 시 적용할 순서| rank
   rule_compare --> rule_order
   rule_order -->|예| rule_apply
   rule_order -->|아니오| rule_exception
   rule_apply --> rule_candidate
   rule_exception --> rule_candidate
   rule_candidate --> rule_resolved
-  rule_wait -->|답변 도착| rule_reply
-  rule_resolved -->|아니오| rule_wait
+  rule_resolved -->|아니오| use_rule_wait_guard
   rule_resolved -->|예| rule_confirmed
-  rule_confirmed -->|적용 기준 확정| checks_join
+  use_rule_wait_guard -->|아니오·알 수 없음| use_rule_wait_guard_hold
+  use_rule_wait_guard -->|예| rule_wait
+  rule_wait -->|답변| rule_reply
+  rule_wait -->|기한 초과| rule_timeout
+  rule_confirmed --> checks_join
   checks_join --> context
-  context -->|지금 필요한 정보| model
-  model --> goal_review
+  context --> goal_review
   goal_review -->|아니오| risk
-  risk -->|위험| strategy
-  strategy --> strategy_choice
-  strategy_choice -->|추가 확인| strategy_more
-  strategy_choice -->|보류·중단| strategy_stop
-  strategy_choice -->|진행| qualified
-  qualified -->|아니오 · 먼저 시험| testenv0
+  risk --> risk_result
+  risk_result -->|발견함| risk_response
+  risk_result -->|발견하지 못함| risk_scope
+  risk_response --> strategy
+  risk_scope --> strategy
+  strategy --> use_strategy_record
+  use_strategy_record --> strategy_choice
+  strategy_choice -->|아니오| strategy_more
+  strategy_choice -->|예| strategy_feasible
+  strategy_feasible -->|아니오| strategy_stop
+  strategy_feasible -->|예| qualified
+  qualified -->|아니오 · 먼저 시험| use_testenv0_guard
   qualified -->|예 · 확인된 범위에서 진행| plan
+  use_testenv0_guard -->|아니오·알 수 없음| use_testenv0_guard_hold
+  use_testenv0_guard -->|예| testenv0
   testenv0 -->|시험할 조건·통과 기준| capability0
   capability0 --> qualified_test
-  qualified_test -->|아니오| unqualified
+  qualified_test -->|미충족·확인 못 함| unqualified
   qualified_test -->|예 · 가능한 일만 계획| plan
-  plan -->|계획| state
+  plan --> use_plan_record
   plan --- unused
+  use_plan_record -->|계획| state
   state -->|진행 상황| progress
   progress -->|이유| record
-  progress -->|작업| isolation
-  isolation -->|나눠 둔 작업 공간| control
   record -->|지금 할 일·준비한 자료| control
-  control -->|장애| monitor
-  control -->|준비된 작업| guard
+  monitor_event --> monitor
+  monitor --> recovery_ok
+  control --> risk_exec
   rights ---|허용 범위| guard
+  recovery_ok -->|아니오·알 수 없음| recovery_hold
+  recovery_ok -->|예| resume_changed
+  risk_exec --> guard
   guard --> allowed
   limit ---|한도| guard
-  allowed -->|사람 결정<br/>필요| handoff
   allowed -->|실행 불가| hold
-  allowed -->|실행 가능| tools
-  handoff -->|답변이 도착하면| identity0
+  allowed -->|사람 결정<br/>필요| handoff
+  allowed -->|실행 가능| precheck
+  handoff -->|답변| identity0
+  handoff -->|거절·기한 초과| handoff_timeout
   identity0 --> approval_valid
-  tools -->|정해 둔 작업으로 연결| type0
-  type0 -->|예| choose0
-  choose0 --> sort
-  choose0 --> combine
-  choose0 --> convert
-  type0 -->|아니오| type1
+  precheck --> precheck_ok
+  precheck_ok -->|예·해당 없음| tools
+  tools --> dispatch
+  approval_valid -->|예| human_return
+  human_return -->|사람이 처리한 결과| identity
+  dispatch -->|자료 정리| choose0
+  dispatch -->|계산·판단| choose1
+  dispatch -->|설계·제작| choose2
+  dispatch -->|소통·조율| choose3
+  dispatch -->|외부 변경·공개| choose4
+  dispatch -->|관찰·시험| choose5
+  choose0 -->|골라 분류| sort
+  choose0 -->|모아 정리| combine
+  choose0 -->|형식 변환| convert
   sort --> out0
   combine --> out0
   convert --> out0
   out0 --> identity
-  type1 -->|예| choose1
-  choose1 --> calc
-  choose1 --> analysis
-  choose1 --> judge
-  choose1 --> forecast
-  choose1 --> optimize
-  type1 -->|아니오| type2
+  choose1 -->|값 계산| calc
+  choose1 -->|특징·관계 분석| analysis
+  choose1 -->|기준 충족 판정| judge
+  choose1 -->|앞일 예상| forecast
+  choose1 -->|최선의 방법 선택| optimize
   calc --> out1
   analysis --> out1
   judge --> out1
   forecast --> out1
   optimize --> out1
   out1 --> identity
-  type2 -->|예| choose2
-  choose2 --> design
-  choose2 --> reframe
-  choose2 --> make
-  type2 -->|아니오| type3
+  choose2 -->|구성·방법 설계| design
+  choose2 -->|내용 재구성| reframe
+  choose2 -->|제작·수정| make
   design --> out2
   reframe --> out2
   make --> out2
   out2 --> identity
-  type3 -->|예| choose3
-  choose3 --> talk
-  choose3 --> negotiate
-  type3 -->|아니오| type4
+  choose3 -->|정보·의견 교환| talk
+  choose3 -->|조건·의견 조율| negotiate
   talk --> out3
   negotiate --> out3
   out3 --> identity
-  type4 -->|예| choose4
-  choose4 --> write
-  choose4 --> transaction
-  choose4 --> operate
-  choose4 --> publish
-  type4 -->|아니오| type5
+  choose4 -->|기록 변경| write
+  choose4 -->|신청·거래| transaction
+  choose4 -->|설정·작동| operate
+  choose4 -->|게시·배포| publish
   write --> out4
   transaction --> out4
   operate --> out4
   publish --> out4
   out4 --> identity
-  type5 -->|예| choose5
-  choose5 --> observe
-  choose5 --> experiment
-  choose5 --> simulate
-  type5 -->|아니오<br/>다시 선택| context2
+  choose5 -->|관찰·측정| observe
+  choose5 -->|실제 조건 시험| experiment
+  choose5 -->|가상 조건 시험| simulate
   observe --> out5
   experiment --> out5
   simulate --> out5
   out5 --> identity
   identity --> identity_ok
-  identity_ok -->|아니오| identity_reject
-  identity_ok -->|예| counter_needed
-  counter -->|다른 근거| verify
+  identity_ok -->|아니오| identity_retry_allowed
+  identity_ok -->|예| use_identity_ok_record
+  identity_retry_allowed -->|예| identity_reject
+  identity_retry_allowed -->|한도 초과·미정| identity_timeout
+  identity_reject --> identity_wait
+  use_identity_ok_record --> counter_needed
+  identity_wait -->|확보 불가·기한 초과| identity_timeout
   counter_needed -->|예| counter
   counter_needed -->|아니오| verify
-  verify -->|검사 결과·진행 상황| state_result
+  counter --> counter_result
+  counter_result -->|엇갈림 발견| counter_compare
+  counter_result -->|비교 근거 부족| counter_more
+  counter_result -->|엇갈림 못 찾음| verify
+  counter_more -->|확보 불가·기한 초과| counter_timeout
+  counter_compare -->|비교 결과| verify
+  verify --> process_step
+  process_step --> use_process_step_record
+  use_process_step_record --> process_check
+  process_check -->|누락·위반| process_repair
+  process_check -->|확인 못 함| process_unknown
+  process_check -->|지킴| state_result
+  process_repair --> process_fixable
+  process_unknown -->|확인 항목| wait_reason
+  process_fixable -->|아니오·확인 못 함| process_hold
+  process_fixable -->|예 · 시정 작업으로 연결| context2
   state_result --> vdecision
-  vdecision -->|아직<br/>확인 못 함| wait
-  vdecision -->|통과| more
-  vdecision -->|고칠 부분 있음| context2
-  more -->|아니오<br/>다음 작업| context2
+  vdecision -->|맞는지 확인 못 함| wait_reason
+  vdecision -->|모든 조건 충족 확인| more
+  vdecision -->|틀림·누락 확인됨| context2
+  wait_reason -->|담당자의 답변·자료| wait
+  wait_reason -->|확인 수단 없음| wait_expired
+  wait -->|답변·기한 도착| use_wait_control
+  use_wait_control --> verification_event
+  verification_event -->|거절·기한 초과| wait_expired
+  more -->|아니오 · 남은 작업| context2
   more -->|예| pack
+  context2 --> use_context2_control
+  use_context2_control --> retry_scope
   pack --> risk_delivery
-  risk_delivery --> quality
-  quality --> qualityok
-  qualityok -->|아니오| repair
-  qualityok -->|예| delivery_guard
+  risk_delivery --> delivery_risk_result
+  delivery_risk_result -->|수정·대비 필요| delivery_risk_fix
+  delivery_risk_result -->|허용 불가·판단 못 함| delivery_risk_hold
+  delivery_risk_result -->|확인한 범위에서 허용 가능| quality
+  quality --> use_quality_record
+  use_quality_record --> qualityok
+  qualityok -->|고칠 부분 확인| repair
+  qualityok -->|확인 못 함| quality_unknown
+  qualityok -->|예 · 확인 완료| delivery_guard
   delivery_guard --> delivery_allowed
-  delivery_allowed -->|확인 필요| delivery_approval
   delivery_allowed -->|전달 불가| delivery_hold
+  delivery_allowed -->|확인 필요| delivery_approval
   delivery_allowed -->|예| delivery
+  delivery_approval -->|거절·기한 초과| delivery_timeout
+  delivery_approval -->|승인·수정 요청| delivery_reply
   delivery --> receipt
-  receipt -->|답변 대기| wait2
-  receipt -->|수정| delivery_repair
-  receipt -->|받아 쓸 수 있음| record_read
+  receipt -->|전송·열기 실패| delivery_retry
+  receipt -->|인수 거절| receipt_refused
+  receipt -->|내용 수정 요청| delivery_repair
+  receipt -->|수령·인수 답변 없음| wait2
+  receipt -->|인수·사용 가능 확인| record_read
+  delivery_retry -->|아니오·알 수 없음| delivery_retry_hold
+  wait2 -->|답변·기한 도착| use_wait2_control
+  use_wait2_control --> receipt_event
+  receipt_event -->|기한 초과| receipt_timeout
   record_read -->|앞에서 남긴 기록| process_eval
-  process_eval -->|일한 과정과 실제 효과 비교| outcome
-  outcome -->|나중에 확인할 효과| effect_wait
-  outcome --> learnneed
+  process_eval --> retrospective_result
+  retrospective_result -->|예| retrospective_repair
+  retrospective_result -->|확인 못 함| retrospective_hold
+  retrospective_result -->|아니오 · 확인 완료| outcome
+  outcome --> effect_needed
+  effect_needed -->|방법·시점 미정| effect_define
+  effect_needed -->|방법·시점 정해짐| effect_wait
+  effect_needed -->|추가 확인 불필요| learnneed
+  effect_define -->|정한 확인 조건| effect_wait
+  effect_wait --> effect_registered
+  effect_registered -->|아니오| effect_registration_hold
+  effect_registered -->|예 · 등록 완료| learnneed
+  effect_registered ---|등록 완료 · 확인 날짜 도착| effect_start
   learnneed -->|아니오| memory_direct
   learnneed -->|예| cause
   memory_direct --> finish
-  cause --> improveneed
+  cause --> use_cause_record
+  use_cause_record --> improveneed
   improveneed -->|아니오| memory_reuse
-  improveneed -->|예| testenv
+  improveneed -->|예| improve_queue
   memory_reuse --> finish
+  improve_queue --> job_memory
+  improve_queue ---|등록한 과제| improve_start
+  job_memory --> finish
+  improve_start --> use_improve_start_control
+  use_improve_start_control --> use_testenv_guard
+  use_testenv_guard -->|아니오·알 수 없음| use_testenv_guard_hold
+  use_testenv_guard -->|예| testenv
   testenv -->|준비됨| improve
   improve -->|개선안 시험| capability
   capability -->|결과| passed
   passed -->|아니오| retry_improve
-  passed -->|예| improve_apply
+  passed -->|예| improve_allowed
   retry_improve -->|아니오| memory_unapplied
-  improve_apply -->|적용 내용 기록| memory2
-  memory2 --> finish
-  memory_unapplied --> finish
-  communicate0 -->|확인한 뜻·범위 반영| intent
-  evidence_repair -->|보완 자료 확인| search
+  improve_allowed -->|허용됨| improve_apply
+  improve_allowed -->|확인 필요·적용 불가| memory_unapplied
+  improve_apply --> improvement_applied
+  improvement_applied -->|아니오·확인 못 함| improvement_restore
+  improvement_applied -->|예| memory2
+  improvement_restore --> improvement_restored
+  improvement_restored -->|아니오·확인 못 함| improvement_restore_hold
+  improvement_restored -->|예| memory_unapplied
+  memory2 --> improve_finish
+  memory_unapplied --> improve_finish
+  effect_start --> use_effect_start_control
+  use_effect_start_control --> effect_check
+  effect_check --> effect_measured
+  effect_measured -->|아니오| effect_remeasure
+  effect_measured -->|예| effect_action
+  effect_remeasure -->|측정 불가·기한 초과| effect_measure_hold
+  effect_action -->|예| effect_issue
+  effect_action -->|아니오| effect_record
+  effect_issue -->|후속 조치 등록| effect_record
+  effect_record --> effect_end
+  communicate0 -->|답변 도착 · 뜻·범위 반영| intent
+  evidence_repair -->|보완 자료 확보| use_search_guard
   law_reply -->|재검토| law
   rule_reply -->|재검토| priority
-  goal_review -->|예 · 요청·조건 재확인| context_initial
-  strategy_more -->|추가<br/>확인| checks_start
-  monitor -->|복구 후 상태| state
-  approval_valid -->|예 · 다시 검사| guard
+  goal_review -->|예 · 요청·조건 재확인| use_context_initial_guard
+  strategy_more -->|빠진 정보<br/>확인| checks_start
+  resume_changed -->|조건 변경| use_context_initial_guard
+  resume_changed -->|아니오| state
+  precheck_ok -->|미충족·확인 못 함| progress
   approval_valid -->|아니오 · 다시 요청| handoff
-  identity_reject -->|다시 받은 결과| identity
-  wait -->|새 결과 도착| identity
-  context2 -->|다시<br/>확인| checks_start
-  repair -->|고칠 내용 반영| context2
-  delivery_approval -->|답변 확인 후 재검사| delivery_guard
-  receipt -->|전달 실패<br/>재시도| delivery_guard
-  wait2 -->|답변·수령 상태 확인| receipt
+  human_return -->|조건<br/>변경| use_context_initial_guard
+  human_return -->|실행 승인| guard
+  identity_wait -->|결과 도착| identity
+  counter_more -->|근거 확보| counter
+  verify_help --> verify
+  wait_reason -->|검사<br/>보완| verify_help
+  verification_event -->|응답<br/>도착| identity
+  retry_scope -->|목표·범위 변경| use_communicate0_guard
+  retry_scope -->|자료·규칙<br/>변경| checks_start
+  retry_scope -->|작업만<br/>수정| progress
+  delivery_risk_fix --> context2
+  repair --> context2
+  delivery_reply -->|수정| repair
+  delivery_reply -->|승인| delivery_guard
+  delivery_retry -->|예| delivery_guard
   delivery_repair -->|수정| repair
-  effect_wait -->|확인 시점 도래| outcome
+  receipt_event -->|답변·수령 확인 도착| receipt
+  retrospective_repair --> context2
   retry_improve -->|예| improve
+  effect_remeasure -->|등록 시점 도착| effect_check
+  live_start ~~~ watchtype
+  live ~~~ early
+  early ~~~ change
+  use_context_initial_guard_hold ~~~ context_initial
+  use_communicate0_guard_hold ~~~ communicate0
+  clarification_hold ~~~ case
+  style_n ~~~ checks_join
+  strategy_more ~~~ strategy_feasible
+  strategy_stop ~~~ qualified
+  use_testenv0_guard_hold ~~~ testenv0
+  state ~~~ unused
+  unused ~~~ progress
+  record ~~~ monitor_event
+  monitor_event ~~~ control
+  recovery_hold ~~~ resume_changed
+  limit ~~~ allowed
+  hold ~~~ handoff
+  precheck ~~~ handoff_timeout
+  tools ~~~ approval_valid
+  human_return ~~~ dispatch
+  out0 ~~~ choose1
+  out1 ~~~ choose2
+  out2 ~~~ choose3
+  out3 ~~~ choose4
+  out4 ~~~ choose5
+  identity_reject ~~~ use_identity_ok_record
+  identity_timeout ~~~ counter_needed
+  counter_timeout ~~~ verify
+  verify_help ~~~ process_step
+  process_unknown ~~~ process_fixable
+  process_hold ~~~ state_result
+  verification_event ~~~ more
+  wait_expired ~~~ context2
+  retry_scope ~~~ pack
+  delivery_risk_hold ~~~ quality
+  quality_unknown ~~~ delivery_guard
+  delivery_hold ~~~ delivery_approval
+  delivery_timeout ~~~ delivery_reply
+  delivery_reply ~~~ delivery
+  receipt_refused ~~~ delivery_retry_hold
+  delivery_retry_hold ~~~ delivery_repair
+  delivery_repair ~~~ wait2
+  receipt_timeout ~~~ record_read
+  retrospective_hold ~~~ outcome
+  effect_registration_hold ~~~ learnneed
+  memory_direct ~~~ cause
+  memory_reuse ~~~ improve_queue
+  finish ~~~ improve_start
+  use_testenv_guard_hold ~~~ testenv
+  retry_improve ~~~ improve_allowed
+  improvement_restore_hold ~~~ memory2
+  improve_finish ~~~ effect_start
+  use_search_guard_hold ~~~ search
+  now ~~~ case_ref
+  case_ref ~~~ reference
+  reference ~~~ reuse
+  evidence_hold ~~~ evidence_use
+  knowledge ~~~ experience
+  experience ~~~ memory
+  use_original_guard_hold ~~~ original
+  law_special_apply ~~~ law_new
+  use_law_wait_guard_hold ~~~ law_wait
+  law_reply ~~~ law_timeout
+  law_timeout ~~~ law_confirmed
+  rule_apply ~~~ rule_exception
+  use_rule_wait_guard_hold ~~~ rule_wait
+  rule_reply ~~~ rule_timeout
+  rule_timeout ~~~ rule_confirmed
+  principles ~~~ contract
+  platform ~~~ org
+  org ~~~ user_rule
+  user_rule ~~~ style_n
 
 classDef term fill:#d9f2e6,stroke:#4caf7d,stroke-width:1.5px,color:#1a1a2e
 classDef decide fill:#e6d9f7,stroke:#9b6dd6,stroke-width:1.5px,color:#1a1a2e
@@ -450,256 +806,28 @@ classDef unused fill:#eceef1,stroke:#9aa0a8,stroke-width:1px,stroke-dasharray:4 
 classDef termstart fill:#c3f0d9,stroke:#16a34a,stroke-width:3.5px,color:#0f3d24
 classDef termend fill:#d9f2e6,stroke:#4caf7d,stroke-width:3.5px,stroke-dasharray:2 2,color:#1a1a2e
 
-class start,watch,live_start termstart
-class signal,early,change,case,understand,intent,communicate0,live,goal,measure0,search,absent,now,trust,version,law,priority,model,strategy,risk,plan,progress,control,isolation,monitor,guard,handoff,identity0,tools,sort,combine,convert,calc,analysis,judge,forecast,optimize,design,reframe,make,talk,negotiate,write,transaction,operate,publish,observe,experiment,simulate,verify,identity,counter,wait,quality,process_eval,pack,delivery,wait2,outcome,cause,improve,testenv,capability,testenv0,capability0,repair,delivery_repair,context_initial,law_constitution,law_statute,law_decree,law_ministry,law_higher_apply,law_special_apply,law_new,law_settle,law_wait,law_reply,law_confirmed,rule_compare,rule_apply,rule_exception,rule_candidate,rule_wait,rule_reply,rule_confirmed,checks_start,checks_join,model_initial,evidence_repair,evidence_use,evidence_done,strategy_more,identity_reject,memory_unapplied,risk_delivery,delivery_guard,delivery_approval,effect_wait,improve_apply action
-class watchtype,allowed,type0,type1,type2,type3,type4,type5,vdecision,more,receipt,passed,clear,qualified,qualified_test,qualityok,learnneed,improveneed,law_higher,law_conflict,law_special,law_clear,rule_conflict,rule_order,rule_resolved,evidence_usable,strategy_choice,identity_ok,counter_needed,retry_improve,goal_review,approval_valid,delivery_allowed decide
+class start,watch,live_start,improve_start,effect_start,monitor_event termstart
+class signal,early,change,case,understand,intent,communicate0,live,goal,measure0,search,absent,now,trust,version,law,priority,strategy,risk,plan,progress,control,monitor,guard,handoff,identity0,tools,sort,combine,convert,calc,analysis,judge,forecast,optimize,design,reframe,make,talk,negotiate,write,transaction,operate,publish,observe,experiment,simulate,verify,identity,counter,wait,quality,process_eval,pack,delivery,wait2,outcome,cause,improve,testenv,capability,testenv0,capability0,repair,delivery_repair,context_initial,law_higher_apply,law_special_apply,law_new,law_settle,law_wait,law_reply,law_confirmed,rule_compare,rule_apply,rule_exception,rule_candidate,rule_wait,rule_reply,rule_confirmed,checks_start,checks_join,evidence_repair,evidence_use,evidence_done,strategy_more,identity_reject,memory_unapplied,risk_delivery,delivery_guard,delivery_approval,effect_wait,improve_apply,law_date,risk_exec,precheck,process_step,verify_help,improve_queue,job_memory,effect_check,effect_record,isolation,law_rank,use_intent_record,use_goal_record,use_trust_record,use_priority_record,use_strategy_record,use_plan_record,use_process_step_record,use_quality_record,use_cause_record,use_signal_control,use_context2_control,use_wait_control,use_wait2_control,use_effect_start_control,use_improve_start_control,use_identity_ok_record,risk_response,risk_scope,identity_wait,counter_compare,counter_more,process_repair,process_unknown,delivery_risk_fix,effect_define,effect_remeasure,effect_issue,retrospective_repair,improvement_restore action
+class watchtype,allowed,vdecision,more,receipt,passed,clear,qualified,qualified_test,qualityok,learnneed,improveneed,law_higher,law_conflict,law_special,law_clear,rule_conflict,rule_order,rule_resolved,evidence_usable,strategy_choice,identity_ok,counter_needed,retry_improve,goal_review,approval_valid,delivery_allowed,resume_changed,human_return,dispatch,precheck_ok,wait_reason,retry_scope,delivery_reply,effect_needed,improve_allowed,risk_result,strategy_feasible,counter_result,process_check,process_fixable,verification_event,delivery_risk_result,delivery_retry,receipt_event,effect_registered,recovery_ok,effect_measured,effect_action,retrospective_result,improvement_applied,improvement_restored,identity_retry_allowed decide
 class unused unused
 class case_ref,reference,reuse,knowledge,experience,memory,original,context,state,record,context2,memory2,memory_direct,memory_reuse,state_result,record_read human
 class ethics,principles,contract,platform,org,user_rule,style_n,rights,limit human
-class hold,unqualified,strategy_stop,delivery_hold stop
-class choose0,choose1,choose2,choose3,choose4,choose5 decide
+class hold,unqualified,strategy_stop,delivery_hold,evidence_hold,wait_expired,law_timeout,rule_timeout,handoff_timeout,delivery_timeout,receipt_timeout,use_context_initial_guard_hold,use_search_guard_hold,use_original_guard_hold,use_communicate0_guard_hold,use_law_wait_guard_hold,use_rule_wait_guard_hold,use_testenv0_guard_hold,use_testenv_guard_hold,identity_timeout,counter_timeout,process_hold,delivery_risk_hold,delivery_retry_hold,receipt_refused,effect_registration_hold,clarification_hold,recovery_hold,effect_measure_hold,retrospective_hold,improvement_restore_hold,quality_unknown stop
+class choose0,choose1,choose2,choose3,choose4,choose5,use_context_initial_guard,use_search_guard,use_original_guard,use_communicate0_guard,use_law_wait_guard,use_rule_wait_guard,use_testenv0_guard,use_testenv_guard decide
 class out0,out1,out2,out3,out4,out5 record
-class finish termend
+class finish,improve_finish,effect_end termend
 
-style evidence fill:#eef8f1,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:2 4,color:#3a3f4b
-style rules fill:#f3eefb,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:2 4,color:#3a3f4b
-style rank fill:none,stroke:none
-style opg0 fill:none,stroke:none
-style opg1 fill:none,stroke:none
-style opg2 fill:none,stroke:none
-style opg3 fill:none,stroke:none
-style opg4 fill:none,stroke:none
-style opg5 fill:none,stroke:none
+classDef grpEvidence fill:#eef8f1,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:2 4,color:#3a3f4b
+class evidence,opg0,opg1,opg2,opg3,opg4,opg5,resources_0,resources_1,resources_2,resources_3,resources_4,resources_5,model,ai_goal,ai_strategy,ai_verify,ai_counter,ai_quality,ai_cause,ai_improve,support_communicate0,global_tools,support_now,support_original,support_handoff,support_wait,support_delivery,support_wait2,support_testenv,support_capability,support_testenv0,support_law_wait,support_rule_wait,support_delivery_approval,support_effect_check,isolated_improvement grpEvidence
+classDef grpRules fill:#f3eefb,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:2 4,color:#3a3f4b
+class rules grpRules
+classDef grpPlain fill:none,stroke:none
+class rank grpPlain
 
-linkStyle 0 stroke:#4caf7d,stroke-width:2px
-linkStyle 1 stroke:#4caf7d,stroke-width:2px
-linkStyle 2 stroke:#4caf7d,stroke-width:2px
-linkStyle 3 stroke:#5b8fd1,stroke-width:2px
-linkStyle 4 stroke:#5b8fd1,stroke-width:2px
-linkStyle 5 stroke:#5fb890,stroke-width:2px
-linkStyle 6 stroke:#5fb890,stroke-width:2px
-linkStyle 7 stroke:#5b8fd1,stroke-width:2px
-linkStyle 8 stroke:#5b8fd1,stroke-width:2px
-linkStyle 9 stroke:#5b8fd1,stroke-width:2px
-linkStyle 10 stroke:#5b8fd1,stroke-width:2px
-linkStyle 11 stroke:#5b8fd1,stroke-width:2px
-linkStyle 12 stroke:#5b8fd1,stroke-width:2px
-linkStyle 13 stroke:#5fb890,stroke-width:2px
-linkStyle 14 stroke:#5fb890,stroke-width:2px
-linkStyle 15 stroke:#5b8fd1,stroke-width:2px
-linkStyle 16 stroke:#5b8fd1,stroke-width:2px
-linkStyle 17 stroke:#5b8fd1,stroke-width:2px
-linkStyle 18 stroke:#5b8fd1,stroke-width:2px
-linkStyle 19 stroke:#5b8fd1,stroke-width:2px
-linkStyle 20 stroke:#5b8fd1,stroke-width:2px
-linkStyle 21 stroke:#5b8fd1,stroke-width:2px
-linkStyle 22 stroke:#5b8fd1,stroke-width:2px
-linkStyle 23 stroke:#5b8fd1,stroke-width:2px
-linkStyle 24 stroke:#5b8fd1,stroke-width:2px
-linkStyle 25 stroke:#5b8fd1,stroke-width:2px
-linkStyle 26 stroke:#5b8fd1,stroke-width:2px
-linkStyle 27 stroke:#5b8fd1,stroke-width:2px
-linkStyle 28 stroke:#5b8fd1,stroke-width:2px
-linkStyle 29 stroke:#5b8fd1,stroke-width:2px
-linkStyle 30 stroke:#5b8fd1,stroke-width:2px
-linkStyle 31 stroke:#5b8fd1,stroke-width:2px
-linkStyle 32 stroke:#5b8fd1,stroke-width:2px
-linkStyle 33 stroke:#5b8fd1,stroke-width:2px
-linkStyle 34 stroke:#5b8fd1,stroke-width:2px
-linkStyle 35 stroke:#5b8fd1,stroke-width:2px
-linkStyle 36 stroke:#5fb890,stroke-width:2px
-linkStyle 37 stroke:#5fb890,stroke-width:2px
-linkStyle 38 stroke:#5b8fd1,stroke-width:2px
-linkStyle 39 stroke:#5fb890,stroke-width:2px
-linkStyle 40 stroke:#5fb890,stroke-width:2px
-linkStyle 41 stroke:#5b8fd1,stroke-width:2px
-linkStyle 42 stroke:#5fb890,stroke-width:2px
-linkStyle 43 stroke:#5fb890,stroke-width:2px
-linkStyle 44 stroke:#5b8fd1,stroke-width:2px
-linkStyle 45 stroke:#5b8fd1,stroke-width:2px
-linkStyle 46 stroke:#5b8fd1,stroke-width:2px
-linkStyle 47 stroke:#5fb890,stroke-width:2px
-linkStyle 48 stroke:#5fb890,stroke-width:2px
-linkStyle 49 stroke:#5b8fd1,stroke-width:2px
-linkStyle 50 stroke:#5b8fd1,stroke-width:2px
-linkStyle 51 stroke:#5b8fd1,stroke-width:2px
-linkStyle 52 stroke:#5b8fd1,stroke-width:2px
-linkStyle 53 stroke:#5b8fd1,stroke-width:2px
-linkStyle 54 stroke:#5b8fd1,stroke-width:2px
-linkStyle 55 stroke:#5fb890,stroke-width:2px
-linkStyle 56 stroke:#5fb890,stroke-width:2px
-linkStyle 57 stroke:#5b8fd1,stroke-width:2px
-linkStyle 58 stroke:#5b8fd1,stroke-width:2px
-linkStyle 59 stroke:#5b8fd1,stroke-width:2px
-linkStyle 60 stroke:#5b8fd1,stroke-width:2px
-linkStyle 61 stroke:#5b8fd1,stroke-width:2px
-linkStyle 62 stroke:#718096,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 63 stroke:#5b8fd1,stroke-width:2px
-linkStyle 64 stroke:#5fb890,stroke-width:2px
-linkStyle 65 stroke:#5fb890,stroke-width:2px
-linkStyle 66 stroke:#5b8fd1,stroke-width:2px
-linkStyle 67 stroke:#5fb890,stroke-width:2px
-linkStyle 68 stroke:#5fb890,stroke-width:2px
-linkStyle 69 stroke:#5b8fd1,stroke-width:2px
-linkStyle 70 stroke:#5b8fd1,stroke-width:2px
-linkStyle 71 stroke:#5b8fd1,stroke-width:2px
-linkStyle 72 stroke:#5b8fd1,stroke-width:2px
-linkStyle 73 stroke:#5fb890,stroke-width:2px
-linkStyle 74 stroke:#5fb890,stroke-width:2px
-linkStyle 75 stroke:#5b8fd1,stroke-width:2px
-linkStyle 76 stroke:#5b8fd1,stroke-width:2px
-linkStyle 77 stroke:#5b8fd1,stroke-width:2px
-linkStyle 78 stroke:#5b8fd1,stroke-width:2px
-linkStyle 79 stroke:#5fb890,stroke-width:2px
-linkStyle 80 stroke:#5b8fd1,stroke-width:2px
-linkStyle 81 stroke:#5b8fd1,stroke-width:2px
-linkStyle 82 stroke:#5fb890,stroke-width:2px
-linkStyle 83 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 84 stroke:#5fb890,stroke-width:2px
-linkStyle 85 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 86 stroke:#5fb890,stroke-width:2px
-linkStyle 87 stroke:#5b8fd1,stroke-width:2px
-linkStyle 88 stroke:#5b8fd1,stroke-width:2px
-linkStyle 89 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 90 stroke:#5fb890,stroke-width:2px
-linkStyle 91 stroke:#5b8fd1,stroke-width:2px
-linkStyle 92 stroke:#718096,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 93 stroke:#5b8fd1,stroke-width:2px
-linkStyle 94 stroke:#5b8fd1,stroke-width:2px
-linkStyle 95 stroke:#5b8fd1,stroke-width:2px
-linkStyle 96 stroke:#5b8fd1,stroke-width:2px
-linkStyle 97 stroke:#5b8fd1,stroke-width:2px
-linkStyle 98 stroke:#5b8fd1,stroke-width:2px
-linkStyle 99 stroke:#5b8fd1,stroke-width:2px
-linkStyle 100 stroke:#718096,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 101 stroke:#5b8fd1,stroke-width:2px
-linkStyle 102 stroke:#718096,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 103 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 104 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 105 stroke:#5fb890,stroke-width:2px
-linkStyle 106 stroke:#5b8fd1,stroke-width:2px
-linkStyle 107 stroke:#5b8fd1,stroke-width:2px
-linkStyle 108 stroke:#5b8fd1,stroke-width:2px
-linkStyle 109 stroke:#5fb890,stroke-width:2px
-linkStyle 110 stroke:#5fb890,stroke-width:2px
-linkStyle 111 stroke:#5fb890,stroke-width:2px
-linkStyle 112 stroke:#5fb890,stroke-width:2px
-linkStyle 113 stroke:#5fb890,stroke-width:2px
-linkStyle 114 stroke:#5b8fd1,stroke-width:2px
-linkStyle 115 stroke:#5b8fd1,stroke-width:2px
-linkStyle 116 stroke:#5b8fd1,stroke-width:2px
-linkStyle 117 stroke:#5b8fd1,stroke-width:2px
-linkStyle 118 stroke:#5fb890,stroke-width:2px
-linkStyle 119 stroke:#5fb890,stroke-width:2px
-linkStyle 120 stroke:#5fb890,stroke-width:2px
-linkStyle 121 stroke:#5fb890,stroke-width:2px
-linkStyle 122 stroke:#5fb890,stroke-width:2px
-linkStyle 123 stroke:#5fb890,stroke-width:2px
-linkStyle 124 stroke:#5fb890,stroke-width:2px
-linkStyle 125 stroke:#5b8fd1,stroke-width:2px
-linkStyle 126 stroke:#5b8fd1,stroke-width:2px
-linkStyle 127 stroke:#5b8fd1,stroke-width:2px
-linkStyle 128 stroke:#5b8fd1,stroke-width:2px
-linkStyle 129 stroke:#5b8fd1,stroke-width:2px
-linkStyle 130 stroke:#5b8fd1,stroke-width:2px
-linkStyle 131 stroke:#5fb890,stroke-width:2px
-linkStyle 132 stroke:#5fb890,stroke-width:2px
-linkStyle 133 stroke:#5fb890,stroke-width:2px
-linkStyle 134 stroke:#5fb890,stroke-width:2px
-linkStyle 135 stroke:#5fb890,stroke-width:2px
-linkStyle 136 stroke:#5b8fd1,stroke-width:2px
-linkStyle 137 stroke:#5b8fd1,stroke-width:2px
-linkStyle 138 stroke:#5b8fd1,stroke-width:2px
-linkStyle 139 stroke:#5b8fd1,stroke-width:2px
-linkStyle 140 stroke:#5fb890,stroke-width:2px
-linkStyle 141 stroke:#5fb890,stroke-width:2px
-linkStyle 142 stroke:#5fb890,stroke-width:2px
-linkStyle 143 stroke:#5fb890,stroke-width:2px
-linkStyle 144 stroke:#5b8fd1,stroke-width:2px
-linkStyle 145 stroke:#5b8fd1,stroke-width:2px
-linkStyle 146 stroke:#5b8fd1,stroke-width:2px
-linkStyle 147 stroke:#5fb890,stroke-width:2px
-linkStyle 148 stroke:#5fb890,stroke-width:2px
-linkStyle 149 stroke:#5fb890,stroke-width:2px
-linkStyle 150 stroke:#5fb890,stroke-width:2px
-linkStyle 151 stroke:#5fb890,stroke-width:2px
-linkStyle 152 stroke:#5fb890,stroke-width:2px
-linkStyle 153 stroke:#5b8fd1,stroke-width:2px
-linkStyle 154 stroke:#5b8fd1,stroke-width:2px
-linkStyle 155 stroke:#5b8fd1,stroke-width:2px
-linkStyle 156 stroke:#5b8fd1,stroke-width:2px
-linkStyle 157 stroke:#5b8fd1,stroke-width:2px
-linkStyle 158 stroke:#5fb890,stroke-width:2px
-linkStyle 159 stroke:#5fb890,stroke-width:2px
-linkStyle 160 stroke:#5fb890,stroke-width:2px
-linkStyle 161 stroke:#5fb890,stroke-width:2px
-linkStyle 162 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 163 stroke:#5b8fd1,stroke-width:2px
-linkStyle 164 stroke:#5b8fd1,stroke-width:2px
-linkStyle 165 stroke:#5b8fd1,stroke-width:2px
-linkStyle 166 stroke:#5b8fd1,stroke-width:2px
-linkStyle 167 stroke:#5b8fd1,stroke-width:2px
-linkStyle 168 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 169 stroke:#5fb890,stroke-width:2px
-linkStyle 170 stroke:#5b8fd1,stroke-width:2px
-linkStyle 171 stroke:#5fb890,stroke-width:2px
-linkStyle 172 stroke:#5fb890,stroke-width:2px
-linkStyle 173 stroke:#5b8fd1,stroke-width:2px
-linkStyle 174 stroke:#5b8fd1,stroke-width:2px
-linkStyle 175 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 176 stroke:#5fb890,stroke-width:2px
-linkStyle 177 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 178 stroke:#5fb890,stroke-width:2px
-linkStyle 179 stroke:#5fb890,stroke-width:2px
-linkStyle 180 stroke:#5b8fd1,stroke-width:2px
-linkStyle 181 stroke:#5b8fd1,stroke-width:2px
-linkStyle 182 stroke:#5b8fd1,stroke-width:2px
-linkStyle 183 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 184 stroke:#5fb890,stroke-width:2px
-linkStyle 185 stroke:#5b8fd1,stroke-width:2px
-linkStyle 186 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 187 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 188 stroke:#5fb890,stroke-width:2px
-linkStyle 189 stroke:#5b8fd1,stroke-width:2px
-linkStyle 190 stroke:#5fb890,stroke-width:2px
-linkStyle 191 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 192 stroke:#5fb890,stroke-width:2px
-linkStyle 193 stroke:#5b8fd1,stroke-width:2px
-linkStyle 194 stroke:#5b8fd1,stroke-width:2px
-linkStyle 195 stroke:#5b8fd1,stroke-width:2px
-linkStyle 196 stroke:#5b8fd1,stroke-width:2px
-linkStyle 197 stroke:#5fb890,stroke-width:2px
-linkStyle 198 stroke:#5fb890,stroke-width:2px
-linkStyle 199 stroke:#d16565,stroke-width:2px
-linkStyle 200 stroke:#5b8fd1,stroke-width:2px
-linkStyle 201 stroke:#5fb890,stroke-width:2px
-linkStyle 202 stroke:#5fb890,stroke-width:2px
-linkStyle 203 stroke:#d16565,stroke-width:2px
-linkStyle 204 stroke:#5b8fd1,stroke-width:2px
-linkStyle 205 stroke:#5b8fd1,stroke-width:2px
-linkStyle 206 stroke:#5b8fd1,stroke-width:2px
-linkStyle 207 stroke:#5fb890,stroke-width:2px
-linkStyle 208 stroke:#5fb890,stroke-width:2px
-linkStyle 209 stroke:#5fb890,stroke-width:2px
-linkStyle 210 stroke:#5b8fd1,stroke-width:2px
-linkStyle 211 stroke:#d16565,stroke-width:2px
-linkStyle 212 stroke:#d16565,stroke-width:2px
-linkStyle 213 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 214 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 215 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 216 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 217 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 218 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 219 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 220 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 221 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 222 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 223 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 224 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 225 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 226 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 227 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 228 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 229 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 230 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
-linkStyle 231 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4
+linkStyle 0,1,2,123,285,305 stroke:#4caf7d,stroke-width:2px
+linkStyle 3,4,12,17,18,20,30,31,46,47,49,50,52,53,58,59,66,67,69,79,80,83,84,88,89,91,97,99,100,105,106,108,110,112,116,128,134,139,141,142,143,144,145,146,147,148,149,150,151,156,157,158,159,160,167,168,169,174,175,179,180,181,182,188,189,190,197,198,203,204,206,207,208,215,216,220,222,223,225,230,231,238,243,247,251,254,255,264,266,267,268,272,274,275,279,280,288,292,293,294,295,299,302,308,309,311,312 stroke:#5fb890,stroke-width:2px
+linkStyle 5,6,7,8,9,10,13,14,15,16,22,23,24,25,26,27,32,33,34,35,36,37,38,39,40,41,42,43,44,45,48,51,54,55,56,57,61,62,63,64,65,70,72,73,74,75,76,77,78,82,85,86,87,92,94,95,96,98,101,102,103,104,113,114,117,119,120,121,122,124,125,129,130,135,137,138,140,152,153,154,155,161,162,163,164,165,166,170,171,172,173,176,177,178,183,184,185,186,187,191,192,193,194,195,200,201,205,210,211,212,213,217,218,221,227,228,232,233,234,235,239,240,244,249,250,257,258,260,261,265,269,270,277,278,282,286,289,290,291,297,300,306,307,313 stroke:#5b8fd1,stroke-width:2px
+linkStyle 11,19,21,28,29,68,71,90,93,107,109,111,115,127,132,133,136,196,199,202,209,214,219,224,226,229,236,237,241,242,245,246,248,252,253,256,259,262,263,271,287,296,298,301,310 stroke:#d99a4e,stroke-width:2px,stroke-dasharray:5 4
+linkStyle 60,276,281,284,303,304,314 stroke:#d16565,stroke-width:2px
+linkStyle 81,118,126,131,273,283 stroke:#718096,stroke-width:2px,stroke-dasharray:5 4
+linkStyle 315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344 stroke:#c46ec4,stroke-width:2px,stroke-dasharray:5 4

@@ -84,7 +84,17 @@ const BUNDLE = process.env.MERMAID_BUNDLE
     for (const id of ['start', 'watch', 'live_start']) {
       if (byId[id] && byId[id].y / result.height >= 0.1) layoutIssues.push(`start below upper section: ${id}`);
     }
-    if (byId.finish && byId.finish.y / result.height <= 0.9) layoutIssues.push('finish above lower section');
+    // An end node closes its own flow: everything that can reach it sits above it.
+    // (Later flows such as improvement and effect checks may follow below it,
+    // as in the reference image, so a fixed "bottom 10%" rule no longer applies.)
+    const into = {};
+    for (const m of source.matchAll(/^\s*(\w+) -->(?:\|[^|]*\|)? (\w+)\s*$/gm)) (into[m[2]] ||= []).push(m[1]);
+    for (const end of result.nodes.filter((n) => n.text.startsWith('■ 종료'))) {
+      const seen = new Set([end.id]), stack = [end.id];
+      while (stack.length) for (const s of into[stack.pop()] || []) if (!seen.has(s)) { seen.add(s); stack.push(s); }
+      const above = [...seen].filter((id) => id !== end.id && byId[id] && byId[id].y >= end.y);
+      if (above.length) layoutIssues.push(`end above its own flow: ${end.id} (${above.slice(0, 5).join(', ')})`);
+    }
     for (let i = 1; i < order.length; i++) {
       const a = byId[order[i - 1]], b = byId[order[i]];
       if (a && b && a.y >= b.y) layoutIssues.push(`workflow order reversed: ${order[i - 1]} -> ${order[i]}`);

@@ -15,7 +15,7 @@ Mermaid 엔진이 배치를 다시 계산하므로 픽셀 단위 동일 위치�
 
 사용법:
   python3 단독-재료-연결구조-Mermaid-생성.py [--out FILE] [--embed]
-    --embed: 정의1 문서의 '### 1. 단독 상황' 절 기존 이미지 아래에 삽입
+    --embed: 정의1 문서의 이미지 아래에 편집용 원본 링크를 삽입
 """
 import argparse
 import html
@@ -26,6 +26,9 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / 'docs/도식/단독-재료-연결구조.json'
 DOC = ROOT / '전문가 에이전트 정의.md'
 OUT_DEFAULT = ROOT / 'docs/도식/usage-structure-solo.mmd'
+# Mermaid refuses to render longer sources ("Maximum text size in diagram exceeded").
+# maxTextSize is a secure config key, so an init directive cannot raise it.
+MAX_TEXT_SIZE = 50_000
 
 # 8종 노드 → 6모양 6색 확장 매핑 (도식-설계.md 기존 6종 + source/unused 확장)
 KIND_STYLE = {
@@ -88,16 +91,18 @@ def node_label(n: dict, marker: str = '') -> str:
     if n.get('condition'):
         title += ' · ' + esc(n['condition'])
     if n.get('kind') == 'reference':
-        title = '참조 기준 · ' + title
+        title = esc(n.get('relation_label','참조 기준')) + ' · ' + title
     if n.get('priority_rank'):
         title = f'{n["priority_rank"]}순위 · ' + title
     if marker:
         title = marker + title
     body = n.get('body', '')
+    if n.get('usage_lines'):
+        body += '\n' + '\n'.join(n['usage_lines'])
     if n.get('caption'):
         body = '\n'.join(filter(None, [n['caption'], body]))
     if body:
-        return f"<b>{title}</b><br/><span style='font-size:11px'>{esc(body)}</span>"
+        return f'<b>{title}</b><br/><small>{esc(body)}</small>'
     return f'<b>{title}</b>'
 
 
@@ -188,6 +193,10 @@ def build(data: dict) -> str:
         g = group_by_id[gid]
         title = g.get('title', '').strip()
         gtitle = esc(title) if title else ' '
+        if g.get('usage_caption'):
+            gtitle = (gtitle+'<br/>' if title else '') + esc(g['usage_caption'])
+            if g.get('usage_caption_extra'):
+                gtitle += '<br/>' + '<br/>'.join(esc(line) for line in g['usage_caption_extra'])
         if gid == 'rank':
             gtitle = '이 도식의 업무 기준 순서 · 같은 순위는 함께 적용'
         lines.append(f'{indent}subgraph {safe_id(gid)}["{gtitle}"]')
@@ -251,6 +260,49 @@ def build(data: dict) -> str:
         arrow += f' {safe_id(target)}'
         lines.append(f'  {arrow}')
         roles.append(edge_role(e))
+
+    # The reference image stacks blocks that no forward edge orders (e.g. the six
+    # parallel work spaces). Dagre would put those side by side and blow the width
+    # up, so pin the reference's top-to-bottom order with invisible links. They are
+    # declared after every real edge, so linkStyle indices below stay aligned.
+    forward = {}
+    for e in data['edges']:
+        if e['kind'] in ('flow', 'blocked'):
+            forward.setdefault(e['source'], set()).add(e['target'])
+
+    def reachable(ids):
+        seen, stack = set(ids), list(ids)
+        while stack:
+            for nxt in forward.get(stack.pop(), ()):
+                if nxt not in seen:
+                    seen.add(nxt)
+                    stack.append(nxt)
+        return seen
+
+    def member_ids(item):
+        if item['id'] not in group_by_id:
+            return {item['id']}
+        ids = {n['id'] for n in group_children_nodes[item['id']]}
+        for cgid in group_children_groups[item['id']]:
+            ids |= member_ids(group_by_id[cgid])
+        return ids
+
+    def stack_links(items):
+        items = sorted(items, key=lambda i: i['y'])
+        for upper, lower in zip(items, items[1:]):
+            if lower['y'] < upper['y'] + upper['h'] - 1:
+                continue  # side by side in the reference
+            if member_ids(lower) & reachable(member_ids(upper)):
+                continue  # a real edge already orders them
+            # Node-to-node: a link that touches a subgraph id makes dagre-wrapper
+            # lay that subgraph out on its own and scrambles the order.
+            bottom = max(member_ids(upper), key=lambda i: nodes_by_id[i]['y'] + nodes_by_id[i]['h'])
+            top = min(member_ids(lower), key=lambda i: nodes_by_id[i]['y'])
+            lines.append(f'  {safe_id(bottom)} ~~~ {safe_id(top)}')
+
+    stack_links(top_groups + ungrouped)
+    for g in groups:
+        stack_links(group_children_nodes[g['id']] + [group_by_id[c] for c in group_children_groups[g['id']]])
     lines.append('')
 
     lines.append(CLASS_DEFS)
@@ -270,21 +322,32 @@ def build(data: dict) -> str:
         lines.append(f'class {",".join(safe_id(i) for i in ids)} {cls}')
     lines.append('')
 
-    group_fill = {'evidence': GROUP_EVIDENCE_STYLE, 'rules': GROUP_RULES_STYLE}
+    # Subgraphs take classes too; one class line per style keeps the source short.
+    group_styles = {'grpEvidence': GROUP_EVIDENCE_STYLE, 'grpRules': GROUP_RULES_STYLE,
+                    'grpPlain': GROUP_PLAIN_STYLE}
+    group_fill = {'evidence': 'grpEvidence', 'rules': 'grpRules'}
+    groups_by_cls = {}
     for g in groups:
-        if g.get('title', '').strip():
-            style = group_fill.get(g['id'], GROUP_EVIDENCE_STYLE)
-        else:
-            style = GROUP_PLAIN_STYLE
-        lines.append(f'style {safe_id(g["id"])} {style}')
+        cls = group_fill.get(g['id'], 'grpEvidence') if g.get('title', '').strip() else 'grpPlain'
+        groups_by_cls.setdefault(cls, []).append(safe_id(g['id']))
+    for cls, ids in groups_by_cls.items():
+        lines.append(f'classDef {cls} {group_styles[cls]}')
+        lines.append(f'class {",".join(ids)} {cls}')
     lines.append('')
 
+    # One linkStyle line per role: per-edge lines alone pushed the source past
+    # Mermaid's default maxTextSize (50,000 chars), which viewers cannot raise.
+    indices_by_role = {}
     for i, role in enumerate(roles):
-        color = ROLE_COLOR[role]
+        indices_by_role.setdefault(role, []).append(str(i))
+    for role, indices in indices_by_role.items():
         dash = ',stroke-dasharray:5 4' if role in ('아니오', '되돌아감', '참조') else ''
-        lines.append(f'linkStyle {i} stroke:{color},stroke-width:2px{dash}')
+        lines.append(f'linkStyle {",".join(indices)} stroke:{ROLE_COLOR[role]},stroke-width:2px{dash}')
 
-    return '\n'.join(lines) + '\n'
+    text = '\n'.join(lines) + '\n'
+    if len(text) > MAX_TEXT_SIZE:
+        raise SystemExit(f'Mermaid 원본이 {len(text)}자로 기본 한도 {MAX_TEXT_SIZE}자를 넘어 렌더되지 않음')
+    return text
 
 
 def main():
@@ -307,7 +370,7 @@ def main():
         start = text.index(marker) + len(marker)
         next_heading = text.index('\n### 2.', start)
         head, tail = text[:start], text[next_heading:]
-        block = f'\n\n```mermaid\n{mermaid}```\n'
+        block = '\n\n[편집용 Mermaid 원본](docs/도식/usage-structure-solo.mmd)\n'
         DOC.write_text(head + block + tail)
         print(f'삽입됨(이전 블록 교체): {DOC}')
 
