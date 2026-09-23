@@ -24,8 +24,8 @@ for line in PREFIX.split('## 계통별 재료',1)[1].splitlines():
             CAT[n]=dict(name=n,definition=c[2],usage=c[4].strip('*'),condition=c[5],system=current_system,term=SYSTEM_TERM[current_system])
 assert len(CAT)==79
 W=1800
-C=dict(ink='#192C36',muted='#455D68',blue='#228DE1',red='#D95750',yellow='#E3A512',
-       pale='#E8F5FE',border='#CADFE9',green='#E7F5E9',white='#FFFFFF')
+C=dict(ink='#17253B',muted='#475569',blue='#3974B8',red='#C45763',yellow='#B57C1F',
+       pale='#EEF3FA',border='#D4DDE7',green='#EAF5EF',white='#FFFFFF')
 N={};E=[];G=[];A=[]
 esc=lambda s:html.escape(str(s),quote=True)
 def measure(s,z):return sum(z*(.97 if ord(c)>255 else .28 if c==' ' else .53) for c in s)
@@ -164,7 +164,7 @@ edge('context','model','지금 판단할 정보',at=(900,2858))
 mat('strategy','대안·전략 판단',640,3075,520,120,body='목표·근거·비용·위험으로 방법을 비교\n추가 조사·계속·보류·중단 중 적절한 방향을 정함')
 edge('model','strategy','이해한 상황과 가능한 방법',at=(900,3043))
 mat('risk','빠진 위험 확인',120,3075,390,120,body='계획·실행·전달 전에\n놓친 조건과 피해를 찾아 대조')
-edge('risk','strategy','빠뜨린 위험',sa='r',sb='l',at=(575,3135))
+edge('risk','strategy','위험 유무 확인 완료',sa='r',sb='l',at=(575,3135))
 mat('plan','업무 절차·실행 계획',640,3270,520,120,body='선택한 방법을 입력 → 작업 → 출력으로 연결\n순서·병렬·검사·중단·재개 조건을 정함')
 edge('strategy','plan','선택한 방법',at=(900,3232))
 mat('progress','작업 진행·연결',640,3465,520,120,body='완료분을 보존하고 시작 가능한 다음 작업 선택\n변경이 계획을 벗어나면 방법·계획부터 다시 판단')
@@ -647,7 +647,7 @@ for k in ['goal','pack','state_result','progress']:
     insert_space(N[k]['y'],45)
 label_edits={
  ('goal','measure0'):'확인 기준',
- ('risk','strategy'):'위험',('counter','verify'):'근거',
+ ('risk','strategy'):'위험 유무 확인 완료',('counter','verify'):'근거',
  ('vdecision','wait'):'확인\n불가',('capability','passed'):'결과',
  ('unused','progress'):'한 전문가가 직접 처리',
 }
@@ -656,19 +656,26 @@ for e in E:
     if (e['source'],e['target'])==('now','trust'):e['label']='조회 결과'
     if (e['source'],e['target']) in label_edits:e['label']=label_edits[e['source'],e['target']]
 
-def rounded(points,r=14):
+def rounded(points,r=14,bridges=()):
     # Polyline corners rounded without freeform splines wandering through labels.
     ps=[]
     for q in points:
         if not ps or q!=ps[-1]:ps.append(q)
     if len(ps)<2:return ''
-    d=f'M{ps[0][0]},{ps[0][1]}'
+    def line_to(a,b):
+        jumps=sorted((j for j in bridges if a[1]==b[1]==j['y'] and min(a[0],b[0])<j['x']<max(a[0],b[0])),key=lambda j:j['x'],reverse=b[0]<a[0])
+        out='';direction=1 if b[0]>a[0] else -1
+        for j in jumps:
+            x,y,rr=j['x'],j['y'],j['radius']
+            out+=f' L{x-direction*rr},{y} Q{x},{y-2*rr} {x+direction*rr},{y}'
+        return out+f' L{b[0]},{b[1]}'
+    d=f'M{ps[0][0]},{ps[0][1]}';last=ps[0]
     for i in range(1,len(ps)-1):
         a,b,c=ps[i-1:i+2];u=(a[0]-b[0],a[1]-b[1]);v=(c[0]-b[0],c[1]-b[1]);lu=math.hypot(*u);lv=math.hypot(*v)
         rr=min(r,lu/2,lv/2)
         q=(b[0]+u[0]/lu*rr,b[1]+u[1]/lu*rr);z=(b[0]+v[0]/lv*rr,b[1]+v[1]/lv*rr)
-        d+=f' L{q[0]},{q[1]} Q{b[0]},{b[1]} {z[0]},{z[1]}'
-    return d+f' L{ps[-1][0]},{ps[-1][1]}'
+        d+=line_to(last,q)+f' Q{b[0]},{b[1]} {z[0]},{z[1]}';last=z
+    return d+line_to(last,ps[-1])
 def simplify_path(points):
     result=[]
     for point in points:
@@ -1272,6 +1279,18 @@ def center_route(e):
     if e.get('fixed_route'):
         e['points']=simplify_path(e['points'])
         start,end=p(e['source'],e['source_port']),p(e['target'],e['target_port'])
+        if len(e['points']) == 2 and start[0] != end[0] and start[1] != end[1]:
+            sa, sb = e['source_port'], e['target_port']
+            if sa in ('t','b') and sb in ('t','b'):
+                mid=(start[1]+end[1])/2
+                e['points']=[start,(start[0],mid),(end[0],mid),end]
+            elif sa in ('l','r') and sb in ('l','r'):
+                mid=(start[0]+end[0])/2
+                e['points']=[start,(mid,start[1]),(mid,end[1]),end]
+            elif sa in ('t','b'):
+                e['points']=[start,(start[0],end[1]),end]
+            else:
+                e['points']=[start,(end[0],start[1]),end]
         if len(e['points'])>2:
             if e['source_port'] in ('t','b'):e['points'][1]=(start[0],e['points'][1][1])
             else:e['points'][1]=(e['points'][1][0],start[1])
@@ -1281,7 +1300,7 @@ def center_route(e):
         e['points']=simplify_path(e['points'])
         return
     source=N.get(e['source']) or next(g for g in G if g['id']==e['source'])
-    target=N[e['target']]
+    target=N.get(e['target']) or next(g for g in G if g['id']==e['target'])
     old=e['points'];sa=e['source_port'];sb=e['target_port']
     start,end=p(e['source'],sa),p(e['target'],sb)
     if len(old)==2:
@@ -1390,6 +1409,36 @@ for e in E:
     tip=end;base=(tip[0]-u[0]*14,tip[1]-u[1]*14)
     e['arrow']=[tip,(base[0]-u[1]*6,base[1]+u[0]*6),(base[0]+u[1]*6,base[1]-u[0]*6)]
 
+# Apply the final reader review once, after the inherited layout has settled.
+# Edge labels here are authoritative; old copy overrides must not replace them.
+import runpy
+repairs = runpy.run_path(str(ROOT/'docs/도식/단독-재료-최종교정.py'))
+repair = repairs['apply']
+H = repair(N,E,G,A,review_node,insert_space,p,route,text_layout)
+# Description edits are applied last so layout migrations cannot restore
+# older copy. Keep titles, node positions and workflow edges unchanged.
+descriptions=COPY['final_descriptions']
+for k,body in descriptions.items():
+    if k in N:N[k]['body']=body
+H = repairs['place_usage'](N,E,G,A,review_node,insert_space,p,route,text_layout,descriptions,COPY['support_roles'],H)
+assert set(descriptions)=={k for k,n in N.items() if n['body']},'description coverage changed'
+H = repairs['draw_usage'](N,E,G,A,review_node,insert_space,p,route,text_layout,H)
+for e in E:
+    center_route(e)
+polish = runpy.run_path(str(ROOT/'docs/도식/단독-재료-배치교정.py'))
+H = polish['apply'](N,E,G,A,insert_space,p,text_layout,H,measure)
+clarification = runpy.run_path(str(ROOT/'docs/도식/단독-재료-분기교정.py'))
+H = clarification['apply'](N,E,G,A,review_node,insert_space,p,H)
+for e in E:
+    center_route(e)
+polish['finish_routes'](N,E,G,A,p,measure)
+for e in E:
+    center_route(e)
+    end=e['points'][-1];before=next(q for q in reversed(e['points'][:-1]) if math.dist(q,end)>1)
+    length=math.dist(before,end);u=((end[0]-before[0])/length,(end[1]-before[1])/length)
+    base=(end[0]-u[0]*14,end[1]-u[1]*14)
+    e['arrow']=[end,(base[0]-u[1]*6,base[1]+u[0]*6),(base[0]+u[1]*6,base[1]-u[0]*6)]
+
 def rect_overlap(a,b,pad=0):
     return min(a['x']+a['w'],b['x']+b['w'])-max(a['x'],b['x'])>pad and min(a['y']+a['h'],b['y']+b['h'])-max(a['y'],b['y'])>pad
 def line_rect(a,b,r,pad=1):
@@ -1406,7 +1455,51 @@ def line_rect(a,b,r,pad=1):
 def label_box(text,x,y):
     lines=text.split('\n');w=max(measure(s,20) for s in lines)+20;h=26*len(lines)+10
     return dict(x=x-w/2,y=y-h/2,w=w,h=h)
-occupied=[]
+
+# The attached header belongs to the working area; only the white cards are
+# workflow steps. Category colour stays in the small badges on those cards.
+SCOPE_STYLE={
+    'model':dict(accent='#334E82',fill='#F0F4FA',header='#DEE7F5',border='#AFBED5'),
+    'global_tools':dict(accent='#475A70',fill='#F4F6F9',header='#E3E9F0',border='#BCC8D5'),
+    'live':dict(accent='#226C66',fill='#EFF6F4',header='#DCEDE8',border='#AFCBC5'),
+    'isolation':dict(accent='#596579',fill='#F7F8FA',header='#E7ECF2',border='#B8C2CF'),
+}
+def scope_headings(g):
+    if not g.get('support_scope') and not g['id'].startswith('opg'):return []
+    sources=g.get('scope_sources',['isolation']);parts=[];source_index=0
+    for j,line in enumerate(g.get('title_lines',[g['title']])):
+        y=g['y']+37+j*32
+        if line.startswith('('):
+            parts.append(dict(kind='condition',text=line,x=g['x']+22,y=y,size=20))
+            continue
+        name,sep,condition=line.partition(' (')
+        source=sources[min(source_index,len(sources)-1)];source_index+=1
+        width=measure(name,22)
+        parts.append(dict(kind='name',text=name,x=g['x']+22,y=y,size=22,source=source))
+        if sep:parts.append(dict(kind='condition',text='('+condition,x=g['x']+22+width+12,y=y,size=20))
+    return parts
+# The receipt retry crosses the reply-return line once. A visible line jump
+# distinguishes that crossing from a junction; it is included in the model.
+bridges=[]
+for i,e in enumerate(E):
+    for j,f in enumerate(E):
+        if i == j:continue
+        for a,b in zip(e['points'],e['points'][1:]):
+            if a[1]!=b[1]:continue
+            for c,z in zip(f['points'],f['points'][1:]):
+                if c[0]!=z[0]:continue
+                if min(a[0],b[0])<c[0]<max(a[0],b[0]) and min(c[1],z[1])<a[1]<max(c[1],z[1]):
+                    bridges.append(dict(over_edge=i,under_edge=j,x=c[0],y=a[1],radius=12))
+occupied=[dict(x=j['x']-16,y=j['y']-28,w=32,h=32) for j in bridges]
+for g in G:
+    if g['title']:
+        headings=scope_headings(g)
+        if headings:
+            occupied.append(dict(x=g['x'],y=g['y'],w=g['w'],h=max(part['y'] for part in headings)+12-g['y']))
+            continue
+        z=g.get('title_size',27)
+        for j,line in enumerate(g.get('title_lines',[g['title']])):
+            occupied.append(dict(x=g['x']+22,y=g['y']+37+j*32-z,w=measure(line,z),h=z+5))
 for a in A:
     w=measure(a['text'],a['size']);x=a['x']-(w/2 if a['anchor']=='middle' else 0)
     occupied.append(dict(x=x,y=a['y']-a['size'],w=w,h=a['size']+5))
@@ -1433,62 +1526,94 @@ for i,e in enumerate(E):
             if r['x']<6 or r['x']+r['w']>W-6 or r['y']<6:continue
             if any(rect_overlap(r,n,0) for n in N.values()):continue
             if any(rect_overlap(r,o,-2) for o in occupied+arrow_bounds):continue
-            if any(j!=i and any(line_rect(c,z,r) for c,z in zip(other['points'],other['points'][1:])) for j,other in enumerate(E)):continue
+            if any(j!=i and any(line_rect(c,z,r,pad=-5) for c,z in zip(other['points'],other['points'][1:])) for j,other in enumerate(E)):continue
             candidates.append((math.dist((x,y),preferred)+(60 if abs(b[1]-a[1])>abs(b[0]-a[0]) else 0),x,y,r))
     if candidates:
         _,x,y,r=min(candidates,key=lambda c:c[0]);e['at']=(x,y);e['label_rect']=r;occupied.append(r)
     else:
         e['label_rect']=label_box(e['label'],*preferred);e['at']=preferred;unplaced.append((i,e['source'],e['target'],e['label']))
-if unplaced:print('LABELS_NEED_PLACEMENT',json.dumps(unplaced,ensure_ascii=False))
+if unplaced:raise RuntimeError('LABELS_NEED_PLACEMENT '+json.dumps(unplaced,ensure_ascii=False))
 names=Counter(n['material'] for n in N.values() if n['material'])
+names.update(g['material'] for g in G if g.get('material'))
 assert set(names)==set(CAT),(set(CAT)-set(names),set(names)-set(CAT))
-model=dict(width=W,height=H,nodes=N,groups=G,edges=E,annotations=A,illustrations=[],catalog=CAT,system_styles=SYSTEM_STYLE,system_mapping=TERM_SYSTEMS,
+model=dict(width=W,height=H,nodes=N,groups=G,edges=E,annotations=A,bridges=bridges,illustrations=[],catalog=CAT,system_styles=SYSTEM_STYLE,system_mapping=TERM_SYSTEMS,
+           visual_style=dict(scope_styles=SCOPE_STYLE,card_fill='#FFFFFF',card_border='#B7C4D2',scope_heading='integrated header band',category_style='tinted badge'),
            source_prefix_sha256=hashlib.sha256(PREFIX.encode()).hexdigest())
 o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">',
    '<title>한 건을 한 전문가가 처리할 때의 재료 연결 구조</title>','<rect width="100%" height="100%" fill="white"/>',f'<g font-family="Apple SD Gothic Neo,Noto Sans CJK KR,sans-serif" fill="{C["ink"]}">']
-for g in G:
+for g in sorted(G,key=lambda g:g['w']*g['h'],reverse=True):
     x,y,w,h=(g[k] for k in ('x','y','w','h'))
-    o.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="18" fill="none" stroke="{C["border"]}" stroke-width="1.4" stroke-dasharray="3 9"/>')
-    if g['title']:o.append(f'<text class="annotation" x="{x+22}" y="{y+37}" font-size="27" font-weight="800">{esc(g["title"])}</text>')
-for i,e in enumerate(E):
+    scope_style=SCOPE_STYLE[g.get('scope_sources',['isolation'])[0]] if g.get('support_scope') or g['id'].startswith('opg') else None
+    dash='' if g.get('border_style')=='solid' else ' stroke-dasharray="3 9"'
+    fill=scope_style['fill'] if scope_style else 'none'
+    stroke=scope_style['border'] if scope_style else C['border']
+    if scope_style and g.get('scope_sources',['isolation'])==['isolation']:dash=' stroke-dasharray="7 6"'
+    o.append(f'<rect class="scope-border" data-id="{g["id"]}" x="{x}" y="{y}" width="{w}" height="{h}" rx="20" fill="{fill}" stroke="{stroke}" stroke-width="1.6"{dash}/>')
+    headings=scope_headings(g)
+    if headings:
+        bottom=max(part['y'] for part in headings)+12
+        o.append(f'<path class="scope-header-band" data-scope="{g["id"]}" d="M{x+20} {y}H{x+w-20}Q{x+w} {y} {x+w} {y+20}V{bottom}H{x}V{y+20}Q{x} {y} {x+20} {y}Z" fill="{scope_style["header"]}"/>')
+        o.append(f'<path d="M{x} {bottom}H{x+w}" fill="none" stroke="{stroke}" stroke-width="1"/>')
+        for part in headings:
+            if part['kind']=='name':color=SCOPE_STYLE[part['source']]['accent'];weight=750
+            else:color='#57677C';weight=500
+            o.append(f'<text class="annotation scope-heading" data-scope="{g["id"]}" x="{part["x"]}" y="{part["y"]}" font-size="{part["size"]}" font-weight="{weight}" fill="{color}">{esc(part["text"])}</text>')
+    elif g['title']:
+        for j,line in enumerate(g.get('title_lines',[g['title']])):
+            o.append(f'<text class="annotation" x="{x+22}" y="{y+37+j*32}" font-size="{g.get("title_size",27)}" font-weight="800">{esc(line)}</text>')
+    if g.get('usage_caption'):
+        for j,line in enumerate([g['usage_caption'],*g.get('usage_caption_extra',[])]):
+            o.append(f'<text class="annotation group-usage" x="{x+22}" y="{y+36+j*28}" font-size="21" fill="{C["muted"]}">{esc(line)}</text>')
+for i,e in sorted(enumerate(E),key=lambda item:any(j['over_edge']==item[0] for j in bridges)):
     col=C[{'flow':'blue','blocked':'red','return':'yellow','reference':'muted'}[e['kind']]]
     route=e['points'] if e['kind']=='reference' else e['points'][:-1]+[e['arrow'][0]]
     dash=' stroke-dasharray="6 6"' if e['kind']=='reference' else ''
-    o.append(f'<path class="edge" data-id="e{i}" d="{rounded(route)}" fill="none" stroke="{col}" stroke-width="2.7" stroke-linecap="round"{dash}/>')
+    jumps=[j for j in bridges if j['over_edge']==i]
+    for j in jumps:
+        x,y,rr=j['x'],j['y'],j['radius']
+        o.append(f'<path class="edge-bridge" data-over="e{i}" data-under="e{j["under_edge"]}" d="M{x-rr},{y} Q{x},{y-2*rr} {x+rr},{y}" fill="none" stroke="white" stroke-width="8"><title>서로 연결되지 않는 선</title></path>')
+    o.append(f'<path class="edge" data-id="e{i}" d="{rounded(route,bridges=jumps)}" fill="none" stroke="{col}" stroke-width="2.4" stroke-linecap="round"{dash}/>')
 for k,n in N.items():
     x,y,w,h=(n[t] for t in ('x','y','w','h'));kind=n['kind']
     o.append(f'<g class="node" data-id="{k}" data-material="{esc(n["material"] or "")}" data-system="{n.get("term","")}">')
     palette=SYSTEM_STYLE[n['term']] if n['material'] else None
-    fill=palette['fill'] if palette else '#FFFFFF'
+    fill='#FFFFFF'
+    if n.get('usage_material'):fill='#F3F6FA'
     if kind in ('decision','decisionwide'):
-        fill='#FFF5C6';shape=f'<path class="shape" d="M{x+w/2} {y}L{x+w} {y+h/2}L{x+w/2} {y+h}L{x} {y+h/2}Z"'
+        fill='#FFF7DD';shape=f'<path class="shape" d="M{x+w/2} {y}L{x+w} {y+h/2}L{x+w/2} {y+h}L{x} {y+h/2}Z"'
     else:
         if kind in ('terminal','stop'):fill=C['green'] if kind=='terminal' else '#FFF0EC'
         if kind=='unused':fill='#F3F5F7'
-        shape=f'<rect class="shape" x="{x}" y="{y}" width="{w}" height="{h}" rx="{h/2 if kind in ("terminal","stop") else 10}"'
-    o.append(shape+f' fill="{fill}" stroke="#536B78" stroke-width="1.7"/>')
+        shape=f'<rect class="shape" x="{x}" y="{y}" width="{w}" height="{h}" rx="{h/2 if kind in ("terminal","stop") else 12}"'
+    o.append(shape+f' fill="{fill}" stroke="#B7C4D2" stroke-width="1.6"/>')
     z,bs,titles,body=text_layout(n)
     if palette:
-        o.append(f'<path d="M{x+2} {y+8}V{y+h-8}" stroke="{palette["accent"]}" stroke-width="3"/>')
-        badge=n['term']+(' · 이 상황에서는 미사용' if kind=='unused' else ' · 참조 기준' if kind=='reference' else '')
+        badge=n['system']+(' · 이 상황에서는 미사용' if kind=='unused' else ' · '+n.get('relation_label','참조 기준') if kind=='reference' else '')
+        o.append(f'<rect class="category-badge" x="{x+10}" y="{y+6}" width="{measure(badge,17)+12}" height="26" rx="6" fill="{palette["fill"]}"/>')
         o.append(f'<text class="system-label" x="{x+16}" y="{y+25}" font-size="17" font-weight="700" fill="{palette["accent"]}">{esc(badge)}</text>')
         if n.get('condition'):
             o.append(f'<text class="node-condition" x="{x+w-16}" y="{y+25}" text-anchor="end" font-size="18" font-weight="600" fill="{palette["accent"]}">{esc(n["condition"])}</text>')
         yy=y+35+z
     else:
-        total=len(titles)*(z+5)+len(body)*25+(8 if body else 0);yy=y+(h-total)/2+z
+        total=len(titles)*(z+5)+len(body)*25+(8 if body else 0)+(len(n.get('usage_lines',[]))*23+26 if n.get('usage_lines') else 0);yy=y+(h-total)/2+z
     text_anchor=n.get('text_align','middle');text_x=x+16 if text_anchor=='start' else x+w/2
     for s in titles:o.append(f'<text class="node-title" x="{text_x}" y="{yy}" text-anchor="{text_anchor}" font-size="{z}" font-weight="800">{esc(s)}</text>');yy+=z+5
     if palette:yy+=(n.get('title_lines_reserved',len(titles))-len(titles))*(z+5)
     yy+=8 if body else 0
     for s in body:o.append(f'<text class="node-body" x="{text_x}" y="{yy}" text-anchor="{text_anchor}" font-size="{bs}" fill="{C["muted"]}">{esc(s)}</text>');yy+=27 if palette else 25
+    if n.get('usage_lines'):
+        cy=y+h-14-(len(n['usage_lines'])-1)*23
+        o.append(f'<path d="M{x+16} {cy-22}H{x+w-16}" stroke="{C["border"]}" stroke-width="1"/>')
+        for s in n['usage_lines']:
+            o.append(f'<text class="material-use" x="{x+w/2}" y="{cy}" text-anchor="middle" font-size="18" font-weight="600" fill="#32627A">{esc(s)}</text>')
+            cy+=23
     o.append('</g>')
 for i,e in enumerate(E):
     if not e['label'] or e.get('label_node') or e.get('label_in_body'):continue
     pts=e['points'];x,y=e['at'] or ((pts[0][0]+pts[-1][0])/2,(pts[0][1]+pts[-1][1])/2)
     lines=e['label'].split('\n');tw=e['label_rect']['w'];th=e['label_rect']['h']
     col=C[{'flow':'blue','blocked':'red','return':'yellow','reference':'muted'}[e['kind']]]
-    o.append(f'<g class="edge-label" data-edge="e{i}"><rect x="{x-tw/2}" y="{y-th/2}" width="{tw}" height="{th}" rx="4" fill="white" stroke="{col}" stroke-width="1"/>')
+    o.append(f'<g class="edge-label" data-edge="e{i}"><rect x="{x-tw/2}" y="{y-th/2}" width="{tw}" height="{th}" rx="6" fill="white" stroke="#C9D5E2" stroke-width="1"/>')
     for j,s in enumerate(lines):o.append(f'<text x="{x}" y="{y-th/2+24+j*26}" text-anchor="middle" font-size="20" font-weight="600">{esc(s)}</text>')
     o.append('</g>')
 for a in A:

@@ -12,8 +12,11 @@ const dir=process.argv[2]||'/tmp/solo-material-relations';fs.mkdirSync(dir,{recu
  await page.setContent('<body style="margin:0;background:white">'+svg+'</body>');
  await page.evaluate(()=>document.fonts.ready);
  const measured=await page.evaluate(()=>{const rect=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}};
- return{nodes:[...document.querySelectorAll('.node,.material')].map(n=>({id:n.dataset.id,shape:rect(n.querySelector('.shape')),texts:[...n.querySelectorAll(':scope > text')].map(t=>({text:t.textContent,role:t.getAttribute('class'),...rect(t)}))})),
+ return{scopes:[...document.querySelectorAll('.scope-border')].map(n=>({id:n.dataset.id,...rect(n)})),
+ scope_headers:[...document.querySelectorAll('.scope-header-band')].map(n=>({scope:n.dataset.scope,...rect(n)})),
+ nodes:[...document.querySelectorAll('.node,.material')].map(n=>({id:n.dataset.id,shape:rect(n.querySelector('.shape')),texts:[...n.querySelectorAll(':scope > text')].map(t=>({text:t.textContent,role:t.getAttribute('class'),...rect(t)}))})),
  labels:[...document.querySelectorAll('.edge-label')].map(e=>({id:e.dataset.edge,...rect(e)})),
+ bridges:[...document.querySelectorAll('.edge-bridge')].map(e=>({over:e.dataset.over,under:e.dataset.under,...rect(e)})),
  arrowheads:[...document.querySelectorAll('.arrowhead')].map(e=>({id:e.dataset.edge,...rect(e)})),
  system_labels:[...document.querySelectorAll('.system-label')].map(e=>({id:e.parentElement.dataset.id,text:e.textContent,...rect(e)})),
  illustration_count:document.querySelectorAll('image,use,img').length,
