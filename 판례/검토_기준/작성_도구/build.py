@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 PROJECT = ROOT.parent
-ARCHIVE = PROJECT / 'docs/실험 결과/실제 판례 24건 스트레스 검토'
+ARCHIVE = PROJECT / 'docs/실험결과/판례24건-대입검토'
 sys.path.insert(0, str(HERE))
 from easy_cases import CASES
 from simple_notes import NOTES
