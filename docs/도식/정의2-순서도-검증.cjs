@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* 정의 2의 Mermaid 순서도를 VS Code 미리보기와 같은 엔진으로 그려 선 겹침을 잰다.
+/* 재료별 구현의 Mermaid 순서도를 VS Code 미리보기와 같은 엔진으로 그려 선 겹침을 잰다.
  * 쓰는 법: node docs/도식/정의2-순서도-검증.cjs [그림 번호 쉼표목록] [--png 저장폴더]
  * 환경 변수: PLAYWRIGHT_MODULE(기본 playwright), CHROME_PATH, MERMAID_BUNDLE
  * 잰 것: 선끼리 교차, 선이 남의 상자를 지남, 글이 상자·다른 글·다른 선과 겹침, 나란히 겹친 선(이 넷이 0이 아니면 종료 코드 1), 시작 상자가 맨 위인지(참고만)
@@ -7,7 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 const root = path.resolve(__dirname, '../..');
-const doc = path.join(root, '전문가 에이전트 정의 2.md');
+const doc = path.join(root, '재료 별 구현.md');
 const bundle = process.env.MERMAID_BUNDLE || '/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/mermaid-markdown-features/markdown-preview-out/index.js';
 const chrome = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 let pw;
