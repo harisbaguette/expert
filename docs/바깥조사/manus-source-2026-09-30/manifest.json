@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-09-30T00:41:00.174210+00:00",
+  "purpose": "Manus source investigation; static inspection only",
+  "repositories": [
+    {
+      "repository": "whit3rabbit/manus-open",
+      "url": "https://github.com/whit3rabbit/manus-open",
+      "classification": "community_bytecode_reconstruction",
+      "commit": "9b619acaf2605a9de416944ccba838c277b1dfb9",
+      "commit_date": "2025-03-31T15:01:00Z",
+      "pushed_at": "2025-04-24T18:55:41Z",
+      "archived": true,
+      "github_license": null,
+      "archive_url": "https://codeload.github.com/whit3rabbit/manus-open/zip/9b619acaf2605a9de416944ccba838c277b1dfb9",
+      "archive_sha256": "40adbfb8746e55f242121e3e3c3f7ff5947c430aec9e109685ceec14e66b8818",
+      "archive_bytes": 153465,
+      "file_count": 65,
+      "local_path": "docs/바깥조사/manus-source-2026-09-30/sources/manus-open-reconstruction",
+      "runtime_executed": false
+    },
+    {
+      "repository": "Simpleyyt/ai-manus",
+      "url": "https://github.com/Simpleyyt/ai-manus",
+      "classification": "independent_implementation",
+      "commit": "496547ce6a5f599333138342ec126a7ea8ec9646",
+      "commit_date": "2026-09-14T18:30:28Z",
+      "pushed_at": "2026-09-28T16:49:01Z",
+      "archived": false,
+      "github_license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "archive_url": "https://codeload.github.com/Simpleyyt/ai-manus/zip/496547ce6a5f599333138342ec126a7ea8ec9646",
+      "archive_sha256": "d495837015a2abbc98a51d401722853d9afe977b07fba5b24838bd7ada83e9d8",
+      "archive_bytes": 1344412,
+      "file_count": 575,
+      "local_path": "docs/바깥조사/manus-source-2026-09-30/sources/ai-manus",
+      "runtime_executed": false
+    }
+  ]
+}

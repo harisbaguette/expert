@@ -1,0 +1,291 @@
+[
+  {
+    "repo": "NousResearch/hermes-agent",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/NousResearch/hermes-agent/d9f0a399a0850ffe5b36abcd6f4a8c825bfd6357/LICENSE",
+    "path": "evidence/NousResearch__hermes-agent/LICENSE",
+    "bytes": 1070,
+    "sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6"
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "file": "README.md",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "repo": "agent0ai/agent-zero",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/agent0ai/agent-zero/e3051fb584b1a36be2b0a0c90606f1c2c2d356ec/LICENSE",
+    "path": "evidence/agent0ai__agent-zero/LICENSE",
+    "bytes": 1150,
+    "sha256": "23844ed5fb9976b15e6c0be1b617918cb1c32e13e8d70b74100dae08d40fbf23"
+  },
+  {
+    "repo": "agent0ai/agent-zero",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/agent0ai/agent-zero/e3051fb584b1a36be2b0a0c90606f1c2c2d356ec/README.md",
+    "path": "evidence/agent0ai__agent-zero/README.md",
+    "bytes": 19781,
+    "sha256": "3ecc2e10b322ded15029eb8650a69c10f2a03d92e58a0bd330c86970eb242436"
+  },
+  {
+    "repo": "kortix-ai/suna",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/kortix-ai/suna/20732efa66ac2d99fe9c08687ec875439957e791/LICENSE",
+    "path": "evidence/kortix-ai__suna/LICENSE",
+    "bytes": 3860,
+    "sha256": "48255018b41fc0e965b1115af7e6779bc218bb8a6747d561da800d5022622aa2"
+  },
+  {
+    "repo": "kortix-ai/suna",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/kortix-ai/suna/20732efa66ac2d99fe9c08687ec875439957e791/README.md",
+    "path": "evidence/kortix-ai__suna/README.md",
+    "bytes": 8941,
+    "sha256": "6241fad2bc6a2b437f906edbd7dab4e65b725f424653b4eb3fbc85b0681135ed"
+  },
+  {
+    "repo": "openclaw/openclaw",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/openclaw/openclaw/ec9f4865045bbcfd15cd891468bea3b126005ad5/LICENSE",
+    "path": "evidence/openclaw__openclaw/LICENSE",
+    "bytes": 1170,
+    "sha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d"
+  },
+  {
+    "repo": "openclaw/openclaw",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/openclaw/openclaw/ec9f4865045bbcfd15cd891468bea3b126005ad5/README.md",
+    "path": "evidence/openclaw__openclaw/README.md",
+    "bytes": 113171,
+    "sha256": "322b322be5a2650ddaa2c0259721f0b71f5ec3f4634a230eb331962a5d8d2bc2"
+  },
+  {
+    "repo": "langchain-ai/deepagents",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/langchain-ai/deepagents/1756bbe1eb348e20b925598ed49665b0d34b4b2d/LICENSE",
+    "path": "evidence/langchain-ai__deepagents/LICENSE",
+    "bytes": 1067,
+    "sha256": "4ec67e4ca6e6721dba849b2ca82261597c86a61ee214bbf21416006b7b2d0478"
+  },
+  {
+    "repo": "langchain-ai/deepagents",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/langchain-ai/deepagents/1756bbe1eb348e20b925598ed49665b0d34b4b2d/README.md",
+    "path": "evidence/langchain-ai__deepagents/README.md",
+    "bytes": 6984,
+    "sha256": "569c79f865abd0d677a71e83ba5c3b971318146a4421e3851a0e25ee2d3b1146"
+  },
+  {
+    "repo": "rome-os/rome",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/rome-os/rome/ef523c4659149e2711744deb04ec42c3be339907/LICENSE",
+    "path": "evidence/rome-os__rome/LICENSE",
+    "bytes": 1064,
+    "sha256": "c6827e931785b8682c889c180eef3299612972a9b1506d6ba03bebd13e684775"
+  },
+  {
+    "repo": "rome-os/rome",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/rome-os/rome/ef523c4659149e2711744deb04ec42c3be339907/README.md",
+    "path": "evidence/rome-os__rome/README.md",
+    "bytes": 15206,
+    "sha256": "8705fb2add6f9b8869a860d4fc065e19efab2ed21bcbf9ddaa25c982bbdb2e79"
+  },
+  {
+    "repo": "OpenHands/OpenHands",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/OpenHands/OpenHands/da8f701e0e8e9c25cf2a8065a0debd930107a765/LICENSE",
+    "path": "evidence/OpenHands__OpenHands/LICENSE",
+    "bytes": 1096,
+    "sha256": "e1d1fa9f3a8d7bef24449d488fcd8f00f8f272cac297bb9bed161eb6175b876a"
+  },
+  {
+    "repo": "OpenHands/OpenHands",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/OpenHands/OpenHands/da8f701e0e8e9c25cf2a8065a0debd930107a765/README.md",
+    "path": "evidence/OpenHands__OpenHands/README.md",
+    "bytes": 12836,
+    "sha256": "b7c1e6e52f95654bbf812ed442d28955392fa238c3fb50a49e3e2bb24b862159"
+  },
+  {
+    "repo": "langgenius/dify",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/langgenius/dify/216151ffa712914908317f9efceadd894d5af9b0/LICENSE",
+    "path": "evidence/langgenius__dify/LICENSE",
+    "bytes": 1801,
+    "sha256": "232cf91474932d5110ed304e53b6b742a58463857c571fae803fdf2ac36d7bb3"
+  },
+  {
+    "repo": "langgenius/dify",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/langgenius/dify/216151ffa712914908317f9efceadd894d5af9b0/README.md",
+    "path": "evidence/langgenius__dify/README.md",
+    "bytes": 12256,
+    "sha256": "8eb87aa99e246498d50d4ea4ca40a880b904207c96120dbb0c8148ef02218b7f"
+  },
+  {
+    "repo": "bytedance/deer-flow",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/bytedance/deer-flow/f9f6a36243bea5c539c63bd22b33a139edbc4b69/LICENSE",
+    "path": "evidence/bytedance__deer-flow/LICENSE",
+    "bytes": 1134,
+    "sha256": "b23dff4d4bac8d17b6efaaa7e88c2b730149c4dda45699ce676b719cfdffe7e1"
+  },
+  {
+    "repo": "bytedance/deer-flow",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/bytedance/deer-flow/f9f6a36243bea5c539c63bd22b33a139edbc4b69/README.md",
+    "path": "evidence/bytedance__deer-flow/README.md",
+    "bytes": 203097,
+    "sha256": "73e0248067a27b2f21085f270a6d71df23aec2f50dafc44a0ddaea6b1a8f701a"
+  },
+  {
+    "repo": "Simpleyyt/ai-manus",
+    "file": "LICENSE",
+    "url": "https://raw.githubusercontent.com/Simpleyyt/ai-manus/496547ce6a5f599333138342ec126a7ea8ec9646/LICENSE",
+    "path": "evidence/Simpleyyt__ai-manus/LICENSE",
+    "bytes": 1066,
+    "sha256": "991f0bde5249ee6aad0a5a597197c7a7f6024abd2650516fcd7a83d908234115"
+  },
+  {
+    "repo": "Simpleyyt/ai-manus",
+    "file": "README.md",
+    "url": "https://raw.githubusercontent.com/Simpleyyt/ai-manus/496547ce6a5f599333138342ec126a7ea8ec9646/README.md",
+    "path": "evidence/Simpleyyt__ai-manus/README.md",
+    "bytes": 8689,
+    "sha256": "01c610500576745a9e2a1f2184a3eae852e4d28a5e3d33739ff693159ed2c7d2"
+  },
+  {
+    "repo": "bytedance/deer-flow",
+    "file": "tree",
+    "url": "https://api.github.com/repos/bytedance/deer-flow/git/trees/f9f6a36243bea5c539c63bd22b33a139edbc4b69?recursive=1",
+    "path": "evidence/bytedance__deer-flow/tree.json",
+    "bytes": 1243669,
+    "sha256": "589cd17cf8c1eb4b878077eb4753e54e8beb821b8b166c92ad3c2e7797242de6",
+    "truncated": false,
+    "file_count": 3380
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "file": "tree",
+    "url": "https://api.github.com/repos/NousResearch/hermes-agent/git/trees/d9f0a399a0850ffe5b36abcd6f4a8c825bfd6357?recursive=1",
+    "path": "evidence/NousResearch__hermes-agent/tree.json",
+    "bytes": 5749472,
+    "sha256": "56611a365dd789a31e73ab8c42033e6f37d43f0d65a3d4416afc19fda347bca2",
+    "truncated": false,
+    "file_count": 16853
+  },
+  {
+    "repo": "agent0ai/agent-zero",
+    "file": "tree",
+    "url": "https://api.github.com/repos/agent0ai/agent-zero/git/trees/e3051fb584b1a36be2b0a0c90606f1c2c2d356ec?recursive=1",
+    "path": "evidence/agent0ai__agent-zero/tree.json",
+    "bytes": 1171199,
+    "sha256": "46f6971bb8c220dc2d66ac2c6f833abe3264e93c3ffbe5942f41cb51f0159588",
+    "truncated": false,
+    "file_count": 3081
+  },
+  {
+    "repo": "langchain-ai/deepagents",
+    "file": "tree",
+    "url": "https://api.github.com/repos/langchain-ai/deepagents/git/trees/1756bbe1eb348e20b925598ed49665b0d34b4b2d?recursive=1",
+    "path": "evidence/langchain-ai__deepagents/tree.json",
+    "bytes": 677525,
+    "sha256": "85b1b759e489805f1bb45668fc0a330f45348ebd4c3493904f2095dc073b0709",
+    "truncated": false,
+    "file_count": 1767
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "file": "README.md",
+    "url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/README.md?ref=d9f0a399a0850ffe5b36abcd6f4a8c825bfd6357",
+    "path": "evidence/NousResearch__hermes-agent/README.md",
+    "bytes": 16924,
+    "sha256": "c8c3009b1cf6e8d6e48e96a9b4c549d9ab0c86fdaffd91b19f3e9d9b37d93d9d"
+  },
+  {
+    "repo": "bytedance/deer-flow",
+    "file": "docs/ARCHITECTURE.md",
+    "url": "https://raw.githubusercontent.com/bytedance/deer-flow/f9f6a36243bea5c539c63bd22b33a139edbc4b69/docs/ARCHITECTURE.md",
+    "path": "evidence/bytedance__deer-flow/docs/ARCHITECTURE.md",
+    "bytes": 10973,
+    "sha256": "10d2ff251e638598251456f67876af1f72a28d385132472963e20edcaec4de9b"
+  },
+  {
+    "repo": "bytedance/deer-flow",
+    "file": "backend/docs/ARCHITECTURE.md",
+    "url": "https://raw.githubusercontent.com/bytedance/deer-flow/f9f6a36243bea5c539c63bd22b33a139edbc4b69/backend/docs/ARCHITECTURE.md",
+    "path": "evidence/bytedance__deer-flow/backend/docs/ARCHITECTURE.md",
+    "bytes": 36292,
+    "sha256": "6ad956f7303c23957a88559fa5e042b4c82fd8b50d3cc17ee8cb13f40d71876e"
+  },
+  {
+    "repo": "bytedance/deer-flow",
+    "file": "backend/packages/harness/deerflow/agents/lead_agent/agent.py",
+    "url": "https://raw.githubusercontent.com/bytedance/deer-flow/f9f6a36243bea5c539c63bd22b33a139edbc4b69/backend/packages/harness/deerflow/agents/lead_agent/agent.py",
+    "path": "evidence/bytedance__deer-flow/backend/packages/harness/deerflow/agents/lead_agent/agent.py",
+    "bytes": 63617,
+    "sha256": "c66367ef397bb6e8e9d320913045a0b4548e38755cbe0ea7703320e2247acedf"
+  },
+  {
+    "repo": "bytedance/deer-flow",
+    "file": "backend/packages/harness/deerflow/agents/memory/backends/README.md",
+    "url": "https://raw.githubusercontent.com/bytedance/deer-flow/f9f6a36243bea5c539c63bd22b33a139edbc4b69/backend/packages/harness/deerflow/agents/memory/backends/README.md",
+    "path": "evidence/bytedance__deer-flow/backend/packages/harness/deerflow/agents/memory/backends/README.md",
+    "bytes": 12515,
+    "sha256": "100a8f357fb9f2e7a67a7a88920d693b0dee164b16d8cfb689bef6cda554252c"
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "file": "website/docs/user-guide/features/skills.md",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "file": "website/docs/user-guide/features/memory.md",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "file": "website/docs/developer-guide/architecture.md",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "repo": "NousResearch/hermes-agent",
+    "file": "tools/skill_manager_tool.py",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "repo": "agent0ai/agent-zero",
+    "file": "docs/developer/architecture.md",
+    "url": "https://raw.githubusercontent.com/agent0ai/agent-zero/e3051fb584b1a36be2b0a0c90606f1c2c2d356ec/docs/developer/architecture.md",
+    "path": "evidence/agent0ai__agent-zero/docs/developer/architecture.md",
+    "bytes": 1235,
+    "sha256": "fe7e91408016bf1d7d6e1c172a5beadb9681e62e7522231fbfebbb04fc9c40c5"
+  },
+  {
+    "repo": "agent0ai/agent-zero",
+    "file": "docs/guides/memory.md",
+    "url": "https://raw.githubusercontent.com/agent0ai/agent-zero/e3051fb584b1a36be2b0a0c90606f1c2c2d356ec/docs/guides/memory.md",
+    "path": "evidence/agent0ai__agent-zero/docs/guides/memory.md",
+    "bytes": 5255,
+    "sha256": "e34f48de422d1127e7ee98feabc53605fbaf9025d6cb04c26831861e034fe21a"
+  },
+  {
+    "repo": "langchain-ai/deepagents",
+    "file": "libs/deepagents/deepagents/graph.py",
+    "url": "https://raw.githubusercontent.com/langchain-ai/deepagents/1756bbe1eb348e20b925598ed49665b0d34b4b2d/libs/deepagents/deepagents/graph.py",
+    "path": "evidence/langchain-ai__deepagents/libs/deepagents/deepagents/graph.py",
+    "bytes": 47876,
+    "sha256": "c8f6784ca9bc12d339526667c6898608c326b8121ccd39036fab125491840715"
+  },
+  {
+    "repo": "langchain-ai/deepagents",
+    "file": "libs/deepagents/deepagents/middleware/memory.py",
+    "url": "https://raw.githubusercontent.com/langchain-ai/deepagents/1756bbe1eb348e20b925598ed49665b0d34b4b2d/libs/deepagents/deepagents/middleware/memory.py",
+    "path": "evidence/langchain-ai__deepagents/libs/deepagents/deepagents/middleware/memory.py",
+    "bytes": 18047,
+    "sha256": "425d9927a0874a0ea55a23182875eb1f3dc1b7452e0a74feb7ca3f994d37a1ee"
+  }
+]

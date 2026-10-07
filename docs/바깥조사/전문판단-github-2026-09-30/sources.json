@@ -1,0 +1,360 @@
+{
+  "checked_on": "2026-09-30",
+  "method": "Public default-branch metadata and documentation checked; selected implementation and test paths inspected. The source list also includes downloaded reference files. No repository installation or performance benchmarking.",
+  "repositories": [
+    {
+      "repository": "AlexAI-MCP/OpenCrab",
+      "url": "https://github.com/AlexAI-MCP/OpenCrab",
+      "default_branch": "main",
+      "commit": "d34352cec9d99c755c1e891f811911461a460280",
+      "pushed_at": "2026-06-03T03:23:26Z",
+      "archived": false,
+      "license_spdx": null,
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/README.md",
+          "sha256": "8c7c5758336ce6b73d4751a65b2666c91a51f0c23f0a3e9c98030d0adfbfbee9"
+        },
+        {
+          "path": "crabharness/README.md",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/crabharness/README.md",
+          "sha256": "c0c5d7b1efae72a742b573f96df52039a07462e7352cdb123f8886da3bc74464"
+        },
+        {
+          "path": "crabharness/crabharness/preflight.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/crabharness/crabharness/preflight.py",
+          "sha256": "b52a0100da5e9e31d353ce8d94beaa0261c590823bee0896cbed55006c5e3d26"
+        },
+        {
+          "path": "crabharness/crabharness/promotion.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/crabharness/crabharness/promotion.py",
+          "sha256": "3ee911eaa1f38842276833030b55138b1d6be4c0747b715b3675f85c19fd2bb5"
+        },
+        {
+          "path": "crabharness/crabharness/runtime.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/crabharness/crabharness/runtime.py",
+          "sha256": "6d82c8154a393c06eed6e5779111389cc825beca5c3f1a9529c5f3802d31932d"
+        },
+        {
+          "path": "crabharness/crabharness/semantic.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/crabharness/crabharness/semantic.py",
+          "sha256": "3ed69cb622a0b39607f5193de929fbf6b8da3f809a76d9250c4f835abcf009d2"
+        },
+        {
+          "path": "docs/localcrab-factory-workflow.md",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/docs/localcrab-factory-workflow.md",
+          "sha256": "a70a9a8935003ac9d7461ab0b838641f6b3a65d8aef7ba549818b399d902cf84"
+        },
+        {
+          "path": "docs/opencrab-pack-v1.md",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/docs/opencrab-pack-v1.md",
+          "sha256": "7d896038baae6971e3fcb927a996370e0f2527c4826e1d8d5527e344b4baa6f9"
+        },
+        {
+          "path": "opencrab/grammar/validator.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/grammar/validator.py",
+          "sha256": "fb1c883e60af48faffdb7573d732c3000c45b875957fd16c1cc07e6923e56c43"
+        },
+        {
+          "path": "opencrab/mcp/tools.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/mcp/tools.py",
+          "sha256": "bfa35644a22253bf33af75e9a7a2d2b13e3a604d2273f4b9ad3ddbb4047aaabe"
+        },
+        {
+          "path": "opencrab/ontology/builder.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/ontology/builder.py",
+          "sha256": "bf65cbc2fbc4492115f1f5feb1e1489fdeebea603443a58da3b7e4ae94300f81"
+        },
+        {
+          "path": "opencrab/ontology/canonicalize.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/ontology/canonicalize.py",
+          "sha256": "ceb46282c1fa78e7350e16a0f1f6874a4c0421eb940e95f62edfec1d83f28e82"
+        },
+        {
+          "path": "opencrab/ontology/extractor.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/ontology/extractor.py",
+          "sha256": "6bec52ac12e23a07e43dc52dcf752542448732bf66188520595652a4f02bde7e"
+        },
+        {
+          "path": "opencrab/ontology/identity.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/ontology/identity.py",
+          "sha256": "f89cbd80b3db9a24244fdbe01bcc837cced70251b8b8655c4699ca0c54911a1b"
+        },
+        {
+          "path": "opencrab/ontology/promotion.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/ontology/promotion.py",
+          "sha256": "439b9788fb586575ac23bcb92ea0498d845dc8672c00545f6a8f0c1596b3b40d"
+        },
+        {
+          "path": "opencrab/ontology/rebac.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/ontology/rebac.py",
+          "sha256": "ce724b57e3993be5e90823336074d106a20c6305783983e96a45533902783622"
+        },
+        {
+          "path": "opencrab/pack/neo4j_export.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/pack/neo4j_export.py",
+          "sha256": "5f90b9a0e214ffa85197e2c14bffbb3bdbc01300f296a0301d31e9a5fea6a120"
+        },
+        {
+          "path": "opencrab/schemas/packs/legal.yaml",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/schemas/packs/legal.yaml",
+          "sha256": "a89efd0b6a703e2bdad4b0340f61142d2457e38349c25e3cb4692a8fbc0b0df7"
+        },
+        {
+          "path": "opencrab/schemas/types/Claim.yaml",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/opencrab/schemas/types/Claim.yaml",
+          "sha256": "a8a2a08f49c11c1e960a4cbceba7eeea134c6c6d9d92a9ffd5ed765f7e4f80bc"
+        },
+        {
+          "path": "pyproject.toml",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/pyproject.toml",
+          "sha256": "ba35a16588c38c077c1bec3773488028716a1d6a8526d31e713907a3ac2c6fe1"
+        },
+        {
+          "path": "tests/test_grammar.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/tests/test_grammar.py",
+          "sha256": "e6dfbb683623eed6b1b06cd299f7125ec3ad942d1ff72b07b5968ef22a76a8b9"
+        },
+        {
+          "path": "tests/test_pack_neo4j_export.py",
+          "url": "https://github.com/AlexAI-MCP/OpenCrab/blob/d34352cec9d99c755c1e891f811911461a460280/tests/test_pack_neo4j_export.py",
+          "sha256": "4fb2a9c68a76f42fddfbba87615187e650ff5826e05ea2c3922ab1087aa9c606"
+        }
+      ]
+    },
+    {
+      "repository": "CatalaLang/catala",
+      "url": "https://github.com/CatalaLang/catala",
+      "default_branch": "master",
+      "commit": "21eab86f6453d45e54f6f547c3d0ee2b50748539",
+      "pushed_at": "2026-09-29T18:12:09Z",
+      "archived": false,
+      "license_spdx": "Apache-2.0",
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/CatalaLang/catala/blob/21eab86f6453d45e54f6f547c3d0ee2b50748539/README.md",
+          "sha256": "da83bf828b11cb63cd3cc3494b858121ae852b6abf1b518a0711550c106f92f8"
+        },
+        {
+          "path": "tests/README.md",
+          "url": "https://github.com/CatalaLang/catala/blob/21eab86f6453d45e54f6f547c3d0ee2b50748539/tests/README.md",
+          "sha256": "972fe3ef7dd23d17c890812005d6b360dfbec3b991654d0039e24974f78e31b0"
+        },
+        {
+          "path": "tests/exception/bad/exceptions_cycle.catala_en",
+          "url": "https://github.com/CatalaLang/catala/blob/21eab86f6453d45e54f6f547c3d0ee2b50748539/tests/exception/bad/exceptions_cycle.catala_en",
+          "sha256": "3dd7775ec65b5960e05d213b718363aaed6670be2a238d56b91df50ed88ab6cd"
+        },
+        {
+          "path": "tests/exception/good/exceptions_squared.catala_en",
+          "url": "https://github.com/CatalaLang/catala/blob/21eab86f6453d45e54f6f547c3d0ee2b50748539/tests/exception/good/exceptions_squared.catala_en",
+          "sha256": "90cee9ea2bee51974d379872f3f85350c5272e6fe90b8a08703233d033bba45c"
+        },
+        {
+          "path": "tests/trace/good/exceptions.catala_en",
+          "url": "https://github.com/CatalaLang/catala/blob/21eab86f6453d45e54f6f547c3d0ee2b50748539/tests/trace/good/exceptions.catala_en",
+          "sha256": "762fa20c5ae29b6f186803645e6d4898e56b0380d6c1b48bba9e527042d65319"
+        }
+      ]
+    },
+    {
+      "repository": "OpenSPG/KAG",
+      "url": "https://github.com/OpenSPG/KAG",
+      "default_branch": "master",
+      "commit": "fdab15b3929d2ee40dfcdd388f90233096a6afc9",
+      "pushed_at": "2026-01-28T13:30:54Z",
+      "archived": false,
+      "license_spdx": "Apache-2.0",
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/README.md",
+          "sha256": "64686eef8a5b8aeadb5c6ddf7a3684b70a8269055f65569e5efab806dc098d6d"
+        },
+        {
+          "path": "kag/builder/component/extractor/schema_constraint_extractor.py",
+          "url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/kag/builder/component/extractor/schema_constraint_extractor.py",
+          "sha256": "cf9ab7451adce748018e4080d855e6b211640622567ff1cf01428024937bee40"
+        },
+        {
+          "path": "kag/examples/supplychain/schema/README.md",
+          "url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/kag/examples/supplychain/schema/README.md",
+          "sha256": "65112325cfa7eb1864c4d8543fe949c0da6beebe4a66eb442eb66fa624cb4e5a"
+        },
+        {
+          "path": "kag/examples/supplychain/schema/concept.rule",
+          "url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/kag/examples/supplychain/schema/concept.rule",
+          "sha256": "5419f0f9a5b1ecf28b80e23938df39e6f7e3fd1c9fbaa3d5978875a15c7d4837"
+        },
+        {
+          "path": "kag/solver/executor/math/py_based_math_executor.py",
+          "url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/kag/solver/executor/math/py_based_math_executor.py",
+          "sha256": "b9eb6da0fd86be9b1c410e9adaeb58473d9e9766147c12b93b90064226ffc685"
+        }
+      ]
+    },
+    {
+      "repository": "RDFLib/pySHACL",
+      "url": "https://github.com/RDFLib/pySHACL",
+      "default_branch": "master",
+      "commit": "469cca7a22a078b36c167c1e8dadecf5e5ec6c75",
+      "pushed_at": "2026-07-28T01:35:01Z",
+      "archived": false,
+      "license_spdx": "Apache-2.0",
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/RDFLib/pySHACL/blob/469cca7a22a078b36c167c1e8dadecf5e5ec6c75/README.md",
+          "sha256": "e4b7290ef94fe7088a565ee837cb394c00b633662ce7e6fd0927a5ee59a56642"
+        },
+        {
+          "path": "pyshacl/validator.py",
+          "url": "https://github.com/RDFLib/pySHACL/blob/469cca7a22a078b36c167c1e8dadecf5e5ec6c75/pyshacl/validator.py",
+          "sha256": "4bbd38e41ec156fa8c338be049f774fcfe601e92eb4cd2ea260502141ab2e5a7"
+        }
+      ]
+    },
+    {
+      "repository": "confident-ai/deepeval",
+      "url": "https://github.com/confident-ai/deepeval",
+      "default_branch": "main",
+      "commit": "b13093cf9c9b5468dbe7d00529e8f20e14300d55",
+      "pushed_at": "2026-09-29T19:32:30Z",
+      "archived": false,
+      "license_spdx": "Apache-2.0",
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/confident-ai/deepeval/blob/b13093cf9c9b5468dbe7d00529e8f20e14300d55/README.md",
+          "sha256": "64b1000d1a1f148a1073162eabc7766bb529c0de7b6a410c7100cb47aeb691d3"
+        },
+        {
+          "path": "deepeval/metrics/faithfulness/faithfulness.py",
+          "url": "https://github.com/confident-ai/deepeval/blob/b13093cf9c9b5468dbe7d00529e8f20e14300d55/deepeval/metrics/faithfulness/faithfulness.py",
+          "sha256": "25125d543e3cd4b22121f1033daa8c561c59ec690325e4b15fadcb15de90763f"
+        }
+      ]
+    },
+    {
+      "repository": "getzep/graphiti",
+      "url": "https://github.com/getzep/graphiti",
+      "default_branch": "main",
+      "commit": "852ca401d89f54cf47fd66e11ee35724cabe202b",
+      "pushed_at": "2026-09-29T15:40:48Z",
+      "archived": false,
+      "license_spdx": "Apache-2.0",
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/getzep/graphiti/blob/852ca401d89f54cf47fd66e11ee35724cabe202b/README.md",
+          "sha256": "ce1628c02b3c6fd5b59e3e48dc61c958f07824033b4d0b989bb8d433932b6b3f"
+        },
+        {
+          "path": "graphiti_core/utils/maintenance/edge_operations.py",
+          "url": "https://github.com/getzep/graphiti/blob/852ca401d89f54cf47fd66e11ee35724cabe202b/graphiti_core/utils/maintenance/edge_operations.py",
+          "sha256": "b773ff4489968af2a996d5074e679cab9806cc0904a7ff9f2aecc74382325abe"
+        },
+        {
+          "path": "tests/utils/maintenance/test_edge_operations.py",
+          "url": "https://github.com/getzep/graphiti/blob/852ca401d89f54cf47fd66e11ee35724cabe202b/tests/utils/maintenance/test_edge_operations.py",
+          "sha256": "d4d070d7ed0d9ebaf7b40c0a6b73f5f681a94a6f24335563ef9d19b51cd75427"
+        }
+      ]
+    },
+    {
+      "repository": "microsoft/eval-recipes",
+      "url": "https://github.com/microsoft/eval-recipes",
+      "default_branch": "main",
+      "commit": "dd07383fb6045448139a288917a92f621cfe1372",
+      "pushed_at": "2026-09-24T19:38:21Z",
+      "archived": false,
+      "license_spdx": "MIT",
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/microsoft/eval-recipes/blob/dd07383fb6045448139a288917a92f621cfe1372/README.md",
+          "sha256": "9c320d998372a4750b543c443c4d4169e2a52226f20730af8ed36937af856778"
+        },
+        {
+          "path": "src/eval_recipes/evaluations/claim_verification/claim_extraction.py",
+          "url": "https://github.com/microsoft/eval-recipes/blob/dd07383fb6045448139a288917a92f621cfe1372/src/eval_recipes/evaluations/claim_verification/claim_extraction.py",
+          "sha256": "aea02392b3a4a0775c8b8e4e57f2418d1c657d59b411b4e473d28afe034f299d"
+        },
+        {
+          "path": "src/eval_recipes/evaluations/claim_verification/claim_verification_evaluator.py",
+          "url": "https://github.com/microsoft/eval-recipes/blob/dd07383fb6045448139a288917a92f621cfe1372/src/eval_recipes/evaluations/claim_verification/claim_verification_evaluator.py",
+          "sha256": "c4b68035cefc5bbf7044bb2115288f06129f0867f9d7ccb3be9ab2da27ea8b8d"
+        },
+        {
+          "path": "src/eval_recipes/evaluations/claim_verification/schemas.py",
+          "url": "https://github.com/microsoft/eval-recipes/blob/dd07383fb6045448139a288917a92f621cfe1372/src/eval_recipes/evaluations/claim_verification/schemas.py",
+          "sha256": "af7c17a31e817131eb660af56e96998732af77b9aa173b35556ee7451f78c3aa"
+        },
+        {
+          "path": "tests/evaluations/claim_verification/test_claim_verification_evaluator.py",
+          "url": "https://github.com/microsoft/eval-recipes/blob/dd07383fb6045448139a288917a92f621cfe1372/tests/evaluations/claim_verification/test_claim_verification_evaluator.py",
+          "sha256": "fd1adbdb0914dedd918568b98dba981cf347320bf99b5cec4836d9fc7eb1de46"
+        }
+      ]
+    },
+    {
+      "repository": "openfisca/openfisca-core",
+      "url": "https://github.com/openfisca/openfisca-core",
+      "default_branch": "main",
+      "commit": "3e9841d66fbeaa566fd64310aff2da6976a889f6",
+      "pushed_at": "2026-09-27T09:51:53Z",
+      "archived": false,
+      "license_spdx": "AGPL-3.0",
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/openfisca/openfisca-core/blob/3e9841d66fbeaa566fd64310aff2da6976a889f6/README.md",
+          "sha256": "c3cec21b240be01d555596b292e95433e873d05048b2b878884e3e5628bf6546"
+        },
+        {
+          "path": "openfisca_core/tracers/flat_trace.py",
+          "url": "https://github.com/openfisca/openfisca-core/blob/3e9841d66fbeaa566fd64310aff2da6976a889f6/openfisca_core/tracers/flat_trace.py",
+          "sha256": "9480d7e6f2ef73592c8bb7210187d59ad9e2308236fda501a871ee1703503bab"
+        },
+        {
+          "path": "openfisca_core/variables/variable.py",
+          "url": "https://github.com/openfisca/openfisca-core/blob/3e9841d66fbeaa566fd64310aff2da6976a889f6/openfisca_core/variables/variable.py",
+          "sha256": "5d9803f227ab6f71b663450e2c6f1a4b890a52cc3c2690d3de4ed17b091c10f9"
+        },
+        {
+          "path": "tests/core/tools/test_runner/test_yaml_runner.py",
+          "url": "https://github.com/openfisca/openfisca-core/blob/3e9841d66fbeaa566fd64310aff2da6976a889f6/tests/core/tools/test_runner/test_yaml_runner.py",
+          "sha256": "940cb83a1b98d558d9702932fb15f099e6689176962c7f62072cd8605477a70f"
+        }
+      ]
+    },
+    {
+      "repository": "reglab/legal_hallucinations",
+      "url": "https://github.com/reglab/legal_hallucinations",
+      "default_branch": "main",
+      "commit": "620734a1ccb84efc6827635ac76a2fb6504b2f64",
+      "pushed_at": "2024-06-26T19:37:49Z",
+      "archived": false,
+      "license_spdx": null,
+      "sources": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/reglab/legal_hallucinations/blob/620734a1ccb84efc6827635ac76a2fb6504b2f64/README.md",
+          "sha256": "68cda26172b7eb5b242aded48c29872c7b23de1ca041d6ef9901207089e2c967"
+        },
+        {
+          "path": "correctness_checks.py",
+          "url": "https://github.com/reglab/legal_hallucinations/blob/620734a1ccb84efc6827635ac76a2fb6504b2f64/correctness_checks.py",
+          "sha256": "bf26b5d2f516b0b4e4cc320cb31d1d25a88815a86d5213dc87bf83bd79728b0e"
+        },
+        {
+          "path": "tasks_contrafactual.py",
+          "url": "https://github.com/reglab/legal_hallucinations/blob/620734a1ccb84efc6827635ac76a2fb6504b2f64/tasks_contrafactual.py",
+          "sha256": "08a125eb3d596558455d12885860401dcc96c55156ef74e3336c994e9d0d7735"
+        }
+      ]
+    }
+  ]
+}

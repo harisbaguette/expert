@@ -1,0 +1,16 @@
+[
+  {
+    "repository": "larrykoo711/manus-sandbox-code",
+    "sample_url": "https://raw.githubusercontent.com/larrykoo711/manus-sandbox-code/main/sandbox-runtime/app/server.py",
+    "sampled_bytes": 2048,
+    "pyarmor_marker_found": true,
+    "sample_content_saved": false
+  },
+  {
+    "repository": "kiliczsh/manus-sandbox",
+    "sample_url": "https://raw.githubusercontent.com/kiliczsh/manus-sandbox/main/opt/.manus/.sandbox-runtime/app/server.py",
+    "sampled_bytes": 2048,
+    "pyarmor_marker_found": true,
+    "sample_content_saved": false
+  }
+]

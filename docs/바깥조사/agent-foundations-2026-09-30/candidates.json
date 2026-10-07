@@ -1,0 +1,311 @@
+{
+  "checked_at": "2026-09-30T00:48:34.311266+00:00",
+  "candidates": [
+    {
+      "repo": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "description": "The agent that grows with you",
+      "branch": "main",
+      "commit": "d9f0a399a0850ffe5b36abcd6f4a8c825bfd6357",
+      "commit_date": "2026-09-30T00:46:14Z",
+      "commit_url": "https://github.com/NousResearch/hermes-agent/commit/d9f0a399a0850ffe5b36abcd6f4a8c825bfd6357",
+      "pushed_at": "2026-09-30T00:46:17Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "size_kb": 1105695,
+      "latest_release": {
+        "tag_name": "v2026.9.24",
+        "published_at": "2026-09-24T10:09:38Z",
+        "html_url": "https://github.com/NousResearch/hermes-agent/releases/tag/v2026.9.24",
+        "prerelease": false
+      },
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/NousResearch/hermes-agent/blob/d9f0a399a0850ffe5b36abcd6f4a8c825bfd6357/LICENSE"
+    },
+    {
+      "repo": "agent0ai/agent-zero",
+      "url": "https://github.com/agent0ai/agent-zero",
+      "description": "Agent Zero AI framework",
+      "branch": "main",
+      "commit": "e3051fb584b1a36be2b0a0c90606f1c2c2d356ec",
+      "commit_date": "2026-09-23T17:39:16Z",
+      "commit_url": "https://github.com/agent0ai/agent-zero/commit/e3051fb584b1a36be2b0a0c90606f1c2c2d356ec",
+      "pushed_at": "2026-09-23T23:03:04Z",
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "size_kb": 63939,
+      "latest_release": {
+        "tag_name": "v2.13",
+        "published_at": "2026-09-23T18:47:44Z",
+        "html_url": "https://github.com/agent0ai/agent-zero/releases/tag/v2.13",
+        "prerelease": false
+      },
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/agent0ai/agent-zero/blob/e3051fb584b1a36be2b0a0c90606f1c2c2d356ec/LICENSE"
+    },
+    {
+      "repo": "kortix-ai/suna",
+      "url": "https://github.com/kortix-ai/suna",
+      "description": "The open-source AI Management System",
+      "branch": "main",
+      "commit": "20732efa66ac2d99fe9c08687ec875439957e791",
+      "commit_date": "2026-09-30T00:45:24Z",
+      "commit_url": "https://github.com/kortix-ai/suna/commit/20732efa66ac2d99fe9c08687ec875439957e791",
+      "pushed_at": "2026-09-30T00:45:27Z",
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "size_kb": 556986,
+      "latest_release": {
+        "tag_name": "v0.13.42",
+        "published_at": "2026-09-29T19:58:27Z",
+        "html_url": "https://github.com/kortix-ai/suna/releases/tag/v0.13.42",
+        "prerelease": false
+      },
+      "license_file_verified": "Elastic-2.0",
+      "license_file_url": "https://github.com/kortix-ai/suna/blob/20732efa66ac2d99fe9c08687ec875439957e791/LICENSE"
+    },
+    {
+      "repo": "openclaw/openclaw",
+      "url": "https://github.com/openclaw/openclaw",
+      "description": "The AI that really does things. Any OS. Any Platform. The lobster way. 🦞 ",
+      "branch": "main",
+      "commit": "ec9f4865045bbcfd15cd891468bea3b126005ad5",
+      "commit_date": "2026-09-30T00:46:08Z",
+      "commit_url": "https://github.com/openclaw/openclaw/commit/ec9f4865045bbcfd15cd891468bea3b126005ad5",
+      "pushed_at": "2026-09-30T00:47:34Z",
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "size_kb": 7096452,
+      "latest_release": {
+        "tag_name": "v2026.9.6",
+        "published_at": "2026-09-23T23:21:10Z",
+        "html_url": "https://github.com/openclaw/openclaw/releases/tag/v2026.9.6",
+        "prerelease": false
+      },
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/openclaw/openclaw/blob/ec9f4865045bbcfd15cd891468bea3b126005ad5/LICENSE"
+    },
+    {
+      "repo": "langchain-ai/deepagents",
+      "url": "https://github.com/langchain-ai/deepagents",
+      "description": "The batteries-included agent harness.",
+      "branch": "main",
+      "commit": "1756bbe1eb348e20b925598ed49665b0d34b4b2d",
+      "commit_date": "2026-09-29T21:52:37Z",
+      "commit_url": "https://github.com/langchain-ai/deepagents/commit/1756bbe1eb348e20b925598ed49665b0d34b4b2d",
+      "pushed_at": "2026-09-29T22:47:03Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "size_kb": 329859,
+      "latest_release": {
+        "tag_name": "deepagents==0.7.20",
+        "published_at": "2026-09-29T16:21:00Z",
+        "html_url": "https://github.com/langchain-ai/deepagents/releases/tag/deepagents%3D%3D0.7.20",
+        "prerelease": false
+      },
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/langchain-ai/deepagents/blob/1756bbe1eb348e20b925598ed49665b0d34b4b2d/LICENSE"
+    },
+    {
+      "repo": "rome-os/rome",
+      "url": "https://github.com/rome-os/rome",
+      "description": "A compounding agent OS for recursive agents. Also an open source alternative to Grok Bot and Meta's Muse.",
+      "branch": "main",
+      "commit": "ef523c4659149e2711744deb04ec42c3be339907",
+      "commit_date": "2026-09-29T18:07:40Z",
+      "commit_url": "https://github.com/rome-os/rome/commit/ef523c4659149e2711744deb04ec42c3be339907",
+      "pushed_at": "2026-09-29T18:43:30Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "size_kb": 23695,
+      "latest_release": {
+        "tag_name": "node-core-v0.1.1",
+        "published_at": "2026-09-25T02:45:43Z",
+        "html_url": "https://github.com/rome-os/rome/releases/tag/node-core-v0.1.1",
+        "prerelease": false
+      },
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/rome-os/rome/blob/ef523c4659149e2711744deb04ec42c3be339907/LICENSE"
+    },
+    {
+      "repo": "OpenHands/OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "description": "🙌 OpenHands: AI-Driven Development",
+      "branch": "main",
+      "commit": "da8f701e0e8e9c25cf2a8065a0debd930107a765",
+      "commit_date": "2026-09-29T15:02:12Z",
+      "commit_url": "https://github.com/OpenHands/OpenHands/commit/da8f701e0e8e9c25cf2a8065a0debd930107a765",
+      "pushed_at": "2026-09-30T00:14:10Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "size_kb": 438680,
+      "latest_release": {
+        "tag_name": "v1.24.0",
+        "published_at": "2026-09-25T15:09:26Z",
+        "html_url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.24.0",
+        "prerelease": false
+      },
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/OpenHands/OpenHands/blob/da8f701e0e8e9c25cf2a8065a0debd930107a765/LICENSE"
+    },
+    {
+      "repo": "langgenius/dify",
+      "url": "https://github.com/langgenius/dify",
+      "description": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+      "branch": "main",
+      "commit": "216151ffa712914908317f9efceadd894d5af9b0",
+      "commit_date": "2026-09-29T14:29:54Z",
+      "commit_url": "https://github.com/langgenius/dify/commit/216151ffa712914908317f9efceadd894d5af9b0",
+      "pushed_at": "2026-09-29T23:37:51Z",
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "size_kb": 583955,
+      "latest_release": {
+        "tag_name": "1.17.1",
+        "published_at": "2026-09-10T10:04:06Z",
+        "html_url": "https://github.com/langgenius/dify/releases/tag/1.17.1",
+        "prerelease": false
+      },
+      "license_file_verified": "Dify modified Apache-2.0",
+      "license_file_url": "https://github.com/langgenius/dify/blob/216151ffa712914908317f9efceadd894d5af9b0/LICENSE"
+    },
+    {
+      "repo": "bytedance/deer-flow",
+      "url": "https://github.com/bytedance/deer-flow",
+      "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+      "branch": "main",
+      "commit": "f9f6a36243bea5c539c63bd22b33a139edbc4b69",
+      "commit_date": "2026-09-30T00:36:31Z",
+      "commit_url": "https://github.com/bytedance/deer-flow/commit/f9f6a36243bea5c539c63bd22b33a139edbc4b69",
+      "pushed_at": "2026-09-30T00:36:31Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "size_kb": 73732,
+      "latest_release": {
+        "tag_name": "v2.1.0",
+        "published_at": "2026-09-24T10:40:44Z",
+        "html_url": "https://github.com/bytedance/deer-flow/releases/tag/v2.1.0",
+        "prerelease": false
+      },
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/bytedance/deer-flow/blob/f9f6a36243bea5c539c63bd22b33a139edbc4b69/LICENSE"
+    },
+    {
+      "repo": "Simpleyyt/ai-manus",
+      "url": "https://github.com/Simpleyyt/ai-manus",
+      "description": "AI Manus is a general-purpose AI Agent system that supports running various tools and operations in a sandbox environment.",
+      "branch": "main",
+      "commit": "496547ce6a5f599333138342ec126a7ea8ec9646",
+      "commit_date": "2026-09-14T18:30:28Z",
+      "commit_url": "https://github.com/Simpleyyt/ai-manus/commit/496547ce6a5f599333138342ec126a7ea8ec9646",
+      "pushed_at": "2026-09-28T16:49:01Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "size_kb": 23297,
+      "latest_release": {
+        "tag_name": "v2.8.0",
+        "published_at": "2026-09-14T18:36:14Z",
+        "html_url": "https://github.com/Simpleyyt/ai-manus/releases/tag/v2.8.0",
+        "prerelease": false
+      },
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/Simpleyyt/ai-manus/blob/496547ce6a5f599333138342ec126a7ea8ec9646/LICENSE"
+    }
+  ],
+  "supplemental_candidates": [
+    {
+      "repo": "deepseek-ai/deepseek-harness",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "evidence_method": "Official GitHub web pages; API metadata unavailable due to rate limit",
+      "commit": null,
+      "license_file_verified": "MIT",
+      "license_file_url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/LICENSE",
+      "latest_observed_release": {
+        "display_name": "v0.2.0-rc.2",
+        "tag_name": "dsh-v0.2.0-rc.2",
+        "date_kst": "2026-09-29",
+        "prerelease": true,
+        "url": "https://github.com/deepseek-ai/deepseek-harness/releases"
+      },
+      "product_status": "Developer preview; breaking changes explicitly expected",
+      "docs": [
+        "https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/README.md",
+        "https://github.com/deepseek-ai/deepseek-harness/blob/master/SAFETY.md"
+      ]
+    },
+    {
+      "repo": "RightNow-AI/openfang",
+      "url": "https://github.com/RightNow-AI/openfang",
+      "evidence_method": "Official GitHub web pages; current commit metadata not verified",
+      "commit": null,
+      "license_file_verified": "MIT license file and Apache-2.0 license file present",
+      "license_file_url": "https://github.com/RightNow-AI/openfang/blob/main/LICENSE-MIT",
+      "latest_observed_release": {
+        "tag_name": "v0.6.9",
+        "date_kst": "2026-05-13",
+        "url": "https://github.com/RightNow-AI/openfang/releases/tag/v0.6.9"
+      },
+      "product_status": "Pre-1.0"
+    }
+  ]
+}

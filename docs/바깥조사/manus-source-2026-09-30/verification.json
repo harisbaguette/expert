@@ -1,0 +1,22 @@
+[
+  {
+    "repository": "whit3rabbit/manus-open",
+    "python_files_parsed": 53,
+    "python_lines": 11460,
+    "syntax_errors": [],
+    "archive_sha256_matches": true,
+    "zip_crc_error": null,
+    "extraction_mismatches": [],
+    "executed": false
+  },
+  {
+    "repository": "Simpleyyt/ai-manus",
+    "python_files_parsed": 225,
+    "python_lines": 27616,
+    "syntax_errors": [],
+    "archive_sha256_matches": true,
+    "zip_crc_error": null,
+    "extraction_mismatches": [],
+    "executed": false
+  }
+]

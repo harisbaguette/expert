@@ -1,0 +1,14 @@
+{
+  "repo": "bytedance/deer-flow",
+  "commit": "f9f6a36243bea5c539c63bd22b33a139edbc4b69",
+  "commit_date": "2026-09-30T00:36:31Z",
+  "url": "https://codeload.github.com/bytedance/deer-flow/zip/f9f6a36243bea5c539c63bd22b33a139edbc4b69",
+  "downloaded_at": "2026-09-30T00:54:41.108121+00:00",
+  "archive": "archives/deer-flow-f9f6a36243bea5c539c63bd22b33a139edbc4b69.zip",
+  "archive_sha256": "95014b52e059af493f3080fcd2fa57c900e69d1d1bdf0844dbb1deba531e85c4",
+  "archive_bytes": 30668821,
+  "source_dir": "sources/deer-flow",
+  "file_count": 3380,
+  "expanded_bytes": 61491825,
+  "execution": "Not installed or run; static review only"
+}

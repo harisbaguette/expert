@@ -1,0 +1,1020 @@
+{
+  "checked_at": "2026-09-30T01:05:17.257376+00:00",
+  "files": [
+    {
+      "repo": "pydantic/pydantic-ai",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/pydantic/pydantic-ai/main/README.md",
+      "path": "evidence/commercial-review/pydantic__pydantic-ai/README.md",
+      "sha256": "58b20145af33b19d459ea8875f84a0410c207d0bd86df37e4aca6ba0697903a4",
+      "bytes": 24337
+    },
+    {
+      "repo": "pydantic/pydantic-ai",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/pydantic/pydantic-ai/main/LICENSE",
+      "path": "evidence/commercial-review/pydantic__pydantic-ai/LICENSE",
+      "sha256": "bc0e89738f36944c8106e1947c3d69631f9c33b8f1bcb60ec4f89d677d2dfcf4",
+      "bytes": 1100
+    },
+    {
+      "repo": "earendil-works/pi",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/earendil-works/pi/main/README.md",
+      "path": "evidence/commercial-review/earendil-works__pi/README.md",
+      "sha256": "fe13915e217f905739b64124cbb03b72758fa2081b7198cabeefaee4914a6f14",
+      "bytes": 6895
+    },
+    {
+      "repo": "earendil-works/pi",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/earendil-works/pi/main/LICENSE",
+      "path": "evidence/commercial-review/earendil-works__pi/LICENSE",
+      "sha256": "0457f5bcec3b3b211605dfb5d1a49042fd638f3686a410fe099c24a25af13c48",
+      "bytes": 1069
+    },
+    {
+      "repo": "agno-agi/agno",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/agno-agi/agno/main/README.md",
+      "path": "evidence/commercial-review/agno-agi__agno/README.md",
+      "sha256": "ee04510fcc6e82fa87258c3bba766da73bbffd1f8bd8a2320babee8bc291ff30",
+      "bytes": 4960
+    },
+    {
+      "repo": "agno-agi/agno",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/agno-agi/agno/main/LICENSE",
+      "path": "evidence/commercial-review/agno-agi__agno/LICENSE",
+      "sha256": "7504bf0fe32a486487ec309d5ef30597ca87d2508450be380f6ef4772c3371ca",
+      "bytes": 11343
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/mastra-ai/mastra/main/README.md",
+      "path": "evidence/commercial-review/mastra-ai__mastra/README.md",
+      "sha256": "3cf7ca8d2c00593f8f452fc1ac1f75f8269f1df9c98cbaca59409271a4ffa7e8",
+      "bytes": 7265
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "repo": "microsoft/agent-framework",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/microsoft/agent-framework/main/README.md",
+      "path": "evidence/commercial-review/microsoft__agent-framework/README.md",
+      "sha256": "42b5837e2a40cb5897dbe300617751cf6a39fb10ff9eb3acb6ab34fb54a8acaa",
+      "bytes": 13320
+    },
+    {
+      "repo": "microsoft/agent-framework",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/microsoft/agent-framework/main/LICENSE",
+      "path": "evidence/commercial-review/microsoft__agent-framework/LICENSE",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "bytes": 1141
+    },
+    {
+      "repo": "strands-agents/harness-sdk",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/strands-agents/harness-sdk/main/README.md",
+      "path": "evidence/commercial-review/strands-agents__harness-sdk/README.md",
+      "sha256": "47f5add99f81e7e04c8514afe89e0d14b751dae5dfeafee44ede23a98f1aed43",
+      "bytes": 11016
+    },
+    {
+      "repo": "strands-agents/harness-sdk",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/strands-agents/harness-sdk/main/LICENSE",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "repo": "aaif-goose/goose",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/aaif-goose/goose/main/README.md",
+      "path": "evidence/commercial-review/aaif-goose__goose/README.md",
+      "sha256": "0f1df85a0c457caf1f3c4e1c0370f2da3887fffa588d207862cfc298c1d39755",
+      "bytes": 3449
+    },
+    {
+      "repo": "aaif-goose/goose",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/aaif-goose/goose/main/LICENSE",
+      "path": "evidence/commercial-review/aaif-goose__goose/LICENSE",
+      "sha256": "44459b86c2e96fdbfd8a6b5c33d30d4b04b5293fcb2ec96fe4dcc4e0f90b8962",
+      "bytes": 11341
+    },
+    {
+      "repo": "letta-ai/letta",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/letta-ai/letta/main/README.md",
+      "path": "evidence/commercial-review/letta-ai__letta/README.md",
+      "sha256": "1d624e8fd383c1198c8d42da87b055d591a5760e19607692eb46bbbfe2a58f03",
+      "bytes": 1574
+    },
+    {
+      "repo": "letta-ai/letta",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/letta-ai/letta/main/LICENSE",
+      "path": "evidence/commercial-review/letta-ai__letta/LICENSE",
+      "sha256": "984c6db99fc6609803108dfc196762118662cd94b82a456dd9217583f18f3612",
+      "bytes": 10759
+    },
+    {
+      "repo": "google/adk-python",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/google/adk-python/main/README.md",
+      "path": "evidence/commercial-review/google__adk-python/README.md",
+      "sha256": "2c00eddffa97daff996076f442f63bf6687da90a0fcdd144e441c704ef2dd32b",
+      "bytes": 9411
+    },
+    {
+      "repo": "google/adk-python",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/google/adk-python/main/LICENSE",
+      "path": "evidence/commercial-review/google__adk-python/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    {
+      "repo": "OpenHands/software-agent-sdk",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/OpenHands/software-agent-sdk/main/README.md",
+      "path": "evidence/commercial-review/OpenHands__software-agent-sdk/README.md",
+      "sha256": "95094c9745c7cc58136d4eaa1688fb6038aafefec2be05344293f6df7e55dbf8",
+      "bytes": 10835
+    },
+    {
+      "repo": "OpenHands/software-agent-sdk",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/OpenHands/software-agent-sdk/main/LICENSE",
+      "path": "evidence/commercial-review/OpenHands__software-agent-sdk/LICENSE",
+      "sha256": "14a9b631c658eee682c6c2973525fbdf808c3457176bc47513052c559cc5ce86",
+      "bytes": 1079
+    },
+    {
+      "repo": "agentscope-ai/agentscope",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/agentscope-ai/agentscope/main/README.md",
+      "path": "evidence/commercial-review/agentscope-ai__agentscope/README.md",
+      "sha256": "f0bb5ab84bab1ffbd35ad5d2a97634ff26cb7c613b6026c11fb200363afe3aca",
+      "bytes": 14870
+    },
+    {
+      "repo": "agentscope-ai/agentscope",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/agentscope-ai/agentscope/main/LICENSE",
+      "path": "evidence/commercial-review/agentscope-ai__agentscope/LICENSE",
+      "sha256": "4186bcadf358c60080060309769db6b2a352720d7353d827bb574c600fee9913",
+      "bytes": 20637
+    },
+    {
+      "repo": "vercel/ai",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/vercel/ai/main/README.md",
+      "path": "evidence/commercial-review/vercel__ai/README.md",
+      "sha256": "0f1402baf0226cc4912e33b421162bf30a38a80cc438c24bba601f495e73a64f",
+      "bytes": 22
+    },
+    {
+      "repo": "vercel/ai",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/vercel/ai/main/LICENSE",
+      "path": "evidence/commercial-review/vercel__ai/LICENSE",
+      "sha256": "b4f9adb7c568904834d0dd6cc98d16c390d21ca32fc17ae7a267715269bd5529",
+      "bytes": 552
+    },
+    {
+      "repo": "openai/openai-agents-python",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/openai/openai-agents-python/main/README.md",
+      "path": "evidence/commercial-review/openai__openai-agents-python/README.md",
+      "sha256": "d314c9bec8f0d5b2cb0e34a98f0521b076284dceb82fef1e2f73114b234f8a99",
+      "bytes": 8979
+    },
+    {
+      "repo": "openai/openai-agents-python",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/openai/openai-agents-python/main/LICENSE",
+      "path": "evidence/commercial-review/openai__openai-agents-python/LICENSE",
+      "sha256": "13df7812ca53ecaae1cb4a868844bb598373047ae1d580e4debfbef1dd5b6915",
+      "bytes": 1063
+    },
+    {
+      "repo": "eigent-ai/eigent",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/eigent-ai/eigent/main/README.md",
+      "path": "evidence/commercial-review/eigent-ai__eigent/README.md",
+      "sha256": "8b02c03a2de2cf317c3588c985dd6d276d80029304c1e4462f3eb8c933d37d64",
+      "bytes": 18028
+    },
+    {
+      "repo": "eigent-ai/eigent",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/eigent-ai/eigent/main/LICENSE",
+      "path": "evidence/commercial-review/eigent-ai__eigent/LICENSE",
+      "sha256": "dc1400b738a63d9abe7dc1de5c29135b35afb6340fcb9c917547c588d22cc400",
+      "bytes": 11341
+    },
+    {
+      "repo": "n8n-io/n8n",
+      "ref": "master",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n/master/README.md",
+      "path": "evidence/commercial-review/n8n-io__n8n/README.md",
+      "sha256": "75c64f04b8b1e7d435496f6ebd2dbf3ea5ff7d3ff3d944d7fcf98cf1a7df2242",
+      "bytes": 4023
+    },
+    {
+      "repo": "n8n-io/n8n",
+      "ref": "master",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n/master/LICENSE",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "repo": "FlowiseAI/Flowise",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/README.md",
+      "path": "evidence/commercial-review/FlowiseAI__Flowise/README.md",
+      "sha256": "21b4384ec2e295295dee10992fd9ee7ef4b0a0c9cb77a493bca39174a1c09a51",
+      "bytes": 7850
+    },
+    {
+      "repo": "FlowiseAI/Flowise",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/LICENSE",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "repo": "pydantic/pydantic-ai",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/pydantic/pydantic-ai/releases.atom",
+      "path": "evidence/commercial-review/pydantic__pydantic-ai/releases.atom",
+      "sha256": "75465227f73bdcfc67f55f4df0f53757061e86f5da34b957871084e6c3e8e7b6",
+      "bytes": 211756,
+      "releases": [
+        {
+          "title": "v2.52.0 (2026-09-29)",
+          "updated_at": "2026-09-30T00:54:20Z",
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.52.0"
+        },
+        {
+          "title": "v1.107.7 (2026-09-29)",
+          "updated_at": "2026-09-30T00:54:21Z",
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v1.107.7"
+        },
+        {
+          "title": "v2.51.0 (2026-09-25)",
+          "updated_at": "2026-09-25T23:19:04Z",
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.51.0"
+        },
+        {
+          "title": "v2.50.0 (2026-09-24)",
+          "updated_at": "2026-09-25T04:47:15Z",
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.50.0"
+        }
+      ]
+    },
+    {
+      "repo": "earendil-works/pi",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/earendil-works/pi/releases.atom",
+      "path": "evidence/commercial-review/earendil-works__pi/releases.atom",
+      "sha256": "da2830d809684b6b5a27eb28a9fa567c0c457545d735a9551645598608a1e1f6",
+      "bytes": 117719,
+      "releases": [
+        {
+          "title": "v0.99.1",
+          "updated_at": "2026-09-29T18:27:00Z",
+          "url": "https://github.com/earendil-works/pi/releases/tag/v0.99.1"
+        },
+        {
+          "title": "v0.99.0",
+          "updated_at": "2026-09-29T17:21:54Z",
+          "url": "https://github.com/earendil-works/pi/releases/tag/v0.99.0"
+        },
+        {
+          "title": "v0.87.1",
+          "updated_at": "2026-09-22T19:43:43Z",
+          "url": "https://github.com/earendil-works/pi/releases/tag/v0.87.1"
+        },
+        {
+          "title": "v0.87.0",
+          "updated_at": "2026-09-21T18:29:47Z",
+          "url": "https://github.com/earendil-works/pi/releases/tag/v0.87.0"
+        }
+      ]
+    },
+    {
+      "repo": "agno-agi/agno",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/agno-agi/agno/releases.atom",
+      "path": "evidence/commercial-review/agno-agi__agno/releases.atom",
+      "sha256": "1e4bb07a6d83db947da7ec987ff2a0751415fe0b196e5ebb3363fa776959deb1",
+      "bytes": 212841,
+      "releases": [
+        {
+          "title": "v3.0.11",
+          "updated_at": "2026-09-23T13:14:46Z",
+          "url": "https://github.com/agno-agi/agno/releases/tag/v3.0.11"
+        },
+        {
+          "title": "v3.0.10",
+          "updated_at": "2026-09-16T17:41:07Z",
+          "url": "https://github.com/agno-agi/agno/releases/tag/v3.0.10"
+        },
+        {
+          "title": "v3.0.9",
+          "updated_at": "2026-09-08T22:54:01Z",
+          "url": "https://github.com/agno-agi/agno/releases/tag/v3.0.9"
+        },
+        {
+          "title": "v3.0.8",
+          "updated_at": "2026-09-08T15:44:58Z",
+          "url": "https://github.com/agno-agi/agno/releases/tag/v3.0.8"
+        }
+      ]
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/mastra-ai/mastra/releases.atom",
+      "path": "evidence/commercial-review/mastra-ai__mastra/releases.atom",
+      "sha256": "9d4ad8d4ab3114dc7d7a26fbd89a7e4d9390081109b15807967410eb6593e9fa",
+      "bytes": 6311,
+      "releases": [
+        {
+          "title": "mastracode@0.43.0",
+          "updated_at": "2026-09-30T00:04:25Z",
+          "url": "https://github.com/mastra-ai/mastra/releases/tag/mastracode%400.43.0"
+        },
+        {
+          "title": "mastra@1.31.4",
+          "updated_at": "2026-09-30T00:04:25Z",
+          "url": "https://github.com/mastra-ai/mastra/releases/tag/mastra%401.31.4"
+        },
+        {
+          "title": "@mastra/voice-xai-realtime@0.2.12",
+          "updated_at": "2026-09-30T00:04:25Z",
+          "url": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra%2Fvoice-xai-realtime%400.2.12"
+        },
+        {
+          "title": "@mastra/voice-openai-realtime@0.14.2",
+          "updated_at": "2026-09-30T00:04:25Z",
+          "url": "https://github.com/mastra-ai/mastra/releases/tag/%40mastra%2Fvoice-openai-realtime%400.14.2"
+        }
+      ]
+    },
+    {
+      "repo": "microsoft/agent-framework",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/microsoft/agent-framework/releases.atom",
+      "path": "evidence/commercial-review/microsoft__agent-framework/releases.atom",
+      "sha256": "941dc5410316392ad9d6ff780ad4c225e09fa0120d828d3a37cd91bea64aa6d2",
+      "bytes": 251951,
+      "releases": [
+        {
+          "title": "dotnet-1.23.0",
+          "updated_at": "2026-09-29T12:26:31Z",
+          "url": "https://github.com/microsoft/agent-framework/releases/tag/dotnet-1.23.0"
+        },
+        {
+          "title": "python-1.19.0",
+          "updated_at": "2026-09-18T09:14:56Z",
+          "url": "https://github.com/microsoft/agent-framework/releases/tag/python-1.19.0"
+        },
+        {
+          "title": "dotnet-1.22.0",
+          "updated_at": "2026-09-18T18:12:17Z",
+          "url": "https://github.com/microsoft/agent-framework/releases/tag/dotnet-1.22.0"
+        },
+        {
+          "title": "dotnet-1.21.0",
+          "updated_at": "2026-09-11T17:31:35Z",
+          "url": "https://github.com/microsoft/agent-framework/releases/tag/dotnet-1.21.0"
+        }
+      ]
+    },
+    {
+      "repo": "strands-agents/harness-sdk",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/strands-agents/harness-sdk/releases.atom",
+      "path": "evidence/commercial-review/strands-agents__harness-sdk/releases.atom",
+      "sha256": "bcf3e8f8b5608285aecf957d085a736a1eff6a53ef6518d20e04d0916728c7d1",
+      "bytes": 607053,
+      "releases": [
+        {
+          "title": "python/v1.57.1",
+          "updated_at": "2026-09-25T20:12:01Z",
+          "url": "https://github.com/strands-agents/harness-sdk/releases/tag/python%2Fv1.57.1"
+        },
+        {
+          "title": "harness-cli/v0.1.4",
+          "updated_at": "2026-09-25T20:51:07Z",
+          "url": "https://github.com/strands-agents/harness-sdk/releases/tag/harness-cli%2Fv0.1.4"
+        },
+        {
+          "title": "mcp/v0.3.0",
+          "updated_at": "2026-09-24T13:54:00Z",
+          "url": "https://github.com/strands-agents/harness-sdk/releases/tag/mcp%2Fv0.3.0"
+        },
+        {
+          "title": "harness-cli/v0.1.3",
+          "updated_at": "2026-09-24T21:27:30Z",
+          "url": "https://github.com/strands-agents/harness-sdk/releases/tag/harness-cli%2Fv0.1.3"
+        }
+      ]
+    },
+    {
+      "repo": "aaif-goose/goose",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/aaif-goose/goose/releases.atom",
+      "path": "evidence/commercial-review/aaif-goose__goose/releases.atom",
+      "sha256": "d5023e919dd3e00f196e0e6c0c05ff90cb7dacad2a2f01b33ac81887bffc42ce",
+      "bytes": 113968,
+      "releases": [
+        {
+          "title": "gdk-v0.1.0-alpha.11: chore(GDK): release v0.1.0-alpha.11 (#12495)",
+          "updated_at": "2026-09-28T17:31:38Z",
+          "url": "https://github.com/aaif-goose/goose/releases/tag/gdk-v0.1.0-alpha.11"
+        },
+        {
+          "title": "gdk-v0.1.0-alpha.10: chore(GDK): release v0.1.0-alpha.10 (#12492)",
+          "updated_at": "2026-09-24T18:34:06Z",
+          "url": "https://github.com/aaif-goose/goose/releases/tag/gdk-v0.1.0-alpha.10"
+        },
+        {
+          "title": "v1.52.0",
+          "updated_at": "2026-09-23T15:10:22Z",
+          "url": "https://github.com/aaif-goose/goose/releases/tag/v1.52.0"
+        },
+        {
+          "title": "v1.51.0",
+          "updated_at": "2026-09-18T13:31:43Z",
+          "url": "https://github.com/aaif-goose/goose/releases/tag/v1.51.0"
+        }
+      ]
+    },
+    {
+      "repo": "letta-ai/letta",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/letta-ai/letta/releases.atom",
+      "path": "evidence/commercial-review/letta-ai__letta/releases.atom",
+      "sha256": "29945d2f78f58cbd9a3b469316208456d683ab558fa5ddac49173c03a4bd8ae2",
+      "bytes": 36867,
+      "releases": [
+        {
+          "title": "v0.16.8",
+          "updated_at": "2026-05-14T17:14:24Z",
+          "url": "https://github.com/letta-ai/letta/releases/tag/0.16.8"
+        },
+        {
+          "title": "v0.16.7",
+          "updated_at": "2026-04-02T18:01:30Z",
+          "url": "https://github.com/letta-ai/letta/releases/tag/0.16.7"
+        },
+        {
+          "title": "v0.16.6",
+          "updated_at": "2026-03-05T22:51:28Z",
+          "url": "https://github.com/letta-ai/letta/releases/tag/0.16.6"
+        },
+        {
+          "title": "v0.16.5",
+          "updated_at": "2026-02-24T19:02:50Z",
+          "url": "https://github.com/letta-ai/letta/releases/tag/0.16.5"
+        }
+      ]
+    },
+    {
+      "repo": "google/adk-python",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/google/adk-python/releases.atom",
+      "path": "evidence/commercial-review/google__adk-python/releases.atom",
+      "sha256": "8a96bfce7cf241018392a35ebdfdb2807a94a6ff8bc607d4cedef448126291f7",
+      "bytes": 217300,
+      "releases": [
+        {
+          "title": "v2.10.0",
+          "updated_at": "2026-09-25T19:00:05Z",
+          "url": "https://github.com/google/adk-python/releases/tag/v2.10.0"
+        },
+        {
+          "title": "v2.9.2",
+          "updated_at": "2026-09-18T18:08:40Z",
+          "url": "https://github.com/google/adk-python/releases/tag/v2.9.2"
+        },
+        {
+          "title": "v2.9.1",
+          "updated_at": "2026-09-15T18:03:42Z",
+          "url": "https://github.com/google/adk-python/releases/tag/v2.9.1"
+        },
+        {
+          "title": "v2.9.0",
+          "updated_at": "2026-09-10T21:22:43Z",
+          "url": "https://github.com/google/adk-python/releases/tag/v2.9.0"
+        }
+      ]
+    },
+    {
+      "repo": "OpenHands/software-agent-sdk",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/OpenHands/software-agent-sdk/releases.atom",
+      "path": "evidence/commercial-review/OpenHands__software-agent-sdk/releases.atom",
+      "sha256": "86a6bb7d78ac0964ccf8347c92a1e79f9502b10e055c8d6c4ba60ef984fc44e4",
+      "bytes": 164858,
+      "releases": [
+        {
+          "title": "v1.50.0",
+          "updated_at": "2026-09-29T20:28:27Z",
+          "url": "https://github.com/OpenHands/software-agent-sdk/releases/tag/v1.50.0"
+        },
+        {
+          "title": "v1.49.6",
+          "updated_at": "2026-09-25T13:50:53Z",
+          "url": "https://github.com/OpenHands/software-agent-sdk/releases/tag/v1.49.6"
+        },
+        {
+          "title": "v1.49.5",
+          "updated_at": "2026-09-23T15:15:36Z",
+          "url": "https://github.com/OpenHands/software-agent-sdk/releases/tag/v1.49.5"
+        },
+        {
+          "title": "v1.49.4",
+          "updated_at": "2026-09-22T14:00:06Z",
+          "url": "https://github.com/OpenHands/software-agent-sdk/releases/tag/v1.49.4"
+        }
+      ]
+    },
+    {
+      "repo": "agentscope-ai/agentscope",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/agentscope-ai/agentscope/releases.atom",
+      "path": "evidence/commercial-review/agentscope-ai__agentscope/releases.atom",
+      "sha256": "2e4023932c2cd11a223fda40e8f50bf25456f17e6ff2247f645d9ced023eef84",
+      "bytes": 451868,
+      "releases": [
+        {
+          "title": "v2.0.9",
+          "updated_at": "2026-09-28T05:06:20Z",
+          "url": "https://github.com/agentscope-ai/agentscope/releases/tag/v2.0.9"
+        },
+        {
+          "title": "v2.0.8",
+          "updated_at": "2026-09-08T13:12:10Z",
+          "url": "https://github.com/agentscope-ai/agentscope/releases/tag/v2.0.8"
+        },
+        {
+          "title": "v2.0.7.post1",
+          "updated_at": "2026-08-28T02:42:12Z",
+          "url": "https://github.com/agentscope-ai/agentscope/releases/tag/v2.0.7.post1"
+        },
+        {
+          "title": "v2.0.7",
+          "updated_at": "2026-08-24T12:47:44Z",
+          "url": "https://github.com/agentscope-ai/agentscope/releases/tag/v2.0.7"
+        }
+      ]
+    },
+    {
+      "repo": "vercel/ai",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/vercel/ai/releases.atom",
+      "path": "evidence/commercial-review/vercel__ai/releases.atom",
+      "sha256": "ef4a485eeabd2ef7786501ad7830fba4daa8f38afde507dc5fe74d64cd6883a1",
+      "bytes": 22688,
+      "releases": [
+        {
+          "title": "@ai-sdk/workflow-harness@1.0.133",
+          "updated_at": "2026-09-29T09:52:16Z",
+          "url": "https://github.com/vercel/ai/releases/tag/%40ai-sdk%2Fworkflow-harness%401.0.133"
+        },
+        {
+          "title": "@ai-sdk/sandbox-vercel@1.0.133",
+          "updated_at": "2026-09-29T09:52:15Z",
+          "url": "https://github.com/vercel/ai/releases/tag/%40ai-sdk%2Fsandbox-vercel%401.0.133"
+        },
+        {
+          "title": "@ai-sdk/sandbox-just-bash@1.0.133",
+          "updated_at": "2026-09-29T09:52:14Z",
+          "url": "https://github.com/vercel/ai/releases/tag/%40ai-sdk%2Fsandbox-just-bash%401.0.133"
+        },
+        {
+          "title": "@ai-sdk/openai@4.0.81",
+          "updated_at": "2026-09-29T09:52:13Z",
+          "url": "https://github.com/vercel/ai/releases/tag/%40ai-sdk%2Fopenai%404.0.81"
+        }
+      ]
+    },
+    {
+      "repo": "openai/openai-agents-python",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/openai/openai-agents-python/releases.atom",
+      "path": "evidence/commercial-review/openai__openai-agents-python/releases.atom",
+      "sha256": "fb09fdd20957cee255cdcdb5f7e5a71ca3976a79f51e3e829f33155f3bc9c1d0",
+      "bytes": 407193,
+      "releases": [
+        {
+          "title": "v0.22.3",
+          "updated_at": "2026-09-17T22:19:05Z",
+          "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.3"
+        },
+        {
+          "title": "v0.22.2",
+          "updated_at": "2026-09-09T12:36:10Z",
+          "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.2"
+        },
+        {
+          "title": "v0.22.1",
+          "updated_at": "2026-09-08T09:18:00Z",
+          "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.1"
+        },
+        {
+          "title": "v0.22.0",
+          "updated_at": "2026-08-19T13:44:38Z",
+          "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.0"
+        }
+      ]
+    },
+    {
+      "repo": "eigent-ai/eigent",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/eigent-ai/eigent/releases.atom",
+      "path": "evidence/commercial-review/eigent-ai__eigent/releases.atom",
+      "sha256": "25130a744ef5e22e7b963cfbbfa8767180daa54cf5cb4f07b7998c0835854fa1",
+      "bytes": 22101,
+      "releases": [
+        {
+          "title": "v1.0.5",
+          "updated_at": "2026-09-25T14:09:12Z",
+          "url": "https://github.com/eigent-ai/eigent/releases/tag/v1.0.5"
+        },
+        {
+          "title": "v1.0.4",
+          "updated_at": "2026-09-04T17:49:36Z",
+          "url": "https://github.com/eigent-ai/eigent/releases/tag/v1.0.4"
+        },
+        {
+          "title": "v1.0.3",
+          "updated_at": "2026-08-28T16:38:38Z",
+          "url": "https://github.com/eigent-ai/eigent/releases/tag/v1.0.3"
+        },
+        {
+          "title": "v1.0.2",
+          "updated_at": "2026-07-21T16:53:12Z",
+          "url": "https://github.com/eigent-ai/eigent/releases/tag/v1.0.2"
+        }
+      ]
+    },
+    {
+      "repo": "n8n-io/n8n",
+      "ref": "master",
+      "file": "releases.atom",
+      "url": "https://github.com/n8n-io/n8n/releases.atom",
+      "path": "evidence/commercial-review/n8n-io__n8n/releases.atom",
+      "sha256": "e82c551aef95f91546c871a30196f9472b4128833e1c334ebe6cc2625656d78b",
+      "bytes": 123336,
+      "releases": [
+        {
+          "title": "n8n@2.42.0",
+          "updated_at": "2026-09-29T07:26:31Z",
+          "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%402.42.0"
+        },
+        {
+          "title": "beta",
+          "updated_at": "2026-09-29T07:23:44Z",
+          "url": "https://github.com/n8n-io/n8n/releases/tag/beta"
+        },
+        {
+          "title": "v1: :rocket: Release 1.123.82 (#39573)",
+          "updated_at": "2026-09-25T07:20:42Z",
+          "url": "https://github.com/n8n-io/n8n/releases/tag/v1"
+        },
+        {
+          "title": "stable",
+          "updated_at": "2026-09-29T07:31:55Z",
+          "url": "https://github.com/n8n-io/n8n/releases/tag/stable"
+        }
+      ]
+    },
+    {
+      "repo": "FlowiseAI/Flowise",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/FlowiseAI/Flowise/releases.atom",
+      "path": "evidence/commercial-review/FlowiseAI__Flowise/releases.atom",
+      "sha256": "53ad92edf772abb1c841ebf30ced732cd7d9882ae05aecd8094312784a9df746",
+      "bytes": 171259,
+      "releases": [
+        {
+          "title": "flowise-ui@3.1.4: Release/3.1.4 (#6681)",
+          "updated_at": "2026-07-29T09:59:33Z",
+          "url": "https://github.com/FlowiseAI/Flowise/releases/tag/flowise-ui%403.1.4"
+        },
+        {
+          "title": "flowise-components@3.1.4: Release/3.1.4 (#6681)",
+          "updated_at": "2026-07-29T09:59:33Z",
+          "url": "https://github.com/FlowiseAI/Flowise/releases/tag/flowise-components%403.1.4"
+        },
+        {
+          "title": "flowise@3.1.4",
+          "updated_at": "2026-07-29T15:51:25Z",
+          "url": "https://github.com/FlowiseAI/Flowise/releases/tag/flowise%403.1.4"
+        },
+        {
+          "title": "flowise-ui@3.1.3: Release/3.1.3 (#6566)",
+          "updated_at": "2026-06-25T10:06:22Z",
+          "url": "https://github.com/FlowiseAI/Flowise/releases/tag/flowise-ui%403.1.3"
+        }
+      ]
+    },
+    {
+      "repo": "pydantic/pydantic-ai-harness",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/pydantic/pydantic-ai-harness/releases.atom",
+      "path": "evidence/commercial-review/pydantic__pydantic-ai-harness/releases.atom",
+      "sha256": "cc0bc33006bb69c287e0205f80ead6ddc5332fd613bfe5f861bb81c6a4cca31e",
+      "bytes": 93934,
+      "releases": [
+        {
+          "title": "v0.36.0 (2026-09-25)",
+          "updated_at": "2026-09-25T23:19:06Z",
+          "url": "https://github.com/pydantic/pydantic-ai-harness/releases/tag/v0.36.0"
+        },
+        {
+          "title": "v0.35.0 (2026-09-24)",
+          "updated_at": "2026-09-25T04:47:31Z",
+          "url": "https://github.com/pydantic/pydantic-ai-harness/releases/tag/v0.35.0"
+        },
+        {
+          "title": "v0.34.0 (2026-09-22)",
+          "updated_at": "2026-09-23T02:41:41Z",
+          "url": "https://github.com/pydantic/pydantic-ai-harness/releases/tag/v0.34.0"
+        },
+        {
+          "title": "v0.33.0 (2026-09-21)",
+          "updated_at": "2026-09-22T03:59:33Z",
+          "url": "https://github.com/pydantic/pydantic-ai-harness/releases/tag/v0.33.0"
+        }
+      ]
+    },
+    {
+      "repo": "letta-ai/letta-code",
+      "ref": "main",
+      "file": "releases.atom",
+      "url": "https://github.com/letta-ai/letta-code/releases.atom",
+      "path": "evidence/commercial-review/letta-ai__letta-code/releases.atom",
+      "sha256": "5d77db11b0ce1754a897f5c89d01e12cfd92fd9b21d79c2ddd5f973174f06056",
+      "bytes": 85058,
+      "releases": [
+        {
+          "title": "Release v0.33.8",
+          "updated_at": "2026-09-29T20:42:57Z",
+          "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.8"
+        },
+        {
+          "title": "Release v0.33.7",
+          "updated_at": "2026-09-29T15:23:40Z",
+          "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.7"
+        },
+        {
+          "title": "Release v0.33.6",
+          "updated_at": "2026-09-29T01:50:04Z",
+          "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.6"
+        },
+        {
+          "title": "Release v0.33.5",
+          "updated_at": "2026-09-28T04:23:57Z",
+          "url": "https://github.com/letta-ai/letta-code/releases/tag/v0.33.5"
+        }
+      ]
+    },
+    {
+      "repo": "pydantic/pydantic-ai-harness",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/pydantic/pydantic-ai-harness/main/README.md",
+      "path": "evidence/commercial-review/pydantic__pydantic-ai-harness/README.md",
+      "sha256": "37f07d36e856f352a1d571b7decd02a0495977875f9b5444cbbdff57a51fb848",
+      "bytes": 26611
+    },
+    {
+      "repo": "pydantic/pydantic-ai-harness",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/pydantic/pydantic-ai-harness/main/LICENSE",
+      "path": "evidence/commercial-review/pydantic__pydantic-ai-harness/LICENSE",
+      "sha256": "e7e07ba4d422bfb793adc03bbd35d7e740381c12db8e87d2301c1b8cf20858ab",
+      "bytes": 1089
+    },
+    {
+      "repo": "pydantic/pydantic-ai-harness",
+      "ref": "main",
+      "file": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/pydantic/pydantic-ai-harness/main/pyproject.toml",
+      "path": "evidence/commercial-review/pydantic__pydantic-ai-harness/pyproject.toml",
+      "sha256": "0f184e10945e89626765d95f77c1c99324dece5a8405a983b5f8f0e18ad149d2",
+      "bytes": 10572
+    },
+    {
+      "repo": "letta-ai/letta-code",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/letta-ai/letta-code/main/README.md",
+      "path": "evidence/commercial-review/letta-ai__letta-code/README.md",
+      "sha256": "61811b022086eeb9d0bdab91cce960f193e9b1bec544c36f64cf6a1f5eb9382c",
+      "bytes": 9696
+    },
+    {
+      "repo": "letta-ai/letta-code",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/letta-ai/letta-code/main/LICENSE",
+      "path": "evidence/commercial-review/letta-ai__letta-code/LICENSE",
+      "sha256": "036e78b9d7dd33ae5b378fdda973b4aad7901c8d8371a0ae40fae1f6659a89d0",
+      "bytes": 11092
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "ref": "main",
+      "file": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/mastra-ai/mastra/main/LICENSE.md",
+      "path": "evidence/commercial-review/mastra-ai__mastra/LICENSE.md",
+      "sha256": "f0351b469d1548e547882f01d2486a90f6bd0ff3c89defec841bbf5641265776",
+      "bytes": 1258
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "ref": "main",
+      "file": "ee/LICENSE",
+      "url": "https://raw.githubusercontent.com/mastra-ai/mastra/main/ee/LICENSE",
+      "path": "evidence/commercial-review/mastra-ai__mastra/ee/LICENSE",
+      "sha256": "96bc23758db3694296e7b91774b0c7109a3bb8394cceac58a058080ecf8d32cc",
+      "bytes": 14363
+    },
+    {
+      "repo": "n8n-io/n8n",
+      "ref": "master",
+      "file": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n/master/LICENSE.md",
+      "path": "evidence/commercial-review/n8n-io__n8n/LICENSE.md",
+      "sha256": "d2f621f59aa4c10eab79b6333e59d9d3d5b53307dcfd16dbd75e40e679e84965",
+      "bytes": 4445
+    },
+    {
+      "repo": "FlowiseAI/Flowise",
+      "ref": "main",
+      "file": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/LICENSE.md",
+      "path": "evidence/commercial-review/FlowiseAI__Flowise/LICENSE.md",
+      "sha256": "eb8cc244c81eb4a556f9ac22edc3033ac4fa12f7ef7a8899bb5ddc4578c2dd73",
+      "bytes": 10541
+    },
+    {
+      "repo": "strands-agents/harness-sdk",
+      "file": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/strands-agents/harness-sdk/main/LICENSE.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "repo": "earendil-works/pi",
+      "ref": "main",
+      "file": "packages/agent/README.md",
+      "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/agent/README.md",
+      "path": "evidence/commercial-review/earendil-works__pi/packages/agent/README.md",
+      "sha256": "eeedfbec69c5a2002e64e8353cd0505fcebf50b6e24f90b35317002099daab7b",
+      "bytes": 21681
+    },
+    {
+      "repo": "earendil-works/pi",
+      "ref": "main",
+      "file": "packages/durable/README.md",
+      "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/durable/README.md",
+      "path": "evidence/commercial-review/earendil-works__pi/packages/durable/README.md",
+      "sha256": "2c1d1732b8c31c2ddebdf42477f60dc3d5652295a5e9732a8d6c8c616cefe332",
+      "bytes": 21538
+    },
+    {
+      "repo": "earendil-works/pi",
+      "ref": "main",
+      "file": "packages/ai/README.md",
+      "url": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/ai/README.md",
+      "path": "evidence/commercial-review/earendil-works__pi/packages/ai/README.md",
+      "sha256": "88624d1b69c80b3ce16882c4e7149289052e9b3db9500be61fd95ecce8f85b99",
+      "bytes": 99723
+    },
+    {
+      "repo": "strands-agents/harness-sdk",
+      "ref": "main",
+      "file": "LICENSE.APACHE",
+      "url": "https://raw.githubusercontent.com/strands-agents/harness-sdk/main/LICENSE.APACHE",
+      "path": "evidence/commercial-review/strands-agents__harness-sdk/LICENSE.APACHE",
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "bytes": 10142
+    },
+    {
+      "repo": "strands-agents/harness-sdk",
+      "ref": "main",
+      "file": "NOTICE",
+      "url": "https://raw.githubusercontent.com/strands-agents/harness-sdk/main/NOTICE",
+      "path": "evidence/commercial-review/strands-agents__harness-sdk/NOTICE",
+      "sha256": "120d77a203a6708ec9a4c8f19e2167286f35bf05375fc5fb3ff225a6f560e515",
+      "bytes": 66
+    },
+    {
+      "repo": "aaif-goose/goose",
+      "ref": "main",
+      "file": "CUSTOM_DISTROS.md",
+      "url": "https://raw.githubusercontent.com/aaif-goose/goose/main/CUSTOM_DISTROS.md",
+      "path": "evidence/commercial-review/aaif-goose__goose/CUSTOM_DISTROS.md",
+      "sha256": "d0192ad958ad1bd86a1aebcee1112afdc1d57bdb8e4f291c6fcd4a133167cfe3",
+      "bytes": 28327
+    },
+    {
+      "repo": "vercel/ai",
+      "ref": "main",
+      "file": "packages/ai/README.md",
+      "url": "https://raw.githubusercontent.com/vercel/ai/main/packages/ai/README.md",
+      "path": "evidence/commercial-review/vercel__ai/packages/ai/README.md",
+      "sha256": "77da003de6d04c7ab5d6745b8aafd985c12e36655bcbb386cb8918a6158143e9",
+      "bytes": 7090
+    },
+    {
+      "repo": "vercel/ai",
+      "ref": "main",
+      "file": "packages/ai/package.json",
+      "url": "https://raw.githubusercontent.com/vercel/ai/main/packages/ai/package.json",
+      "path": "evidence/commercial-review/vercel__ai/packages/ai/package.json",
+      "sha256": "bb5376cd86ce67380fe6bee3ba535150bef9485975f5c36e3f2302d79a47486b",
+      "bytes": 3407
+    },
+    {
+      "repo": "agno-agi/agent-ui",
+      "ref": "main",
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/agno-agi/agent-ui/main/LICENSE",
+      "path": "evidence/commercial-review/agno-agi__agent-ui/LICENSE",
+      "sha256": "2d57172b201a734eb6ae51204567f3ee73c6a1342e4b16176fe5d5475282fbc7",
+      "bytes": 1061
+    },
+    {
+      "repo": "agno-agi/agent-ui",
+      "ref": "main",
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/agno-agi/agent-ui/main/README.md",
+      "path": "evidence/commercial-review/agno-agi__agent-ui/README.md",
+      "sha256": "8e16e9bb99b84a1fd164192ae63efc0284cf33cbc5d7f1cd45e1ce0d4f52f047",
+      "bytes": 4453
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "files_checked": 3380,
+  "blob_mismatches": [
+    {
+      "path": "scripts/run-with-git-bash.cmd",
+      "expected": "8692ca3375a7eff737db85c6980a8f78b4cc450a",
+      "actual": "f619049dbc0d118291a06c0962a07a7f841c3a02",
+      "bytes": 522,
+      "tree_bytes": 502,
+      "lf_normalized_blob_matches": true
+    }
+  ],
+  "scope": "Download identity only. No runtime or performance tests."
+}
