@@ -422,7 +422,204 @@ def routing_kernel(N, E, headers, port):
     return routed, inside_segment, clean
 
 
+def simplify_branches(N, E, G, port):
+    """Use empty lanes and local branch order before adding crossing bridges.
+
+    Keep every workflow relationship. Nearby stops stay beneath their checks;
+    outgoing returns leave from the side away from their incoming branches.
+    """
+    edges={(e['source'],e['target']):e for e in E}
+
+    def set_route(source,target,via=(),sa='b',sb='t'):
+        e=edges[source,target]
+        e.update(points=[port(source,sa),*via,port(target,sb)],
+                 source_port=sa,target_port=sb,fixed_route=True,at=None)
+        e.pop('reroute',None)
+
+    def bypass(source,target,lane,leave=28,join=28):
+        a,b=port(source,'b'),port(target,'t')
+        set_route(source,target,[(a[0],a[1]+leave),(lane,a[1]+leave),
+                                 (lane,b[1]-join),(b[0],b[1]-join)])
+
+    def side_return(source,target,lane,sa='r',sb='r'):
+        a,b=port(source,sa),port(target,sb)
+        set_route(source,target,[(lane,a[1]),(lane,b[1])],sa,sb)
+
+    # Give the return choices an actual column. The former short lead-outs
+    # forced labels onto tiny U-turns between three closely spaced return lanes.
+    for key in ['context2','use_context2_control']:
+        N[key]['x']+=180
+    N['retry_scope'].update(x=345,y=N['retry_scope']['y']-90)
+    set_route('context2','use_context2_control')
+    set_route('use_context2_control','retry_scope')
+    for key in ['delivery_approval','delivery_reply']:
+        N[key]['x']+=210
+    for g in G:
+        if g.get('scope_members')==['delivery_approval']:
+            g['x']+=210
+    N['delivery_timeout']['x']=200
+    N['delivery_retry']['x']=200
+    N['delivery_repair']['x']=200
+    a,b=port('delivery_allowed','b'),port('delivery_approval','t')
+    set_route('delivery_allowed','delivery_approval',[(a[0],a[1]+28),(b[0],a[1]+28)])
+    set_route('delivery_approval','delivery_reply')
+    a,b=port('delivery_approval','b'),port('delivery_timeout','t')
+    set_route('delivery_approval','delivery_timeout',[(a[0],a[1]+60),(b[0],a[1]+60)])
+
+    # Keep the recovery branch beside the memory it rejoins. Its success path
+    # must not cross the main successful-application column.
+    a,b=port('improvement_applied','b'),port('improvement_restore','t')
+    set_route('improvement_applied','improvement_restore',[(a[0],a[1]+60),(b[0],a[1]+60)])
+    set_route('improvement_restore','improvement_restored')
+
+    # Reserve the gap left of the retry column for its timeout branch.
+    for key in ['identity_retry_allowed','identity_reject','identity_wait','identity_timeout']:
+        N[key]['x']+=50
+    a,b=port('identity_ok','b'),port('identity_retry_allowed','t')
+    set_route('identity_ok','identity_retry_allowed',[(a[0],a[1]+60),(b[0],a[1]+60)])
+    for source,target in [('identity_retry_allowed','identity_reject'),
+                          ('identity_reject','identity_wait'),
+                          ('identity_wait','identity_timeout')]:
+        set_route(source,target)
+    side_return('identity_wait','identity',1732)
+    bypass('identity_retry_allowed','identity_timeout',1068,leave=60,join=70)
+
+    for source,target in [('delivery_retry','delivery_retry_hold'),
+                          ('effect_registered','effect_registration_hold')]:
+        N[target]['x']=N[source]['x']+(N[source]['w']-N[target]['w'])/2
+        set_route(source,target)
+
+    for source,target in [('communicate0','clarification_hold'),
+                          ('recovery_ok','recovery_hold'),
+                          ('improvement_restored','improvement_restore_hold')]:
+        set_route(source,target)
+
+    # Go around the workspace heading only after the refusal has branched off.
+    # A straight line here would pass through the heading's text.
+    for target in ['testenv0','testenv']:
+        bypass('use_'+target+'_guard',target,N[target]['x']+N[target]['w']-80,leave=180)
+
+    side_return('law_reply','law',1740)
+    # Each labelled outcome gets its own short branch before joining a long
+    # return lane. The outer branch leaves lower than the inner branch.
+    a,b=port('resume_changed','r'),port('state','r')
+    set_route('resume_changed','state',[(1661,a[1]),(1661,a[1]-60),
+              (1768,a[1]-60),(1768,b[1])],'r','r')
+    for source in ['resume_changed','human_return']:
+        a,b=port(source,'r'),port('use_context_initial_guard','r')
+        set_route(source,'use_context_initial_guard',[(1661,a[1]),(1661,a[1]+60),
+                  (1780,a[1]+60),(1780,b[1])],'r','r')
+    bypass('recovery_ok','resume_changed',1188)
+
+    # Skip alternatives along the outside of their entire column.
+    for source,target in [('law_conflict','law_settle'),('rule_conflict','rule_candidate')]:
+        bypass(source,target,1715)
+    bypass('law_wait','law_timeout',1292)
+    bypass('rule_wait','rule_timeout',1292)
+    bypass('wait_reason','wait_expired',1222,leave=60,join=70)
+
+    # These branches finish at the same place; merge before that place instead
+    # of crossing a second branch on the way to it.
+    for source in ['memory_direct','memory_reuse']:
+        bypass(source,'finish',1715,join=50)
+    for source in ['retry_improve','improve_allowed']:
+        bypass(source,'memory_unapplied',1715,join=28)
+    a,b=port('improvement_restored','b'),port('memory_unapplied','t')
+    set_route('improvement_restored','memory_unapplied',[(a[0],a[1]+28),
+              (1715,a[1]+28),(1715,b[1]-28),(b[0],b[1]-28)])
+    edges['improvement_restored','memory_unapplied']['at']=((a[0]+1715)/2,a[1]+28)
+
+    # Join a destination's existing lane as soon as the local branch permits.
+    # Do not reserve another long lane merely because the branch began earlier.
+    bypass('search','absent',840,join=40)
+    bypass('evidence_use','evidence_done',840,join=40)
+    a=port('live','b')
+    set_route('live','signal',[(a[0],a[1]+60),(port('signal','t')[0],a[1]+60)])
+
+    for target,skip,middle,last in [
+            ('law_settle','law_conflict','law_special_apply','law_new'),
+            ('rule_candidate','rule_conflict','rule_apply','rule_exception')]:
+        a,m,b=port(skip,'b'),port(middle,'b'),port(target,'t')
+        join_y=m[1]+60
+        set_route(skip,target,[(a[0],a[1]+28),(1715,a[1]+28),
+                  (1715,join_y),(m[0],join_y),(m[0],b[1]-28),(b[0],b[1]-28)])
+        c=port(last,'b')
+        set_route(last,target,[(c[0],c[1]+28),(m[0],c[1]+28),
+                  (m[0],b[1]-28),(b[0],b[1]-28)])
+
+    a,m,b=port('counter_needed','b'),port('counter_compare','b'),port('verify','t')
+    join_y=m[1]+90
+    set_route('counter_compare','verify',[(m[0],join_y),(b[0],join_y)])
+    set_route('counter_needed','verify',[(a[0],a[1]+60),(80,a[1]+60),
+              (80,join_y),(b[0],join_y)])
+    for source in ['process_fixable','vdecision','more']:
+        bypass(source,'context2',92)
+
+    # Keep each condition close to its original branch, before the shared lane.
+    for source,target in [('retry_improve','memory_unapplied'),('search','absent'),
+                          ('evidence_use','evidence_done'),('live','signal'),
+                          ('law_conflict','law_settle'),('rule_conflict','rule_candidate'),
+                          ('counter_needed','verify')]:
+        e=edges[source,target]
+        a,b=next((a,b) for a,b in zip(e['points'],e['points'][1:]) if a[1]==b[1] and a[0]!=b[0])
+        e['at']=((a[0]+b[0])/2,a[1])
+
+    # Exit on the outside of the delivery branches. Correction work enters
+    # from below on its right, then leaves on its left for the earlier context.
+    context=port('context2','r')
+    context_entry_x=context[0]+28
+    join_y=N['pack']['y']-28
+    for source in ['repair','delivery_risk_fix','retrospective_repair']:
+        a=port(source,'l')
+        set_route(source,'context2',[(24,a[1]),(24,join_y),(context_entry_x,join_y),
+                                    (context_entry_x,context[1])],'l','r')
+    repair=port('repair','r')
+    repair_entry_y=N['repair']['y']+N['repair']['h']+28
+    for source in ['delivery_repair','delivery_reply']:
+        a=port(source,'l')
+        via=[(74,a[1])]
+        set_route(source,'repair',[*via,(74,repair_entry_y),(538,repair_entry_y),
+                                  (538,repair[1])],'l','r')
+        edges[source,'repair']['at']=((a[0]+74)/2,a[1])
+    side_return('delivery_retry','delivery_guard',124,'l','l')
+    a,b=port('delivery_reply','l'),port('delivery_guard','l')
+    set_route('delivery_reply','delivery_guard',[(300,a[1]),(300,a[1]+100),
+              (124,a[1]+100),(124,b[1])],'l','l')
+    edges['delivery_reply','delivery_guard']['at']=(212,a[1]+100)
+    edges['delivery_reply','repair']['at']=(230,a[1])
+
+    # Put the longer branch first, then the shorter branch below it.
+    a=port('receipt','b')
+    b=port('delivery_retry','t')
+    set_route('receipt','delivery_retry',[(a[0],a[1]+28),(b[0],a[1]+28)])
+    bypass('receipt','delivery_repair',N['delivery_retry_hold']['x']+N['delivery_retry_hold']['w']+28,leave=84)
+
+    # Keep defining and scheduling an effects check in the same column.
+    a,b=port('effect_needed','b'),port('effect_define','t')
+    set_route('effect_needed','effect_define',[(a[0],a[1]+84),(b[0],a[1]+84)])
+    set_route('effect_define','effect_wait')
+    bypass('effect_needed','effect_wait',1740,join=60)
+
+    # Use separated rows for the three choices and spaced return trunks.
+    # Longer returns leave lower, preserving their nesting around short ones.
+    for target,lane,dy in [('progress',70,0),('checks_start',44,100),
+                          ('use_communicate0_guard',18,200)]:
+        a,b=port('retry_scope','l'),port(target,'l')
+        set_route('retry_scope',target,[(300,a[1]),(300,a[1]+dy),
+                  (lane,a[1]+dy),(lane,b[1])],'l','l')
+        e=edges['retry_scope',target]
+        e['label']=e['label'].replace('\n',' ')
+        e['at']=(185,a[1]+dy)
+    side_return('precheck_ok','progress',70,'l','l')
+    side_return('strategy_more','checks_start',44,'l','l')
+    for pair in [('delivery_retry','delivery_guard'),('precheck_ok','progress'),
+                 ('strategy_more','checks_start')]:
+        e=edges[pair];a,b=e['points'][:2]
+        e['at']=((a[0]+b[0])/2,a[1])
+
+
 def finish_routes(N, E, G, A, port, measure):
+    simplify_branches(N,E,G,port)
     headers=[]
     for g in G:
         if g.get('support_scope') or g['id'].startswith('opg'):

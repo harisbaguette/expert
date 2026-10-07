@@ -498,10 +498,10 @@ def apply(N, E, G, A, make, space, port, route, layout):
     link('improve_queue','job_memory');link('job_memory','finish')
     for k in ['memory_direct','memory_reuse']:
         cut(k,'finish');outer(k,'finish',1740,sa='r',sb='r',kind='flow')
-    make('improve_start','등록한 개선 과제의\n시작 조건이 됨',120,N['testenv']['y']-180,390,kind='terminal')
+    make('improve_start','개선 작업을 시작할\n날짜·조건이 됨',120,N['testenv']['y']-180,390,kind='terminal')
     link('improve_start','testenv')
     a,b=port('improve_queue','l'),port('improve_start','l')
-    link('improve_queue','improve_start','등록한 과제','l','l',[(85,a[1]),(85,b[1])],kind='reference')
+    link('improve_queue','improve_start','이번 업무 종료 후,\n정해 둔 날짜·조건에 시작','l','l',[(85,a[1]),(85,b[1])],kind='reference')
     N['improve_start']['activation']='registered_improvement_due'
     make('improve_finish','개선 작업 처리 끝',640,old_finish,520,
          '적용 여부와 다음 확인 시점을 남깁니다.','terminal')
@@ -521,7 +521,7 @@ def apply(N, E, G, A, make, space, port, route, layout):
     # A scheduled effects check is a real independent start, not an unfinished
     # branch of the delivery. Record its outcome and follow-up tasks locally.
     y=port('improve_finish','b')[1]+160
-    make('effect_start','등록한 성과 확인\n시점이 됨',640,y,520,kind='terminal')
+    make('effect_start','실제 효과를 확인하기로 한\n날짜가 됨',640,y,520,kind='terminal')
     make('effect_check','성과 추적',640,port('effect_start','b')[1]+60,520,
          '등록한 항목으로 실제 효과와 뒤늦게 생긴 문제를 확인합니다.\n이전 결과와 비교하고 후속 조치가 필요한지 판단합니다.')
     make('effect_record','대기·후속 관리',640,port('effect_check','b')[1]+60,520,
@@ -802,10 +802,14 @@ def draw_usage(N, E, G, A, make, space, port, route, layout, height):
         h=max(N[k]['h'] for k in row)
         for k in row:N[k]['h']=N[k]['needed_height']=h
 
-    def after(owner, source, event=''):
+    def after(owner, source, event='', body=''):
         key='use_'+owner+'_'+source
         n=N[owner];w=min(n['w'],300);bottom=n['y']+n['h']
         c=small(key,source,n['x']+(n['w']-w)/2,0,w,owner=owner)
+        if body:
+            c['body']=body
+            z,_,titles,lines=layout(c)
+            c['h']=c['needed_height']=max(76,len(titles)*(z+5)+len(lines)*25+36)
         gap=84 if event or owner=='identity_ok' else 48
         reserve(bottom,c['h']+gap+48);c['y']=bottom+gap
         for e in E:
@@ -870,8 +874,10 @@ def draw_usage(N, E, G, A, make, space, port, route, layout, height):
         label='답변·기한 도착' if owner in ('wait','wait2') else ''
         presentations[(owner,'control')]=after(owner,'control',label)
     # A future callback starts at its event, never in the registration path.
-    presentations[('effect_wait','control')]=after('effect_start','control')
-    presentations[('improve_queue','control')]=after('improve_start','control')
+    presentations[('effect_wait','control')]=after('effect_start','control',
+        body='등록한 확인 항목을 꺼내\n성과 측정을 시작합니다.')
+    presentations[('improve_queue','control')]=after('improve_start','control',
+        body='등록한 개선 과제를 꺼내\n시험 준비부터 실행합니다.')
     for owner in ['context_initial','search','original','communicate0','law_wait','rule_wait','testenv0','testenv']:
         presentations[(owner,'guard')]=guard_before(owner)
 

@@ -253,7 +253,13 @@ def apply(N, E, G, A, node, space, port, height):
     node('receipt_refused','인수를 거절해\n담당자에게 처리 방향 확인',1180,y,w=510,
          body='거절 이유와 미해결 항목을 기록합니다.\n새 합의 전에는 인수 완료로 처리하지 않습니다.',kind='stop')
     connect('receipt','delivery_retry','전송·열기 실패')
-    connect('receipt','receipt_refused','인수 거절',kind='blocked')
+    connect('receipt','receipt_refused','인수 거절',kind='blocked',y=bottom('receipt')+28)
+    # The rejection leaves above the waiting branch, so it never crosses
+    # the vertical line that continues down to receipt follow-up.
+    waiting=next(e for e in E if e['source']=='receipt' and e['target']=='wait2')
+    waiting['points'][1]=(waiting['points'][1][0],bottom('receipt')+84)
+    waiting['points'][2]=(waiting['points'][2][0],bottom('receipt')+84)
+    waiting['at']=None
     connect('delivery_retry','delivery_retry_hold','아니오·알 수 없음',kind='blocked')
     approval_return('delivery_retry','예')
     for e in E:
@@ -279,7 +285,7 @@ def apply(N, E, G, A, node, space, port, height):
     N['effect_needed'].update(title='남은 효과 확인은?',x=620,w=560,h=170)
     y=bottom('effect_needed')+140
     reserve(N['effect_wait']['y'],y+400)
-    node('effect_define','효과 확인 방법·시점 정하기',120,y,w=480,
+    node('effect_define','효과 확인 방법·시점 정하기',1225,y,w=480,
          body='언제 무엇을 측정해야 효과를 알 수 있는지\n업무 책임자와 정합니다.')
     connect('effect_needed','effect_define','방법·시점 미정')
     connect('effect_define','effect_wait','정한 확인 조건')
@@ -296,7 +302,7 @@ def apply(N, E, G, A, node, space, port, height):
     connect('effect_registered','learnneed','예 · 등록 완료')
     connect('effect_registered','effect_registration_hold','아니오',kind='blocked')
     event=next(e for e in E if e['source']=='effect_wait' and e['target']=='effect_start')
-    event['source']='effect_registered';event['label']='등록 완료 · 확인 날짜 도착'
+    event['source']='effect_registered';event['label']='이번 업무 종료 후,\n약속한 확인 날짜에 시작'
     event['points'][0]=port('effect_registered',event['source_port'])
     event['registration_condition']='registered'
     N['effect_start']['registered_by']='effect_registered'
@@ -304,7 +310,7 @@ def apply(N, E, G, A, node, space, port, height):
     # The same missing outcomes occurred outside the cited screenshots:
     # clarification without a reply, failed restoration, and a late-effect
     # check that could close while measurements were still unavailable.
-    node('clarification_hold','답변을 받지 못해\n요청 확정을 보류함',1200,N['communicate0']['y'],w=480,
+    node('clarification_hold','답변을 받지 못해\n요청 확정을 보류함',215,N['communicate0']['y'],w=480,
          body='업무 책임자에게 미확정 내용과\n다시 확인할 기한을 남깁니다.',kind='stop')
     # Place the terminal below its source without lengthening the main path.
     N['clarification_hold']['y']=bottom('communicate0')+140
@@ -317,7 +323,7 @@ def apply(N, E, G, A, node, space, port, height):
     y=bottom('monitor')+140
     reserve(N['resume_changed']['y'],y+530)
     node('recovery_ok','복구되고 처리 상태도\n확인됐는가?',1175,y,w=580,kind='decision')
-    node('recovery_hold','복구·처리 상태를 확인할 때까지\n중단한 작업을 보류함',120,bottom('recovery_ok')+160,w=520,
+    node('recovery_hold','복구·처리 상태를 확인할 때까지\n중단한 작업을 보류함',1205,bottom('recovery_ok')+160,w=520,
          body='장애 담당자에게 상태와 미확정 처리를 넘깁니다.\n처리 여부를 모르는 작업은 반복 실행하지 않습니다.',kind='stop')
     cut('monitor','resume_changed');connect('monitor','recovery_ok')
     connect('recovery_ok','resume_changed','예')
@@ -360,16 +366,20 @@ def apply(N, E, G, A, node, space, port, height):
     connect('retrospective_result','outcome','아니오 · 확인 완료')
     connect('retrospective_result','retrospective_repair','예',kind='blocked')
     connect('retrospective_result','retrospective_hold','확인 못 함',kind='blocked')
-    connect('retrospective_repair','context2','',kind='return',lane=538,side='r')
+    # Leave the correction card on its left and retain the shared entry into
+    # context2. The route need not cross the incoming "예" branch.
+    correction=connect('retrospective_repair','context2','',kind='return',lane=24)
+    correction.update(target_port='r',reroute=True)
+    correction['points'][-1]=port('context2','r')
 
     # Applying an improvement may itself fail after a successful trial.
     y=bottom('improve_apply')+130
     reserve(N['memory2']['y'],y+1140)
     node('improvement_applied','적용 상태와 필수 점검이\n정상인가?',600,y,w=600,kind='decision')
-    node('improvement_restore','변경 중단·복구',120,bottom('improvement_applied')+150,w=480,
+    node('improvement_restore','변경 중단·복구',1160,bottom('improvement_applied')+150,w=480,
          body='문제가 있는 수정본의 사용을 멈춥니다.\n승인된 복구 방법으로 이전 상태를 복원합니다.')
-    node('improvement_restored','이전 상태로 복구됐는가?',90,bottom('improvement_restore')+130,w=540,kind='decision')
-    node('improvement_restore_hold','복구를 확인할 때까지\n영향받는 업무를 중단함',1180,bottom('improvement_restored')+130,w=520,
+    node('improvement_restored','이전 상태로 복구됐는가?',1130,bottom('improvement_restore')+130,w=540,kind='decision')
+    node('improvement_restore_hold','복구를 확인할 때까지\n영향받는 업무를 중단함',1140,bottom('improvement_restored')+130,w=520,
          body='장애 담당자에게 적용·복구 상태와\n영향받는 업무를 넘깁니다.',kind='stop')
     cut('improve_apply','memory2');connect('improve_apply','improvement_applied')
     connect('improvement_applied','memory2','예')

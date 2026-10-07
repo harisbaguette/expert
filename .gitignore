@@ -5,6 +5,7 @@
 __pycache__/
 *.pyc
 .ruff_cache/
+.DS_Store
 
 # 이미지 생성 중간 산출물
 /output/

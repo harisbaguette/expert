@@ -6,7 +6,7 @@
 #   재료 구성과 반복 실행을 함께 보인다. 규칙은 적용 의무의 동시 충족으로 표현한다.
 # Run: python3 "docs/전개-수식/전개-수식-gen.py"  (then check the render before committing)
 #
-# 기준선: 본문 77개 항목 · 9개 계통 · 세부 책임 M01–M57. 한 항목과 한 ID는 일대일이 아니다.
+# 기준선: 본문 79개 항목 · 9개 계통 · 세부 책임 M01–M57. 한 항목과 한 ID는 일대일이 아니다.
 
 import re
 from html import escape
@@ -91,7 +91,7 @@ TERM_SYSTEMS = {
 }
 PLUS = ("o", "+")
 ROOT = Path(__file__).resolve().parents[2]
-EXPECTED_ITEMS = 77
+EXPECTED_ITEMS = 79
 EXPECTED_IDS = {f"M{i:02d}" for i in range(1, 58)}
 SYSTEMS = [group for groups in TERM_SYSTEMS.values() for group in groups]
 
@@ -152,7 +152,7 @@ def load_summary(summary):
         records.append({"name": match[1], "group": group, "subgroup": subgroup,
                         "usage": usage[1], "note": cells[5]})
     if len(records) != EXPECTED_ITEMS or len({r["name"] for r in records}) != EXPECTED_ITEMS:
-        raise ValueError("본문 항목은 중복 없이 77개여야 합니다.")
+        raise ValueError(f"본문 항목은 중복 없이 {EXPECTED_ITEMS}개여야 합니다.")
     if list(dict.fromkeys(r["group"] for r in records)) != SYSTEMS:
         raise ValueError("본문의 계통·순서가 9개 계통과 일치하지 않습니다.")
     return records
@@ -170,7 +170,7 @@ def load_mapping(registry):
         records.append({"group": group, "name": name, "ids": ids,
                         "usage": usage, "boundary": boundary})
     if len(records) != EXPECTED_ITEMS or len({r["name"] for r in records}) != EXPECTED_ITEMS:
-        raise ValueError("대응표 항목은 중복 없이 77개여야 합니다.")
+        raise ValueError(f"대응표 항목은 중복 없이 {EXPECTED_ITEMS}개여야 합니다.")
     used_ids = {mid for r in records for mid in r["ids"]}
     if used_ids != EXPECTED_IDS:
         raise ValueError(f"본문에 연결되지 않은 세부 책임: {sorted(EXPECTED_IDS - used_ids)}")
@@ -188,7 +188,7 @@ def validate_summary(records, mapping):
 
 REGISTRY = (ROOT / "docs/materials.md").read_text(encoding="utf-8")
 RESPONSIBILITIES = load_responsibilities(REGISTRY)
-MATERIALS = load_summary((ROOT / "전문가 에이전트 정의.md").read_text(encoding="utf-8"))
+MATERIALS = load_summary((ROOT / "전문가 에이전트 정의 1.md").read_text(encoding="utf-8"))
 validate_summary(MATERIALS, load_mapping(REGISTRY))
 TERMS = {
     term: [(group, [r for r in MATERIALS if r["group"] == group]) for group in groups]

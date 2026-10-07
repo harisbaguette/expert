@@ -10,7 +10,7 @@ from collections import Counter
 import ast, bisect, hashlib, html, json, math, re
 
 ROOT=Path(__file__).resolve().parents[2]
-PREFIX=(ROOT/'전문가 에이전트 정의.md').read_text().split('## 사용 구조',1)[0]
+PREFIX=(ROOT/'전문가 에이전트 정의 1.md').read_text().split('## 사용 구조',1)[0]
 formula_tree=ast.parse((ROOT/'docs/전개-수식/전개-수식-gen.py').read_text())
 TERM_SYSTEMS=next(ast.literal_eval(n.value) for n in formula_tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='TERM_SYSTEMS' for t in n.targets))
 SYSTEM_TERM={s:term for term,systems in TERM_SYSTEMS.items() for s in systems}
@@ -656,18 +656,24 @@ for e in E:
     if (e['source'],e['target'])==('now','trust'):e['label']='조회 결과'
     if (e['source'],e['target']) in label_edits:e['label']=label_edits[e['source'],e['target']]
 
-def rounded(points,r=14,bridges=()):
+def rounded(points,r=14,bridges=(),with_length=False):
     # Polyline corners rounded without freeform splines wandering through labels.
     ps=[]
     for q in points:
         if not ps or q!=ps[-1]:ps.append(q)
     if len(ps)<2:return ''
+    length=0
     def line_to(a,b):
-        jumps=sorted((j for j in bridges if a[1]==b[1]==j['y'] and min(a[0],b[0])<j['x']<max(a[0],b[0])),key=lambda j:j['x'],reverse=b[0]<a[0])
-        out='';direction=1 if b[0]>a[0] else -1
+        nonlocal length
+        unique={(j['x'],j['y']):j for j in bridges}
+        jumps=sorted((j for j in unique.values() if a[1]==b[1]==j['y'] and min(a[0],b[0])<j['x']<max(a[0],b[0])),key=lambda j:j['x'],reverse=b[0]<a[0])
+        out='';direction=1 if b[0]>a[0] else -1;cursor=a
         for j in jumps:
             x,y,rr=j['x'],j['y'],j['radius']
+            length+=math.dist(cursor,(x-direction*rr,y))+rr*(math.sqrt(5)+math.asinh(2)/2)
+            cursor=(x+direction*rr,y)
             out+=f' L{x-direction*rr},{y} Q{x},{y-2*rr} {x+direction*rr},{y}'
+        length+=math.dist(cursor,b)
         return out+f' L{b[0]},{b[1]}'
     d=f'M{ps[0][0]},{ps[0][1]}';last=ps[0]
     for i in range(1,len(ps)-1):
@@ -675,7 +681,9 @@ def rounded(points,r=14,bridges=()):
         rr=min(r,lu/2,lv/2)
         q=(b[0]+u[0]/lu*rr,b[1]+u[1]/lu*rr);z=(b[0]+v[0]/lv*rr,b[1]+v[1]/lv*rr)
         d+=line_to(last,q)+f' Q{b[0]},{b[1]} {z[0]},{z[1]}';last=z
-    return d+line_to(last,ps[-1])
+        length+=rr*(1+math.asinh(1)/math.sqrt(2))
+    d+=line_to(last,ps[-1])
+    return (d,length) if with_length else d
 def simplify_path(points):
     result=[]
     for point in points:
@@ -1536,8 +1544,14 @@ if unplaced:raise RuntimeError('LABELS_NEED_PLACEMENT '+json.dumps(unplaced,ensu
 names=Counter(n['material'] for n in N.values() if n['material'])
 names.update(g['material'] for g in G if g.get('material'))
 assert set(names)==set(CAT),(set(CAT)-set(names),set(names)-set(CAT))
+EDGE_STYLE={
+    'flow':dict(color=C['blue'],width=2.4,dash=[],arrow='filled'),
+    'blocked':dict(color=C['red'],width=2.4,dash=[],arrow='filled'),
+    'return':dict(color=C['yellow'],width=3,dash=[16,10],arrow='hollow'),
+    'reference':dict(color=C['muted'],width=2.4,dash=[6,6],arrow=None),
+}
 model=dict(width=W,height=H,nodes=N,groups=G,edges=E,annotations=A,bridges=bridges,illustrations=[],catalog=CAT,system_styles=SYSTEM_STYLE,system_mapping=TERM_SYSTEMS,
-           visual_style=dict(scope_styles=SCOPE_STYLE,card_fill='#FFFFFF',card_border='#B7C4D2',scope_heading='integrated header band',category_style='tinted badge'),
+           visual_style=dict(scope_styles=SCOPE_STYLE,edge_styles=EDGE_STYLE,card_fill='#FFFFFF',card_border='#B7C4D2',scope_heading='integrated header band',category_style='tinted badge'),
            source_prefix_sha256=hashlib.sha256(PREFIX.encode()).hexdigest())
 o=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">',
    '<title>한 건을 한 전문가가 처리할 때의 재료 연결 구조</title>','<rect width="100%" height="100%" fill="white"/>',f'<g font-family="Apple SD Gothic Neo,Noto Sans CJK KR,sans-serif" fill="{C["ink"]}">']
@@ -1565,14 +1579,19 @@ for g in sorted(G,key=lambda g:g['w']*g['h'],reverse=True):
         for j,line in enumerate([g['usage_caption'],*g.get('usage_caption_extra',[])]):
             o.append(f'<text class="annotation group-usage" x="{x+22}" y="{y+36+j*28}" font-size="21" fill="{C["muted"]}">{esc(line)}</text>')
 for i,e in sorted(enumerate(E),key=lambda item:any(j['over_edge']==item[0] for j in bridges)):
-    col=C[{'flow':'blue','blocked':'red','return':'yellow','reference':'muted'}[e['kind']]]
+    style=EDGE_STYLE[e['kind']];col=style['color']
     route=e['points'] if e['kind']=='reference' else e['points'][:-1]+[e['arrow'][0]]
-    dash=' stroke-dasharray="6 6"' if e['kind']=='reference' else ''
     jumps=[j for j in bridges if j['over_edge']==i]
+    path,path_length=rounded(route,bridges=jumps,with_length=True)
+    dash=' stroke-dasharray="'+ ' '.join(map(str,style['dash']))+'"' if style['dash'] else ''
+    if e['kind']=='return':
+        # Anchor the pattern at the destination: merged return tails keep
+        # identical gaps instead of overlapping into an apparently solid line.
+        dash+=f' stroke-dashoffset="{-path_length % sum(style["dash"]):.6f}"'
     for j in jumps:
         x,y,rr=j['x'],j['y'],j['radius']
         o.append(f'<path class="edge-bridge" data-over="e{i}" data-under="e{j["under_edge"]}" d="M{x-rr},{y} Q{x},{y-2*rr} {x+rr},{y}" fill="none" stroke="white" stroke-width="8"><title>서로 연결되지 않는 선</title></path>')
-    o.append(f'<path class="edge" data-id="e{i}" d="{rounded(route,bridges=jumps)}" fill="none" stroke="{col}" stroke-width="2.4" stroke-linecap="round"{dash}/>')
+    o.append(f'<path class="edge" data-id="e{i}" data-kind="{e["kind"]}" d="{path}" fill="none" stroke="{col}" stroke-width="{style["width"]}" stroke-linecap="round"{dash}/>')
 for k,n in N.items():
     x,y,w,h=(n[t] for t in ('x','y','w','h'));kind=n['kind']
     o.append(f'<g class="node" data-id="{k}" data-material="{esc(n["material"] or "")}" data-system="{n.get("term","")}">')
@@ -1613,7 +1632,8 @@ for i,e in enumerate(E):
     pts=e['points'];x,y=e['at'] or ((pts[0][0]+pts[-1][0])/2,(pts[0][1]+pts[-1][1])/2)
     lines=e['label'].split('\n');tw=e['label_rect']['w'];th=e['label_rect']['h']
     col=C[{'flow':'blue','blocked':'red','return':'yellow','reference':'muted'}[e['kind']]]
-    o.append(f'<g class="edge-label" data-edge="e{i}"><rect x="{x-tw/2}" y="{y-th/2}" width="{tw}" height="{th}" rx="6" fill="white" stroke="#C9D5E2" stroke-width="1"/>')
+    fill,border=('#FFF8EB',C['yellow']) if e['kind']=='return' else ('white','#C9D5E2')
+    o.append(f'<g class="edge-label" data-edge="e{i}"><rect x="{x-tw/2}" y="{y-th/2}" width="{tw}" height="{th}" rx="6" fill="{fill}" stroke="{border}" stroke-width="1"/>')
     for j,s in enumerate(lines):o.append(f'<text x="{x}" y="{y-th/2+24+j*26}" text-anchor="middle" font-size="20" font-weight="600">{esc(s)}</text>')
     o.append('</g>')
 for a in A:
@@ -1622,7 +1642,9 @@ for a in A:
 for i,e in enumerate(E):
     if e['kind']=='reference':continue
     col=C[{'flow':'blue','blocked':'red','return':'yellow','reference':'muted'}[e['kind']]]
-    o.append(f'<polygon class="arrowhead" data-edge="e{i}" points="'+ ' '.join(f'{x},{y}' for x,y in e['arrow'])+f'" fill="{col}"/>')
+    fill='white' if e['kind']=='return' else col
+    outline=f' stroke="{col}" stroke-width="2.6" stroke-linejoin="round"' if e['kind']=='return' else ''
+    o.append(f'<polygon class="arrowhead" data-edge="e{i}" points="'+ ' '.join(f'{x},{y}' for x,y in e['arrow'])+f'" fill="{fill}"{outline}/>')
 o+=['</g>','<metadata>'+esc(json.dumps(model,ensure_ascii=False))+'</metadata>','</svg>']
 (ROOT/'docs/images/expert-definition/solo-material-relations.svg').write_text('\n'.join(o))
 (ROOT/'docs/도식/단독-재료-연결구조.json').write_text(json.dumps(model,ensure_ascii=False,indent=2)+'\n')

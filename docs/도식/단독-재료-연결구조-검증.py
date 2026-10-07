@@ -17,7 +17,7 @@ def run(folder):
     d=json.loads((ROOT/'docs/도식/단독-재료-연결구조.json').read_text())
     g=json.loads((folder/'geometry.json').read_text())
     svg=(ROOT/'docs/images/expert-definition/solo-material-relations.svg').read_text()
-    prefix=(ROOT/'전문가 에이전트 정의.md').read_text().split('## 사용 구조',1)[0]
+    prefix=(ROOT/'전문가 에이전트 정의 1.md').read_text().split('## 사용 구조',1)[0]
     assert hashlib.sha256(prefix.encode()).hexdigest()==d['source_prefix_sha256']=='c65318f94f7ff41325f47dd2a3a4feedf56f4fee59deb94a4518b1a389068c0a'
     assert hashlib.sha256(svg.encode()).hexdigest()==g['svg_sha256']
     assert json.loads(html.unescape(re.search(r'<metadata>(.*?)</metadata>',svg,re.S)[1]))==d
