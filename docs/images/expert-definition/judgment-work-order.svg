@@ -1,80 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1427" height="1680" viewBox="2.0 0.0 1427.5 1680.0" role="img" font-family="'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1427" height="1703" viewBox="2.0 0.0 1427.5 1703.0" role="img" font-family="'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif">
 <title>일하는 순서 여섯 단계: 물음 파악, 대상 확정, 권한 거르기, 자료 모으기, 전문 판단, 판단 검사</title>
-<rect x="2.0" y="0.0" width="1427.5" height="1680.0" fill="white"/>
+<rect x="2.0" y="0.0" width="1427.5" height="1703.0" fill="white"/>
 <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#333"/></marker></defs>
 <path id="e-Q-P" d="M640.0,63.0 L640.0,121.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
 <path id="e-P-dP" d="M640.0,218.0 L640.0,276.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
 <path id="e-dP-T" d="M640.0,323.0 L640.0,381.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
 <path id="e-T-dT" d="M640.0,478.0 L640.0,536.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
 <path id="e-dT-R" d="M640.0,583.0 L640.0,641.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-R-D" d="M640.0,715.0 L640.0,773.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-D-dD" d="M640.0,916.0 L640.0,974.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dD-I" d="M640.0,1021.0 L640.0,1079.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-I-dI" d="M640.0,1199.0 L640.0,1257.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dI-C" d="M640.0,1304.0 L640.0,1362.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-C-A" d="M640.0,1482.0 L640.0,1540.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dP-ASK" d="M510.8,299.5 L211.6,299.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dT-ASK" d="M517.2,559.5 L186.8,559.5 Q160.8,559.5 160.8,533.5 L160.8,336.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-ASK-P" d="M80.8,262.5 L80.8,165.5 Q80.8,139.5 106.8,139.5 L525.5,139.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dD-GAP" d="M777.7,997.5 L1127.7,997.5 Q1153.7,997.5 1153.7,1023.5 L1153.7,1232.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dI-GAP" d="M762.8,1280.5 L989.9,1280.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dD-DEC" d="M502.3,997.5 L165.2,997.5 Q139.2,997.5 139.2,1023.5 L139.2,1102.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dI-DEC" d="M517.2,1280.5 L165.2,1280.5 Q139.2,1280.5 139.2,1254.5 L139.2,1176.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-DEC-I" d="M238.5,1139.0 L440.1,1139.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-GAP-ONT" d="M1153.7,1329.0 L1153.7,1391.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-ONT-dO" d="M1153.7,1479.0 L1153.7,1537.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dO-D" d="M1268.3,1560.5 L1337.5,1560.5 Q1363.5,1560.5 1363.5,1534.5 L1363.5,830.5 Q1363.5,804.5 1337.5,804.5 L826.9,804.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-dO-P" d="M1153.7,1584.0 L1153.7,1605.0 Q1153.7,1626.0 1174.7,1626.0 L1383.5,1626.0 Q1409.5,1626.0 1409.5,1600.0 L1409.5,195.5 Q1409.5,169.5 1383.5,169.5 L754.5,169.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
-<path id="e-C-D" d="M410.1,1422.0 L48.0,1422.0 Q22.0,1422.0 22.0,1396.0 L22.0,870.5 Q22.0,844.5 48.0,844.5 L453.1,844.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-R-D" d="M640.0,738.0 L640.0,796.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-D-dD" d="M640.0,939.0 L640.0,997.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dD-I" d="M640.0,1044.0 L640.0,1102.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-I-dI" d="M640.0,1222.0 L640.0,1280.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dI-C" d="M640.0,1327.0 L640.0,1385.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-C-A" d="M640.0,1505.0 L640.0,1563.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dP-ASK" d="M510.8,299.5 L263.5,299.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dT-ASK" d="M517.2,559.5 L212.8,559.5 Q186.8,559.5 186.8,533.5 L186.8,348.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-ASK-P" d="M106.8,251.0 L106.8,165.5 Q106.8,139.5 132.8,139.5 L525.5,139.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dD-GAP" d="M777.7,1020.5 L1127.7,1020.5 Q1153.7,1020.5 1153.7,1046.5 L1153.7,1255.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dI-GAP" d="M762.8,1303.5 L989.9,1303.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dD-DEC" d="M502.3,1020.5 L188.9,1020.5 Q162.9,1020.5 162.9,1046.5 L162.9,1113.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dI-DEC" d="M517.2,1303.5 L188.9,1303.5 Q162.9,1303.5 162.9,1277.5 L162.9,1210.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-DEC-I" d="M285.9,1162.0 L440.1,1162.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-GAP-ONT" d="M1153.7,1352.0 L1153.7,1414.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-ONT-dO" d="M1153.7,1502.0 L1153.7,1560.0" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dO-D" d="M1268.3,1583.5 L1337.5,1583.5 Q1363.5,1583.5 1363.5,1557.5 L1363.5,853.5 Q1363.5,827.5 1337.5,827.5 L826.9,827.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-dO-P" d="M1153.7,1607.0 L1153.7,1628.0 Q1153.7,1649.0 1174.7,1649.0 L1383.5,1649.0 Q1409.5,1649.0 1409.5,1623.0 L1409.5,195.5 Q1409.5,169.5 1383.5,169.5 L754.5,169.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
+<path id="e-C-D" d="M410.1,1445.0 L48.0,1445.0 Q22.0,1445.0 22.0,1419.0 L22.0,893.5 Q22.0,867.5 48.0,867.5 L453.1,867.5" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#ar)"/>
 <g id="Q"><rect x="551.5" y="20.0" width="177.0" height="43.0" rx="21.5" fill="#dcfce7" stroke="#86d3a3" stroke-width="1.6"/><text x="640.0" y="41.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">맡긴 업무 · 판단할 물음</text></g>
 <g id="P"><rect x="525.5" y="121.0" width="229.0" height="97.0" fill="#dbeafe" stroke="#7dabe8" stroke-width="1.6"/><text x="640.0" y="146.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">① 물음 파악 (부품: 개념 · 관계)</text><text x="640.0" y="169.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">물음의 말을 개념 번호로 바꾸고</text><text x="640.0" y="192.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">전제가 개념·관계와 맞는지 본다</text></g>
 <g id="dP"><polygon points="540.8,276.0 739.2,276.0 769.2,299.5 739.2,323.0 540.8,323.0 510.8,299.5" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="640.0" y="299.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">전제가 맞고 뜻이 하나인가</text></g>
 <g id="T"><rect x="512.9" y="381.0" width="254.3" height="97.0" fill="#dbeafe" stroke="#7dabe8" stroke-width="1.6"/><text x="640.0" y="406.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">② 대상 확정 (부품: 개념 · 규칙)</text><text x="640.0" y="429.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">대상 번호를 하나로 정하고</text><text x="640.0" y="452.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">상위 개념과 규칙으로 종류를 정한다</text></g>
 <g id="dT"><polygon points="547.2,536.0 732.8,536.0 762.8,559.5 732.8,583.0 547.2,583.0 517.2,559.5" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="640.0" y="559.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">후보 중 하나로 정해지나</text></g>
-<g id="R"><rect x="470.3" y="641.0" width="339.4" height="74.0" fill="#dbeafe" stroke="#7dabe8" stroke-width="1.6"/><text x="640.0" y="666.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">③ 권한 거르기 (부품: 권한)</text><text x="640.0" y="689.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">이 사람과 이 업무가 볼 수 있는 개념·출처만 남긴다</text></g>
-<g id="D"><rect x="453.1" y="773.0" width="373.8" height="143.0" fill="#dbeafe" stroke="#7dabe8" stroke-width="1.6"/><text x="640.0" y="798.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">④ 자료 모으기 (부품: 개념 · 관계 · 규칙 · 출처)</text><text x="640.0" y="821.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">기준 시점에 효력이 있는 판본만 모으고 출처 등급을 단다</text><text x="640.0" y="844.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">부딪치면 ‘앞선다’ 관계를 따라 고르고,</text><text x="640.0" y="867.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">점검 목록마다 필요한 증거가 찼는지 본다</text><text x="640.0" y="890.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">자료 자체가 없는 빈 곳은 표시해 넘긴다</text></g>
-<g id="dD"><polygon points="532.3,974.0 747.7,974.0 777.7,997.5 747.7,1021.0 532.3,1021.0 502.3,997.5" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="640.0" y="997.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">자료를 모으다 막힌 곳이 있나</text></g>
-<g id="I"><rect x="440.1" y="1079.0" width="399.7" height="120.0" fill="#dbeafe" stroke="#7dabe8" stroke-width="1.6"/><text x="640.0" y="1104.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">⑤ 전문 판단 (부품: 관계 · 규칙)</text><text x="640.0" y="1127.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">관계를 따라 사실을 잇고 전문 지식과 조건·예외를 적용한다</text><text x="640.0" y="1150.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">조건·예외가 조문에 정해진 계산은 규칙 엔진이 한다</text><text x="640.0" y="1173.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">반대 근거와 갈리는 해석을 검토해 결론과 처리 방향을 정한다</text></g>
-<g id="dI"><polygon points="547.2,1257.0 732.8,1257.0 762.8,1280.5 732.8,1304.0 547.2,1304.0 517.2,1280.5" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="640.0" y="1280.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">판단하다 막힌 곳이 있나</text></g>
-<g id="C"><polygon points="440.1,1362.0 839.9,1362.0 869.9,1422.0 839.9,1482.0 440.1,1482.0 410.1,1422.0" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="640.0" y="1387.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">⑥ 판단 검사 (부품: 출처 · 권한)</text><text x="640.0" y="1410.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">쓴 자료의 권한을 다시 확인하고 직접 사실은 원문과 대조한다</text><text x="640.0" y="1433.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">계산·규칙 결론은 입력의 출처와 도출 과정을 확인한다</text><text x="640.0" y="1456.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">조건·예외의 적용과 추론이 결론을 뒷받침하나</text></g>
-<g id="A"><rect x="510.9" y="1540.0" width="258.2" height="120.0" rx="36.0" fill="#dcfce7" stroke="#86d3a3" stroke-width="1.6"/><text x="640.0" y="1565.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">검증한 전문 판단</text><text x="640.0" y="1588.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">결론 · 적용 조건 · 근거 · 처리 방향</text><text x="640.0" y="1611.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">미확인 사항과 판단 범위를 밝히고,</text><text x="640.0" y="1634.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">뒷받침할 수 없는 결론은 내지 않는다</text></g>
-<g id="ASK"><rect x="30.0" y="262.5" width="181.6" height="74.0" fill="#fee2e2" stroke="#f0a3a3" stroke-width="1.6"/><text x="120.8" y="288.0" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">맡긴 사람에게 되묻거나</text><text x="120.8" y="311.0" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">전제를 바로잡는다</text></g>
-<g id="DEC"><rect x="40.0" y="1102.0" width="198.5" height="74.0" fill="#fee2e2" stroke="#f0a3a3" stroke-width="1.6"/><text x="139.2" y="1127.5" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">사람에게 결정을 요청한다</text><text x="139.2" y="1150.5" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">근거와 대안을 붙여 넘긴다</text></g>
-<g id="GAP"><rect x="989.9" y="1232.0" width="327.6" height="97.0" fill="#ffedd5" stroke="#f3b183" stroke-width="1.6"/><text x="1153.7" y="1257.5" text-anchor="middle" dominant-baseline="central" fill="#7c2d12" font-size="15">빈 곳 채우기</text><text x="1153.7" y="1280.5" text-anchor="middle" dominant-baseline="central" fill="#7c2d12" font-size="15">업무 지식이 개념·관계를 보태고 사람이 승인한다</text><text x="1153.7" y="1303.5" text-anchor="middle" dominant-baseline="central" fill="#7c2d12" font-size="15">승인 전에는 빈 곳을 밝혀 답하거나 삼간다</text></g>
-<g id="ONT"><path d="M1042.0,1400.0 A111.7,9 0 0 1 1265.4,1400.0 L1265.4,1470.0 A111.7,9 0 0 1 1042.0,1470.0 Z" fill="#e5e7eb" stroke="#b0b6bf" stroke-width="1.6"/><path d="M1042.0,1400.0 A111.7,9 0 0 0 1265.4,1400.0" fill="none" stroke="#b0b6bf" stroke-width="1.6"/><text x="1153.7" y="1430.5" text-anchor="middle" dominant-baseline="central" fill="#1f2937" font-size="15">판단의 공통 기준</text><text x="1153.7" y="1453.5" text-anchor="middle" dominant-baseline="central" fill="#1f2937" font-size="15">개념 · 관계 · 규칙 · 출처 · 권한</text></g>
-<g id="dO"><polygon points="1069.1,1537.0 1238.3,1537.0 1268.3,1560.5 1238.3,1584.0 1069.1,1584.0 1039.1,1560.5" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="1153.7" y="1560.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">대상·범위가 바뀌었나</text></g>
+<g id="R"><rect x="455.1" y="641.0" width="369.8" height="97.0" fill="#dbeafe" stroke="#7dabe8" stroke-width="1.6"/><text x="640.0" y="666.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">③ 권한 거르기 (부품: 권한)</text><text x="640.0" y="689.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">이번 판단에 쓸 수 있는 자료의 범위를 정한다</text><text x="640.0" y="712.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">모든 단계에서 자료를 찾거나 쓰기 전에 권한을 확인한다</text></g>
+<g id="D"><rect x="453.1" y="796.0" width="373.8" height="143.0" fill="#dbeafe" stroke="#7dabe8" stroke-width="1.6"/><text x="640.0" y="821.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">④ 자료 모으기 (부품: 개념 · 관계 · 규칙 · 출처)</text><text x="640.0" y="844.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">기준 시점에 효력이 있는 판본만 모으고 출처 등급을 단다</text><text x="640.0" y="867.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">부딪치면 ‘앞선다’ 관계를 따라 고르고,</text><text x="640.0" y="890.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">점검 목록마다 필요한 증거가 찼는지 본다</text><text x="640.0" y="913.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">자료 자체가 없는 빈 곳은 표시해 넘긴다</text></g>
+<g id="dD"><polygon points="532.3,997.0 747.7,997.0 777.7,1020.5 747.7,1044.0 532.3,1044.0 502.3,1020.5" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="640.0" y="1020.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">자료를 모으다 막힌 곳이 있나</text></g>
+<g id="I"><rect x="440.1" y="1102.0" width="399.7" height="120.0" fill="#dbeafe" stroke="#7dabe8" stroke-width="1.6"/><text x="640.0" y="1127.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">⑤ 전문 판단 (부품: 관계 · 규칙)</text><text x="640.0" y="1150.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">관계를 따라 사실을 잇고 전문 지식과 조건·예외를 적용한다</text><text x="640.0" y="1173.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">조건·예외가 조문에 정해진 계산은 규칙 엔진이 한다</text><text x="640.0" y="1196.5" text-anchor="middle" dominant-baseline="central" fill="#17314f" font-size="15">반대 근거와 갈리는 해석을 검토해 결론과 처리 방향을 정한다</text></g>
+<g id="dI"><polygon points="547.2,1280.0 732.8,1280.0 762.8,1303.5 732.8,1327.0 547.2,1327.0 517.2,1303.5" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="640.0" y="1303.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">판단하다 막힌 곳이 있나</text></g>
+<g id="C"><polygon points="440.1,1385.0 839.9,1385.0 869.9,1445.0 839.9,1505.0 440.1,1505.0 410.1,1445.0" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="640.0" y="1410.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">⑥ 판단 검사 (부품: 출처 · 권한)</text><text x="640.0" y="1433.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">쓴 자료의 권한을 다시 확인하고 직접 사실은 원문과 대조한다</text><text x="640.0" y="1456.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">계산·규칙 결론은 입력의 출처와 도출 과정을 확인한다</text><text x="640.0" y="1479.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">조건·예외의 적용과 추론이 결론을 뒷받침하나</text></g>
+<g id="A"><rect x="510.9" y="1563.0" width="258.2" height="120.0" rx="36.0" fill="#dcfce7" stroke="#86d3a3" stroke-width="1.6"/><text x="640.0" y="1588.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">검증한 전문 판단</text><text x="640.0" y="1611.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">결론 · 적용 조건 · 근거 · 처리 방향</text><text x="640.0" y="1634.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">미확인 사항과 판단 범위를 밝히고,</text><text x="640.0" y="1657.5" text-anchor="middle" dominant-baseline="central" fill="#14532d" font-size="15">뒷받침할 수 없는 결론은 내지 않는다</text></g>
+<g id="ASK"><rect x="30.0" y="251.0" width="233.5" height="97.0" fill="#fee2e2" stroke="#f0a3a3" stroke-width="1.6"/><text x="146.8" y="276.5" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">틀린 전제는 바로잡고</text><text x="146.8" y="299.5" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">전제·뜻·대상을 확인할 수 없으면</text><text x="146.8" y="322.5" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">맡긴 사람에게 되묻는다</text></g>
+<g id="DEC"><rect x="40.0" y="1113.5" width="245.9" height="97.0" fill="#fee2e2" stroke="#f0a3a3" stroke-width="1.6"/><text x="162.9" y="1139.0" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">대안마다 ⑤ 판단·⑥ 검사를 마친다</text><text x="162.9" y="1162.0" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">근거와 대안을 붙여</text><text x="162.9" y="1185.0" text-anchor="middle" dominant-baseline="central" fill="#7f1d1d" font-size="15">사람에게 결정을 요청한다</text></g>
+<g id="GAP"><rect x="989.9" y="1255.0" width="327.6" height="97.0" fill="#ffedd5" stroke="#f3b183" stroke-width="1.6"/><text x="1153.7" y="1280.5" text-anchor="middle" dominant-baseline="central" fill="#7c2d12" font-size="15">빈 곳 채우기</text><text x="1153.7" y="1303.5" text-anchor="middle" dominant-baseline="central" fill="#7c2d12" font-size="15">업무 지식이 개념·관계를 보태고 사람이 승인한다</text><text x="1153.7" y="1326.5" text-anchor="middle" dominant-baseline="central" fill="#7c2d12" font-size="15">승인 전에는 빈 곳을 밝혀 답하거나 삼간다</text></g>
+<g id="ONT"><path d="M1042.0,1423.0 A111.7,9 0 0 1 1265.4,1423.0 L1265.4,1493.0 A111.7,9 0 0 1 1042.0,1493.0 Z" fill="#e5e7eb" stroke="#b0b6bf" stroke-width="1.6"/><path d="M1042.0,1423.0 A111.7,9 0 0 0 1265.4,1423.0" fill="none" stroke="#b0b6bf" stroke-width="1.6"/><text x="1153.7" y="1453.5" text-anchor="middle" dominant-baseline="central" fill="#1f2937" font-size="15">판단의 공통 기준</text><text x="1153.7" y="1476.5" text-anchor="middle" dominant-baseline="central" fill="#1f2937" font-size="15">개념 · 관계 · 규칙 · 출처 · 권한</text></g>
+<g id="dO"><polygon points="1069.1,1560.0 1238.3,1560.0 1268.3,1583.5 1238.3,1607.0 1069.1,1607.0 1039.1,1583.5" fill="#fef9c3" stroke="#e2c95f" stroke-width="1.6"/><text x="1153.7" y="1583.5" text-anchor="middle" dominant-baseline="central" fill="#713f12" font-size="15">대상·범위가 바뀌었나</text></g>
 <rect x="659.9" y="340.0" width="76.2" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
 <text x="698.0" y="352.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">맞고 하나임</text>
 <rect x="655.8" y="600.0" width="48.3" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
 <text x="680.0" y="612.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">정해짐</text>
-<rect x="651.9" y="1038.0" width="64.1" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="684.0" y="1050.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">막힘 없음</text>
-<rect x="651.9" y="1321.0" width="64.1" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="684.0" y="1333.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">막힘 없음</text>
-<rect x="655.8" y="1499.0" width="60.4" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="686.0" y="1511.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">뒷받침함</text>
-<rect x="323.0" y="278.5" width="76.2" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="361.2" y="290.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">전제가 틀림</text>
-<text x="361.2" y="308.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">뜻이 갈림</text>
-<rect x="300.9" y="547.5" width="116.2" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="359.0" y="559.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">후보가 갈리지 않음</text>
-<rect x="835.3" y="976.5" width="104.7" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="887.7" y="988.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">개념·관계가 비는</text>
-<text x="887.7" y="1006.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">점검 항목</text>
-<rect x="838.2" y="1259.5" width="76.2" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="876.3" y="1271.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">개념에 없는</text>
-<text x="876.3" y="1289.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">관계·규칙</text>
-<rect x="296.9" y="985.5" width="107.8" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="350.8" y="997.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">정할 수 없는 충돌</text>
-<rect x="304.3" y="1268.5" width="107.8" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="358.2" y="1280.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">정할 수 없는 충돌</text>
-<rect x="301.2" y="1127.0" width="76.2" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="339.3" y="1139.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">결정을 받음</text>
-<rect x="1083.1" y="783.5" width="104.1" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="1135.2" y="795.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">유지</text>
-<text x="1135.2" y="813.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">관련 자료 재확인</text>
+<rect x="651.9" y="1061.0" width="64.1" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="684.0" y="1073.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">막힘 없음</text>
+<rect x="651.9" y="1344.0" width="64.1" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="684.0" y="1356.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">막힘 없음</text>
+<rect x="655.8" y="1522.0" width="60.4" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="686.0" y="1534.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">뒷받침함</text>
+<rect x="334.8" y="278.5" width="104.7" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="387.1" y="290.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">전제 틀림·미확인</text>
+<text x="387.1" y="308.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">뜻이 갈림</text>
+<rect x="313.9" y="547.5" width="116.2" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="372.0" y="559.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">후보가 갈리지 않음</text>
+<rect x="835.3" y="999.5" width="104.7" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="887.7" y="1011.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">개념·관계가 비는</text>
+<text x="887.7" y="1029.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">점검 항목</text>
+<rect x="838.2" y="1282.5" width="76.2" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="876.3" y="1294.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">개념에 없는</text>
+<text x="876.3" y="1312.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">관계·규칙</text>
+<rect x="308.7" y="1008.5" width="107.8" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="362.6" y="1020.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">정할 수 없는 충돌</text>
+<rect x="316.2" y="1291.5" width="107.8" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="370.1" y="1303.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">정할 수 없는 충돌</text>
+<rect x="324.9" y="1150.0" width="76.2" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="363.0" y="1162.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">결정을 받음</text>
+<rect x="1083.1" y="806.5" width="104.1" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="1135.2" y="818.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">유지</text>
+<text x="1135.2" y="836.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">관련 자료 재확인</text>
 <rect x="1103.9" y="157.5" width="36.2" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
 <text x="1122.0" y="169.5" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">바뀜</text>
-<rect x="165.8" y="1410.0" width="100.5" height="24.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
-<text x="216.1" y="1422.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">뒷받침하지 않음</text>
+<rect x="165.8" y="1424.0" width="100.5" height="42.0" fill="#ececec" fill-opacity="0.92" rx="2"/>
+<text x="216.1" y="1436.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">뒷받침하지 않음</text>
+<text x="216.1" y="1454.0" text-anchor="middle" dominant-baseline="central" fill="#333" font-size="14">판단 못 함</text>
 </svg>

@@ -106,7 +106,8 @@ add("P", "rect", "main", ["① 물음 파악 (부품: 개념 · 관계)", "물�
 add("dP", "hex", "note", ["전제가 맞고 뜻이 하나인가"], CX, 0, pady=12)
 add("T", "rect", "main", ["② 대상 확정 (부품: 개념 · 규칙)", "대상 번호를 하나로 정하고", "상위 개념과 규칙으로 종류를 정한다"], CX, 0)
 add("dT", "hex", "note", ["후보 중 하나로 정해지나"], CX, 0, pady=12)
-add("R", "rect", "main", ["③ 권한 거르기 (부품: 권한)", "이 사람과 이 업무가 볼 수 있는 개념·출처만 남긴다"], CX, 0)
+add("R", "rect", "main", ["③ 권한 거르기 (부품: 권한)", "이번 판단에 쓸 수 있는 자료의 범위를 정한다",
+                          "모든 단계에서 자료를 찾거나 쓰기 전에 권한을 확인한다"], CX, 0)
 add("D", "rect", "main", ["④ 자료 모으기 (부품: 개념 · 관계 · 규칙 · 출처)", "기준 시점에 효력이 있는 판본만 모으고 출처 등급을 단다",
                           "부딪치면 ‘앞선다’ 관계를 따라 고르고,", "점검 목록마다 필요한 증거가 찼는지 본다", "자료 자체가 없는 빈 곳은 표시해 넘긴다"], CX, 0)
 add("dD", "hex", "note", ["자료를 모으다 막힌 곳이 있나"], CX, 0, pady=12)
@@ -117,8 +118,8 @@ add("C", "hex", "note", ["⑥ 판단 검사 (부품: 출처 · 권한)", "쓴 �
                          "계산·규칙 결론은 입력의 출처와 도출 과정을 확인한다", "조건·예외의 적용과 추론이 결론을 뒷받침하나"], CX, 0)
 add("A", "cap", "good", ["검증한 전문 판단", "결론 · 적용 조건 · 근거 · 처리 방향",
                          "미확인 사항과 판단 범위를 밝히고,", "뒷받침할 수 없는 결론은 내지 않는다"], CX, 0)
-add("ASK", "rect", "stop", ["맡긴 사람에게 되묻거나", "전제를 바로잡는다"], 140, 0)
-add("DEC", "rect", "stop", ["사람에게 결정을 요청한다", "근거와 대안을 붙여 넘긴다"], 0, 0)
+add("ASK", "rect", "stop", ["틀린 전제는 바로잡고", "전제·뜻·대상을 확인할 수 없으면", "맡긴 사람에게 되묻는다"], 140, 0)
+add("DEC", "rect", "stop", ["대안마다 ⑤ 판단·⑥ 검사를 마친다", "근거와 대안을 붙여", "사람에게 결정을 요청한다"], 0, 0)
 add("GAP", "rect", "back", ["빈 곳 채우기", "업무 지식이 개념·관계를 보태고 사람이 승인한다", "승인 전에는 빈 곳을 밝혀 답하거나 삼간다"], 0, 0)
 add("ONT", "cyl", "store", ["판단의 공통 기준", "개념 · 관계 · 규칙 · 출처 · 권한"], 0, 0)
 add("dO", "hex", "note", ["대상·범위가 바뀌었나"], 0, 0, pady=12)
@@ -178,7 +179,7 @@ edge("dI-C", [di.bottom(), c.top()], label=["막힘 없음"], at=beside(di, c, 4
 edge("C-A", [c.bottom(), a.top()], label=["뒷받침함"], at=beside(c, a, 46))
 
 # 되묻기(왼쪽): 두 판단의 왼쪽 꼭짓점에서 나간다
-edge("dP-ASK", [dp.left(), ask.right()], label=["전제가 틀림", "뜻이 갈림"], at=("pt", ((dp.left()[0] + ask.right()[0]) / 2, dp.cy)))
+edge("dP-ASK", [dp.left(), ask.right()], label=["전제 틀림·미확인", "뜻이 갈림"], at=("pt", ((dp.left()[0] + ask.right()[0]) / 2, dp.cy)))
 edge("dT-ASK", [dt.left(), (ask.cx + 40, dt.cy), ask.bottom(40)], label=["후보가 갈리지 않음"], at=("pt", ((dt.left()[0] + ask.cx + 40) / 2 + 20, dt.cy)))
 edge("ASK-P", [ask.top(-40), (ask.cx - 40, p.left(-30)[1]), p.left(-30)])
 
@@ -186,7 +187,7 @@ edge("ASK-P", [ask.top(-40), (ask.cx - 40, p.left(-30)[1]), p.left(-30)])
 edge("dD-GAP", [dd.right(), (gap.cx, dd.cy), gap.top()], label=["개념·관계가 비는", "점검 항목"], at=("pt", (dd.right()[0] + 110, dd.cy)))
 edge("dI-GAP", [di.right(), gap.left()], label=["개념에 없는", "관계·규칙"], at=("pt", ((di.right()[0] + gap.left()[0]) / 2, di.cy)))
 
-# 결정 요청(왼쪽): 자료 모으기·전문 판단에서 정할 수 없는 충돌이 나오면 사람에게 넘기고, 결정을 받으면 전문 판단으로 돌아간다
+# 결정 요청(왼쪽): 정할 수 없는 충돌은 대안별 판단·검사를 마쳐 넘기고, 결정을 받으면 전문 판단으로 돌아간다.
 edge("dD-DEC", [dd.left(), (dec.cx, dd.cy), dec.top()], label=["정할 수 없는 충돌"], at=("pt", ((dd.left()[0] + dec.cx) / 2 + 30, dd.cy)))
 edge("dI-DEC", [di.left(), (dec.cx, di.cy), dec.bottom()], label=["정할 수 없는 충돌"], at=("pt", ((di.left()[0] + dec.cx) / 2 + 30, di.cy)))
 edge("DEC-I", [dec.right(), i.left()], label=["결정을 받음"], at=("pt", ((dec.right()[0] + i.left()[0]) / 2, i.cy)))
@@ -203,7 +204,7 @@ edge("dO-P", [do.bottom(0), (do.cx, bottom_y), (lane_p, bottom_y), (lane_p, p.ri
      label=["바뀜"], at=("pt", ((p.right()[0] + lane_p) / 2 + 40, p.right()[1])))
 # 판단 검사 → 자료 모으기 (왼쪽 바깥 여백)
 lane_c = 22
-edge("C-D", [c.left(), (lane_c, c.cy), (lane_c, d.left()[1]), d.left()], label=["뒷받침하지 않음"], at=("pt", ((lane_c + c.left()[0]) / 2, c.cy)))
+edge("C-D", [c.left(), (lane_c, c.cy), (lane_c, d.left()[1]), d.left()], label=["뒷받침하지 않음", "판단 못 함"], at=("pt", ((lane_c + c.left()[0]) / 2, c.cy)))
 
 # ───────────────────────── 선 그리기 ─────────────────────────
 R = 26  # 모서리 둥글기
