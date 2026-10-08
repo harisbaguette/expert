@@ -5,7 +5,7 @@
 | `docs/images/expert-definition/judgment-reliability-meaning.png` | 전문가의 판단과 판단 결과의 활용을 보여 주도록 기존 그림을 내장 `image_gen`으로 편집했다. | AI 생성 이미지다. 별도 외부 에셋을 합성하지 않았다. |
 | `docs/images/expert-definition/reliable-judgment-conditions-expanded.png` | 기존 그림을 내장 `image_gen`으로 편집해 본문의 열두 가지 판단 조건을 세 줄에 배치했다. | AI 생성 이미지다. 별도 외부 에셋을 합성하지 않았다. |
 | `docs/images/expert-definition/evidence-application-judgment-v2.png` | 기존 그림을 내장 `image_gen`으로 편집해 열네 오류의 이름과 사례를 문서에 맞췄다. | 기존 프로젝트 그림을 편집했다. 별도 외부 에셋을 합성하지 않았다. |
-| `docs/images/expert-definition/judgment-error-causes-v2.png` | 기존 그림을 내장 `image_gen`으로 편집해 열다섯 원인의 이름과 순서를 문서에 맞췄다. 14번 제목의 "증" 한 글자는 BM 도현 글꼴로 고쳐 붙였다. | 기존 프로젝트 그림을 편집했다. BM 도현 글꼴(우아한형제들, 상업적 이용 무료)로 글자 하나를 고쳤다. |
+| `docs/images/expert-definition/judgment-error-causes-v3.png` | 앞 판의 카드 열다섯 장을 잘라 순서와 번호를 문서에 맞추고, 새 원인 일곱 장과 제목을 바꾼 18번 카드를 Codex 내장 `image_gen`으로 그려 스물두 장으로 합쳤다. 바뀐 번호는 Arial Rounded Bold로 다시 썼다. | 기존 프로젝트 그림을 편집했다. 앞 판의 BM 도현 글꼴(우아한형제들, 상업적 이용 무료) 수정이 그대로 들어 있다. |
 | `docs/images/expert-definition/judgment-materials-map-v2.png` | 기존 그림을 내장 `image_gen`으로 편집해 재료 이름, 구현 기술, 순서를 문서에 맞췄다. | AI 생성 이미지다. 별도 외부 에셋을 합성하지 않았다. |
 | `docs/images/expert-definition/judgment-case-workflow.png` | 문서의 사용 구조를 바탕으로 내장 `image_gen`으로 생성했다. | AI 생성 이미지다. 별도 외부 에셋을 합성하지 않았다. |
 
