@@ -1,0 +1,914 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="16080" viewBox="0 0 1800 16080" role="img" aria-labelledby="title desc">
+<title id="title">전문 판단의 신뢰성 — 사용 구조</title>
+<desc id="desc">접수, 자료 확인, 판단·검증, 처리, 완료·보고, 남기기의 흐름과 상시 점검. 점선 복귀 표시는 적힌 단계와 상자로 이어집니다.</desc>
+<defs>
+<marker id="arrow-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="#3974B8"/></marker>
+<marker id="arrow-return" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="#B57C1F"/></marker>
+<marker id="arrow-stop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9" fill="#C45763"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Apple SD Gothic Neo,Noto Sans CJK KR,sans-serif" fill="#17253B">
+<text class="" x="900" y="60" text-anchor="middle" font-size="38" font-weight="800" fill="#17253B">전문 판단의 신뢰성 · 사용 구조</text>
+<text class="" x="900" y="100" text-anchor="middle" font-size="22" font-weight="500" fill="#475569">점선 상자는 표시된 단계·상자로 이어집니다.</text>
+<g class="section"><line x1="90" y1="125" x2="1710" y2="125" stroke="#D4DDE7" stroke-width="1.5"/>
+<text x="90" y="168" font-size="28" font-weight="800" fill="#3974B8">공통</text>
+<text x="190" y="168" font-size="30" font-weight="800">어느 단계에서나 지키는 것</text>
+</g>
+<g class="section"><line x1="90" y1="1010" x2="1710" y2="1010" stroke="#D4DDE7" stroke-width="1.5"/>
+<text x="90" y="1053" font-size="28" font-weight="800" fill="#3974B8">01</text>
+<text x="190" y="1053" font-size="30" font-weight="800">접수</text>
+</g>
+<g class="section"><line x1="90" y1="2200" x2="1710" y2="2200" stroke="#D4DDE7" stroke-width="1.5"/>
+<text x="90" y="2243" font-size="28" font-weight="800" fill="#3974B8">02</text>
+<text x="190" y="2243" font-size="30" font-weight="800">자료 확인</text>
+</g>
+<g class="section"><line x1="90" y1="6440" x2="1710" y2="6440" stroke="#D4DDE7" stroke-width="1.5"/>
+<text x="90" y="6483" font-size="28" font-weight="800" fill="#3974B8">03</text>
+<text x="190" y="6483" font-size="30" font-weight="800">판단·검증</text>
+</g>
+<g class="section"><line x1="90" y1="10360" x2="1710" y2="10360" stroke="#D4DDE7" stroke-width="1.5"/>
+<text x="90" y="10403" font-size="28" font-weight="800" fill="#3974B8">04</text>
+<text x="190" y="10403" font-size="30" font-weight="800">처리</text>
+</g>
+<g class="section"><line x1="90" y1="12760" x2="1710" y2="12760" stroke="#D4DDE7" stroke-width="1.5"/>
+<text x="90" y="12803" font-size="28" font-weight="800" fill="#3974B8">05</text>
+<text x="190" y="12803" font-size="30" font-weight="800">완료·보고</text>
+</g>
+<g class="section"><line x1="90" y1="13640" x2="1710" y2="13640" stroke="#D4DDE7" stroke-width="1.5"/>
+<text x="90" y="13683" font-size="28" font-weight="800" fill="#3974B8">06</text>
+<text x="190" y="13683" font-size="30" font-weight="800">남기기</text>
+</g>
+<g class="section"><line x1="90" y1="14420" x2="1710" y2="14420" stroke="#D4DDE7" stroke-width="1.5"/>
+<text x="90" y="14463" font-size="28" font-weight="800" fill="#3974B8">상시</text>
+<text x="190" y="14463" font-size="30" font-weight="800">건과 상관없이 계속 점검</text>
+</g>
+<path class="edge" data-id="0" d="M 900.0 786 L 900.0 1120" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="1" d="M 900.0 1486 L 900.0 1570" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="2" d="M 1160 1677.5 L 1203.0 1677.5 Q 1215 1677.5 1215.0 1665.5 L 1215.0 1532.0 Q 1215 1520 1227.0 1520.0 L 1478.0 1520.0 Q 1490.0 1520 1490.0 1532.0 L 1490.0 1570" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="3" d="M 1490.0 1847 L 1490.0 2000" fill="none" stroke="#C45763" stroke-width="2.3" marker-end="url(#arrow-stop)"/>
+<path class="edge" data-id="4" d="M 900.0 1785 L 900.0 2320" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="5" d="M 1270 1708.5 L 1232.0 1708.5 Q 1220 1708.5 1220.0 1720.5 L 1220.0 2415.5 Q 1220 2427.5 1208.0 2427.5 L 1160 2427.5" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="6" d="M 900.0 2535 L 900.0 2660" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="7" d="M 900.0 2875 L 900.0 3000" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="8" d="M 900.0 3246 L 900.0 3390.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="9" d="M 900.0 3965 L 900.0 4090" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="10" d="M 900.0 4832 L 900.0 4980" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="11" d="M 900.0 5222 L 900.0 5380.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="12" d="M 900.0 3598.0 L 900.0 3750" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="13" d="M 640 3494.0 L 595.75 3494.0 Q 585.0 3494.0 585.0 3504.75 L 585.0 3504.75 Q 585.0 3515.5 574.25 3515.5 L 530 3515.5" fill="none" stroke="#C45763" stroke-width="2.3" marker-end="url(#arrow-stop)"/>
+<path class="edge" data-id="14" d="M 900.0 4363 L 900.0 4590" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="15" d="M 1160 4226.5 L 1203.0 4226.5 Q 1215 4226.5 1215.0 4214.5 L 1215.0 4052.0 Q 1215 4040 1227.0 4040.0 L 1478.0 4040.0 Q 1490.0 4040 1490.0 4052.0 L 1490.0 4090" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="16" d="M 1490.0 4336 L 1490.0 4510" fill="none" stroke="#C45763" stroke-width="2.3" marker-end="url(#arrow-stop)"/>
+<path class="edge" data-id="17" d="M 1270 4213.0 L 1247.0 4213.0 Q 1235 4213.0 1235.0 4225.0 L 1235.0 4648.0 Q 1235 4660 1247.0 4660.0 L 1478.0 4660.0 Q 1490 4660 1490.0 4672.0 L 1490.0 4700" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="18" d="M 640 5465.0 L 597.0 5465.0 Q 585 5465.0 585.0 5453.0 L 585.0 5332.0 Q 585 5320 573.0 5320.0 L 322.0 5320.0 Q 310 5320 310.0 5332.0 L 310.0 5390" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="19" d="M 1160 5465.0 L 1203.0 5465.0 Q 1215 5465.0 1215.0 5453.0 L 1215.0 5342.0 Q 1215 5330 1227.0 5330.0 L 1478.0 5330.0 Q 1490.0 5330 1490.0 5342.0 L 1490.0 5380.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="20" d="M 1490.0 5588.0 L 1490.0 5780" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="21" d="M 1270 5484.0 L 1227.0 5484.0 Q 1215 5484.0 1215.0 5496.0 L 1215.0 5708.0 Q 1215 5720 1203.0 5720.0 L 322.0 5720.0 Q 310 5720 310.0 5732.0 L 310.0 5790" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="22" d="M 1490.0 6057 L 1490.0 6160" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="23" d="M 1270 5918.5 L 1227.0 5918.5 Q 1215 5918.5 1215.0 5930.5 L 1215.0 6098.0 Q 1215 6110 1203.0 6110.0 L 912.0 6110.0 Q 900 6110 900.0 6122.0 L 900.0 6160" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="24" d="M 900.0 5550.0 L 900.0 5668.0 Q 900 5680 888.0 5680.0 L 602.0 5680.0 Q 590 5680 590.0 5692.0 L 590.0 6488.0 Q 590 6500 602.0 6500.0 L 888.0 6500.0 Q 900 6500 900.0 6512.0 L 900.0 6560" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="25" d="M 310.0 5964 L 310.0 6378.0 Q 310 6390 322.0 6390.0 L 578.0 6390.0 Q 590 6390 590.0 6402.0 L 590.0 6669.0 Q 590 6681.0 602.0 6681.0 L 640 6681.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="26" d="M 900.0 6802 L 900.0 6940" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="27" d="M 900.0 7124 L 900.0 7250" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="28" d="M 900.0 7434 L 900.0 7570" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="29" d="M 900.0 7967 L 900.0 8080" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="30" d="M 900.0 8353 L 900.0 8500.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="31" d="M 900.0 8708.0 L 900.0 8910.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="32" d="M 1160 8604.0 L 1203.0 8604.0 Q 1215.0 8604.0 1215.0 8616.0 L 1215.0 8626.5 Q 1215.0 8638.5 1227.0 8638.5 L 1270 8638.5" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="33" d="M 1490.0 8777 L 1490.0 8818.0 Q 1490 8830 1478.0 8830.0 L 912.0 8830.0 Q 900 8830 900.0 8842.0 L 900.0 8910.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="34" d="M 1160 8995.0 L 1203.0 8995.0 Q 1215 8995.0 1215.0 8983.0 L 1215.0 8872.0 Q 1215 8860 1227.0 8860.0 L 1478.0 8860.0 Q 1490.0 8860 1490.0 8872.0 L 1490.0 8910" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="35" d="M 640 8995.0 L 597.0 8995.0 Q 585 8995.0 585.0 8983.0 L 585.0 8837.0 Q 585 8825 573.0 8825.0 L 322.0 8825.0 Q 310 8825 310.0 8837.0 L 310.0 8870" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="36" d="M 640 8995.0 L 597.0 8995.0 Q 585 8995.0 585.0 9007.0 L 585.0 9218.0 Q 585 9230 573.0 9230.0 L 322.0 9230.0 Q 310 9230 310.0 9218.0 L 310.0 9146" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="37" d="M 900.0 9080.0 L 900.0 9470.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="38" d="M 1490.0 9187 L 1490.0 9320" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="39" d="M 1270 9093.5 L 1247.0 9093.5 Q 1235 9093.5 1235.0 9105.5 L 1235.0 9423.0 Q 1235 9435 1223.0 9435.0 L 912.0 9435.0 Q 900 9435 900.0 9447.0 L 900.0 9470.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="40" d="M 1160 9555.0 L 1203.0 9555.0 Q 1215.0 9555.0 1215.0 9567.0 L 1215.0 9581.0 Q 1215.0 9593.0 1227.0 9593.0 L 1270 9593.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="41" d="M 900.0 9640.0 L 900.0 10020.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="42" d="M 1490.0 9716 L 1490.0 9810" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="43" d="M 1270 9638.0 L 1227.0 9638.0 Q 1215 9638.0 1215.0 9650.0 L 1215.0 10093.0 Q 1215 10105.0 1203.0 10105.0 L 1160 10105.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="44" d="M 640 10105.0 L 589.0 10105.0 Q 585.0 10105.0 585.0 10109.0 L 585.0 10109.0 Q 585.0 10113.0 581.0 10113.0 L 530 10113.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="45" d="M 900.0 10190.0 L 900.0 10480" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="46" d="M 900.0 10726 L 900.0 10860.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="47" d="M 640 10603.0 L 597.0 10603.0 Q 585 10603.0 585.0 10591.0 L 585.0 10442.0 Q 585 10430 573.0 10430.0 L 322.0 10430.0 Q 310.0 10430 310.0 10442.0 L 310.0 10480" fill="none" stroke="#C45763" stroke-width="2.3" marker-end="url(#arrow-stop)"/>
+<path class="edge" data-id="48" d="M 310.0 10819 L 310.0 10900" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="49" d="M 90 10649.5 L 62.0 10649.5 Q 50 10649.5 50.0 10661.5 L 50.0 11038.0 Q 50 11050 62.0 11050.0 L 298.0 11050.0 Q 310 11050 310.0 11062.0 L 310.0 11100" fill="none" stroke="#C45763" stroke-width="2.3" marker-end="url(#arrow-stop)"/>
+<path class="edge" data-id="50" d="M 900.0 11030.0 L 900.0 11280" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="51" d="M 1160 10945.0 L 1203.0 10945.0 Q 1215 10945.0 1215.0 10933.0 L 1215.0 10822.0 Q 1215 10810 1227.0 10810.0 L 1478.0 10810.0 Q 1490 10810 1490.0 10822.0 L 1490.0 10860" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="52" d="M 1270 10998.5 L 1227.0 10998.5 Q 1215 10998.5 1215.0 11010.5 L 1215.0 11391.0 Q 1215 11403.0 1203.0 11403.0 L 1160 11403.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="53" d="M 1490.0 11137 L 1490.0 11350" fill="none" stroke="#C45763" stroke-width="2.3" marker-end="url(#arrow-stop)"/>
+<path class="edge" data-id="54" d="M 900.0 11526 L 900.0 11650" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="55" d="M 640 11403.0 L 597.0 11403.0 Q 585 11403.0 585.0 11415.0 L 585.0 11598.0 Q 585 11610 573.0 11610.0 L 322.0 11610.0 Q 310 11610 310.0 11622.0 L 310.0 11690" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="56" d="M 900.0 11834 L 900.0 11960" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="57" d="M 1160 12067.5 L 1203.0 12067.5 Q 1215 12067.5 1215.0 12055.5 L 1215.0 11922.0 Q 1215 11910 1227.0 11910.0 L 1478.0 11910.0 Q 1490.0 11910 1490.0 11922.0 L 1490.0 11960.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="58" d="M 1710 12064.0 L 1738.0 12064.0 Q 1750 12064.0 1750.0 12052.0 L 1750.0 11745.0 Q 1750 11733.0 1738.0 11733.0 L 1710 11733.0" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="59" d="M 1490.0 12168.0 L 1490.0 12300" fill="none" stroke="#C45763" stroke-width="2.3" marker-end="url(#arrow-stop)"/>
+<path class="edge" data-id="60" d="M 900.0 12175 L 900.0 12880" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="61" d="M 1490.0 12546 L 1490.0 12703.0 Q 1490 12715 1478.0 12715.0 L 1227.0 12715.0 Q 1215 12715 1215.0 12727.0 L 1215.0 13022.0 Q 1215 13034.0 1203.0 13034.0 L 1160 13034.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="62" d="M 640 13034.0 L 597.0 13034.0 Q 585 13034.0 585.0 13022.0 L 585.0 12842.0 Q 585 12830 573.0 12830.0 L 322.0 12830.0 Q 310.0 12830 310.0 12842.0 L 310.0 12880" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="63" d="M 310.0 13054 L 310.0 13228.0 Q 310 13240 322.0 13240.0 L 573.0 13240.0 Q 585 13240 585.0 13228.0 L 585.0 13136.0 Q 585 13124.0 597.0 13124.0 L 640 13124.0" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="64" d="M 900.0 13188 L 900.0 13350" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="65" d="M 900.0 13493 L 900.0 13760" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="66" d="M 900.0 14064 L 900.0 14170" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="67" d="M 310.0 14796 L 310.0 14898.0 Q 310.0 14910 322.0 14910.0 L 808.0 14910.0 Q 820 14910 820.0 14922.0 L 820.0 14996.153846153846" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="68" d="M 900.0 14765 L 900.0 14898.0 Q 900.0 14910 900.0 14922.0 L 900.0 14970.0" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="69" d="M 1490.0 14889 L 1490.0 14899.5 Q 1490.0 14910 1479.5 14910.0 L 992.0 14910.0 Q 980 14910 980.0 14922.0 L 980.0 14996.153846153846" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="70" d="M 820.0 15113.846153846154 L 820.0 15223.0 Q 820 15235 808.0 15235.0 L 322.0 15235.0 Q 310 15235 310.0 15247.0 L 310.0 15300" fill="none" stroke="#C45763" stroke-width="2.3" marker-end="url(#arrow-stop)"/>
+<path class="edge" data-id="71" d="M 900.0 15140.0 L 900.0 15300" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="72" d="M 1160 15055.0 L 1478.0 15055.0 Q 1490 15055.0 1490.0 15067.0 L 1490.0 15300" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<path class="edge" data-id="73" d="M 640 15055.0 L 597.0 15055.0 Q 585 15055.0 585.0 15043.0 L 585.0 14942.0 Q 585 14930 573.0 14930.0 L 322.0 14930.0 Q 310 14930 310.0 14942.0 L 310.0 14970" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="74" d="M 310.0 15536 L 310.0 15700" fill="none" stroke="#B57C1F" stroke-width="2.3" stroke-dasharray="9 6" marker-end="url(#arrow-return)"/>
+<path class="edge" data-id="75" d="M 1490.0 15567 L 1490.0 15700" fill="none" stroke="#3974B8" stroke-width="2.3" marker-end="url(#arrow-flow)"/>
+<circle class="bridge" cx="590" cy="5720" r="10" fill="white"/><path d="M 590 5710 Q 605 5720 590 5730" fill="none" stroke="#3974B8" stroke-width="2.3"/>
+<path class="note-connector" d="M 530 8618.0 L 640 8604.0" fill="none" stroke="#BACBDD" stroke-width="1.5" stroke-dasharray="3 6"/>
+<g id="RULE_EXEC" class="node process" data-id="RULE_EXEC">
+<rect class="shape" x="90" y="230" width="440" height="242" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="106" y="257" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="310.0" y="298" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">허락된 조회와 실행만</text>
+<text class="body" x="310.0" y="342" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">정책 엔진이 허용 여부를 판정하고</text>
+<text class="body" x="310.0" y="373" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">하네스가 실제 실행을 통제합니다.</text>
+<line x1="114" y1="398" x2="506" y2="398" stroke="#E4EAF1"/>
+<text class="tech" x="310.0" y="422" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">16 에이전트 하네스</text>
+<text class="tech" x="310.0" y="449" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">18 Policy as Code 정책 엔진</text>
+</g>
+<g id="RULE_TENANT" class="node process" data-id="RULE_TENANT">
+<rect class="shape" x="640" y="230" width="520" height="215" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="257" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="298" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">고객마다 자료를 분리</text>
+<text class="body" x="900.0" y="342" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">자료·검색 범위·지식 그래프·기억을</text>
+<text class="body" x="900.0" y="373" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">고객별로 나눕니다.</text>
+<line x1="664" y1="398" x2="1136" y2="398" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="422" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">19 멀티테넌트 격리</text>
+</g>
+<g id="RULE_RECORD" class="node process" data-id="RULE_RECORD">
+<rect class="shape" x="1270" y="230" width="440" height="273" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="257" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="1490.0" y="298" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">실행과 조건을 남기기</text>
+<text class="body" x="1490.0" y="342" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">실행 기록은 AI가 고치지 못합니다.</text>
+<text class="body" x="1490.0" y="373" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">다음 단계에 저장한 조건을 다시</text>
+<text class="body" x="1490.0" y="404" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">줍니다.</text>
+<line x1="1294" y1="429" x2="1686" y2="429" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="453" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">20 Agent tracing</text>
+<text class="tech" x="1490.0" y="480" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">21 진행 기록·변경 이력</text>
+</g>
+<g id="RULE_BUDGET" class="node process" data-id="RULE_BUDGET">
+<rect class="shape" x="90" y="620" width="440" height="236" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="106" y="647" font-size="19" font-weight="700" fill="#475569">모든 단계</text>
+<text class="title" x="310.0" y="688" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">남은 기한·비용 확인</text>
+<text class="body" x="310.0" y="732" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">남은 일까지 하면 한도를 넘을 것</text>
+<text class="body" x="310.0" y="763" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">같으면</text>
+<text class="body" x="310.0" y="794" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">다음 유료 호출 전에 멈추고</text>
+<text class="body" x="310.0" y="825" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">맡긴 사람에게 묻습니다.</text>
+</g>
+<g id="RULE_SAFETY" class="node process" data-id="RULE_SAFETY">
+<rect class="shape" x="1270" y="620" width="440" height="267" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="647" font-size="19" font-weight="700" fill="#475569">모든 단계</text>
+<text class="title" x="1490.0" y="688" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">생명·신체 위험은 즉시 대응</text>
+<text class="body" x="1490.0" y="732" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">도움받을 곳의 연락처를 당사자에게</text>
+<text class="body" x="1490.0" y="763" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">알리고</text>
+<text class="body" x="1490.0" y="794" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">위급할 때 답할 사람에게도 알립니다.</text>
+<text class="body" x="1490.0" y="825" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">기한 안에 답이 없으면 정해 둔 곳에</text>
+<text class="body" x="1490.0" y="856" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">위치와 위험 내용만 알립니다.</text>
+</g>
+<g id="REQ" class="node terminal" data-id="REQ">
+<rect class="shape" x="640" y="700" width="520" height="86" rx="43.0" fill="#E9F5EE" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="title" x="900.0" y="752.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">한 건의 요청</text>
+</g>
+<g id="INTAKE" class="node process" data-id="INTAKE">
+<rect class="shape" x="640" y="1120" width="520" height="366" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="1147" font-size="19" font-weight="700" fill="#475569">판단 모델 · 새 대화</text>
+<text class="title" x="900.0" y="1188" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">요청과 원칙 확인</text>
+<text class="body" x="900.0" y="1232" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">업무·대상·위험·권한·기한·비용을 정합니다.</text>
+<text class="body" x="900.0" y="1263" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">당사자·관계자·위급할 때 답할 사람을</text>
+<text class="body" x="900.0" y="1294" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">확인하고</text>
+<text class="body" x="900.0" y="1325" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">빠진 조건은 한 번에 묻습니다.</text>
+<text class="body" x="900.0" y="1356" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">새 대화가 위법한 요청·자동 판단 거부 등</text>
+<text class="body" x="900.0" y="1387" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">원칙이 걸린 요청인지 가립니다.</text>
+<line x1="664" y1="1412" x2="1136" y2="1412" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="1436" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">13 SOP·Prompt chaining · 15 업무 플레이북</text>
+<text class="tech" x="900.0" y="1463" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">14 행동 원칙 시스템 프롬프트</text>
+</g>
+<g id="CONFLICT" class="node process" data-id="CONFLICT">
+<rect class="shape" x="640" y="1570" width="520" height="215" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="1597" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="1638" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">이해 충돌 조회</text>
+<text class="body" x="900.0" y="1682" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">고객 자료와 따로 둔 관계자 목록에서</text>
+<text class="body" x="900.0" y="1713" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">충돌 후보를 찾습니다.</text>
+<line x1="664" y1="1738" x2="1136" y2="1738" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="1762" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">23 Conflict check</text>
+</g>
+<g id="H1" class="node process" data-id="H1">
+<rect class="shape" x="1270" y="1570" width="440" height="277" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="1597" font-size="19" font-weight="700" fill="#995114">사람</text>
+<text class="title" x="1490.0" y="1638" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">충돌 판정과 동의</text>
+<text class="body" x="1490.0" y="1682" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">운영 책임자가 맡아도 되는지</text>
+<text class="body" x="1490.0" y="1713" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">정합니다.</text>
+<text class="body" x="1490.0" y="1744" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">필요한 동의를 기록하기 전에는</text>
+<text class="body" x="1490.0" y="1775" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">일을 시작하지 않습니다.</text>
+<line x1="1294" y1="1800" x2="1686" y2="1800" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="1824" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">25 Human-in-the-loop 승인</text>
+</g>
+<g id="DECLINE" class="node stop" data-id="DECLINE">
+<rect class="shape" x="1270" y="2000" width="440" height="86" rx="43.0" fill="#FFF0ED" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="title" x="1490.0" y="2052.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">맡지 않음 · 결정 알림</text>
+</g>
+<g id="READ" class="node process" data-id="READ">
+<rect class="shape" x="640" y="2320" width="520" height="215" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="2347" font-size="19" font-weight="700" fill="#475569">판독 모델</text>
+<text class="title" x="900.0" y="2388" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">자료 읽기</text>
+<text class="body" x="900.0" y="2432" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">원본은 그대로 보관합니다.</text>
+<text class="body" x="900.0" y="2463" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">글과 표를 뽑아 읽습니다.</text>
+<line x1="664" y1="2488" x2="1136" y2="2488" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="2512" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">8 문서 파싱 VLM</text>
+</g>
+<g id="HIDDEN" class="node process" data-id="HIDDEN">
+<rect class="shape" x="640" y="2660" width="520" height="215" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="2687" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="2728" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">숨긴 글 제거</text>
+<text class="body" x="900.0" y="2772" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">숨긴 글·보이지 않는 특수 문자를</text>
+<text class="body" x="900.0" y="2803" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">전달본에서 빼고 뺀 자리를 표시합니다.</text>
+<line x1="664" y1="2828" x2="1136" y2="2828" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="2852" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">9 숨김 텍스트 탐지</text>
+</g>
+<g id="RANGE" class="node process" data-id="RANGE">
+<rect class="shape" x="640" y="3000" width="520" height="246" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="3027" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="3068" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">시험으로 확인된 범위 대조</text>
+<text class="body" x="900.0" y="3112" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">업무·법·언어·자료 양·집단을 대조합니다.</text>
+<text class="body" x="900.0" y="3143" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">집단은 특성을 가리기 전 원래 자료로 정하고</text>
+<text class="body" x="900.0" y="3174" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">대상과 건수는 프로그램이 직접 셉니다.</text>
+<line x1="664" y1="3199" x2="1136" y2="3199" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="3223" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">16 에이전트 하네스 · 26 에이전트 평가 Evals</text>
+</g>
+<g id="RANGE_Q" class="node decision" data-id="RANGE_Q">
+<polygon class="shape" points="900.0,3390 1160,3494.0 900.0,3598 640,3494.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="900.0" y="3467.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">시험 범위 안이며</text>
+<text class="title" x="900.0" y="3503.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">사람의 결정이 필요 없고</text>
+<text class="title" x="900.0" y="3539.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">필요한 자격자가 있는가?</text>
+</g>
+<g id="OUT" class="node stop" data-id="OUT">
+<rect class="shape" x="90" y="3450" width="440" height="131" rx="65.5" fill="#FFF0ED" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="title" x="310.0" y="3492.5" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">판단 중단 · 사람에게 인계</text>
+<text class="title" x="310.0" y="3524.5" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">범위 밖·사람 결정 사유와 자료</text>
+<text class="title" x="310.0" y="3556.5" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">전달</text>
+</g>
+<g id="QUAR" class="node process" data-id="QUAR">
+<rect class="shape" x="640" y="3750" width="520" height="215" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="3777" font-size="19" font-weight="700" fill="#475569">격리된 새 대화</text>
+<text class="title" x="900.0" y="3818" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">AI에게 내리는 지시 분리</text>
+<text class="body" x="900.0" y="3862" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">도구 없는 새 대화가 자료 속 지시를 뺍니다.</text>
+<text class="body" x="900.0" y="3893" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">평가 업무라면 정해 둔 항목만 뽑습니다.</text>
+<line x1="664" y1="3918" x2="1136" y2="3918" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="3942" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">10 Quarantined LLM</text>
+</g>
+<g id="INDEX" class="node process" data-id="INDEX">
+<rect class="shape" x="640" y="4090" width="520" height="273" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="4117" font-size="19" font-weight="700" fill="#475569">판단 모델 · 프로그램</text>
+<text class="title" x="900.0" y="4158" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">고객 자료 색인과 관계 정리</text>
+<text class="body" x="900.0" y="4202" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">지시를 뺀 자료만 고객 저장소에 넣습니다.</text>
+<text class="body" x="900.0" y="4233" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">대상·관계를 정한 이름으로 연결합니다.</text>
+<text class="body" x="900.0" y="4264" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">새 관계자가 나오면 충돌을 다시 조회합니다.</text>
+<line x1="664" y1="4289" x2="1136" y2="4289" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="4313" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">1 온톨로지 · 2 시간축 지식 그래프</text>
+<text class="tech" x="900.0" y="4340" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">3 하이브리드 검색 RAG · 23 Conflict check</text>
+</g>
+<g id="H5" class="node process" data-id="H5">
+<rect class="shape" x="1270" y="4090" width="440" height="246" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="4117" font-size="19" font-weight="700" fill="#995114">사람</text>
+<text class="title" x="1490.0" y="4158" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">새 충돌 판정과 동의</text>
+<text class="body" x="1490.0" y="4202" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">운영 책임자가 계속 맡을지 정합니다.</text>
+<text class="body" x="1490.0" y="4233" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">필요한 동의가 기록되기 전에는</text>
+<text class="body" x="1490.0" y="4264" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">일을 이어 가지 않습니다.</text>
+<line x1="1294" y1="4289" x2="1686" y2="4289" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="4313" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">25 Human-in-the-loop 승인</text>
+</g>
+<g id="QUIT" class="node stop" data-id="QUIT">
+<rect class="shape" x="1270" y="4510" width="440" height="86" rx="43.0" fill="#FFF0ED" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="title" x="1490.0" y="4562.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">일을 그만둠 · 결정 알림</text>
+</g>
+<g id="SEARCH" class="node process" data-id="SEARCH">
+<rect class="shape" x="640" y="4590" width="520" height="242" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="4617" font-size="19" font-weight="700" fill="#475569">프로그램 · 판단 전용 모델</text>
+<text class="title" x="900.0" y="4658" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">원문과 연결 자료 찾기</text>
+<text class="body" x="900.0" y="4702" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">별첨·참조를 따라 원문을 찾습니다.</text>
+<text class="body" x="900.0" y="4733" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">관련 자료는 순위와 상관없이 남깁니다.</text>
+<line x1="664" y1="4758" x2="1136" y2="4758" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="4782" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">3 하이브리드 검색 RAG · 4 GraphRAG</text>
+<text class="tech" x="900.0" y="4809" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">5 Decision Model</text>
+</g>
+<g id="SOURCE" class="node data" data-id="SOURCE">
+<rect class="shape" x="640" y="4980" width="520" height="242" rx="11" fill="#F3F6FA" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="5007" font-size="19" font-weight="700" fill="#157267">원본 조회</text>
+<text class="title" x="900.0" y="5048" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">원문·효력·현재 값 확인</text>
+<text class="body" x="900.0" y="5092" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">법령·판례 원문과 현재 효력,</text>
+<text class="body" x="900.0" y="5123" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">지금 값과 서류의 진위를 조회합니다.</text>
+<line x1="664" y1="5148" x2="1136" y2="5148" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="5172" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">6 로컬 법령 데이터베이스</text>
+<text class="tech" x="900.0" y="5199" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">7 System of Record</text>
+</g>
+<g id="ENOUGH" class="node decision" data-id="ENOUGH">
+<polygon class="shape" points="900.0,5380 1160,5465.0 900.0,5550 640,5465.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="900.0" y="5456.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">결론을 바꿀 자료를</text>
+<text class="title" x="900.0" y="5492.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">모두 확인했는가?</text>
+</g>
+<g id="GAP_RISK" class="node decision" data-id="GAP_RISK">
+<polygon class="shape" points="1490.0,5380 1710,5484.0 1490.0,5588 1270,5484.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="1490.0" y="5457.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">틀렸을 때의 피해가</text>
+<text class="title" x="1490.0" y="5493.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">감수할 위험을</text>
+<text class="title" x="1490.0" y="5529.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">넘을 수 있는가?</text>
+</g>
+<g id="GAP_NOTE" class="node process" data-id="GAP_NOTE">
+<rect class="shape" x="90" y="5790" width="440" height="174" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="106" y="5817" font-size="19" font-weight="700" fill="#7151A8">판단 모델</text>
+<text class="title" x="310.0" y="5858" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">부족한 자료를 밝히고 판단</text>
+<text class="body" x="310.0" y="5902" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">찾은 자료로 판단합니다.</text>
+<text class="body" x="310.0" y="5933" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">못 찾은 곳과 다시 볼 시점을 적습니다.</text>
+</g>
+<g id="H2" class="node process" data-id="H2">
+<rect class="shape" x="1270" y="5780" width="440" height="277" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="5807" font-size="19" font-weight="700" fill="#995114">사람</text>
+<text class="title" x="1490.0" y="5848" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">자료 부족 인계</text>
+<text class="body" x="1490.0" y="5892" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">찾은 자료와 못 찾은 곳을 정리해</text>
+<text class="body" x="1490.0" y="5923" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">맡긴 사람에게 넘기고 수신을</text>
+<text class="body" x="1490.0" y="5954" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">확인합니다.</text>
+<text class="body" x="1490.0" y="5985" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">답이 없으면 해당 결론은 보류합니다.</text>
+<line x1="1294" y1="6010" x2="1686" y2="6010" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="6034" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">25 Human-in-the-loop 승인</text>
+</g>
+<g id="P_MORE" class="node portal" data-id="P_MORE">
+<a href="#SEARCH">
+<rect class="shape" x="90" y="5390" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="5442.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">02 · 원문과 연결 자료 찾기</text>
+</a>
+</g>
+<g id="P_H2_READ" class="node portal" data-id="P_H2_READ">
+<a href="#READ">
+<rect class="shape" x="1270" y="6160" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="1490.0" y="6212.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">02 · 자료 읽기</text>
+</a>
+</g>
+<g id="P_H2_JUDGE" class="node portal" data-id="P_H2_JUDGE">
+<a href="#JUDGE">
+<rect class="shape" x="640" y="6160" width="520" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="900.0" y="6212.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">03 · 결론과 처리 방향 판단</text>
+</a>
+</g>
+<g id="P_H5_SEARCH" class="node portal" data-id="P_H5_SEARCH">
+<a href="#SEARCH">
+<rect class="shape" x="1270" y="4700" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="1490.0" y="4752.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">02 · 원문과 연결 자료 찾기</text>
+</a>
+</g>
+<g id="JUDGE" class="node process" data-id="JUDGE">
+<rect class="shape" x="640" y="6560" width="520" height="242" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="6587" font-size="19" font-weight="700" fill="#7151A8">판단 모델</text>
+<text class="title" x="900.0" y="6628" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">결론과 처리 방향 판단</text>
+<text class="body" x="900.0" y="6672" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">조건별로 충족·불충족·미확인·해당 없음을</text>
+<text class="body" x="900.0" y="6703" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">판정하고 반대 근거와 대안을 비교합니다.</text>
+<line x1="664" y1="6728" x2="1136" y2="6728" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="6752" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">13 SOP·Prompt chaining · 15 업무 플레이북</text>
+<text class="tech" x="900.0" y="6779" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">27 구조화 출력 Structured Outputs</text>
+</g>
+<g id="CALC" class="node process" data-id="CALC">
+<rect class="shape" x="640" y="6940" width="520" height="184" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="6967" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="7008" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">검증된 코드로 계산</text>
+<text class="body" x="900.0" y="7052" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">금액·기한·합계·비율을 계산합니다.</text>
+<line x1="664" y1="7077" x2="1136" y2="7077" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="7101" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">12 코드 실행·Rules as Code</text>
+</g>
+<g id="DRAFT" class="node process" data-id="DRAFT">
+<rect class="shape" x="640" y="7250" width="520" height="184" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="7277" font-size="19" font-weight="700" fill="#7151A8">판단 모델</text>
+<text class="title" x="900.0" y="7318" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">결론과 결과물 초안</text>
+<text class="body" x="900.0" y="7362" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">문장마다 확인·추정·미확인을 구분합니다.</text>
+<line x1="664" y1="7387" x2="1136" y2="7387" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="7411" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">27 구조화 출력 Structured Outputs</text>
+</g>
+<g id="PCHECK" class="node process" data-id="PCHECK">
+<rect class="shape" x="640" y="7570" width="520" height="397" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="7597" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="7638" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">원문·계산·누락·공개 위험 검사</text>
+<text class="body" x="900.0" y="7682" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">인용·계산·출처·누락·자동 외부 호출을</text>
+<text class="body" x="900.0" y="7713" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">검사합니다.</text>
+<text class="body" x="900.0" y="7744" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">볼 권한이 없는 값과 재식별 위험을</text>
+<text class="body" x="900.0" y="7775" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">확인합니다.</text>
+<text class="body" x="900.0" y="7806" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">결론을 낸 뒤 같은 쟁점의 앞선 결론과 대조하고</text>
+<text class="body" x="900.0" y="7837" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">앞선 오류는 운영 책임자에게 알립니다.</text>
+<text class="body" x="900.0" y="7868" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">평가 결과의 집단별 쏠림도 코드로 잽니다.</text>
+<line x1="664" y1="7893" x2="1136" y2="7893" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="7917" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">17 출력 가드레일 · 28 PII·재식별 위험 검사</text>
+<text class="tech" x="900.0" y="7944" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">22 Decision Traces · 12 코드 실행</text>
+</g>
+<g id="ACHECK" class="node process" data-id="ACHECK">
+<rect class="shape" x="640" y="8080" width="520" height="273" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="8107" font-size="19" font-weight="700" fill="#A23C6B">새 대화</text>
+<text class="title" x="900.0" y="8148" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">새 대화에서 기준별 검토</text>
+<text class="body" x="900.0" y="8192" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">합격 기준을 항목마다 판정하고</text>
+<text class="body" x="900.0" y="8223" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">받는 사람 입장에서 읽습니다.</text>
+<text class="body" x="900.0" y="8254" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">지켜야 할 원칙이 걸린 상황인지 가립니다.</text>
+<line x1="664" y1="8279" x2="1136" y2="8279" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="8303" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">11 LLM-as-a-Judge</text>
+<text class="tech" x="900.0" y="8330" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">14 행동 원칙 시스템 프롬프트</text>
+</g>
+<g id="RISK_Q" class="node decision" data-id="RISK_Q">
+<polygon class="shape" points="900.0,8500 1160,8604.0 900.0,8708 640,8604.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="900.0" y="8577.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">감수할 위험 초과 가능·</text>
+<text class="title" x="900.0" y="8613.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">숨긴 글·갈리는 답 중</text>
+<text class="title" x="900.0" y="8649.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">하나라도 있는가?</text>
+</g>
+<g id="RISK_SUM" class="node process" data-id="RISK_SUM">
+<rect class="shape" x="90" y="8500" width="440" height="236" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="106" y="8527" font-size="19" font-weight="700" fill="#475569">프로그램 · 새 대화</text>
+<text class="title" x="310.0" y="8568" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">위험은 합쳐서 확인</text>
+<text class="body" x="310.0" y="8612" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">같은 판단을 쓴 건의 피해를 모두</text>
+<text class="body" x="310.0" y="8643" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">합칩니다.</text>
+<text class="body" x="310.0" y="8674" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">합산값이 한도 안이어도 새 대화가</text>
+<text class="body" x="310.0" y="8705" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">위험을 넘는다고 보면 재판단합니다.</text>
+</g>
+<g id="REJUDGE" class="node process" data-id="REJUDGE">
+<rect class="shape" x="1270" y="8500" width="440" height="277" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="8527" font-size="19" font-weight="700" fill="#A23C6B">새 대화</text>
+<text class="title" x="1490.0" y="8568" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">기존 답 없이 다시 판단</text>
+<text class="body" x="1490.0" y="8612" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">질문 말투와 자료 순서를 바꾸고</text>
+<text class="body" x="1490.0" y="8643" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">판단에 쓰면 안 되는 내용은 뺍니다.</text>
+<text class="body" x="1490.0" y="8674" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">두 판단이 다르면 원문과 계산으로</text>
+<text class="body" x="1490.0" y="8705" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">가립니다.</text>
+<line x1="1294" y1="8730" x2="1686" y2="8730" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="8754" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">11 LLM-as-a-Judge</text>
+</g>
+<g id="RESULT_Q" class="node decision" data-id="RESULT_Q">
+<polygon class="shape" points="900.0,8910 1160,8995.0 900.0,9080 640,8995.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="900.0" y="9004.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">검사 결과는?</text>
+</g>
+<g id="H3" class="node process" data-id="H3">
+<rect class="shape" x="1270" y="8910" width="440" height="277" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="8937" font-size="19" font-weight="700" fill="#995114">사람</text>
+<text class="title" x="1490.0" y="8978" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">남은 판단을 사람에게 인계</text>
+<text class="body" x="1490.0" y="9022" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">사실·갈리는 해석·남은 쟁점과</text>
+<text class="body" x="1490.0" y="9053" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">선택별 위험을 정리해 수신을</text>
+<text class="body" x="1490.0" y="9084" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">확인합니다.</text>
+<text class="body" x="1490.0" y="9115" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">답이 없으면 해당 결론은 보류합니다.</text>
+<line x1="1294" y1="9140" x2="1686" y2="9140" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="9164" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">25 Human-in-the-loop 승인</text>
+</g>
+<g id="P_RESULT_GAP" class="node portal" data-id="P_RESULT_GAP">
+<a href="#ENOUGH">
+<rect class="shape" x="90" y="8870" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="8922.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">02 · 자료를 모두 확인했는가?</text>
+</a>
+</g>
+<g id="P_RESULT_FIX" class="node portal" data-id="P_RESULT_FIX">
+<a href="#JUDGE">
+<rect class="shape" x="90" y="9060" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="9112.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">03 · 결론과 처리 방향 판단</text>
+</a>
+</g>
+<g id="P_H3_JUDGE" class="node portal" data-id="P_H3_JUDGE">
+<a href="#JUDGE">
+<rect class="shape" x="1270" y="9320" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="1490.0" y="9372.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">03 · 결론과 처리 방향 판단</text>
+</a>
+</g>
+<g id="QUAL_Q" class="node decision" data-id="QUAL_Q">
+<polygon class="shape" points="900.0,9470 1160,9555.0 900.0,9640 640,9555.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="900.0" y="9546.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">자격자만 낼 수 있는</text>
+<text class="title" x="900.0" y="9582.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">결과물인가?</text>
+</g>
+<g id="QUALIFIED" class="node process" data-id="QUALIFIED">
+<rect class="shape" x="1270" y="9470" width="440" height="246" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="9497" font-size="19" font-weight="700" fill="#995114">사람</text>
+<text class="title" x="1490.0" y="9538" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">자격자의 직접 검토·승인</text>
+<text class="body" x="1490.0" y="9582" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">고객이 맡긴 자격자가 직접 검토하고</text>
+<text class="body" x="1490.0" y="9613" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">승인한 결과물을 자기 이름으로</text>
+<text class="body" x="1490.0" y="9644" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">냅니다.</text>
+<line x1="1294" y1="9669" x2="1686" y2="9669" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="9693" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">25 Human-in-the-loop 승인</text>
+</g>
+<g id="P_QUAL_FIX" class="node portal" data-id="P_QUAL_FIX">
+<a href="#JUDGE">
+<rect class="shape" x="1270" y="9810" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="1490.0" y="9862.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">03 · 결론과 처리 방향 판단</text>
+</a>
+</g>
+<g id="DIRECTION_Q" class="node decision" data-id="DIRECTION_Q">
+<polygon class="shape" points="900.0,10020 1160,10105.0 900.0,10190 640,10105.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="900.0" y="10096.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">외부 전송이나</text>
+<text class="title" x="900.0" y="10132.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">실행이 필요한가?</text>
+</g>
+<g id="P_REPORT_ONLY" class="node portal" data-id="P_REPORT_ONLY">
+<a href="#REPORT">
+<rect class="shape" x="90" y="10070" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="10122.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">05 · 보고와 실제 처리 대조</text>
+</a>
+</g>
+<g id="PRE" class="node process" data-id="PRE">
+<rect class="shape" x="640" y="10480" width="520" height="246" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="10507" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="10548" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">실행 전 권한·한도·복구 확인</text>
+<text class="body" x="900.0" y="10592" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">실행하지 않고 실제 대상과 값을 맞춰 봅니다.</text>
+<text class="body" x="900.0" y="10623" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">이미 한 행동까지 합친 한도와 권한,</text>
+<text class="body" x="900.0" y="10654" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">되돌릴 방법을 검사합니다.</text>
+<line x1="664" y1="10679" x2="1136" y2="10679" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="10703" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">16 에이전트 하네스 · 18 정책 엔진</text>
+</g>
+<g id="H4" class="node process" data-id="H4">
+<rect class="shape" x="90" y="10480" width="440" height="339" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="106" y="10507" font-size="19" font-weight="700" fill="#995114">사람</text>
+<text class="title" x="310.0" y="10548" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">권한·한도·승인 요청</text>
+<text class="body" x="310.0" y="10592" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">거절된 까닭과 필요한 권한·한도를</text>
+<text class="body" x="310.0" y="10623" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">정리해</text>
+<text class="body" x="310.0" y="10654" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">맡긴 사람이나 다음 책임자에게</text>
+<text class="body" x="310.0" y="10685" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">넘깁니다.</text>
+<text class="body" x="310.0" y="10716" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">수신을 확인하고 답이 없으면 실행하지</text>
+<text class="body" x="310.0" y="10747" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">않습니다.</text>
+<line x1="114" y1="10772" x2="506" y2="10772" stroke="#E4EAF1"/>
+<text class="tech" x="310.0" y="10796" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">25 Human-in-the-loop 승인</text>
+</g>
+<g id="IRREV_Q" class="node decision" data-id="IRREV_Q">
+<polygon class="shape" points="900.0,10860 1160,10945.0 900.0,11030 640,10945.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="900.0" y="10936.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">되돌릴 수 없고</text>
+<text class="title" x="900.0" y="10972.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">미리 허락한 범위 밖인가?</text>
+</g>
+<g id="APPROVE" class="node process" data-id="APPROVE">
+<rect class="shape" x="1270" y="10860" width="440" height="277" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="10887" font-size="19" font-weight="700" fill="#995114">사람</text>
+<text class="title" x="1490.0" y="10928" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">원문과 실제 대상·값 승인</text>
+<text class="body" x="1490.0" y="10972" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">권한 있는 승인자가 원문을 직접 읽고</text>
+<text class="body" x="1490.0" y="11003" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">자기 판단을 먼저 적습니다.</text>
+<text class="body" x="1490.0" y="11034" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">미리 맞춰 본 실제 대상과 값을</text>
+<text class="body" x="1490.0" y="11065" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">승인합니다.</text>
+<line x1="1294" y1="11090" x2="1686" y2="11090" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="11114" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">25 Human-in-the-loop 승인</text>
+</g>
+<g id="JUSTBEFORE" class="node process" data-id="JUSTBEFORE">
+<rect class="shape" x="640" y="11280" width="520" height="246" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="11307" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="11348" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">실행 직전 승인 내용 대조</text>
+<text class="body" x="900.0" y="11392" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">승인하거나 미리 허락한 대상·값·전제를</text>
+<text class="body" x="900.0" y="11423" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">실제 실행 내용과 한 글자까지 대조합니다.</text>
+<text class="body" x="900.0" y="11454" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">다르면 다시 승인받습니다.</text>
+<line x1="664" y1="11479" x2="1136" y2="11479" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="11503" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">16 에이전트 하네스</text>
+</g>
+<g id="EXEC" class="node process" data-id="EXEC">
+<rect class="shape" x="640" y="11650" width="520" height="184" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="11677" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="11718" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">같은 요청 번호로 실행</text>
+<text class="body" x="900.0" y="11762" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">다시 보낼 때도 처음 요청 번호를 씁니다.</text>
+<line x1="664" y1="11787" x2="1136" y2="11787" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="11811" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">16 에이전트 하네스</text>
+</g>
+<g id="ACTUAL" class="node data" data-id="ACTUAL">
+<rect class="shape" x="640" y="11960" width="520" height="215" rx="11" fill="#F3F6FA" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="11987" font-size="19" font-weight="700" fill="#157267">원본 조회</text>
+<text class="title" x="900.0" y="12028" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">원본에서 실제 처리 상태 조회</text>
+<text class="body" x="900.0" y="12072" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">처리 중이면 끝날 때까지 기다립니다.</text>
+<text class="body" x="900.0" y="12103" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">완료가 확인돼야 다음 단계로 갑니다.</text>
+<line x1="664" y1="12128" x2="1136" y2="12128" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="12152" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">7 System of Record</text>
+</g>
+<g id="RETRY_Q" class="node decision" data-id="RETRY_Q">
+<polygon class="shape" points="1490.0,11960 1710,12064.0 1490.0,12168 1270,12064.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="1490.0" y="12037.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">미처리가 확인되고</text>
+<text class="title" x="1490.0" y="12073.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">같은 요청 번호로</text>
+<text class="title" x="1490.0" y="12109.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">다시 보낼 수 있는가?</text>
+</g>
+<g id="H6" class="node process" data-id="H6">
+<rect class="shape" x="1270" y="12300" width="440" height="246" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="12327" font-size="19" font-weight="700" fill="#995114">사람</text>
+<text class="title" x="1490.0" y="12368" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">처리 불명 요청 인계</text>
+<text class="body" x="1490.0" y="12412" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">요청과 원본에서 조회한 상태를 넘기고</text>
+<text class="body" x="1490.0" y="12443" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">수신을 확인합니다. 다시 보내지 않고</text>
+<text class="body" x="1490.0" y="12474" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">확인한 상태를 보고에 적습니다.</text>
+<line x1="1294" y1="12499" x2="1686" y2="12499" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="12523" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">25 Human-in-the-loop 승인</text>
+</g>
+<g id="P_H4_PRE" class="node portal" data-id="P_H4_PRE">
+<a href="#PRE">
+<rect class="shape" x="90" y="10900" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="10952.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">04 · 실행 전 권한·한도·복구 확인</text>
+</a>
+</g>
+<g id="P_H4_REPORT" class="node portal" data-id="P_H4_REPORT">
+<a href="#REPORT">
+<rect class="shape" x="90" y="11100" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="11152.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">05 · 보고와 실제 처리 대조</text>
+</a>
+</g>
+<g id="P_APPROVE_H4" class="node portal" data-id="P_APPROVE_H4">
+<a href="#H4">
+<rect class="shape" x="1270" y="11350" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="1490.0" y="11402.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">04 · 권한·한도·승인 요청</text>
+</a>
+</g>
+<g id="P_JUST_APPROVE" class="node portal" data-id="P_JUST_APPROVE">
+<a href="#APPROVE">
+<rect class="shape" x="90" y="11690" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="11742.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">04 · 원문과 실제 대상·값 승인</text>
+</a>
+</g>
+<g id="P_RETRY_EXEC" class="node portal" data-id="P_RETRY_EXEC">
+<a href="#EXEC">
+<rect class="shape" x="1270" y="11690" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="1490.0" y="11742.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">04 · 같은 요청 번호로 실행</text>
+</a>
+</g>
+<g id="REPORT" class="node process" data-id="REPORT">
+<rect class="shape" x="640" y="12880" width="520" height="308" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="12907" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="12948" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">보고와 실제 처리 대조</text>
+<text class="body" x="900.0" y="12992" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">보고 내용을 실행 기록·원본 상태와 맞춥니다.</text>
+<text class="body" x="900.0" y="13023" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">기록에 남은 수정·삭제·외부 전송도</text>
+<text class="body" x="900.0" y="13054" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">보고에 빠짐없이 있는지 거꾸로 대조합니다.</text>
+<text class="body" x="900.0" y="13085" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">건수는 기록에서 뽑아 “N건 중 M건”으로</text>
+<text class="body" x="900.0" y="13116" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">씁니다.</text>
+<line x1="664" y1="13141" x2="1136" y2="13141" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="13165" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">17 출력 가드레일 · 20 Agent tracing</text>
+</g>
+<g id="FIX" class="node process" data-id="FIX">
+<rect class="shape" x="90" y="12880" width="440" height="174" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="106" y="12907" font-size="19" font-weight="700" fill="#7151A8">판단 모델</text>
+<text class="title" x="310.0" y="12948" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">기록대로 보고 수정</text>
+<text class="body" x="310.0" y="12992" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">어긋난 내용을 고친 뒤</text>
+<text class="body" x="310.0" y="13023" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">보고와 기록을 다시 대조합니다.</text>
+</g>
+<g id="DELIVER" class="node process" data-id="DELIVER">
+<rect class="shape" x="640" y="13350" width="520" height="143" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="13377" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="13418" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">결과물·보고·검토표 전달</text>
+<text class="body" x="900.0" y="13462" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">맡긴 사람에게 보냅니다.</text>
+</g>
+<g id="KEEP" class="node data" data-id="KEEP">
+<rect class="shape" x="640" y="13760" width="520" height="304" rx="11" fill="#F3F6FA" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="13787" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="13828" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">판단 근거와 후속 연결 저장</text>
+<text class="body" x="900.0" y="13872" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">근거·재검토 조건·사용 기한을 남깁니다.</text>
+<text class="body" x="900.0" y="13903" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">이어 쓴 작업·전달처·보류한 부분과 이유를</text>
+<text class="body" x="900.0" y="13934" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">기록하고 앞선 판단 목록·변경 감시에</text>
+<text class="body" x="900.0" y="13965" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">올립니다.</text>
+<line x1="664" y1="13990" x2="1136" y2="13990" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="14014" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">21 진행 기록·변경 이력 · 22 Decision Traces</text>
+<text class="tech" x="900.0" y="14041" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">24 Lineage·Citator형 변경 알림</text>
+</g>
+<g id="FINISH" class="node terminal" data-id="FINISH">
+<rect class="shape" x="640" y="14170" width="520" height="86" rx="43.0" fill="#E9F5EE" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="title" x="900.0" y="14222.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">한 건의 업무 종료</text>
+</g>
+<g id="W_LAW" class="node process" data-id="W_LAW">
+<rect class="shape" x="90" y="14550" width="440" height="246" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="106" y="14577" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="310.0" y="14618" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">근거 변경 확인</text>
+<text class="body" x="310.0" y="14662" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">법령·판례·기준서 변경을 날마다 받고</text>
+<text class="body" x="310.0" y="14693" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">연결된 결론·전달</text>
+<text class="body" x="310.0" y="14724" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">결과·플레이북·코드를 찾습니다.</text>
+<line x1="114" y1="14749" x2="506" y2="14749" stroke="#E4EAF1"/>
+<text class="tech" x="310.0" y="14773" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">6 법령 데이터베이스 · 24 변경 알림</text>
+</g>
+<g id="W_PARTY" class="node process" data-id="W_PARTY">
+<rect class="shape" x="640" y="14550" width="520" height="215" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="14577" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="14618" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">새 이해 충돌 확인</text>
+<text class="body" x="900.0" y="14662" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">공시·지분 보고를 날마다 받아</text>
+<text class="body" x="900.0" y="14693" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">이미 맡은 일과 충돌이 생겼는지 봅니다.</text>
+<line x1="664" y1="14718" x2="1136" y2="14718" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="14742" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">23 Conflict check</text>
+</g>
+<g id="W_TEST" class="node process" data-id="W_TEST">
+<rect class="shape" x="1270" y="14550" width="440" height="339" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="14577" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="1490.0" y="14618" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">업무 능력과 방어 시험</text>
+<text class="body" x="1490.0" y="14662" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">주기적으로 공격·숨긴 글·표식</text>
+<text class="body" x="1490.0" y="14693" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">문구·승인 시험과</text>
+<text class="body" x="1490.0" y="14724" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">판단 전용 모델의 누락률을</text>
+<text class="body" x="1490.0" y="14755" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">검사합니다.</text>
+<text class="body" x="1490.0" y="14786" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">무작위 실제 업무도 시험 결과와</text>
+<text class="body" x="1490.0" y="14817" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">견줍니다.</text>
+<line x1="1294" y1="14842" x2="1686" y2="14842" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="14866" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">26 에이전트 평가 Evals</text>
+</g>
+<g id="W_Q" class="node decision" data-id="W_Q">
+<polygon class="shape" points="900.0,14970 1160,15055.0 900.0,15140 640,15055.0" fill="#FFF7DE" stroke="#BACBDD" stroke-width="1.7"/>
+<text class="title" x="900.0" y="15064.0" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">무엇이 드러났는가?</text>
+</g>
+<g id="W_STOP" class="node process" data-id="W_STOP">
+<rect class="shape" x="90" y="15300" width="440" height="236" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="106" y="15327" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="310.0" y="15368" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">후속 행동 중단·알림</text>
+<text class="body" x="310.0" y="15412" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">틀린 결론에 기댄 행동을 멈춥니다.</text>
+<text class="body" x="310.0" y="15443" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">맡긴 사람과 다음 작업 담당자에게</text>
+<text class="body" x="310.0" y="15474" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">알리고</text>
+<text class="body" x="310.0" y="15505" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">바뀐 근거부터 다시 찾습니다.</text>
+</g>
+<g id="W_NARROW" class="node process" data-id="W_NARROW">
+<rect class="shape" x="640" y="15300" width="520" height="215" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="656" y="15327" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="900.0" y="15368" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">맡길 수 있는 범위 축소</text>
+<text class="body" x="900.0" y="15412" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">나빠진 범위를 빼거나 기준을 다시 맞춥니다.</text>
+<text class="body" x="900.0" y="15443" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">줄인 범위는 다음 건부터 바로 적용합니다.</text>
+<line x1="664" y1="15468" x2="1136" y2="15468" stroke="#E4EAF1"/>
+<text class="tech" x="900.0" y="15492" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">26 에이전트 평가 Evals</text>
+</g>
+<g id="W_NEW" class="node process" data-id="W_NEW">
+<rect class="shape" x="1270" y="15300" width="440" height="267" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="15327" font-size="19" font-weight="700" fill="#475569">운영하는 쪽</text>
+<text class="title" x="1490.0" y="15368" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">기준·프로그램·시험 보완</text>
+<text class="body" x="1490.0" y="15412" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">실패 원인을 찾아</text>
+<text class="body" x="1490.0" y="15443" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">플레이북·기준표·계산 코드·</text>
+<text class="body" x="1490.0" y="15474" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">프로그램·시험을 고칩니다.</text>
+<text class="body" x="1490.0" y="15505" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">막지 못한 원인에는 새 해결책을</text>
+<text class="body" x="1490.0" y="15536" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">더합니다.</text>
+</g>
+<g id="W_CHANGE" class="node process" data-id="W_CHANGE">
+<rect class="shape" x="1270" y="15700" width="440" height="277" rx="11" fill="white" stroke="#BACBDD" stroke-width="1.6"/>
+<text class="role" x="1286" y="15727" font-size="19" font-weight="700" fill="#3974B8">프로그램</text>
+<text class="title" x="1490.0" y="15768" text-anchor="middle" font-size="26" font-weight="800" fill="#17253B">재시험·일부 적용·복구</text>
+<text class="body" x="1490.0" y="15812" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">지난 건으로 재시험하고 일부 건에 먼저</text>
+<text class="body" x="1490.0" y="15843" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">씁니다.</text>
+<text class="body" x="1490.0" y="15874" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">의도 밖 결과가 바뀌면 이전 버전으로</text>
+<text class="body" x="1490.0" y="15905" text-anchor="middle" font-size="23" font-weight="500" fill="#475569">되돌립니다.</text>
+<line x1="1294" y1="15930" x2="1686" y2="15930" stroke="#E4EAF1"/>
+<text class="tech" x="1490.0" y="15954" text-anchor="middle" font-size="20" font-weight="600" fill="#45627E">16 에이전트 하네스</text>
+</g>
+<g id="P_W_SEARCH" class="node portal" data-id="P_W_SEARCH">
+<a href="#SEARCH">
+<rect class="shape" x="90" y="15700" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="15752.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">02 · 원문과 연결 자료 찾기</text>
+</a>
+</g>
+<g id="P_W_H5" class="node portal" data-id="P_W_H5">
+<a href="#H5">
+<rect class="shape" x="90" y="14970" width="440" height="86" rx="11" fill="#FFFCF4" stroke="#B57C1F" stroke-width="1.6" stroke-dasharray="5 5"/>
+<text class="title" x="310.0" y="15022.0" text-anchor="middle" font-size="23" font-weight="800" fill="#17253B">02 · 새 충돌 판정과 동의</text>
+</a>
+</g>
+<g class="edge-label" data-id="2"><rect x="1412.22" y="1500.0" width="155.56" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="1527" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">충돌 후보 있음</text>
+</g>
+<g class="edge-label" data-id="3"><rect x="1435.53" y="1903.5" width="108.94" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="1930.5" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">맡지 않음</text>
+</g>
+<g class="edge-label" data-id="4"><rect x="822.22" y="2032.5" width="155.56" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="2059.5" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">충돌 후보 없음</text>
+</g>
+<g class="edge-label" data-id="5"><rect x="1165.53" y="2110.0" width="108.94" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1220.0" y="2137.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">맡아도 됨</text>
+</g>
+<g class="edge-label" data-id="12"><rect x="878.92" y="3654.0" width="42.16" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="3681.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">예</text>
+</g>
+<g class="edge-label" data-id="13"><rect x="552.01" y="3474.0" width="82.48" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="593.25" y="3501.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">아니오</text>
+</g>
+<g class="edge-label" data-id="14"><rect x="808.99" y="4456.5" width="182.02" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="4483.5" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">새 충돌 후보 없음</text>
+</g>
+<g class="edge-label" data-id="15"><rect x="1398.99" y="4020.0" width="182.02" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="4047" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">새 충돌 후보 있음</text>
+</g>
+<g class="edge-label" data-id="16"><rect x="1448.76" y="4403.0" width="82.48" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="4430.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">그만둠</text>
+</g>
+<g class="edge-label" data-id="17"><rect x="1435.53" y="4640.0" width="108.94" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490" y="4667" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">맡아도 됨</text>
+</g>
+<g class="edge-label" data-id="18"><rect x="186.86" y="5300.0" width="246.28" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310" y="5327" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">아니오 · 더 찾을 곳 있음</text>
+</g>
+<g class="edge-label" data-id="19"><rect x="1334.73" y="5296.0" width="310.54" height="68" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="5323" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">아니오 · 더 찾을 곳 없음 / 기한</text>
+<text class="label-text" x="1490.0" y="5351" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">종료</text>
+</g>
+<g class="edge-label" data-id="20"><rect x="1422.3" y="5664.0" width="135.4" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="5691.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">넘을 수 있음</text>
+</g>
+<g class="edge-label" data-id="21"><rect x="708.03" y="5700.0" width="108.94" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="762.5" y="5727.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">넘지 않음</text>
+</g>
+<g class="edge-label" data-id="22"><rect x="1422.3" y="6088.5" width="135.4" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="6115.5" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">새 자료가 옴</text>
+</g>
+<g class="edge-label" data-id="23"><rect x="858.47" y="6076.0" width="313.06" height="68" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1015.0" y="6103.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">결정 도착 / 답 없음은 해당 결론</text>
+<text class="label-text" x="1015.0" y="6131.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">보류</text>
+</g>
+<g class="edge-label" data-id="24"><rect x="568.92" y="6310.0" width="42.16" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="590.0" y="6337.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">예</text>
+</g>
+<g class="edge-label" data-id="25"><rect x="173.0" y="6310.0" width="274.0" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310.0" y="6337.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">부족한 곳·재검토 시점 반영</text>
+</g>
+<g class="edge-label" data-id="31"><rect x="858.76" y="8748.6" width="82.48" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="8775.6" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">아니오</text>
+</g>
+<g class="edge-label" data-id="32"><rect x="1166.42" y="8584.0" width="42.16" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1187.5" y="8611.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">예</text>
+</g>
+<g class="edge-label" data-id="33"><rect x="979.54" y="8810.0" width="200.92" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1080.0" y="8837.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">원문·계산으로 대조</text>
+</g>
+<g class="edge-label" data-id="34"><rect x="1356.78" y="8840.0" width="266.44" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="8867" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">판단 불가 / 사람이 정할 일</text>
+</g>
+<g class="edge-label" data-id="35"><rect x="235.37" y="8805.0" width="149.26" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310" y="8832" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">자료가 모자람</text>
+</g>
+<g class="edge-label" data-id="36"><rect x="164.18" y="9210.0" width="291.64" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310" y="9237" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">틀림·누락 / 같은 원인도 확인</text>
+</g>
+<g class="edge-label" data-id="37"><rect x="868.84" y="9255.0" width="62.32" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="9282.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">통과</text>
+</g>
+<g class="edge-label" data-id="38"><rect x="1336.62" y="9250.0" width="306.76" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="9277.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">결정이 옴 · 조건에 넣고 재판단</text>
+</g>
+<g class="edge-label" data-id="39"><rect x="931.86" y="9415.0" width="246.28" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1055.0" y="9442.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">답 없음 · 해당 결론 보류</text>
+</g>
+<g class="edge-label" data-id="40"><rect x="1166.42" y="9535.0" width="42.16" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1187.5" y="9562.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">예</text>
+</g>
+<g class="edge-label" data-id="41"><rect x="858.76" y="9810.0" width="82.48" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="9837.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">아니오</text>
+</g>
+<g class="edge-label" data-id="42"><rect x="1422.3" y="9743.0" width="135.4" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="9770.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">고칠 곳 있음</text>
+</g>
+<g class="edge-label" data-id="43"><rect x="1173.76" y="9940.0" width="82.48" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1215.0" y="9967.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">승인함</text>
+</g>
+<g class="edge-label" data-id="44"><rect x="552.01" y="10085.0" width="82.48" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="593.25" y="10112.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">아니오</text>
+</g>
+<g class="edge-label" data-id="45"><rect x="878.92" y="10315.0" width="42.16" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="10342.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">예</text>
+</g>
+<g class="edge-label" data-id="46"><rect x="822.22" y="10773.0" width="155.56" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="10800.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">권한과 한도 안</text>
+</g>
+<g class="edge-label" data-id="47"><rect x="212.06" y="10410.0" width="195.88" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310.0" y="10437" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">권한이나 한도 초과</text>
+</g>
+<g class="edge-label" data-id="48"><rect x="203.87" y="10839.5" width="212.26" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310.0" y="10866.5" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">권한·한도·승인 확보</text>
+</g>
+<g class="edge-label" data-id="49"><rect x="233.48000000000002" y="11030.0" width="153.04" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310" y="11057" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">거절 / 답 없음</text>
+</g>
+<g class="edge-label" data-id="50"><rect x="858.76" y="11135.0" width="82.48" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="11162.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">아니오</text>
+</g>
+<g class="edge-label" data-id="51"><rect x="1468.92" y="10790.0" width="42.16" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490" y="10817" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">예</text>
+</g>
+<g class="edge-label" data-id="52"><rect x="1137.22" y="11195.0" width="155.56" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1215.0" y="11222.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">기한 안에 승인</text>
+</g>
+<g class="edge-label" data-id="53"><rect x="1413.48" y="11223.5" width="153.04" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="11250.5" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">거절 / 답 없음</text>
+</g>
+<g class="edge-label" data-id="54"><rect x="868.84" y="11568.0" width="62.32" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="11595.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">같음</text>
+</g>
+<g class="edge-label" data-id="55"><rect x="263.4" y="11590.0" width="173.2" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="350.0" y="11617.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">다름 · 다시 승인</text>
+</g>
+<g class="edge-label" data-id="57"><rect x="1403.4" y="11890.0" width="173.2" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="11917" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">실패 / 응답 끊김</text>
+</g>
+<g class="edge-label" data-id="58"><rect x="1728.92" y="11820.0" width="42.16" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1750.0" y="11847.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">예</text>
+</g>
+<g class="edge-label" data-id="59"><rect x="1448.76" y="12214.0" width="82.48" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="12241.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">아니오</text>
+</g>
+<g class="edge-label" data-id="60"><rect x="845.53" y="12507.5" width="108.94" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="12534.5" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">처리 끝남</text>
+</g>
+<g class="edge-label" data-id="61"><rect x="1275.52" y="12695.0" width="268.96000000000004" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1410.0" y="12722.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">다시 보내지 않고 상태 보고</text>
+</g>
+<g class="edge-label" data-id="62"><rect x="201.98000000000002" y="12810.0" width="216.04" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310.0" y="12837" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">보고와 기록이 어긋남</text>
+</g>
+<g class="edge-label" data-id="63"><rect x="258.99" y="13220.0" width="182.02" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="350.0" y="13247.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">수정 후 다시 대조</text>
+</g>
+<g class="edge-label" data-id="64"><rect x="802.06" y="13249.0" width="195.88" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="13276.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">보고와 기록이 맞음</text>
+</g>
+<g class="edge-label" data-id="70"><rect x="250.09" y="15215.0" width="219.82" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="360.0" y="15242.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">근거 변경 / 틀린 결론</text>
+</g>
+<g class="edge-label" data-id="71"><rect x="802.06" y="15256.0" width="195.88" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="900.0" y="15283.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">시험 결과가 나빠짐</text>
+</g>
+<g class="edge-label" data-id="72"><rect x="1366.23" y="15215.0" width="247.54" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="15242.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">기준·프로그램 보완 필요</text>
+</g>
+<g class="edge-label" data-id="73"><rect x="242.3" y="14916.0" width="135.4" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="310.0" y="14943.0" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">새 충돌 후보</text>
+</g>
+<g class="edge-label" data-id="75"><rect x="1412.22" y="15613.5" width="155.56" height="40" rx="5" fill="white" stroke="#DCE5EF"/>
+<text class="label-text" x="1490.0" y="15640.5" text-anchor="middle" font-size="21" font-weight="600" fill="#17253B">고친 것을 적용</text>
+</g>
+</g></svg>
