@@ -12,7 +12,16 @@ def load_module(name,file):
     s=importlib.util.spec_from_file_location(name,Path(__file__).with_name(file))
     m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 v=load_module('geometry','사용-구조-검증.py')
-helpers=load_module('shapes','단독-재료-사용구조-검증.py')
+
+def shape_overlap(rect,node):
+    if not v.overlap(rect,node,2):return False
+    if node.get('kind')!='decision':return True
+    x,y,w,h=[rect[k] for k in ('x','y','w','h')]
+    ps=[(x+2,y+2),(x+w-2,y+2),(x+w-2,y+h-2),(x+2,y+h-2)]
+    if any(v.inside(p,node,0) for p in ps):return True
+    if any(v.intersects_node(a,b,node) for a,b in zip(ps,ps[1:]+ps[:1])):return True
+    return v.inside((node['x']+node['w']/2,node['y']+node['h']/2),rect,0)
+
 def run(folder):
     d=json.loads((ROOT/'docs/도식/단독-재료-연결구조.json').read_text())
     g=json.loads((folder/'geometry.json').read_text())
@@ -473,7 +482,7 @@ def run(folder):
         lid=t.get('id',t.get('text'))
         if t['x']<0 or t['y']<0 or t['x']+t['w']>d['width'] or t['y']+t['h']>d['height']:issues.append(['label-out',lid])
         for k,n in shapes.items():
-            if helpers.shape_overlap(t,n):issues.append(['label-node',lid,k])
+            if shape_overlap(t,n):issues.append(['label-node',lid,k])
         for i,e in enumerate(es):
             if lid!=f'e{i}' and any(v.intersects_node(a,b,t) for a,b in zip(e['points'],e['points'][1:])):issues.append(['edge-label',i,lid])
     for a,b in itertools.combinations(g['labels']+g['annotations'],2):
@@ -483,7 +492,7 @@ def run(folder):
         assert all(abs(header[q]-scope[q])<.25 for q in ['x','y','w'])
         assert header['y']+header['h']<scope['y']+scope['h']
         for k,n in shapes.items():
-            if helpers.shape_overlap(header,n):issues.append(['scope-header-node',header['scope'],k])
+            if shape_overlap(header,n):issues.append(['scope-header-node',header['scope'],k])
         for t in g['labels']:
             if v.overlap(header,t,0):issues.append(['scope-header-label',header['scope'],t['id']])
         for i,e in enumerate(es):
