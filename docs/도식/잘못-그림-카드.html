@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<style>
+body{margin:0;background:#fefefe;font-family:"Apple SD Gothic Neo",sans-serif}
+.card{width:558px;height:180px;position:relative;background:#fefefe;margin-bottom:10px;overflow:hidden}
+.card svg{position:absolute;left:18px;top:22px;width:170px;height:136px}
+.txt{position:absolute;left:200px;right:10px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center}
+.t{font-weight:900;color:#151515;font-size:38px;letter-spacing:-0.5px;white-space:nowrap;line-height:1.15}
+.e{font-weight:600;color:#3c3c40;font-size:27px;line-height:34px;margin-top:12px;letter-spacing:-0.3px}
+</style>
+<script>
+const K='#1d1d1f', B='#a9d4f4', Y='#fbefb9', W='#ffffff', G='#8a8a8e', A='#1f5f96';
+const sw='stroke="'+K+'" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"';
+const lines=(x,y,n,w,gap)=>Array.from({length:n},(_,i)=>`<line x1="${x}" y1="${y+i*gap}" x2="${x+w-(i==n-1?w*0.3:0)}" y2="${y+i*gap}" stroke="${G}" stroke-width="4" stroke-linecap="round"/>`).join('');
+const cards=[
+ {t:'누구 편인지 놓침', e:'소송 상대방 회사의 일도<br>함께 맡음', s:`
+  <rect x="6" y="18" width="58" height="84" rx="6" fill="#7fbbe9" ${sw}/><rect x="14" y="12" width="58" height="84" rx="6" fill="${B}" ${sw}/>
+  <rect x="104" y="12" width="58" height="84" rx="6" fill="#f1dd8a" ${sw}/><rect x="96" y="18" width="58" height="84" rx="6" fill="${Y}" ${sw}/>
+  <path d="M68 66 v-10 a6 6 0 0 1 6 -6 h22 a6 6 0 0 1 6 6 v10" fill="none" ${sw}/>
+  <rect x="44" y="66" width="82" height="54" rx="8" fill="${W}" ${sw}/>
+  <line x1="44" y1="86" x2="126" y2="86" ${sw}/><rect x="78" y="80" width="14" height="12" rx="2" fill="${B}" ${sw}/>`},
+ {t:'대안을 견주지 않음', e:'해지만 따지고<br>재협상은 보지 않음', s:`
+  <line x1="80" y1="18" x2="80" y2="124" ${sw}/><line x1="50" y1="124" x2="112" y2="124" ${sw}/>
+  <path d="M84 24 h58 l16 16 l-16 16 h-58 z" fill="${B}" ${sw}/>
+  <path d="M104 40 h30 m-10 -9 l10 9 l-10 9" fill="none" stroke="${A}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 66 h-58 l-16 16 l16 16 h58 z" fill="#f4f6f8" stroke="#b9bdc3" stroke-width="3.5" stroke-dasharray="7 6" stroke-linejoin="round"/>
+  <path d="M58 82 h-30 m10 -9 l-10 9 l10 9" fill="none" stroke="#c4c8ce" stroke-width="4" stroke-dasharray="6 6" stroke-linecap="round"/>`},
+ {t:'결론이 그때마다 달라짐', e:'같은 조항을 유효로 봤다가<br>다시 물으면 무효로 봄', s:`
+  <rect x="6" y="14" width="64" height="86" rx="5" fill="${W}" ${sw}/>${lines(17,34,4,42,15)}
+  <rect x="94" y="14" width="64" height="86" rx="5" fill="${W}" ${sw}/>${lines(105,34,4,42,15)}
+  <circle cx="58" cy="104" r="18" fill="${B}" ${sw}/><path d="M49 104 l7 7 l12 -14" fill="none" stroke="${A}" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="146" cy="104" r="18" fill="#fde2df" ${sw}/><path d="M139 97 l14 14 m0 -14 l-14 14" fill="none" stroke="#e5483b" stroke-width="5.5" stroke-linecap="round"/>`},
+ {t:'바뀐 근거를 반영하지 않음', e:'세율이 바뀌어도 지난<br>세액 계산을 그대로 둠', s:`
+  <rect x="14" y="30" width="70" height="92" rx="6" fill="#7fbbe9" ${sw}/><rect x="6" y="24" width="70" height="92" rx="6" fill="${B}" ${sw}/>
+  <line x1="41" y1="50" x2="41" y2="90" ${sw}/><line x1="24" y1="56" x2="58" y2="56" ${sw}/>
+  <path d="M24 56 l-8 18 h16 z M58 56 l-8 18 h16 z" fill="${W}" ${sw}/><line x1="31" y1="90" x2="51" y2="90" ${sw}/>
+  <path d="M56 10 h20 v30 l-10 -8 l-10 8 z" fill="${Y}" ${sw}/>
+  <path d="M102 26 h52 v84 l-6.5 -7 l-6.5 7 l-6.5 -7 l-6.5 7 l-6.5 -7 l-6.5 7 l-6.5 -7 l-6.5 7 z" fill="#f6efdc" ${sw}/>${lines(113,46,4,30,14)}`},
+];
+document.addEventListener('DOMContentLoaded',()=>{
+ for(const [i,c] of cards.entries()){
+  const d=document.createElement('div');d.className='card';d.id='c'+i;
+  d.innerHTML=`<svg viewBox="0 0 170 136">${c.s}</svg><div class="txt"><div class="t">${c.t}</div><div class="e">${c.e}</div></div>`;
+  document.body.appendChild(d);
+  const t=d.querySelector('.t');let fs=38;while(t.scrollWidth>348&&fs>28){fs--;t.style.fontSize=fs+'px';}
+ }
+});
+</script>
