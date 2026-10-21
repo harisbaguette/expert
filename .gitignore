@@ -12,3 +12,4 @@ __pycache__/
 
 # Kilo 작업 복사본
 /.kilo/
+/.project-map/
