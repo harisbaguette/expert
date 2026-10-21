@@ -1,0 +1,313 @@
+%%{init: {"flowchart":{"curve":"basis","nodeSpacing":30,"rankSpacing":60},"themeVariables":{"fontSize":"22px"}} }%%
+flowchart TB
+    accTitle: 전문 판단의 신뢰성 해결책 구조
+    accDescr: 준비 기준과 한 건의 처리, 검사 합류, 단계별 사람의 결정과 복귀, 상시 감시와 기록을 연결한 순서도.
+    subgraph PREP["미리 정해 두는 기준"]
+        direction TB
+        P1["<b>1</b><br/><b>온톨로지</b><br/>대상, 관계, 단위의 이름을 정한다"]:::main
+        P15["<b>15</b><br/><b>업무 플레이북</b><br/>업무 종류마다 판단 기준과 합격 기준을 정한다"]:::main
+        P14["<b>14</b><br/><b>행동 원칙<br/>시스템 프롬프트</b><br/>늘 지킬 원칙을 정한다"]:::main
+        P13["<b>13</b><br/><b>판단 절차 SOP와<br/>Prompt chaining</b><br/>확인하는 순서를 단계로 정한다"]:::main
+        P12["<b>12</b><br/><b>코드 실행 도구와<br/>Rules as Code</b><br/>법의 계산 규칙을 검증한 코드로 옮겨 둔다"]:::main
+        P26["<b>26</b><br/><b>에이전트 평가 Evals</b><br/>이 기준들로 일하는 에이전트를 시험해<br/>맡겨도 되는 범위를 정한다"]:::main
+        W26["<b>26</b><br/><b>에이전트 평가 Evals</b><br/>정해 둔 주기로 다시 시험한다<br/>나빠진 범위는 맡길 범위에서 뺀다"]:::watch
+        PUPDATE["<b>26</b><br/><b>기준·시험 범위 재검토</b><br/>운영하는 쪽이 기준과 허용 범위를 고친다<br/>수정한 에이전트는 다시 시험한다"]:::watch
+    end
+    subgraph SCOPEL["맡을지 확인"]
+        direction TB
+        C11["<b>11</b><br/><b>LLM-as-a-Judge</b><br/>들어온 요청과 자료가 원칙이 걸린 상황인지,<br/>사람이 정할 일인지 가린다"]:::main
+        C13["<b>13</b><br/><b>판단 절차 SOP와<br/>Prompt chaining</b><br/>업무 종류와 결론을 가를 빈 항목을<br/>맡긴 사람에게 한 번에 묻는다"]:::main
+        C23["<b>23</b><br/><b>Conflict check</b><br/>관계자 목록으로 이해 충돌을 조회한다"]:::main
+        C16["<b>16</b><br/><b>에이전트 하네스</b><br/>시험한 범위 안인지, 자격자만 할 일이면<br/>맡은 자격자가 기록에 있는지 맞춰 본다"]:::main
+        SCOPE{"맡을 조건을<br/>모두 충족했는가?"}:::note
+    end
+    subgraph DOORL["자료 관문"]
+        direction TB
+        D8["<b>8</b><br/><b>문서 파싱 VLM</b><br/>문서의 글과 표를 읽는다"]:::main
+        D9["<b>9</b><br/><b>숨김 텍스트 탐지</b><br/>숨긴 글과 보이지 않는 특수 문자를 뺀다"]:::main
+        D10["<b>10</b><br/><b>Quarantined LLM</b><br/>AI에게 내리는 명령 문장을 빼고<br/>평가하는 일은 정해 둔 항목만 뽑는다"]:::main
+        D19["<b>19</b><br/><b>멀티테넌트 격리</b><br/>그 고객의 저장소에 넣고<br/>조각마다 고객을 표시한다"]:::main
+        D23["<b>23</b><br/><b>Conflict check</b><br/>자료에 새로 나온 관계자를 다시 조회한다"]:::main
+        DREADY{"자료 확인을<br/>마쳤는가?"}:::note
+    end
+    subgraph SRCL["근거 공급"]
+        direction TB
+        RBEGIN["<b>필요한 근거 조회</b><br/>18·16이 조회 권한을 확인한 뒤<br/>이번 사실·쟁점에 맞는 자료를 찾는다"]:::main
+        R7["<b>7</b><br/><b>System of Record</b><br/>지금 값과 서류가 진짜인지<br/>원본에서 확인한다"]:::main
+        R2["<b>2</b><br/><b>시간축 지식 그래프</b><br/>대상 사이 관계와 그 기간을 담는다"]:::main
+        R3["<b>3</b><br/><b>하이브리드 검색 RAG</b><br/>뜻이 비슷한 글과<br/>낱말이 같은 글을 함께 찾는다"]:::main
+        R4["<b>4</b><br/><b>GraphRAG</b><br/>그래프를 따라 이어진<br/>별첨과 참조를 찾는다"]:::main
+        R6["<b>6</b><br/><b>로컬 법령<br/>데이터베이스</b><br/>사건 날짜의 법령과 판례 원문을 찾는다"]:::main
+        R18["<b>18</b><br/><b>Policy as Code<br/>정책 엔진</b><br/>이번 일에서 볼 수 없는 조각을 거른다"]:::main
+        R5["<b>5</b><br/><b>Decision Model</b><br/>관련 있는 자료만 고른다"]:::main
+        RSAFE[["<b>8 · 9 · 10 · 19 · 23</b><br/><b>새 검색·도구 자료 확인</b><br/>자료 관문과 같은 검사 적용<br/>정제·고객 격리·새 관계자 충돌 확인<br/>원본은 보관하고 판단용 자료를 만든다"]]:::main
+        RREADY{"새 자료의 확인을<br/>마쳤는가?"}:::note
+    end
+    subgraph AIL["답을 만드는 모델의 판단"]
+        direction TB
+        A21["<b>21</b><br/><b>Structured note-taking과<br/>변경 이력 관리</b><br/>앞서 정한 조건과 근거를<br/>단계마다 다시 넣어 준다"]:::main
+        A13["<b>13</b><br/><b>판단 절차 SOP와<br/>Prompt chaining</b><br/>기준의 조건·예외를 사실에 적용<br/>반대 근거와 대안·위험을 비교<br/>단계마다 결론과 이유를 남긴다"]:::main
+        CALC{"계산이 필요한가?"}:::note
+        A12["<b>12</b><br/><b>코드 실행 도구와<br/>Rules as Code</b><br/>계산은 코드로 한다"]:::main
+        A27["<b>27</b><br/><b>구조화 출력<br/>Structured Outputs</b><br/>정해 둔 칸에만 답한다"]:::main
+    end
+    subgraph CHKL["검사 관문"]
+        direction TB
+        KSTART["<b>15 · 16</b><br/><b>이번 업무의 검사 항목 확정</b><br/>항목별 적용 여부를 기준으로 정한다<br/>해당 없음도 이유를 남긴다<br/>법·계약상 필요한 검사는 생략하지 않는다<br/>원문·인용·계산 대조는 항상 한다<br/>필수 사람·자격자 검토도 받아야 통과한다"]:::main
+        K28["<b>28</b><br/><b>PII 탐지와 k-익명성,<br/>Threshold rule 검사</b><br/>개인정보와 적은 인원의 통계를 찾는다"]:::main
+        K11["<b>11</b><br/><b>LLM-as-a-Judge</b><br/>원칙·기준 적용을 독립적으로 검토한다<br/>큰 위험은 기존 답 없이 별도로 재판단한다"]:::main
+        K22["<b>22</b><br/><b>Decision Traces</b><br/>같은 쟁점의 앞선 결론과 맞춰 본다"]:::main
+        K17["<b>17</b><br/><b>규칙 기반 출력 가드레일</b><br/>인용·계산·빠진 항목을 대조한다<br/>11·28의 결과도 함께 넘긴다"]:::main
+        K12["<b>12</b><br/><b>코드 실행 도구와<br/>Rules as Code</b><br/>여러 사람을 평가한 결과가 쏠렸는지 잰다"]:::main
+        KJOIN["<b>16 · 17</b><br/><b>검사 결과 합치기</b><br/>11·12·17·22·28의 결과 취합<br/>필요한 결과가 빠졌으면 통과시키지 않는다"]:::main
+        CHECK{"필요한 검사를<br/>모두 통과했는가?"}:::note
+    end
+    subgraph ACTL["실행 관문"]
+        direction TB
+        X18["<b>18</b><br/><b>Policy as Code<br/>정책 엔진</b><br/>검사 완료 상태·권한·합산 한도 확인<br/>필요한 승인과 유효 기한을 확인한다"]:::main
+        XREADY{"실행 조건을<br/>충족했는가?"}:::note
+        X16["<b>16</b><br/><b>에이전트 하네스</b><br/>실행 직전 승인 내용·대상·값을 대조<br/>달라졌으면 실행하지 않는다<br/>복구 방법 또는 되돌릴 수 없는 실행의 승인을 확인한다<br/>통과한 실행만 수행한다"]:::main
+        X7["<b>7</b><br/><b>System of Record</b><br/>처리 결과를 원본에서 확인한다"]:::main
+        XSTATE{"원본에서 처리 결과가<br/>확인되는가?"}:::note
+    end
+    subgraph LOGL["모든 단계의 기록"]
+        direction TB
+        G21["<b>21</b><br/><b>Structured note-taking과<br/>변경 이력 관리</b><br/>판단 근거를 고칠 수 없게<br/>덧붙여 남긴다"]:::main
+        G22["<b>22</b><br/><b>Decision Traces</b><br/>판단마다 앞선 결론 목록에 올린다"]:::main
+        G20["<b>20</b><br/><b>Agent tracing</b><br/>모든 실행을 기록하고<br/>기록이 남지 않으면 실행하지 않는다"]:::main
+        G24["<b>24</b><br/><b>Lineage 추적과<br/>Citator형 변경 알림</b><br/>결론마다 근거와 쓰인 곳을 잇는다"]:::main
+    end
+    subgraph EMERGL["어느 단계에서든 위급할 때"]
+        direction TB
+        E1["<b>25 · 16</b><br/><b>도움 연락처 즉시 안내</b><br/>생명·몸의 위험을 알리면<br/>출력 검사·승인을 기다리지 않는다"]:::back
+        E2["<b>25 · 16</b><br/><b>정해 둔 대응 담당자에게 알림</b><br/>사전에 정한 응답 기한까지 확인한다"]:::back
+        EWAIT{"기한 안에<br/>답이 왔는가?"}:::note
+        E3["<b>25 · 16</b><br/><b>사전 허락된 조치만 실행</b><br/>정해 둔 곳에 위치·위험 내용만 알린다"]:::back
+        E4["<b>정해 둔 범위에서 대응</b><br/>받은 결정과 사전 허락에 따라 조치한다"]:::back
+    end
+    F17["<b>17</b><br/><b>규칙 기반 출력 가드레일</b><br/>보고와 실행 기록·원본 상태를 대조<br/>보류한 결론·행동을 완료로 보고하지 않는다<br/>실패·중단·미확인도 사실대로 적는다"]:::main
+    FINAL{"보고가 실행 기록과<br/>원본에 맞는가?"}:::note
+    HD["<b>25</b><br/><b>Human-in-the-loop 승인<br/>자료·충돌 확인</b><br/>판독 문제는 맡긴 사람이 확인한다<br/>이해 충돌은 운영 책임자가 정한다<br/>보완 내용·충돌 해소를 기록한다"]:::back
+    HJ["<b>25</b><br/><b>Human-in-the-loop 승인<br/>전문 판단 검토</b><br/>결론을 바꿀 권한·능력이 있는 사람이<br/>근거를 직접 검토하고 판단한다<br/>자격자 일은 해당 자격자가 검토한다"]:::back
+    HOLD["<b>보류·중단 기록</b><br/>거절·기한 내 무응답·결정할 곳 없음<br/>그 부분과 그에 기댄 행동을 멈춘다<br/>정해 둔 다음 담당자에게 알리고<br/>보류 사유와 처리 내역을 보고한다"]:::back
+    HR["<b>25</b><br/><b>Human-in-the-loop 승인<br/>보고 확인</b><br/>기록과 원본 상태를 직접 확인한다<br/>확인·미확인·보류를 구분해 고친다"]:::back
+    HRD["<b>25</b><br/><b>Human-in-the-loop 승인<br/>새 자료·충돌 확인</b><br/>판독 문제는 맡긴 사람이 확인한다<br/>이해 충돌은 운영 책임자가 정한다<br/>보완 자료·판정을 기록한다"]:::back
+    HRX["<b>25</b><br/><b>Human-in-the-loop 승인<br/>실행 결과 확인</b><br/>원본 상태를 사람이 확인한다<br/>결과를 모르면 다시 실행하지 않는다"]:::back
+    HX["<b>25</b><br/><b>Human-in-the-loop 승인<br/>실행 승인·권한 결정</b><br/>맡긴 사람에게 실제 대상·값을 보여 준다<br/>검사한 내용 그대로의 승인만 반영<br/>실행 승인은 전문 판단 검토를 대신하지 않는다"]:::back
+    NOTAKE(["에이전트는 맡지 않는다"]):::stop
+    OUT(["결과물·보고 전달 완료"]):::good
+    OUTSCOPE["<b>25</b><br/><b>Human-in-the-loop 승인<br/>맡을지 결정</b><br/>경우별 담당자가 직접 정한다<br/>시험 범위 밖 업무는 사람이 처리한다<br/>충돌·자격 요건도 확인한다<br/>조건 조정·충돌 해소 후 재검사한다"]:::back
+    START(["업무 시작 · 맡긴 일과 자료"]):::good
+    W23["<b>23</b><br/><b>Conflict check</b><br/>늘 도는 감시: 새 공시로<br/>생긴 충돌을 찾는다"]:::watch
+    W24["<b>24</b><br/><b>Lineage 추적과<br/>Citator형 변경 알림</b><br/>변경·만료·오류의 영향을 찾는다<br/>틀린 결론에 기댄 행동을 멈춘다<br/>맡긴 사람·다음 작업·수신자에 알린다<br/>정정 결과도 검사 후 전달한다"]:::watch
+    W6["<b>6</b><br/><b>로컬 법령<br/>데이터베이스</b><br/>늘 도는 감시: 법령과 판례의<br/>변경을 날마다 받는다"]:::watch
+    P1 --> P26
+    P15 --> P26
+    P14 --> P26
+    P13 --> P26
+    P12 --> P26
+    W26 --> PUPDATE
+    PUPDATE -->|기준·범위 수정 후 재시험| P26
+    W24 -->|기준 갱신| PUPDATE
+    START --> C11
+    C11 --> C13
+    C13 -->|관계자| C23
+    C13 -->|업무 종류| C16
+    C23 -->|충돌 조회 결과| SCOPE
+    C16 -->|범위·자격 확인 결과| SCOPE
+    SCOPE -->|예| D8
+    SCOPE -->|아니오| OUTSCOPE
+    OUTSCOPE -->|재검사| C11
+    OUTSCOPE -->|맡지 않음| NOTAKE
+    D8 --> D9
+    D9 --> D10
+    D10 --> D19
+    D10 --> D23
+    D19 --> DREADY
+    D23 --> DREADY
+    DREADY -->|예| RBEGIN
+    RBEGIN --> R3
+    RBEGIN --> R2
+    RBEGIN --> R6
+    RBEGIN --> R7
+    DREADY -->|판독 불일치·충돌| HD
+    HD -->|재확인| D8
+    HD -->|거절·무응답| HOLD
+    R2 --> R4
+    R7 --> R18
+    R3 --> R18
+    R4 --> R18
+    R6 --> R18
+    R18 --> R5
+    R5 --> RSAFE
+    RSAFE --> RREADY
+    RREADY -->|예| A21
+    RREADY -->|아니오| HRD
+    HRD -->|보완·충돌 해소| RSAFE
+    HRD -->|거절·무응답| HOLD
+    A21 --> A13
+    A13 --> CALC
+    CALC -->|예| A12
+    CALC -->|아니오| A27
+    A12 -->|계산 결과| A27
+    A27 --> KSTART
+    KSTART --> K28
+    KSTART --> K11
+    KSTART --> K22
+    KSTART --> K12
+    K28 -->|소수 집단 검사 결과| K17
+    K11 -->|판단 검토 결과| K17
+    K17 --> KJOIN
+    K22 --> KJOIN
+    K12 --> KJOIN
+    KJOIN --> CHECK
+    CHECK -->|예| X18
+    CHECK -->|아니오<br/>자료 보완 가능| RBEGIN
+    CHECK -->|아니오<br/>답 수정 가능| A21
+    CHECK -->|사람·자격자 검토<br/>판단 불일치| HJ
+    HJ -->|재판단| A21
+    HJ -->|거절·무응답| HOLD
+    X18 --> XREADY
+    XREADY -->|예| X16
+    XREADY -->|승인·권한 결정 필요| HX
+    XREADY -->|검사한 대상·값<br/>근거가 바뀜| A21
+    HX -->|같은 내용 승인| X18
+    HX -->|거절·무응답| HOLD
+    X16 --> X7
+    X7 --> XSTATE
+    XSTATE -->|결과 확인됨<br/>차단·실행 없음도 기록| F17
+    XSTATE -->|결과 불명| HRX
+    HRX -->|원본 상태 확인 후 재조회| X7
+    HRX -->|미확인·무응답| HOLD
+    F17 --> FINAL
+    FINAL -->|예| OUT
+    FINAL -->|아니오| HR
+    HR -->|보고 수정·재검사| F17
+    HR -->|거절·무응답| HOLD
+    HOLD -->|보류 보고만| F17
+    W6 -->|바뀐 조문과 판례| W24
+    W24 -->|결론 재판단| A21
+    W23 -->|충돌 발견| HD
+    G20 -->|조회한 자료 번호| G24
+    E1 --> E2
+    E2 --> EWAIT
+    EWAIT -->|아니오| E3
+    EWAIT -->|예| E4
+    P26 -->|확인된 업무 범위 적용| START
+    START -->|전 과정 기록| G20
+    START --> G21
+    START --> G22
+    START -->|처리 중 어느 단계든 위급 상황을 알리면| E1
+    classDef main fill:#dbeafe,stroke:#7dabe8,stroke-width:1.4px,color:#17314f
+    classDef stop fill:#fee2e2,stroke:#f0a3a3,stroke-width:1.4px,color:#7f1d1d
+    classDef back fill:#ffedd5,stroke:#f3b183,stroke-width:1.4px,color:#7c2d12
+    classDef good fill:#dcfce7,stroke:#86d3a3,stroke-width:1.4px,color:#14532d
+    classDef watch fill:#d1fae5,stroke:#6ee7b7,stroke-width:1.4px,color:#064e3b
+    classDef note fill:#fef9c3,stroke:#e2c95f,stroke-width:1.4px,color:#713f12
+    style PREP fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    style SCOPEL fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    style DOORL fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    style SRCL fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    style AIL fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    style CHKL fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    style ACTL fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    style LOGL fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    style EMERGL fill:none,stroke:#94a3b8,stroke-width:1px,stroke-dasharray:1 6,color:#64748b
+    linkStyle 0 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 1 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 2 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 3 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 4 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 5 stroke:#34d399,stroke-width:2.6px
+    linkStyle 6 stroke:#34d399,stroke-width:2.6px
+    linkStyle 7 stroke:#34d399,stroke-width:2.6px
+    linkStyle 8 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 9 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 10 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 11 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 12 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 13 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 14 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 15 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 16 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 17 stroke:#f87171,stroke-width:2.6px
+    linkStyle 18 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 19 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 20 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 21 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 22 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 23 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 24 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 25 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 26 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 27 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 28 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 29 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 30 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 31 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 32 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 33 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 34 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 35 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 36 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 37 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 38 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 39 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 40 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 41 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 42 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 43 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 44 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 45 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 46 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 47 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 48 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 49 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 50 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 51 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 52 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 53 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 54 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 55 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 56 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 57 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 58 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 59 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 60 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 61 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 62 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 63 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 64 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 65 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 66 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 67 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 68 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 69 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 70 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 71 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 72 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 73 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 74 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 75 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 76 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 77 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 78 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 79 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 80 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 81 stroke:#e879f9,stroke-width:2.6px
+    linkStyle 82 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 83 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 84 stroke:#34d399,stroke-width:2.6px
+    linkStyle 85 stroke:#34d399,stroke-width:2.6px
+    linkStyle 86 stroke:#34d399,stroke-width:2.6px
+    linkStyle 87 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 88 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 89 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 90 stroke:#60a5fa,stroke-width:2.6px
+    linkStyle 91 stroke:#60a5fa,stroke-width:2.6px
+
+    linkStyle 92 stroke:#34d399,stroke-width:2.6px
+    linkStyle 93 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 94 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 95 stroke:#94a3b8,stroke-width:2.6px
+    linkStyle 96 stroke:#94a3b8,stroke-width:2.6px
