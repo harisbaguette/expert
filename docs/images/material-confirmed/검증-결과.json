@@ -130,8 +130,8 @@
         1536,
         1024
       ],
-      "bytes": 1382809,
-      "sha256": "a7c666a345622d862a1c7ce714f37d03df422626fba5b854b20f4a9c036b3154"
+      "bytes": 1400764,
+      "sha256": "9305652cf6a8e8b5381213e449c21a6f45f929ebb141fc10bd168e4da562a278"
     },
     {
       "id": 13,
@@ -370,8 +370,8 @@
         1536,
         1024
       ],
-      "bytes": 1428302,
-      "sha256": "8f41c730d26ed209d2327c5637604a73a2f34e5744fbb17f8cb1edfd248ca8a7"
+      "bytes": 1472566,
+      "sha256": "27e21305f1b56d12ce9e3b05281fcb70785e9c0363119384790cb6d86704ca0a"
     },
     {
       "id": 41,
@@ -620,8 +620,8 @@
         1536,
         1024
       ],
-      "bytes": 1692271,
-      "sha256": "4e70035872cf3ab1dd28059fd0916ec6d47d0153e8dcc85529c1d9e46ee05a4d"
+      "bytes": 1650773,
+      "sha256": "e2a897c3ae4a5d63410ad31fcddb8c36cd9ddebd8baa5746331696be032d1c0e"
     },
     {
       "id": 67,
@@ -759,5 +759,72 @@
       }
     ],
     "scope": "문서 삽화의 표본 배치·가독성 확인. 원래 편집 앱 전체를 렌더한 것은 아님."
+  },
+  "followupEdits20261022": {
+    "images": [
+      {
+        "id": 12,
+        "path": "docs/images/material-confirmed/12-time-version.png",
+        "source": "/Users/haris/.codex/generated_images/01a16224-3978-7011-8816-d6ab3dad7c5d/exec-b6dcf3e5-41c5-43f4-8894-5fa1269bafec.png",
+        "size": [
+          1536,
+          1024
+        ],
+        "bytes": 1400764,
+        "sha256": "9305652cf6a8e8b5381213e449c21a6f45f929ebb141fc10bd168e4da562a278",
+        "beforeSha256": "a7c666a345622d862a1c7ce714f37d03df422626fba5b854b20f4a9c036b3154",
+        "visualReview": "확인"
+      },
+      {
+        "id": 66,
+        "path": "docs/images/material-confirmed/66-measurement.png",
+        "source": "/Users/haris/.codex/generated_images/01a16224-3978-7011-8816-d6ab3dad7c5d/exec-a7b2e239-2fba-40b9-b705-a49ab7b8b2d1.png",
+        "size": [
+          1536,
+          1024
+        ],
+        "bytes": 1650773,
+        "sha256": "e2a897c3ae4a5d63410ad31fcddb8c36cd9ddebd8baa5746331696be032d1c0e",
+        "beforeSha256": "4e70035872cf3ab1dd28059fd0916ec6d47d0153e8dcc85529c1d9e46ee05a4d",
+        "visualReview": "확인"
+      },
+      {
+        "id": 39,
+        "path": "docs/images/material-confirmed/39-intent.png",
+        "source": "/Users/haris/.codex/generated_images/01a16224-3978-7011-8816-d6ab3dad7c5d/exec-4ece666b-54a2-4cf8-83e8-69f91820d8a1.png",
+        "size": [
+          1536,
+          1024
+        ],
+        "bytes": 1472566,
+        "sha256": "27e21305f1b56d12ce9e3b05281fcb70785e9c0363119384790cb6d86704ca0a",
+        "beforeSha256": "8f41c730d26ed209d2327c5637604a73a2f34e5744fbb17f8cb1edfd248ca8a7",
+        "visualReview": "확인"
+      },
+      {
+        "id": "learning",
+        "path": "docs/images/expert-definition/learning-improvement.png",
+        "source": "/Users/haris/.codex/generated_images/01a16224-3978-7011-8816-d6ab3dad7c5d/exec-40c8ba44-b367-46f9-9c40-ff0b41e0f31f.png",
+        "size": [
+          1536,
+          1024
+        ],
+        "bytes": 1696815,
+        "sha256": "a72a940663977db3eaf6c647bf9f80f88ca28c7d868aeaa0ca17d5aedd6ed294",
+        "beforeSha256": "9f76f8212bdbf211f92927a1ffe97746beeff322323eba88551300ad5113bb27",
+        "visualReview": "확인"
+      }
+    ],
+    "nonAltTextPreserved": true,
+    "beforeApplySha256": "98937c033690bc3342ad13278e9879f297b2b176de60c01aef79d0a3b8f94e9d",
+    "documentImageCount": 97,
+    "renderPreview": {
+      "method": "headless Chromium",
+      "scope": "수정한 네 그림을 격리된 HTML에서 문서 폭으로 표시",
+      "imageWidth": 720,
+      "viewportWidth": 800,
+      "horizontalOverflow": false,
+      "visualLegibility": "네 그림 모두 확인"
+    }
   }
 }
