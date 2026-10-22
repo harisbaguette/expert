@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-22",
+  "images": [
+    {
+      "path": "docs/images/file-folder-structure/storage-locations.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "838eae6b39238563243abe12631c49ed5000bf885265114a401211208463e164",
+      "originalBytesPreserved": true,
+      "linkedOnce": true
+    },
+    {
+      "path": "docs/images/file-folder-structure/knowledge-root.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "bf1779f3e4828a0c5cbaa43f9de0fa4bb3af1776d3e80ad38a00695286298b84",
+      "originalBytesPreserved": true,
+      "linkedOnce": true
+    },
+    {
+      "path": "docs/images/file-folder-structure/case-folders.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "36c57f7e8f482626a30bb5a04c1690fee9790f57a667a88ffe2eba7f9fe4fb6c",
+      "originalBytesPreserved": true,
+      "linkedOnce": true
+    }
+  ],
+  "documentBodyPreserved": true,
+  "visualReview": {
+    "actualImagesViewed": 3,
+    "documentWidthPx": 1100,
+    "headlessRenderViewed": 3,
+    "scope": "한글·경로·포함 관계·화살표·잘림·문서 폭 가독성",
+    "omissions": "일부 경로의 개별 ID는 본문 텍스트 트리에 유지"
+  },
+  "result": "pass"
+}
