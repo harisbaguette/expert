@@ -1,0 +1,763 @@
+{
+  "date": "2026-10-22",
+  "document": "전문가 에이전트 정의 1.md",
+  "section": "재료별 구현",
+  "newImages": 72,
+  "reusedImages": 7,
+  "existingImagesPreserved": 1,
+  "illustratedSections": 80,
+  "missingImages": 0,
+  "oneImagePerSection": true,
+  "bodyPreserved": true,
+  "baselineSha256": "06c1c45e2046aa93df724904e9fef2004999df2d6cc76b0f1b70829a086391af",
+  "visualReviewNewImages": 72,
+  "visualReviewReusedImages": 7,
+  "files": [
+    {
+      "id": 0,
+      "file": "00-environment.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1331998,
+      "sha256": "376379970a417e18619f6eb61ec07ceaaea0f64c8c8b9225b00ab2fa114ffd47"
+    },
+    {
+      "id": 2,
+      "file": "02-execution-control.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1385879,
+      "sha256": "7802c176614a0c690d3df8f6568203fede3a7f17c00a8241c4c5b5309a7c570f"
+    },
+    {
+      "id": 3,
+      "file": "03-current-context.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1384391,
+      "sha256": "4fae9e304ca4864d3d991b29b3264b440932f52c7e08358cde27857001b28685"
+    },
+    {
+      "id": 4,
+      "file": "04-isolation.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1586233,
+      "sha256": "4767f9ef6304162213c46487077b3ecce895ab4e65b83f84d80adb969cbc0f20"
+    },
+    {
+      "id": 5,
+      "file": "05-recovery.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1326198,
+      "sha256": "ecba5c7fc2afd7aec1c9c8ea6fe0f08f31f70f4f7c8ae36c48db978e90ef2025"
+    },
+    {
+      "id": 6,
+      "file": "06-triggers.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1349569,
+      "sha256": "9e6d9c68f742d1a5a908672ddb49a1204771e8e49e2b6b3afc2fc15da1e494e4"
+    },
+    {
+      "id": 7,
+      "file": "07-tools.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1467321,
+      "sha256": "77b700d6cf768ffe285e1fda55b3e1f78aab4df7ebe8aee1278a06005d8f3e65"
+    },
+    {
+      "id": 8,
+      "file": "08-delegation.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1281428,
+      "sha256": "77830641db716c814c854cb51a80b71e4a8cbe4babfb85fa07f89695824158f4"
+    },
+    {
+      "id": 9,
+      "file": "09-realtime-dialogue.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1410570,
+      "sha256": "a883ceefce4cbcc9f024e35507b8263b9cbee2bfa26b25feb9a1ac0f1359228c"
+    },
+    {
+      "id": 10,
+      "file": "10-test-environment.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1359890,
+      "sha256": "a7a26e3af386165ca90b8e8e7be588f4bc7e0ea1003e03753b9bb1b3b517b785"
+    },
+    {
+      "id": 11,
+      "file": "11-evidence-fitness.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1431943,
+      "sha256": "6bfa60732418ed397df8944bd47708f116f3afb0ebcd87422611e68ec3d617c8"
+    },
+    {
+      "id": 12,
+      "file": "12-time-version.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1382809,
+      "sha256": "a7c666a345622d862a1c7ce714f37d03df422626fba5b854b20f4a9c036b3154"
+    },
+    {
+      "id": 13,
+      "file": "13-rule-sources.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1443394,
+      "sha256": "d44643e3c092585a3816174b8896b087e44d4583ea2b6bd8362772bec0d992ba"
+    },
+    {
+      "id": 14,
+      "file": "14-case-information.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1500754,
+      "sha256": "7d520ea474aff67cd1460fc7d776593c3351043d8c0e1aaeaf87b1da46ba349f"
+    },
+    {
+      "id": 15,
+      "file": "15-understanding.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1342046,
+      "sha256": "3e40270d30f9e98b355393b7fa9d22481a0b3fda2c46d59f0fc497b37fb6ab06"
+    },
+    {
+      "id": 16,
+      "file": "16-retrieval.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1735974,
+      "sha256": "ae0085d38f75958bc02e7c18c35546dbbd27d1636c6e59096431c23f7e18fe14"
+    },
+    {
+      "id": 18,
+      "file": "18-cases.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1492439,
+      "sha256": "daa1d02614a2aba82b92eb0cdf354515584536432678273daecbfc80be5f1b52"
+    },
+    {
+      "id": 19,
+      "file": "19-references.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1645627,
+      "sha256": "321255801152f381fa0f0eb84a187c64be42db1fd83285b38b0fe9033f76efd3"
+    },
+    {
+      "id": 20,
+      "file": "20-reusable-assets.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1440116,
+      "sha256": "1f8a6ff766210bf58eb6ea135d2119d9d2d47d251e8560c416915144291efddd"
+    },
+    {
+      "id": 21,
+      "file": "21-current-state.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1404153,
+      "sha256": "db6ec48c8e0ce1e568694c4da195ee5a1cdc167e1167c0c810f5e4a3610d5a6b"
+    },
+    {
+      "id": 22,
+      "file": "22-change-propagation.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1405228,
+      "sha256": "57142ab70400b749ee1016f180932b996074ffb7c932d8e04848aff12b69f12d"
+    },
+    {
+      "id": 23,
+      "file": "23-knowledge.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1408770,
+      "sha256": "d466e82b4b03bccf911138ef38e904f4d439d991fffc73e469113796cf7f12da"
+    },
+    {
+      "id": 24,
+      "file": "24-experience.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1480504,
+      "sha256": "d594393367b871dfdfa80381694772e91afce8b27bf57388b65ca0dc9f1b6404"
+    },
+    {
+      "id": 27,
+      "file": "27-legal-duty.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1516125,
+      "sha256": "6c05c5309e06e0594d6554eb5f9606e608e31b8fbe5ce85dc84f4612955c98e3"
+    },
+    {
+      "id": 28,
+      "file": "28-professional-ethics.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1533671,
+      "sha256": "4a055cdf58b93c86f9ae868979d482dea2ba92ac69bef6b1f2d70c845b184a61"
+    },
+    {
+      "id": 29,
+      "file": "29-base-principles.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1326164,
+      "sha256": "b2eeccc780f773f6215193a2338675b316b09a030c738fcbf703175bf3d15fba"
+    },
+    {
+      "id": 30,
+      "file": "30-agreement.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1386238,
+      "sha256": "35a45b18b272fb8c7458fe30ba7a29d3652ab8068b7daa978ffa2126cfec392d"
+    },
+    {
+      "id": 31,
+      "file": "31-submission-rules.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1514086,
+      "sha256": "8cec987f892570335e56ddec22211edbd4360410156374eb56bd1ecf07ccbb0f"
+    },
+    {
+      "id": 32,
+      "file": "32-organization-rules.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1320274,
+      "sha256": "54069f3d7cbf199bfc20d57692869ec2feb7285e2330bfcb25ed7e206f193203"
+    },
+    {
+      "id": 33,
+      "file": "33-user-rules.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1540833,
+      "sha256": "e5370109c2133de1b8f459d587f651e259cc9527718ed91b1d5a5c5c6be6e82c"
+    },
+    {
+      "id": 34,
+      "file": "34-rule-priority.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1488173,
+      "sha256": "92918cace2219ab55804a2e4651ef22ccf9f9164b7d22215df6cfc2883071e70"
+    },
+    {
+      "id": 35,
+      "file": "35-authorization.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1417085,
+      "sha256": "8c2cae82009c46dfa0fcf912ca439f225ef08e6c9ba9a2c647ddae40a60722c0"
+    },
+    {
+      "id": 36,
+      "file": "36-safeguards.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1414581,
+      "sha256": "c9152a2f4fa96cb5c8e4a9b1b78ca8356c6455e1aff14ba0710153b224fcaede"
+    },
+    {
+      "id": 37,
+      "file": "37-resources.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1444791,
+      "sha256": "7c8b0bb909964cfcb448d8a7c1ffb1565452e1dd7c7fa031a87ffebaf338c0c0"
+    },
+    {
+      "id": 38,
+      "file": "38-style.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1345017,
+      "sha256": "1657a4a0159cb378863968aea13477ca226bb078748f32c52f0da6e353c65d10"
+    },
+    {
+      "id": 39,
+      "file": "39-intent.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1428302,
+      "sha256": "8f41c730d26ed209d2327c5637604a73a2f34e5744fbb17f8cb1edfd248ca8a7"
+    },
+    {
+      "id": 41,
+      "file": "41-strategy.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1439444,
+      "sha256": "080d1df3eb9559aacbcac2c650e1cfb3f825685e4e43341aee95bb858abb9f3c"
+    },
+    {
+      "id": 42,
+      "file": "42-human-handoff.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1421806,
+      "sha256": "7f36d8e3c56756780ad2331b0b0b6d05c34f018facc895f041d10cc27a45657a"
+    },
+    {
+      "id": 43,
+      "file": "43-workflow.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1684498,
+      "sha256": "d718af26b480231de694e4ceba3bd1e5d3db96cca35ec3c9179ddc11ed43535a"
+    },
+    {
+      "id": 44,
+      "file": "44-early-noticing.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1389855,
+      "sha256": "e2dbad5a906c4d038a87306ba784edb32134fd4abe0184a7154362bc2eec3526"
+    },
+    {
+      "id": 45,
+      "file": "45-dependencies.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1427264,
+      "sha256": "d6f6418779e2ef9d864c12823567231894008f8df7343660fb59804f36dbb599"
+    },
+    {
+      "id": 47,
+      "file": "47-classification.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1495785,
+      "sha256": "4d6c2a3b5b4dafa13e36f8a10fd7ab837e6191acb2676026b25a8d92b0c7368a"
+    },
+    {
+      "id": 48,
+      "file": "48-data-combining.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1449527,
+      "sha256": "0f0a5b58259c2d639f8939975622c6a9e5a05d7ce25a9a02c06fc4597e67c9c5"
+    },
+    {
+      "id": 49,
+      "file": "49-format-conversion.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1355049,
+      "sha256": "dbed2a821f46f3843695aa6b282d6d288bbf9b16aa94304bd0c2340f61af73ed"
+    },
+    {
+      "id": 50,
+      "file": "50-calculation.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1463384,
+      "sha256": "9e81d5e94e2ea54e21242439c80aaf6fa961d5ed04f330f0b75eb74da0252126"
+    },
+    {
+      "id": 51,
+      "file": "51-analysis.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1393050,
+      "sha256": "bcdf6f099dac2d4cf60356251c04ad62ec28c32d205be1018d913dd60008f68c"
+    },
+    {
+      "id": 52,
+      "file": "52-criteria-judgment.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1546878,
+      "sha256": "4d6f47529bd311d895d8727c6420ef9cd611df571bebf286612602b512a172c0"
+    },
+    {
+      "id": 53,
+      "file": "53-prediction.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1372359,
+      "sha256": "317233cb2a7e6cd3201282f91e9a39911747104b2d06b497734f0a84c504de71"
+    },
+    {
+      "id": 54,
+      "file": "54-optimization.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1440185,
+      "sha256": "08c699f09c751d83a8de6ccd5733967d0e44d5c8511653dc1b64ec218d6875df"
+    },
+    {
+      "id": 55,
+      "file": "55-output-design.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1529289,
+      "sha256": "aa615092f02d09099e9014023405908528420fdf3a6febd7488de29d46c157a1"
+    },
+    {
+      "id": 56,
+      "file": "56-restructuring.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1449602,
+      "sha256": "989a403a50924c543e22c4e0f7401f10eef61169a14de25f4011d43dac4d828d"
+    },
+    {
+      "id": 57,
+      "file": "57-creation-editing.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1440490,
+      "sha256": "bee29c72792cafd7cfddf0e58c1886c0d524925b4dde82df1b17def2d12511f0"
+    },
+    {
+      "id": 58,
+      "file": "58-communication.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1579928,
+      "sha256": "c0b3705b6664ff98a8805b642372ceefafb0ecf07dd3e464b31676f63cdf22ac"
+    },
+    {
+      "id": 59,
+      "file": "59-negotiation.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1532536,
+      "sha256": "bfbbb6045be672c9128595e2fff22989c5c5c52dbfd855ae1cbd27c62f02f8c7"
+    },
+    {
+      "id": 60,
+      "file": "60-record-update.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1522049,
+      "sha256": "e2dd2f8da0c71a16c7d7af39a3713a57da3f72b5350a2dee5a4c33dd3d93fa2d"
+    },
+    {
+      "id": 61,
+      "file": "61-transaction.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1426035,
+      "sha256": "7116ed580fafc93ac82fee5f3609b7e46fb4a933470f07131886f56dc1c1af7c"
+    },
+    {
+      "id": 62,
+      "file": "62-operation-control.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1344579,
+      "sha256": "56defd8e81305f6c78972816346e2478f8b73d4e296307f4029933108a67d062"
+    },
+    {
+      "id": 63,
+      "file": "63-publication.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1406919,
+      "sha256": "5e4bc3a99b0836fe30053ef343cd3bc804e5b4c6d7e873e773ef9269eeac7ceb"
+    },
+    {
+      "id": 64,
+      "file": "64-delivery-package.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1558897,
+      "sha256": "7d4305878db8b400f929e4509f7437402c0f8aebde76add8dfb76d0b76b34f91"
+    },
+    {
+      "id": 65,
+      "file": "65-receipt.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1403640,
+      "sha256": "bdb2b0e2815ac9897de110001774a0328d05559f50732b6f8c58c57a78f83a94"
+    },
+    {
+      "id": 66,
+      "file": "66-measurement.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1692271,
+      "sha256": "4e70035872cf3ab1dd28059fd0916ec6d47d0153e8dcc85529c1d9e46ee05a4d"
+    },
+    {
+      "id": 67,
+      "file": "67-experiment.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1373768,
+      "sha256": "cc383eaf0404a0830714b049358171c9806d68d71e8c4de5f496138ac90d027b"
+    },
+    {
+      "id": 68,
+      "file": "68-simulation.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1315275,
+      "sha256": "55ca4589d2a2823215ffa83e87f0761c66b71925a60f5aeb1319b9a85229eaac"
+    },
+    {
+      "id": 69,
+      "file": "69-decision-record.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1396485,
+      "sha256": "9d00acce98170f83cd2e33d4b9499a8c9fe145b268f646675ab806ccae50b29c"
+    },
+    {
+      "id": 70,
+      "file": "70-report-authentication.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1395571,
+      "sha256": "68fb5b3b6c83102e2a16e969a2811dd829182d3d5df1798b0f1dede3dc21711d"
+    },
+    {
+      "id": 72,
+      "file": "72-counterevidence.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1435620,
+      "sha256": "509599049083d1f2228b741be565152541c6b015240302838a7dbef711612df5"
+    },
+    {
+      "id": 73,
+      "file": "73-missing-risks.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1474659,
+      "sha256": "6112b9801a025011aeada52f9e445e378c8ae7233fec98d2b86dffde3a693caa"
+    },
+    {
+      "id": 74,
+      "file": "74-process-evaluation.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1397864,
+      "sha256": "2a2b99b12535307226ab4e5b61032a0f43b0982336afe8e2085fdfdb64a19d7b"
+    },
+    {
+      "id": 75,
+      "file": "75-quality-evaluation.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1376698,
+      "sha256": "b9f71d68b1afa680b94bd50e1f2d8354188d1dc95c8d4ff527488a369c39ba0d"
+    },
+    {
+      "id": 76,
+      "file": "76-outcomes.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1366456,
+      "sha256": "b534da9b0ffcb4c4a050a0921e7e13f24e4aa5e3b2df2dd99abbd0025ad7684f"
+    },
+    {
+      "id": 78,
+      "file": "78-cause-analysis.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1398205,
+      "sha256": "520cf6b2c4ac5d04df1d70429d6fac7116eeeabe8980ad9715a0e4ec60755a60"
+    },
+    {
+      "id": 79,
+      "file": "79-capability-upgrade.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 1378228,
+      "sha256": "c02864d577b8709a23963ee04003d371a4cfb10f2232385a6d13f5656157eed3"
+    }
+  ],
+  "revisedImages": [
+    4,
+    16,
+    43,
+    60
+  ],
+  "renderPreview": {
+    "method": "격리된 HTML에서 headless Chromium으로 실제 연결 이미지를 렌더한 뒤 직접 확인",
+    "samples": [
+      {
+        "id": 35,
+        "viewport": 800,
+        "imageWidth": 720,
+        "horizontalOverflow": false,
+        "legibility": "확인"
+      },
+      {
+        "id": 65,
+        "viewport": 375,
+        "imageWidth": 327,
+        "horizontalOverflow": false,
+        "legibility": "확인"
+      }
+    ],
+    "scope": "문서 삽화의 표본 배치·가독성 확인. 원래 편집 앱 전체를 렌더한 것은 아님."
+  }
+}
