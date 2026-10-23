@@ -1,6 +1,6 @@
 # 파일·폴더 구조 일러스트 제작 기록
 
-현재 사용본은 **2026-10-23 2차 수정본**이다. 현재 본문과의 대조, 수정 프롬프트와 생성 원본은 아래 [2026-10-23 2차 갱신](#2026-10-23-2차-갱신)에 기록했다. 그 앞의 [2026-10-23 갱신](#2026-10-23-갱신)은 1차 수정 이력이다. 앞의 2026-10-22 기록은 최초 제작 이력이다.
+현재 사용본은 **2026-10-23 3차 수정본**이다. 현재 본문과의 대조, 수정 프롬프트와 생성 원본은 아래 [2026-10-23 3차 갱신](#2026-10-23-3차-갱신)에 기록했다. 그 앞의 [2026-10-23 2차 갱신](#2026-10-23-2차-갱신)과 [2026-10-23 갱신](#2026-10-23-갱신)은 2차·1차 수정 이력이다. 앞의 2026-10-22 기록은 최초 제작 이력이다.
 
 제작일: 2026-10-22. 내장 `image_gen`으로 생성·수정했다. 외부 AI CLI·API와 외부 다운로드 에셋은 사용하지 않았다.
 
@@ -294,6 +294,72 @@ Edit the attached Korean illustration "업무 한 건의 폴더를 열어 보면
 1. The small folder at the top right inside the scopes/<scope-id>/ enclosure currently reading "objects/" must read "objects/<key-id>/". Widen that small folder a little to fit; it stays fully inside the outer scope border and fully outside the cases/<case-id>/ border.
 2. In the bottom process strip, the folder currently labelled "objects/" must read "objects/<key-id>/" (two lines allowed: "objects/" above "<key-id>/").
 No other changes. Text verbatim, angle brackets and hyphen exact, nothing cut off.
+```
+
+세 장 모두 1536×1024px PNG다. 원본 크기와 1100px 폭 headless Chromium 표시를 직접 열어 한글·경로 글자, 포함 관계, 선 경로, 잘림·겹침을 확인했다.
+
+## 2026-10-23 3차 갱신
+
+`파일-폴더-구조.md`의 바뀐 트리(3·4·9·10·11절)와 2절 위치 표를 2차 수정본 세 장과 대조해 다른 곳만 고쳤다. `~/.claude/bin/codex-image`로 2차 수정본을 `--ref` 입력으로 주어 편집했다. 외부 다운로드 에셋은 쓰지 않았다. 채택 원본을 재압축하지 않고 기존 경로에 복사했다. 본문에서는 대체 설명만 고쳤다.
+
+그리지 않은 것: `tenants/unassigned/`는 본문 트리에 없고 11절 이전 표에만 나오는 `tenants/<tenant-id>/`의 한 값이라 따로 그리지 않았다. `test_root/`의 `inbox/`·`outbox/`·`mocks/`·`runs/`, `evaluation_root/attacks/`, `install_root/`의 `tools/`·`allowed-scope.json`은 첫 그림의 칸 이름표("시험 DB · 파일 · 모의 시스템", "공격 시험", "도구")로만 요약했다. 폴더 경로는 본문 트리를 따른다.
+
+### storage-locations
+
+- 적용 파일: `docs/images/file-folder-structure/storage-locations.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/storage-v1.png`
+- 고친 곳: "설치 판본" → "설치 버전", install_root 이름표 → "프로그램 · 구성 · 도구 · 모델", 넷째 폴더 카드 "기본 지시·권한" → "행동 원칙·권한", test_root에 "시험 DB · 파일 · 모의 시스템"과 "시험 계정", evaluation_root에 "공격 시험", control_root "철회 기록 · 차단 목록" → "삭제·사용 중지 기록", backup_target "DB · 파일 · 보호 이력" → "DB · WAL · 파일 백업".
+
+```text
+Edit the attached existing Korean explanatory illustration about storage roles. Keep everything else identical: title "작성 · 설치 · 운영을 나눈다", the "목표 구조" tag, the flat Japanese explanatory-manual style (confident charcoal outlines, sky blue, restrained pale yellow, white background), the author character, the Git badge, the single blue arrow "검사 후 설치", the knowledge_root panel with all its labels, and the bottom row of five equal panels with their illustrations and order. Landscape 3:2, 1536x1024.
+
+Make ONLY these text changes:
+1. LEFT panel: the fourth folder card label "기본 지시·권한" becomes "행동 원칙·권한". The other three cards stay "코드", "지식·실무서", "전문가 구성".
+2. MIDDLE panel header "설치 판본" becomes "설치 버전". Its first label "검사한 프로그램 · 구성" becomes "프로그램 · 구성 · 도구 · 모델". Keep "install_root" and "업무 계정은 읽기만".
+3. test_root panel: add a short middle label above the bottom band, in the same position and size as the middle labels of the other bottom panels: "시험 DB · 파일 · 모의 시스템". The bottom band becomes a person icon plus "시험 계정", styled exactly like "평가 계정" and "관리 계정".
+4. evaluation_root middle label "보호 시험 · 정답" becomes "보호 시험 · 정답 · 공격 시험". Keep "평가 계정".
+5. control_root: replace the two middle lines with exactly two lines: "삭제·사용 중지 기록" and "업데이트 신뢰 · 감사 확인점". Keep "관리 계정".
+6. backup_target middle label "DB · 파일 · 보호 이력" becomes "DB · WAL · 파일 백업". Keep "PC 밖 · 덮어쓰기 방지".
+7. 비밀 저장소 panel unchanged.
+No new title, subtitle, footer or paragraph. Every Korean word spelled exactly as given; English paths verbatim lowercase with underscores and the trailing slash on "expert-factory/". All labels at least as large as now, none cut off or touching panel edges, no overlapping text.
+```
+
+### knowledge-root
+
+- 적용 파일: `docs/images/file-folder-structure/knowledge-root.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/knowledge-v1.png`
+- 고친 곳: `scopes/<scope-id>/` 안 폴더를 넷에서 여섯으로 늘려 `models/`("범위 전용 모델")와 `releases/`("고객 전용 배포물")를 더했다. 3×2 격자로 배치하고 아래 두 띠를 조금 내렸다.
+
+```text
+Edit the attached Korean illustrated folder tree "운영 자료는 이렇게 보관한다". Preserve the title, the knowledge_root parent folder, the style (charcoal outlines, sky-blue folders, pale yellow restricted folders, white background), the LEFT "공통 자료" group and the MIDDLE "이용이 제한된 자료" group with all their labels, the "여러 고객에 걸친 것" band with its two folders and labels, the bottom "같은 저장소의 관리 폴더" shelf with its five folders and labels, and both outer connecting lines (left to the shelf, right to the band). Landscape 3:2, 1536x1024.
+
+Make ONLY this change, in the RIGHT group "고객 업무" (tenants/<tenant-id>/):
+The scopes/<scope-id>/ compartment (pill "열람 범위별") now holds SIX inner folders instead of four, arranged as a neat grid of 3 columns x 2 rows, all inside the scopes compartment:
+ Row 1: "objects/<key-id>/" label "키별 원본·확정"; "derived/" label "가공 자료"; "exports/" label "내보낸 사본".
+ Row 2: NEW "models/" label "범위 전용 모델"; NEW "releases/" label "고객 전용 배포물"; "cases/" label "업무별 폴더".
+Keep the browser-profiles/ compartment above it with label "고객 계정 로그인 · 백업 제외" and its lock. To make vertical room, make the RIGHT group taller and shift the "여러 고객에 걸친 것" band and the bottom shelf slightly down and make them a little more compact; the LEFT and MIDDLE groups may stay their current height. Text in the six folders must be as large as the labels in the LEFT "공통 자료" group and readable when the image is shown 1100px wide. "objects/<key-id>/" must fit on one line inside its folder card.
+All technical paths verbatim and case-sensitive, including hyphens, underscores, slashes and angle brackets. No new paragraph, subtitle or footer. No text cut off, overlapping or touching borders. Lines must not pass through any frame or label.
+```
+
+### case-folders
+
+- 적용 파일: `docs/images/file-folder-structure/case-folders.png`
+- 1차 편집 원본(`review-sheet/` 글자 작음, 미채택): `/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/case-v1.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/case-v2.png`
+- 고친 곳: DB 목록 "판본" → "버전". `deliveries/`에 `review-sheet/`("검토표 · 맡긴 사람만")를 `package.zip` 옆 별도 폴더로 더했다.
+
+```text
+Edit the attached Korean illustration "업무 한 건의 폴더를 열어 보면". Preserve everything — layout, drawing style, colors, the scopes/<scope-id>/ enclosure, objects/<key-id>/, the cases/<case-id>/ folder, the snapshots/, sessions/, traces/ and work/ columns with all their text, the bottom process strip "결과를 확정할 때" with all its text and arrows — EXCEPT these two changes:
+1. The DB note at top right lists "권한 · 계획 · 상태 · 판본". Change the fourth bullet "판본" to "버전". Keep "DB" and "현재 상태의 기준".
+2. The rightmost column "deliveries/" (heading "납품 묶음") now shows THREE items stacked vertically, compact enough to fit inside the column without touching borders: checklist "manifest.json"; parcel "package.zip"; and NEW a small folder "review-sheet/" with a small lock and label "검토표 · 맡긴 사람만". The review-sheet folder sits beside the parcel, not inside it (it is never inside package.zip). Shrink the checklist and parcel icons to make room.
+No other changes. Text verbatim, slashes, hyphens and angle brackets exact, nothing cut off, overlapping or touching borders. No new paragraph or footer.
+```
+
+2차 편집(1차 편집 원본 입력):
+
+```text
+Edit the attached Korean illustration. Keep every element, word, path, line, color and position exactly the same, EXCEPT improve legibility in the rightmost "deliveries/" column:
+The small folder text "review-sheet/" is too small. Make "review-sheet/" the same text size as "package.zip", on one line inside its folder card without touching edges, with the small lock to its left. Keep the label below it "검토표 · 맡긴 사람만" at the same size as "package.zip". To make room, make the checklist and parcel icons slightly smaller and move them up a little; keep "manifest.json" and "package.zip" text unchanged and readable. Everything must stay inside the deliveries/ column with a small margin above its bottom border. No other changes, no new text.
 ```
 
 세 장 모두 1536×1024px PNG다. 원본 크기와 1100px 폭 headless Chromium 표시를 직접 열어 한글·경로 글자, 포함 관계, 선 경로, 잘림·겹침을 확인했다.

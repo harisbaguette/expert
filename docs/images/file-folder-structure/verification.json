@@ -1,18 +1,18 @@
 {
   "date": "2026-10-23",
-  "generator": "codex-image (Codex image generation, 1차 수정본을 --ref 입력으로 편집)",
+  "generator": "codex-image (Codex image generation, 2차 수정본을 --ref 입력으로 편집)",
   "documentBodyPreservedExceptImageAlt": true,
   "visualReview": {
     "actualImagesViewed": 3,
     "documentWidthPx": 1100,
     "headlessRenderViewed": 3,
     "scope": "한글·기술 식별자·포함 관계·화살표·잘림·문서 폭 가독성",
-    "omissions": "개별 계정·대화·실행·납품·접수 ID와 세부 설정 파일, install_root/experts/의 파일 목록, 분류 대기 범위(고객 scopes/ 안의 범위 하나)는 본문의 텍스트 트리를 따른다."
+    "omissions": "개별 계정·대화·실행·납품·접수 ID와 세부 설정 파일, install_root의 파일 목록과 tools/·allowed-scope.json, test_root의 inbox/·outbox/·mocks/·runs/ 경로, evaluation_root의 하위 폴더, tenants/unassigned/(tenants/<tenant-id>/의 한 값)와 분류 대기 범위는 본문의 텍스트 트리를 따른다."
   },
   "result": "pass",
   "limitations": "현재 설계의 설명 삽화다. 운영 프로그램 구현·자료 이전·접근 제어의 실행 검증이 아니다.",
   "document": "파일-폴더-구조.md",
-  "documentSha256": "4457de61b902f0eaf9e4726354aec893ceaad0beb9275d785d184d7f874f4c1f",
+  "documentSha256": "f6cb31696d87c414c84d5f929e7a503f43f33a06d85ae2cb6226bbc2aa00b4fa",
   "images": [
     {
       "path": "docs/images/file-folder-structure/storage-locations.png",
@@ -21,12 +21,12 @@
         1024
       ],
       "mode": "RGB",
-      "sha256": "b11927fc3bc32369d15d9cbd2ed8182232c24574eac1435467938b0f3f670737",
-      "previousSha256": "1b015c88d963b63fbbb1479fbb89156c36c7e3caa509afd2771dc04e838f40f4",
-      "generatedSource": "/Users/haris/.codex/generated_images/01a16661-d0e2-7f40-8dcd-7d5d5ba5d3d4/exec-7fb0ff75-bdb7-4e91-b6da-9ecdfca050f7.png",
+      "sha256": "78dbc969b349ad1e72afcbb0124324e9d5b1870b48b45bcb4b1a25d217839e8d",
+      "previousSha256": "b11927fc3bc32369d15d9cbd2ed8182232c24574eac1435467938b0f3f670737",
+      "generatedSource": "/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/storage-v1.png",
       "originalBytesPreserved": true,
       "linkedOnce": true,
-      "visualCheck": "expert-factory/에 기본 지시·권한(principles/·policies/) 폴더를 더했다. control_root를 철회 기록·차단 목록·업데이트 신뢰·감사 확인점으로 바꾸고 비밀 저장소 칸을 더했다. 다섯 칸 하단 글자의 잘림·겹침 없음.",
+      "visualCheck": "설치 판본→설치 버전, install_root 이름표에 도구·모델 추가, 기본 지시·권한→행동 원칙·권한, test_root에 모의 시스템·시험 계정, evaluation_root에 공격 시험, control_root 철회 기록·차단 목록→삭제·사용 중지 기록, backup_target 보호 이력→DB·WAL·파일 백업. 열 칸 글자의 잘림·겹침 없음.",
       "headlessRender": {
         "id": "storage-locations",
         "loaded": true,
@@ -35,7 +35,7 @@
         "displayWidth": 1100,
         "displayHeight": 733.328125,
         "overflow": false,
-        "screenshot": "output/illustration-update-2026-10-23b/storage-locations-1100.png"
+        "screenshot": "output/illustration-update-2026-10-23c/storage-locations-1100.png"
       }
     },
     {
@@ -45,12 +45,12 @@
         1024
       ],
       "mode": "RGB",
-      "sha256": "b18da1a9576e95608bfe359c4de4d0b732b53c40b17021c678431974d07881c4",
-      "previousSha256": "b30389a484457d421f1f953c5c805548ca77ffcdbd08c3339e5ee252e4e95301",
-      "generatedSource": "/Users/haris/.codex/generated_images/01a16664-64c0-7ab1-973f-b19d35e17594/exec-4483de5b-826d-4318-a633-db19be64b2c6.png",
+      "sha256": "926c152dc315061c54d0915d6310313850b4c03d90b7a43dfeff11729484a97b",
+      "previousSha256": "b18da1a9576e95608bfe359c4de4d0b732b53c40b17021c678431974d07881c4",
+      "generatedSource": "/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/knowledge-v1.png",
       "originalBytesPreserved": true,
       "linkedOnce": true,
-      "visualCheck": "joint-scopes/<scope-id>/와 offices/<office-id>/browser-profiles/를 루트 직속으로 오른쪽 바깥 선에 이었다. 고객 범위 objects/<key-id>/, tenants 안 browser-profiles/는 고객 계정용으로 표시했다. 관리 폴더 다섯 개는 왼쪽 바깥 선으로 루트 직속을 유지했다. 1100px에서 고객 범위 글자를 읽을 수 있게 2차 편집했다.",
+      "visualCheck": "scopes/<scope-id>/ 안을 3×2 격자로 바꿔 models/(범위 전용 모델)와 releases/(고객 전용 배포물)를 더했다. 나머지 무리·바깥 선·관리 폴더 글자는 그대로이고 1100px에서 objects/<key-id>/까지 읽힌다.",
       "headlessRender": {
         "id": "knowledge-root",
         "loaded": true,
@@ -59,7 +59,7 @@
         "displayWidth": 1100,
         "displayHeight": 733.328125,
         "overflow": false,
-        "screenshot": "output/illustration-update-2026-10-23b/knowledge-root-1100.png"
+        "screenshot": "output/illustration-update-2026-10-23c/knowledge-root-1100.png"
       }
     },
     {
@@ -69,12 +69,12 @@
         1024
       ],
       "mode": "RGB",
-      "sha256": "efdd60e6807506fd7614c5c25ba6291e9b638024792b6c76df341ff70ad045ab",
-      "previousSha256": "01e609607a22dc88f6a5770d9285492e4645c58dba8cb4468b2e53b88a2b50ad",
-      "generatedSource": "/Users/haris/.codex/generated_images/01a16661-d0e2-7851-b84a-1996f2e6d4ba/exec-405c2c60-6357-4410-916c-39318646ca0d.png",
+      "sha256": "807698b37e7fd3ed03ba41f4a59d8d36128ec8a617807ce324da627a176aa11b",
+      "previousSha256": "efdd60e6807506fd7614c5c25ba6291e9b638024792b6c76df341ff70ad045ab",
+      "generatedSource": "/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/case-v2.png",
       "originalBytesPreserved": true,
       "linkedOnce": true,
-      "visualCheck": "범위 안 형제 폴더와 확정 흐름의 objects/를 objects/<key-id>/로 바꿨다. cases/ 다섯 하위 폴더, DB, 확정 흐름의 나머지 글자와 배치는 그대로임을 확인했다.",
+      "visualCheck": "DB 목록 판본→버전. deliveries/에 review-sheet/(검토표 · 맡긴 사람만)를 package.zip 밖 별도 폴더로 더하고, 1100px에서 읽히게 2차 편집으로 글자를 키웠다. 다른 열과 확정 흐름은 그대로.",
       "headlessRender": {
         "id": "case-folders",
         "loaded": true,
@@ -83,7 +83,7 @@
         "displayWidth": 1100,
         "displayHeight": 733.328125,
         "overflow": false,
-        "screenshot": "output/illustration-update-2026-10-23b/case-folders-1100.png"
+        "screenshot": "output/illustration-update-2026-10-23c/case-folders-1100.png"
       }
     }
   ]
