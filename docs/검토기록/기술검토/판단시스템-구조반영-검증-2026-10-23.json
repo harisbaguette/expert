@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-23",
+  "scope": "문서의 시스템 역할·입출력·저장·변경 추적 연결 대조",
+  "automaticDocumentChecks": {
+    "solutionRolesMapped": {
+      "1": [
+        "기준 준비",
+        "지식·현재 값 관리"
+      ],
+      "12": [
+        "기준 준비",
+        "판단"
+      ],
+      "13": [
+        "기준 준비",
+        "판단"
+      ],
+      "14": [
+        "기준 준비",
+        "판단"
+      ],
+      "15": [
+        "기준 준비",
+        "판단"
+      ],
+      "23": [
+        "맡을지 확인"
+      ],
+      "26": [
+        "맡을지 확인",
+        "능력 평가"
+      ],
+      "16": [
+        "맡을지 확인",
+        "실행·확인"
+      ],
+      "8": [
+        "자료 관문"
+      ],
+      "9": [
+        "자료 관문"
+      ],
+      "10": [
+        "자료 관문"
+      ],
+      "19": [
+        "자료 관문"
+      ],
+      "2": [
+        "지식·현재 값 관리"
+      ],
+      "6": [
+        "지식·현재 값 관리"
+      ],
+      "7": [
+        "지식·현재 값 관리",
+        "실행·확인"
+      ],
+      "3": [
+        "근거 공급"
+      ],
+      "4": [
+        "근거 공급"
+      ],
+      "5": [
+        "근거 공급"
+      ],
+      "18": [
+        "근거 공급",
+        "실행·확인"
+      ],
+      "21": [
+        "판단",
+        "기록·변경 추적"
+      ],
+      "27": [
+        "판단"
+      ],
+      "11": [
+        "검사"
+      ],
+      "17": [
+        "검사"
+      ],
+      "22": [
+        "검사",
+        "기록·변경 추적"
+      ],
+      "28": [
+        "검사"
+      ],
+      "25": [
+        "실행·확인"
+      ],
+      "20": [
+        "기록·변경 추적"
+      ],
+      "24": [
+        "기록·변경 추적"
+      ]
+    },
+    "solutionCoverage": "28/28",
+    "referenceDocumentsPreserved": {
+      "전문 판단의 신뢰성.md": true,
+      "docs/도식/reliability-solution-structure.mmd": true
+    },
+    "documents": {
+      "파일-폴더-구조.md": {
+        "imageReferencesPreserved": 3,
+        "angleBracketFileLinksValid": true,
+        "codeFencesBalanced": true,
+        "sha256": "674155d38d1104271aaabdf6a02d08d2cdab50387d69a613586054859ad6764f"
+      },
+      "공장 구현 설계.md": {
+        "imageReferencesPreserved": 1,
+        "angleBracketFileLinksValid": true,
+        "codeFencesBalanced": true,
+        "sha256": "db65010441d31fbfcc935061f7b2d26b87d585ee505fb076add1cae1f11cf559"
+      }
+    },
+    "images": [
+      {
+        "path": "docs/images/file-folder-structure/storage-locations.png",
+        "unchangedSinceIllustrationUpdate": true
+      },
+      {
+        "path": "docs/images/file-folder-structure/knowledge-root.png",
+        "unchangedSinceIllustrationUpdate": true
+      },
+      {
+        "path": "docs/images/file-folder-structure/case-folders.png",
+        "unchangedSinceIllustrationUpdate": true
+      },
+      {
+        "path": "docs/images/expert-implementation/factory-implementation-overview.png",
+        "unchangedSinceIllustrationUpdate": true
+      }
+    ],
+    "contradictoryCitationOnlyRulesRemoved": true,
+    "result": "pass"
+  },
+  "manualSemanticReview": {
+    "method": "기준 문서와 수정 문서의 역할·연결 대조 및 검토 보고서 10개 시나리오 대입",
+    "scenarioCount": 10,
+    "result": "수정한 범위의 문서 정합성 수락",
+    "independentReviewer": false
+  },
+  "documentRubric": {
+    "before": 5.34,
+    "after": 9.02,
+    "scope": "시스템 반영 범위의 정성평가"
+  },
+  "runtimeVerified": false,
+  "limitations": [
+    "28개 해결책의 역할·연결 대조이며 모든 세부 예외의 전수 검토는 아님",
+    "검색·모델 입력·권한·변경 전파의 실행 시험은 하지 않음"
+  ]
+}
