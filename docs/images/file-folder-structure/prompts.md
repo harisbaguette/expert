@@ -1,6 +1,6 @@
 # 파일·폴더 구조 일러스트 제작 기록
 
-현재 사용본은 **2026-10-23 수정본**이다. 현재 본문과의 대조, 수정 프롬프트와 생성 원본은 아래 [2026-10-23 갱신](#2026-10-23-갱신)에 기록했다. 앞의 2026-10-22 기록은 최초 제작 이력이다.
+현재 사용본은 **2026-10-23 2차 수정본**이다. 현재 본문과의 대조, 수정 프롬프트와 생성 원본은 아래 [2026-10-23 2차 갱신](#2026-10-23-2차-갱신)에 기록했다. 그 앞의 [2026-10-23 갱신](#2026-10-23-갱신)은 1차 수정 이력이다. 앞의 2026-10-22 기록은 최초 제작 이력이다.
 
 제작일: 2026-10-22. 내장 `image_gen`으로 생성·수정했다. 외부 AI CLI·API와 외부 다운로드 에셋은 사용하지 않았다.
 
@@ -230,3 +230,70 @@ The backup checkpoint must be between the confirmed archive and delivery. No dir
 ```
 
 네 장 모두 1536×1024px PNG이며, 생성 결과와 1100px 폭의 headless Chromium 표시를 직접 확인했다. 한글·기술 식별자·포함 관계·화살표·잘림을 확인했다. 그림에서 생략한 개별 ID와 세부 설정 파일은 본문의 정확한 텍스트 트리를 따른다. 실제 공장 구현이나 자료 이전 완료를 뜻하지 않는다.
+
+## 2026-10-23 2차 갱신
+
+`파일-폴더-구조.md`의 바뀐 트리(2·3·4·8·10·11절)와 1차 수정본 세 장을 대조해 다른 곳만 고쳤다. `~/.claude/bin/codex-image`(Codex 이미지 생성)로 1차 수정본을 `--ref` 입력으로 주어 편집했다. 외부 다운로드 에셋은 쓰지 않았다. 채택 원본을 재압축하지 않고 기존 경로에 복사했다. 본문에서는 대체 설명만 고쳤다.
+
+분류 대기 범위는 고객 `scopes/` 아래의 범위 하나이고 별도 폴더 경로가 없어 그리지 않았다. `install_root/experts/`의 `playbook.yaml`·`tools.yaml`·`evaluation.yaml`은 세 그림 어디에도 파일 단위로 그리지 않으며, "검사한 프로그램·구성"·"전문가 구성" 요약과 어긋나지 않는다.
+
+### storage-locations
+
+- 적용 파일: `docs/images/file-folder-structure/storage-locations.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16661-d0e2-7f40-8dcd-7d5d5ba5d3d4/exec-7fb0ff75-bdb7-4e91-b6da-9ecdfca050f7.png`
+- 고친 곳: `expert-factory/`에 `principles/`·`policies/`를 뜻하는 "기본 지시·권한" 폴더를 더했다. `control_root`를 `revocations/`·`blocklists/`·`update-trust/`·`audit-checkpoints/`에 맞춰 "철회 기록 · 차단 목록 / 업데이트 신뢰 · 감사 확인점"으로 바꿨다. 본문 2절의 비밀 저장소를 다섯째 칸으로 더했다.
+
+```text
+Edit the attached existing Korean explanatory illustration about storage roles. Keep everything else identical: title "작성 · 설치 · 운영을 나눈다", the "목표 구조" tag, the flat Japanese explanatory-manual style (confident charcoal outlines, sky blue, restrained pale yellow, white background), the author character, the Git badge, the single blue arrow "검사 후 설치", and the install_root and knowledge_root panels with all their labels unchanged. Landscape 3:2, 1536x1024.
+
+Make ONLY these changes:
+1. LEFT panel "작성 원본 / expert-factory/": the desk now holds FOUR folder cards instead of three, in this order: "코드", "지식·실무서", "전문가 구성", "기본 지시·권한". Give the fourth card a simple document-with-shield icon. Shrink the four cards evenly so all fit inside the panel with whitespace; keep the character and Git badge.
+2. Bottom row: change from four to FIVE equal panels, all separate locations outside knowledge_root, no arrows between them. Order: test_root, evaluation_root, control_root, backup_target, 비밀 저장소.
+ - test_root, evaluation_root, backup_target: keep illustration and labels verbatim.
+ - control_root: replace the text "삭제·철회·업데이트 이력" with two short lines "철회 기록 · 차단 목록" and "업데이트 신뢰 · 감사 확인점". Keep "관리 계정".
+ - NEW fifth panel at far right, header "비밀 저장소" (Korean header, no path): a small locked key vault with a key card. Label "키·토큰·인증정보", second label "운영 PC · 따로 암호화 백업".
+No new title, subtitle, footer or paragraph. Every Korean word spelled exactly; English paths verbatim lowercase with underscores. No text touching panel edges or cut off.
+```
+
+### knowledge-root
+
+- 적용 파일: `docs/images/file-folder-structure/knowledge-root.png`
+- 1차 생성 원본(글자 작음, 미채택): `/Users/haris/.codex/generated_images/01a16661-d0e2-7fa2-acfd-7ee60a496361/exec-07446e84-ae6c-46cc-9375-3ee83c0d50bd.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16664-64c0-7ab1-973f-b19d35e17594/exec-4483de5b-826d-4318-a633-db19be64b2c6.png`
+- 고친 곳: 루트 직속 `joint-scopes/<scope-id>/`와 `offices/<office-id>/browser-profiles/`를 오른쪽 바깥 선으로 `knowledge_root`에 이었다. 고객 범위의 `objects/`를 `objects/<key-id>/`로, `tenants/` 안 `browser-profiles/`의 이름표를 "고객 계정 로그인 · 백업 제외"로 바꿨다. 1차 생성본은 1100px 폭에서 고객 범위 글자가 너무 작아 2차 편집으로 키웠다.
+
+```text
+Edit the attached Korean illustrated folder tree "운영 자료는 이렇게 보관한다". Preserve the title, the knowledge_root parent folder, the style (charcoal outlines, sky-blue folders, pale yellow restricted folders, white background), the LEFT "공통 자료" group and the MIDDLE "이용이 제한된 자료" group with all their labels, and the bottom "같은 저장소의 관리 폴더" shelf with its five folders and labels exactly. Landscape 3:2, 1536x1024. Make the three top groups a little shorter to free vertical room.
+
+Changes:
+1. RIGHT group "고객 업무" (tenants/<tenant-id>/): keep the browser-profiles/ compartment but change its small label to "고객 계정 로그인 · 백업 제외". Keep the scopes/<scope-id>/ compartment with "열람 범위별" and its four inner folders, but change the first inner folder path from "objects/" to "objects/<key-id>/" with label "키별 원본·확정". Keep derived/ "가공 자료", exports/ "내보낸 사본", cases/ "업무별 폴더".
+2. ADD a new band between the three top groups and the bottom shelf, on the right half under the 고객 업무 group, with a heading pill "여러 고객에 걸친 것". It holds TWO compact locked blue folders that are DIRECT children of knowledge_root (siblings of tenants/, NOT inside tenants):
+ - "joint-scopes/<scope-id>/" with label "공동 범위 · scopes와 같은 구조"
+ - "offices/<office-id>/" containing a small inner folder "browser-profiles/", label "사무소 공용 계정 로그인 · 백업 제외"
+ Connect this band to knowledge_root with one clean outer line along the RIGHT margin, mirroring the existing left outer line. The line must not pass through any group frame or label.
+3. Keep the existing left outer line from knowledge_root to the bottom management shelf.
+All technical paths verbatim and case-sensitive, including hyphens, underscores and angle brackets. No new paragraph, subtitle or footer. No text cut off or touching borders.
+```
+
+2차 편집(1차 생성 원본 입력):
+
+```text
+Edit the attached Korean illustrated folder tree. Keep every element, word, path, line, color and position the same, EXCEPT improve legibility in the RIGHT "고객 업무" group:
+The four inner folder labels inside scopes/<scope-id>/ ("objects/<key-id>/", "derived/", "exports/", "cases/") and their Korean labels ("키별 원본·확정", "가공 자료", "내보낸 사본", "업무별 폴더"), plus the browser-profiles/ label "고객 계정 로그인 · 백업 제외", are too small. Make these texts about 30 percent larger, the same size as the labels in the LEFT "공통 자료" group. To make room, widen the RIGHT group to the left by narrowing the LEFT and MIDDLE groups slightly (their folders and text stay readable and unchanged in wording), and make the four inner folders wider. "objects/<key-id>/" must fit on one line inside its folder card without touching the edge.
+All paths verbatim and case-sensitive with hyphens, underscores and angle brackets. Keep the right outer line to the "여러 고객에 걸친 것" band and the left outer line to the bottom management shelf exactly as they are. No new text.
+```
+
+### case-folders
+
+- 적용 파일: `docs/images/file-folder-structure/case-folders.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16661-d0e2-7851-b84a-1996f2e6d4ba/exec-405c2c60-6357-4410-916c-39318646ca0d.png`
+- 고친 곳: 범위 안의 `objects/`와 아래 흐름의 `objects/`를 `objects/<key-id>/`로 바꿨다. 다른 글자와 배치는 그대로다.
+
+```text
+Edit the attached Korean illustration "업무 한 건의 폴더를 열어 보면". Preserve everything — layout, drawing style, colors, all five case subfolders and their text, the DB cylinder and its labels, the bottom process strip and all its text — EXCEPT these two label changes:
+1. The small folder at the top right inside the scopes/<scope-id>/ enclosure currently reading "objects/" must read "objects/<key-id>/". Widen that small folder a little to fit; it stays fully inside the outer scope border and fully outside the cases/<case-id>/ border.
+2. In the bottom process strip, the folder currently labelled "objects/" must read "objects/<key-id>/" (two lines allowed: "objects/" above "<key-id>/").
+No other changes. Text verbatim, angle brackets and hyphen exact, nothing cut off.
+```
+
+세 장 모두 1536×1024px PNG다. 원본 크기와 1100px 폭 headless Chromium 표시를 직접 열어 한글·경로 글자, 포함 관계, 선 경로, 잘림·겹침을 확인했다.
