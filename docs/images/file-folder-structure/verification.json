@@ -12,7 +12,7 @@
   "result": "pass",
   "limitations": "현재 설계의 설명 삽화다. 운영 프로그램 구현·자료 이전·접근 제어의 실행 검증이 아니다.",
   "document": "파일-폴더-구조.md",
-  "documentSha256": "07205ef37def2d06c5d10352236a6d1c54cc87d015cf55102209c5391a54bd88",
+  "documentSha256": "4457de61b902f0eaf9e4726354aec893ceaad0beb9275d785d184d7f874f4c1f",
   "images": [
     {
       "path": "docs/images/file-folder-structure/storage-locations.png",
