@@ -363,3 +363,192 @@ The small folder text "review-sheet/" is too small. Make "review-sheet/" the sam
 ```
 
 세 장 모두 1536×1024px PNG다. 원본 크기와 1100px 폭 headless Chromium 표시를 직접 열어 한글·경로 글자, 포함 관계, 선 경로, 잘림·겹침을 확인했다.
+
+## 2026-10-23 — 14절 전면 갱신·신규 제작
+
+현재 본문을 기준으로 기존 3장을 편집하고 그림이 없던 11개 절에 신규 그림을 만들었다. 내장 `image_gen`만 사용했다. 모두 1536×1024 RGB PNG이며 생성 원본을 바이트 변경 없이 프로젝트에 복사했다. 신규 그림은 기존 그림의 하늘색·연노랑·짙은 윤곽선을 문장으로 지정했다. 외부 제작 에셋은 쓰지 않았다.
+
+그림 속 경로는 읽기 쉽도록 일부 ID 단계를 생략한다. 정확한 전체 경로·예외·권한은 본문을 따른다. 1절 번호는 요약 그림의 순서이고, 10절 버전 번호는 예시다.
+
+### 1절 — judgment-input
+
+- 적용: `judgment-input.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-e272e1b3-8e58-4edb-a670-f9698f8d0b81.png`
+- 확인: 원본→판단용 본문→색인·검증된 관계→검색→관리 프로그램→판단 입력→주 모델→검증. 온톨로지 정의를 DB 내부에 넣은 초안을 수정해 OWL·SHACL 검사와 검증된 관계를 구분.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "자료가 판단 입력이 되기까지". Show an orderly two-row pipeline, four large illustrated stations per row. Top row flows LEFT to RIGHT: "접수" with sealed folder "objects/"; "판독·보호 처리" scanner, privacy shield and folder "derived/"; "색인·관계" one database containing small "BM25", "벡터", "온톨로지" labels and a tiny network; "검색" magnifier with "하이브리드 · GraphRAG". From this final station draw down along the right edge, to bottom row flowing RIGHT to LEFT: "관리 프로그램" sorting a pack labelled "업무 상태 + 검색 결과"; "판단 입력" organized four-tab pack whose tabs read "업무 식별", "목표·조건", "필수 근거", "보충 자료", folder caption "snapshots/"; "주 모델" professional at screen interpreting the packet; "검증·확정" check document beside folder "objects/". Number stations 1 to 8 in small circles matching that route. Place a small lock and short label "전달 직전 권한 재검사" on the arrow immediately before 주 모델. The model receives only the packet, no original-folder bypass arrow. Under the indexing station small exact label "PostgreSQL". Under verification "원본 대조 · 독립 재판단". Do not imply ontology validation proves factual truth.
+```
+
+- 초안 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-dec44073-f2a9-4c9f-ab4a-dd6ad17721d0.png`
+
+수정 지시:
+
+```text
+Edit only station 3 of this Korean diagram. Preserve every other element, exact text, arrows and layout, 1536x1024. Inside the PostgreSQL cylinder, replace the bottom label "온톨로지" with "검증된 관계". The ontology definition is an authored file, not stored inside this cylinder. Add a small separate checklist sheet above or beside the network outside the cylinder labelled "OWL·SHACL 검사" without crossing the neighboring station. Keep "BM25", "벡터", "PostgreSQL" unchanged. Do not change numbers or any other panel.
+```
+
+### 2절 — storage-locations
+
+- 적용: `storage-locations.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-72443666-db61-454f-ac33-05211016f4bb.png`
+- 확인: test/evaluation/control과 PC 밖 WORM 백업, 비밀 저장소, 업무 건 키의 예약 삭제 저장소를 분리. 업무 실행의 install_root 읽기 전용 유지.
+
+```text
+Edit this Korean architecture illustration. Keep 1536x1024 landscape, title "작성·설치·운영을 나눈다", top three columns expert-factory/, install_root, knowledge_root, and the inspection arrow from authoring to installation. Match existing friendly outlined blue/yellow illustrations on white. The lower part must clearly separate the new backup/key boundaries; redesign lower 42% into TWO horizontal rows of compact illustrated cells, three per row. First row: (1) "test_root", computer and DB, short label "시험 전용 DB·파일"; (2) "evaluation_root", locked exam cabinet, label "보호 시험·정답"; (3) "control_root", signed ledger, label "삭제·철회·신뢰 기록", second line "PC 밖 별도 보관". Second row: (4) "backup_target", remote locked storage (not a locally plugged disk), label "DB·파일 백업", second line "PC 밖 · WORM"; (5) "비밀 저장소", local safe, label "키·토큰·인증정보", second line "업무 건 키는 백업 제외"; (6) "업무 건 키 사본", remote key vault, label "PC 밖 예약 삭제 저장소", second line "파일 백업과 분리". Do not draw arrows linking all six cells; these are separate boundaries. Keep top three column contents and styles, but simplify vertical spacing to fit two rows with readable large Korean text. No decorative footer.
+```
+
+### 3절 — knowledge-root
+
+- 적용: `knowledge-root.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-b9e2327d-f94f-4f85-a241-907476c4ffe8.png`
+- 확인: 고객 범위의 models·releases 추가, browser-profiles와 scopes 형제 관계, 공동 범위·사무소 계정·관리 폴더 루트 소속, 제한 자료의 저장 허용 조건 확인.
+
+```text
+Edit this existing Korean folder-tree illustration for the current architecture. Preserve style, title, knowledge_root root, exact hierarchy, and management shelf (config/, staging/<scope-id>/, cache/<scope-id>/, stores/postgres/, operations/). Canvas 1536x1024 landscape. Redesign the RIGHT "고객 업무" group to show SIX small folders in a readable 3 columns by 2 rows inside scopes/<scope-id>/: "objects/<key-id>/" caption "키별 원본·확정"; "derived/" caption "판단용 본문"; "exports/" caption "내보낸 사본"; "models/" caption "고객 전용 모델"; "releases/" caption "고객 전용 배포"; "cases/" caption "업무별 폴더". browser-profiles/ stays a SIBLING of scopes/, inside tenants/<tenant-id>/, caption "고객 로그인 · 백업 제외". Give this right group half the width, narrow shared and restricted groups slightly with readable labels. Keep shared/collections/<collection-id>/ and restricted/<scope-id>/collections/<collection-id>/ with objects/, derived/, exports/; change their derived caption from "가공 자료" to "판단용 본문". For restricted add brief label "저장 허용 자료만". Keep joint-scopes/<scope-id>/ and offices/<office-id>/browser-profiles/ as DIRECT CHILDREN of knowledge_root, with the external connection not crossing text. No duplicate folders. Preserve all angle brackets and hyphens exactly. Do not add paragraphs.
+```
+
+### 4절 — knowledge-authoring
+
+- 적용: `knowledge-authoring.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-7c656237-9d80-403f-86f9-10d6d1d35bc9.png`
+- 확인: 공통·법률·분야 작성 원본, 전문가 knowledge.lock 참조, 구조 검사와 원문·업무 검증 구분, 고객 전용 배포물 분리.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "분야 지식과 전문가를 연결한다". Main composition is a knowledge library linked to TWO professional portfolios, not a long list. Left half: an open blue cabinet titled "expert-factory/" with three shelves labelled "공통 개념", "법률 개념", "분야 지식". Paths respectively "knowledge/core/ontology/", "knowledge/collections/legal-kr/ontology/", "knowledge/domains/<domain-id>/". In the last shelf show three illustrated books "온톨로지", "실무서", "스타일·사례". On the right show two equally sized blue portfolios "세무사" and "회계사", each containing one card "knowledge.lock". Clean lines from the single 분야 지식 shelf to both portfolios labelled "ID·버전 참조" once, clearly shared reference, not copies. Below a horizontal validation path: illustrated ontology checklist "구조 검사" then separate evidence magnifier "원문 검토·업무 시험" then installed package "검사한 버전 설치". In a separate yellow locked enclosure at bottom right draw "고객 전용" folder "scopes/<scope-id>/releases/" with caption "공용 배포물과 분리". No arrows from the private enclosure to the public library.
+```
+
+### 5절 — database-file-roles
+
+- 적용: `database-file-roles.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-de413b8f-253e-4846-aec1-9c4d888afa58.png`
+- 확인: 상태·권한·지식·검사 DB 기록과 본문 파일의 ID·버전·해시 연결. control_root 별도 표시.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "현재 상태는 DB, 본문은 파일". Three visual zones. LEFT 35%: one large PostgreSQL cylinder with four compact record cards "상태·계획", "권한·보존", "지식·관계", "근거·검사". CENTER 20%: a single connecting bridge with linked tag icons labelled "ID · 버전 · 해시". RIGHT 45%: one file cabinet with six illustrated drawers in 2 columns by 3 rows: "objects/" with "원본·확정 파일"; "derived/" with "판단용 본문"; "snapshots/" with "고정한 판단 입력"; "sessions/" with "지속 대화"; "traces/" with "보호 실행 기록"; "exports/" with "고정 사본". Bottom left show small manager with a control panel "관리 프로그램", arrow to DB "검증된 함수로 변경". Bottom right separately show a locked record ledger "control_root" caption "삭제·사용 중지 기록". Do not draw current state JSON files or imply that exports overwrite the database. Leave all text large and succinct.
+```
+
+### 6절 — ingest-versioning
+
+- 적용: `ingest-versioning.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-b326452c-3c3d-4e77-82bd-46f37215f6a9.png`
+- 확인: staging→검사→암호화 새 쓰기→fsync·해시→DB 등록·색인 예약→접수 사본 정리. source_version_id·recipe_id·result_id 분리.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "받은 파일을 원본으로 확정한다". Six numbered illustrated steps in a 3-column by 2-row serpentine sequence. Top left 1 "받는 중 등록", intake tray labelled "staging/"; top middle 2 "형식·출처·해시 검사", person with magnifier; top right 3 "암호화해 새로 쓰기", locked folder labelled over two lines "objects/<key-id>/" and "sha256/". Down arrow to bottom RIGHT 4 "기록 완료·해시 확인", disk and check, short code "fsync"; left to bottom middle 5 "DB 등록·색인 예약", one database with small label "한 트랜잭션"; left to bottom left 6 "접수 사본 정리", empty staging tray with check. In a separate footer-width inset visually distinct from the sequence, show an ORIGINAL document "source_version_id" linking to a recipe gear "recipe_id" then two sibling outputs "result_id A" and "result_id B"; small label "확정 결과는 새 버전으로". This is about new immutable results, never overwrite. No deletion symbol on original objects, only on staging copy. Do not imply hash proves provenance.
+```
+
+### 7절 — change-propagation
+
+- 적용: `change-propagation.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-b54a0b5c-0d9e-40c3-8915-df67453c91f3.png`
+- 확인: 즉시 사용 보류, 의존 관계 추적, 진행 중·기납품 영향 구분, 과거 버전 보존, 발송과 수신 상태 구분.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "근거가 바뀌면 쓴 곳까지 찾는다". Top horizontal visual chain of six stations with clean right-pointing arrows: "원문·기준" (document new version), "추출·색인·관계" (database plus network), "판단 입력" (organized packet), "판단·계산" (person and calculator), "결과물" (report), "전달처" (recipient). Label the chain once "의존 관계". Near first node a yellow pause shield "변경 접수 즉시 사용 보류". Middle row a magnifier from the chain to TWO separated destinations: "진행 중인 업무" with revised report icon, caption "다시 검토"; "이미 낸 결과" with recipient icon, caption "영향 판단 후 정정". Bottom show correction states on four connected paper cards "승인 대기" → "발송 대기" → "발송 완료" → "수신 확인", with a separate small yellow branch "실패·확인 불가". Small locked archive at bottom left "과거 버전 보존". Never show the four correction states as all automatically completed. No time, efficacy or legal claims beyond listed words.
+```
+
+### 8절 — case-folders
+
+- 적용: `case-folders.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-322fac40-d7ba-4136-92f5-69b7f032d160.png`
+- 확인: snapshots 판단 입력 추가, SDK 로그는 traces·도구 로그는 logs, review-sheet는 deliveries 안이며 package.zip 밖. 범위의 objects와 cases 형제 관계 유지.
+
+```text
+Edit this existing Korean illustrated folder diagram. Retain the charcoal outlines, sky blue and pale yellow palette, white background, folder hierarchy, 1536x1024 landscape canvas and all other wording. Fix three inaccurate areas: 1. Within work/ the logs/ caption currently says "도구·SDK 출력"; replace it with ONLY "도구 출력". 2. Within traces/ replace the central two lines with three readable short lines "모델 입력·응답", "도구 호출·결과", "SDK 출력 로그". Keep "관리 프로그램만 기록". 3. Within snapshots/ change the small yellow label "실행 기준" to "판단 입력·실행 기준" and bottom label to "고정한 계획·판단 입력·환경". Keep the five case subfolders and objects/<key-id>/ as the sibling of cases/<case-id>/ in the same scope. In deliveries/ add a small separate slim document labelled "review-sheet/" with "내부 검토표", visibly beside the package.zip box and not inside it; fit by slightly reducing package icon. No other changes; no extra title or footer.
+```
+
+### 9절 — evaluation-delivery
+
+- 적용: `evaluation-delivery.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-e5c1d32b-9563-4d19-ae35-5575926b6e25.png`
+- 확인: 정답 보호, 허용 입력→격리 실행→평가 계정 결과 회수, 외부 실제 발송 차단. review-sheet는 deliveries 안이며 package.zip과 별도. 채점이 차단 대상으로 보이던 초안 수정.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "시험 결과와 납품을 나눈다". Two big clearly separated lanes. TOP lane "시험": left locked cabinet "evaluation_root" containing "정답·채점 자료", caption "평가 계정만"; middle a fenced laboratory labelled "test_root" with three sequential subfolders "inbox/" → "runs/ · mocks/" → "outbox/". Show ONLY allowed-input envelope from evaluator to inbox labelled "허용 입력", and output envelope from outbox back along bottom edge to evaluator labelled "결과 회수". A red crossed outbound arrow at boundary with short label "실제 발송 차단". Outside laboratory to right show no package, only checklist "채점". BOTTOM lane "납품": independently from left "확정 결과" report → "권한·내용 검사" person with magnifier → "백업 도착 확인" remote safe → "deliveries/" containing package "package.zip" and file "manifest.json". Beside but not inside the package show separate locked sheet "review-sheet/" label "내부 검토표". Small crossed arrow between upper lane and lower lane with text "시험 결과는 납품 제외". Keep these two lanes independent; absolutely no implication the protected answers reach the tested agent.
+```
+
+- 초안 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-57e1e974-4086-43d5-b5f4-7e66ecaceda2.png`
+
+수정 지시:
+
+```text
+Edit this illustration to fix exactly two relationship errors, preserving all other content, style, dimensions, Korean labels and layout. 1. The red blocked outbound arrow in the upper test lane must lead to an EXTERNAL SYSTEM, not grading. Replace the far-right clipboard currently labelled "채점" with a simple external server icon labelled "외부 시스템"; retain "실제 발송 차단". Add a small grading clipboard beside the evaluator at far LEFT labelled "채점", so the yellow "결과 회수" arrow clearly leads to that evaluator. No answer material may flow to test_root. 2. In the lower lane, review-sheet/ is physically INSIDE deliveries/ but separate from package.zip. Widen the blue deliveries/ parent folder boundary to enclose package.zip, manifest.json AND review-sheet/. Keep review-sheet/ visually in a separate internal compartment with a vertical divider, with "내부 검토표". Do not imply review-sheet/ is included in package.zip. Nothing else changes.
+```
+
+### 10절 — installation-updates
+
+- 적용: `installation-updates.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-eb089967-80ff-4323-b9df-4cf931f9b397.png`
+- 확인: 프로그램·공용 지식·전문가·도구·부품 분리, 검사 후 인계·전환, DBOS 프로세스 하나와 옛 부품 보존. v1.2.0/v1.3.0은 설명용 가상 버전.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "새 버전을 검사하고 전환한다". Left 40% one organized installation cabinet "install_root" with FIVE visible drawers: "applications/", "knowledge/", "experts/", "tools/", "components/". Show small tags "프로그램", "공용 지식", "전문가", "도구", "고정 부품" matching drawers. On experts drawer attach small readable cards "allowed-scope.json" and "knowledge.lock". Right 60% a before/after visual: old installed machine "현재 버전" alongside boxed candidate "새 버전". Under candidate three small checks "서명", "호환", "시험". Then a clear three-step pathway "옆에 설치" → "진행 업무 인계" → "실행 버전 전환". At end one active process icon labelled "DBOS 실행 1개"; old machine is archived with label "옛 부품 보존", not running. Bottom show two separate rewind controls "프로그램 되돌리기" and "DB 되돌리기" and one small protected ledger "변경·거래 기록 보존". No arrow that erases history, no running two versions simultaneously.
+```
+
+### 11절 — storage-recovery
+
+- 적용: `storage-recovery.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-f8f4ef24-bbdc-41ad-910a-16e1fd41c1e3.png`
+- 확인: 70·85·95% 초기 제안값, 삭제 차단·의존 사본·보존 분리·키 폐기, 최신 삭제 기록부터 격리 복원·권한 재적용 후 재개. 5분/1시간을 달성값 아닌 목표로 표시.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "지우고 복원해도 제한을 지킨다". Three clean horizontal illustrated lanes, each using a distinct physical scene but consistent blue/yellow palette. Top short lane "용량" with disk gauge and three increasing marks: "70% 경고", "85% 비필수 수집 보류", "95% 새 대량 입력 중지"; small qualifier "초기 제안값". Middle lane "삭제": shield "조회·재사용 차단" → magnifier following linked files "연결된 사본 찾기" → locked archive "보존할 자료 분리" → disappearing key and file stack "키·사본 폐기 확인". Keep originals until dependent copies identified, no instant-delete success. Bottom lane "복원": remote protected ledger "최신 삭제 기록" → isolated PC restoring database and files "격리 복원" → shield/check "차단·권한 재적용" → machine starting "업무 재개". Add a modest target badge with exact short two-line text "복구 목표" / "손실 5분 · 재개 1시간"; do not show it as achieved. In lower restore lane make the final arrow visibly pass through the shield before reaching service. No dense paragraphs or unnecessary decorative boxes.
+```
+
+### 12절 — current-target
+
+- 적용: `current-target.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-a1e97983-5254-43c8-8493-82c882e661c2.png`
+- 확인: 기존 부품과 미구현 보호 장치를 본문 현황 기준으로 구분, 검색 변경은 전환 전후 시험 대상으로 표시.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "기존 부품과 새로 만들 부분". Visual workshop comparison, left titled "현재 부품" and right titled "새로 구현". Left a sturdy blue toolkit containing three clearly illustrated groups: folder and database "원본 저장·버전·재개"; search magnifier "BM25 · Kiwi · KURE-v1"; linked vocabulary books "OWL · SHACL". Lower left label "data/objects/ · data/postgres/". Center a person inspecting an inventory clipboard labelled "목록·권한·용량 확인", arrow from current parts through inventory to target workshop. Right show THREE unassembled outlined modules with blueprint markings (not green checkmarks): shield+key "범위 격리·암호화"; laboratory+orchestrator "Podman · DBOS"; remote vault+restore loop "WAL · 백업·복구". Under right an outlined search module "pg_textsearch · Qwen3" with caption "전환 전후 시험". One small header qualifier under title is allowed only as a tiny tag "본문의 현황 기준". Do not pretend these new protections have been implemented or migration completed. Preserve existing IDs visually with a tagged part carried from left to right labelled "기존 ID 유지".
+```
+
+### 13절 — migration-sequence
+
+- 적용: `migration-sequence.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-9ca6a0c4-1494-40a6-8b15-68f03207e458.png`
+- 확인: 7단계 순서, 합성·공개 자료부터 시작, 범위별 ID 유지와 참조 없는 사본 정리. 실고객 관문의 체크박스 중립화 및 잘못된 1단계 선행 화살표 제거.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "한 범위씩 확인하며 옮긴다". A seven-stop illustrated migration route. Top row four stops left to right: 1 "현황 목록" clipboard and files; 2 "한 자료실·한 업무" one folder and workstation; 3 "권한·복구 검증" lock and restore arrows; 4 "지식·구성 배포" books and package. Route goes down at far right then bottom row RIGHT to LEFT: 5 "납품·운영" inspected delivery box; 6 "범위별 이관" copying one locked folder between disks with short label "ID 유지"; 7 "이관 뒤 정리" magnifier checking old-copy tags before bin with label "참조 없는 사본만". Every arrow clearly directional, no crisscross. Between the rows at left show a separate yellow gate with human checklist "첫 실고객 관문", beneath it ONLY short labels "허용 업무", "충돌 검사", "암호화·격리", "백업·삭제 검증", "계약·동의". This gate is a prerequisite shown as closed, not all green checks. Small tag at step 2 "합성·공개 자료부터". Do not use a big completed check for unfinished architecture. No implication all current data will be moved now.
+```
+
+- 초안 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-acacdef4-f630-4b7d-ab00-b0b5c23c8b2f.png`
+
+수정 지시:
+
+```text
+Edit only the small lower-left "첫 실고객 관문" inset of this illustration. Keep all seven numbered steps, route arrows, drawings, text, colors and positions exactly as they are. Remove the grey dashed arrow that currently points upward from the first-customer gate to step 1 현황 목록; the gate must be an independent callout, not a prerequisite to making an inventory. In the five gate list rows replace every status icon, including green checked box and red exclamation icons, with identical EMPTY outlined square checkboxes. This is an unassessed checklist, not a current pass/fail report. Preserve labels "허용 업무", "충돌 검사", "암호화·격리", "백업·삭제 검증", "계약·동의". Keep the lock on the gate. No other changes.
+```
+
+### 14절 — material-storage-map
+
+- 적용: `material-storage-map.png`
+- 채택 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-7b2157e0-4427-4a82-8f2e-f555239bfd8d.png`
+- 확인: 재료별 폴더 아닌 공동 저장 자리, PostgreSQL·범위 파일·install_root의 세 실선과 보호 시험·관리 기능 요청 점선을 정확한 대상에 연결.
+
+```text
+Create one polished Korean educational illustration for a technical architecture document. Landscape 1536x1024, opaque clean white background. Consistent Japanese explanatory editorial illustration style: bold smooth dark charcoal outlines, sky-blue folders and machines, soft yellow emphasis, small green checks for verified states, subtle hand-drawn dimensional shading. Warm simple professional human illustrations only where useful. Large crisp Korean sans-serif labels and exact technical identifiers. Visual objects and structural relationships dominate; no paragraphs, no subtitle, no filler footer, no watermark. Generous safe margins. Arrows must be unambiguous and never cross text. Use only the listed text.
+Title "79개 재료는 저장 자리를 함께 쓴다". Left a simple fan of many small numbered document tabs inside a large open reference book labelled "79개 재료"; do not render 79 legible tiny labels, just a suggestive fan and clear 79. Center a professional at a management console labelled "관리 프로그램". Lines from book to console then fan out without crossing to FOUR large destination groups occupying right 65% in 2x2 layout: (top left) one blue DB cylinder "PostgreSQL" with short label "상태·권한·지식·검사"; (top right) nested locked blue folders "범위별 파일" with three short rows "objects/ · derived/", "snapshots/ · sessions/ · traces/", "work/ · deliveries/"; (bottom left) installed book/package cabinet "install_root" with label "프로그램·지식·전문가·도구"; (bottom right) TWO separate locked folders "evaluation_root" and "control_root" with caption "보호 시험 · 관리 기록". The bottom-right line from manager must be dashed and labelled "관리 기능에 요청", indicating the business executor cannot directly read them. No folder per material, no falsely exclusive numerical range-to-storage mapping. No decorative footer.
+```
+
+- 초안 원본: `/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-c24a4a60-398e-4f25-b331-94a20e114962.png`
+
+수정 지시:
+
+```text
+Edit the right half of this Korean illustration to correct the connector destinations. Preserve title, book "79개 재료", and management console. Replace the four destination panels currently in a 2x2 grid with FOUR WIDE HORIZONTAL ROWS stacked vertically at the right, all with the SAME left boundary. Each row receives exactly ONE separate arrow from the management console, no arrow crossing another and none entering the wrong row. Row 1: blue cylinder "PostgreSQL", caption "상태·권한·지식·검사". Row 2: locked folders "범위별 파일", two lines "objects/ · derived/ · snapshots/" and "sessions/ · traces/ · work/ · deliveries/". Row 3: installation cabinet "install_root", caption "프로그램·지식·전문가·도구", SOLID blue arrow. Row 4: two locked folders "evaluation_root" and "control_root", caption "보호 시험 · 관리 기록", DASHED yellow arrow labelled "관리 기능에 요청". Enlarge right area and shrink the book slightly to fit. All four arrowheads end at their corresponding row's LEFT boundary. No extra arrows, no duplicated numbers on book tabs; use tiny plain unlabeled tabs with only the cover reading 79개 재료. Keep canvas 1536x1024, same style, large legible type.
+```

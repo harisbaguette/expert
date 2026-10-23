@@ -1,32 +1,70 @@
 {
   "date": "2026-10-23",
-  "generator": "codex-image (Codex image generation, 2차 수정본을 --ref 입력으로 편집)",
-  "documentBodyPreservedExceptImageAlt": true,
-  "visualReview": {
-    "actualImagesViewed": 3,
-    "documentWidthPx": 1100,
-    "headlessRenderViewed": 3,
-    "scope": "한글·기술 식별자·포함 관계·화살표·잘림·문서 폭 가독성",
-    "omissions": "개별 계정·대화·실행·납품·접수 ID와 세부 설정 파일, install_root의 파일 목록과 tools/·allowed-scope.json, test_root의 inbox/·outbox/·mocks/·runs/ 경로, evaluation_root의 하위 폴더, tenants/unassigned/(tenants/<tenant-id>/의 한 값)와 분류 대기 범위는 본문의 텍스트 트리를 따른다."
-  },
-  "result": "pass",
-  "limitations": "현재 설계의 설명 삽화다. 운영 프로그램 구현·자료 이전·접근 제어의 실행 검증이 아니다.",
+  "generator": "built-in image_gen",
   "document": "파일-폴더-구조.md",
-  "documentSha256": "f6cb31696d87c414c84d5f929e7a503f43f33a06d85ae2cb6226bbc2aa00b4fa",
+  "documentSha256": "36c2d1f42a6a642a2ee09582332be1b662bb4b3ac91583adc55970094dcb6298",
+  "result": "pass",
+  "updated": 3,
+  "created": 11,
+  "sectionCoverage": "14/14",
+  "documentBodyPreservedExceptImages": true,
+  "bodyPreservationBaseline": "삽화 연결 직전 최신 본문. 작업 도중 다른 세션에서 들어온 본문 수정은 보존했다.",
+  "visualReview": {
+    "actualImagesViewed": 14,
+    "headlessRenderViewed": 14,
+    "documentWidthPx": 1100,
+    "narrowViewportPx": 375,
+    "narrowImageWidthPx": 343,
+    "imageOverflow": false,
+    "scope": "한글·경로·포함 관계·화살표·실제 상태와 목표의 구분·잘림·1100px 가독성",
+    "narrowLimit": "좁은 화면에서는 그림을 축소 표시한다. 세부 경로는 원본 확대 또는 본문 텍스트 트리로 읽는다."
+  },
+  "limitations": [
+    "설계 설명용 삽화이며 운영 프로그램 구현·자료 이전·접근 제어·복구의 실행 검증이 아니다.",
+    "경로의 개별 ID·세부 설정과 모든 예외는 본문의 텍스트 트리와 표를 따른다.",
+    "설치 그림의 v1.2.0과 v1.3.0은 설명용 가상 버전이다.",
+    "1절 그림의 번호는 핵심 흐름을 재구성한 그림 내부 순서이며, 본문 8단계와 1:1 번호 대응이 아니다."
+  ],
   "images": [
     {
-      "path": "docs/images/file-folder-structure/storage-locations.png",
+      "path": "docs/images/file-folder-structure/judgment-input.png",
+      "section": 1,
       "size": [
         1536,
         1024
       ],
       "mode": "RGB",
-      "sha256": "78dbc969b349ad1e72afcbb0124324e9d5b1870b48b45bcb4b1a25d217839e8d",
-      "previousSha256": "b11927fc3bc32369d15d9cbd2ed8182232c24574eac1435467938b0f3f670737",
-      "generatedSource": "/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/storage-v1.png",
+      "sha256": "c4877ce2464a0225fb326d59c72bce2f38aa50e4e75df92c151dc464a71fe4c1",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-e272e1b3-8e58-4edb-a670-f9698f8d0b81.png",
       "originalBytesPreserved": true,
       "linkedOnce": true,
-      "visualCheck": "설치 판본→설치 버전, install_root 이름표에 도구·모델 추가, 기본 지시·권한→행동 원칙·권한, test_root에 모의 시스템·시험 계정, evaluation_root에 공격 시험, control_root 철회 기록·차단 목록→삭제·사용 중지 기록, backup_target 보호 이력→DB·WAL·파일 백업. 열 칸 글자의 잘림·겹침 없음.",
+      "visualCheck": "원본→판단용 본문→색인·검증된 관계→검색→관리 프로그램→판단 입력→주 모델→검증. 온톨로지 정의를 DB 내부에 넣은 초안을 수정해 OWL·SHACL 검사와 검증된 관계를 구분.",
+      "headlessRender": {
+        "id": "judgment-input",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "1. 핵심 결정",
+        "alt": "원본 접수·판독·보호 처리를 거쳐 검색과 지식 그래프를 만들고, 관리 프로그램이 판단 입력을 구성해 주 모델에 전달하는 과정",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/judgment-input-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/storage-locations.png",
+      "section": 2,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "990c5759436953e84a7d219a7d88017b0004b192b03d085d8b682320008889cd",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-72443666-db61-454f-ac33-05211016f4bb.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "test/evaluation/control과 PC 밖 WORM 백업, 비밀 저장소, 업무 건 키의 예약 삭제 저장소를 분리. 업무 실행의 install_root 읽기 전용 유지.",
       "headlessRender": {
         "id": "storage-locations",
         "loaded": true,
@@ -35,22 +73,24 @@
         "displayWidth": 1100,
         "displayHeight": 733.328125,
         "overflow": false,
-        "screenshot": "output/illustration-update-2026-10-23c/storage-locations-1100.png"
+        "section": "2. 작성하는 곳과 운영하는 곳",
+        "alt": "제작·설치·운영, 시험·평가·관리 기록을 나누고, PC 밖 파일 백업과 업무 건 키의 예약 삭제 저장소를 분리한 구조",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/storage-locations-1100.png"
       }
     },
     {
       "path": "docs/images/file-folder-structure/knowledge-root.png",
+      "section": 3,
       "size": [
         1536,
         1024
       ],
       "mode": "RGB",
-      "sha256": "926c152dc315061c54d0915d6310313850b4c03d90b7a43dfeff11729484a97b",
-      "previousSha256": "b18da1a9576e95608bfe359c4de4d0b732b53c40b17021c678431974d07881c4",
-      "generatedSource": "/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/knowledge-v1.png",
+      "sha256": "8342b0f60ebe73030d562fbb8c7f857e1284b352729840eb493b4a09803ce9b8",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-b9e2327d-f94f-4f85-a241-907476c4ffe8.png",
       "originalBytesPreserved": true,
       "linkedOnce": true,
-      "visualCheck": "scopes/<scope-id>/ 안을 3×2 격자로 바꿔 models/(범위 전용 모델)와 releases/(고객 전용 배포물)를 더했다. 나머지 무리·바깥 선·관리 폴더 글자는 그대로이고 1100px에서 objects/<key-id>/까지 읽힌다.",
+      "visualCheck": "고객 범위의 models·releases 추가, browser-profiles와 scopes 형제 관계, 공동 범위·사무소 계정·관리 폴더 루트 소속, 제한 자료의 저장 허용 조건 확인.",
       "headlessRender": {
         "id": "knowledge-root",
         "loaded": true,
@@ -59,22 +99,128 @@
         "displayWidth": 1100,
         "displayHeight": 733.328125,
         "overflow": false,
-        "screenshot": "output/illustration-update-2026-10-23c/knowledge-root-1100.png"
+        "section": "3. 운영 저장소의 목표 구조",
+        "alt": "knowledge_root 아래 공통·제한·고객 자료와 공동 범위·사무소 계정. 고객 scopes 안에는 objects·derived·exports·models·releases·cases를 두고 browser-profiles는 scopes와 나란히 둔다",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/knowledge-root-1100.png"
       }
     },
     {
-      "path": "docs/images/file-folder-structure/case-folders.png",
+      "path": "docs/images/file-folder-structure/knowledge-authoring.png",
+      "section": 4,
       "size": [
         1536,
         1024
       ],
       "mode": "RGB",
-      "sha256": "807698b37e7fd3ed03ba41f4a59d8d36128ec8a617807ce324da627a176aa11b",
-      "previousSha256": "efdd60e6807506fd7614c5c25ba6291e9b638024792b6c76df341ff70ad045ab",
-      "generatedSource": "/Users/haris/.codex/generated_images/file-folder-structure-2026-10-23c/case-v2.png",
+      "sha256": "d8246bf7c8fb9b4e354a5ee5dc1d48f82d18992c622e28056984ae0b9738bd25",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-7c656237-9d80-403f-86f9-10d6d1d35bc9.png",
       "originalBytesPreserved": true,
       "linkedOnce": true,
-      "visualCheck": "DB 목록 판본→버전. deliveries/에 review-sheet/(검토표 · 맡긴 사람만)를 package.zip 밖 별도 폴더로 더하고, 1100px에서 읽히게 2차 편집으로 글자를 키웠다. 다른 열과 확정 흐름은 그대로.",
+      "visualCheck": "공통·법률·분야 작성 원본, 전문가 knowledge.lock 참조, 구조 검사와 원문·업무 검증 구분, 고객 전용 배포물 분리.",
+      "headlessRender": {
+        "id": "knowledge-authoring",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "4. 분야 지식·온톨로지·전문가 구성",
+        "alt": "제작 Git의 공통·분야 온톨로지와 실무서를 전문가가 ID와 버전으로 참조하고, 고객 전용 배포물은 고객 범위에 따로 보관하는 구조",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/knowledge-authoring-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/database-file-roles.png",
+      "section": 5,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "d2788c445e328db5436669feb31937862aa6c76c7a4172035b6ac8feca3a8080",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-de413b8f-253e-4846-aec1-9c4d888afa58.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "상태·권한·지식·검사 DB 기록과 본문 파일의 ID·버전·해시 연결. control_root 별도 표시.",
+      "headlessRender": {
+        "id": "database-file-roles",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "5. 무엇을 DB에 두고 무엇을 파일에 두는가",
+        "alt": "PostgreSQL의 상태·권한·버전·관계 기록이 ID·버전·해시로 원본·판단용 본문·스냅샷·대화·실행 기록 파일과 연결되는 구조",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/database-file-roles-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/ingest-versioning.png",
+      "section": 6,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "f394fa806d4fce930133294e6841449eef0492ca00c38ad3f5ce07e9d5861709",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-b326452c-3c3d-4e77-82bd-46f37215f6a9.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "staging→검사→암호화 새 쓰기→fsync·해시→DB 등록·색인 예약→접수 사본 정리. source_version_id·recipe_id·result_id 분리.",
+      "headlessRender": {
+        "id": "ingest-versioning",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "6. 이름·ID·버전·접수 규칙",
+        "alt": "범위를 정한 staging 접수에서 검사·암호화·기록 완료·DB 등록을 거쳐 원본을 확정하고, 파생 결과에는 처리법과 결과 ID를 따로 부여하는 과정",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/ingest-versioning-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/change-propagation.png",
+      "section": 7,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "9439df39002abe2c86a72e13d528d6b1eadfb42ffc67a4ded223fd5943f84460",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-b54a0b5c-0d9e-40c3-8915-df67453c91f3.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "즉시 사용 보류, 의존 관계 추적, 진행 중·기납품 영향 구분, 과거 버전 보존, 발송과 수신 상태 구분.",
+      "headlessRender": {
+        "id": "change-propagation",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "7. 원천 갱신·색인·변경 전파",
+        "alt": "근거 변경을 접수하면 사용을 보류하고, 원문부터 판단 입력·판단·결과물·전달처까지 의존 관계를 따라 재검토와 정정을 진행하는 과정",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/change-propagation-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/case-folders.png",
+      "section": 8,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "78b3aa7b014bd40ff69d70874b0f1b226477543981b6ec8a29aee29d7399624c",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-322fac40-d7ba-4136-92f5-69b7f032d160.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "snapshots 판단 입력 추가, SDK 로그는 traces·도구 로그는 logs, review-sheet는 deliveries 안이며 package.zip 밖. 범위의 objects와 cases 형제 관계 유지.",
       "headlessRender": {
         "id": "case-folders",
         "loaded": true,
@@ -83,7 +229,165 @@
         "displayWidth": 1100,
         "displayHeight": 733.328125,
         "overflow": false,
-        "screenshot": "output/illustration-update-2026-10-23c/case-folders-1100.png"
+        "section": "8. 업무 한 건의 작업·대화·외부 행동",
+        "alt": "같은 범위 안의 cases와 objects, 업무별 snapshots·sessions·traces·work·deliveries. SDK 로그는 traces에, 도구 로그는 work의 logs에 두고 내부 검토표는 납품 압축 파일과 나눈다",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/case-folders-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/evaluation-delivery.png",
+      "section": 9,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "0d6b9b7020f39dcae42022cf25455ca21a01cde0299eb9ee1c111bcc89745c46",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-e5c1d32b-9563-4d19-ae35-5575926b6e25.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "정답 보호, 허용 입력→격리 실행→평가 계정 결과 회수, 외부 실제 발송 차단. review-sheet는 deliveries 안이며 package.zip과 별도. 채점이 차단 대상으로 보이던 초안 수정.",
+      "headlessRender": {
+        "id": "evaluation-delivery",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "9. 평가와 납품의 경계",
+        "alt": "evaluation_root의 정답은 평가 계정만 보고, test_root의 허용 입력·모의 실행·결과와 실제 납품 묶음은 서로 분리되는 구조",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/evaluation-delivery-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/installation-updates.png",
+      "section": 10,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "c9017fc5441c912a8f7bf287c25459035cd47330463e7ebda750268d48a2320e",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-eb089967-80ff-4323-b9df-4cf931f9b397.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "프로그램·공용 지식·전문가·도구·부품 분리, 검사 후 인계·전환, DBOS 프로세스 하나와 옛 부품 보존. v1.2.0/v1.3.0은 설명용 가상 버전.",
+      "headlessRender": {
+        "id": "installation-updates",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "10. 설치 버전과 업데이트",
+        "alt": "프로그램·지식·전문가·도구·부품의 설치 버전을 따로 보관하고, 서명·호환·시험 확인과 진행 업무 인계를 거쳐 실행 버전을 전환하는 구조",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/installation-updates-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/storage-recovery.png",
+      "section": 11,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "eccc54fc2f76876b789507288f2236b5ee1c35cd1c0f6c0dc27084236b90876a",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-f8f4ef24-bbdc-41ad-910a-16e1fd41c1e3.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "70·85·95% 초기 제안값, 삭제 차단·의존 사본·보존 분리·키 폐기, 최신 삭제 기록부터 격리 복원·권한 재적용 후 재개. 5분/1시간을 달성값 아닌 목표로 표시.",
+      "headlessRender": {
+        "id": "storage-recovery",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "11. 용량·삭제·백업·복원",
+        "alt": "용량 경고와 처리 보류, 사용 차단 후 보존할 자료를 분리하는 삭제 절차, 최신 삭제 기록을 먼저 적용하는 복원 절차",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/storage-recovery-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/current-target.png",
+      "section": 12,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "6055afa55a486536cf3d0468b13aef1655662256c962e208069654d05091ef27",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-a1e97983-5254-43c8-8493-82c882e661c2.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "기존 부품과 미구현 보호 장치를 본문 현황 기준으로 구분, 검색 변경은 전환 전후 시험 대상으로 표시.",
+      "headlessRender": {
+        "id": "current-target",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "12. 현재 있는 것과 제안의 차이",
+        "alt": "본문에 기록된 기존 원본 저장·재개·검색·온톨로지 부품을 재사용하고, 권한·암호화·격리·백업·복구를 보완하는 현황과 목표 비교",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/current-target-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/migration-sequence.png",
+      "section": 13,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "4298446c85a07ee15aad2cb45f1e14354954d8edbcba95a7443372c4d8fc1c17",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-9ca6a0c4-1494-40a6-8b15-68f03207e458.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "7단계 순서, 합성·공개 자료부터 시작, 범위별 ID 유지와 참조 없는 사본 정리. 실고객 관문의 체크박스 중립화 및 잘못된 1단계 선행 화살표 제거.",
+      "headlessRender": {
+        "id": "migration-sequence",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "13. 실제 적용 순서와 확인할 결과",
+        "alt": "현황 목록부터 합성 자료 연결, 권한·복구 검증, 지식 배포, 납품·운영, 범위별 이관과 이전 사본 정리까지의 적용 순서",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/migration-sequence-1100.png"
+      }
+    },
+    {
+      "path": "docs/images/file-folder-structure/material-storage-map.png",
+      "section": 14,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "aa3fe027c0917920df279399397382151706c19977362e900fe80b0402b536ea",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16737-a0f3-7ff0-9b0d-a02bb325693e/exec-7b2157e0-4427-4a82-8f2e-f555239bfd8d.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "재료별 폴더 아닌 공동 저장 자리, PostgreSQL·범위 파일·install_root의 세 실선과 보호 시험·관리 기능 요청 점선을 정확한 대상에 연결.",
+      "headlessRender": {
+        "id": "material-storage-map",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "section": "14. 79개 재료가 맡는 저장 자리",
+        "alt": "79개 재료가 개별 폴더를 만드는 대신 관리 프로그램을 통해 PostgreSQL, 범위별 파일, 설치 버전, 보호 시험·관리 기록을 함께 사용하는 구조",
+        "screenshot": "output/file-folder-illustrations-2026-10-23/material-storage-map-1100.png"
       }
     }
   ]
