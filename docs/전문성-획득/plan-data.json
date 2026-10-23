@@ -1,0 +1,4562 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-20",
+  "scope": "전문가 공장의 전문성 획득 부분. 계획·연결표는 작성 완료, 추출기·전문가 제작은 별도 작업.",
+  "input_cases": [
+    {
+      "id": "I01",
+      "name": "분야 이름·전문가 이름만 있음",
+      "method": "업무·대표 결과물·자료 원천을 찾아 능력 지도를 만들고 입력 확보 계획을 세운다.",
+      "tools": "검색·기존 직무 목록·공개 포트폴리오",
+      "output": "능력 목록·자료 목록·추출 경로",
+      "research": "R08",
+      "question": "결과물이 없을 때 어떤 자료부터 찾으면 핵심 노하우에 접근하는가?",
+      "fallback": "공개 자료로 시작하고 미확보 자료는 다음 수집 항목으로 남긴다."
+    },
+    {
+      "id": "I02",
+      "name": "완성 이미지·화면·도표",
+      "method": "내용·배치·시선·계층을 분해하고 대조 예시·재구성으로 선택 규칙을 찾는다.",
+      "tools": "VLM·OCR·Tree Diffusion·Vision-Language Programs",
+      "output": "구성 원리·조건별 수정법·편집 가능한 재구성",
+      "research": "R02",
+      "question": "겉모양의 복제와 다른 과업에도 쓰는 제작 원리를 어떻게 구분하는가?",
+      "fallback": "보이지 않는 레이어·동작은 미상으로 두고 공개 버전·다른 화면을 더 찾는다."
+    },
+    {
+      "id": "I03",
+      "name": "실행 중인 사이트·웹앱·앱",
+      "method": "DOM·스타일·자원·상태 전환·오류를 수집하고 과업별 사용자 흐름을 비교한다.",
+      "tools": "격리 브라우저·Playwright·Crawl4AI·AALpy",
+      "output": "상태 모델·UX 선택 기준·동작과 제작 절차",
+      "research": "R02",
+      "question": "접근 가능한 화면만으로 어떤 내부 규칙을 알아낼 수 있는가?",
+      "fallback": "읽기 가능한 화면·정적 자료에서 진행하고 접근 불가 상태를 지어내지 않는다."
+    },
+    {
+      "id": "I04",
+      "name": "소스 코드·Git 저장소",
+      "method": "구조·의존·설정·테스트·이력을 읽고 기능 재구현의 차이에서 숨은 계약을 찾는다.",
+      "tools": "기존 코드 탐색·Git·PRAXIS·Repo-To-Skill",
+      "output": "업무 규칙·설계 판단·운영 요령·재사용 코드",
+      "research": "R01",
+      "question": "기능 설명을 넘어 설계 선택·예외·복구 방법을 어떻게 추출하는가?",
+      "fallback": "실행 환경이 없으면 정적 근거와 실행 필요 가설을 나눠 보존한다."
+    },
+    {
+      "id": "I05",
+      "name": "실행 파일·APK·패키지·펌웨어",
+      "method": "형식·리소스·정적 구조와 격리 실행의 입출력을 함께 조사한다.",
+      "tools": "기존 REA·kh-skill-reverse-engineering·동적 계측",
+      "output": "관찰된 동작 명세·숨은 상태·구현 후보",
+      "research": "R01",
+      "question": "소스가 없는 개발물에서 기능과 전문가의 구현 요령을 어디까지 분리해 얻는가?",
+      "fallback": "읽을 수 있는 자원·공개 시연·인터페이스를 쓰고 접근되지 않는 내부는 미상 처리한다."
+    },
+    {
+      "id": "I06",
+      "name": "편집 원본·프로젝트 파일",
+      "method": "레이어·타임라인·컴포넌트·수식·효과·프리셋과 완성 출력의 대응을 분석한다.",
+      "tools": "형식별 parser·제작 도구 export·의존 자산 추적",
+      "output": "제작 순서·설정값·재사용 템플릿·원본과 출력 연결",
+      "research": "R02",
+      "question": "원본의 구조가 어떤 편집 판단과 반복 작업을 드러내는가?",
+      "fallback": "지원하지 않는 형식은 export·보조 렌더 경로를 선택한다."
+    },
+    {
+      "id": "I07",
+      "name": "완성 글·블로그·전자책·판매 문서",
+      "method": "독자·문제·구성·근거·문장·행동 유도를 분석하고 비슷한 과업의 다른 글과 비교한다.",
+      "tools": "Docling·구조 분석·조건별 대조",
+      "output": "기획·집필·퇴고 방법·독자별 표현 기준",
+      "research": "R03",
+      "question": "좋은 표현을 베끼는 수준에서 벗어나 기획·구성·수정 기준을 어떻게 얻는가?",
+      "fallback": "성과가 없으면 글의 구성·사용성 지식과 수익 가설을 분리한다."
+    },
+    {
+      "id": "I08",
+      "name": "책·매뉴얼·강의·논문·인터뷰",
+      "method": "개념·조건·절차·예외·예제를 원문 위치에 연결하고 실제 결과물과 설명을 대조한다.",
+      "tools": "Docling·MinerU·OCR·Anything2Skill",
+      "output": "근거가 있는 분야 지식·절차·예외·SkillBank 후보",
+      "research": "R03",
+      "question": "서로 충돌하는 설명과 설명에 빠진 실무 조건을 어떻게 보완하는가?",
+      "fallback": "요약만 확보하면 원문 부재를 표시하고 확보 가능한 독립 자료를 추가한다."
+    },
+    {
+      "id": "I09",
+      "name": "완성 영상·오디오",
+      "method": "장면·대본·음악·편집·강조·전환을 시간축으로 맞추고 다른 영상과 비교한다.",
+      "tools": "FFmpeg·ASR·장면 분할·VLM",
+      "output": "기획·연출·편집 방법·타임코드별 근거",
+      "research": "R04",
+      "question": "최종 영상에서 촬영·편집의 선택과 시청 흐름을 어떻게 복원하는가?",
+      "fallback": "원본 타임라인이 없으면 가능한 제작 방법 여러 개를 남긴다."
+    },
+    {
+      "id": "I10",
+      "name": "작업 시연·화면 녹화·입력 이벤트",
+      "method": "전후 화면과 행동을 정렬하고 반복·분기·수정·우회를 절차로 만든다.",
+      "tools": "OmegaUse-SOP·video-to-skill·LearnAct·WorldGUI",
+      "output": "SOP·매개변수·예외·재실행 스킬",
+      "research": "R04",
+      "question": "설명 없는 조작과 생략된 전문 판단을 어떻게 나누고 보완하는가?",
+      "fallback": "영상에 없는 클릭·생각을 확정하지 않고 추가 시연·상태 변화로 보완한다."
+    },
+    {
+      "id": "I11",
+      "name": "여러 전문가·경쟁 결과물의 묶음",
+      "method": "조건을 맞춰 공통 규칙·예외·차이를 찾고 서로 다른 전략을 보존한다.",
+      "tools": "사례 비교·Popper·Vision-Language Programs",
+      "output": "조건부 전략·대안·전문가별 취향·반례",
+      "research": "R05",
+      "question": "성공 사례만 보고 모든 상황에 통하는 규칙으로 오해하지 않으려면 무엇을 비교하는가?",
+      "fallback": "열등·실패 사례를 확보하지 못하면 비교 범위를 명시하고 다음 수집에 추가한다."
+    },
+    {
+      "id": "I12",
+      "name": "수정 전후·버전·시간 변화",
+      "method": "무엇이 언제 바뀌었는지와 결과의 변화·시차·다른 사건을 연결한다.",
+      "tools": "Git diff·화면 snapshot·시계열 비교",
+      "output": "수정 우선순위·갱신 요령·변화 원인 후보",
+      "research": "R05",
+      "question": "변경과 성과가 함께 움직인 사실에서 어떤 설명 후보를 만들 수 있는가?",
+      "fallback": "동시 변화가 많으면 후보별 추가 관측을 정하고 하나의 원인으로 고정하지 않는다."
+    },
+    {
+      "id": "I13",
+      "name": "운영 통계·광고·검색·채널 로그",
+      "method": "지표 정의·분모·기간·대상·비용을 맞추고 행동·결과·환경을 연결한다.",
+      "tools": "플랫폼 export/API·SQL·통계·과정 분석",
+      "output": "운영 판단·조정 조건·성과 가설·복구법",
+      "research": "R05",
+      "question": "공개 지표와 소유 계정 지표의 차이가 추출 가능한 노하우를 어떻게 바꾸는가?",
+      "fallback": "공개 근거로 가능한 분석을 계속하고 비공개 지표는 미관측으로 둔다."
+    },
+    {
+      "id": "I14",
+      "name": "스프레드시트·계산 모델·견적·규칙표",
+      "method": "수식·단위·참조·분기·입출력을 추출하고 입력 변화에 따른 반응을 분석한다.",
+      "tools": "수식 parser·실행 가능한 계산·Popper·수치 대상일 때 PySINDy",
+      "output": "계산 원리·의사결정 규칙·민감도·실행 모델",
+      "research": "R06",
+      "question": "숫자를 맞추는 것과 전문가가 놓은 가정·제약을 어떻게 함께 얻는가?",
+      "fallback": "값만 있는 표라면 계산식은 후보로 두고 원본 수식·다른 입력을 찾는다."
+    },
+    {
+      "id": "I15",
+      "name": "조작 가능한 실험 환경·재구성본",
+      "method": "현재 설명 후보가 다른 결과를 예측하는 입력·요소 변경을 선택해 관측한다.",
+      "tools": "AALpy·GRACE·AutoToM·GO-CBED·격리 실행",
+      "output": "숨은 목표·제약·경계·생성 방법과 다음 탐색",
+      "research": "R07",
+      "question": "어떤 다음 행동이 필요한 노하우를 가장 많이 드러내는가?",
+      "fallback": "조작할 수 없으면 관찰 가능한 다른 상황·버전으로 비교한다."
+    },
+    {
+      "id": "I16",
+      "name": "일부만 보이거나 접근이 막힌 자료",
+      "method": "확보한 단서·부재·지원 불가를 구분하고 다른 자료·형식·원천을 찾는다.",
+      "tools": "입력 진단·대체 원천 탐색·형식 변환",
+      "output": "현재 획득 범위·보완 경로·이어갈 분석",
+      "research": "R08",
+      "question": "어디서 멈추고 어디는 계속할 수 있으며 어떤 대체 자료를 찾을 것인가?",
+      "fallback": "사용자만 제공할 필수 자료가 남기 전까지 공개·로컬 대안을 직접 조사한다."
+    },
+    {
+      "id": "I17",
+      "name": "채택·기각·수정안·품질 비교",
+      "method": "같은 목적과 제약에서 무엇을 더 낫게 골랐는지와 수정 방향을 학습한다.",
+      "tools": "조건별 비교·선호 학습·미감 비교 연구",
+      "output": "품질 판별·수정 우선순위·감각 예시·선택적 판별 모델",
+      "research": "R02",
+      "question": "시간·가격 때문에 선택한 결과와 품질 선호를 어떻게 구별하는가?",
+      "fallback": "선택 이유가 없으면 비용·제약 등 대안 설명도 보존한다."
+    },
+    {
+      "id": "I18",
+      "name": "글·영상·코드·통계가 섞인 한 프로젝트",
+      "method": "자료 간 같은 대상·시간·버전을 맞추고 각 분석 결과를 근거와 함께 결합한다.",
+      "tools": "공통 ID·provenance·온톨로지·관계 검색",
+      "output": "프로젝트 전체의 전략·제작·운영 방법과 모순 목록",
+      "research": "R08",
+      "question": "부분 분석이 서로 충돌하거나 같은 근거를 중복 계산하는 문제를 어떻게 막는가?",
+      "fallback": "연결이 불확실한 자료는 별개로 두고 확인에 필요한 식별 단서를 찾는다."
+    }
+  ],
+  "research_groups": [
+    {
+      "id": "R01",
+      "name": "개발물에서 노하우 추출",
+      "cases": [
+        "I04",
+        "I05"
+      ],
+      "scope": "소스 유무·실행 가능 여부·원본 입력 확보 여부별로 정적 분석, 재구현, 격리 동작 분석을 비교한다."
+    },
+    {
+      "id": "R02",
+      "name": "화면·디자인·편집 원본과 품질 감각",
+      "cases": [
+        "I02",
+        "I03",
+        "I06",
+        "I17"
+      ],
+      "scope": "정적 화면·상태형 UI·편집 구조·선호 비교에서 무엇을 다른 방법으로 추출할지 정한다."
+    },
+    {
+      "id": "R03",
+      "name": "글·책·강의에서 실무 지식 추출",
+      "cases": [
+        "I07",
+        "I08"
+      ],
+      "scope": "완성 콘텐츠 분석과 설명 자료 독해를 나누고 절차·예외·문체·기획 기준으로 가공한다."
+    },
+    {
+      "id": "R04",
+      "name": "완성 영상·작업 시연에서 제작법 추출",
+      "cases": [
+        "I09",
+        "I10"
+      ],
+      "scope": "영상 장면 분석과 실제 조작 복원을 구분하고 시간축·행동·음성·화면을 맞춘다."
+    },
+    {
+      "id": "R05",
+      "name": "비교 사례·변경 이력·운영 성과 분석",
+      "cases": [
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "채널·기간·검색면·대상·분모·상태 변화가 다른 자료를 비교 가능한 단위로 만드는 방법을 정한다."
+    },
+    {
+      "id": "R06",
+      "name": "계산·표·모델에서 판단 규칙 추출",
+      "cases": [
+        "I14"
+      ],
+      "scope": "수식·규칙·가정과 입력 변화 반응을 추출하는 형식별 방법을 정한다."
+    },
+    {
+      "id": "R07",
+      "name": "목표·제약·숨은 규칙의 능동 탐색",
+      "cases": [
+        "I15"
+      ],
+      "scope": "inverse planning·reward inference·질의·요소 변경을 가능한 환경과 필요한 관측에 맞춘다."
+    },
+    {
+      "id": "R08",
+      "name": "입력 진단·자료 확장·여러 결과 통합",
+      "cases": [
+        "I01",
+        "I16",
+        "I18"
+      ],
+      "scope": "분야만 주어진 경우, 자료 부족, 혼합 입력에서 다음 자료와 방법을 선택하는 공통 흐름을 정한다."
+    }
+  ],
+  "priority_domains": [
+    {
+      "id": "P01",
+      "name": "네이버 검색 노출·SEO",
+      "roles": [
+        "085",
+        "145",
+        "102"
+      ],
+      "cases": [
+        "I03",
+        "I07",
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "웹사이트·블로그·검색면을 나눠 검색 의도, 문서 구성, 주제 연결, 갱신과 노출 변화를 조사",
+      "inputs": "검색어·검색면·시점별 비교 자료, 공개 문서·사이트, 확보 시 유입 통계",
+      "deliverable": "상황별 SEO 작업서·진단·개선 순서",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D01",
+      "build_task": "EA-P01"
+    },
+    {
+      "id": "P02",
+      "name": "네이버 블로그 기획·집필·운영",
+      "roles": [
+        "055",
+        "085",
+        "145"
+      ],
+      "cases": [
+        "I07",
+        "I08",
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "주제·독자·글 기획·본문·이미지·발행·과거 글 수정·전환을 잇는 운영 방법",
+      "inputs": "공개 글 묶음·수정본·운영 매뉴얼, 확보 시 블로그 통계",
+      "deliverable": "기획표·집필/퇴고법·발행/갱신 운영서",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D02",
+      "build_task": "EA-P02"
+    },
+    {
+      "id": "P03",
+      "name": "구글 검색 노출·기술 SEO",
+      "roles": [
+        "085",
+        "102",
+        "103",
+        "145",
+        "161"
+      ],
+      "cases": [
+        "I03",
+        "I04",
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "탐색·색인·사이트 구조·페이지 내용·검색 문제 진단과 개선",
+      "inputs": "사이트·구조·공개 검색 관측, 권한 있는 Search Console export/API",
+      "deliverable": "기술 진단·사이트 개선 절차·검색 변화 해석",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D03",
+      "build_task": "EA-P03"
+    },
+    {
+      "id": "P04",
+      "name": "구글 유입용 콘텐츠·블로그·사이트 운영",
+      "roles": [
+        "055",
+        "085",
+        "145",
+        "161"
+      ],
+      "cases": [
+        "I03",
+        "I07",
+        "I08",
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "대상 독자·주제 묶음·글 유형·콘텐츠 제작·내부 연결·갱신·수익 연결",
+      "inputs": "여러 글·사이트 구조·버전·공개 콘텐츠, 확보 시 유입·전환",
+      "deliverable": "사이트/블로그 구조안·콘텐츠 운영법·갱신 기준",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D04",
+      "build_task": "EA-P04"
+    },
+    {
+      "id": "P05",
+      "name": "유튜브 전략·주제·검색·추천",
+      "roles": [
+        "060",
+        "139",
+        "140",
+        "141"
+      ],
+      "cases": [
+        "I09",
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "대상 시청자·채널 포지션·주제·시리즈·검색/추천/Shorts별 발견 경로",
+      "inputs": "채널·영상·제목·썸네일·공개 반응, 권한 있는 채널 상세 통계",
+      "deliverable": "채널 전략·주제 선택·발견 경로별 개선 방법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D05",
+      "build_task": "EA-P05"
+    },
+    {
+      "id": "P06",
+      "name": "유튜브 기획·대본·영상 제작·편집",
+      "roles": [
+        "058",
+        "124",
+        "125",
+        "127",
+        "139",
+        "140",
+        "141",
+        "143"
+      ],
+      "cases": [
+        "I06",
+        "I08",
+        "I09",
+        "I10",
+        "I17"
+      ],
+      "scope": "대본·도입·전개·화면·음향·편집·자막·롱폼/숏폼 제작",
+      "inputs": "완성 영상·대본·편집 원본·제작 시연",
+      "deliverable": "영상 제작 실무서·타임라인 규칙·편집 템플릿",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D06",
+      "build_task": "EA-P06"
+    },
+    {
+      "id": "P07",
+      "name": "유튜브 제목·썸네일·영상 포장",
+      "roles": [
+        "055",
+        "119",
+        "139",
+        "140",
+        "141"
+      ],
+      "cases": [
+        "I02",
+        "I09",
+        "I11",
+        "I12",
+        "I13",
+        "I17"
+      ],
+      "scope": "제목과 썸네일의 약속, 영상 내용과의 연결, 후보 제작·선택·수정",
+      "inputs": "제목/썸네일 묶음·변경 이력·영상, 확보 시 노출/클릭 자료",
+      "deliverable": "제목·썸네일 제작법·후보 선택과 수정 기준",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D07",
+      "build_task": "EA-P07"
+    },
+    {
+      "id": "P08",
+      "name": "유튜브 업로드·채널 운영·수익",
+      "roles": [
+        "139",
+        "140",
+        "141",
+        "143"
+      ],
+      "cases": [
+        "I08",
+        "I10",
+        "I12",
+        "I13",
+        "I18"
+      ],
+      "scope": "메타데이터·공개 일정·플레이리스트·댓글·기존 영상 관리·수익 연결",
+      "inputs": "공개 채널 구조·운영 시연, 확보 시 Studio export/API",
+      "deliverable": "업로드/운영 절차·수정/복구·수익 운영 방법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D08",
+      "build_task": "EA-P08"
+    },
+    {
+      "id": "P09",
+      "name": "네이버 광고",
+      "roles": [
+        "055",
+        "084",
+        "110"
+      ],
+      "cases": [
+        "I02",
+        "I03",
+        "I07",
+        "I10",
+        "I11",
+        "I13"
+      ],
+      "scope": "검색광고와 다른 광고 상품을 구분하여 소재·키워드·랜딩·운영 조정을 조사",
+      "inputs": "공개 광고/랜딩·공식 자료·시연, 권한 있는 계정 export/API",
+      "deliverable": "상품별 광고 기획·운영·조정·중단 기준",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D09",
+      "build_task": "EA-P09"
+    },
+    {
+      "id": "P10",
+      "name": "구글 광고",
+      "roles": [
+        "055",
+        "084",
+        "110"
+      ],
+      "cases": [
+        "I02",
+        "I03",
+        "I07",
+        "I09",
+        "I10",
+        "I13"
+      ],
+      "scope": "검색·디스플레이·영상 등 캠페인 목적과 소재·랜딩·전환 측정·운영",
+      "inputs": "공개 광고/랜딩·공식 자료·시연, 권한 있는 Google Ads export/API",
+      "deliverable": "캠페인별 운영서·측정/소재/예산 조정법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D10",
+      "build_task": "EA-P10"
+    },
+    {
+      "id": "P11",
+      "name": "광고비 없이 하는 마케팅",
+      "roles": [
+        "061",
+        "085",
+        "087",
+        "146",
+        "152"
+      ],
+      "cases": [
+        "I03",
+        "I07",
+        "I11",
+        "I12",
+        "I13",
+        "I18"
+      ],
+      "scope": "검색·콘텐츠·제휴·홍보·추천·커뮤니티에서 유입과 고객 전환을 만드는 방법",
+      "inputs": "공개 캠페인·배포 경로·콘텐츠·사례, 확보 시 유입/문의",
+      "deliverable": "광고 집행비 없는 채널 선택·실행·반복 운영법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D11",
+      "build_task": "EA-P11"
+    },
+    {
+      "id": "P12",
+      "name": "X·트위터 마케팅",
+      "roles": [
+        "055",
+        "085",
+        "150",
+        "151"
+      ],
+      "cases": [
+        "I07",
+        "I09",
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "독자·계정 포지션·짧은 글/스레드·대화·배포·전환",
+      "inputs": "공개 게시물·반응·계정 이력, 접근 가능한 API/export",
+      "deliverable": "X용 기획·작성·운영·개선 방법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D12",
+      "build_task": "EA-P12"
+    },
+    {
+      "id": "P13",
+      "name": "인스타그램 마케팅",
+      "roles": [
+        "083",
+        "085",
+        "143",
+        "150",
+        "151"
+      ],
+      "cases": [
+        "I02",
+        "I06",
+        "I09",
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "계정 포지션·피드·캐러셀·Reels·Stories·관계·판매 연결",
+      "inputs": "공개 계정/콘텐츠·제작 원본, 확보 시 Insights export",
+      "deliverable": "형식별 제작·계정 운영·전환 방법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D13",
+      "build_task": "EA-P13"
+    },
+    {
+      "id": "P14",
+      "name": "Threads 마케팅",
+      "roles": [
+        "055",
+        "085",
+        "150",
+        "151"
+      ],
+      "cases": [
+        "I07",
+        "I11",
+        "I12",
+        "I13"
+      ],
+      "scope": "주제·글·답글·대화 흐름·계정 운영·다른 채널 연결",
+      "inputs": "공개 게시물·대화·변경, 확보 시 계정 통계",
+      "deliverable": "Threads용 작성·대화·운영 방법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D14",
+      "build_task": "EA-P14"
+    },
+    {
+      "id": "P15",
+      "name": "커뮤니티 마케팅·운영",
+      "roles": [
+        "085",
+        "087",
+        "152"
+      ],
+      "cases": [
+        "I07",
+        "I10",
+        "I11",
+        "I12",
+        "I13",
+        "I18"
+      ],
+      "scope": "커뮤니티별 맥락·기여 콘텐츠·참여·유입·운영과 대응",
+      "inputs": "공개 글/댓글·규칙·운영 사례, 확보 시 유입/회원 기록",
+      "deliverable": "커뮤니티별 참여·콘텐츠·운영·복구 방법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D15",
+      "build_task": "EA-P15"
+    },
+    {
+      "id": "P16",
+      "name": "마케팅 전략·채널 조합",
+      "roles": [
+        "060",
+        "061",
+        "083",
+        "084",
+        "085",
+        "086",
+        "087",
+        "110"
+      ],
+      "cases": [
+        "I08",
+        "I11",
+        "I12",
+        "I13",
+        "I14",
+        "I18"
+      ],
+      "scope": "고객·문제·시장·제안·채널·전환·유지와 자원 배분을 연결",
+      "inputs": "전략 자료·캠페인·콘텐츠·수치·실패/수정 사례",
+      "deliverable": "목표별 채널 조합·우선순위·수정 판단",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D16",
+      "build_task": "EA-P16"
+    },
+    {
+      "id": "P17",
+      "name": "전자책 기획·집필·편집·제작",
+      "roles": [
+        "055",
+        "122",
+        "126",
+        "149"
+      ],
+      "cases": [
+        "I06",
+        "I07",
+        "I08",
+        "I11",
+        "I17"
+      ],
+      "scope": "독자 문제·상품 주제·목차·집필·예제·편집·표지·파일 제작",
+      "inputs": "책·전자책·목차·리뷰·원고/편집본·제작 시연",
+      "deliverable": "기획/집필/퇴고 실무서·제작 템플릿",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D17",
+      "build_task": "EA-P17"
+    },
+    {
+      "id": "P18",
+      "name": "전자책 판매·유통·수익 운영",
+      "roles": [
+        "061",
+        "085",
+        "149",
+        "153"
+      ],
+      "cases": [
+        "I03",
+        "I07",
+        "I08",
+        "I11",
+        "I12",
+        "I13",
+        "I14",
+        "I18"
+      ],
+      "scope": "상품 구성·판매 페이지·가격/패키지·유통·유입·개정·수익 구조",
+      "inputs": "판매 페이지·리뷰·패키지·출시 이력, 확보 시 판매/반품/비용",
+      "deliverable": "전자책 판매·개정·수익 운영 방법",
+      "status": "planned",
+      "sources_status": "분야별 원자료 수집·심층 분석은 후속 작업",
+      "research_task": "EA-D18",
+      "build_task": "EA-P18"
+    }
+  ],
+  "user_requirements": [
+    {
+      "id": "U01",
+      "text": "공통 노하우 역설계 스킬·에이전트",
+      "type": "agent",
+      "domains": []
+    },
+    {
+      "id": "U02",
+      "text": "입력 경우별 기술 연구·구상, 개발물 추출 포함",
+      "type": "methods",
+      "domains": []
+    },
+    {
+      "id": "U03",
+      "text": "기존 전문가 목록과 연결",
+      "type": "inventory",
+      "domains": []
+    },
+    {
+      "id": "U04",
+      "text": "네이버 SEO·상위 노출",
+      "type": "domains",
+      "domains": [
+        "P01"
+      ]
+    },
+    {
+      "id": "U05",
+      "text": "네이버 블로그 글 작성·운영",
+      "type": "domains",
+      "domains": [
+        "P02"
+      ]
+    },
+    {
+      "id": "U06",
+      "text": "구글 SEO·상위 노출",
+      "type": "domains",
+      "domains": [
+        "P03"
+      ]
+    },
+    {
+      "id": "U07",
+      "text": "구글 유입용 블로그·사이트 콘텐츠·운영",
+      "type": "domains",
+      "domains": [
+        "P04"
+      ]
+    },
+    {
+      "id": "U08",
+      "text": "유튜브 전략·기획·제작·편집·업로드·상위 노출",
+      "type": "domains",
+      "domains": [
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ]
+    },
+    {
+      "id": "U09",
+      "text": "네이버 광고",
+      "type": "domains",
+      "domains": [
+        "P09"
+      ]
+    },
+    {
+      "id": "U10",
+      "text": "구글 광고",
+      "type": "domains",
+      "domains": [
+        "P10"
+      ]
+    },
+    {
+      "id": "U11",
+      "text": "돈 안 들이고 하는 마케팅",
+      "type": "domains",
+      "domains": [
+        "P11"
+      ]
+    },
+    {
+      "id": "U12",
+      "text": "SNS: X·트위터·인스타그램·Threads",
+      "type": "domains",
+      "domains": [
+        "P12",
+        "P13",
+        "P14"
+      ]
+    },
+    {
+      "id": "U13",
+      "text": "커뮤니티 마케팅",
+      "type": "domains",
+      "domains": [
+        "P15"
+      ]
+    },
+    {
+      "id": "U14",
+      "text": "마케팅·마케팅 전략",
+      "type": "domains",
+      "domains": [
+        "P16"
+      ]
+    },
+    {
+      "id": "U15",
+      "text": "전자책 기획·집필·수익",
+      "type": "domains",
+      "domains": [
+        "P17",
+        "P18"
+      ]
+    }
+  ],
+  "experts": [
+    {
+      "id": "001",
+      "name": "변호사 (민사·상사 송무)",
+      "family": "법률 (소송)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 187,
+      "case_document": "docs/실험결과/직무별/001_변호사 (민사·상사 송무).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "002",
+      "name": "변호사 (형사 변호)",
+      "family": "법률 (소송)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 188,
+      "case_document": "docs/실험결과/직무별/002_변호사 (형사 변호).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "003",
+      "name": "변호사 (가사·상속)",
+      "family": "법률 (소송)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 189,
+      "case_document": "docs/실험결과/직무별/003_변호사 (가사·상속).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "004",
+      "name": "변호사 (행정·조세 송무)",
+      "family": "법률 (소송)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 190,
+      "case_document": "docs/실험결과/직무별/004_변호사 (행정·조세 송무).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "005",
+      "name": "변호사 (도산·회생)",
+      "family": "법률 (소송)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 191,
+      "case_document": "docs/실험결과/직무별/005_변호사 (도산·회생).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "006",
+      "name": "변호사 (기업 자문)",
+      "family": "법률 (자문)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 192,
+      "case_document": "docs/실험결과/직무별/006_변호사 (기업 자문).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "007",
+      "name": "변호사 (M&A·투자 거래)",
+      "family": "법률 (자문)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 193,
+      "case_document": "docs/실험결과/직무별/007_변호사 (M&A·투자 거래).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "008",
+      "name": "법무사 (등기)",
+      "family": "법률 (등기·행정)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 194,
+      "case_document": "docs/실험결과/직무별/008_법무사 (등기).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "009",
+      "name": "법무사 (개인회생·파산)",
+      "family": "법률 (등기·행정)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 195,
+      "case_document": "docs/실험결과/직무별/009_법무사 (개인회생·파산).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "010",
+      "name": "행정사 (인허가·지원금)",
+      "family": "법률 (등기·행정)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 196,
+      "case_document": "docs/실험결과/직무별/010_행정사 (인허가·지원금).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "011",
+      "name": "행정사 (출입국·비자)",
+      "family": "법률 (등기·행정)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 197,
+      "case_document": "docs/실험결과/직무별/011_행정사 (출입국·비자).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "012",
+      "name": "공증인",
+      "family": "법률 (등기·행정)",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 198,
+      "case_document": "docs/실험결과/직무별/012_공증인.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "013",
+      "name": "변리사 (특허)",
+      "family": "지식재산",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 199,
+      "case_document": "docs/실험결과/직무별/013_변리사 (특허).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "014",
+      "name": "변리사 (상표·디자인)",
+      "family": "지식재산",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 200,
+      "case_document": "docs/실험결과/직무별/014_변리사 (상표·디자인).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "015",
+      "name": "변리사 (심판·분쟁)",
+      "family": "지식재산",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 201,
+      "case_document": "docs/실험결과/직무별/015_변리사 (심판·분쟁).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "016",
+      "name": "세무사 (신고·기장)",
+      "family": "세무",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 202,
+      "case_document": "docs/실험결과/직무별/016_세무사 (신고·기장).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "017",
+      "name": "세무사 (상속·증여·가업 승계)",
+      "family": "세무",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 203,
+      "case_document": "docs/실험결과/직무별/017_세무사 (상속·증여·가업 승계).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "018",
+      "name": "세무사 (조사·불복)",
+      "family": "세무",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 204,
+      "case_document": "docs/실험결과/직무별/018_세무사 (조사·불복).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "019",
+      "name": "기장 대행",
+      "family": "세무",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 205,
+      "case_document": "docs/실험결과/직무별/019_기장 대행.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "020",
+      "name": "회계사 (감사)",
+      "family": "회계·관세",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 206,
+      "case_document": "docs/실험결과/직무별/020_회계사 (감사).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "021",
+      "name": "회계사 (자문·실사)",
+      "family": "회계·관세",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 207,
+      "case_document": "docs/실험결과/직무별/021_회계사 (자문·실사).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "022",
+      "name": "관세사",
+      "family": "회계·관세",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 208,
+      "case_document": "docs/실험결과/직무별/022_관세사.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "023",
+      "name": "노무사 (자문·급여)",
+      "family": "노무",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 209,
+      "case_document": "docs/실험결과/직무별/023_노무사 (자문·급여).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "024",
+      "name": "노무사 (분쟁 대리)",
+      "family": "노무",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 210,
+      "case_document": "docs/실험결과/직무별/024_노무사 (분쟁 대리).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "025",
+      "name": "노무사 (산재)",
+      "family": "노무",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 211,
+      "case_document": "docs/실험결과/직무별/025_노무사 (산재).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "026",
+      "name": "공인중개사 (주거)",
+      "family": "부동산",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 212,
+      "case_document": "docs/실험결과/직무별/026_공인중개사 (주거).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "027",
+      "name": "공인중개사 (상가·빌딩)",
+      "family": "부동산",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 213,
+      "case_document": "docs/실험결과/직무별/027_공인중개사 (상가·빌딩).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "028",
+      "name": "공인중개사 (토지·개발)",
+      "family": "부동산",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 214,
+      "case_document": "docs/실험결과/직무별/028_공인중개사 (토지·개발).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "029",
+      "name": "경매사",
+      "family": "부동산",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 215,
+      "case_document": "docs/실험결과/직무별/029_경매사.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "030",
+      "name": "감정평가사",
+      "family": "부동산",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 216,
+      "case_document": "docs/실험결과/직무별/030_감정평가사.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "031",
+      "name": "건축사 (주택·소규모 건축)",
+      "family": "건축·기술",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 217,
+      "case_document": "docs/실험결과/직무별/031_건축사 (주택·소규모 건축).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "032",
+      "name": "건축사 (대형·공공 건축)",
+      "family": "건축·기술",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 218,
+      "case_document": "docs/실험결과/직무별/032_건축사 (대형·공공 건축).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "033",
+      "name": "기술사 (구조)",
+      "family": "건축·기술",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 219,
+      "case_document": "docs/실험결과/직무별/033_기술사 (구조).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "034",
+      "name": "기술사 (기계·전기 설비)",
+      "family": "건축·기술",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 220,
+      "case_document": "docs/실험결과/직무별/034_기술사 (기계·전기 설비).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "035",
+      "name": "보험설계사 (생명·장기)",
+      "family": "보험",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 221,
+      "case_document": "docs/실험결과/직무별/035_보험설계사 (생명·장기).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "036",
+      "name": "보험설계사 (손해·자동차)",
+      "family": "보험",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 222,
+      "case_document": "docs/실험결과/직무별/036_보험설계사 (손해·자동차).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "037",
+      "name": "보험계리사",
+      "family": "보험",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 223,
+      "case_document": "docs/실험결과/직무별/037_보험계리사.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "038",
+      "name": "손해사정사 (재물·배상)",
+      "family": "보험",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 224,
+      "case_document": "docs/실험결과/직무별/038_손해사정사 (재물·배상).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "039",
+      "name": "손해사정사 (신체·질병)",
+      "family": "보험",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 225,
+      "case_document": "docs/실험결과/직무별/039_손해사정사 (신체·질병).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "040",
+      "name": "투자자문사",
+      "family": "자산·대출",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 226,
+      "case_document": "docs/실험결과/직무별/040_투자자문사.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "041",
+      "name": "재무설계사",
+      "family": "자산·대출",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 227,
+      "case_document": "docs/실험결과/직무별/041_재무설계사.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "042",
+      "name": "대출상담사 (주택·개인)",
+      "family": "자산·대출",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 228,
+      "case_document": "docs/실험결과/직무별/042_대출상담사 (주택·개인).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "043",
+      "name": "대출상담사 (사업자·기업)",
+      "family": "자산·대출",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 229,
+      "case_document": "docs/실험결과/직무별/043_대출상담사 (사업자·기업).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "044",
+      "name": "의사 (만성질환)",
+      "family": "진료·약",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 230,
+      "case_document": "docs/실험결과/직무별/044_의사 (만성질환).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "045",
+      "name": "의사 (정신건강)",
+      "family": "진료·약",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 231,
+      "case_document": "docs/실험결과/직무별/045_의사 (정신건강).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "046",
+      "name": "심리상담사 (개인)",
+      "family": "마음·몸",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 232,
+      "case_document": "docs/실험결과/직무별/046_심리상담사 (개인).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "047",
+      "name": "심리상담사 (아동·청소년)",
+      "family": "마음·몸",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 233,
+      "case_document": "docs/실험결과/직무별/047_심리상담사 (아동·청소년).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "048",
+      "name": "심리상담사 (부부·가족)",
+      "family": "마음·몸",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 234,
+      "case_document": "docs/실험결과/직무별/048_심리상담사 (부부·가족).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "049",
+      "name": "영양사",
+      "family": "마음·몸",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 235,
+      "case_document": "docs/실험결과/직무별/049_영양사.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "050",
+      "name": "번역가 (산업·법률 문서)",
+      "family": "언어",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 236,
+      "case_document": "docs/실험결과/직무별/050_번역가 (산업·법률 문서).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "051",
+      "name": "번역가 (출판·문학)",
+      "family": "언어",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 237,
+      "case_document": "docs/실험결과/직무별/051_번역가 (출판·문학).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "052",
+      "name": "번역가 (영상·게임 현지화)",
+      "family": "언어",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 238,
+      "case_document": "docs/실험결과/직무별/052_번역가 (영상·게임 현지화).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "053",
+      "name": "통역사 (국제회의 동시통역)",
+      "family": "언어",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 239,
+      "case_document": "docs/실험결과/직무별/053_통역사 (국제회의 동시통역).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "054",
+      "name": "통역사 (비즈니스·법정)",
+      "family": "언어",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 240,
+      "case_document": "docs/실험결과/직무별/054_통역사 (비즈니스·법정).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "055",
+      "name": "카피라이터",
+      "family": "언어",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 241,
+      "case_document": "docs/실험결과/직무별/055_카피라이터.md",
+      "priority_domain_ids": [
+        "P02",
+        "P04",
+        "P07",
+        "P09",
+        "P10",
+        "P12",
+        "P14",
+        "P17"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "056",
+      "name": "외주 개발 (웹·앱)",
+      "family": "IT 외주",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 242,
+      "case_document": "docs/실험결과/직무별/056_외주 개발 (웹·앱).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "057",
+      "name": "외주 개발 (시스템 구축·SI)",
+      "family": "IT 외주",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 243,
+      "case_document": "docs/실험결과/직무별/057_외주 개발 (시스템 구축·SI).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "058",
+      "name": "영상 제작자 (광고·홍보)",
+      "family": "영상 제작",
+      "employment_type": "위임형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 244,
+      "case_document": "docs/실험결과/직무별/058_영상 제작자 (광고·홍보).md",
+      "priority_domain_ids": [
+        "P06"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "059",
+      "name": "경영기획",
+      "family": "경영·전략",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 252,
+      "case_document": "docs/실험결과/직무별/059_경영기획.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "060",
+      "name": "전략",
+      "family": "경영·전략",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 253,
+      "case_document": "docs/실험결과/직무별/060_전략.md",
+      "priority_domain_ids": [
+        "P05",
+        "P16"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "061",
+      "name": "사업개발",
+      "family": "경영·전략",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 254,
+      "case_document": "docs/실험결과/직무별/061_사업개발.md",
+      "priority_domain_ids": [
+        "P11",
+        "P16",
+        "P18"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "062",
+      "name": "인사 (평가·보상)",
+      "family": "인사",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 255,
+      "case_document": "docs/실험결과/직무별/062_인사 (평가·보상).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "063",
+      "name": "인사 (조직·인재개발)",
+      "family": "인사",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 256,
+      "case_document": "docs/실험결과/직무별/063_인사 (조직·인재개발).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "064",
+      "name": "채용",
+      "family": "인사",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 257,
+      "case_document": "docs/실험결과/직무별/064_채용.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "065",
+      "name": "회계",
+      "family": "재무·회계",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 258,
+      "case_document": "docs/실험결과/직무별/065_회계.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "066",
+      "name": "재무",
+      "family": "재무·회계",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 259,
+      "case_document": "docs/실험결과/직무별/066_재무.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "067",
+      "name": "자금",
+      "family": "재무·회계",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 260,
+      "case_document": "docs/실험결과/직무별/067_자금.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "068",
+      "name": "원가",
+      "family": "재무·회계",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 261,
+      "case_document": "docs/실험결과/직무별/068_원가.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "069",
+      "name": "세무 (사내)",
+      "family": "재무·회계",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 262,
+      "case_document": "docs/실험결과/직무별/069_세무 (사내).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "070",
+      "name": "펀드매니저 (주식)",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 263,
+      "case_document": "docs/실험결과/직무별/070_펀드매니저 (주식).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "071",
+      "name": "펀드매니저 (채권)",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 264,
+      "case_document": "docs/실험결과/직무별/071_펀드매니저 (채권).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "072",
+      "name": "대체투자 운용 (PE·부동산·인프라)",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 265,
+      "case_document": "docs/실험결과/직무별/072_대체투자 운용 (PE·부동산·인프라).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "073",
+      "name": "애널리스트 (리서치)",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 266,
+      "case_document": "docs/실험결과/직무별/073_애널리스트 (리서치).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "074",
+      "name": "트레이더",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 267,
+      "case_document": "docs/실험결과/직무별/074_트레이더.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "075",
+      "name": "여신심사 (개인)",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 268,
+      "case_document": "docs/실험결과/직무별/075_여신심사 (개인).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "076",
+      "name": "여신심사 (기업)",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 269,
+      "case_document": "docs/실험결과/직무별/076_여신심사 (기업).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "077",
+      "name": "리스크 관리",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 270,
+      "case_document": "docs/실험결과/직무별/077_리스크 관리.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "078",
+      "name": "보험 언더라이터 (인수 심사)",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 271,
+      "case_document": "docs/실험결과/직무별/078_보험 언더라이터 (인수 심사).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "079",
+      "name": "IB (인수·자금조달 주선)",
+      "family": "금융업",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 272,
+      "case_document": "docs/실험결과/직무별/079_IB (인수·자금조달 주선).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "080",
+      "name": "법무 (소송·분쟁)",
+      "family": "법무",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 273,
+      "case_document": "docs/실험결과/직무별/080_법무 (소송·분쟁).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "081",
+      "name": "법무 (규제·컴플라이언스)",
+      "family": "법무",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 274,
+      "case_document": "docs/실험결과/직무별/081_법무 (규제·컴플라이언스).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "082",
+      "name": "계약 관리",
+      "family": "법무",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 275,
+      "case_document": "docs/실험결과/직무별/082_계약 관리.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "083",
+      "name": "브랜드 마케팅",
+      "family": "마케팅·PR",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 276,
+      "case_document": "docs/실험결과/직무별/083_브랜드 마케팅.md",
+      "priority_domain_ids": [
+        "P13",
+        "P16"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "084",
+      "name": "퍼포먼스 마케팅",
+      "family": "마케팅·PR",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 277,
+      "case_document": "docs/실험결과/직무별/084_퍼포먼스 마케팅.md",
+      "priority_domain_ids": [
+        "P09",
+        "P10",
+        "P16"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "085",
+      "name": "콘텐츠 마케팅",
+      "family": "마케팅·PR",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 278,
+      "case_document": "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+      "priority_domain_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16",
+        "P18"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "086",
+      "name": "CRM",
+      "family": "마케팅·PR",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 279,
+      "case_document": "docs/실험결과/직무별/086_CRM.md",
+      "priority_domain_ids": [
+        "P16"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "087",
+      "name": "홍보",
+      "family": "마케팅·PR",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 280,
+      "case_document": "docs/실험결과/직무별/087_홍보.md",
+      "priority_domain_ids": [
+        "P11",
+        "P15",
+        "P16"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "088",
+      "name": "영업 (B2B 신규 개척)",
+      "family": "영업·고객",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 281,
+      "case_document": "docs/실험결과/직무별/088_영업 (B2B 신규 개척).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "089",
+      "name": "영업 (B2B 기존·키어카운트)",
+      "family": "영업·고객",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 282,
+      "case_document": "docs/실험결과/직무별/089_영업 (B2B 기존·키어카운트).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "090",
+      "name": "기술영업 (프리세일즈)",
+      "family": "영업·고객",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 283,
+      "case_document": "docs/실험결과/직무별/090_기술영업 (프리세일즈).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "091",
+      "name": "해외영업",
+      "family": "영업·고객",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 284,
+      "case_document": "docs/실험결과/직무별/091_해외영업.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "092",
+      "name": "영업관리",
+      "family": "영업·고객",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 285,
+      "case_document": "docs/실험결과/직무별/092_영업관리.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "093",
+      "name": "고객성공",
+      "family": "영업·고객",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 286,
+      "case_document": "docs/실험결과/직무별/093_고객성공.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "094",
+      "name": "PM·PO (B2C 앱)",
+      "family": "상품·기획",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 287,
+      "case_document": "docs/실험결과/직무별/094_PM·PO (B2C 앱).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "095",
+      "name": "PM·PO (B2B SaaS)",
+      "family": "상품·기획",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 288,
+      "case_document": "docs/실험결과/직무별/095_PM·PO (B2B SaaS).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "096",
+      "name": "PMO",
+      "family": "상품·기획",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 289,
+      "case_document": "docs/실험결과/직무별/096_PMO.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "097",
+      "name": "게임 기획 (시스템·경제)",
+      "family": "상품·기획",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 290,
+      "case_document": "docs/실험결과/직무별/097_게임 기획 (시스템·경제).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "098",
+      "name": "MD (온라인)",
+      "family": "상품·기획",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 291,
+      "case_document": "docs/실험결과/직무별/098_MD (온라인).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "099",
+      "name": "MD (오프라인 매입)",
+      "family": "상품·기획",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 292,
+      "case_document": "docs/실험결과/직무별/099_MD (오프라인 매입).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "100",
+      "name": "구매 (직접재·자재)",
+      "family": "상품·기획",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 293,
+      "case_document": "docs/실험결과/직무별/100_구매 (직접재·자재).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "101",
+      "name": "구매 (간접재·서비스)",
+      "family": "상품·기획",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 294,
+      "case_document": "docs/실험결과/직무별/101_구매 (간접재·서비스).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "102",
+      "name": "풀스택",
+      "family": "개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 295,
+      "case_document": "docs/실험결과/직무별/102_풀스택.md",
+      "priority_domain_ids": [
+        "P01",
+        "P03"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "103",
+      "name": "프론트엔드",
+      "family": "개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 296,
+      "case_document": "docs/실험결과/직무별/103_프론트엔드.md",
+      "priority_domain_ids": [
+        "P03"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "104",
+      "name": "백엔드",
+      "family": "개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 297,
+      "case_document": "docs/실험결과/직무별/104_백엔드.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "105",
+      "name": "모바일",
+      "family": "개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 298,
+      "case_document": "docs/실험결과/직무별/105_모바일.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "106",
+      "name": "게임 개발",
+      "family": "개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 299,
+      "case_document": "docs/실험결과/직무별/106_게임 개발.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "107",
+      "name": "임베디드·펌웨어",
+      "family": "개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 300,
+      "case_document": "docs/실험결과/직무별/107_임베디드·펌웨어.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "108",
+      "name": "QA·테스트 엔지니어",
+      "family": "개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 301,
+      "case_document": "docs/실험결과/직무별/108_QA·테스트 엔지니어.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "109",
+      "name": "데이터 엔지니어",
+      "family": "데이터·AI",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 302,
+      "case_document": "docs/실험결과/직무별/109_데이터 엔지니어.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "110",
+      "name": "데이터 분석가",
+      "family": "데이터·AI",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 303,
+      "case_document": "docs/실험결과/직무별/110_데이터 분석가.md",
+      "priority_domain_ids": [
+        "P09",
+        "P10",
+        "P16"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "111",
+      "name": "데이터 사이언티스트",
+      "family": "데이터·AI",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 304,
+      "case_document": "docs/실험결과/직무별/111_데이터 사이언티스트.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "112",
+      "name": "AI·ML 엔지니어",
+      "family": "데이터·AI",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 305,
+      "case_document": "docs/실험결과/직무별/112_AI·ML 엔지니어.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "113",
+      "name": "인프라·DevOps",
+      "family": "인프라·보안",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 306,
+      "case_document": "docs/실험결과/직무별/113_인프라·DevOps.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "114",
+      "name": "IT 운영",
+      "family": "인프라·보안",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 307,
+      "case_document": "docs/실험결과/직무별/114_IT 운영.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "115",
+      "name": "정보보안 (침해 대응)",
+      "family": "인프라·보안",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 308,
+      "case_document": "docs/실험결과/직무별/115_정보보안 (침해 대응).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "116",
+      "name": "정보보안 (취약점 관리)",
+      "family": "인프라·보안",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 309,
+      "case_document": "docs/실험결과/직무별/116_정보보안 (취약점 관리).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "117",
+      "name": "정보보안 (거버넌스·인증)",
+      "family": "인프라·보안",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 310,
+      "case_document": "docs/실험결과/직무별/117_정보보안 (거버넌스·인증).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "118",
+      "name": "UI/UX·제품 디자인",
+      "family": "디자인",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 311,
+      "case_document": "docs/실험결과/직무별/118_UI-UX·제품 디자인.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "119",
+      "name": "그래픽",
+      "family": "디자인",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 312,
+      "case_document": "docs/실험결과/직무별/119_그래픽.md",
+      "priority_domain_ids": [
+        "P07"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "120",
+      "name": "브랜드 디자인",
+      "family": "디자인",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 313,
+      "case_document": "docs/실험결과/직무별/120_브랜드 디자인.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "121",
+      "name": "모션",
+      "family": "디자인",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 314,
+      "case_document": "docs/실험결과/직무별/121_모션.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "122",
+      "name": "편집 디자인",
+      "family": "디자인",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 315,
+      "case_document": "docs/실험결과/직무별/122_편집 디자인.md",
+      "priority_domain_ids": [
+        "P17"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "123",
+      "name": "제품 (산업) 디자인",
+      "family": "디자인",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 316,
+      "case_document": "docs/실험결과/직무별/123_제품 (산업) 디자인.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "124",
+      "name": "PD",
+      "family": "미디어",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 317,
+      "case_document": "docs/실험결과/직무별/124_PD.md",
+      "priority_domain_ids": [
+        "P06"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "125",
+      "name": "방송 작가 (구성)",
+      "family": "미디어",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 318,
+      "case_document": "docs/실험결과/직무별/125_방송 작가 (구성).md",
+      "priority_domain_ids": [
+        "P06"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "126",
+      "name": "에디터",
+      "family": "미디어",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 319,
+      "case_document": "docs/실험결과/직무별/126_에디터.md",
+      "priority_domain_ids": [
+        "P17"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "127",
+      "name": "영상 편집자",
+      "family": "미디어",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 320,
+      "case_document": "docs/실험결과/직무별/127_영상 편집자.md",
+      "priority_domain_ids": [
+        "P06"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "128",
+      "name": "생산관리",
+      "family": "생산·품질",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 321,
+      "case_document": "docs/실험결과/직무별/128_생산관리.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "129",
+      "name": "품질관리",
+      "family": "생산·품질",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 322,
+      "case_document": "docs/실험결과/직무별/129_품질관리.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "130",
+      "name": "공정 엔지니어",
+      "family": "생산·품질",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 323,
+      "case_document": "docs/실험결과/직무별/130_공정 엔지니어.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "131",
+      "name": "물류",
+      "family": "물류·SCM",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 324,
+      "case_document": "docs/실험결과/직무별/131_물류.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "132",
+      "name": "재고·자재",
+      "family": "물류·SCM",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 325,
+      "case_document": "docs/실험결과/직무별/132_재고·자재.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "133",
+      "name": "SCM 계획 (수요예측·S&OP)",
+      "family": "물류·SCM",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 326,
+      "case_document": "docs/실험결과/직무별/133_SCM 계획 (수요예측·S&OP).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "134",
+      "name": "수출입",
+      "family": "물류·SCM",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 327,
+      "case_document": "docs/실험결과/직무별/134_수출입.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "135",
+      "name": "R&D 연구원 (제품·기술)",
+      "family": "연구개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 328,
+      "case_document": "docs/실험결과/직무별/135_R&D 연구원 (제품·기술).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "136",
+      "name": "인허가 RA (의료기기·의약품)",
+      "family": "연구개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 329,
+      "case_document": "docs/실험결과/직무별/136_인허가 RA (의료기기·의약품).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "137",
+      "name": "개발 기획 (시행)",
+      "family": "건설·부동산 개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 330,
+      "case_document": "docs/실험결과/직무별/137_개발 기획 (시행).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "138",
+      "name": "견적·적산",
+      "family": "건설·부동산 개발",
+      "employment_type": "고용형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 331,
+      "case_document": "docs/실험결과/직무별/138_견적·적산.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "139",
+      "name": "유튜버 (정보·교육)",
+      "family": "영상·음성",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 339,
+      "case_document": "docs/실험결과/직무별/139_유튜버 (정보·교육).md",
+      "priority_domain_ids": [
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "140",
+      "name": "유튜버 (예능·엔터)",
+      "family": "영상·음성",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 340,
+      "case_document": "docs/실험결과/직무별/140_유튜버 (예능·엔터).md",
+      "priority_domain_ids": [
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "141",
+      "name": "유튜버 (리뷰·커머스)",
+      "family": "영상·음성",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 341,
+      "case_document": "docs/실험결과/직무별/141_유튜버 (리뷰·커머스).md",
+      "priority_domain_ids": [
+        "P05",
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "142",
+      "name": "스트리머",
+      "family": "영상·음성",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 342,
+      "case_document": "docs/실험결과/직무별/142_스트리머.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "143",
+      "name": "숏폼 크리에이터",
+      "family": "영상·음성",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 343,
+      "case_document": "docs/실험결과/직무별/143_숏폼 크리에이터.md",
+      "priority_domain_ids": [
+        "P06",
+        "P08",
+        "P13"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "144",
+      "name": "팟캐스터",
+      "family": "영상·음성",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 344,
+      "case_document": "docs/실험결과/직무별/144_팟캐스터.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "145",
+      "name": "블로거",
+      "family": "글",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 345,
+      "case_document": "docs/실험결과/직무별/145_블로거.md",
+      "priority_domain_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P04"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "146",
+      "name": "뉴스레터 작가",
+      "family": "글",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 346,
+      "case_document": "docs/실험결과/직무별/146_뉴스레터 작가.md",
+      "priority_domain_ids": [
+        "P11"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "147",
+      "name": "웹소설 작가",
+      "family": "글",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 347,
+      "case_document": "docs/실험결과/직무별/147_웹소설 작가.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "148",
+      "name": "웹툰 작가",
+      "family": "글",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 348,
+      "case_document": "docs/실험결과/직무별/148_웹툰 작가.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "149",
+      "name": "저술가",
+      "family": "글",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 349,
+      "case_document": "docs/실험결과/직무별/149_저술가.md",
+      "priority_domain_ids": [
+        "P17",
+        "P18"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "150",
+      "name": "인플루언서 (패션·뷰티·라이프)",
+      "family": "SNS",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 350,
+      "case_document": "docs/실험결과/직무별/150_인플루언서 (패션·뷰티·라이프).md",
+      "priority_domain_ids": [
+        "P12",
+        "P13",
+        "P14"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "151",
+      "name": "인플루언서 (지식·비즈니스)",
+      "family": "SNS",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 351,
+      "case_document": "docs/실험결과/직무별/151_인플루언서 (지식·비즈니스).md",
+      "priority_domain_ids": [
+        "P12",
+        "P13",
+        "P14"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "152",
+      "name": "커뮤니티 운영자",
+      "family": "커뮤니티",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 352,
+      "case_document": "docs/실험결과/직무별/152_커뮤니티 운영자.md",
+      "priority_domain_ids": [
+        "P11",
+        "P15"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "153",
+      "name": "온라인 셀러 (자체 브랜드·D2C)",
+      "family": "커머스",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 353,
+      "case_document": "docs/실험결과/직무별/153_온라인 셀러 (자체 브랜드·D2C).md",
+      "priority_domain_ids": [
+        "P18"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "154",
+      "name": "온라인 셀러 (소싱·오픈마켓)",
+      "family": "커머스",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 354,
+      "case_document": "docs/실험결과/직무별/154_온라인 셀러 (소싱·오픈마켓).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "155",
+      "name": "라이브커머스 진행자",
+      "family": "커머스",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 355,
+      "case_document": "docs/실험결과/직무별/155_라이브커머스 진행자.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "156",
+      "name": "구매대행·리셀러",
+      "family": "커머스",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 356,
+      "case_document": "docs/실험결과/직무별/156_구매대행·리셀러.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "157",
+      "name": "작곡가",
+      "family": "창작",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 357,
+      "case_document": "docs/실험결과/직무별/157_작곡가.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "158",
+      "name": "일러스트레이터",
+      "family": "창작",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 358,
+      "case_document": "docs/실험결과/직무별/158_일러스트레이터.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "159",
+      "name": "인디게임 개발자",
+      "family": "앱·서비스",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 359,
+      "case_document": "docs/실험결과/직무별/159_인디게임 개발자.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "160",
+      "name": "앱 개발자 (개인 앱)",
+      "family": "앱·서비스",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 360,
+      "case_document": "docs/실험결과/직무별/160_앱 개발자 (개인 앱).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "161",
+      "name": "SaaS 운영자",
+      "family": "앱·서비스",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 361,
+      "case_document": "docs/실험결과/직무별/161_SaaS 운영자.md",
+      "priority_domain_ids": [
+        "P03",
+        "P04"
+      ],
+      "status": "priority_mapped",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "162",
+      "name": "오픈소스 메인테이너",
+      "family": "앱·서비스",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 362,
+      "case_document": "docs/실험결과/직무별/162_오픈소스 메인테이너.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "163",
+      "name": "개인 투자자 (장기)",
+      "family": "투자",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 363,
+      "case_document": "docs/실험결과/직무별/163_개인 투자자 (장기).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "164",
+      "name": "개인 투자자 (단기 매매)",
+      "family": "투자",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 364,
+      "case_document": "docs/실험결과/직무별/164_개인 투자자 (단기 매매).md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "165",
+      "name": "엔젤 투자자",
+      "family": "투자",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 365,
+      "case_document": "docs/실험결과/직무별/165_엔젤 투자자.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    },
+    {
+      "id": "166",
+      "name": "부동산 투자자·임대 운영자",
+      "family": "투자",
+      "employment_type": "운영형",
+      "source": "전문가 에이전트 정의 1.md",
+      "line": 366,
+      "case_document": "docs/실험결과/직무별/166_부동산 투자자·임대 운영자.md",
+      "priority_domain_ids": [],
+      "status": "catalogued_for_extension",
+      "case_document_use": "기존 직무 요구·모의 사례 참고. 실제 전문성 획득 또는 실행 성공의 증거로 사용하지 않음."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "EA-S01",
+      "title": "기존 전문가 목록과 사용자 우선 분야 대조",
+      "milestone": "EA-M00",
+      "component": "EA-C00",
+      "dependsOn": [],
+      "output": "docs/전문성-획득-계획.md; docs/전문성-획득/plan-data.json",
+      "inputs": [
+        "전문가 에이전트 정의 1.md",
+        "docs/공장-설계-초안.md",
+        "전문성 역설계 논의.md"
+      ],
+      "resources": [],
+      "steps": "원문과 현재 요구를 대조하고 기술·직무·산출물·의존 관계를 연결한다.",
+      "criteria": "166개 직무, 사용자 우선 분야, 입력 경우와 작업 연결이 누락 없이 보존되고 실제 파일로 존재한다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-S02",
+      "title": "입력 종류별 기술 구성과 자료 접근 경로 설계",
+      "milestone": "EA-M00",
+      "component": "EA-C00",
+      "dependsOn": [],
+      "output": "docs/전문성-획득-계획.md; docs/전문성-획득/plan-data.json",
+      "inputs": [
+        "전문가 에이전트 정의 1.md",
+        "docs/공장-설계-초안.md",
+        "전문성 역설계 논의.md"
+      ],
+      "resources": [],
+      "steps": "원문과 현재 요구를 대조하고 기술·직무·산출물·의존 관계를 연결한다.",
+      "criteria": "166개 직무, 사용자 우선 분야, 입력 경우와 작업 연결이 누락 없이 보존되고 실제 파일로 존재한다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-S03",
+      "title": "실행 가능한 착수 계획과 작업 지도 완성",
+      "milestone": "EA-M00",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득-계획.md; docs/전문성-획득/plan-data.json",
+      "inputs": [
+        "전문가 에이전트 정의 1.md",
+        "docs/공장-설계-초안.md",
+        "전문성 역설계 논의.md"
+      ],
+      "resources": [],
+      "steps": "원문과 현재 요구를 대조하고 기술·직무·산출물·의존 관계를 연결한다.",
+      "criteria": "166개 직무, 사용자 우선 분야, 입력 경우와 작업 연결이 누락 없이 보존되고 실제 파일로 존재한다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-R01",
+      "title": "개발물에서 노하우 추출 기술 설계",
+      "milestone": "EA-M10",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/research/R01.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "기존 코드 탐색·Git·PRAXIS·Repo-To-Skill",
+        "기존 REA·kh-skill-reverse-engineering·동적 계측"
+      ],
+      "steps": "소스 유무·실행 가능 여부·원본 입력 확보 여부별로 정적 분석, 재구현, 격리 동작 분석을 비교한다. 입력별로 후보의 공개 범위·준비물·실행 경로·대안·출력 예시·지원하지 못하는 조건을 작성한다.",
+      "criteria": "각 입력의 획득 질문과 구현할 방법이 연결되고, 실제 실행 코드와 논문 아이디어를 구분하며 구현자가 그대로 착수할 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-X01",
+      "title": "개발물에서 노하우 추출 실행 모듈",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-R01",
+        "EA-K01",
+        "EA-K02"
+      ],
+      "output": "tools/expertise-acquisition/extractors/r01/",
+      "inputs": [
+        "docs/전문성-획득/research/R01.md",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "기존 코드 탐색·Git·PRAXIS·Repo-To-Skill",
+        "기존 REA·kh-skill-reverse-engineering·동적 계측"
+      ],
+      "steps": "선택한 도구와 형식별 reader를 연결하고 공통 지식 객체로 출력한다. 원본 위치와 미관측·실패·재개 상태를 남긴다.",
+      "criteria": "지원 입력에서 근거가 연결된 노하우 객체가 나오며 지원 불가 입력을 성공으로 보고하지 않는다. 같은 자료를 다시 처리해도 중복·출처 손실이 없다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-R02",
+      "title": "화면·디자인·편집 원본과 품질 감각 기술 설계",
+      "milestone": "EA-M10",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/research/R02.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "VLM·OCR·Tree Diffusion·Vision-Language Programs",
+        "격리 브라우저·Playwright·Crawl4AI·AALpy",
+        "형식별 parser·제작 도구 export·의존 자산 추적",
+        "조건별 비교·선호 학습·미감 비교 연구"
+      ],
+      "steps": "정적 화면·상태형 UI·편집 구조·선호 비교에서 무엇을 다른 방법으로 추출할지 정한다. 입력별로 후보의 공개 범위·준비물·실행 경로·대안·출력 예시·지원하지 못하는 조건을 작성한다.",
+      "criteria": "각 입력의 획득 질문과 구현할 방법이 연결되고, 실제 실행 코드와 논문 아이디어를 구분하며 구현자가 그대로 착수할 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-X02",
+      "title": "화면·디자인·편집 원본과 품질 감각 실행 모듈",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-R02",
+        "EA-K01",
+        "EA-K02"
+      ],
+      "output": "tools/expertise-acquisition/extractors/r02/",
+      "inputs": [
+        "docs/전문성-획득/research/R02.md",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "VLM·OCR·Tree Diffusion·Vision-Language Programs",
+        "격리 브라우저·Playwright·Crawl4AI·AALpy",
+        "형식별 parser·제작 도구 export·의존 자산 추적",
+        "조건별 비교·선호 학습·미감 비교 연구"
+      ],
+      "steps": "선택한 도구와 형식별 reader를 연결하고 공통 지식 객체로 출력한다. 원본 위치와 미관측·실패·재개 상태를 남긴다.",
+      "criteria": "지원 입력에서 근거가 연결된 노하우 객체가 나오며 지원 불가 입력을 성공으로 보고하지 않는다. 같은 자료를 다시 처리해도 중복·출처 손실이 없다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-R03",
+      "title": "글·책·강의에서 실무 지식 추출 기술 설계",
+      "milestone": "EA-M10",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/research/R03.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "Docling·구조 분석·조건별 대조",
+        "Docling·MinerU·OCR·Anything2Skill"
+      ],
+      "steps": "완성 콘텐츠 분석과 설명 자료 독해를 나누고 절차·예외·문체·기획 기준으로 가공한다. 입력별로 후보의 공개 범위·준비물·실행 경로·대안·출력 예시·지원하지 못하는 조건을 작성한다.",
+      "criteria": "각 입력의 획득 질문과 구현할 방법이 연결되고, 실제 실행 코드와 논문 아이디어를 구분하며 구현자가 그대로 착수할 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-X03",
+      "title": "글·책·강의에서 실무 지식 추출 실행 모듈",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-R03",
+        "EA-K01",
+        "EA-K02"
+      ],
+      "output": "tools/expertise-acquisition/extractors/r03/",
+      "inputs": [
+        "docs/전문성-획득/research/R03.md",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "Docling·구조 분석·조건별 대조",
+        "Docling·MinerU·OCR·Anything2Skill"
+      ],
+      "steps": "선택한 도구와 형식별 reader를 연결하고 공통 지식 객체로 출력한다. 원본 위치와 미관측·실패·재개 상태를 남긴다.",
+      "criteria": "지원 입력에서 근거가 연결된 노하우 객체가 나오며 지원 불가 입력을 성공으로 보고하지 않는다. 같은 자료를 다시 처리해도 중복·출처 손실이 없다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-R04",
+      "title": "완성 영상·작업 시연에서 제작법 추출 기술 설계",
+      "milestone": "EA-M10",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/research/R04.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "FFmpeg·ASR·장면 분할·VLM",
+        "OmegaUse-SOP·video-to-skill·LearnAct·WorldGUI"
+      ],
+      "steps": "영상 장면 분석과 실제 조작 복원을 구분하고 시간축·행동·음성·화면을 맞춘다. 입력별로 후보의 공개 범위·준비물·실행 경로·대안·출력 예시·지원하지 못하는 조건을 작성한다.",
+      "criteria": "각 입력의 획득 질문과 구현할 방법이 연결되고, 실제 실행 코드와 논문 아이디어를 구분하며 구현자가 그대로 착수할 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-X04",
+      "title": "완성 영상·작업 시연에서 제작법 추출 실행 모듈",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-R04",
+        "EA-K01",
+        "EA-K02"
+      ],
+      "output": "tools/expertise-acquisition/extractors/r04/",
+      "inputs": [
+        "docs/전문성-획득/research/R04.md",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "FFmpeg·ASR·장면 분할·VLM",
+        "OmegaUse-SOP·video-to-skill·LearnAct·WorldGUI"
+      ],
+      "steps": "선택한 도구와 형식별 reader를 연결하고 공통 지식 객체로 출력한다. 원본 위치와 미관측·실패·재개 상태를 남긴다.",
+      "criteria": "지원 입력에서 근거가 연결된 노하우 객체가 나오며 지원 불가 입력을 성공으로 보고하지 않는다. 같은 자료를 다시 처리해도 중복·출처 손실이 없다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-R05",
+      "title": "비교 사례·변경 이력·운영 성과 분석 기술 설계",
+      "milestone": "EA-M10",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/research/R05.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "사례 비교·Popper·Vision-Language Programs",
+        "Git diff·화면 snapshot·시계열 비교",
+        "플랫폼 export/API·SQL·통계·과정 분석"
+      ],
+      "steps": "채널·기간·검색면·대상·분모·상태 변화가 다른 자료를 비교 가능한 단위로 만드는 방법을 정한다. 입력별로 후보의 공개 범위·준비물·실행 경로·대안·출력 예시·지원하지 못하는 조건을 작성한다.",
+      "criteria": "각 입력의 획득 질문과 구현할 방법이 연결되고, 실제 실행 코드와 논문 아이디어를 구분하며 구현자가 그대로 착수할 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-X05",
+      "title": "비교 사례·변경 이력·운영 성과 분석 실행 모듈",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-R05",
+        "EA-K01",
+        "EA-K02"
+      ],
+      "output": "tools/expertise-acquisition/extractors/r05/",
+      "inputs": [
+        "docs/전문성-획득/research/R05.md",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "사례 비교·Popper·Vision-Language Programs",
+        "Git diff·화면 snapshot·시계열 비교",
+        "플랫폼 export/API·SQL·통계·과정 분석"
+      ],
+      "steps": "선택한 도구와 형식별 reader를 연결하고 공통 지식 객체로 출력한다. 원본 위치와 미관측·실패·재개 상태를 남긴다.",
+      "criteria": "지원 입력에서 근거가 연결된 노하우 객체가 나오며 지원 불가 입력을 성공으로 보고하지 않는다. 같은 자료를 다시 처리해도 중복·출처 손실이 없다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-R06",
+      "title": "계산·표·모델에서 판단 규칙 추출 기술 설계",
+      "milestone": "EA-M10",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/research/R06.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "수식 parser·실행 가능한 계산·Popper·수치 대상일 때 PySINDy"
+      ],
+      "steps": "수식·규칙·가정과 입력 변화 반응을 추출하는 형식별 방법을 정한다. 입력별로 후보의 공개 범위·준비물·실행 경로·대안·출력 예시·지원하지 못하는 조건을 작성한다.",
+      "criteria": "각 입력의 획득 질문과 구현할 방법이 연결되고, 실제 실행 코드와 논문 아이디어를 구분하며 구현자가 그대로 착수할 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-X06",
+      "title": "계산·표·모델에서 판단 규칙 추출 실행 모듈",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-R06",
+        "EA-K01",
+        "EA-K02"
+      ],
+      "output": "tools/expertise-acquisition/extractors/r06/",
+      "inputs": [
+        "docs/전문성-획득/research/R06.md",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "수식 parser·실행 가능한 계산·Popper·수치 대상일 때 PySINDy"
+      ],
+      "steps": "선택한 도구와 형식별 reader를 연결하고 공통 지식 객체로 출력한다. 원본 위치와 미관측·실패·재개 상태를 남긴다.",
+      "criteria": "지원 입력에서 근거가 연결된 노하우 객체가 나오며 지원 불가 입력을 성공으로 보고하지 않는다. 같은 자료를 다시 처리해도 중복·출처 손실이 없다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-R07",
+      "title": "목표·제약·숨은 규칙의 능동 탐색 기술 설계",
+      "milestone": "EA-M10",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/research/R07.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "AALpy·GRACE·AutoToM·GO-CBED·격리 실행"
+      ],
+      "steps": "inverse planning·reward inference·질의·요소 변경을 가능한 환경과 필요한 관측에 맞춘다. 입력별로 후보의 공개 범위·준비물·실행 경로·대안·출력 예시·지원하지 못하는 조건을 작성한다.",
+      "criteria": "각 입력의 획득 질문과 구현할 방법이 연결되고, 실제 실행 코드와 논문 아이디어를 구분하며 구현자가 그대로 착수할 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-X07",
+      "title": "목표·제약·숨은 규칙의 능동 탐색 실행 모듈",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-R07",
+        "EA-K01",
+        "EA-K02"
+      ],
+      "output": "tools/expertise-acquisition/extractors/r07/",
+      "inputs": [
+        "docs/전문성-획득/research/R07.md",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "AALpy·GRACE·AutoToM·GO-CBED·격리 실행"
+      ],
+      "steps": "선택한 도구와 형식별 reader를 연결하고 공통 지식 객체로 출력한다. 원본 위치와 미관측·실패·재개 상태를 남긴다.",
+      "criteria": "지원 입력에서 근거가 연결된 노하우 객체가 나오며 지원 불가 입력을 성공으로 보고하지 않는다. 같은 자료를 다시 처리해도 중복·출처 손실이 없다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-R08",
+      "title": "입력 진단·자료 확장·여러 결과 통합 기술 설계",
+      "milestone": "EA-M10",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/research/R08.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "검색·기존 직무 목록·공개 포트폴리오",
+        "입력 진단·대체 원천 탐색·형식 변환",
+        "공통 ID·provenance·온톨로지·관계 검색"
+      ],
+      "steps": "분야만 주어진 경우, 자료 부족, 혼합 입력에서 다음 자료와 방법을 선택하는 공통 흐름을 정한다. 입력별로 후보의 공개 범위·준비물·실행 경로·대안·출력 예시·지원하지 못하는 조건을 작성한다.",
+      "criteria": "각 입력의 획득 질문과 구현할 방법이 연결되고, 실제 실행 코드와 논문 아이디어를 구분하며 구현자가 그대로 착수할 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-X08",
+      "title": "입력 진단·자료 확장·여러 결과 통합 실행 모듈",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-R08",
+        "EA-K01",
+        "EA-K02"
+      ],
+      "output": "tools/expertise-acquisition/extractors/r08/",
+      "inputs": [
+        "docs/전문성-획득/research/R08.md",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "검색·기존 직무 목록·공개 포트폴리오",
+        "입력 진단·대체 원천 탐색·형식 변환",
+        "공통 ID·provenance·온톨로지·관계 검색"
+      ],
+      "steps": "선택한 도구와 형식별 reader를 연결하고 공통 지식 객체로 출력한다. 원본 위치와 미관측·실패·재개 상태를 남긴다.",
+      "criteria": "지원 입력에서 근거가 연결된 노하우 객체가 나오며 지원 불가 입력을 성공으로 보고하지 않는다. 같은 자료를 다시 처리해도 중복·출처 손실이 없다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-K01",
+      "title": "전문 지식과 실행법의 공통 자료 규격",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S03"
+      ],
+      "output": "tools/expertise-acquisition/contracts/",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "재료 별 구현.md §23·24",
+        "전문성 역설계 논의.md §19"
+      ],
+      "steps": "원본·관찰·주장·가설·판단·절차·품질 비교·경험·스킬의 ID, 관계, 위치, 시간과 버전 계약을 정하고 JSON Schema·예시를 만든다.",
+      "criteria": "정적 결과물·소스·영상·운영 통계 예시를 같은 계약으로 표현하고 관측과 추론, 미관측 값을 구분한다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-K02",
+      "title": "원본 보관과 입력 접수·재개",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-K01"
+      ],
+      "output": "tools/expertise-acquisition/sources/",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "Docling",
+        "Crawl4AI",
+        "기존 파일+PostgreSQL 설계"
+      ],
+      "steps": "파일·URL·영상·export의 원본 해시와 위치를 저장하고 parser와 추출기의 실행을 기록·재개한다.",
+      "criteria": "원본/파생본·중복·버전이 식별되고 중단 후 다시 시작해도 기존 자료를 잃지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-K03",
+      "title": "전문 지식 저장·관계·검색",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-K01"
+      ],
+      "output": "tools/expertise-acquisition/knowledge/",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "재료 별 구현.md §16·23",
+        "온톨로지·SHACL",
+        "LightRAG는 교체 후보"
+      ],
+      "steps": "기존 PostgreSQL·BM25·벡터·관계 설계를 연결하고 조건·예외·반례·시간·출처를 함께 회수한다.",
+      "criteria": "질문과 작업 조건에 맞는 지식·근거·예외를 찾아 원문으로 돌아갈 수 있고 상반된 전략을 무조건 병합하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-K04",
+      "title": "실무서와 실행 스킬 생성·버전 관리",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-K01",
+        "EA-K03"
+      ],
+      "output": "tools/expertise-acquisition/skillbank/",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "Anything2Skill",
+        "AREX",
+        "SkillLens"
+      ],
+      "steps": "지식을 입력 조건·단계·도구·분기·출력·예외·복구가 있는 스킬과 사람이 읽는 실무서로 가공한다.",
+      "criteria": "원문·지식·스킬이 연결되고 생성·강화·병합·분리·폐기를 기록하며 미확인 가설을 확정 절차로 승격하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-K05",
+      "title": "실제 과업에 전문 지식·도구·스킬 제공",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-K03",
+        "EA-K04",
+        "EA-A01"
+      ],
+      "output": "tools/expertise-acquisition/runtime/",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "PRAXIS trigger 방식",
+        "기존 업무 실행 기반"
+      ],
+      "steps": "과업과 현재 상태로 필요한 스킬·전제·반례를 찾고 오류·파일·도구에 연결된 지식을 필요한 시점에 제공한다.",
+      "criteria": "작업 모델이 근거가 있는 실행법을 받아 실제 산출물에 적용하고 어떤 버전을 썼는지 기록한다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-K06",
+      "title": "실패·복구 경험과 변경의 환류",
+      "milestone": "EA-M20",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-K04",
+        "EA-K05"
+      ],
+      "output": "tools/expertise-acquisition/experience/",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json"
+      ],
+      "resources": [
+        "WikiSkill",
+        "ACE",
+        "재료 별 구현.md §22·78·79"
+      ],
+      "steps": "성공·실패·기각안·복구·새 관측을 보존하고 관련 지식과 실행자별 스킬을 증분 갱신한다.",
+      "criteria": "실패한 스킬을 폐기해도 배운 사실이 남고 원본 변경의 영향을 추적하며 이전 버전으로 되돌릴 수 있다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-A01",
+      "title": "공통 노하우 역설계 스킬·에이전트 제작과 연결",
+      "milestone": "EA-M30",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-K01",
+        "EA-R08"
+      ],
+      "output": "설정 저장소 정본: kh-skill-expertise-extraction 및 kh_team_expertise_extraction; 설치·선택 경로",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "tools/expertise-acquisition/contracts/"
+      ],
+      "resources": [
+        "/Users/haris/.agents/skills/kh-skill-agent-builder/SKILL.md",
+        "/Users/haris/.codex/agents/kh_team_agent_builder.toml",
+        "/Users/haris/.agents/skills/kh-skill-expertise/SKILL.md",
+        "/Users/haris/.agents/skills/kh-skill-reverse-engineer/SKILL.md"
+      ],
+      "steps": "설정 저장소 배포/AGENTS.md로 정본을 확인하고 입력 진단·자료 확장·방법 선택·추출·지식 인계를 책임지는 스킬과 에이전트를 만든다. references에 경우별 방법을 두고 직접 수행 경로를 갖춘다.",
+      "criteria": "정본·설치·후보 목록·이름 없는 관련 요청의 선택 경로가 연결되고 기존 expertise·reverse-engineer·분야 제작 담당과 책임이 구분된다. 현재 세션의 위임 금지를 유지한다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-A02",
+      "title": "전문가 공장과 분야 등록·갱신 연결",
+      "milestone": "EA-M30",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-A01",
+        "EA-K05"
+      ],
+      "output": "기존 expertise registry와 공장 설정의 획득 경로; 기존 정의 문서의 연결 반영",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "재료 별 구현.md",
+        "docs/공장-설계-초안.md"
+      ],
+      "resources": [
+        "/Users/haris/.agents/work-methods/expertise/registry.md",
+        "docs/공장-설계-초안.md"
+      ],
+      "steps": "23 업무 지식·24 실전 경험·감각·79 능력 개선과 새 획득 체계를 연결하고 분야 패키지를 같은 방식으로 등록·갱신하도록 한다.",
+      "criteria": "새 분야가 공통 획득 경로를 재사용하고 기존 전문가와 유효한 자료를 보존하며 배포 상태와 연구 상태를 구분한다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D01",
+      "title": "네이버 검색 노출·SEO 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P01/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/145_블로거.md",
+        "docs/실험결과/직무별/102_풀스택.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 085, 145, 102",
+        "입력 경우: I03, I07, I11, I12, I13"
+      ],
+      "steps": "웹사이트·블로그·검색면을 나눠 검색 의도, 문서 구성, 주제 연결, 갱신과 노출 변화를 조사 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 검색어·검색면·시점별 비교 자료, 공개 문서·사이트, 확보 시 유입 통계에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P01",
+      "title": "네이버 검색 노출·SEO 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D01",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X03",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P01/: 상황별 SEO 작업서·진단·개선 순서",
+      "inputs": [
+        "docs/전문성-획득/domains/P01/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "상황별 SEO 작업서·진단·개선 순서"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D02",
+      "title": "네이버 블로그 기획·집필·운영 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P02/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/055_카피라이터.md",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/145_블로거.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 055, 085, 145",
+        "입력 경우: I07, I08, I11, I12, I13"
+      ],
+      "steps": "주제·독자·글 기획·본문·이미지·발행·과거 글 수정·전환을 잇는 운영 방법 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 글 묶음·수정본·운영 매뉴얼, 확보 시 블로그 통계에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P02",
+      "title": "네이버 블로그 기획·집필·운영 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D02",
+        "EA-K04",
+        "EA-K05",
+        "EA-X03",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P02/: 기획표·집필/퇴고법·발행/갱신 운영서",
+      "inputs": [
+        "docs/전문성-획득/domains/P02/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "기획표·집필/퇴고법·발행/갱신 운영서"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D03",
+      "title": "구글 검색 노출·기술 SEO 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P03/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/102_풀스택.md",
+        "docs/실험결과/직무별/103_프론트엔드.md",
+        "docs/실험결과/직무별/145_블로거.md",
+        "docs/실험결과/직무별/161_SaaS 운영자.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 085, 102, 103, 145, 161",
+        "입력 경우: I03, I04, I11, I12, I13"
+      ],
+      "steps": "탐색·색인·사이트 구조·페이지 내용·검색 문제 진단과 개선 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 사이트·구조·공개 검색 관측, 권한 있는 Search Console export/API에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P03",
+      "title": "구글 검색 노출·기술 SEO 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D03",
+        "EA-K04",
+        "EA-K05",
+        "EA-X01",
+        "EA-X02",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P03/: 기술 진단·사이트 개선 절차·검색 변화 해석",
+      "inputs": [
+        "docs/전문성-획득/domains/P03/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "기술 진단·사이트 개선 절차·검색 변화 해석"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D04",
+      "title": "구글 유입용 콘텐츠·블로그·사이트 운영 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P04/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/055_카피라이터.md",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/145_블로거.md",
+        "docs/실험결과/직무별/161_SaaS 운영자.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 055, 085, 145, 161",
+        "입력 경우: I03, I07, I08, I11, I12, I13"
+      ],
+      "steps": "대상 독자·주제 묶음·글 유형·콘텐츠 제작·내부 연결·갱신·수익 연결 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 여러 글·사이트 구조·버전·공개 콘텐츠, 확보 시 유입·전환에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P04",
+      "title": "구글 유입용 콘텐츠·블로그·사이트 운영 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D04",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X03",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P04/: 사이트/블로그 구조안·콘텐츠 운영법·갱신 기준",
+      "inputs": [
+        "docs/전문성-획득/domains/P04/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "사이트/블로그 구조안·콘텐츠 운영법·갱신 기준"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D05",
+      "title": "유튜브 전략·주제·검색·추천 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P05/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/060_전략.md",
+        "docs/실험결과/직무별/139_유튜버 (정보·교육).md",
+        "docs/실험결과/직무별/140_유튜버 (예능·엔터).md",
+        "docs/실험결과/직무별/141_유튜버 (리뷰·커머스).md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 060, 139, 140, 141",
+        "입력 경우: I09, I11, I12, I13"
+      ],
+      "steps": "대상 시청자·채널 포지션·주제·시리즈·검색/추천/Shorts별 발견 경로 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 채널·영상·제목·썸네일·공개 반응, 권한 있는 채널 상세 통계에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P05",
+      "title": "유튜브 전략·주제·검색·추천 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D05",
+        "EA-K04",
+        "EA-K05",
+        "EA-X04",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P05/: 채널 전략·주제 선택·발견 경로별 개선 방법",
+      "inputs": [
+        "docs/전문성-획득/domains/P05/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "채널 전략·주제 선택·발견 경로별 개선 방법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D06",
+      "title": "유튜브 기획·대본·영상 제작·편집 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P06/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/058_영상 제작자 (광고·홍보).md",
+        "docs/실험결과/직무별/124_PD.md",
+        "docs/실험결과/직무별/125_방송 작가 (구성).md",
+        "docs/실험결과/직무별/127_영상 편집자.md",
+        "docs/실험결과/직무별/139_유튜버 (정보·교육).md",
+        "docs/실험결과/직무별/140_유튜버 (예능·엔터).md",
+        "docs/실험결과/직무별/141_유튜버 (리뷰·커머스).md",
+        "docs/실험결과/직무별/143_숏폼 크리에이터.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 058, 124, 125, 127, 139, 140, 141, 143",
+        "입력 경우: I06, I08, I09, I10, I17"
+      ],
+      "steps": "대본·도입·전개·화면·음향·편집·자막·롱폼/숏폼 제작 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 완성 영상·대본·편집 원본·제작 시연에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P06",
+      "title": "유튜브 기획·대본·영상 제작·편집 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D06",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X03",
+        "EA-X04"
+      ],
+      "output": "knowledge/domains/P06/: 영상 제작 실무서·타임라인 규칙·편집 템플릿",
+      "inputs": [
+        "docs/전문성-획득/domains/P06/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "영상 제작 실무서·타임라인 규칙·편집 템플릿"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D07",
+      "title": "유튜브 제목·썸네일·영상 포장 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P07/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/055_카피라이터.md",
+        "docs/실험결과/직무별/119_그래픽.md",
+        "docs/실험결과/직무별/139_유튜버 (정보·교육).md",
+        "docs/실험결과/직무별/140_유튜버 (예능·엔터).md",
+        "docs/실험결과/직무별/141_유튜버 (리뷰·커머스).md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 055, 119, 139, 140, 141",
+        "입력 경우: I02, I09, I11, I12, I13, I17"
+      ],
+      "steps": "제목과 썸네일의 약속, 영상 내용과의 연결, 후보 제작·선택·수정 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 제목/썸네일 묶음·변경 이력·영상, 확보 시 노출/클릭 자료에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P07",
+      "title": "유튜브 제목·썸네일·영상 포장 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D07",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X04",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P07/: 제목·썸네일 제작법·후보 선택과 수정 기준",
+      "inputs": [
+        "docs/전문성-획득/domains/P07/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "제목·썸네일 제작법·후보 선택과 수정 기준"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D08",
+      "title": "유튜브 업로드·채널 운영·수익 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P08/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/139_유튜버 (정보·교육).md",
+        "docs/실험결과/직무별/140_유튜버 (예능·엔터).md",
+        "docs/실험결과/직무별/141_유튜버 (리뷰·커머스).md",
+        "docs/실험결과/직무별/143_숏폼 크리에이터.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 139, 140, 141, 143",
+        "입력 경우: I08, I10, I12, I13, I18"
+      ],
+      "steps": "메타데이터·공개 일정·플레이리스트·댓글·기존 영상 관리·수익 연결 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 채널 구조·운영 시연, 확보 시 Studio export/API에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P08",
+      "title": "유튜브 업로드·채널 운영·수익 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D08",
+        "EA-K04",
+        "EA-K05",
+        "EA-X03",
+        "EA-X04",
+        "EA-X05",
+        "EA-X08"
+      ],
+      "output": "knowledge/domains/P08/: 업로드/운영 절차·수정/복구·수익 운영 방법",
+      "inputs": [
+        "docs/전문성-획득/domains/P08/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "업로드/운영 절차·수정/복구·수익 운영 방법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D09",
+      "title": "네이버 광고 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P09/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/055_카피라이터.md",
+        "docs/실험결과/직무별/084_퍼포먼스 마케팅.md",
+        "docs/실험결과/직무별/110_데이터 분석가.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 055, 084, 110",
+        "입력 경우: I02, I03, I07, I10, I11, I13"
+      ],
+      "steps": "검색광고와 다른 광고 상품을 구분하여 소재·키워드·랜딩·운영 조정을 조사 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 광고/랜딩·공식 자료·시연, 권한 있는 계정 export/API에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P09",
+      "title": "네이버 광고 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D09",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X03",
+        "EA-X04",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P09/: 상품별 광고 기획·운영·조정·중단 기준",
+      "inputs": [
+        "docs/전문성-획득/domains/P09/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "상품별 광고 기획·운영·조정·중단 기준"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D10",
+      "title": "구글 광고 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P10/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/055_카피라이터.md",
+        "docs/실험결과/직무별/084_퍼포먼스 마케팅.md",
+        "docs/실험결과/직무별/110_데이터 분석가.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 055, 084, 110",
+        "입력 경우: I02, I03, I07, I09, I10, I13"
+      ],
+      "steps": "검색·디스플레이·영상 등 캠페인 목적과 소재·랜딩·전환 측정·운영 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 광고/랜딩·공식 자료·시연, 권한 있는 Google Ads export/API에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P10",
+      "title": "구글 광고 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D10",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X03",
+        "EA-X04",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P10/: 캠페인별 운영서·측정/소재/예산 조정법",
+      "inputs": [
+        "docs/전문성-획득/domains/P10/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "캠페인별 운영서·측정/소재/예산 조정법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D11",
+      "title": "광고비 없이 하는 마케팅 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P11/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/061_사업개발.md",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/087_홍보.md",
+        "docs/실험결과/직무별/146_뉴스레터 작가.md",
+        "docs/실험결과/직무별/152_커뮤니티 운영자.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 061, 085, 087, 146, 152",
+        "입력 경우: I03, I07, I11, I12, I13, I18"
+      ],
+      "steps": "검색·콘텐츠·제휴·홍보·추천·커뮤니티에서 유입과 고객 전환을 만드는 방법 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 캠페인·배포 경로·콘텐츠·사례, 확보 시 유입/문의에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P11",
+      "title": "광고비 없이 하는 마케팅 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D11",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X03",
+        "EA-X05",
+        "EA-X08"
+      ],
+      "output": "knowledge/domains/P11/: 광고 집행비 없는 채널 선택·실행·반복 운영법",
+      "inputs": [
+        "docs/전문성-획득/domains/P11/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "광고 집행비 없는 채널 선택·실행·반복 운영법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D12",
+      "title": "X·트위터 마케팅 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P12/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/055_카피라이터.md",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/150_인플루언서 (패션·뷰티·라이프).md",
+        "docs/실험결과/직무별/151_인플루언서 (지식·비즈니스).md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 055, 085, 150, 151",
+        "입력 경우: I07, I09, I11, I12, I13"
+      ],
+      "steps": "독자·계정 포지션·짧은 글/스레드·대화·배포·전환 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 게시물·반응·계정 이력, 접근 가능한 API/export에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P12",
+      "title": "X·트위터 마케팅 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D12",
+        "EA-K04",
+        "EA-K05",
+        "EA-X03",
+        "EA-X04",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P12/: X용 기획·작성·운영·개선 방법",
+      "inputs": [
+        "docs/전문성-획득/domains/P12/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "X용 기획·작성·운영·개선 방법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D13",
+      "title": "인스타그램 마케팅 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P13/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/083_브랜드 마케팅.md",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/143_숏폼 크리에이터.md",
+        "docs/실험결과/직무별/150_인플루언서 (패션·뷰티·라이프).md",
+        "docs/실험결과/직무별/151_인플루언서 (지식·비즈니스).md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 083, 085, 143, 150, 151",
+        "입력 경우: I02, I06, I09, I11, I12, I13"
+      ],
+      "steps": "계정 포지션·피드·캐러셀·Reels·Stories·관계·판매 연결 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 계정/콘텐츠·제작 원본, 확보 시 Insights export에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P13",
+      "title": "인스타그램 마케팅 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D13",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X04",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P13/: 형식별 제작·계정 운영·전환 방법",
+      "inputs": [
+        "docs/전문성-획득/domains/P13/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "형식별 제작·계정 운영·전환 방법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D14",
+      "title": "Threads 마케팅 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P14/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/055_카피라이터.md",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/150_인플루언서 (패션·뷰티·라이프).md",
+        "docs/실험결과/직무별/151_인플루언서 (지식·비즈니스).md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 055, 085, 150, 151",
+        "입력 경우: I07, I11, I12, I13"
+      ],
+      "steps": "주제·글·답글·대화 흐름·계정 운영·다른 채널 연결 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 게시물·대화·변경, 확보 시 계정 통계에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P14",
+      "title": "Threads 마케팅 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D14",
+        "EA-K04",
+        "EA-K05",
+        "EA-X03",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P14/: Threads용 작성·대화·운영 방법",
+      "inputs": [
+        "docs/전문성-획득/domains/P14/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "Threads용 작성·대화·운영 방법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D15",
+      "title": "커뮤니티 마케팅·운영 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P15/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/087_홍보.md",
+        "docs/실험결과/직무별/152_커뮤니티 운영자.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 085, 087, 152",
+        "입력 경우: I07, I10, I11, I12, I13, I18"
+      ],
+      "steps": "커뮤니티별 맥락·기여 콘텐츠·참여·유입·운영과 대응 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 공개 글/댓글·규칙·운영 사례, 확보 시 유입/회원 기록에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P15",
+      "title": "커뮤니티 마케팅·운영 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D15",
+        "EA-K04",
+        "EA-K05",
+        "EA-X03",
+        "EA-X04",
+        "EA-X05",
+        "EA-X08"
+      ],
+      "output": "knowledge/domains/P15/: 커뮤니티별 참여·콘텐츠·운영·복구 방법",
+      "inputs": [
+        "docs/전문성-획득/domains/P15/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "커뮤니티별 참여·콘텐츠·운영·복구 방법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D16",
+      "title": "마케팅 전략·채널 조합 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P16/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/060_전략.md",
+        "docs/실험결과/직무별/061_사업개발.md",
+        "docs/실험결과/직무별/083_브랜드 마케팅.md",
+        "docs/실험결과/직무별/084_퍼포먼스 마케팅.md",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/086_CRM.md",
+        "docs/실험결과/직무별/087_홍보.md",
+        "docs/실험결과/직무별/110_데이터 분석가.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 060, 061, 083, 084, 085, 086, 087, 110",
+        "입력 경우: I08, I11, I12, I13, I14, I18"
+      ],
+      "steps": "고객·문제·시장·제안·채널·전환·유지와 자원 배분을 연결 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 전략 자료·캠페인·콘텐츠·수치·실패/수정 사례에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P16",
+      "title": "마케팅 전략·채널 조합 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D16",
+        "EA-K04",
+        "EA-K05",
+        "EA-X03",
+        "EA-X05",
+        "EA-X06",
+        "EA-X08"
+      ],
+      "output": "knowledge/domains/P16/: 목표별 채널 조합·우선순위·수정 판단",
+      "inputs": [
+        "docs/전문성-획득/domains/P16/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "목표별 채널 조합·우선순위·수정 판단"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D17",
+      "title": "전자책 기획·집필·편집·제작 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P17/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/055_카피라이터.md",
+        "docs/실험결과/직무별/122_편집 디자인.md",
+        "docs/실험결과/직무별/126_에디터.md",
+        "docs/실험결과/직무별/149_저술가.md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 055, 122, 126, 149",
+        "입력 경우: I06, I07, I08, I11, I17"
+      ],
+      "steps": "독자 문제·상품 주제·목차·집필·예제·편집·표지·파일 제작 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 책·전자책·목차·리뷰·원고/편집본·제작 시연에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P17",
+      "title": "전자책 기획·집필·편집·제작 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D17",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X03",
+        "EA-X05"
+      ],
+      "output": "knowledge/domains/P17/: 기획/집필/퇴고 실무서·제작 템플릿",
+      "inputs": [
+        "docs/전문성-획득/domains/P17/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "기획/집필/퇴고 실무서·제작 템플릿"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-D18",
+      "title": "전자책 판매·유통·수익 운영 획득 설계·원천 조사",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-S01",
+        "EA-S02"
+      ],
+      "output": "docs/전문성-획득/domains/P18/research.md",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "docs/실험결과/직무별/061_사업개발.md",
+        "docs/실험결과/직무별/085_콘텐츠 마케팅.md",
+        "docs/실험결과/직무별/149_저술가.md",
+        "docs/실험결과/직무별/153_온라인 셀러 (자체 브랜드·D2C).md"
+      ],
+      "resources": [
+        "기존 직무 IDs: 061, 085, 149, 153",
+        "입력 경우: I03, I07, I08, I11, I12, I13, I14, I18"
+      ],
+      "steps": "상품 구성·판매 페이지·가격/패키지·유통·유입·개정·수익 구조 필요한 실제 업무·지식·도구·실패·마감 기준을 정하고, 판매 페이지·리뷰·패키지·출시 이력, 확보 시 판매/반품/비용에서 노하우를 얻는 방법과 공개/계정 보유별 경로를 조사한다.",
+      "criteria": "분야의 능력 목록·원천 목록·자료 접근 경로·분석 방법·필요 산출물·미확보 정보가 연결된다. 모의 직무 사례를 실제 전문가의 노하우 근거로 취급하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-P18",
+      "title": "전자책 판매·유통·수익 운영 전문성 묶음 제작·실무 연결",
+      "milestone": "EA-M40",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-D18",
+        "EA-K04",
+        "EA-K05",
+        "EA-X02",
+        "EA-X03",
+        "EA-X05",
+        "EA-X06",
+        "EA-X08"
+      ],
+      "output": "knowledge/domains/P18/: 전자책 판매·개정·수익 운영 방법",
+      "inputs": [
+        "docs/전문성-획득/domains/P18/research.md",
+        "tools/expertise-acquisition/skillbank/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "전자책 판매·개정·수익 운영 방법"
+      ],
+      "steps": "획득 설계대로 자료를 모아 추출하고 분야 지식·실무서·실행 스킬·예외/복구·도구를 연결한다. 공개 근거로 만들 수 있는 범위부터 진행하고 소유 계정이 필요한 확장은 별도 상태로 기록한다.",
+      "criteria": "해당 분야의 실제 작업에서 쓸 지식·절차·도구·근거가 함께 있고 적용 결과와 남은 범위가 기록된다. 문서만 쓴 상태를 20년차 전문가 완성으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-E01",
+      "title": "획득한 지식의 실행자별 적응 방법 연결",
+      "milestone": "EA-M50",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-K06"
+      ],
+      "output": "tools/expertise-acquisition/adaptation/; 적용 전후 지침과 경험 기록",
+      "inputs": [
+        "tools/expertise-acquisition/experience/",
+        "tools/expertise-acquisition/runtime/"
+      ],
+      "resources": [
+        "GEPA",
+        "SkillLens·WikiSkill의 전이 연구",
+        "Agent Lightning은 별도 선택 경로"
+      ],
+      "steps": "원 지식을 보존하며 실행 모델별 상세·우회·도구 사용법을 조정한다. 필요할 때에만 가중치 훈련의 입력·환경·비용을 별도 설계한다.",
+      "criteria": "모델을 바꾸어도 원 지식이 남고 실행용 변형·호환 조건·되돌릴 버전이 구분된다.",
+      "owner": "현재 주 작업자 직접"
+    },
+    {
+      "id": "EA-E02",
+      "title": "166개 직무로 확장하는 분야 추가 절차",
+      "milestone": "EA-M50",
+      "component": "EA-C00",
+      "dependsOn": [
+        "EA-A02",
+        "EA-K06"
+      ],
+      "output": "docs/전문성-획득/분야-추가-절차.md; registry 갱신",
+      "inputs": [
+        "전문성 역설계 논의.md",
+        "docs/전문성-획득-계획.md",
+        "docs/전문성-획득/plan-data.json",
+        "기존 전문가 목록 166개"
+      ],
+      "resources": [
+        "전문가 에이전트 정의 1.md",
+        "docs/공장-설계-초안.md"
+      ],
+      "steps": "직무를 입력하면 업무·원천·분석 방법·지식·도구·스킬을 같은 형식으로 등록하는 경로를 만들고 다음 직무의 차이만 추가한다.",
+      "criteria": "우선 18개 묶음에 없는 직무도 기존 기반을 재사용하고 부족한 입력·능력·도구만 새 작업으로 드러난다. 166개 전문가를 모두 구현했다는 뜻으로 보고하지 않는다.",
+      "owner": "현재 주 작업자 직접"
+    }
+  ],
+  "task_status_authority": ".project-map/state.json"
+}
