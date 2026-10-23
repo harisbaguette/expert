@@ -1,5 +1,7 @@
 # 파일·폴더 구조 일러스트 제작 기록
 
+현재 사용본은 **2026-10-23 수정본**이다. 현재 본문과의 대조, 수정 프롬프트와 생성 원본은 아래 [2026-10-23 갱신](#2026-10-23-갱신)에 기록했다. 앞의 2026-10-22 기록은 최초 제작 이력이다.
+
 제작일: 2026-10-22. 내장 `image_gen`으로 생성·수정했다. 외부 AI CLI·API와 외부 다운로드 에셋은 사용하지 않았다.
 
 사용 문서: [파일·폴더 구조](../../../파일-폴더-구조.md). 문서에 적힌 목표 구조를 설명하며 실제 운영 폴더를 구축하거나 자료를 이동한 결과가 아니다.
@@ -145,3 +147,86 @@ Edit this existing explanatory illustration, preserving the entire title, four c
 
 objects/를 cases/와 같은 scope의 형제 폴더로 표시했다. 고정 계획, 지속 대화, 읽기 전용 입력, 미확정 출력, 임시 파일, 납품 묶음과 별도 DB를 구분했다. 검사·확정 후 objects/에 보관하고 허용된 파일만 납품하는 흐름을 확인했다.
 
+
+
+## 2026-10-23 갱신
+
+현재 `파일-폴더-구조.md`와 `공장 구현 설계.md`를 읽고 기존 네 장을 내장 `image_gen`으로 각각 편집했다. 편집 입력은 이 프로젝트가 보유한 기존 그림이며, 외부 다운로드나 합성 에셋은 사용하지 않았다. 수정 결과를 재압축하지 않고 기존 이미지 경로에 복사했다. 본문에서는 대체 설명만 갱신했다.
+
+### storage-locations
+
+- 적용 파일: `docs/images/file-folder-structure/storage-locations.png`
+- 생성 원본: `/Users/haris/.codex/generated_images/01a16613-0859-7242-b180-7aab956df091/exec-52037cae-e242-4d4f-82e6-d94216649874.png`
+- 반영·확인: 작성・설치·운영의 역할을 분리했다. install_root를 실행 주체처럼 보이게 하던 자료 읽기 화살표를 없애고, test_root·평가 계정·관리 계정·PC 밖 백업을 표시했다.
+
+```text
+Edit this existing Korean file-storage architecture illustration to match the revised design. Keep the established polished flat explanatory-manual style, charcoal outlines, pale sky blue and restrained yellow, white background, adult office character, large legible Korean. Landscape 3:2 high resolution. Redraw/reflow as needed for the following content, without cramming. No decorative title underline or slogan.
+
+Title: "작성 · 설치 · 운영을 나눈다". Small status label "목표 구조".
+Upper 60% has THREE main roles:
+LEFT "작성 원본", path "expert-factory/": author at desk with folders for "코드", "지식·실무서", "전문가 구성". Short Git label "Git".
+MIDDLE "설치 판본", path "install_root": checked installed software package and lock, label "검사한 프로그램·구성", second short label "업무 계정은 읽기만".
+RIGHT "운영 자료", path "knowledge_root": archive with original books, customer folders, protected conversation notebook and one DB cylinder. Short label "원본·업무·대화·실행 기록·DB".
+The ONLY upper arrow is LEFT to MIDDLE, labelled "검사 후 설치". Remove the old arrow from storage toward install: install_root is an installed read-only location, not the process performing data access. Do not connect the three roles with misleading process arrows.
+
+Bottom 35% has FOUR clearly distinct illustrated roles, all outside knowledge_root. No enclosing shared data container.
+1 "test_root": small test bench/computer with isolated data cylinder, "시험 전용 DB·파일".
+2 "evaluation_root": locked answer cabinet, "보호 시험·정답", small "평가 계정".
+3 "control_root": protected ledger/key, "삭제·철회·업데이트 이력", small "관리 계정".
+4 "backup_target": external drive and cloud, "DB·파일·보호 이력", small "PC 밖 · 덮어쓰기 방지".
+All text verbatim, clear spacing. The bottom four paths are distinct roots, not subdirectories of knowledge_root. These are roles on an initial single PC plus off-device backup, not seven required servers. Exclude extra fine print. Preserve the friendly diagrammatic folder style with correct hierarchy.
+```
+
+### knowledge-root
+
+- 적용 파일: `docs/images/file-folder-structure/knowledge-root.png`
+- 생성 원본: `/Users/haris/.codex/generated_images/01a16613-0859-7242-b180-7aab956df091/exec-f5a8d1e7-84b6-48c4-bddd-066701bb2afc.png`
+- 반영·확인: browser-profiles/를 tenants/ 안에서 scopes/와 같은 단계로 추가했다. staging/과 cache/의 scope-id, operations/의 상태·수치 전용 역할, 관리 폴더의 루트 직속 관계를 확인했다.
+
+```text
+Edit this Korean illustrated folder tree. Preserve title "운영 자료는 이렇게 보관한다", all exact directory names, white background, charcoal outlines, blue/yellow folders, the three main data groups and bottom management shelf. Reflow only enough to add the missing directories legibly. Landscape 3:2 high resolution.
+
+Required hierarchy:
+knowledge_root branches separately to shared/, restricted/<scope-id>/, tenants/<tenant-id>/ AND the bottom same-root management shelf. Keep the outer line that connects the bottom shelf directly to knowledge_root; NEVER connect it through restricted/.
+shared/: collections/<collection-id>/ contains objects/ "원본·확정 파일", derived/ "가공 자료", exports/ "내보낸 사본". Preserve.
+restricted/<scope-id>/: collections/<collection-id>/ contains the same three. Preserve.
+Right "고객 업무" group under tenants/<tenant-id>/ must now contain TWO visibly separate siblings:
+- A small horizontal locked folder "browser-profiles/" with short label "계정별 로그인 · 백업 제외". This sits INSIDE tenants but OUTSIDE scopes, ABOVE the scopes compartment. It represents encrypted customer-account browser state, not a public browser history.
+- The existing larger "scopes/<scope-id>/" compartment with label "열람 범위별". Inside are objects/, derived/, exports/, cases/ and their existing labels. No collections here.
+Make the right group a little taller or the entire tree more compact vertically as needed, while keeping all labels readable.
+
+Bottom five folders remain siblings directly under knowledge_root:
+"config/" label "설정"
+Change "staging/" to TWO lines "staging/" and "<scope-id>/", label "접수·검사 중"
+Change "cache/" to TWO lines "cache/" and "<scope-id>/", label "재생성 가능"
+"stores/postgres/" label "DB"
+"operations/" label "상태·수치만".
+staging and cache are scope-specific. operations stores identifiers/status/metrics only, not sensitive content or full traces. Full run traces are in customer cases, do not add them at root.
+No arrows between public, restricted and customer data. Do not imply customer data is shared. No new paragraph or footer. All technical paths are case-sensitive verbatim, including hyphens and angle brackets.
+```
+
+### case-folders
+
+- 적용 파일: `docs/images/file-folder-structure/case-folders.png`
+- 생성 원본: `/Users/haris/.codex/generated_images/01a16613-0859-7242-b180-7aab956df091/exec-022b8229-9ce8-42e9-a09d-73098ff6941a.png`
+- 반영·확인: cases/ 아래에 traces/를 추가하고 work/ 안에 logs/를 추가했다. 지속 대화·보호 실행 기록·도구 출력 로그를 구분했다. objects/와 cases/의 형제 관계를 유지하고 검사·확정 → objects/ → 별도 저장소 보관 확인 → 납품 묶음 순서를 표시했다.
+
+```text
+Update this Korean illustrated job-directory diagram to the revised source. Keep its friendly explanatory-manual illustration, white background, blue folders, yellow accents, clean charcoal outlines and natural adult inspector. Landscape 3:2 high resolution. Redraw/reflow into five columns with readable text. Title remains "업무 한 건의 폴더를 열어 보면".
+
+At top a protected "scopes/<scope-id>/" outer folder contains two sibling items: the small "objects/" folder OUTSIDE a wide inner "cases/<case-id>/" folder. Preserve that nesting: objects is NOT inside cases. A separate small DB cylinder at top RIGHT stays entirely OUTSIDE scope; label "DB" and "현재 상태의 기준", with compact "권한 · 계획 · 상태 · 판본".
+
+The inner case folder now contains exactly FIVE sibling folders. These are not sequential workflow steps; use a simple branch line without arrowheads. Use these short path names, individual snapshot/conversation/run/delivery IDs may be omitted:
+1 "snapshots/" with heading "실행 기준", pinned document, label "고정한 계획·입력·환경".
+2 "sessions/" with heading "지속 대화", encrypted notebook with lock and two subfolders "sdk/" labelled "대화 기록" and "cwd/" labelled "허용 작업 경로". This is persistent, not temporary.
+3 NEW "traces/" with heading "보호 실행 기록", locked ledger with three short text lines "모델 입력·응답", "도구 호출·결과", "관리 프로그램만 기록". This is separate from logs/ and work/. Never add a successful checkmark claiming already implemented.
+4 "work/" with heading "실행별 작업", four clearly named internal subfolders in a compact 2x2 arrangement: "input/" with lock and "읽기 전용"; "output/" with pencil and "미확정 결과"; "tmp/" with wastepaper and "임시 파일"; NEW "logs/" with terminal page and "도구·SDK 출력". All four inside work. Make this column wider than others as needed.
+5 "deliveries/" with heading "납품 묶음", checklist labelled "manifest.json" and package labelled "package.zip".
+
+Below the entire hierarchy is a clearly separate process strip titled "결과를 확정할 때". It has this exact left-to-right workflow, each blue arrow ending at the correct item:
+"output/" sheet -> human magnifier "검사·확정" -> "objects/" archive -> off-device backup/checkpoint icon "별도 저장소 보관 확인" -> "deliveries/" parcel.
+Small label over the last arrow "허용된 파일만".
+The backup checkpoint must be between the confirmed archive and delivery. No direct output-to-delivery bypass. Deliveries is a prepared bundle, not evidence that sending/acceptance has occurred. Preserve generous margins, no border touching letters, all Korean and English correctly spelled. Do not add explanatory paragraphs.
+```
+
+네 장 모두 1536×1024px PNG이며, 생성 결과와 1100px 폭의 headless Chromium 표시를 직접 확인했다. 한글·기술 식별자·포함 관계·화살표·잘림을 확인했다. 그림에서 생략한 개별 ID와 세부 설정 파일은 본문의 정확한 텍스트 트리를 따른다. 실제 공장 구현이나 자료 이전 완료를 뜻하지 않는다.

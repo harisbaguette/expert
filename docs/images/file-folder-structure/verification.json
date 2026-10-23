@@ -1,5 +1,18 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
+  "generator": "built-in image_gen",
+  "documentBodyPreservedExceptImageAlt": true,
+  "visualReview": {
+    "actualImagesViewed": 3,
+    "documentWidthPx": 1100,
+    "headlessRenderViewed": 3,
+    "scope": "한글·기술 식별자·포함 관계·화살표·잘림·문서 폭 가독성",
+    "omissions": "개별 계정·대화·실행·납품 ID와 세부 설정은 본문의 텍스트 트리를 따른다."
+  },
+  "result": "pass",
+  "limitations": "현재 설계의 설명 삽화다. 운영 프로그램 구현·자료 이전·접근 제어의 실행 검증이 아니다.",
+  "document": "파일-폴더-구조.md",
+  "documentSha256": "a2145c1fcc8441cf1e0dd3b263dd72f762fc4762e04787412555311e3ffb7862",
   "images": [
     {
       "path": "docs/images/file-folder-structure/storage-locations.png",
@@ -7,9 +20,23 @@
         1536,
         1024
       ],
-      "sha256": "838eae6b39238563243abe12631c49ed5000bf885265114a401211208463e164",
+      "mode": "RGB",
+      "sha256": "1b015c88d963b63fbbb1479fbb89156c36c7e3caa509afd2771dc04e838f40f4",
+      "previousSha256": "838eae6b39238563243abe12631c49ed5000bf885265114a401211208463e164",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16613-0859-7242-b180-7aab956df091/exec-52037cae-e242-4d4f-82e6-d94216649874.png",
       "originalBytesPreserved": true,
-      "linkedOnce": true
+      "linkedOnce": true,
+      "visualCheck": "작성・설치·운영의 역할을 분리했다. install_root를 실행 주체처럼 보이게 하던 자료 읽기 화살표를 없애고, test_root·평가 계정·관리 계정·PC 밖 백업을 표시했다.",
+      "headlessRender": {
+        "id": "storage-locations",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "screenshot": "output/illustration-update-2026-10-23/storage-locations-1100.png"
+      }
     },
     {
       "path": "docs/images/file-folder-structure/knowledge-root.png",
@@ -17,9 +44,23 @@
         1536,
         1024
       ],
-      "sha256": "bf1779f3e4828a0c5cbaa43f9de0fa4bb3af1776d3e80ad38a00695286298b84",
+      "mode": "RGB",
+      "sha256": "b30389a484457d421f1f953c5c805548ca77ffcdbd08c3339e5ee252e4e95301",
+      "previousSha256": "bf1779f3e4828a0c5cbaa43f9de0fa4bb3af1776d3e80ad38a00695286298b84",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16613-0859-7242-b180-7aab956df091/exec-f5a8d1e7-84b6-48c4-bddd-066701bb2afc.png",
       "originalBytesPreserved": true,
-      "linkedOnce": true
+      "linkedOnce": true,
+      "visualCheck": "browser-profiles/를 tenants/ 안에서 scopes/와 같은 단계로 추가했다. staging/과 cache/의 scope-id, operations/의 상태·수치 전용 역할, 관리 폴더의 루트 직속 관계를 확인했다.",
+      "headlessRender": {
+        "id": "knowledge-root",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "screenshot": "output/illustration-update-2026-10-23/knowledge-root-1100.png"
+      }
     },
     {
       "path": "docs/images/file-folder-structure/case-folders.png",
@@ -27,18 +68,23 @@
         1536,
         1024
       ],
-      "sha256": "36c57f7e8f482626a30bb5a04c1690fee9790f57a667a88ffe2eba7f9fe4fb6c",
+      "mode": "RGB",
+      "sha256": "01e609607a22dc88f6a5770d9285492e4645c58dba8cb4468b2e53b88a2b50ad",
+      "previousSha256": "36c57f7e8f482626a30bb5a04c1690fee9790f57a667a88ffe2eba7f9fe4fb6c",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16613-0859-7242-b180-7aab956df091/exec-022b8229-9ce8-42e9-a09d-73098ff6941a.png",
       "originalBytesPreserved": true,
-      "linkedOnce": true
+      "linkedOnce": true,
+      "visualCheck": "cases/ 아래에 traces/를 추가하고 work/ 안에 logs/를 추가했다. 지속 대화·보호 실행 기록·도구 출력 로그를 구분했다. objects/와 cases/의 형제 관계를 유지하고 검사·확정 → objects/ → 별도 저장소 보관 확인 → 납품 묶음 순서를 표시했다.",
+      "headlessRender": {
+        "id": "case-folders",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "screenshot": "output/illustration-update-2026-10-23/case-folders-1100.png"
+      }
     }
-  ],
-  "documentBodyPreserved": true,
-  "visualReview": {
-    "actualImagesViewed": 3,
-    "documentWidthPx": 1100,
-    "headlessRenderViewed": 3,
-    "scope": "한글·경로·포함 관계·화살표·잘림·문서 폭 가독성",
-    "omissions": "일부 경로의 개별 ID는 본문 텍스트 트리에 유지"
-  },
-  "result": "pass"
+  ]
 }

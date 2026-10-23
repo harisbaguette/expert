@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-23",
+  "generator": "built-in image_gen",
+  "documentBodyPreservedExceptImageAlt": true,
+  "visualReview": {
+    "actualImagesViewed": 1,
+    "documentWidthPx": 1100,
+    "headlessRenderViewed": 1,
+    "scope": "한글·기술 식별자·포함 관계·화살표·잘림·문서 폭 가독성",
+    "omissions": "개별 계정·대화·실행·납품 ID와 세부 설정은 본문의 텍스트 트리를 따른다."
+  },
+  "result": "pass",
+  "limitations": "현재 설계의 설명 삽화다. 운영 프로그램 구현·자료 이전·접근 제어의 실행 검증이 아니다.",
+  "document": "공장 구현 설계.md",
+  "documentSha256": "f4a034dbf83e5842561f5a06ef838bbee87cd4f236ccf6343d9cb0de82e4d5fb",
+  "images": [
+    {
+      "path": "docs/images/expert-implementation/factory-implementation-overview.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "sha256": "41550367e7df8cd731d2978af59927ac0353333a8d250df7e46379a24401eb72",
+      "previousSha256": "a2a508a747947cf5d8517d0d0480e59a7ad01e2eddd050473366635d4b80996f",
+      "generatedSource": "/Users/haris/.codex/generated_images/01a16613-0859-7242-b180-7aab956df091/exec-d4fa4e93-e5c3-4989-9c0b-df287fa95aa4.png",
+      "originalBytesPreserved": true,
+      "linkedOnce": true,
+      "visualCheck": "전문성 확보 → 전문가 조립·시험 → 업무 처리·후속으로 갱신했다. 근거와 독립 사례 검증, 공통 관리 프로그램(FastAPI·DBOS)·PostgreSQL·업무별 격리 실행, 별도 감시 프로그램과 별도 권한 채점, 경험 후보 검증 후 새 버전 반영을 표시했다.",
+      "headlessRender": {
+        "id": "factory-implementation-overview",
+        "loaded": true,
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "displayWidth": 1100,
+        "displayHeight": 733.328125,
+        "overflow": false,
+        "screenshot": "output/illustration-update-2026-10-23/factory-implementation-overview-1100.png"
+      }
+    }
+  ]
+}
