@@ -552,3 +552,46 @@ Title "79개 재료는 저장 자리를 함께 쓴다". Left a simple fan of man
 ```text
 Edit the right half of this Korean illustration to correct the connector destinations. Preserve title, book "79개 재료", and management console. Replace the four destination panels currently in a 2x2 grid with FOUR WIDE HORIZONTAL ROWS stacked vertically at the right, all with the SAME left boundary. Each row receives exactly ONE separate arrow from the management console, no arrow crossing another and none entering the wrong row. Row 1: blue cylinder "PostgreSQL", caption "상태·권한·지식·검사". Row 2: locked folders "범위별 파일", two lines "objects/ · derived/ · snapshots/" and "sessions/ · traces/ · work/ · deliveries/". Row 3: installation cabinet "install_root", caption "프로그램·지식·전문가·도구", SOLID blue arrow. Row 4: two locked folders "evaluation_root" and "control_root", caption "보호 시험 · 관리 기록", DASHED yellow arrow labelled "관리 기능에 요청". Enlarge right area and shrink the book slightly to fit. All four arrowheads end at their corresponding row's LEFT boundary. No extra arrows, no duplicated numbers on book tabs; use tiny plain unlabeled tabs with only the cover reading 79개 재료. Keep canvas 1536x1024, same style, large legible type.
 ```
+
+## 이관 순서·키 이름 편집
+
+`~/.claude/bin/codex-image`에 기존 그림을 `--ref` 입력으로 주어 글자와 순서만 고쳤다. 화풍·배치·인물·색은 그대로다. 1회 생성본을 재압축하지 않고 기존 경로에 복사했다.
+
+### migration-sequence
+
+- 고친 곳: 4번 칸과 5번 칸의 내용을 맞바꿨다(4 납품·운영, 5 지식·구성 배포). 2번 칸 "한 자료실·한 업무" → "한 범위·한 업무". 첫 실고객 관문을 위로 늘려 빈 체크박스 아홉 줄로 만들고 "섀도 테스트·전환 승인", "하루 지출 상한", "책임 계약", "고영향 검토"를 더했다.
+
+```text
+Edit the attached existing Korean explanatory illustration. This is a text-and-order edit only. Keep the art style, layout grid, colors, characters, drawings, arrows, title "한 범위씩 확인하며 옮긴다" and canvas (landscape 3:2, 1536x1024) identical.
+
+Make ONLY these changes:
+1. Swap the CONTENTS of panel 4 and panel 5, keeping the panel positions and the route arrows where they are. The top-right panel (number 4) now shows the delivery worker with the checked box and the label "납품·운영". The bottom-right panel (number 5) now shows the books and the package with gear and the label "지식·구성 배포". Numbers stay in reading order: top row 1,2,3,4 left to right, bottom row 5,6,7 right to left.
+2. Panel 2 label "한 자료실·한 업무" becomes "한 범위·한 업무". Keep its tag "합성·공개 자료부터".
+3. The lower-left "첫 실고객 관문" gate box: keep the lock, the man with the clipboard and the title. Make the box taller (extend it upward into the empty white space; shrink the character slightly if needed) so it holds NINE rows, each with the same empty outlined square checkbox, no green checks and no red marks. Rows in this exact order:
+허용 업무
+충돌 검사
+암호화·격리
+백업·삭제 검증
+계약·동의
+섀도 테스트·전환 승인
+하루 지출 상한
+책임 계약
+고영향 검토
+All nine rows the same font size, fully inside the box, none cut off, none touching the box edge or overlapping step 7.
+
+Leave every other label exactly as it is: "현황 목록", "권한·복구 검증", "범위별 이관", "ID 유지", "이관 뒤 정리", "참조 없는 사본만". No new title, subtitle, footer or paragraph. Every Korean word spelled exactly as given.
+```
+
+### storage-locations
+
+- 고친 곳: "업무 건 키 사본" → "고객 본문 키 사본", "업무 건 키는 백업 제외" → "고객 본문 키는 백업 제외".
+
+```text
+Edit the attached existing Korean explanatory illustration about storage roles. This is a text edit only. Keep everything else pixel-identical: the title, all three top columns with every label (including "설치 판본", "검사한 프로그램 · 구성", "기본 지시·권한"), the author character, the Git badge, the blue arrow "검사 후 설치", the six lower panels with their illustrations, colors, layout and canvas (landscape 3:2, 1536x1024).
+
+Make ONLY these two text changes:
+1. Bottom-right panel header "업무 건 키 사본" becomes "고객 본문 키 사본". Keep its two lines "PC 밖 예약 삭제 저장소" and "파일 백업과 분리".
+2. In the bottom-middle "비밀 저장소" panel, the second line "업무 건 키는 백업 제외" becomes "고객 본문 키는 백업 제외". Keep the first line "키 · 토큰 · 인증정보".
+
+Same font, size and color as the text they replace, centered, fully inside the panel, not cut off. Do not change any other word. No new title, subtitle or footer.
+```
